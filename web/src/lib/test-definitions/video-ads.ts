@@ -13,8 +13,6 @@ export const videoAds: TestCategory = {
     { name: 'FreeWheel', url: 'https://mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js' },
     { name: 'Wistia', url: 'https://fast.wistia.com/assets/external/E-v1.js' },
     { name: 'Vidyard', url: 'https://play.vidyard.com/embed/v4.js' },
-    { name: 'JW Player', url: 'https://cdn.jwplayer.com/libraries/0.js' },
-    { name: 'Brightcove', url: 'https://players.brightcove.net/0/default_default/index.min.js' },
     { name: 'VAST (video ads)', url: 'https://pubads.g.doubleclick.net/gampad/ads?iu=/0/video' },
     { name: 'Teads (video)', url: 'https://cdn.teads.tv/media/format.js' },
   ],
