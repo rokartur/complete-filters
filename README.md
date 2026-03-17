@@ -1,4 +1,5 @@
 # ❗ BARDZO AGRESYWNE FILTRY❗
+
 Ze względu na to, że filtry w tej liście są bardzo agresywne, niektóre strony lub ich elementy mogą działać niepoprawnie lub w ogóle.
 ---
 
