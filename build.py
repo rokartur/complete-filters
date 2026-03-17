@@ -13,6 +13,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DEFAULT_INPUT = ROOT / "filters.txt"
 DEFAULT_OUTPUT = ROOT / "polish-complete-filters.txt"
+DEFAULT_EXTRA_RULESETS = (
+    ROOT / "manual-rules" / "developer-infrastructure-allowlist.txt",
+)
 DEFAULT_JOBS = 10
 MAX_RETRIES = 3
 BACKOFF_BASE = 1.5
@@ -261,6 +264,26 @@ def fetch_all(urls: list[str], jobs: int) -> list[FetchResult]:
     return [results[u] for u in urls]
 
 
+def load_local_rulesets(paths: tuple[Path, ...]) -> list[FetchResult]:
+    results: list[FetchResult] = []
+    for path in paths:
+        try:
+            content = path.read_text(encoding="utf-8")
+        except Exception as exc:  # noqa: BLE001
+            results.append(FetchResult(url=f"local:{path.name}", error=f"{type(exc).__name__}: {exc}"))
+            continue
+
+        results.append(
+            FetchResult(
+                url=f"local:{path.name}",
+                content=content,
+                is_hosts=_is_hosts_format(content),
+            )
+        )
+
+    return results
+
+
 @dataclass
 class ParsedLine:
     text: str
@@ -364,21 +387,119 @@ class Stats:
     empty_blocks_removed: int = 0
 
 
+def _append_source_block(
+    output: list[str],
+    res: FetchResult,
+    parsed_lines: list[ParsedLine],
+    seen: set[tuple[str, tuple[str, ...]]],
+    stats: Stats,
+) -> None:
+    output.append(f"! ===== SOURCE: {res.url}")
+
+    if res.error:
+        output.append(f"! ✗ Failed to load: {res.error}")
+        output.append("")
+        return
+
+    Block = list[tuple[ParsedLine, bool]]
+    block_stack: list[Block] = []
+    top_level: list[str] = []
+
+    source_unique = 0
+
+    for pline in parsed_lines:
+        if pline.kind in ("meta", "header"):
+            continue
+
+        if pline.kind == "blank":
+            if not block_stack:
+                if top_level and top_level[-1] == "":
+                    continue
+                top_level.append("")
+            else:
+                block_stack[-1].append((pline, False))
+            continue
+
+        if pline.kind == "comment":
+            if not block_stack:
+                top_level.append(pline.text)
+            else:
+                block_stack[-1].append((pline, False))
+            continue
+
+        if pline.kind == "directive":
+            low = pline.text.lower()
+
+            if low.startswith("!#if ") or low.startswith("!#if\t"):
+                block_stack.append([(pline, False)])
+                continue
+
+            if low.startswith("!#endif"):
+                if block_stack:
+                    block = block_stack.pop()
+                    block.append((pline, False))
+                    has_unique = any(is_u for _, is_u in block)
+
+                    if has_unique:
+                        target = block_stack[-1] if block_stack else None
+                        for bline, bu in block:
+                            if target is not None:
+                                target.append((bline, bu))
+                            else:
+                                top_level.append(bline.text)
+                    else:
+                        stats.empty_blocks_removed += 1
+                else:
+                    top_level.append(pline.text)
+                continue
+
+            if not block_stack:
+                top_level.append(pline.text)
+            else:
+                block_stack[-1].append((pline, False))
+            continue
+
+        stats.total_rules += 1
+        dedup_key_text = _make_dedup_key(pline.text)
+        key = (dedup_key_text, pline.cond_stack)
+
+        if key in seen:
+            stats.duplicates += 1
+            if block_stack:
+                block_stack[-1].append((pline, False))
+            continue
+
+        seen.add(key)
+        stats.unique_rules += 1
+        source_unique += 1
+
+        if block_stack:
+            block_stack[-1].append((pline, True))
+        else:
+            top_level.append(pline.text)
+
+    while block_stack:
+        block = block_stack.pop()
+        has_unique = any(is_u for _, is_u in block)
+        if has_unique:
+            for bline, _ in block:
+                top_level.append(bline.text)
+
+    if source_unique == 0:
+        output.append("! (all rules already included from earlier sources)")
+
+    output.extend(top_level)
+    output.append("")
+
+
 def assemble(
     urls: list[str],
     fetch_results: list[FetchResult],
+    extra_results: list[FetchResult] | None = None,
 ) -> tuple[list[str], Stats]:
     stats = Stats()
 
-    all_parsed: list[tuple[FetchResult, list[ParsedLine]]] = []
-    for res in fetch_results:
-        if res.error:
-            stats.sources_failed += 1
-            all_parsed.append((res, []))
-        else:
-            parsed = parse_source(res)
-            all_parsed.append((res, parsed))
-            stats.sources_ok += 1
+    all_results = [*fetch_results, *(extra_results or [])]
 
     seen: set[tuple[str, tuple[str, ...]]] = set()
 
@@ -389,107 +510,21 @@ def assemble(
         f"! Last modified: {time.strftime('%d %b %Y %H:%M UTC', time.gmtime())}",
         "! Expires: 1 day",
         f"! Homepage: {HOMEPAGE}",
-        f"! Source count: {stats.sources_ok} / {len(urls)}",
+        f"! Source count: {stats.sources_ok} / {len(urls) + len(extra_results or [])}",
         "!",
     ]
 
-    for res, parsed_lines in all_parsed:
-        output.append(f"! ===== SOURCE: {res.url}")
-
+    for res in all_results:
         if res.error:
-            output.append(f"! ✗ Failed to fetch: {res.error}")
-            output.append("")
+            stats.sources_failed += 1
+            _append_source_block(output, res, [], seen, stats)
             continue
 
-        Block = list[tuple[ParsedLine, bool]]
-        block_stack: list[Block] = []
-        top_level: list[str] = []
+        parsed_lines = parse_source(res)
+        stats.sources_ok += 1
+        _append_source_block(output, res, parsed_lines, seen, stats)
 
-        source_unique = 0
-
-        for pline in parsed_lines:
-            if pline.kind in ("meta", "header"):
-                continue
-
-            if pline.kind == "blank":
-                if not block_stack:
-                    if top_level and top_level[-1] == "":
-                        continue
-                    top_level.append("")
-                else:
-                    block_stack[-1].append((pline, False))
-                continue
-
-            if pline.kind == "comment":
-                if not block_stack:
-                    top_level.append(pline.text)
-                else:
-                    block_stack[-1].append((pline, False))
-                continue
-
-            if pline.kind == "directive":
-                low = pline.text.lower()
-
-                if low.startswith("!#if ") or low.startswith("!#if\t"):
-                    block_stack.append([(pline, False)])
-                    continue
-
-                if low.startswith("!#endif"):
-                    if block_stack:
-                        block = block_stack.pop()
-                        block.append((pline, False))
-                        has_unique = any(is_u for _, is_u in block)
-
-                        if has_unique:
-                            target = block_stack[-1] if block_stack else None
-                            for bline, bu in block:
-                                if target is not None:
-                                    target.append((bline, bu))
-                                else:
-                                    top_level.append(bline.text)
-                        else:
-                            stats.empty_blocks_removed += 1
-                    else:
-                        top_level.append(pline.text)
-                    continue
-
-                if not block_stack:
-                    top_level.append(pline.text)
-                else:
-                    block_stack[-1].append((pline, False))
-                continue
-
-            stats.total_rules += 1
-            dedup_key_text = _make_dedup_key(pline.text)
-            key = (dedup_key_text, pline.cond_stack)
-
-            if key in seen:
-                stats.duplicates += 1
-                if block_stack:
-                    block_stack[-1].append((pline, False))
-                continue
-
-            seen.add(key)
-            stats.unique_rules += 1
-            source_unique += 1
-
-            if block_stack:
-                block_stack[-1].append((pline, True))
-            else:
-                top_level.append(pline.text)
-
-        while block_stack:
-            block = block_stack.pop()
-            has_unique = any(is_u for _, is_u in block)
-            if has_unique:
-                for bline, _ in block:
-                    top_level.append(bline.text)
-
-        if source_unique == 0:
-            output.append("! (all rules already included from earlier sources)")
-
-        output.extend(top_level)
-        output.append("")
+    output[6] = f"! Source count: {stats.sources_ok} / {len(urls) + len(extra_results or [])}"
 
     output.append(f"! Total unique rules: {stats.unique_rules}")
     output.append(f"! Duplicates removed: {stats.duplicates}")
@@ -562,12 +597,18 @@ def main() -> None:
     elapsed = time.monotonic() - t0
     log.info("Fetching done in %.1fs", elapsed)
 
+    extra_results = load_local_rulesets(DEFAULT_EXTRA_RULESETS)
+    if extra_results:
+        log.info("Loaded %d local ruleset(s)", len(extra_results))
+
     log.info("Assembling ...")
-    output_lines, stats = assemble(urls, results)
+    output_lines, stats = assemble(urls, results, extra_results)
     valid = validate_output(output_lines)
 
+    total_sources = len(urls) + len(DEFAULT_EXTRA_RULESETS)
+
     log.info("─" * 60)
-    log.info("Sources OK:            %d / %d", stats.sources_ok, len(urls))
+    log.info("Sources OK:            %d / %d", stats.sources_ok, total_sources)
     if stats.sources_failed:
         log.warning("Sources FAILED:        %d", stats.sources_failed)
         for r in results:

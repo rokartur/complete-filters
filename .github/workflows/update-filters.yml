@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - filters.txt
+      - manual-rules/**
       - build.py
       - .github/workflows/update-filters.yml
   schedule:

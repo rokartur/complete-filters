@@ -8,6 +8,12 @@
 
 Jeżeli zauważysz problemy z działaniem strony, zgłoś je w **Issues**.
 
+## Wyjątki kompatybilności
+
+Lista zawiera kilka jawnych wyjątków dla infrastruktury developerskiej, żeby nie psuć narzędzi systemowych i CLI.
+
+Dotyczy to szczególnie konfiguracji z filtrowaniem systemowym lub DNS, np. AdGuard DNS / AdGuard Desktop.
+
 ---
 
 ## O projekcie

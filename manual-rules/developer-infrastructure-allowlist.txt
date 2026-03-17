@@ -1,0 +1,21 @@
+! Developer infrastructure allowlist
+! Prevent breakage for package managers and CLI tooling that depend on GitHub.
+! This is especially important for system-wide blockers (for example AdGuard DNS/Desktop).
+!
+! Homebrew
+@@||github.com^
+@@||api.github.com^
+@@||codeload.github.com^
+@@||raw.githubusercontent.com^
+@@||objects.githubusercontent.com^
+@@||github-releases.githubusercontent.com^
+@@||release-assets.githubusercontent.com^
+@@||pkg-containers.githubusercontent.com^
+@@||ghcr.io^
+@@||formulae.brew.sh^
+!
+! Bun
+@@||bun.com^
+@@||oven.sh^
+@@||pkg.bun.sh^
+@@||downloads.bun.sh^
