@@ -1,0 +1,146 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #050508;
+  --color-foreground: #e2e4e9;
+  --color-card: #0a0a14;
+  --color-card-foreground: #e2e4e9;
+  --color-popover: #0a0a14;
+  --color-popover-foreground: #e2e4e9;
+  --color-primary: #ef4444;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #111120;
+  --color-secondary-foreground: #e2e4e9;
+  --color-muted: #151525;
+  --color-muted-foreground: #6b7085;
+  --color-accent: #1a1a2e;
+  --color-accent-foreground: #e2e4e9;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #1a1a2e;
+  --color-input: #151525;
+  --color-ring: #ef4444;
+  --radius: 0.75rem;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+}
+
+*,
+::after,
+::before {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* Display font utility */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Grade color classes with glow custom property */
+.grade-a {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.35);
+  --grade-glow: #34d399;
+}
+.grade-b {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.12);
+  border-color: rgba(96, 165, 250, 0.35);
+  --grade-glow: #60a5fa;
+}
+.grade-c {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.35);
+  --grade-glow: #fbbf24;
+}
+.grade-d {
+  color: #fb923c;
+  background: rgba(251, 146, 60, 0.12);
+  border-color: rgba(251, 146, 60, 0.35);
+  --grade-glow: #fb923c;
+}
+.grade-f {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.12);
+  border-color: rgba(248, 113, 113, 0.35);
+  --grade-glow: #f87171;
+}
+
+/* ─── Animations ─── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ─── Gradient border accent ─── */
+.gradient-border-bottom {
+  position: relative;
+}
+.gradient-border-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  opacity: 0.3;
+}
+
+/* ─── Glow utilities ─── */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.12), 0 0 60px rgba(239, 68, 68, 0.04);
+}
+.glow-primary-hover:hover {
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.2), 0 0 80px rgba(239, 68, 68, 0.08);
+}
