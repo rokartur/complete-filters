@@ -1,3 +1,6 @@
+# ❗ Dla niektórych te filtry, mogą być zbyt agresywne❗
+
+
 **Polish Complete Filters** to projekt mający na celu utrzymywanie **kompletnej listy filtrów dla adblocków przeznaczonej dla polskiego internetu**.
 
 Repozytorium zbiera i aktualizuje reguły filtrów, które blokują:
@@ -14,8 +17,6 @@ Repozytorium zbiera i aktualizuje reguły filtrów, które blokują:
     
 
 Projekt jest przeznaczony głównie dla **polskich użytkowników internetu** i działa z większością popularnych rozszerzeń blokujących reklamy. 
-
-## ❗ Dla niektórych te filtry, mogą być zbyt agresywne❗
 
 ---
 
