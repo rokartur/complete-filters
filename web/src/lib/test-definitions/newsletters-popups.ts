@@ -1,0 +1,31 @@
+import type { TestCategory } from './index'
+
+export const newslettersPopups: TestCategory = {
+  id: 'newsletters-popups',
+  name: 'Newsletter popupy i marketing',
+  tests: [
+    { name: 'Mailchimp Popup', url: 'https://chimpstatic.com/mcjs-connected/js/users/0/0.js' },
+    { name: 'OptinMonster', url: 'https://a.optinmonster.com/app/js/api.min.js' },
+    { name: 'Sumo', url: 'https://load.sumo.com/' },
+    { name: 'Hello Bar', url: 'https://my.hellobar.com/0.js' },
+    { name: 'Privy', url: 'https://widget.privy.com/assets/widget.js' },
+    { name: 'Sleeknote', url: 'https://sleeknotecustoms.sleeknote.com/0.js' },
+    { name: 'ConvertFlow', url: 'https://js.convertflow.co/production/websites/0.js' },
+    { name: 'Drip', url: 'https://tag.getdrip.com/0.js' },
+    { name: 'Intercom', url: 'https://widget.intercom.io/widget/0' },
+    { name: 'Drift', url: 'https://js.driftt.com/include/0/0.js' },
+    { name: 'HubSpot Chat', url: 'https://js.hs-scripts.com/0.js' },
+    { name: 'Zendesk Widget', url: 'https://static.zdassets.com/ekr/snippet.js' },
+    { name: 'LiveChat', url: 'https://cdn.livechatinc.com/tracking.js' },
+    { name: 'Tawk.to', url: 'https://embed.tawk.to/0/default' },
+    { name: 'Freshchat', url: 'https://wchat.freshchat.com/js/widget.js' },
+    { name: 'Crisp', url: 'https://client.crisp.chat/l.js' },
+    { name: 'Klaviyo', url: 'https://static.klaviyo.com/onsite/js/klaviyo.js' },
+    { name: 'ActiveCampaign', url: 'https://trackcmp.net/visit' },
+    { name: 'Braze', url: 'https://js.appboycdn.com/web-sdk/4.0/braze.min.js' },
+    { name: 'Olark', url: 'https://static.olark.com/jsclient/loader0.js' },
+    { name: 'JivoChat', url: 'https://code.jivosite.com/widget/0' },
+    { name: 'Tidio', url: 'https://code.tidio.co/0.js' },
+    { name: 'Gorgias', url: 'https://config.gorgias.chat/bundle-loader/0' },
+  ],
+}

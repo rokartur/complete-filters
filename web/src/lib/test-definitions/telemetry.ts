@@ -1,0 +1,33 @@
+import type { TestCategory } from './index'
+
+export const telemetry: TestCategory = {
+  id: 'telemetry',
+  name: 'Telemetria systemowa',
+  tests: [
+    { name: 'Microsoft Telemetry', url: 'https://vortex.data.microsoft.com/collect/v1' },
+    { name: 'Microsoft Compat', url: 'https://compat.smartscreen.microsoft.com/' },
+    { name: 'Windows Error Reporting', url: 'https://watson.telemetry.microsoft.com/' },
+    { name: 'Apple Analytics', url: 'https://xp.apple.com/report' },
+    { name: 'Samsung Analytics', url: 'https://analytics.samsungknox.com/' },
+    { name: 'Huawei Analytics', url: 'https://hianalytics.huawei.com/' },
+    { name: 'Xiaomi Tracking', url: 'https://tracking.miui.com/track/v4' },
+    { name: 'OnePlus Analytics', url: 'https://analytics.oneplus.com/' },
+    { name: 'Roku Analytics', url: 'https://logs.roku.com/' },
+    { name: 'Vizio Smart TV', url: 'https://logserver.tv.vizio.com/' },
+    { name: 'Amazon Fire TV', url: 'https://device-metrics-us.amazon.com/' },
+    { name: 'TikTok Telemetry', url: 'https://mon.musical.ly/monitor/collect/' },
+    { name: 'Yahoo ads', url: 'https://ads.yahoo.com/' },
+    { name: 'Yahoo analytics', url: 'https://analytics.yahoo.com/' },
+    { name: 'Yahoo udcm', url: 'https://udcm.yahoo.com/' },
+    { name: 'Yahoo analytics query', url: 'https://analytics.query.yahoo.com/' },
+    { name: 'Yahoo gemini', url: 'https://gemini.yahoo.com/' },
+    { name: 'Yahoo adtech', url: 'https://adtech.yahooinc.com/' },
+    { name: 'Yandex extmaps-api', url: 'https://extmaps-api.yandex.net/' },
+    { name: 'Yandex appmetrica', url: 'https://appmetrica.yandex.ru/' },
+    { name: 'Yandex adfstat', url: 'https://adfstat.yandex.ru/' },
+    { name: 'Yandex metrika', url: 'https://metrika.yandex.ru/' },
+    { name: 'Yandex offerwall', url: 'https://offerwall.yandex.net/' },
+    { name: 'Yandex adfox', url: 'https://adfox.yandex.ru/' },
+    { name: 'Unity webview', url: 'https://webview.unityads.unity3d.com/' },
+  ],
+}
