@@ -44,14 +44,14 @@ Lista filtrów powinna działać z:
 Główna lista filtrów:
 
 ```
-https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt
+https://filters.rokartur.com/polish-complete-filters.txt
 ```
 
 ## Szybka instalacja
 
 Kliknij poniżej, aby dodać listę automatycznie:
 
-<a href="abp:subscribe?location=https%3A%2F%2Fraw.githubusercontent.com%2Frokartur%2Fpolish-complete-filters%2Fmain%2Fpolish-complete-filters.txt&title=Polish%20Complete%20Filters" target="_blank">
+<a href="https://filters.rokartur.com/subscribe.html?auto=1">
   <img src="https://img.shields.io/badge/Dodaj%20do%20adblocka-blue?style=for-the-badge&logo=adblock" alt="Dodaj do adblocka">
 </a>
 
@@ -64,7 +64,7 @@ Kliknij poniżej, aby dodać listę automatycznie:
 3. Dodaj adres listy filtrów:
 
 ```
-https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt
+https://filters.rokartur.com/polish-complete-filters.txt
 ```
 
 4. Zaktualizuj listy filtrów

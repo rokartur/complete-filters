@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dodaj Polish Complete Filters</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .card {
+      max-width: 520px;
+      width: 100%;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 8px; }
+    .subtitle { color: #8b949e; margin-bottom: 24px; }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background .15s;
+    }
+    .btn:hover { background: #1d4ed8; }
+    .divider { border-top: 1px solid #30363d; margin: 24px 0; }
+    .manual { color: #8b949e; font-size: .875rem; margin-bottom: 8px; }
+    code {
+      display: block;
+      padding: 12px;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      word-break: break-all;
+      font-size: .8rem;
+      color: #79c0ff;
+      user-select: all;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Polish Complete Filters</h1>
+    <p class="subtitle">Kliknij aby dodać listę do adblocka</p>
+
+    <a
+      id="subscribe"
+      class="btn"
+      href="abp:subscribe?location=https%3A%2F%2Ffilters.rokartur.com%2Fpolish-complete-filters.txt&title=Polish%20Complete%20Filters"
+    >
+      Dodaj listę
+    </a>
+
+    <div class="divider"></div>
+
+    <p class="manual">Jeśli przycisk nie zadziałał, dodaj ręcznie ten adres w ustawieniach adblocka:</p>
+    <code>https://filters.rokartur.com/polish-complete-filters.txt</code>
+  </div>
+
+  <script>
+    // Spróbuj automatycznie otworzyć subskrypcję po kliknięciu linku z GitHub README
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('auto') === '1') {
+      window.location.href = document.getElementById('subscribe').href;
+    }
+  </script>
+</body>
+</html>
