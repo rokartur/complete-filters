@@ -1,5 +1,6 @@
-# ❗ Dla niektórych te filtry, mogą być zbyt agresywne❗
-
+# ❗ BARDZO AGRESYWNE FILTRY❗
+Ze względu na to, że filtry w tej liście są bardzo agresywne, niektóre strony lub ich elementy mogą działać niepoprawnie lub w ogóle.
+---
 
 **Polish Complete Filters** to projekt mający na celu utrzymywanie **kompletnej listy filtrów dla adblocków przeznaczonej dla polskiego internetu**.
 
