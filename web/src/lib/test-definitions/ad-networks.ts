@@ -22,7 +22,6 @@ export const adNetworks: TestCategory = {
     { name: 'ShareThrough', url: 'https://platform-api.sharethrough.com/v2.0/creative/stx-monetize' },
     { name: 'Sovrn', url: 'https://ap.lijit.com/rtb/bid' },
     { name: 'Ezoic', url: 'https://g.ezoic.net/ezoic/ezoic.js' },
-    { name: 'Ezoic Impression', url: 'https://g.ezoic.net/detroitchicago/imp.gif' },
     { name: 'Revcontent', url: 'https://assets.revcontent.com/master/delivery.js' },
     { name: 'MGID', url: 'https://jsc.mgid.com/site.js' },
     { name: 'PropellerAds', url: 'https://go.onclasrv.com/apu.php' },
