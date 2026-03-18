@@ -33,6 +33,13 @@ export interface FilterHint {
   shouldBlock: boolean
   /** Whether the matching rule is a $redirect (noopjs, 1x1.gif, etc.) */
   hasRedirect: boolean
+  /**
+   * Whether the matching rule targets the document/main_frame type.
+   * $document rules block top-level navigation but NOT sub-resource requests
+   * (fetch, img, script, etc.), making them undetectable from within a page.
+   * When true, the detection engine trusts the reference engine verdict.
+   */
+  hasDocumentRule: boolean
   /** The raw filter rule string (e.g. "||ads.example.com^$script") */
   filterRule?: string
   /** The redirect resource name (e.g. "noopjs", "1x1.gif") */
@@ -42,6 +49,7 @@ export interface FilterHint {
 const EMPTY_HINT: FilterHint = {
   shouldBlock: false,
   hasRedirect: false,
+  hasDocumentRule: false,
 }
 
 function isDocumentUrl(url: string): boolean {
@@ -125,9 +133,24 @@ export function getFilterHint(url: string): FilterHint {
         Request.fromRawDetails({ type: 'main_frame', url, sourceUrl })
       )
       if (mainFrameResult.match || mainFrameResult.redirect) {
+        // Check if this is a document-only rule by testing if non-document
+        // types are also blocked. If only main_frame matches but script/image
+        // don't, it's a $document-specific rule.
+        let isDocumentOnly = false
+        try {
+          const scriptCheck = engine.match(
+            Request.fromRawDetails({ type: 'script', url, sourceUrl })
+          )
+          const xhrCheck = engine.match(
+            Request.fromRawDetails({ type: 'xmlhttprequest', url, sourceUrl })
+          )
+          isDocumentOnly = !scriptCheck.match && !xhrCheck.match
+        } catch { /* ignore */ }
+
         return {
           shouldBlock: true,
           hasRedirect: !!mainFrameResult.redirect,
+          hasDocumentRule: isDocumentOnly,
           filterRule: mainFrameResult.filter?.toString(),
           redirectName: mainFrameResult.redirect?.contentType,
         }
@@ -142,6 +165,7 @@ export function getFilterHint(url: string): FilterHint {
         return {
           shouldBlock: true,
           hasRedirect: !!subFrameResult.redirect,
+          hasDocumentRule: false,
           filterRule: subFrameResult.filter?.toString(),
           redirectName: subFrameResult.redirect?.contentType,
         }
@@ -158,6 +182,7 @@ export function getFilterHint(url: string): FilterHint {
       return {
         shouldBlock: true,
         hasRedirect: !!scriptResult.redirect,
+        hasDocumentRule: false,
         filterRule: scriptResult.filter?.toString(),
         redirectName: scriptResult.redirect?.contentType,
       }
@@ -173,13 +198,30 @@ export function getFilterHint(url: string): FilterHint {
       return {
         shouldBlock: true,
         hasRedirect: !!imageResult.redirect,
+        hasDocumentRule: false,
         filterRule: imageResult.filter?.toString(),
         redirectName: imageResult.redirect?.contentType,
       }
     }
   } catch { /* ignore */ }
 
-  // 3. Check as generic xmlhttprequest (catches ||domain.com^)
+  // 3. Check as stylesheet request (catches $stylesheet rules)
+  try {
+    const stylesheetResult = engine.match(
+      Request.fromRawDetails({ type: 'stylesheet', url, sourceUrl })
+    )
+    if (stylesheetResult.match || stylesheetResult.redirect) {
+      return {
+        shouldBlock: true,
+        hasRedirect: !!stylesheetResult.redirect,
+        hasDocumentRule: false,
+        filterRule: stylesheetResult.filter?.toString(),
+        redirectName: stylesheetResult.redirect?.contentType,
+      }
+    }
+  } catch { /* ignore */ }
+
+  // 4. Check as generic xmlhttprequest (catches ||domain.com^)
   try {
     const genericResult = engine.match(
       Request.fromRawDetails({ type: 'xmlhttprequest', url, sourceUrl })
@@ -188,6 +230,7 @@ export function getFilterHint(url: string): FilterHint {
       return {
         shouldBlock: true,
         hasRedirect: !!genericResult.redirect,
+        hasDocumentRule: false,
         filterRule: genericResult.filter?.toString(),
         redirectName: genericResult.redirect?.contentType,
       }

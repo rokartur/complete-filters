@@ -180,9 +180,10 @@ export function useAdBlockTester() {
         })
       )
 
-      // Run network tests in batches of 15 concurrent tests
-      // (higher concurrency is fine — each test uses multiple methods internally)
-      const batchSize = 15
+      // Run network tests in batches of 12 concurrent tests
+      // (each test now uses 3 detection methods internally, so 12 × 3 = 36
+      // concurrent network requests — within browser connection limits)
+      const batchSize = 12
       for (let i = 0; i < networkTests.length; i += batchSize) {
         const batch = networkTests.slice(i, i + batchSize)
         await Promise.all(

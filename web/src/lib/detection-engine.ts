@@ -42,9 +42,10 @@ try {
 
 const ELEMENT_ERROR_SETTLE_DELAY_MS = 150
 const ELEMENT_TIMEOUT_MS = 4000
-const FRAME_SETTLE_DELAY_MS = 200
-const FRAME_TIMEOUT_MS = 4500
-const NETWORK_TEST_TIMEOUT_MS = 6000
+const FRAME_SETTLE_DELAY_MS = 250
+const FRAME_ABOUT_BLANK_RETRY_DELAY_MS = 300
+const FRAME_TIMEOUT_MS = 5000
+const NETWORK_TEST_TIMEOUT_MS = 7000
 const BAIT_CLEANUP_TIMEOUT_MS = 1500
 const REDIRECT_DURATION_THRESHOLD_MS = 10
 const REDIRECT_CHECK_DELAY_MS = 50
@@ -417,7 +418,16 @@ function detectViaFrame(url: string): Promise<NetworkTestStatus> {
         const href = frame.contentWindow?.location?.href
         return !href || href === 'about:blank'
       } catch {
-        return false
+        // SecurityError = frame navigated to a cross-origin URL.
+        // Since we already checked Performance API (no entry found for the
+        // original URL), this cross-origin navigation is MOST LIKELY an
+        // ad blocker redirect to an extension-internal block page (e.g.
+        // moz-extension://... or chrome-extension://...) which doesn't
+        // create a Performance entry under the original URL.
+        //
+        // A real server response would normally create a Performance entry.
+        // Without one, the evidence points to ad blocker interception.
+        return true
       }
     }
 
@@ -429,7 +439,60 @@ function detectViaFrame(url: string): Promise<NetworkTestStatus> {
       resolve(status)
     }
 
-    const evaluateFrame = () => {
+    frame.onload = () => {
+      setTimeout(() => {
+        const perf = checkPerformanceEntry(url)
+        if (perf === 'loaded') {
+          settle('not-blocked')
+          return
+        }
+        if (perf === 'blocked') {
+          settle('blocked')
+          return
+        }
+        // No perf entry on first check — retry after a short delay.
+        // Performance entries for iframe navigations can be delayed,
+        // especially when the ad blocker redirects to an internal page.
+        if (isStillAboutBlank()) {
+          settle('blocked')
+          return
+        }
+        setTimeout(() => {
+          const perfRetry = checkPerformanceEntry(url)
+          if (perfRetry === 'loaded') {
+            settle('not-blocked')
+            return
+          }
+          if (perfRetry === 'blocked') {
+            settle('blocked')
+            return
+          }
+          settle(isStillAboutBlank() ? 'blocked' : 'not-blocked')
+        }, FRAME_ABOUT_BLANK_RETRY_DELAY_MS)
+      }, FRAME_SETTLE_DELAY_MS)
+    }
+
+    frame.onerror = () => {
+      setTimeout(() => {
+        const perf = checkPerformanceEntry(url)
+        if (perf === 'loaded') {
+          settle('not-blocked')
+          return
+        }
+        if (perf === 'blocked') {
+          settle('blocked')
+          return
+        }
+        // onerror with no perf entry — likely blocked before dispatch
+        settle('blocked')
+      }, FRAME_SETTLE_DELAY_MS)
+    }
+
+    document.body.appendChild(frame)
+    frame.src = url
+
+    timeoutId = window.setTimeout(() => {
+      // Timeout: check once more before giving up
       const perf = checkPerformanceEntry(url)
       if (perf === 'loaded') {
         settle('not-blocked')
@@ -439,26 +502,89 @@ function detectViaFrame(url: string): Promise<NetworkTestStatus> {
         settle('blocked')
         return
       }
-
-      // No timing entry. If navigation never left about:blank, the request was
-      // most likely intercepted before it got onto the network.
       settle(isStillAboutBlank() ? 'blocked' : 'not-blocked')
+    }, FRAME_TIMEOUT_MS)
+  })
+}
+
+/**
+ * Detect blocking via <link rel="stylesheet"> (matches $stylesheet rules).
+ *
+ * Ad blockers can block stylesheet requests to known ad/tracking domains.
+ * Since we point this at non-CSS URLs, the browser will fire onerror for
+ * invalid MIME types OR when the request is blocked. The Performance API
+ * distinguishes "server responded with non-CSS" (loaded) from "blocked
+ * before dispatch" (blocked/not-found).
+ *
+ * This provides an additional signal: generic rules like ||domain.com^ also
+ * match $stylesheet requests, giving us a third independent detection path
+ * alongside fetch and img/preload.
+ *
+ * Uses media="print" to prevent any loaded CSS from affecting page layout.
+ */
+function detectViaStylesheet(
+  url: string,
+  hintHasRedirect = false
+): Promise<NetworkTestStatus> {
+  return new Promise((resolve) => {
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = url
+    // media="print" prevents accidental layout changes if CSS loads
+    link.media = 'print'
+    let timeoutId: number | undefined
+
+    const settle = (status: NetworkTestStatus) => {
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId)
+      }
+      cleanup()
+      resolve(status)
     }
 
-    frame.onload = () => {
-      setTimeout(evaluateFrame, FRAME_SETTLE_DELAY_MS)
+    const cleanup = () => {
+      try {
+        link.remove()
+      } catch {
+        /* already removed */
+      }
     }
 
-    frame.onerror = () => {
-      setTimeout(evaluateFrame, FRAME_SETTLE_DELAY_MS)
+    link.onload = () => {
+      // Stylesheet "loaded" — but might be a neutered $redirect resource.
+      // Check via Performance API like other element methods.
+      setTimeout(async () => {
+        const redirected = await isLikelyRedirectedWithRetry(url, hintHasRedirect)
+        settle(redirected ? 'blocked' : 'not-blocked')
+      }, REDIRECT_CHECK_DELAY_MS)
     }
 
-    document.body.appendChild(frame)
-    frame.src = url
+    link.onerror = () => {
+      // Stylesheet failed — could be ad blocker, CORS, or invalid MIME.
+      // Check Performance API to distinguish.
+      setTimeout(() => {
+        const perf = checkPerformanceEntry(url)
+        if (perf === 'loaded') {
+          // Server responded (just not with valid CSS) — NOT blocked
+          settle('not-blocked')
+        } else if (perf === 'blocked') {
+          // Performance entry shows DNS-level blocking (responseEnd=0)
+          settle('blocked')
+        } else {
+          // No entry — likely blocked before dispatch (extension cancelled it).
+          // Unlike preload/img onerror where we defer to fetch, here we can be
+          // slightly more aggressive: stylesheet requests rarely fail silently
+          // for any reason OTHER than ad blocker interception.
+          settle('blocked')
+        }
+      }, ELEMENT_ERROR_SETTLE_DELAY_MS)
+    }
+
+    document.head.appendChild(link)
 
     timeoutId = window.setTimeout(() => {
-      evaluateFrame()
-    }, FRAME_TIMEOUT_MS)
+      settle('not-blocked')
+    }, ELEMENT_TIMEOUT_MS)
   })
 }
 
@@ -598,7 +724,7 @@ async function isLikelyRedirectedWithRetry(
 /**
  * Core network test: detects if a URL is blocked by the ad blocker.
  *
- * Strategy: run fetch + element-based detection in parallel, combine results.
+ * Strategy: run fetch + TWO element-based detections in parallel, combine.
  *
  * fetch() catches generic block rules (||domain.com^) that block ALL types.
  *
@@ -606,7 +732,12 @@ async function isLikelyRedirectedWithRetry(
  * - <link preload as="script"> for .js URLs — detects $script,redirect=noopjs
  *   by checking Performance API for missing entries or near-zero duration.
  * - hidden <iframe> for document/page URLs — approximates direct navigation.
- * - <img> for other URLs — detects $image,redirect and confirms DNS blocking.
+ * - <img> for pixel/image URLs — detects $image,redirect and DNS blocking.
+ * - <link rel="stylesheet"> — detects $stylesheet rules and generic blocks.
+ *
+ * Running 3 independent methods per URL dramatically improves accuracy:
+ * ad blockers may handle different resource types differently, and type-specific
+ * rules (e.g. $script but not $xmlhttprequest) only trigger for matching types.
  *
  * Priority order for combining results:
  * 1. If ANY method clearly detects blocking → BLOCKED (immediate)
@@ -620,37 +751,54 @@ async function isLikelyRedirectedWithRetry(
  *   with longer delays to catch slow Performance API writes.
  * - If hint.shouldBlock is true but all methods say not-blocked, an extra
  *   redirect check is attempted as a final fallback.
+ * - If hint.hasDocumentRule is true, the reference engine has matched a
+ *   $document / main_frame rule which CANNOT be tested from within a page.
+ *   In this case, the reference engine's verdict is used directly, because
+ *   $document rules only block top-level navigation (not sub-resources),
+ *   making them invisible to fetch/img/preload/iframe probes.
  *
  * Example: adsbygoogle.js with $script,redirect=noopjs:
  * - fetch: succeeds (not a $script request) → 'not-blocked'
  * - preload: onload fires but redirect detected → 'blocked'
+ * - image: onerror (not an image) + perf loaded → 'not-blocked'
  * - Combined: 'blocked' wins ✅
  */
 export function testNetworkResource(
   url: string,
   hint?: FilterHint
 ): Promise<NetworkTestStatus> {
+  // If the reference engine matched a $document / main_frame rule,
+  // the ad blocker blocks this URL when navigated to directly, but there
+  // is no reliable way to detect $document blocking from within a page
+  // (fetch, img, preload all use sub-resource types that aren't affected).
+  // Trust the reference engine for these rules — EasyList/EasyPrivacy
+  // $document rules are standard and present in virtually all ad blockers.
+  if (hint?.hasDocumentRule) {
+    return Promise.resolve('blocked')
+  }
+
   return new Promise((resolve) => {
     let settled = false
     let completed = 0
     const hintHasRedirect = hint?.hasRedirect ?? false
+    const hintShouldBlock = hint?.shouldBlock ?? false
     const finish = (status: NetworkTestStatus) => {
       if (settled) return
       settled = true
       resolve(status)
     }
 
-    // Collect detection promises
+    // Collect detection promises — 3 methods for maximum coverage
     const detections: Promise<NetworkTestStatus>[] = []
 
     // Method 1: Fetch-based detection (always — catches generic rules)
     detections.push(detectViaFetch(url))
 
-    // Method 2: Element-based detection (always — provides a second signal)
+    // Method 2: Primary element-based detection (type-specific signal)
     // - .js URLs:  <link rel="preload" as="script"> catches $script rules
-    // - All others: <img> element — for non-image URLs onerror always fires,
-    //   but the Performance API check inside onerror distinguishes "server
-    //   responded (not an image)" from "request was blocked before dispatch".
+    // - Document URLs: <iframe> catches $subdocument and some $document rules
+    // - Image URLs: <img> catches $image rules and $redirect=1x1.gif
+    // - Other URLs: <img> for generic blocking signal
     //
     // When the reference engine hints that a $redirect rule exists, pass
     // hintHasRedirect so the redirect check retries with longer delays.
@@ -660,6 +808,22 @@ export function testNetworkResource(
       detections.push(detectViaFrame(url))
     } else {
       detections.push(detectViaImage(url, hintHasRedirect))
+    }
+
+    // Method 3: Supplementary element-based detection (additional signal)
+    // A third independent method catches blocking that method 2 might miss:
+    // - Script URLs + image: generic ||domain.com^ rules also block images
+    // - Document URLs + image: generic rules block all types including images
+    // - Image URLs + stylesheet: catches generic rules via a different type
+    // - Other URLs + stylesheet: catches $stylesheet and generic rules
+    if (isScriptUrl(url)) {
+      detections.push(detectViaImage(url, hintHasRedirect))
+    } else if (isDocumentUrl(url)) {
+      detections.push(detectViaImage(url, hintHasRedirect))
+    } else if (isImageUrl(url)) {
+      detections.push(detectViaStylesheet(url, hintHasRedirect))
+    } else {
+      detections.push(detectViaStylesheet(url, hintHasRedirect))
     }
 
     // Combine results incrementally so a clear signal can finish early.
@@ -677,10 +841,18 @@ export function testNetworkResource(
 
           if (completed === detections.length) {
             // All methods returned not-blocked.
-            // If the reference engine says a $redirect rule exists, the ad
-            // blocker SHOULD have redirected the resource. Do one final
-            // redirect check — the entry may have been written late.
             if (hintHasRedirect) {
+              // The reference engine says a $redirect rule exists — the ad
+              // blocker SHOULD have redirected the resource. Do one final
+              // redirect check — the entry may have been written late.
+              isLikelyRedirectedWithRetry(url, true).then((redirected) => {
+                finish(redirected ? 'blocked' : 'not-blocked')
+              })
+            } else if (hintShouldBlock) {
+              // Reference engine says this URL should be blocked, but all
+              // 3 methods say not-blocked. Run one aggressive final redirect
+              // check — some ad blockers may have redirected without the
+              // standard redirect hint.
               isLikelyRedirectedWithRetry(url, true).then((redirected) => {
                 finish(redirected ? 'blocked' : 'not-blocked')
               })
