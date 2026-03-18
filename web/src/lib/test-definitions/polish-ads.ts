@@ -14,7 +14,6 @@ export const polishAds: TestCategory = {
     { name: 'Interia Ads', url: 'https://ad.interia.pl/' },
     { name: 'GetResponse', url: 'https://app.getresponse.com/view_webform.js' },
     { name: 'edrone', url: 'https://d.edrone.me/api/init' },
-    { name: 'Freshmail', url: 'https://app.freshmail.pl/rest/mail' },
     { name: 'user.com', url: 'https://widget.user.com/widget.js' },
     { name: 'SAREhub', url: 'https://data.sarehub.com/' },
     { name: 'Synerise', url: 'https://web.snrbox.com/sdk.min.js' },
