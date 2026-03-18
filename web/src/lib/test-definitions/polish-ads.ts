@@ -23,6 +23,5 @@ export const polishAds: TestCategory = {
     { name: 'SAREhub', url: 'https://data.sarehub.com/' },
     { name: 'Synerise', url: 'https://web.snrbox.com/sdk.min.js' },
     { name: 'Cux.io', url: 'https://cux.io/cux-tracker.js' },
-    { name: 'iPresso', url: 'https://app.ipresso.pl/tracking.js' },
   ],
 }
