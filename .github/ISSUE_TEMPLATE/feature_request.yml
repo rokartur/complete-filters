@@ -1,0 +1,82 @@
+name: Propozycja funkcji
+description: Zaproponuj nowe źródło, regułę, wyjątek lub inne ulepszenie projektu
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Dzięki za propozycję.
+
+        Możesz tutaj zgłosić między innymi:
+        - nowe źródła filtrów do agregacji,
+        - propozycje wyjątków kompatybilności,
+        - brakujące reguły blokujące reklamy lub tracking,
+        - ulepszenia generatora lub strony projektu.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Potwierdzenie
+      options:
+        - label: Sprawdziłem/am, że podobna propozycja nie została już zgłoszona.
+          required: true
+  - type: input
+    id: summary
+    attributes:
+      label: Krótkie podsumowanie
+      description: Jednozdaniowy opis propozycji.
+      placeholder: Dodanie wyjątku dla błędnie blokowanego widgetu logowania
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Kategoria propozycji
+      options:
+        - Nowa reguła lub wyjątek
+        - Nowe źródło filtrów
+        - Ulepszenie generatora / build.py
+        - Ulepszenie strony WWW projektu
+        - Dokumentacja / UX
+        - Inne
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Co chcesz osiągnąć i dlaczego?
+      description: Opisz problem, potrzebę i korzyść z proponowanej zmiany.
+      placeholder: Obecnie strona X ma element, który nie jest blokowany / jest blokowany zbyt agresywnie, co powoduje...
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proponowane rozwiązanie
+      description: Opisz, jak Twoim zdaniem mogłoby to działać.
+      placeholder: Można dodać wyjątek kosmetyczny / nową regułę / nowe źródło filtrów, które obejmuje ten przypadek.
+  - type: input
+    id: related_url
+    attributes:
+      label: Powiązany adres strony / źródło / repozytorium
+      description: Jeśli dotyczy, wklej URL strony, listy filtrów, repo lub dokumentacji.
+      placeholder: https://example.com/ lub https://github.com/owner/repo
+  - type: textarea
+    id: examples
+    attributes:
+      label: Przykłady, mockupy lub proponowane reguły
+      description: Możesz wkleić przykładowe reguły, screenshoty albo opisać edge case'y.
+      placeholder: |
+        Przykładowa reguła:
+        example.com##.annoying-banner
+
+        Albo link do źródła, które warto rozważyć.
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Dodatkowe uwagi
+      placeholder: Inny kontekst, alternatywy, powiązane issue/PR, ograniczenia, skutki uboczne itp.
+  - type: markdown
+    attributes:
+      value: |
+        Dzięki za sugestię — konkretne przykłady i uzasadnienie bardzo pomagają w ocenie priorytetu zmiany.
