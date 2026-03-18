@@ -10,7 +10,6 @@ export const emailTracking: TestCategory = {
     { name: 'Constant Contact', url: 'https://r20.rs6.net/on.jsp' },
     { name: 'Campaign Monitor', url: 'https://cmail.createsend.com/t/y-o-0-0/' },
     { name: 'Return Path', url: 'https://bl.returnpath.net/' },
-    { name: 'SendGrid Tracking', url: 'https://u0.ct.sendgrid.net/wf/open' },
     { name: 'Klaviyo Email', url: 'https://trk.klclick.com/' },
     { name: 'ActiveCampaign Email', url: 'https://lt.actcampaign.com/open' },
     { name: 'Brevo (Sendinblue)', url: 'https://sibautomation.com/sa.js' },

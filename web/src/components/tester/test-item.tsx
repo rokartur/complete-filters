@@ -47,7 +47,7 @@ export function TestItem({ test, status }: TestItemProps) {
             </span>
           </div>
           <div className="truncate text-[10px] text-muted-foreground/60 transition-colors group-hover:text-muted-foreground">
-            TARGET: {displayUrl}
+            {displayUrl}
           </div>
         </div>
       </div>

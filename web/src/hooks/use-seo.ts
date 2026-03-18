@@ -58,8 +58,6 @@ export function useSeo() {
     const currentUrl = new URL(window.location.href)
     currentUrl.hash = ''
 
-    const socialImage = new URL('./social-card.svg', window.location.href).toString()
-
     document.title = t.meta.title
 
     upsertMeta({ name: 'description', content: t.meta.description })
@@ -77,12 +75,17 @@ export function useSeo() {
     upsertMeta({ property: 'og:title', content: t.meta.socialTitle })
     upsertMeta({ property: 'og:description', content: t.meta.socialDescription })
     upsertMeta({ property: 'og:url', content: currentUrl.toString() })
-    upsertMeta({ property: 'og:image', content: socialImage })
-    upsertMeta({ property: 'og:image:alt', content: t.meta.socialTitle })
-    upsertMeta({ name: 'twitter:card', content: 'summary_large_image' })
+    upsertMeta({ name: 'twitter:card', content: 'summary' })
     upsertMeta({ name: 'twitter:title', content: t.meta.socialTitle })
     upsertMeta({ name: 'twitter:description', content: t.meta.socialDescription })
-    upsertMeta({ name: 'twitter:image', content: socialImage })
+
+    const ogImage = document.head.querySelector('meta[property="og:image"]')
+    const ogImageAlt = document.head.querySelector('meta[property="og:image:alt"]')
+    const twitterImage = document.head.querySelector('meta[name="twitter:image"]')
+
+    ogImage?.remove()
+    ogImageAlt?.remove()
+    twitterImage?.remove()
 
     upsertLink('canonical', currentUrl.toString())
 
@@ -96,7 +99,6 @@ export function useSeo() {
         isAccessibleForFree: true,
         inLanguage: language,
         url: currentUrl.toString(),
-        image: socialImage,
         description: t.meta.description,
         browserRequirements: 'Requires a modern browser with Fetch API and Performance API support.',
         featureList: t.seo.features.map((item) => item.title),
