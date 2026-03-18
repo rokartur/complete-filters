@@ -44,23 +44,22 @@ export function StatsBar({ stats }: StatsBarProps) {
   ]
 
   return (
-    <div className="grid grid-cols-2 gap-2 border-b border-border bg-background p-3 sm:grid-cols-2 sm:gap-3 sm:p-5 xl:grid-cols-4">
-      {statItems.map((item) => {
+    <div className="grid grid-cols-2 border-b border-border bg-card sm:grid-cols-2 xl:grid-cols-4">
+      {statItems.map((item, index) => {
         const Icon = item.icon
-
         return (
         <div 
           key={item.key} 
-          className={`relative group rounded-xl bg-linear-to-b ${item.bgClass} border ${item.borderClass} p-3 text-center transition-all duration-300 hover:scale-[1.02] sm:p-5`}
+          className={`relative group border-border p-4 sm:p-6 text-left transition-colors duration-200 hover:bg-muted ${index % 2 === 0 ? 'border-r' : ''} ${index < 2 ? 'border-b xl:border-b-0' : ''} xl:border-r`}
         >
-          <div className="mb-2 flex justify-center sm:mb-3">
-            <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${item.colorClass} opacity-50`} />
+          <div className="mb-4 flex items-center gap-2">
+            <Icon className={`h-4 w-4 ${item.colorClass}`} />
+            <div className="text-[10px] font-mono font-semibold uppercase tracking-widest text-muted-foreground">
+              {item.label}
+            </div>
           </div>
-          <div className={`text-3xl font-bold tabular-nums tracking-tight font-display sm:text-4xl ${item.colorClass}`}>
+          <div className={`text-4xl font-display font-bold tabular-nums tracking-tight sm:text-5xl ${item.colorClass}`}>
             {stats[item.key]}
-          </div>
-          <div className="mt-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground sm:mt-2 sm:text-[10px]">
-            {item.label}
           </div>
         </div>
       )})}

@@ -9,32 +9,35 @@ export function GradeBadge({ grade }: GradeBadgeProps) {
   const { t } = useI18n()
 
   return (
-    <div className="border-b border-border bg-background">
-      <div className="mx-auto flex max-w-4xl flex-col gap-5 px-4 py-6 md:flex-row md:items-center md:justify-between md:px-6 md:py-8">
-        <div className="space-y-2 text-center md:text-left">
-          <div className="text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground">
-            {t.tester.gradeTitle}
+    <div className="border-b border-border bg-card">
+      <div className="mx-auto flex flex-col gap-6 px-4 py-8 md:flex-row md:items-start md:justify-between md:px-8 md:py-10">
+        <div className="space-y-4 text-left max-w-xl">
+          <div className="flex items-center gap-2">
+            <div className={`h-2 w-2 rounded-full ${grade.colorClass.replace('text-', 'bg-')}`} />
+            <div className="text-[10px] font-mono tracking-widest uppercase text-muted-foreground">
+              {t.tester.gradeTitle}
+            </div>
           </div>
-          <h3 className="text-2xl font-display font-bold text-foreground sm:text-3xl">
+          <h3 className="text-3xl font-display font-black uppercase text-foreground sm:text-4xl">
             {t.tester.gradeLabels[grade.labelKey]}
           </h3>
-          <p className="mx-auto max-w-xl text-sm leading-relaxed text-muted-foreground md:mx-0">
+          <p className="text-sm leading-relaxed text-muted-foreground font-mono">
             {t.tester.gradeSummary(grade.pct)}
           </p>
         </div>
 
-        <div className="flex items-center justify-center gap-4 rounded-2xl border border-border bg-card px-4 py-4 sm:px-5 md:justify-start">
+        <div className="flex items-center gap-6 border border-border bg-background p-6 shrink-0 mt-4 md:mt-0">
           <div
-            className={`inline-flex h-15 w-15 items-center justify-center rounded-xl border text-[1.7rem] font-display font-extrabold sm:h-16 sm:w-16 sm:text-3xl ${grade.colorClass}`}
+            className={`flex h-20 w-20 items-center justify-center border border-current text-4xl font-display font-black sm:h-24 sm:w-24 sm:text-5xl ${grade.colorClass}`}
           >
             {grade.grade}
           </div>
-          <div className="text-left">
-            <div className="text-sm font-semibold text-foreground">{t.tester.finalScore}</div>
-            <div className="mt-1 text-2xl font-bold tabular-nums text-foreground">
+          <div className="text-left font-mono">
+            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{t.tester.finalScore}</div>
+            <div className="mt-1 text-4xl font-bold tabular-nums text-foreground tracking-tighter">
               {grade.pct}%
             </div>
-            <div className="text-xs text-muted-foreground">{t.tester.blockingEffectiveness}</div>
+            <div className="mt-1 text-[10px] uppercase tracking-widest text-muted-foreground">{t.tester.blockingEffectiveness}</div>
           </div>
         </div>
       </div>

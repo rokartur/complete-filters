@@ -1,31 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-background: #050508;
-  --color-foreground: #e2e4e9;
-  --color-card: #0a0a14;
-  --color-card-foreground: #e2e4e9;
-  --color-popover: #0a0a14;
-  --color-popover-foreground: #e2e4e9;
-  --color-primary: #ef4444;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #111120;
-  --color-secondary-foreground: #e2e4e9;
-  --color-muted: #151525;
-  --color-muted-foreground: #6b7085;
-  --color-accent: #1a1a2e;
-  --color-accent-foreground: #e2e4e9;
-  --color-destructive: #ef4444;
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-card: #050505;
+  --color-card-foreground: #ffffff;
+  --color-popover: #050505;
+  --color-popover-foreground: #ffffff;
+  --color-primary: #ffffff;
+  --color-primary-foreground: #000000;
+  --color-secondary: #0f0f0f;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #141414;
+  --color-muted-foreground: #888888;
+  --color-accent: #111111;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ff003c;
   --color-destructive-foreground: #ffffff;
-  --color-border: #1a1a2e;
-  --color-input: #151525;
-  --color-ring: #ef4444;
-  --radius: 0.75rem;
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  --font-display: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-border: #1f1f1f;
+  --color-input: #1f1f1f;
+  --color-ring: #ffffff;
+  --radius: 0rem;
+  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-display: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 *,
@@ -45,47 +46,57 @@ body {
   margin: 0;
 }
 
+/* Texture overlay for Brutalist feel */
+.bg-noise {
+  position: relative;
+}
+.bg-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opactiy='0.08'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+}
+
 /* Display font utility */
 .font-display {
   font-family: var(--font-display);
 }
 
-/* Grade color classes with glow custom property */
+/* High-contrast industrial grade colors */
 .grade-a {
-  color: #34d399;
-  background: rgba(52, 211, 153, 0.12);
-  border-color: rgba(52, 211, 153, 0.35);
-  --grade-glow: #34d399;
+  color: #00ff9d;
+  background: transparent;
+  border-color: #00ff9d;
 }
 .grade-b {
-  color: #60a5fa;
-  background: rgba(96, 165, 250, 0.12);
-  border-color: rgba(96, 165, 250, 0.35);
-  --grade-glow: #60a5fa;
+  color: #00e5ff;
+  background: transparent;
+  border-color: #00e5ff;
 }
 .grade-c {
   color: #fbbf24;
-  background: rgba(251, 191, 36, 0.12);
-  border-color: rgba(251, 191, 36, 0.35);
-  --grade-glow: #fbbf24;
+  background: transparent;
+  border-color: #fbbf24;
 }
 .grade-d {
-  color: #fb923c;
-  background: rgba(251, 146, 60, 0.12);
-  border-color: rgba(251, 146, 60, 0.35);
-  --grade-glow: #fb923c;
+  color: #ff6a00;
+  background: transparent;
+  border-color: #ff6a00;
 }
 .grade-f {
-  color: #f87171;
-  background: rgba(248, 113, 113, 0.12);
-  border-color: rgba(248, 113, 113, 0.35);
-  --grade-glow: #f87171;
+  color: #ff003c;
+  background: transparent;
+  border-color: #ff003c;
 }
 
 /* ─── Animations ─── */
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
 }
 
 @keyframes gradient-shift {
@@ -101,11 +112,11 @@ body {
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-3px); }
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-pulse-glow {
@@ -132,14 +143,11 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
   opacity: 0.3;
 }
 
-/* ─── Glow utilities ─── */
-.glow-primary {
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.12), 0 0 60px rgba(239, 68, 68, 0.04);
-}
-.glow-primary-hover:hover {
-  box-shadow: 0 0 30px rgba(239, 68, 68, 0.2), 0 0 80px rgba(239, 68, 68, 0.08);
+/* ─── Industrial utilities ─── */
+.panel-border {
+  border: 1px solid var(--color-border);
 }

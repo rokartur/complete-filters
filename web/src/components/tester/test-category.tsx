@@ -97,12 +97,12 @@ export function TestCategoryList({
 
   if (visibleCategories.length === 0) {
     return (
-      <div className="w-full rounded-xl border border-border/60 bg-card/70 px-6 py-10 text-center">
+      <div className="w-full border border-border bg-card px-6 py-10 text-center">
         <div className="mx-auto max-w-md">
-          <div className="font-display text-xl font-semibold text-foreground">
+          <div className="font-display font-black uppercase text-2xl text-muted-foreground tracking-widest">
             {t.tester.noResultsTitle}
           </div>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-4 text-xs leading-relaxed text-muted-foreground uppercase font-mono tracking-widest">
             {t.tester.noResultsDescription}
           </p>
         </div>
@@ -111,7 +111,7 @@ export function TestCategoryList({
   }
 
   return (
-    <Accordion type="multiple" defaultValue={[]} className="w-full space-y-3">
+    <Accordion type="multiple" defaultValue={[]} className="w-full space-y-4">
       {visibleCategories.map(({ category, visibleTests }) => {
         const catStats = getCategoryStats(category.id)
         const CategoryIcon = categoryIcons[category.id] ?? ChartColumn
@@ -121,43 +121,43 @@ export function TestCategoryList({
           <AccordionItem
             key={category.id}
             value={category.id}
-            className="w-full rounded-xl border border-border/60 bg-card/80 overflow-hidden transition-all duration-200 hover:border-border/80 hover:bg-card"
+            className="w-full border border-border bg-card overflow-hidden transition-colors hover:border-foreground/30 rounded-none!"
           >
-            <AccordionTrigger className="px-4 py-4 hover:bg-muted/15 hover:no-underline transition-colors sm:px-5">
+            <AccordionTrigger className="flex flex-1 justify-between items-center px-4 py-4 hover:bg-muted/50 hover:no-underline transition-colors sm:px-6">
               <div className="flex flex-1 flex-col gap-3 pr-2 sm:flex-row sm:items-center sm:justify-between sm:pr-4">
-                <div className="flex min-w-0 items-center gap-3 sm:gap-3.5">
+                <div className="flex min-w-0 items-center gap-4">
                   <span
-                    className={`flex h-11 w-11 min-h-11 min-w-11 shrink-0 items-center justify-center rounded-xl ring-1 transition-colors ${
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center border border-current transition-colors ${
                       isCategoryFullyBlocked
-                        ? 'bg-linear-to-br from-emerald-500/18 to-emerald-500/8 text-emerald-400 ring-emerald-500/20'
-                        : 'bg-linear-to-br from-primary/12 to-primary/5 text-primary/70 ring-primary/10'
+                        ? 'bg-emerald-500/10 text-emerald-400'
+                        : 'bg-primary/5 text-primary/70'
                     }`}
                   >
-                    <CategoryIcon className="h-4.5 w-4.5 shrink-0" />
+                    <CategoryIcon className="h-5 w-5 shrink-0" />
                   </span>
-                  <div className="flex min-w-0 flex-col items-start">
-                    <span className="font-semibold text-sm text-foreground font-display sm:text-[15px]">
+                  <div className="flex min-w-0 flex-col items-start font-mono">
+                    <span className="font-bold text-sm text-foreground uppercase tracking-widest">
                       {translateCategoryName(category.id, category.name)}
                     </span>
-                    <span className="text-[11px] text-muted-foreground">
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1">
                       {t.tester.testsCount(category.tests.length)}
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 pl-14 text-sm sm:pl-0 sm:gap-5">
-                  <span className="flex items-center gap-1.5 font-semibold font-mono text-xs">
-                    <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400/50" />
-                    <span className="text-emerald-400 tabular-nums">{catStats.blocked}</span>
+                <div className="flex items-center gap-6 text-sm font-mono mt-2 sm:mt-0">
+                  <span className="flex items-center gap-2 font-bold text-[10px] tracking-widest">
+                    <span className="inline-block h-1.5 w-1.5 bg-emerald-400" />
+                    <span className="text-emerald-400 tabular-nums">PASS:{catStats.blocked}</span>
                   </span>
-                  <span className="flex items-center gap-1.5 font-semibold font-mono text-xs">
-                    <span className="inline-block h-2 w-2 rounded-full bg-red-400 shadow-sm shadow-red-400/50" />
-                    <span className="text-red-400 tabular-nums">{catStats.notBlocked}</span>
+                  <span className="flex items-center gap-2 font-bold text-[10px] tracking-widest">
+                    <span className="inline-block h-1.5 w-1.5 bg-red-400" />
+                    <span className="text-red-400 tabular-nums">FAIL:{catStats.notBlocked}</span>
                   </span>
                 </div>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="border-t border-border/40 px-0 pb-0">
-              <div className="divide-y divide-border/30">
+            <AccordionContent className="border-t border-border px-0 pb-0 bg-background">
+              <div className="divide-y divide-border/50">
                 {visibleTests.map(({ test, index, status }) => (
                   <TestItem
                     key={`${category.id}-${index}`}

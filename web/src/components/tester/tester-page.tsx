@@ -15,20 +15,23 @@ export function TesterPage() {
 
   return (
     <div>
-      {/* Tester Header — dramatic hero section */}
-      <div className="relative overflow-hidden border-b border-border px-4 py-10 text-center sm:px-6 sm:py-14">
-        <div className="absolute inset-0 bg-linear-to-b from-card via-card/80 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
-        <div className="relative">
-          <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary/60 ring-1 ring-primary/15 sm:mb-6 sm:h-12 sm:w-12">
-            <Crosshair className="h-5 w-5" />
+      {/* Tester Header — industrial tracking panel */}
+      <div className="relative border-b border-border bg-card px-4 py-8 sm:px-6 md:px-10">
+        <div className="flex flex-col md:flex-row md:items-start gap-6">
+          <div className="shrink-0 flex h-16 w-16 items-center justify-center border border-primary bg-primary/5 text-primary">
+            <Crosshair className="h-8 w-8" />
           </div>
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            {t.tester.title}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
-            {t.tester.description}
-          </p>
+          <div className="flex-1">
+            <div className="mb-2 inline-block border border-border bg-muted px-2 py-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+              Module: Adblock Audit
+            </div>
+            <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
+              {t.tester.title}
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground font-mono">
+              {t.tester.description}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -39,16 +42,16 @@ export function TesterPage() {
       <StatsBar stats={tester.stats} />
 
       {/* Progress */}
-      <div className="border-b border-border bg-background px-4 py-4 sm:px-5">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-2 flex items-center justify-between text-xs font-medium text-muted-foreground">
+      <div className="border-b border-border bg-card px-4 py-6 sm:px-6 md:px-8">
+        <div className="mx-auto w-full">
+          <div className="mb-3 flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-muted-foreground">
             <span>{t.tester.progress}</span>
-            <span className="tabular-nums text-foreground">{Math.round(tester.progress)}%</span>
+            <span className="tabular-nums text-foreground">[{Math.round(tester.progress)}%]</span>
           </div>
           <Progress
             value={tester.progress}
-            className="h-2.5 bg-muted/70"
-            indicatorClassName="from-primary via-primary to-orange-400"
+            className="h-1 bg-muted rounded-none"
+            indicatorClassName="bg-primary rounded-none transition-all duration-300"
           />
         </div>
       </div>
@@ -63,7 +66,7 @@ export function TesterPage() {
       />
 
       {/* Test Categories */}
-      <div className="w-full px-3 pb-6 pt-2 sm:px-4 sm:pb-8">
+      <div className="w-full bg-background px-4 py-8 sm:px-6 md:px-8">
         <TestCategoryList
           categories={tester.categories}
           results={tester.results}
