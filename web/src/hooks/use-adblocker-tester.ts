@@ -1,5 +1,5 @@
-import { useState, useRef, useCallback, useMemo } from 'react'
-import { getTestCategories, type TestRunMode } from '@/lib/test-definitions'
+import { useState, useRef, useCallback } from 'react'
+import { TEST_CATEGORIES } from '@/lib/test-definitions'
 import { testBaitElement, testNetworkResource } from '@/lib/detection-engine'
 
 export type TestStatus = 'pending' | 'blocked' | 'not-blocked' | 'inconclusive'
@@ -20,9 +20,11 @@ export interface GradeInfo {
   colorClass: string
 }
 
-function createInitialResults(categories: ReturnType<typeof getTestCategories>): Record<string, TestStatus> {
+const TOTAL_TESTS = TEST_CATEGORIES.reduce((sum, category) => sum + category.tests.length, 0)
+
+function createInitialResults(): Record<string, TestStatus> {
   const initial: Record<string, TestStatus> = {}
-  categories.forEach((cat) => {
+  TEST_CATEGORIES.forEach((cat) => {
     cat.tests.forEach((_, i) => {
       initial[`${cat.id}-${i}`] = 'pending'
     })
@@ -30,17 +32,17 @@ function createInitialResults(categories: ReturnType<typeof getTestCategories>):
   return initial
 }
 
-function computeStats(results: Record<string, TestStatus>, totalTests: number): TestStats {
+function computeStats(results: Record<string, TestStatus>): TestStats {
   const values = Object.values(results)
   const blocked = values.filter((v) => v === 'blocked').length
   const notBlocked = values.filter((v) => v === 'not-blocked').length
   const inconclusive = values.filter((v) => v === 'inconclusive').length
   return {
-    total: totalTests,
+    total: TOTAL_TESTS,
     blocked,
     notBlocked,
     inconclusive,
-    pending: totalTests - blocked - notBlocked - inconclusive,
+    pending: TOTAL_TESTS - blocked - notBlocked - inconclusive,
   }
 }
 
@@ -83,25 +85,18 @@ function computeGrade(stats: TestStats): GradeInfo | null {
 }
 
 export function useAdBlockTester() {
-  const [mode, setMode] = useState<TestRunMode>('quick')
-  const categories = useMemo(() => getTestCategories(mode), [mode])
-  const totalTests = useMemo(
-    () => categories.reduce((sum, category) => sum + category.tests.length, 0),
-    [categories]
-  )
-
-  const [results, setResults] = useState<Record<string, TestStatus>>(() => createInitialResults(categories))
+  const [results, setResults] = useState<Record<string, TestStatus>>(() => createInitialResults())
   const [isRunning, setIsRunning] = useState(false)
   const [filter, setFilter] = useState<FilterType>('all')
-  const resultsRef = useRef<Record<string, TestStatus>>(createInitialResults(categories))
+  const resultsRef = useRef<Record<string, TestStatus>>(createInitialResults())
 
-  const stats = computeStats(results, totalTests)
+  const stats = computeStats(results)
   const progress =
     stats.total > 0 ? ((stats.total - stats.pending) / stats.total) * 100 : 0
   const grade = stats.pending === 0 && stats.total > 0 ? computeGrade(stats) : null
 
   const initResults = useCallback(() => {
-    const initial = createInitialResults(categories)
+    const initial = createInitialResults()
     resultsRef.current = initial
     setResults({ ...initial })
     // Clear performance entries from previous runs
@@ -110,7 +105,7 @@ export function useAdBlockTester() {
     } catch {
       // ignore
     }
-  }, [categories])
+  }, [])
 
   const updateResult = useCallback((testId: string, status: TestStatus) => {
     resultsRef.current[testId] = status
@@ -124,7 +119,7 @@ export function useAdBlockTester() {
       let notBlocked = 0
       let inconclusive = 0
       let pending = 0
-      const cat = categories.find((c) => c.id === categoryId)
+      const cat = TEST_CATEGORIES.find((c) => c.id === categoryId)
       if (!cat) return { blocked, notBlocked, inconclusive, pending, total: 0 }
       cat.tests.forEach((_, i) => {
         const id = `${categoryId}-${i}`
@@ -136,7 +131,7 @@ export function useAdBlockTester() {
       })
       return { blocked, notBlocked, inconclusive, pending, total: cat.tests.length }
     },
-    [categories, results]
+    [results]
   )
 
   const startTests = useCallback(async () => {
@@ -150,9 +145,9 @@ export function useAdBlockTester() {
       // Collect all tests
       const allTests: Array<{
         id: string
-        test: (typeof categories)[number]['tests'][number]
+        test: (typeof TEST_CATEGORIES)[number]['tests'][number]
       }> = []
-      categories.forEach((cat) => {
+      TEST_CATEGORIES.forEach((cat) => {
         cat.tests.forEach((t, i) => {
           allTests.push({ id: `${cat.id}-${i}`, test: t })
         })
@@ -178,9 +173,9 @@ export function useAdBlockTester() {
         })
       )
 
-      // Run network tests in batches of 10 concurrent tests
+      // Run network tests in batches of 15 concurrent tests
       // (higher concurrency is fine — each test uses multiple methods internally)
-      const batchSize = 10
+      const batchSize = 15
       for (let i = 0; i < networkTests.length; i += batchSize) {
         const batch = networkTests.slice(i, i + batchSize)
         await Promise.all(
@@ -205,17 +200,7 @@ export function useAdBlockTester() {
     } finally {
       setIsRunning(false)
     }
-  }, [categories, initResults, updateResult])
-
-  const setRunMode = useCallback((nextMode: TestRunMode) => {
-    if (nextMode === mode) return
-    const nextCategories = getTestCategories(nextMode)
-    const initial = createInitialResults(nextCategories)
-    resultsRef.current = initial
-    setResults(initial)
-    setMode(nextMode)
-    setFilter('all')
-  }, [mode])
+  }, [initResults, updateResult])
 
   const resetTests = useCallback(() => {
     initResults()
@@ -223,15 +208,13 @@ export function useAdBlockTester() {
   }, [initResults])
 
   return {
-    categories,
+    categories: TEST_CATEGORIES,
     results,
     stats,
     progress,
     grade,
     isRunning,
-    mode,
     filter,
-    setMode: setRunMode,
     setFilter,
     startTests,
     resetTests,

@@ -40,6 +40,11 @@ try {
 
 const delay = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
 
+const PERFORMANCE_SETTLE_DELAY_MS = 80
+const ELEMENT_ERROR_SETTLE_DELAY_MS = 150
+const ELEMENT_TIMEOUT_MS = 4000
+const NETWORK_TEST_TIMEOUT_MS = 6000
+
 /**
  * Check whether a URL looks like a JavaScript file based on extension.
  */
@@ -122,7 +127,7 @@ async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
     await fetch(url, { mode: 'no-cors', cache: 'no-store' })
     // Fetch resolved (opaque response) — request went through
     // Wait for Performance API to settle, then verify
-    await delay(120)
+    await delay(PERFORMANCE_SETTLE_DELAY_MS)
     const perfResult = checkPerformanceEntry(url)
     if (perfResult === 'not-found') {
       // No Performance entry despite fetch success → ad blocker redirected
@@ -136,17 +141,11 @@ async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
     // Real response confirmed
     return 'not-blocked'
   } catch {
-    // A raw fetch failure alone is ambiguous in browsers.
-    // Verify via Performance API first; otherwise surface it as inconclusive.
-    await delay(120)
-    const perfResult = checkPerformanceEntry(url)
-    if (perfResult === 'blocked') {
-      return 'blocked'
-    }
-    if (perfResult === 'loaded') {
-      return 'not-blocked'
-    }
-    return 'inconclusive'
+    // fetch() with mode:'no-cors' suppresses CORS errors (returns opaque
+    // response instead of throwing). So a failure here means the request was
+    // genuinely cancelled — by a browser extension, DNS blocker, or network
+    // error. For well-known tracking domains this is effectively blocking.
+    return 'blocked'
   }
 }
 
@@ -160,6 +159,15 @@ function detectViaPreload(url: string): Promise<NetworkTestStatus> {
     link.rel = 'preload'
     link.as = 'script'
     link.href = url
+    let timeoutId: number | undefined
+
+    const settle = (status: NetworkTestStatus) => {
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId)
+      }
+      cleanup()
+      resolve(status)
+    }
 
     const cleanup = () => {
       try {
@@ -170,37 +178,34 @@ function detectViaPreload(url: string): Promise<NetworkTestStatus> {
     }
 
     link.onload = () => {
-      cleanup()
       // Preload succeeded — but could be a neutered $redirect resource.
       // We don't trust onload alone; the fetch method handles redirect detection.
-      resolve('not-blocked')
+      settle('not-blocked')
     }
 
     link.onerror = () => {
-      cleanup()
       // Preload failed — could be ad blocker or CORS/404.
       // Check Performance API to distinguish.
       setTimeout(() => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Request reached server (CORS or 404) — NOT blocked
-          resolve('not-blocked')
+          settle('not-blocked')
         } else if (perf === 'blocked') {
-          resolve('blocked')
+          settle('blocked')
         } else {
           // No entry usually means the blocker intercepted before request dispatch.
-          resolve('blocked')
+          settle('blocked')
         }
-      }, 200)
+      }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     document.head.appendChild(link)
 
     // Timeout for preload
-    setTimeout(() => {
-      cleanup()
-      resolve('inconclusive')
-    }, 10000)
+    timeoutId = window.setTimeout(() => {
+      settle('inconclusive')
+    }, ELEMENT_TIMEOUT_MS)
   })
 }
 
@@ -210,9 +215,19 @@ function detectViaPreload(url: string): Promise<NetworkTestStatus> {
 function detectViaImage(url: string): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     const img = new Image()
+    let timeoutId: number | undefined
+
+    const settle = (status: NetworkTestStatus) => {
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId)
+      }
+      img.onload = null
+      img.onerror = null
+      resolve(status)
+    }
 
     img.onload = () => {
-      resolve('not-blocked') // Image loaded — NOT blocked
+      settle('not-blocked') // Image loaded — NOT blocked
     }
 
     img.onerror = () => {
@@ -222,20 +237,20 @@ function detectViaImage(url: string): Promise<NetworkTestStatus> {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Server responded (just not with a valid image) — NOT blocked
-          resolve('not-blocked')
+          settle('not-blocked')
         } else if (perf === 'blocked') {
-          resolve('blocked')
+          settle('blocked')
         } else {
           // No entry usually means interception before the request reached network.
-          resolve('blocked')
+          settle('blocked')
         }
-      }, 200)
+      }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     img.src = url
 
     // Timeout for image
-    setTimeout(() => resolve('inconclusive'), 10000)
+    timeoutId = window.setTimeout(() => settle('inconclusive'), ELEMENT_TIMEOUT_MS)
   })
 }
 
@@ -349,6 +364,8 @@ export function testBaitElement(test: {
 export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     let settled = false
+    let completed = 0
+    let sawNotBlocked = false
     const finish = (status: NetworkTestStatus) => {
       if (settled) return
       settled = true
@@ -368,25 +385,40 @@ export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
       detections.push(detectViaImage(url))
     }
 
-    // Combine results using a conservative priority order.
-    Promise.all(detections)
-      .then((results) => {
-        if (results.includes('blocked')) {
-          finish('blocked')
-          return
-        }
-        if (results.includes('not-blocked')) {
-          finish('not-blocked')
-          return
-        }
-        finish('inconclusive')
-      })
-      .catch(() => {
-        finish('inconclusive')
-      })
+    // Combine results incrementally so a clear signal can finish early.
+    detections.forEach((detection) => {
+      detection
+        .then((result) => {
+          if (settled) return
 
-    // Safety timeout — if nothing responds in 15s, surface an honest unknown.
-    setTimeout(() => finish('inconclusive'), 15000)
+          completed += 1
+
+          if (result === 'blocked') {
+            finish('blocked')
+            return
+          }
+
+          if (result === 'not-blocked') {
+            sawNotBlocked = true
+          }
+
+          if (completed === detections.length) {
+            finish(sawNotBlocked ? 'not-blocked' : 'inconclusive')
+          }
+        })
+        .catch(() => {
+          if (settled) return
+          completed += 1
+          if (completed === detections.length) {
+            finish(sawNotBlocked ? 'not-blocked' : 'inconclusive')
+          }
+        })
+    })
+
+    // Safety timeout — if nothing responds in time, surface an honest unknown.
+    window.setTimeout(() => {
+      finish(sawNotBlocked ? 'not-blocked' : 'inconclusive')
+    }, NETWORK_TEST_TIMEOUT_MS)
   })
 }
 
