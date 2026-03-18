@@ -39,6 +39,7 @@ interface TestCategoryListProps {
   getCategoryStats: (categoryId: string) => {
     blocked: number
     notBlocked: number
+    inconclusive: number
     pending: number
     total: number
   }
@@ -133,7 +134,7 @@ export function TestCategoryList({
                         : 'bg-linear-to-br from-primary/12 to-primary/5 text-primary/70 ring-primary/10'
                     }`}
                   >
-                    <CategoryIcon className="h-[18px] w-[18px] shrink-0" />
+                    <CategoryIcon className="h-4.5 w-4.5 shrink-0" />
                   </span>
                   <div className="flex min-w-0 flex-col items-start">
                     <span className="font-semibold text-sm text-foreground font-display sm:text-[15px]">
@@ -152,6 +153,10 @@ export function TestCategoryList({
                   <span className="flex items-center gap-1.5 font-semibold font-mono text-xs">
                     <span className="inline-block h-2 w-2 rounded-full bg-red-400 shadow-sm shadow-red-400/50" />
                     <span className="text-red-400 tabular-nums">{catStats.notBlocked}</span>
+                  </span>
+                  <span className="flex items-center gap-1.5 font-semibold font-mono text-xs">
+                    <span className="inline-block h-2 w-2 rounded-full bg-orange-300 shadow-sm shadow-orange-300/40" />
+                    <span className="text-orange-300 tabular-nums">{catStats.inconclusive}</span>
                   </span>
                 </div>
               </div>

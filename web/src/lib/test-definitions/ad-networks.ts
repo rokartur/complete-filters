@@ -25,7 +25,6 @@ export const adNetworks: TestCategory = {
     { name: 'Revcontent', url: 'https://assets.revcontent.com/master/delivery.js' },
     { name: 'MGID', url: 'https://jsc.mgid.com/site.js' },
     { name: 'PropellerAds', url: 'https://go.onclasrv.com/apu.php' },
-    { name: 'PopAds', url: 'https://c1.popads.net/pop.js' },
     { name: 'Adsterra', url: 'https://www.profitabledisplaynetwork.com/b4.js' },
     { name: 'Infolinks', url: 'https://resources.infolinks.com/js/infolinks_main.js' },
     { name: 'Vibrant Media', url: 'https://ads.intellitxt.com/intellitxt/front.asp' },

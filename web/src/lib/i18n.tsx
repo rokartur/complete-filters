@@ -83,9 +83,15 @@ interface TranslationPack {
     runTests: string
     testing: string
     reset: string
+    testModeLabel: string
+    quickMode: string
+    quickModeDescription: string
+    fullMode: string
+    fullModeDescription: string
     filterAll: string
     filterBlocked: string
     filterNotBlocked: string
+    filterInconclusive: string
     filterPending: string
     gradeTitle: string
     finalScore: string
@@ -97,11 +103,13 @@ interface TranslationPack {
       total: string
       blocked: string
       notBlocked: string
+      inconclusive: string
       pending: string
     }
     status: {
       blocked: string
       notBlocked: string
+      inconclusive: string
       pending: string
     }
     methodTags: Record<MethodTag, string>
@@ -171,9 +179,15 @@ const translations: Record<Language, TranslationPack> = {
       runTests: 'Uruchom testy',
       testing: 'Testowanie...',
       reset: 'Resetuj',
+      testModeLabel: 'Zakres testu',
+      quickMode: 'Szybki test',
+      quickModeDescription: 'Krótki zestaw kontrolny do szybkiej oceny konfiguracji i działania filtrów.',
+      fullMode: 'Pełny test',
+      fullModeDescription: 'Pełny zestaw kategorii i domen. Wolniejszy, ale dokładniejszy i bardziej reprezentatywny.',
       filterAll: 'Wszystkie',
       filterBlocked: 'Zablokowane',
       filterNotBlocked: 'Niezablokowane',
+      filterInconclusive: 'Niejednoznaczne',
       filterPending: 'Oczekujące',
       gradeTitle: 'Ocena ochrony',
       finalScore: 'Wynik końcowy',
@@ -185,11 +199,13 @@ const translations: Record<Language, TranslationPack> = {
         total: 'Testów',
         blocked: 'Zablokowane',
         notBlocked: 'Niezablokowane',
+        inconclusive: 'Niejednoznaczne',
         pending: 'Oczekujące',
       },
       status: {
         blocked: 'Zablokowane',
         notBlocked: 'Niezablokowane',
+        inconclusive: 'Niejednoznaczne',
         pending: 'Oczekuje',
       },
       methodTags: {
@@ -312,9 +328,15 @@ const translations: Record<Language, TranslationPack> = {
       runTests: 'Run tests',
       testing: 'Testing...',
       reset: 'Reset',
+      testModeLabel: 'Test scope',
+      quickMode: 'Quick test',
+      quickModeDescription: 'A shorter control set for a fast configuration and sanity check.',
+      fullMode: 'Full test',
+      fullModeDescription: 'Complete category coverage with more domains. Slower, but more representative.',
       filterAll: 'All',
       filterBlocked: 'Blocked',
       filterNotBlocked: 'Not blocked',
+      filterInconclusive: 'Inconclusive',
       filterPending: 'Pending',
       gradeTitle: 'Protection grade',
       finalScore: 'Final score',
@@ -326,11 +348,13 @@ const translations: Record<Language, TranslationPack> = {
         total: 'Tests',
         blocked: 'Blocked',
         notBlocked: 'Not blocked',
+        inconclusive: 'Inconclusive',
         pending: 'Pending',
       },
       status: {
         blocked: 'Blocked',
         notBlocked: 'Not blocked',
+        inconclusive: 'Inconclusive',
         pending: 'Pending',
       },
       methodTags: {

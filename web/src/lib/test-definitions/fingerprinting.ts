@@ -12,8 +12,6 @@ export const fingerprinting: TestCategory = {
     { name: 'Session Replay (Smartlook)', url: 'https://web-sdk.smartlook.com/recorder.js' },
     { name: 'WebTrends', url: 'https://s.webtrends.com/js/webtrends.min.js' },
     { name: 'Bombora', url: 'https://tag.brandcdn.com/autoscript/bomboracom_rxm2psmjr3dw80co/Bombora.js' },
-    { name: 'Lotame', url: 'https://tags.crwdcntrl.net/lt/c/0/sync.min.js' },
-    { name: 'Oracle BlueKai', url: 'https://tags.bluekai.com/site/0' },
     { name: 'MediaMath', url: 'https://pixel.mathtag.com/event/js' },
     { name: 'Zeotap', url: 'https://content.zeotap.com/sdk/idp.min.js' },
     { name: 'HUMAN (PerimeterX)', url: 'https://client.perimeterx.net/0/main.min.js' },

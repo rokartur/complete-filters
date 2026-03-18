@@ -15,6 +15,5 @@ export const emailTracking: TestCategory = {
     { name: 'ActiveCampaign Email', url: 'https://lt.actcampaign.com/open' },
     { name: 'Brevo (Sendinblue)', url: 'https://sibautomation.com/sa.js' },
     { name: 'ConvertKit', url: 'https://f.convertkit.com/ckjs/ck.5.js' },
-    { name: 'Drip Email', url: 'https://tag.getdrip.com/0.js' },
   ],
 }

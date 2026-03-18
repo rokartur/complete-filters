@@ -56,9 +56,11 @@ export function TesterPage() {
       {/* Controls */}
       <ControlPanel
         isRunning={tester.isRunning}
+        mode={tester.mode}
         filter={tester.filter}
         onStart={tester.startTests}
         onReset={tester.resetTests}
+        onModeChange={tester.setMode}
         onFilterChange={tester.setFilter}
       />
 

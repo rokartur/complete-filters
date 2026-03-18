@@ -1,5 +1,7 @@
 import type { MethodTag } from '@/lib/i18n'
 
+export type NetworkTestStatus = 'blocked' | 'not-blocked' | 'inconclusive'
+
 /**
  * Ad Blocker Detection Engine v2
  *
@@ -21,7 +23,10 @@ import type { MethodTag } from '@/lib/i18n'
  * 5. DOM visibility check (cosmetic filters) — detects CSS-based ad hiding
  *
  * Key improvement: uses MULTIPLE detection methods per URL simultaneously.
- * If ANY method detects blocking → resource is considered BLOCKED.
+ * If a method clearly detects blocking → resource is considered BLOCKED.
+ * If at least one method clearly loads the resource and none detect blocking,
+ * the resource is considered NOT BLOCKED.
+ * Otherwise the result is INCONCLUSIVE.
  * This catches $redirect rules where scripts load as neutered versions but
  * fetch is still blocked by the generic ||domain.com^ rule.
  */
@@ -112,7 +117,7 @@ function checkPerformanceEntry(
  * After successful fetch, we verify via Performance API to catch edge cases
  * like DNS-level blocking where the browser still creates a Performance entry.
  */
-async function detectViaFetch(url: string): Promise<boolean> {
+async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
   try {
     await fetch(url, { mode: 'no-cors', cache: 'no-store' })
     // Fetch resolved (opaque response) — request went through
@@ -122,17 +127,26 @@ async function detectViaFetch(url: string): Promise<boolean> {
     if (perfResult === 'not-found') {
       // No Performance entry despite fetch success → ad blocker redirected
       // to an extension URL (the entry has the extension URL, not ours)
-      return true
+      return 'blocked'
     }
     if (perfResult === 'blocked') {
       // Performance entry shows DNS-level blocking
-      return true
+      return 'blocked'
     }
     // Real response confirmed
-    return false
+    return 'not-blocked'
   } catch {
-    // Fetch failed → BLOCKED (network error from ad blocker or DNS failure)
-    return true
+    // A raw fetch failure alone is ambiguous in browsers.
+    // Verify via Performance API first; otherwise surface it as inconclusive.
+    await delay(120)
+    const perfResult = checkPerformanceEntry(url)
+    if (perfResult === 'blocked') {
+      return 'blocked'
+    }
+    if (perfResult === 'loaded') {
+      return 'not-blocked'
+    }
+    return 'inconclusive'
   }
 }
 
@@ -140,7 +154,7 @@ async function detectViaFetch(url: string): Promise<boolean> {
  * Detect blocking via <link rel="preload" as="script"> (matches $script rules).
  * Safe: does not execute any code.
  */
-function detectViaPreload(url: string): Promise<boolean> {
+function detectViaPreload(url: string): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     const link = document.createElement('link')
     link.rel = 'preload'
@@ -159,7 +173,7 @@ function detectViaPreload(url: string): Promise<boolean> {
       cleanup()
       // Preload succeeded — but could be a neutered $redirect resource.
       // We don't trust onload alone; the fetch method handles redirect detection.
-      resolve(false)
+      resolve('not-blocked')
     }
 
     link.onerror = () => {
@@ -170,10 +184,12 @@ function detectViaPreload(url: string): Promise<boolean> {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Request reached server (CORS or 404) — NOT blocked
-          resolve(false)
+          resolve('not-blocked')
+        } else if (perf === 'blocked') {
+          resolve('blocked')
         } else {
-          // No entry or blocked entry → BLOCKED
-          resolve(true)
+          // No entry usually means the blocker intercepted before request dispatch.
+          resolve('blocked')
         }
       }, 200)
     }
@@ -183,7 +199,7 @@ function detectViaPreload(url: string): Promise<boolean> {
     // Timeout for preload
     setTimeout(() => {
       cleanup()
-      resolve(true)
+      resolve('inconclusive')
     }, 10000)
   })
 }
@@ -191,12 +207,12 @@ function detectViaPreload(url: string): Promise<boolean> {
 /**
  * Detect blocking via <img> element (matches $image rules).
  */
-function detectViaImage(url: string): Promise<boolean> {
+function detectViaImage(url: string): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     const img = new Image()
 
     img.onload = () => {
-      resolve(false) // Image loaded — NOT blocked
+      resolve('not-blocked') // Image loaded — NOT blocked
     }
 
     img.onerror = () => {
@@ -206,10 +222,12 @@ function detectViaImage(url: string): Promise<boolean> {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Server responded (just not with a valid image) — NOT blocked
-          resolve(false)
+          resolve('not-blocked')
+        } else if (perf === 'blocked') {
+          resolve('blocked')
         } else {
-          // No entry or DNS-blocked → BLOCKED
-          resolve(true)
+          // No entry usually means interception before the request reached network.
+          resolve('blocked')
         }
       }, 200)
     }
@@ -217,7 +235,7 @@ function detectViaImage(url: string): Promise<boolean> {
     img.src = url
 
     // Timeout for image
-    setTimeout(() => resolve(true), 10000)
+    setTimeout(() => resolve('inconclusive'), 10000)
   })
 }
 
@@ -312,7 +330,10 @@ export function testBaitElement(test: {
  * Core network test: detects if a URL is blocked by the ad blocker.
  *
  * Strategy: run MULTIPLE detection methods simultaneously and combine results.
- * If ANY method detects blocking → resource is considered BLOCKED.
+ * Priority order:
+ * 1. If any method clearly detects blocking → BLOCKED
+ * 2. Else if any method clearly loads the resource → NOT BLOCKED
+ * 3. Else → INCONCLUSIVE
  *
  * This multi-method approach catches:
  * - Generic URL-pattern rules (||domain.com^) — caught by ALL methods
@@ -323,20 +344,19 @@ export function testBaitElement(test: {
  *
  * Method combinations by URL type:
  * - .js URLs:  fetch + <link preload>
- * - Image URLs: fetch + <img>
- * - Other URLs: fetch only (API endpoints, tracking pixels without extension)
+ * - Other URLs: fetch + <img>
  */
-export function testNetworkResource(url: string): Promise<boolean> {
+export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     let settled = false
-    const finish = (blocked: boolean) => {
+    const finish = (status: NetworkTestStatus) => {
       if (settled) return
       settled = true
-      resolve(blocked)
+      resolve(status)
     }
 
     // Collect detection promises
-    const detections: Promise<boolean>[] = []
+    const detections: Promise<NetworkTestStatus>[] = []
 
     // Method 1: Fetch-based detection (always — catches generic rules)
     detections.push(detectViaFetch(url))
@@ -344,22 +364,29 @@ export function testNetworkResource(url: string): Promise<boolean> {
     // Method 2: Type-specific element-based detection
     if (isScriptUrl(url)) {
       detections.push(detectViaPreload(url))
-    } else if (isImageUrl(url)) {
+    } else {
       detections.push(detectViaImage(url))
     }
 
-    // Combine results: if ANY method detects blocking → BLOCKED
+    // Combine results using a conservative priority order.
     Promise.all(detections)
       .then((results) => {
-        const isBlocked = results.some((blocked) => blocked)
-        finish(isBlocked)
+        if (results.includes('blocked')) {
+          finish('blocked')
+          return
+        }
+        if (results.includes('not-blocked')) {
+          finish('not-blocked')
+          return
+        }
+        finish('inconclusive')
       })
       .catch(() => {
-        finish(true) // If anything throws, assume blocked
+        finish('inconclusive')
       })
 
-    // Safety timeout — if nothing responds in 15s, assume blocked
-    setTimeout(() => finish(true), 15000)
+    // Safety timeout — if nothing responds in 15s, surface an honest unknown.
+    setTimeout(() => finish('inconclusive'), 15000)
   })
 }
 
