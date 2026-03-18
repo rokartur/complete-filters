@@ -1,181 +1,143 @@
 # Polish Complete Filters
 
-## ⚠️ Bardzo agresywne filtry
+Kompletna, agresywna lista filtrów dla polskiego internetu, zbudowana jako agregat wielu publicznych źródeł dla adblockerów.
 
-> **Uwaga:**
-> Filtry zawarte w tej liście są **bardzo agresywne**.
-> Niektóre strony internetowe lub ich elementy mogą działać niepoprawnie albo przestać działać całkowicie.
+## TL;DR
 
-Jeżeli zauważysz problemy z działaniem strony, zgłoś je w **Issues**.
+- to jedna zbiorcza lista filtrów dla polskiego internetu,
+- działa agresywnie, więc czasem może psuć elementy stron,
+- dodasz ją przez: <https://rokartur.github.io/polish-complete-filters/>,
+- bezpośredni URL listy: `https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt`,
 
-## Wyjątki kompatybilności
+- jeśli coś przestaje działać, zgłoś problem: <https://github.com/rokartur/polish-complete-filters/issues/new/choose>
 
-Lista zawiera kilka jawnych wyjątków dla infrastruktury developerskiej, żeby nie psuć narzędzi systemowych i CLI.
+## Najważniejsze informacje
 
-Dotyczy to szczególnie konfiguracji z filtrowaniem systemowym lub DNS, np. AdGuard DNS / AdGuard Desktop.
+- blokuje reklamy, tracking, popupy i inne irytujące elementy stron,
+- łączy wiele publicznych list w jeden zestaw reguł,
+- usuwa duplikaty i scala reguły do jednego pliku,
+- jest przeznaczona głównie dla polskich użytkowników internetu.
 
----
+## Uwaga: to są bardzo agresywne filtry
 
-## O projekcie
+> Ta lista została przygotowana z naciskiem na maksymalną skuteczność blokowania.
+> W praktyce oznacza to, że niektóre strony albo ich elementy mogą działać niepoprawnie.
 
-**Polish Complete Filters** to projekt mający na celu utrzymywanie **kompletnej listy filtrów dla adblocków przeznaczonej dla polskiego internetu**.
+Jeśli zauważysz problem:
 
-Repozytorium zbiera i aktualizuje reguły filtrów blokujące między innymi:
-
-* reklamy
-* elementy sponsorowane
-* trackery
-* popupy
-* irytujące elementy stron
-
-Projekt jest przeznaczony głównie dla **polskich użytkowników internetu** i działa z większością popularnych rozszerzeń blokujących reklamy.
-
----
-
-# Obsługiwane adblocki
-
-Lista filtrów powinna działać z:
-
-* **uBlock Origin**
-* **AdGuard**
-* **AdBlock**
-* **Adblock Plus**
-* **Brave Browser** (wbudowany adblock)
-* innymi narzędziami kompatybilnymi z filtrowaniem Adblock
-
----
-
-# Lista filtrów
-
-Główna lista filtrów:
-
-```
-https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt
-```
+- sprawdź, czy znika po wyłączeniu listy,
+- upewnij się, że nie został już zgłoszony,
+- zgłoś błąd tutaj: [Issues](https://github.com/rokartur/polish-complete-filters/issues/new/choose).
 
 ## Szybka instalacja
 
-Kliknij poniżej, aby dodać listę automatycznie:
+Najprostsza opcja:
 
-<a href="https://rokartur.github.io/polish-complete-filters/">
-  <img src="https://img.shields.io/badge/Dodaj%20do%20adblocka-red?style=for-the-badge&logo=adblock" alt="Dodaj do adblocka">
-</a> 
+- wejdź na stronę projektu: <https://rokartur.github.io/polish-complete-filters/>
 
----
+Możesz też dodać listę ręcznie przez URL:
 
-## Instalacja ręczna
-
-1. Otwórz ustawienia swojego adblockera
-2. Przejdź do sekcji **Własne filtry / Custom filters**
-3. Dodaj adres listy filtrów:
-
-```
+```txt
 https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt
 ```
 
-4. Zaktualizuj listy filtrów
+## Instalacja ręczna
 
----
+1. Otwórz ustawienia swojego adblockera.
+2. Przejdź do sekcji typu **Własne filtry** / **Custom filters**.
+3. Dodaj adres listy:
 
-# Cel projektu
+   ```txt
+   https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt
+   ```
 
-Celem projektu jest stworzenie **jednej kompletnej listy filtrów dla polskiego internetu**, która agreguje wiele istniejących list w jednym miejscu.
+4. Zapisz zmiany i odśwież listy filtrów.
 
-Projekt ma na celu:
+## Obsługiwane adblocki
 
-* utrzymywanie **aktualnych filtrów**
-* usuwanie **duplikatów reguł**
-* poprawę **skuteczności blokowania**
-* uproszczenie **instalacji filtrów dla użytkowników**
+Lista powinna działać z większością narzędzi kompatybilnych ze składnią Adblock, w szczególności:
 
----
+- **uBlock Origin**,
+- **AdGuard**,
+- **AdBlock**,
+- **Adblock Plus**,
+- **Brave Browser** (wbudowane filtrowanie),
+- innymi rozwiązaniami zgodnymi z listami filtrów Adblock.
 
-# Automatyczne aktualizacje
+## Kiedy używać ostrożnie
 
-Repozytorium jest przygotowywane pod **automatyczne aktualizacje filtrów**.
+Szczególną ostrożność warto zachować przy filtrowaniu na poziomie systemowym lub DNS, np. w konfiguracjach takich jak:
 
-Docelowy skrypt będzie:
+- **AdGuard DNS**,
+- **AdGuard Desktop**,
+- inne rozwiązania filtrujące cały ruch systemowy.
 
-* pobierał filtry z różnych repozytoriów
-* łączył je w jedną listę
-* usuwał duplikaty
-* publikował zaktualizowaną listę w repozytorium
+Repozytorium zawiera kilka jawnych wyjątków kompatybilności dla infrastruktury developerskiej, żeby ograniczyć ryzyko psucia narzędzi systemowych i CLI.
 
-Dzięki temu lista filtrów będzie **regularnie aktualizowana bez ręcznej ingerencji**.
+## Cel projektu
 
----
+Celem projektu jest utrzymywanie jednej możliwie kompletnej listy filtrów dla polskiego internetu, która:
 
-# Źródła filtrów (Attribution)
+- agreguje istniejące źródła,
+- usuwa duplikaty reguł,
+- poprawia skuteczność blokowania,
+- upraszcza instalację dla użytkownika końcowego.
 
-Projekt korzysta z filtrów oraz reguł pochodzących z publicznych projektów społeczności adblock.
+## Jak działa generator
 
-Pełne prawa do tych filtrów należą do ich autorów.
-Projekt korzysta z filtrów oraz reguł pochodzących z publicznych projektów społeczności adblock.
+Skrypt `build.py`:
 
-Pełne prawa do tych filtrów należą do ich autorów.
+1. pobiera listy z adresów zapisanych w `filters.txt`,
+2. ładuje lokalne reguły dodatkowe z `manual-rules/`,
+3. normalizuje i porządkuje reguły,
+4. usuwa duplikaty,
+5. zapisuje wynik do `polish-complete-filters.txt`.
 
-<details>
-<summary><strong>Pokaż listę źródeł filtrów</strong></summary>
+## Źródła filtrów i attribution
 
-<br>
+Projekt jest agregatorem. Korzysta z publicznie dostępnych list społeczności adblock i zachowuje prawa oraz licencje ich autorów.
 
-## Polish Ads Filter — MajkiIT
+Pełną listę źródeł znajdziesz w pliku [`filters.txt`](./filters.txt).
 
-Oficjalne polskie filtry dla AdBlock, uBlock Origin i AdGuard.
+Przykładowe ważne źródła wykorzystywane w projekcie:
 
-https://github.com/MajkiIT/polish-ads-filter
+- [MajkiIT / polish-ads-filter](https://github.com/MajkiIT/polish-ads-filter)
+- [FiltersHeroes / PolishAnnoyanceFilters](https://github.com/FiltersHeroes/PolishAnnoyanceFilters)
+- [FiltersHeroes / KAD](https://github.com/FiltersHeroes/KAD)
+- [uBlockOrigin / uAssets](https://github.com/uBlockOrigin/uAssets)
+- [AdGuard filters](https://github.com/AdguardTeam/AdguardFilters)
+- [HaGeZi DNS blocklists](https://github.com/hagezi/dns-blocklists)
 
----
+## Zgłaszanie problemów
 
-## Polish Annoyance Filters — FiltersHeroes
+Warto zgłaszać przede wszystkim:
 
-Filtry blokujące irytujące elementy stron, takie jak:
+- strony, które przestają działać po włączeniu listy,
+- fałszywe blokady,
+- niewyłapane reklamy lub trackery,
+- propozycje wyjątków kompatybilności,
+- nowe źródła lub reguły warte dodania.
 
-- popupy
-- powiadomienia push
-- newslettery
-- widgety
+Zgłoszenia można tworzyć tutaj:
 
-https://github.com/FiltersHeroes/PolishAnnoyanceFilters
+- <https://github.com/rokartur/polish-complete-filters/issues/new/choose>
 
----
+## Współtworzenie projektu
 
-## KAD — Anti-Scam Filter List
+Każdy może pomóc w rozwoju projektu.
 
-Filtry blokujące:
+Najprostszy workflow:
 
-- phishing
-- fałszywe sklepy
-- scam strony
-- złośliwe domeny
+1. zrób fork repozytorium,
+2. dodaj lub popraw reguły,
+3. uruchom generator lokalnie,
+4. sprawdź wynik,
+5. otwórz Pull Request.
 
-https://github.com/FiltersHeroes/KAD
+## Licencja
 
-</details>
+Ten projekt działa jako agregator filtrów.
 
----
-
-# Zgłaszanie problemów
-
-Jeśli zauważysz:
-
-* problemy z działaniem filtrów
-
-
----
-
-# Współtworzenie projektu
-
-Każdy może pomóc rozwijać projekt.
-
-1. Fork repozytorium
-2. Dodaj nowe reguły lub poprawki
-3. Utwórz Pull Request
-
----
-
-# Licencja
-
-Projekt działa jako **agregator filtrów**.
-
-Każda lista filtrów użyta w projekcie pozostaje na **licencji swojego autora**.
+- kod i dokumentacja repozytorium są objęte licencją opisaną w pliku [`LICENSE`](./LICENSE),
+- poszczególne listy źródłowe i treści upstreamowe pozostają na licencjach swoich autorów,
+- przed dalszą redystrybucją warto sprawdzić warunki licencyjne upstreamów.
