@@ -32,6 +32,40 @@ const disallowedUrlPatterns = [
   },
 ]
 
+const knownDeadDomains = [
+  'coinhive.com',
+  'authedmine.com',
+  'coin-hive.com',
+  'load.jsecoin.com',
+  'webminepool.com',
+  'ppoi.org',
+  'minero.cc',
+  'deepminer.online',
+  'flashupdate.info',
+  'config.bluecava.com',
+  'shorte.st',
+]
+
+const suspiciousTldPattern = /\.(?:tk|gq|cf|ga|ml)$/i
+
+const nameDomainExpectations = [
+  {
+    label: 'Tradedoubler',
+    nameRegex: /tradedoubler/i,
+    domainRegex: /(^|\.)tradedoubler\.com$/i,
+  },
+  {
+    label: 'PopAds',
+    nameRegex: /popads/i,
+    domainRegex: /(^|\.)popads\.net$/i,
+  },
+  {
+    label: 'Tapad',
+    nameRegex: /tapad/i,
+    domainRegex: /(^|\.)tapad\.com$/i,
+  },
+]
+
 const entries = []
 
 for (const file of files) {
@@ -53,8 +87,12 @@ for (const entry of entries) {
 const duplicateUrlFailures = [...duplicateUrls.entries()].filter(([, refs]) => refs.length > 1)
 
 const invalidUrlFailures = []
+const deadDomainFailures = []
+const suspiciousTldWarnings = []
+const nameDomainWarnings = []
 for (const entry of entries) {
   if (!entry.url) continue
+
   for (const rule of disallowedUrlPatterns) {
     if (rule.regex.test(entry.url)) {
       invalidUrlFailures.push({
@@ -65,10 +103,68 @@ for (const entry of entries) {
       })
     }
   }
+
+  let hostname = ''
+  try {
+    hostname = new URL(entry.url).hostname
+  } catch {
+    continue
+  }
+
+  if (knownDeadDomains.includes(hostname)) {
+    deadDomainFailures.push({
+      file: entry.file,
+      name: entry.name,
+      url: entry.url,
+      reason: 'known-dead-domain',
+    })
+  }
+
+  if (suspiciousTldPattern.test(hostname)) {
+    suspiciousTldWarnings.push({
+      file: entry.file,
+      name: entry.name,
+      url: entry.url,
+      hostname,
+    })
+  }
+
+  for (const expectation of nameDomainExpectations) {
+    if (expectation.nameRegex.test(entry.name) && !expectation.domainRegex.test(hostname)) {
+      nameDomainWarnings.push({
+        file: entry.file,
+        name: entry.name,
+        url: entry.url,
+        expected: expectation.label,
+      })
+    }
+  }
 }
 
-if (duplicateUrlFailures.length === 0 && invalidUrlFailures.length === 0) {
+if (
+  duplicateUrlFailures.length === 0 &&
+  invalidUrlFailures.length === 0 &&
+  deadDomainFailures.length === 0
+) {
   console.log(`✓ Test definitions validated successfully (${entries.length} entries checked)`)
+  if (suspiciousTldWarnings.length > 0 || nameDomainWarnings.length > 0) {
+    console.warn('')
+  }
+  if (suspiciousTldWarnings.length > 0) {
+    console.warn('Warnings: suspicious TLDs detected:')
+    for (const warning of suspiciousTldWarnings) {
+      console.warn(`  - ${warning.file}:${warning.name} -> ${warning.url}`)
+    }
+  }
+  if (nameDomainWarnings.length > 0) {
+    if (suspiciousTldWarnings.length > 0) console.warn('')
+    console.warn('Warnings: name/domain mismatches detected:')
+    for (const warning of nameDomainWarnings) {
+      console.warn(
+        `  - [${warning.expected}] ${warning.file}:${warning.name} -> ${warning.url}`
+      )
+    }
+  }
   process.exit(0)
 }
 
@@ -90,6 +186,34 @@ if (invalidUrlFailures.length > 0) {
   for (const failure of invalidUrlFailures) {
     console.error(
       `  - [${failure.reason}] ${failure.file}:${failure.name} -> ${failure.url}`
+    )
+  }
+  console.error('')
+}
+
+if (deadDomainFailures.length > 0) {
+  console.error('Known dead domains:')
+  for (const failure of deadDomainFailures) {
+    console.error(
+      `  - [${failure.reason}] ${failure.file}:${failure.name} -> ${failure.url}`
+    )
+  }
+  console.error('')
+}
+
+if (suspiciousTldWarnings.length > 0) {
+  console.error('Warnings: suspicious TLDs:')
+  for (const warning of suspiciousTldWarnings) {
+    console.error(`  - ${warning.file}:${warning.name} -> ${warning.url}`)
+  }
+  console.error('')
+}
+
+if (nameDomainWarnings.length > 0) {
+  console.error('Warnings: name/domain mismatches:')
+  for (const warning of nameDomainWarnings) {
+    console.error(
+      `  - [${warning.expected}] ${warning.file}:${warning.name} -> ${warning.url}`
     )
   }
   console.error('')

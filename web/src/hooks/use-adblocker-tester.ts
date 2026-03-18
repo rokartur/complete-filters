@@ -20,6 +20,8 @@ export interface GradeInfo {
   colorClass: string
 }
 
+const PERFORMANCE_CLEAR_SETTLE_DELAY_MS = 300
+
 const TOTAL_TESTS = TEST_CATEGORIES.reduce((sum, category) => sum + category.tests.length, 0)
 
 function createInitialResults(): Record<string, TestStatus> {
@@ -47,7 +49,7 @@ function computeStats(results: Record<string, TestStatus>): TestStats {
 }
 
 function computeGrade(stats: TestStats): GradeInfo | null {
-  const tested = stats.blocked + stats.notBlocked
+  const tested = stats.blocked + stats.notBlocked + stats.inconclusive
   if (tested === 0) return null
 
   const pct = Math.round((stats.blocked / tested) * 100)
@@ -190,6 +192,11 @@ export function useAdBlockTester() {
             }
           })
         )
+        // Some underlying detection methods still read Performance API entries
+        // briefly after the main test promise resolves. Give them a small grace
+        // period before clearing the buffer.
+        await new Promise((r) => setTimeout(r, PERFORMANCE_CLEAR_SETTLE_DELAY_MS))
+
         // Clear performance entries between batches to avoid buffer overflow
         try {
           performance.clearResourceTimings()

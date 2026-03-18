@@ -9,7 +9,7 @@ export const affiliateTracking: TestCategory = {
     { name: 'ShareASale', url: 'https://www.shareasale.com/shareasale.js' },
     { name: 'ClickBank', url: 'https://www.clickbank.net/storefront/' },
     { name: 'Awin', url: 'https://www.dwin1.com/0.js' },
-    { name: 'Tradedoubler', url: 'https://pi.pardot.com/pd.js' },
+    { name: 'Tradedoubler', url: 'https://pf.tradedoubler.com/pf/tr' },
     { name: 'Skimlinks', url: 'https://s.skimresources.com/js/0.js' },
     { name: 'VigLink', url: 'https://cdn.viglink.com/api/vglnk.js' },
   ],

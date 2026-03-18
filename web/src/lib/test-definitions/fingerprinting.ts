@@ -7,7 +7,7 @@ export const fingerprinting: TestCategory = {
     { name: 'FingerprintJS', url: 'https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js' },
     { name: 'ID5', url: 'https://cdn.id5-sync.com/api/1.0/id5-api.js' },
     { name: 'LiveRamp', url: 'https://launch.ats.rlcdn.com/ats.min.js' },
-    { name: 'BlueCava', url: 'https://config.bluecava.com/v8/bc.js' },
+    { name: 'Tapad', url: 'https://pixel.tapad.com/idsync/ex/receive/check?partner_id=example' },
     { name: 'Session Replay (LogRocket)', url: 'https://cdn.lr-in-prod.com/LogRocket.min.js' },
     { name: 'Session Replay (Smartlook)', url: 'https://web-sdk.smartlook.com/recorder.js' },
     { name: 'WebTrends', url: 'https://s.webtrends.com/js/webtrends.min.js' },

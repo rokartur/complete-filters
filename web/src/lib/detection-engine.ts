@@ -44,6 +44,7 @@ const PERFORMANCE_SETTLE_DELAY_MS = 80
 const ELEMENT_ERROR_SETTLE_DELAY_MS = 150
 const ELEMENT_TIMEOUT_MS = 4000
 const NETWORK_TEST_TIMEOUT_MS = 6000
+const BAIT_CLEANUP_TIMEOUT_MS = 1500
 
 /**
  * Check whether a URL looks like a JavaScript file based on extension.
@@ -141,10 +142,23 @@ async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
     // Real response confirmed
     return 'not-blocked'
   } catch {
-    // fetch() with mode:'no-cors' suppresses CORS errors (returns opaque
-    // response instead of throwing). So a failure here means the request was
-    // genuinely cancelled — by a browser extension, DNS blocker, or network
-    // error. For well-known tracking domains this is effectively blocking.
+    // A thrown fetch error can mean browser-extension blocking, DNS-level
+    // blocking, or a genuine transport failure. Give the Performance API a
+    // brief chance to settle before deciding.
+    await delay(PERFORMANCE_SETTLE_DELAY_MS)
+    const perfResult = checkPerformanceEntry(url)
+    if (perfResult === 'blocked') {
+      return 'blocked'
+    }
+    if (perfResult === 'loaded') {
+      // The request appears to have reached the network even though fetch
+      // failed. This is unusual, so surface an honest unknown instead of a
+      // misleading positive/negative.
+      return 'inconclusive'
+    }
+
+    // No performance entry at all still most commonly means interception
+    // before network dispatch (extension-level blocking).
     return 'blocked'
   }
 }
@@ -282,6 +296,23 @@ export function testBaitElement(test: {
 
     document.body.appendChild(bait)
 
+    let settled = false
+    let cleanupTimeoutId: number | undefined
+
+    const finish = (blocked: boolean) => {
+      if (settled) return
+      settled = true
+      if (cleanupTimeoutId !== undefined) {
+        window.clearTimeout(cleanupTimeoutId)
+      }
+      try {
+        bait.remove()
+      } catch {
+        /* already removed */
+      }
+      resolve(blocked)
+    }
+
     const checkBlocked = (): boolean => {
       try {
         if (!document.body.contains(bait)) {
@@ -292,7 +323,8 @@ export function testBaitElement(test: {
           style.display === 'none' ||
           style.visibility === 'hidden' ||
           style.opacity === '0' ||
-          style.position === 'absolute' && style.clip === 'rect(0px, 0px, 0px, 0px)' ||
+          (style.position === 'absolute' &&
+            style.clip === 'rect(0px, 0px, 0px, 0px)') ||
           style.height === '0px' ||
           style.maxHeight === '0px' ||
           bait.offsetHeight === 0 ||
@@ -314,12 +346,7 @@ export function testBaitElement(test: {
 
     const runCheck = () => {
       if (checkBlocked()) {
-        try {
-          bait.remove()
-        } catch {
-          /* already removed */
-        }
-        resolve(true)
+        finish(true)
         return
       }
 
@@ -328,14 +355,13 @@ export function testBaitElement(test: {
         setTimeout(runCheck, checkTimes[checkIndex] - checkTimes[checkIndex - 1])
       } else {
         // All checks passed — not blocked
-        try {
-          bait.remove()
-        } catch {
-          /* already removed */
-        }
-        resolve(false)
+        finish(false)
       }
     }
+
+    cleanupTimeoutId = window.setTimeout(() => {
+      finish(checkBlocked())
+    }, checkTimes[checkTimes.length - 1] + BAIT_CLEANUP_TIMEOUT_MS)
 
     setTimeout(runCheck, checkTimes[0])
   })
@@ -359,7 +385,8 @@ export function testBaitElement(test: {
  *
  * Method combinations by URL type:
  * - .js URLs:  fetch + <link preload>
- * - Other URLs: fetch + <img>
+ * - Image URLs: fetch + <img>
+ * - Other URLs: fetch only
  */
 export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
@@ -381,7 +408,7 @@ export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
     // Method 2: Type-specific element-based detection
     if (isScriptUrl(url)) {
       detections.push(detectViaPreload(url))
-    } else {
+    } else if (isImageUrl(url)) {
       detections.push(detectViaImage(url))
     }
 

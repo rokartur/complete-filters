@@ -5,7 +5,7 @@ export const urlShorteners: TestCategory = {
   name: 'Skracacze linków / monetizacja',
   tests: [
     { name: 'adf.ly', url: 'https://adf.ly/js/entry.js' },
-    { name: 'shorte.st', url: 'https://shorte.st/js/packed.js' },
+    { name: 'exe.io', url: 'https://exe.io/js/full-page-script.js' },
     { name: 'linkvertise', url: 'https://linkvertise.com/cdn/publisher.js' },
   ],
 }
