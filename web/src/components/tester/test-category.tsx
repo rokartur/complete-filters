@@ -111,7 +111,7 @@ export function TestCategoryList({
   }
 
   return (
-    <Accordion type="multiple" defaultValue={[]} className="w-full space-y-4">
+    <Accordion type="multiple" defaultValue={[]} className="w-full space-y-2.5">
       {visibleCategories.map(({ category, visibleTests }) => {
         const catStats = getCategoryStats(category.id)
         const CategoryIcon = categoryIcons[category.id] ?? ChartColumn
@@ -123,33 +123,36 @@ export function TestCategoryList({
             value={category.id}
             className="w-full border border-border bg-card overflow-hidden transition-colors hover:border-foreground/30 rounded-none!"
           >
-            <AccordionTrigger className="flex flex-1 justify-between items-center px-4 py-4 hover:bg-muted/50 hover:no-underline transition-colors sm:px-6">
-              <div className="flex flex-1 flex-col gap-3 pr-2 sm:flex-row sm:items-center sm:justify-between sm:pr-4">
-                <div className="flex min-w-0 items-center gap-4">
+            <AccordionTrigger className="flex flex-1 items-center justify-between px-3 py-3 transition-colors hover:bg-muted/40 hover:no-underline sm:px-4">
+              <div className="flex flex-1 flex-col gap-2 pr-2 sm:flex-row sm:items-center sm:justify-between sm:pr-3">
+                <div className="flex min-w-0 items-center gap-3">
                   <span
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center border border-current transition-colors ${
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center border border-current transition-colors ${
                       isCategoryFullyBlocked
                         ? 'bg-emerald-500/10 text-emerald-400'
                         : 'bg-primary/5 text-primary/70'
                     }`}
                   >
-                    <CategoryIcon className="h-5 w-5 shrink-0" />
+                    <CategoryIcon className="h-4 w-4 shrink-0" />
                   </span>
-                  <div className="flex min-w-0 flex-col items-start font-mono">
-                    <span className="font-bold text-sm text-foreground uppercase tracking-widest">
+                  <div className="flex min-w-0 flex-col items-start font-mono leading-none">
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-foreground sm:text-[13px]">
                       {translateCategoryName(category.id, category.name)}
                     </span>
-                    <span className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1">
-                      {t.tester.testsCount(category.tests.length)}
+                    <span className="mt-1 text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                      {t.tester.testsCount(visibleTests.length)}
+                      {filter !== 'all' && visibleTests.length !== category.tests.length
+                        ? ` / ${category.tests.length}`
+                        : ''}
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-6 text-sm font-mono mt-2 sm:mt-0">
-                  <span className="flex items-center gap-2 font-bold text-[10px] tracking-widest">
+                <div className="mt-1 flex items-center gap-3 text-sm font-mono sm:mt-0 sm:justify-end">
+                  <span className="flex items-center gap-1.5 font-bold text-[9px] tracking-[0.18em]">
                     <span className="inline-block h-1.5 w-1.5 bg-emerald-400" />
                     <span className="text-emerald-400 tabular-nums">PASS:{catStats.blocked}</span>
                   </span>
-                  <span className="flex items-center gap-2 font-bold text-[10px] tracking-widest">
+                  <span className="flex items-center gap-1.5 font-bold text-[9px] tracking-[0.18em]">
                     <span className="inline-block h-1.5 w-1.5 bg-red-400" />
                     <span className="text-red-400 tabular-nums">FAIL:{catStats.notBlocked}</span>
                   </span>
