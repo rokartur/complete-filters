@@ -15,6 +15,7 @@ DEFAULT_INPUT = ROOT / "filters.txt"
 DEFAULT_OUTPUT = ROOT / "polish-complete-filters.txt"
 DEFAULT_EXTRA_RULESETS = (
     ROOT / "manual-rules" / "developer-infrastructure-allowlist.txt",
+    ROOT / "manual-rules" / "manual-blocklist.txt",
 )
 DEFAULT_JOBS = 10
 MAX_RETRIES = 3

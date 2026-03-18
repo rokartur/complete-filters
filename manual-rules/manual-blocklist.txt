@@ -1,0 +1,22 @@
+! Manual blocklist
+! Additional explicit blocking rules for endpoints that should always be covered by the generated list.
+!
+! Ad / monetization scripts
+||g.ezoic.net/ezoic/ezoic.js$script
+||linkvertise.com/cdn/publisher.js$script
+!
+! Marketing / widgets / tracking
+||widget.user.com/widget.js$script
+||eu.posthog.com/static/array.js$script
+||trk.klclick.com^
+||mon.musical.ly/monitor/collect/
+!
+! Fingerprinting / anti-bot / anti-adblock
+||client-api.arkoselabs.com/v2/0/api.js$script
+||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$script
+||gdpr-tcfv2.sp-prod.net/wrapperMessagingWithoutDetection.js$script
+!
+! Embedded media / social widgets
+||fast.wistia.com/assets/external/E-v1.js$script
+||play.vidyard.com/embed/v4.js$script
+||vk.com/js/api/openapi.js$script
