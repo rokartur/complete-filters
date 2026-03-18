@@ -35,9 +35,9 @@
 ||us.posthog.com/static/array.full.js
 ||us.posthog.com/static/exception-autocapture.js
 ||us.posthog.com/static/surveys.js
-||eu.posthog.com/static/array.full.js
-||eu.posthog.com/static/exception-autocapture.js
-||eu.posthog.com/static/surveys.js
+||eu.posthog.com/static/array.full.js$script,important
+||eu.posthog.com/static/exception-autocapture.js$script,important
+||eu.posthog.com/static/surveys.js$script,important
 ||www.datadoghq-browser-agent.com/datadog-rum-v5.js
 ||www.datadoghq-browser-agent.com/datadog-logs-v5.js
 ||www.datadoghq-browser-agent.com/us1/v5/datadog-logs.js
@@ -52,7 +52,7 @@
 ||uponit.com/front.js
 ||asset.pagefair.com/measures.js
 ||cdn.blockadblock.com/blockadblock.js
-||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js
+||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$script,important
 ||gdpr-tcfv2.sp-prod.net/wrapperMessagingWithoutDetection.js
 !
 ! Email Tracking Pixels
@@ -64,6 +64,9 @@
 ||sibautomation.com/sa.js
 ||f.convertkit.com/ckjs/ck.5.js
 ||trk.klclick.com^
+!
+! Consent / CMP exact overrides
+||app.termly.io/embed-policy.min.js$script,important
 !
 ! Retargeting / Affiliate Tracking
 ||creativecdn.com/tags
