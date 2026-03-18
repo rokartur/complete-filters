@@ -3,32 +3,33 @@ import type { MethodTag } from '@/lib/i18n'
 export type NetworkTestStatus = 'blocked' | 'not-blocked' | 'inconclusive'
 
 /**
- * Ad Blocker Detection Engine v2
+ * Ad Blocker Detection Engine v3
  *
  * Detects whether URLs/elements are blocked by:
  * - Browser-based ad blockers (uBlock Origin, AdGuard, etc.)
  * - DNS-level blockers (Pi-hole, AdGuard Home, NextDNS, etc.)
- * - $redirect / $redirect-rule neutering (uBlock Origin redirects to empty scripts)
  *
- * Detection methods (combined for maximum accuracy):
- * 1. fetch() with mode: 'no-cors' — primary detector; catches generic URL rules,
- *    $third-party, $xmlhttprequest, and most $redirect rules (because generic
- *    block rules like ||domain.com^ block all request types)
- * 2. <link rel="preload" as="script"> — detects $script filter rules
- * 3. <img> element — detects $image filter rules
- * 4. Performance Resource Timing API — disambiguates:
- *    - No entry at all → browser ad blocker intercepted before request
- *    - Entry with responseEnd=0 → DNS-level blocking
- *    - Entry with real timing → NOT blocked (server error / CORS is not blocking)
- * 5. DOM visibility check (cosmetic filters) — detects CSS-based ad hiding
+ * Architecture:
  *
- * Key improvement: uses MULTIPLE detection methods per URL simultaneously.
- * If a method clearly detects blocking → resource is considered BLOCKED.
- * If at least one method clearly loads the resource and none detect blocking,
- * the resource is considered NOT BLOCKED.
- * Otherwise the result is INCONCLUSIVE.
- * This catches $redirect rules where scripts load as neutered versions but
- * fetch is still blocked by the generic ||domain.com^ rule.
+ * PRIMARY signal — fetch() with mode: 'no-cors'
+ *   The authoritative detection method. With no-cors, CORS errors are suppressed:
+ *   - fetch RESOLVES (opaque response) → resource is NOT BLOCKED
+ *   - fetch THROWS TypeError → request was cancelled → resource is BLOCKED
+ *   No Performance API involved — avoids false positives from redirects and
+ *   buffer management issues.
+ *
+ * SECONDARY signal — element-based detection
+ *   <link rel="preload"> for .js URLs, <img> for all others.
+ *   Uses Performance Resource Timing API ONLY in element error handlers to
+ *   distinguish server errors from ad blocker interception:
+ *   - Performance entry with real timing → server responded (CORS/404, not blocked)
+ *   - Performance entry with responseEnd=0 → DNS-level blocking confirmed
+ *   - No Performance entry → INCONCLUSIVE (let fetch make the call)
+ *
+ * COSMETIC signal — DOM visibility check
+ *   Creates bait elements with ad-like class/id and checks if ad blocker hides them.
+ *
+ * Priority when combining signals: BLOCKED > NOT BLOCKED > INCONCLUSIVE
  */
 
 // Increase buffer for 400+ tests (each may generate 2-3 Performance entries)
@@ -38,9 +39,6 @@ try {
   // older browsers may not support this
 }
 
-const delay = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
-
-const PERFORMANCE_SETTLE_DELAY_MS = 80
 const ELEMENT_ERROR_SETTLE_DELAY_MS = 150
 const ELEMENT_TIMEOUT_MS = 4000
 const NETWORK_TEST_TIMEOUT_MS = 6000
@@ -109,56 +107,43 @@ function checkPerformanceEntry(
 }
 
 /**
- * Detect blocking via fetch (matches generic URL rules, $3p, $xmlhttprequest).
+ * Detect blocking via fetch (primary detection method).
  *
- * When an ad blocker blocks a request:
- * - Browser extension (uBlock Origin, etc.): cancels the request → TypeError
- * - DNS-level blocker: DNS resolution fails → TypeError
+ * With `mode: 'no-cors'`, the browser suppresses CORS errors and returns an
+ * opaque response (status 0, null body). This means:
+ * - If fetch() RESOLVES → the HTTP request reached the server and a response
+ *   came back. The resource is NOT BLOCKED.
+ * - If fetch() THROWS TypeError → the request was cancelled before reaching
+ *   the network. This happens when:
+ *   · A browser extension (uBlock Origin, AdGuard) intercepts via webRequest/DNR
+ *   · A DNS-level blocker (Pi-hole, AdGuard Home, NextDNS) returns NXDOMAIN
+ *   · The DNS resolves to 0.0.0.0 (connection refused)
+ *   In all cases, the resource is BLOCKED.
  *
- * When an ad blocker uses $redirect:
- * - The specific resource type (e.g. $script) is redirected to a neutered version
- * - BUT the generic rule (||domain.com^) blocks ALL other types including fetch
- * - So fetch will STILL fail even when a script preload succeeds via redirect
+ * We intentionally do NOT consult the Performance Resource Timing API here.
+ * Reasons:
+ * 1. Many servers redirect (e.g. domain.com/ → www.domain.com/) — the
+ *    Performance entry is recorded under the FINAL URL, not the original,
+ *    causing false 'not-found' results.
+ * 2. When running multiple detection methods in parallel, element-based
+ *    methods (img/preload) create their own Performance entries for the
+ *    same URL, confusing cross-method lookups.
+ * 3. Performance buffer clearing between batches can remove entries
+ *    before they are read.
  *
- * After successful fetch, we verify via Performance API to catch edge cases
- * like DNS-level blocking where the browser still creates a Performance entry.
+ * For $redirect rules (uBlock redirects to neutered noop.js):
+ * - If a generic block rule also exists (||domain.com^), fetch is blocked
+ *   because the block rule matches all request types → TypeError → 'blocked'.
+ * - If only a type-specific redirect exists (||domain.com/x.js$script,redirect=...),
+ *   fetch is not matched (it's xmlhttprequest, not script) → resolves → 'not-blocked'.
+ *   This is technically correct: the domain is reachable, only the specific
+ *   script type is neutered.
  */
 async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
   try {
     await fetch(url, { mode: 'no-cors', cache: 'no-store' })
-    // Fetch resolved (opaque response) — request went through
-    // Wait for Performance API to settle, then verify
-    await delay(PERFORMANCE_SETTLE_DELAY_MS)
-    const perfResult = checkPerformanceEntry(url)
-    if (perfResult === 'not-found') {
-      // No Performance entry despite fetch success → ad blocker redirected
-      // to an extension URL (the entry has the extension URL, not ours)
-      return 'blocked'
-    }
-    if (perfResult === 'blocked') {
-      // Performance entry shows DNS-level blocking
-      return 'blocked'
-    }
-    // Real response confirmed
     return 'not-blocked'
   } catch {
-    // A thrown fetch error can mean browser-extension blocking, DNS-level
-    // blocking, or a genuine transport failure. Give the Performance API a
-    // brief chance to settle before deciding.
-    await delay(PERFORMANCE_SETTLE_DELAY_MS)
-    const perfResult = checkPerformanceEntry(url)
-    if (perfResult === 'blocked') {
-      return 'blocked'
-    }
-    if (perfResult === 'loaded') {
-      // The request appears to have reached the network even though fetch
-      // failed. This is unusual, so surface an honest unknown instead of a
-      // misleading positive/negative.
-      return 'inconclusive'
-    }
-
-    // No performance entry at all still most commonly means interception
-    // before network dispatch (extension-level blocking).
     return 'blocked'
   }
 }
@@ -198,18 +183,23 @@ function detectViaPreload(url: string): Promise<NetworkTestStatus> {
     }
 
     link.onerror = () => {
-      // Preload failed — could be ad blocker or CORS/404.
-      // Check Performance API to distinguish.
+      // Preload failed — could be ad blocker, CORS error, or 404.
+      // Check Performance API to distinguish, but treat 'not-found' as
+      // inconclusive (not 'blocked') because the entry may be missing due
+      // to URL redirects, buffer clearing, or timing issues.
+      // The fetch method is the authoritative signal for blocking.
       setTimeout(() => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Request reached server (CORS or 404) — NOT blocked
           settle('not-blocked')
         } else if (perf === 'blocked') {
+          // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry usually means the blocker intercepted before request dispatch.
-          settle('blocked')
+          // No entry — ambiguous: could be extension blocking OR redirect
+          // OR buffer cleared. Let fetch make the authoritative call.
+          settle('inconclusive')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
@@ -246,17 +236,23 @@ function detectViaImage(url: string): Promise<NetworkTestStatus> {
 
     img.onerror = () => {
       // Image failed — check Performance API to distinguish
-      // blocked vs server error / not-an-image
+      // blocked vs server error / not-an-image.
+      // Treat 'not-found' as inconclusive (not 'blocked') because:
+      // - For non-image URLs, onerror ALWAYS fires (content isn't valid image data)
+      // - The Performance entry may be under a different URL after redirects
+      // - Buffer may have been cleared between batches
+      // The fetch method is the authoritative signal for blocking.
       setTimeout(() => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Server responded (just not with a valid image) — NOT blocked
           settle('not-blocked')
         } else if (perf === 'blocked') {
+          // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry usually means interception before the request reached network.
-          settle('blocked')
+          // No entry — ambiguous. Let fetch make the authoritative call.
+          settle('inconclusive')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
@@ -370,23 +366,26 @@ export function testBaitElement(test: {
 /**
  * Core network test: detects if a URL is blocked by the ad blocker.
  *
- * Strategy: run MULTIPLE detection methods simultaneously and combine results.
- * Priority order:
- * 1. If any method clearly detects blocking → BLOCKED
- * 2. Else if any method clearly loads the resource → NOT BLOCKED
- * 3. Else → INCONCLUSIVE
+ * Strategy: run fetch + element-based detection simultaneously.
  *
- * This multi-method approach catches:
- * - Generic URL-pattern rules (||domain.com^) — caught by ALL methods
- * - Type-specific rules ($script, $image) — caught by respective element tests
- * - $redirect / $redirect-rule neutering — caught by fetch (the generic block
- *   rule still blocks fetch even when the script type is redirected)
- * - DNS-level blocking — caught by Performance API check after fetch fails
+ * fetch() is the PRIMARY and AUTHORITATIVE signal:
+ * - TypeError → request was cancelled by ad blocker → BLOCKED
+ * - Opaque response → server responded → NOT BLOCKED
  *
- * Method combinations by URL type:
- * - .js URLs:  fetch + <link preload>
- * - Image URLs: fetch + <img>
- * - Other URLs: fetch only
+ * Element-based detection is a SECONDARY signal for edge cases:
+ * - Confirms DNS-level blocking via Performance API (responseEnd=0)
+ * - May catch type-specific rules ($script, $image)
+ * - Returns 'inconclusive' when Performance entry is missing (common for
+ *   redirects, buffer clearing, or timing issues)
+ *
+ * Priority order for combining results:
+ * 1. If ANY method clearly detects blocking → BLOCKED (immediate)
+ * 2. Else if ANY method clearly shows the resource loaded → NOT BLOCKED
+ * 3. Else → INCONCLUSIVE (all methods ambiguous or timed out)
+ *
+ * Method combinations:
+ * - .js URLs:   fetch + <link rel="preload" as="script">
+ * - All others: fetch + <img>
  */
 export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
@@ -405,10 +404,14 @@ export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
     // Method 1: Fetch-based detection (always — catches generic rules)
     detections.push(detectViaFetch(url))
 
-    // Method 2: Type-specific element-based detection
+    // Method 2: Element-based detection (always — provides a second signal)
+    // - .js URLs:  <link rel="preload" as="script"> catches $script rules
+    // - All others: <img> element — for non-image URLs onerror always fires,
+    //   but the Performance API check inside onerror distinguishes "server
+    //   responded (not an image)" from "request was blocked before dispatch".
     if (isScriptUrl(url)) {
       detections.push(detectViaPreload(url))
-    } else if (isImageUrl(url)) {
+    } else {
       detections.push(detectViaImage(url))
     }
 
