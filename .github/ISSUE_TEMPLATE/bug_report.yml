@@ -1,0 +1,128 @@
+name: Zgłoś błąd
+description: Zgłoś problem z działaniem strony, fałszywą blokadą albo niewłaściwym filtrowaniem
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Dzięki za zgłoszenie.
+
+        Ten projekt utrzymuje agresywną listę filtrów dla polskiego internetu, więc **dokładne informacje o problemie bardzo pomagają**.
+
+        Jeśli to możliwe, sprawdź przed wysłaniem:
+        - czy problem znika po wyłączeniu tej listy,
+        - czy podobne zgłoszenie nie istnieje już w issues,
+        - czy możesz podać adres strony i kroki do odtworzenia problemu.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Potwierdzenie
+      options:
+        - label: Sprawdziłem/am, że problem jest związany z Polish Complete Filters.
+          required: true
+        - label: Sprawdziłem/am, że podobny problem nie został już zgłoszony.
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Opis problemu
+      description: Krótko opisz, co nie działa lub co jest blokowane niepoprawnie.
+      placeholder: Po włączeniu listy przycisk logowania na stronie przestaje działać.
+    validations:
+      required: true
+  - type: input
+    id: page_url
+    attributes:
+      label: Adres strony / URL
+      description: Jeśli problem dotyczy konkretnej strony, wklej pełny adres.
+      placeholder: https://example.com/
+  - type: textarea
+    id: steps
+    attributes:
+      label: Kroki do reprodukcji
+      description: Opisz dokładnie, jak odtworzyć problem.
+      placeholder: |
+        1. Włącz listę Polish Complete Filters
+        2. Otwórz stronę https://example.com/
+        3. Kliknij przycisk „Zaloguj”
+        4. Zobacz błąd / brak reakcji
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Oczekiwane zachowanie
+      placeholder: Strona powinna działać normalnie, a przycisk logowania powinien otwierać formularz.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Obserwowane zachowanie
+      placeholder: Formularz się nie otwiera, a w konsoli pojawia się błąd / element znika z widoku.
+    validations:
+      required: true
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Typ problemu
+      options:
+        - Fałszywa blokada / strona przestaje działać
+        - Reklama lub tracker nie są blokowane
+        - Problem z regułą kosmetyczną
+        - Problem z kompatybilnością
+        - Inny problem
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: blocker
+    attributes:
+      label: Używany adblocker
+      options:
+        - uBlock Origin
+        - AdGuard
+        - AdBlock
+        - Adblock Plus
+        - Brave Shields
+        - Inny
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: blocker_version
+    attributes:
+      label: Wersja adblockera
+      placeholder: np. 1.61.0
+  - type: input
+    id: browser
+    attributes:
+      label: Przeglądarka i wersja
+      description: Podaj nazwę przeglądarki i wersję.
+      placeholder: np. Firefox 140 / Chrome 146 / Safari 26
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: System operacyjny
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Android
+        - iOS
+        - Inny
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Dodatkowe informacje
+      description: Możesz wkleić zrzuty ekranu, fragmenty reguł, logi lub inne ważne uwagi.
+      placeholder: Dodatkowy kontekst, screenshoty, reguły wyjątków, link do podobnego problemu itp.
+  - type: markdown
+    attributes:
+      value: |
+        Dzięki! Im bardziej precyzyjne zgłoszenie, tym łatwiej szybko dodać wyjątek albo poprawić regułę.
