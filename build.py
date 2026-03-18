@@ -509,7 +509,7 @@ def assemble(
         f"! Title: {TITLE}",
         f"! Description: Combined filter list from upstream sources for uBlock Origin",
         f"! Last modified: {time.strftime('%d %b %Y %H:%M UTC', time.gmtime())}",
-        "! Expires: 1 day",
+        "! Expires: 6 hours",
         f"! Homepage: {HOMEPAGE}",
         f"! Source count: {stats.sources_ok} / {len(urls) + len(extra_results or [])}",
         "!",
