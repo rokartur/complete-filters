@@ -1,6 +1,7 @@
 import type { MethodTag } from '@/lib/i18n'
+import type { FilterHint } from '@/lib/reference-engine'
 
-export type NetworkTestStatus = 'blocked' | 'not-blocked' | 'inconclusive'
+export type NetworkTestStatus = 'blocked' | 'not-blocked'
 
 /**
  * Ad Blocker Detection Engine v3
@@ -8,28 +9,28 @@ export type NetworkTestStatus = 'blocked' | 'not-blocked' | 'inconclusive'
  * Detects whether URLs/elements are blocked by:
  * - Browser-based ad blockers (uBlock Origin, AdGuard, etc.)
  * - DNS-level blockers (Pi-hole, AdGuard Home, NextDNS, etc.)
+ * - $redirect / $redirect-rule neutering (uBlock redirects to noop scripts)
  *
  * Architecture:
  *
  * PRIMARY signal — fetch() with mode: 'no-cors'
- *   The authoritative detection method. With no-cors, CORS errors are suppressed:
- *   - fetch RESOLVES (opaque response) → resource is NOT BLOCKED
- *   - fetch THROWS TypeError → request was cancelled → resource is BLOCKED
- *   No Performance API involved — avoids false positives from redirects and
- *   buffer management issues.
+ *   Catches generic block rules (||domain.com^) that match all request types.
+ *   - fetch RESOLVES → resource is reachable (may still be neutered via redirect)
+ *   - fetch THROWS TypeError → request cancelled → resource is BLOCKED
  *
- * SECONDARY signal — element-based detection
- *   <link rel="preload"> for .js URLs, <img> for all others.
- *   Uses Performance Resource Timing API ONLY in element error handlers to
- *   distinguish server errors from ad blocker interception:
- *   - Performance entry with real timing → server responded (CORS/404, not blocked)
- *   - Performance entry with responseEnd=0 → DNS-level blocking confirmed
- *   - No Performance entry → INCONCLUSIVE (let fetch make the call)
+ * SECONDARY signal — element-based detection with redirect awareness
+ *   <link rel="preload" as="script"> for .js URLs, <img> for all others.
+ *   Catches type-specific rules ($script, $image) AND detects $redirect neutering:
+ *   - onload + Performance entry missing or duration < 10ms → REDIRECT detected → BLOCKED
+ *   - onload + Performance entry with normal duration → genuinely loaded → NOT BLOCKED
+ *   - onerror + Performance 'loaded' → server error, not blocked
+ *   - onerror + Performance 'blocked' (responseEnd=0) → DNS blocking
+ *   - onerror + Performance 'not-found' → NOT BLOCKED (fetch is authoritative)
  *
  * COSMETIC signal — DOM visibility check
  *   Creates bait elements with ad-like class/id and checks if ad blocker hides them.
  *
- * Priority when combining signals: BLOCKED > NOT BLOCKED > INCONCLUSIVE
+ * Priority when combining signals: BLOCKED > NOT BLOCKED
  */
 
 // Increase buffer for 400+ tests (each may generate 2-3 Performance entries)
@@ -43,6 +44,16 @@ const ELEMENT_ERROR_SETTLE_DELAY_MS = 150
 const ELEMENT_TIMEOUT_MS = 4000
 const NETWORK_TEST_TIMEOUT_MS = 6000
 const BAIT_CLEANUP_TIMEOUT_MS = 1500
+const REDIRECT_DURATION_THRESHOLD_MS = 10
+const REDIRECT_CHECK_DELAY_MS = 50
+
+/**
+ * Retry delays for redirect detection when the reference engine hints that
+ * a $redirect rule exists. Performance API entries may not be written
+ * immediately — especially on slower devices or when the buffer was recently
+ * cleared between batches. These retries give the browser extra time.
+ */
+const REDIRECT_RETRY_DELAYS_MS = [100, 250, 500]
 
 /**
  * Check whether a URL looks like a JavaScript file based on extension.
@@ -107,37 +118,77 @@ function checkPerformanceEntry(
 }
 
 /**
+ * Check if a resource was likely redirected by an ad blocker to a local
+ * neutered version (e.g. via $redirect=noopjs, $redirect=1x1-transparent.gif).
+ *
+ * Ad blockers like uBlock Origin use $redirect rules to transparently replace
+ * blocked resources with harmless local versions:
+ *   ||googlesyndication.com/adsbygoogle.js$script,redirect=noopjs
+ *   ||ads.example.com/pixel.gif$image,redirect=1x1.gif
+ *
+ * These redirects are invisible to standard load events (onload fires normally).
+ * We detect them via Performance Resource Timing:
+ *
+ * - MV2 (Firefox + webRequest): The Performance entry is recorded under the
+ *   extension URL (moz-extension://...), not the original URL.
+ *   → getEntriesByName(originalUrl) returns nothing → redirect detected.
+ *
+ * - MV3 (Chrome + DNR): The Performance entry may exist for the original URL
+ *   but with near-zero duration (resource loaded from extension memory).
+ *   → entry.duration < 10ms → redirect detected.
+ *
+ * Normal cross-origin network requests ALWAYS take ≥20ms (DNS + TCP + TLS + HTTP
+ * round-trip). Extension-local resources load in 0-3ms with zero network I/O.
+ * A threshold of 10ms safely distinguishes redirects from real network responses.
+ */
+function isLikelyRedirected(url: string): boolean {
+  try {
+    const entries = performance.getEntriesByType(
+      'resource'
+    ) as PerformanceResourceTiming[]
+
+    const matching = entries.filter(
+      (e) =>
+        e.name === url ||
+        e.name === url.replace(/\/$/, '') ||
+        e.name === url + '/'
+    )
+
+    if (matching.length === 0) {
+      // No Performance entry for original URL — ad blocker redirected to
+      // extension-internal URL. Common in MV2/Firefox where the entry is
+      // recorded under moz-extension:// instead of the original URL.
+      return true
+    }
+
+    // Check if ANY matching entry has suspiciously short duration.
+    // Extension-local redirects have duration 0-3ms; real network responses
+    // take ≥20ms even with connection reuse (HTTP round-trip overhead).
+    return matching.some(
+      (e) => e.duration >= 0 && e.duration < REDIRECT_DURATION_THRESHOLD_MS
+    )
+  } catch {
+    return false // Can't determine — assume not redirected
+  }
+}
+
+/**
  * Detect blocking via fetch (primary detection method).
  *
  * With `mode: 'no-cors'`, the browser suppresses CORS errors and returns an
  * opaque response (status 0, null body). This means:
  * - If fetch() RESOLVES → the HTTP request reached the server and a response
- *   came back. The resource is NOT BLOCKED.
+ *   came back. The resource is REACHABLE (but may still be neutered by a
+ *   type-specific $redirect rule — detected by the element method).
  * - If fetch() THROWS TypeError → the request was cancelled before reaching
  *   the network. This happens when:
- *   · A browser extension (uBlock Origin, AdGuard) intercepts via webRequest/DNR
- *   · A DNS-level blocker (Pi-hole, AdGuard Home, NextDNS) returns NXDOMAIN
- *   · The DNS resolves to 0.0.0.0 (connection refused)
+ *   · A browser extension intercepts via generic block rule (||domain.com^)
+ *   · A DNS-level blocker returns NXDOMAIN or 0.0.0.0
  *   In all cases, the resource is BLOCKED.
  *
- * We intentionally do NOT consult the Performance Resource Timing API here.
- * Reasons:
- * 1. Many servers redirect (e.g. domain.com/ → www.domain.com/) — the
- *    Performance entry is recorded under the FINAL URL, not the original,
- *    causing false 'not-found' results.
- * 2. When running multiple detection methods in parallel, element-based
- *    methods (img/preload) create their own Performance entries for the
- *    same URL, confusing cross-method lookups.
- * 3. Performance buffer clearing between batches can remove entries
- *    before they are read.
- *
- * For $redirect rules (uBlock redirects to neutered noop.js):
- * - If a generic block rule also exists (||domain.com^), fetch is blocked
- *   because the block rule matches all request types → TypeError → 'blocked'.
- * - If only a type-specific redirect exists (||domain.com/x.js$script,redirect=...),
- *   fetch is not matched (it's xmlhttprequest, not script) → resolves → 'not-blocked'.
- *   This is technically correct: the domain is reachable, only the specific
- *   script type is neutered.
+ * IMPORTANT: fetch sends request type 'xmlhttprequest', NOT 'script' or 'image'.
+ * Type-specific rules like `$script,redirect=noopjs` do NOT match fetch.
+ * The element-based methods (preload/img) handle these via redirect detection.
  */
 async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
   try {
@@ -151,8 +202,14 @@ async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
 /**
  * Detect blocking via <link rel="preload" as="script"> (matches $script rules).
  * Safe: does not execute any code.
+ *
+ * When hintHasRedirect is true, the redirect check uses retries with longer
+ * delays to catch Performance API entries that haven't been written yet.
  */
-function detectViaPreload(url: string): Promise<NetworkTestStatus> {
+function detectViaPreload(
+  url: string,
+  hintHasRedirect = false
+): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     const link = document.createElement('link')
     link.rel = 'preload'
@@ -177,17 +234,30 @@ function detectViaPreload(url: string): Promise<NetworkTestStatus> {
     }
 
     link.onload = () => {
-      // Preload succeeded — but could be a neutered $redirect resource.
-      // We don't trust onload alone; the fetch method handles redirect detection.
-      settle('not-blocked')
+      // Preload succeeded — but might be a neutered $redirect resource.
+      // Ad blockers (uBlock Origin, AdGuard) can redirect $script requests
+      // to local noop scripts: ||domain.com/ad.js$script,redirect=noopjs
+      // The redirect is transparent — onload fires as if the real resource loaded.
+      //
+      // Since $redirect rules are type-specific ($script), our fetch() method
+      // (which sends type 'xmlhttprequest') is NOT matched and succeeds.
+      // Only the preload (type 'script') triggers the redirect.
+      //
+      // Detect by checking if the Performance entry is missing (MV2/Firefox:
+      // entry under extension URL) or has near-zero duration (MV3/Chrome:
+      // loaded from extension memory without network roundtrip).
+      //
+      // When hintHasRedirect is true, use retry logic for more reliable detection.
+      setTimeout(async () => {
+        const redirected = await isLikelyRedirectedWithRetry(url, hintHasRedirect)
+        settle(redirected ? 'blocked' : 'not-blocked')
+      }, REDIRECT_CHECK_DELAY_MS)
     }
 
     link.onerror = () => {
       // Preload failed — could be ad blocker, CORS error, or 404.
-      // Check Performance API to distinguish, but treat 'not-found' as
-      // inconclusive (not 'blocked') because the entry may be missing due
-      // to URL redirects, buffer clearing, or timing issues.
-      // The fetch method is the authoritative signal for blocking.
+      // Check Performance API to distinguish. If ambiguous, report not-blocked
+      // because fetch is the authoritative signal for blocking.
       setTimeout(() => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
@@ -198,25 +268,31 @@ function detectViaPreload(url: string): Promise<NetworkTestStatus> {
           settle('blocked')
         } else {
           // No entry — ambiguous: could be extension blocking OR redirect
-          // OR buffer cleared. Let fetch make the authoritative call.
-          settle('inconclusive')
+          // OR buffer cleared. Report not-blocked; fetch is authoritative.
+          settle('not-blocked')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     document.head.appendChild(link)
 
-    // Timeout for preload
+    // Timeout for preload — if nothing responds, assume not blocked
     timeoutId = window.setTimeout(() => {
-      settle('inconclusive')
+      settle('not-blocked')
     }, ELEMENT_TIMEOUT_MS)
   })
 }
 
 /**
  * Detect blocking via <img> element (matches $image rules).
+ *
+ * When hintHasRedirect is true, the redirect check uses retries with longer
+ * delays to catch Performance API entries that haven't been written yet.
  */
-function detectViaImage(url: string): Promise<NetworkTestStatus> {
+function detectViaImage(
+  url: string,
+  hintHasRedirect = false
+): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     const img = new Image()
     let timeoutId: number | undefined
@@ -231,17 +307,21 @@ function detectViaImage(url: string): Promise<NetworkTestStatus> {
     }
 
     img.onload = () => {
-      settle('not-blocked') // Image loaded — NOT blocked
+      // Image loaded — but might be a neutered $redirect resource.
+      // Ad blockers can redirect $image requests to local noop images
+      // (1x1 transparent pixel) via $image,redirect=1x1.gif rules.
+      // Detect via Performance API: missing entry or near-zero duration.
+      // When hintHasRedirect is true, use retry logic for reliability.
+      setTimeout(async () => {
+        const redirected = await isLikelyRedirectedWithRetry(url, hintHasRedirect)
+        settle(redirected ? 'blocked' : 'not-blocked')
+      }, REDIRECT_CHECK_DELAY_MS)
     }
 
     img.onerror = () => {
       // Image failed — check Performance API to distinguish
       // blocked vs server error / not-an-image.
-      // Treat 'not-found' as inconclusive (not 'blocked') because:
-      // - For non-image URLs, onerror ALWAYS fires (content isn't valid image data)
-      // - The Performance entry may be under a different URL after redirects
-      // - Buffer may have been cleared between batches
-      // The fetch method is the authoritative signal for blocking.
+      // If ambiguous, report not-blocked — fetch is the authoritative signal.
       setTimeout(() => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
@@ -251,16 +331,16 @@ function detectViaImage(url: string): Promise<NetworkTestStatus> {
           // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry — ambiguous. Let fetch make the authoritative call.
-          settle('inconclusive')
+          // No entry — ambiguous. Report not-blocked; fetch is authoritative.
+          settle('not-blocked')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     img.src = url
 
-    // Timeout for image
-    timeoutId = window.setTimeout(() => settle('inconclusive'), ELEMENT_TIMEOUT_MS)
+    // Timeout for image — if nothing responds, assume not blocked
+    timeoutId = window.setTimeout(() => settle('not-blocked'), ELEMENT_TIMEOUT_MS)
   })
 }
 
@@ -364,34 +444,77 @@ export function testBaitElement(test: {
 }
 
 /**
+ * Enhanced redirect detection with retries.
+ *
+ * When the reference engine confirms a $redirect rule exists for a URL,
+ * we KNOW the ad blocker should redirect it. But Performance API entries
+ * may not be written instantly — especially after buffer clears between
+ * test batches. This function retries the check at increasing intervals.
+ *
+ * Without a hint, falls back to a single check (standard behavior).
+ */
+async function isLikelyRedirectedWithRetry(
+  url: string,
+  hintHasRedirect: boolean
+): Promise<boolean> {
+  // First check — immediate
+  if (isLikelyRedirected(url)) return true
+
+  // If no hint says redirect expected, don't retry
+  if (!hintHasRedirect) return false
+
+  // Retry with increasing delays — the hint gives us confidence
+  // that a redirect SHOULD exist, so it's worth waiting longer.
+  for (const delay of REDIRECT_RETRY_DELAYS_MS) {
+    await new Promise((r) => setTimeout(r, delay))
+    if (isLikelyRedirected(url)) return true
+  }
+
+  // Even after retries, no redirect detected. This can happen when:
+  // - The user's ad blocker doesn't have the same rules as the reference
+  // - The Performance buffer was completely flushed
+  // - The ad blocker version uses a different mechanism
+  return false
+}
+
+/**
  * Core network test: detects if a URL is blocked by the ad blocker.
  *
- * Strategy: run fetch + element-based detection simultaneously.
+ * Strategy: run fetch + element-based detection in parallel, combine results.
  *
- * fetch() is the PRIMARY and AUTHORITATIVE signal:
- * - TypeError → request was cancelled by ad blocker → BLOCKED
- * - Opaque response → server responded → NOT BLOCKED
+ * fetch() catches generic block rules (||domain.com^) that block ALL types.
  *
- * Element-based detection is a SECONDARY signal for edge cases:
- * - Confirms DNS-level blocking via Performance API (responseEnd=0)
- * - May catch type-specific rules ($script, $image)
- * - Returns 'inconclusive' when Performance entry is missing (common for
- *   redirects, buffer clearing, or timing issues)
+ * Element methods catch TYPE-SPECIFIC rules and $redirect neutering:
+ * - <link preload as="script"> for .js URLs — detects $script,redirect=noopjs
+ *   by checking Performance API for missing entries or near-zero duration.
+ * - <img> for other URLs — detects $image,redirect and confirms DNS blocking.
  *
  * Priority order for combining results:
  * 1. If ANY method clearly detects blocking → BLOCKED (immediate)
- * 2. Else if ANY method clearly shows the resource loaded → NOT BLOCKED
- * 3. Else → INCONCLUSIVE (all methods ambiguous or timed out)
+ * 2. Otherwise → NOT BLOCKED
  *
- * Method combinations:
- * - .js URLs:   fetch + <link rel="preload" as="script">
- * - All others: fetch + <img>
+ * There is no "inconclusive" state — if blocking cannot be proven,
+ * the resource is reported as not-blocked.
+ *
+ * When a FilterHint is provided (from @ghostery/adblocker reference engine):
+ * - If hint.hasRedirect is true, redirect detection retries multiple times
+ *   with longer delays to catch slow Performance API writes.
+ * - If hint.shouldBlock is true but all methods say not-blocked, an extra
+ *   redirect check is attempted as a final fallback.
+ *
+ * Example: adsbygoogle.js with $script,redirect=noopjs:
+ * - fetch: succeeds (not a $script request) → 'not-blocked'
+ * - preload: onload fires but redirect detected → 'blocked'
+ * - Combined: 'blocked' wins ✅
  */
-export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
+export function testNetworkResource(
+  url: string,
+  hint?: FilterHint
+): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     let settled = false
     let completed = 0
-    let sawNotBlocked = false
+    const hintHasRedirect = hint?.hasRedirect ?? false
     const finish = (status: NetworkTestStatus) => {
       if (settled) return
       settled = true
@@ -409,10 +532,13 @@ export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
     // - All others: <img> element — for non-image URLs onerror always fires,
     //   but the Performance API check inside onerror distinguishes "server
     //   responded (not an image)" from "request was blocked before dispatch".
+    //
+    // When the reference engine hints that a $redirect rule exists, pass
+    // hintHasRedirect so the redirect check retries with longer delays.
     if (isScriptUrl(url)) {
-      detections.push(detectViaPreload(url))
+      detections.push(detectViaPreload(url, hintHasRedirect))
     } else {
-      detections.push(detectViaImage(url))
+      detections.push(detectViaImage(url, hintHasRedirect))
     }
 
     // Combine results incrementally so a clear signal can finish early.
@@ -428,26 +554,32 @@ export function testNetworkResource(url: string): Promise<NetworkTestStatus> {
             return
           }
 
-          if (result === 'not-blocked') {
-            sawNotBlocked = true
-          }
-
           if (completed === detections.length) {
-            finish(sawNotBlocked ? 'not-blocked' : 'inconclusive')
+            // All methods returned not-blocked.
+            // If the reference engine says a $redirect rule exists, the ad
+            // blocker SHOULD have redirected the resource. Do one final
+            // redirect check — the entry may have been written late.
+            if (hintHasRedirect) {
+              isLikelyRedirectedWithRetry(url, true).then((redirected) => {
+                finish(redirected ? 'blocked' : 'not-blocked')
+              })
+            } else {
+              finish('not-blocked')
+            }
           }
         })
         .catch(() => {
           if (settled) return
           completed += 1
           if (completed === detections.length) {
-            finish(sawNotBlocked ? 'not-blocked' : 'inconclusive')
+            finish('not-blocked')
           }
         })
     })
 
-    // Safety timeout — if nothing responds in time, surface an honest unknown.
+    // Safety timeout — if nothing responds in time, assume not blocked.
     window.setTimeout(() => {
-      finish(sawNotBlocked ? 'not-blocked' : 'inconclusive')
+      finish('not-blocked')
     }, NETWORK_TEST_TIMEOUT_MS)
   })
 }

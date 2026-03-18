@@ -91,7 +91,6 @@ interface TranslationPack {
     filterAll: string
     filterBlocked: string
     filterNotBlocked: string
-    filterInconclusive: string
     filterPending: string
     gradeTitle: string
     finalScore: string
@@ -103,13 +102,11 @@ interface TranslationPack {
       total: string
       blocked: string
       notBlocked: string
-      inconclusive: string
       pending: string
     }
     status: {
       blocked: string
       notBlocked: string
-      inconclusive: string
       pending: string
     }
     methodTags: Record<MethodTag, string>
@@ -187,7 +184,6 @@ const translations: Record<Language, TranslationPack> = {
       filterAll: 'Wszystkie',
       filterBlocked: 'Zablokowane',
       filterNotBlocked: 'Niezablokowane',
-      filterInconclusive: 'Niejednoznaczne',
       filterPending: 'Oczekujące',
       gradeTitle: 'Ocena ochrony',
       finalScore: 'Wynik końcowy',
@@ -199,13 +195,11 @@ const translations: Record<Language, TranslationPack> = {
         total: 'Testów',
         blocked: 'Zablokowane',
         notBlocked: 'Niezablokowane',
-        inconclusive: 'Niejednoznaczne',
         pending: 'Oczekujące',
       },
       status: {
         blocked: 'Zablokowane',
         notBlocked: 'Niezablokowane',
-        inconclusive: 'Niejednoznaczne',
         pending: 'Oczekuje',
       },
       methodTags: {
@@ -336,7 +330,6 @@ const translations: Record<Language, TranslationPack> = {
       filterAll: 'All',
       filterBlocked: 'Blocked',
       filterNotBlocked: 'Not blocked',
-      filterInconclusive: 'Inconclusive',
       filterPending: 'Pending',
       gradeTitle: 'Protection grade',
       finalScore: 'Final score',
@@ -348,13 +341,11 @@ const translations: Record<Language, TranslationPack> = {
         total: 'Tests',
         blocked: 'Blocked',
         notBlocked: 'Not blocked',
-        inconclusive: 'Inconclusive',
         pending: 'Pending',
       },
       status: {
         blocked: 'Blocked',
         notBlocked: 'Not blocked',
-        inconclusive: 'Inconclusive',
         pending: 'Pending',
       },
       methodTags: {

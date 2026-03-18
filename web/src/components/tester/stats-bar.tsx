@@ -1,6 +1,6 @@
 import type { TestStats } from '@/hooks/use-adblocker-tester'
 import { useI18n } from '@/lib/i18n'
-import { AlertTriangle, Clock3, ListChecks, ShieldCheck, ShieldX } from 'lucide-react'
+import { Clock3, ListChecks, ShieldCheck, ShieldX } from 'lucide-react'
 
 interface StatsBarProps {
   stats: TestStats
@@ -34,14 +34,6 @@ export function StatsBar({ stats }: StatsBarProps) {
       icon: ShieldX,
     },
     {
-      key: 'inconclusive' as const,
-      label: t.tester.stats.inconclusive,
-      colorClass: 'text-orange-300',
-      bgClass: 'from-orange-500/10 to-orange-500/5',
-      borderClass: 'border-orange-500/10 hover:border-orange-500/25',
-      icon: AlertTriangle,
-    },
-    {
       key: 'pending' as const,
       label: t.tester.stats.pending,
       colorClass: 'text-amber-400',
@@ -52,7 +44,7 @@ export function StatsBar({ stats }: StatsBarProps) {
   ]
 
   return (
-    <div className="grid grid-cols-2 gap-2 border-b border-border bg-background p-3 sm:grid-cols-3 sm:gap-3 sm:p-5 xl:grid-cols-5">
+    <div className="grid grid-cols-2 gap-2 border-b border-border bg-background p-3 sm:grid-cols-2 sm:gap-3 sm:p-5 xl:grid-cols-4">
       {statItems.map((item) => {
         const Icon = item.icon
 

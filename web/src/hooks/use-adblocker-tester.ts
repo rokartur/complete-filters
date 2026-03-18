@@ -1,15 +1,15 @@
 import { useState, useRef, useCallback } from 'react'
 import { TEST_CATEGORIES } from '@/lib/test-definitions'
 import { testBaitElement, testNetworkResource } from '@/lib/detection-engine'
+import { initReferenceEngine, getFilterHint } from '@/lib/reference-engine'
 
-export type TestStatus = 'pending' | 'blocked' | 'not-blocked' | 'inconclusive'
-export type FilterType = 'all' | 'blocked' | 'not-blocked' | 'inconclusive' | 'pending'
+export type TestStatus = 'pending' | 'blocked' | 'not-blocked'
+export type FilterType = 'all' | 'blocked' | 'not-blocked' | 'pending'
 
 export interface TestStats {
   total: number
   blocked: number
   notBlocked: number
-  inconclusive: number
   pending: number
 }
 
@@ -38,18 +38,16 @@ function computeStats(results: Record<string, TestStatus>): TestStats {
   const values = Object.values(results)
   const blocked = values.filter((v) => v === 'blocked').length
   const notBlocked = values.filter((v) => v === 'not-blocked').length
-  const inconclusive = values.filter((v) => v === 'inconclusive').length
   return {
     total: TOTAL_TESTS,
     blocked,
     notBlocked,
-    inconclusive,
-    pending: TOTAL_TESTS - blocked - notBlocked - inconclusive,
+    pending: TOTAL_TESTS - blocked - notBlocked,
   }
 }
 
 function computeGrade(stats: TestStats): GradeInfo | null {
-  const tested = stats.blocked + stats.notBlocked + stats.inconclusive
+  const tested = stats.blocked + stats.notBlocked
   if (tested === 0) return null
 
   const pct = Math.round((stats.blocked / tested) * 100)
@@ -119,19 +117,17 @@ export function useAdBlockTester() {
     (categoryId: string) => {
       let blocked = 0
       let notBlocked = 0
-      let inconclusive = 0
       let pending = 0
       const cat = TEST_CATEGORIES.find((c) => c.id === categoryId)
-      if (!cat) return { blocked, notBlocked, inconclusive, pending, total: 0 }
+      if (!cat) return { blocked, notBlocked, pending, total: 0 }
       cat.tests.forEach((_, i) => {
         const id = `${categoryId}-${i}`
         const status = results[id]
         if (status === 'blocked') blocked++
         else if (status === 'not-blocked') notBlocked++
-        else if (status === 'inconclusive') inconclusive++
         else pending++
       })
-      return { blocked, notBlocked, inconclusive, pending, total: cat.tests.length }
+      return { blocked, notBlocked, pending, total: cat.tests.length }
     },
     [results]
   )
@@ -141,8 +137,17 @@ export function useAdBlockTester() {
     initResults()
 
     try {
+      // Initialize the reference filter engine in parallel with UI prep.
+      // This loads EasyList + EasyPrivacy from Ghostery CDN and provides
+      // hints that improve redirect detection accuracy. Non-blocking —
+      // if it fails, detection works without hints.
+      const referenceReady = initReferenceEngine()
+
       // Small delay to let React render the initial state
       await new Promise((r) => setTimeout(r, 50))
+
+      // Wait for reference engine (usually loads in <500ms, cached after first load)
+      await referenceReady
 
       // Collect all tests
       const allTests: Array<{
@@ -170,7 +175,7 @@ export function useAdBlockTester() {
             const blocked = await testBaitElement(test)
             updateResult(id, blocked ? 'blocked' : 'not-blocked')
           } catch {
-            updateResult(id, 'inconclusive')
+            updateResult(id, 'not-blocked')
           }
         })
       )
@@ -183,12 +188,16 @@ export function useAdBlockTester() {
         await Promise.all(
           batch.map(async ({ id, test }) => {
             try {
-              const result = test.url
-                ? await testNetworkResource(test.url)
-                : 'inconclusive'
-              updateResult(id, result)
+              if (test.url) {
+                // Get hint from reference engine (instant lookup, no network)
+                const hint = getFilterHint(test.url)
+                const result = await testNetworkResource(test.url, hint)
+                updateResult(id, result)
+              } else {
+                updateResult(id, 'not-blocked')
+              }
             } catch {
-              updateResult(id, 'inconclusive')
+              updateResult(id, 'not-blocked')
             }
           })
         )

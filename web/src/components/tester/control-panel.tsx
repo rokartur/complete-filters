@@ -23,7 +23,6 @@ export function ControlPanel({
     { value: 'all', label: t.tester.filterAll },
     { value: 'blocked', label: t.tester.filterBlocked },
     { value: 'not-blocked', label: t.tester.filterNotBlocked },
-    { value: 'inconclusive', label: t.tester.filterInconclusive },
     { value: 'pending', label: t.tester.filterPending },
   ]
 

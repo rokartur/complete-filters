@@ -39,7 +39,6 @@ interface TestCategoryListProps {
   getCategoryStats: (categoryId: string) => {
     blocked: number
     notBlocked: number
-    inconclusive: number
     pending: number
     total: number
   }
@@ -153,10 +152,6 @@ export function TestCategoryList({
                   <span className="flex items-center gap-1.5 font-semibold font-mono text-xs">
                     <span className="inline-block h-2 w-2 rounded-full bg-red-400 shadow-sm shadow-red-400/50" />
                     <span className="text-red-400 tabular-nums">{catStats.notBlocked}</span>
-                  </span>
-                  <span className="flex items-center gap-1.5 font-semibold font-mono text-xs">
-                    <span className="inline-block h-2 w-2 rounded-full bg-orange-300 shadow-sm shadow-orange-300/40" />
-                    <span className="text-orange-300 tabular-nums">{catStats.inconclusive}</span>
                   </span>
                 </div>
               </div>

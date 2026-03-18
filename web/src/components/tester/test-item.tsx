@@ -2,7 +2,7 @@ import type { TestStatus } from '@/hooks/use-adblocker-tester'
 import { useI18n } from '@/lib/i18n'
 import type { TestDefinition } from '@/lib/test-definitions'
 import { getMethodTag } from '@/lib/detection-engine'
-import { AlertTriangle, Check, X, Loader2 } from 'lucide-react'
+import { Check, X, Loader2 } from 'lucide-react'
 
 interface TestItemProps {
   test: TestDefinition
@@ -23,17 +23,13 @@ export function TestItem({ test, status }: TestItemProps) {
             ? 'bg-emerald-500/10 text-emerald-400'
             : status === 'not-blocked'
               ? 'bg-red-500/10 text-red-400'
-              : status === 'inconclusive'
-                ? 'bg-orange-500/10 text-orange-300'
-                : 'bg-amber-500/10 text-amber-400'
+              : 'bg-amber-500/10 text-amber-400'
         }`}
       >
         {status === 'blocked' ? (
           <Check className="h-3.5 w-3.5" />
         ) : status === 'not-blocked' ? (
           <X className="h-3.5 w-3.5" />
-        ) : status === 'inconclusive' ? (
-          <AlertTriangle className="h-3.5 w-3.5" />
         ) : (
           <Loader2 className="h-3 w-3 animate-spin" />
         )}
@@ -60,18 +56,14 @@ export function TestItem({ test, status }: TestItemProps) {
               ? 'bg-emerald-500/10 text-emerald-400'
               : status === 'not-blocked'
                 ? 'bg-red-500/10 text-red-400'
-                : status === 'inconclusive'
-                  ? 'bg-orange-500/10 text-orange-300'
-                  : 'bg-amber-500/10 text-amber-400'
+                : 'bg-amber-500/10 text-amber-400'
           }`}
         >
           {status === 'blocked'
             ? t.tester.status.blocked
             : status === 'not-blocked'
               ? t.tester.status.notBlocked
-              : status === 'inconclusive'
-                ? t.tester.status.inconclusive
-                : t.tester.status.pending}
+              : t.tester.status.pending}
         </span>
       </div>
     </div>
