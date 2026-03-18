@@ -8,7 +8,7 @@ import {
 } from 'react'
 
 export type Language = 'pl' | 'en'
-export type MethodTag = 'cosmetic' | 'script' | 'image' | 'network'
+export type MethodTag = 'cosmetic' | 'script' | 'image' | 'document' | 'network'
 
 export const REPO_URL = 'https://github.com/rokartur/polish-complete-filters'
 export const SITE_URL = 'https://rokartur.github.io/polish-complete-filters/'
@@ -206,6 +206,7 @@ const translations: Record<Language, TranslationPack> = {
         cosmetic: 'kosmetyczny',
         script: 'skrypt',
         image: 'obraz',
+        document: 'dokument',
         network: 'sieć',
       },
       gradeLabels: {
@@ -222,7 +223,7 @@ const translations: Record<Language, TranslationPack> = {
     footer: {
       github: 'GitHub',
       note:
-        'Tester używa preload, img i fetch do ładowania zasobów z typem pasującym do reguł filtrów. Performance API weryfikuje, czy żądanie dotarło do serwera, czy zostało zablokowane.',
+        'Tester używa preload, img, ukrytego iframe i fetch do symulacji różnych typów żądań. URL-e wyglądające jak strony są sprawdzane jako dokument, ale wynik nadal może różnić się od ręcznego otwarcia linku, jeśli filtr działa wyłącznie na nawigacji top-level.',
     },
     seo: {
       title: 'Jak działa tester Polish Complete Filters?',
@@ -276,7 +277,7 @@ const translations: Record<Language, TranslationPack> = {
         {
           question: 'Dlaczego niektóre zasoby pokazują się jako niezablokowane?',
           answer:
-            'Powody mogą być różne: filtr nie obejmuje danej domeny, dana metoda blokowania działa tylko dla określonego typu zasobu albo używana konfiguracja jest mniej agresywna.',
+            'Powody mogą być różne: filtr nie obejmuje danej domeny, reguła działa tylko dla konkretnego typu żądania (np. dokument vs skrypt vs obraz), albo używana konfiguracja jest mniej agresywna. To szczególnie ważne przy linkach otwieranych bezpośrednio.',
         },
         {
           question: 'Czy test może wykrywać blokowanie na poziomie DNS?',
@@ -352,6 +353,7 @@ const translations: Record<Language, TranslationPack> = {
         cosmetic: 'cosmetic',
         script: 'script',
         image: 'image',
+        document: 'document',
         network: 'network',
       },
       gradeLabels: {
@@ -368,7 +370,7 @@ const translations: Record<Language, TranslationPack> = {
     footer: {
       github: 'GitHub',
       note:
-        'The tester uses preload, img, and fetch requests to load resources matching common filter rule types. The Performance API helps verify whether a request reached the server or was blocked earlier.',
+        'The tester uses preload, img, a hidden iframe, and fetch to simulate different request types. Page-like URLs are checked as documents, but results can still differ from manually opening a link when a filter only targets top-level navigation.',
     },
     seo: {
       title: 'How does Polish Complete Filters Tester work?',
@@ -422,7 +424,7 @@ const translations: Record<Language, TranslationPack> = {
         {
           question: 'Why are some resources shown as not blocked?',
           answer:
-            'Possible reasons include missing rules for that domain, rule types that only match specific resource categories, or a less aggressive privacy setup.',
+            'Possible reasons include missing rules for that domain, rules that only match a specific request type (for example document vs script vs image), or a less aggressive privacy setup. This matters especially for links opened directly in a tab.',
         },
         {
           question: 'Can the tester detect DNS-level blocking?',

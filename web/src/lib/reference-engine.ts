@@ -44,6 +44,25 @@ const EMPTY_HINT: FilterHint = {
   hasRedirect: false,
 }
 
+function isDocumentUrl(url: string): boolean {
+  if (/\.js($|\?|&|#)/i.test(url)) return false
+  if (/\.(gif|png|jpe?g|webp|svg|ico|bmp)($|\?|&|#)/i.test(url)) return false
+
+  try {
+    const parsed = new URL(url)
+    const pathname = parsed.pathname || '/'
+
+    if (pathname === '/' || pathname === '') return true
+    if (pathname.endsWith('/')) return true
+
+    return /\.(html?|xhtml|php|asp|aspx|jsp|jspx|cfm|cgi)($|\?|#)/i.test(
+      pathname
+    )
+  } catch {
+    return false
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Engine lifecycle
 // ---------------------------------------------------------------------------
@@ -85,10 +104,11 @@ export function isReferenceReady(): boolean {
 /**
  * Query the reference engine for a filter hint on the given URL.
  *
- * Checks the URL against standard lists as three request types:
- *   1. `script`  — catches $script rules and $redirect=noopjs
- *   2. `image`   — catches $image rules and $redirect=1x1.gif
- *   3. generic   — catches domain-level rules (||domain.com^)
+ * Checks the URL against standard lists as several request types:
+ *   1. `main_frame` / `sub_frame` — catches document/subdocument rules
+ *   2. `script`                  — catches $script rules and $redirect=noopjs
+ *   3. `image`                   — catches $image rules and $redirect=1x1.gif
+ *   4. generic                   — catches domain-level rules (||domain.com^)
  *
  * Returns the FIRST match found (script > image > generic), because
  * type-specific rules with $redirect are the hardest to detect and
@@ -98,6 +118,36 @@ export function getFilterHint(url: string): FilterHint {
   if (!engine) return EMPTY_HINT
 
   const sourceUrl = globalThis.location?.href ?? 'https://example.com'
+
+  if (isDocumentUrl(url)) {
+    try {
+      const mainFrameResult = engine.match(
+        Request.fromRawDetails({ type: 'main_frame', url, sourceUrl })
+      )
+      if (mainFrameResult.match || mainFrameResult.redirect) {
+        return {
+          shouldBlock: true,
+          hasRedirect: !!mainFrameResult.redirect,
+          filterRule: mainFrameResult.filter?.toString(),
+          redirectName: mainFrameResult.redirect?.contentType,
+        }
+      }
+    } catch { /* ignore */ }
+
+    try {
+      const subFrameResult = engine.match(
+        Request.fromRawDetails({ type: 'sub_frame', url, sourceUrl })
+      )
+      if (subFrameResult.match || subFrameResult.redirect) {
+        return {
+          shouldBlock: true,
+          hasRedirect: !!subFrameResult.redirect,
+          filterRule: subFrameResult.filter?.toString(),
+          redirectName: subFrameResult.redirect?.contentType,
+        }
+      }
+    } catch { /* ignore */ }
+  }
 
   // 1. Check as script request (most $redirect rules target scripts)
   try {

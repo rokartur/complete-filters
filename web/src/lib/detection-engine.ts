@@ -42,6 +42,8 @@ try {
 
 const ELEMENT_ERROR_SETTLE_DELAY_MS = 150
 const ELEMENT_TIMEOUT_MS = 4000
+const FRAME_SETTLE_DELAY_MS = 200
+const FRAME_TIMEOUT_MS = 4500
 const NETWORK_TEST_TIMEOUT_MS = 6000
 const BAIT_CLEANUP_TIMEOUT_MS = 1500
 const REDIRECT_DURATION_THRESHOLD_MS = 10
@@ -67,6 +69,42 @@ export function isScriptUrl(url: string): boolean {
  */
 export function isImageUrl(url: string): boolean {
   return /\.(gif|png|jpe?g|webp|svg|ico|bmp)($|\?|&|#)/i.test(url)
+}
+
+/**
+ * Check whether a URL likely represents a page/document navigation rather than
+ * a script, image, or data endpoint.
+ *
+ * This is intentionally conservative. We only treat clearly page-like URLs as
+ * document requests:
+ * - bare origins and root paths (https://example.com/)
+ * - trailing-slash paths that look like sections/pages
+ * - common HTML/server-side page extensions (.html, .php, .asp, ...)
+ *
+ * Everything else falls back to generic network probing, because many tracking
+ * endpoints also have extensionless paths (e.g. /collect, /visit, /track).
+ */
+export function isDocumentUrl(url: string): boolean {
+  if (isScriptUrl(url) || isImageUrl(url)) return false
+
+  try {
+    const parsed = new URL(url)
+    const pathname = parsed.pathname || '/'
+
+    if (pathname === '/' || pathname === '') {
+      return true
+    }
+
+    if (pathname.endsWith('/')) {
+      return true
+    }
+
+    return /\.(html?|xhtml|php|asp|aspx|jsp|jspx|cfm|cgi)($|\?|#)/i.test(
+      pathname
+    )
+  } catch {
+    return false
+  }
 }
 
 /**
@@ -345,6 +383,86 @@ function detectViaImage(
 }
 
 /**
+ * Detect blocking for page/document-like URLs using a hidden iframe.
+ *
+ * This is a best-effort probe for cases where opening a URL directly is
+ * blocked, but generic fetch/img requests are still allowed. We keep the logic
+ * conservative to avoid false positives from frame restrictions like
+ * X-Frame-Options or CSP frame-ancestors:
+ *
+ * - Performance entry 'loaded'  -> NOT BLOCKED
+ * - Performance entry 'blocked' -> BLOCKED
+ * - No entry + iframe stayed on about:blank -> likely BLOCKED before dispatch
+ * - Everything else -> NOT BLOCKED / ambiguous
+ */
+function detectViaFrame(url: string): Promise<NetworkTestStatus> {
+  return new Promise((resolve) => {
+    const frame = document.createElement('iframe')
+    let timeoutId: number | undefined
+
+    frame.style.cssText =
+      'position:absolute;left:-10000px;top:-10000px;width:1px;height:1px;border:0;opacity:0;pointer-events:none;'
+    frame.setAttribute('aria-hidden', 'true')
+
+    const cleanup = () => {
+      try {
+        frame.remove()
+      } catch {
+        /* already removed */
+      }
+    }
+
+    const isStillAboutBlank = (): boolean => {
+      try {
+        const href = frame.contentWindow?.location?.href
+        return !href || href === 'about:blank'
+      } catch {
+        return false
+      }
+    }
+
+    const settle = (status: NetworkTestStatus) => {
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId)
+      }
+      cleanup()
+      resolve(status)
+    }
+
+    const evaluateFrame = () => {
+      const perf = checkPerformanceEntry(url)
+      if (perf === 'loaded') {
+        settle('not-blocked')
+        return
+      }
+      if (perf === 'blocked') {
+        settle('blocked')
+        return
+      }
+
+      // No timing entry. If navigation never left about:blank, the request was
+      // most likely intercepted before it got onto the network.
+      settle(isStillAboutBlank() ? 'blocked' : 'not-blocked')
+    }
+
+    frame.onload = () => {
+      setTimeout(evaluateFrame, FRAME_SETTLE_DELAY_MS)
+    }
+
+    frame.onerror = () => {
+      setTimeout(evaluateFrame, FRAME_SETTLE_DELAY_MS)
+    }
+
+    document.body.appendChild(frame)
+    frame.src = url
+
+    timeoutId = window.setTimeout(() => {
+      evaluateFrame()
+    }, FRAME_TIMEOUT_MS)
+  })
+}
+
+/**
  * Test a bait element (cosmetic filter test).
  * Creates a div with ad-like class/id and checks if the ad blocker hides it.
  *
@@ -487,6 +605,7 @@ async function isLikelyRedirectedWithRetry(
  * Element methods catch TYPE-SPECIFIC rules and $redirect neutering:
  * - <link preload as="script"> for .js URLs — detects $script,redirect=noopjs
  *   by checking Performance API for missing entries or near-zero duration.
+ * - hidden <iframe> for document/page URLs — approximates direct navigation.
  * - <img> for other URLs — detects $image,redirect and confirms DNS blocking.
  *
  * Priority order for combining results:
@@ -537,6 +656,8 @@ export function testNetworkResource(
     // hintHasRedirect so the redirect check retries with longer delays.
     if (isScriptUrl(url)) {
       detections.push(detectViaPreload(url, hintHasRedirect))
+    } else if (isDocumentUrl(url)) {
+      detections.push(detectViaFrame(url))
     } else {
       detections.push(detectViaImage(url, hintHasRedirect))
     }
@@ -596,5 +717,6 @@ export function getMethodTag(test: {
   if (!test.url) return 'network'
   if (isScriptUrl(test.url)) return 'script'
   if (isImageUrl(test.url)) return 'image'
+  if (isDocumentUrl(test.url)) return 'document'
   return 'network'
 }
