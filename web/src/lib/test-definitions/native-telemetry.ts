@@ -15,7 +15,6 @@ export const nativeTelemetry: TestCategory = {
     { name: 'Roku Ads', url: 'https://scribe.logs.roku.com/' },
     { name: 'Vizio Inscape', url: 'https://dis.cstream.binding.samba.tv/' },
     { name: 'Sonos Tracking', url: 'https://analytics.sonos.com/' },
-    { name: 'Nvidia Telemetry', url: 'https://gfe.nvidia.com/telemetry' },
     { name: 'Steam Analytics', url: 'https://steamcommunity.com/actions/LogFriendActivityUpvote' },
     { name: 'Realme iot-eu-logser', url: 'https://iot-eu-logser.realme.com/' },
     { name: 'Realme iot-logser', url: 'https://iot-logser.realme.com/' },

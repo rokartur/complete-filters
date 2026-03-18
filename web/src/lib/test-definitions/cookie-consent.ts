@@ -12,8 +12,11 @@ export const cookieConsent: TestCategory = {
     { name: 'Usercentrics', url: 'https://app.usercentrics.eu/browser-ui/latest/loader.js' },
     { name: 'Iubenda', url: 'https://cdn.iubenda.com/cs/iubenda_cs.js' },
     { name: 'TrustArc', url: 'https://consent.trustarc.com/notice' },
-    { name: 'Termly', url: 'https://app.termly.io/resource-blocker/0' },
+    { name: 'Termly Policy Embed', url: 'https://app.termly.io/embed-policy.min.js' },
+    { name: 'Termly Consent Embed', url: 'https://app.termly.io/embed.min.js' },
     { name: 'Consentmanager', url: 'https://cdn.consentmanager.net/delivery/autoblocking/0.js' },
+    { name: 'Iubenda TCF Stub', url: 'https://cdn.iubenda.com/cs/tcf/stub-v2.js' },
+    { name: 'Iubenda GPP Stub', url: 'https://cdn.iubenda.com/cs/gpp/stub.js' },
     { name: 'Axeptio', url: 'https://static.axept.io/sdk.js' },
   ],
 }
