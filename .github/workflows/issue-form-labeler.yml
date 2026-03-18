@@ -1,0 +1,272 @@
+name: Issue form labeler
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  label-from-form:
+    if: ${{ github.event.issue.pull_request == null }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add labels from issue form selections
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issue = context.payload.issue;
+            const body = (issue.body || '').replace(/\r\n/g, '\n');
+
+            const featureCategoryLabels = new Map([
+              ['Nowa reguła lub wyjątek', 'kategoria: nowa reguła / wyjątek'],
+              ['Nowe źródło filtrów', 'kategoria: nowe źródło filtrów'],
+              ['Ulepszenie generatora / build.py', 'kategoria: generator / build.py'],
+              ['Ulepszenie strony WWW projektu', 'kategoria: strona WWW'],
+              ['Dokumentacja / UX', 'kategoria: dokumentacja / UX'],
+              ['Inne', 'kategoria: inne'],
+            ]);
+
+            const bugTypeLabels = new Map([
+              ['Fałszywa blokada / strona przestaje działać', 'typ problemu: fałszywa blokada'],
+              ['Reklama lub tracker nie są blokowane', 'typ problemu: nieblokowana reklama / tracker'],
+              ['Problem z regułą kosmetyczną', 'typ problemu: reguła kosmetyczna'],
+              ['Problem z kompatybilnością', 'typ problemu: kompatybilność'],
+              ['Inny problem', 'typ problemu: inny'],
+            ]);
+
+            const blockerLabels = new Map([
+              ['uBlock Origin', 'adblocker: uBlock Origin'],
+              ['AdGuard', 'adblocker: AdGuard'],
+              ['AdBlock', 'adblocker: AdBlock'],
+              ['Adblock Plus', 'adblocker: Adblock Plus'],
+              ['Brave Shields', 'adblocker: Brave Shields'],
+              ['Inny', 'adblocker: inny'],
+            ]);
+
+            const labelMetadata = {
+              'kategoria: nowa reguła / wyjątek': {
+                color: '0E8A16',
+                description: 'Propozycja dotyczy nowej reguły lub wyjątku.',
+              },
+              'kategoria: nowe źródło filtrów': {
+                color: '0E8A16',
+                description: 'Propozycja dotyczy dodania nowego źródła filtrów.',
+              },
+              'kategoria: generator / build.py': {
+                color: '0E8A16',
+                description: 'Propozycja dotyczy generatora lub skryptu build.py.',
+              },
+              'kategoria: strona WWW': {
+                color: '0E8A16',
+                description: 'Propozycja dotyczy strony WWW projektu.',
+              },
+              'kategoria: dokumentacja / UX': {
+                color: '0E8A16',
+                description: 'Propozycja dotyczy dokumentacji lub UX.',
+              },
+              'kategoria: inne': {
+                color: '0E8A16',
+                description: 'Inna kategoria propozycji.',
+              },
+              'typ problemu: fałszywa blokada': {
+                color: 'D73A4A',
+                description: 'Błąd powoduje fałszywą blokadę lub psuje działanie strony.',
+              },
+              'typ problemu: nieblokowana reklama / tracker': {
+                color: 'D73A4A',
+                description: 'Błąd dotyczy reklamy lub trackera, które nie są blokowane.',
+              },
+              'typ problemu: reguła kosmetyczna': {
+                color: 'D73A4A',
+                description: 'Błąd dotyczy reguły kosmetycznej.',
+              },
+              'typ problemu: kompatybilność': {
+                color: 'D73A4A',
+                description: 'Błąd dotyczy problemu z kompatybilnością.',
+              },
+              'typ problemu: inny': {
+                color: 'D73A4A',
+                description: 'Inny typ problemu.',
+              },
+              'adblocker: uBlock Origin': {
+                color: '1D76DB',
+                description: 'Zgłoszenie dotyczy uBlock Origin.',
+              },
+              'adblocker: AdGuard': {
+                color: '1D76DB',
+                description: 'Zgłoszenie dotyczy AdGuard.',
+              },
+              'adblocker: AdBlock': {
+                color: '1D76DB',
+                description: 'Zgłoszenie dotyczy AdBlock.',
+              },
+              'adblocker: Adblock Plus': {
+                color: '1D76DB',
+                description: 'Zgłoszenie dotyczy Adblock Plus.',
+              },
+              'adblocker: Brave Shields': {
+                color: '1D76DB',
+                description: 'Zgłoszenie dotyczy Brave Shields.',
+              },
+              'adblocker: inny': {
+                color: '1D76DB',
+                description: 'Zgłoszenie dotyczy innego adblockera.',
+              },
+            };
+
+            function parseSections(markdown) {
+              const sections = {};
+              const lines = markdown.split('\n');
+              let currentHeading = null;
+              let currentContent = [];
+
+              for (const line of lines) {
+                if (line.startsWith('### ')) {
+                  if (currentHeading) {
+                    sections[currentHeading] = currentContent.join('\n').trim();
+                  }
+
+                  currentHeading = line.slice(4).trim();
+                  currentContent = [];
+                  continue;
+                }
+
+                if (currentHeading) {
+                  currentContent.push(line);
+                }
+              }
+
+              if (currentHeading) {
+                sections[currentHeading] = currentContent.join('\n').trim();
+              }
+
+              return sections;
+            }
+
+            function extractFieldValue(value) {
+              if (!value) {
+                return '';
+              }
+
+              return value
+                .split('\n')
+                .map((line) => line.trim())
+                .filter((line) => line && !line.startsWith('- ['))
+                .join(' ')
+                .trim();
+            }
+
+            async function ensureRepoLabels(names) {
+              const repoLabels = await github.paginate(github.rest.issues.listLabelsForRepo, {
+                owner,
+                repo,
+                per_page: 100,
+              });
+              const existingNames = new Set(repoLabels.map((label) => label.name));
+
+              for (const name of names) {
+                if (existingNames.has(name)) {
+                  continue;
+                }
+
+                const metadata = labelMetadata[name];
+                if (!metadata) {
+                  core.warning(`Missing metadata for label: ${name}`);
+                  continue;
+                }
+
+                await github.rest.issues.createLabel({
+                  owner,
+                  repo,
+                  name,
+                  color: metadata.color,
+                  description: metadata.description,
+                });
+              }
+            }
+
+            const sections = parseSections(body);
+            const desiredLabels = new Set();
+            const managedForThisIssue = new Set();
+
+            const featureCategory = extractFieldValue(sections['Kategoria propozycji']);
+            if (featureCategoryLabels.has(featureCategory)) {
+              desiredLabels.add(featureCategoryLabels.get(featureCategory));
+            }
+            if (sections['Kategoria propozycji'] !== undefined) {
+              for (const labelName of featureCategoryLabels.values()) {
+                managedForThisIssue.add(labelName);
+              }
+            }
+
+            const issueType = extractFieldValue(sections['Typ problemu']);
+            if (bugTypeLabels.has(issueType)) {
+              desiredLabels.add(bugTypeLabels.get(issueType));
+            }
+            if (sections['Typ problemu'] !== undefined) {
+              for (const labelName of bugTypeLabels.values()) {
+                managedForThisIssue.add(labelName);
+              }
+            }
+
+            const blocker = extractFieldValue(sections['Używany adblocker']);
+            if (blockerLabels.has(blocker)) {
+              desiredLabels.add(blockerLabels.get(blocker));
+            }
+            if (sections['Używany adblocker'] !== undefined) {
+              for (const labelName of blockerLabels.values()) {
+                managedForThisIssue.add(labelName);
+              }
+            }
+
+            if (managedForThisIssue.size === 0) {
+              core.info('Issue does not match supported issue forms. Skipping.');
+              return;
+            }
+
+            await ensureRepoLabels(desiredLabels);
+
+            const currentIssueLabels = (issue.labels || [])
+              .map((label) => (typeof label === 'string' ? label : label.name))
+              .filter(Boolean);
+
+            const labelsToRemove = currentIssueLabels.filter(
+              (labelName) => managedForThisIssue.has(labelName) && !desiredLabels.has(labelName),
+            );
+
+            for (const labelName of labelsToRemove) {
+              try {
+                await github.rest.issues.removeLabel({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  name: labelName,
+                });
+              } catch (error) {
+                if (error.status !== 404) {
+                  throw error;
+                }
+              }
+            }
+
+            const labelsToAdd = [...desiredLabels].filter(
+              (labelName) => !currentIssueLabels.includes(labelName),
+            );
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: issue.number,
+                labels: labelsToAdd,
+              });
+            }
+
+            core.info(`Applied labels: ${[...desiredLabels].join(', ') || 'none'}`);
