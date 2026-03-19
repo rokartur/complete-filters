@@ -14,7 +14,7 @@ export function SeoContent() {
       className="border-t border-border bg-card px-4 py-8 md:px-6 md:py-12 font-sans"
     >
       <div className="mx-auto max-w-[1336px] space-y-12">
-        <div className="max-w-3xl space-y-4">
+        <div className="animate-section-in max-w-3xl space-y-4" style={{ '--section-delay': 0 } as React.CSSProperties}>
           <h2 id="seo-content-title" className="font-display text-3xl font-bold tracking-tight text-foreground md:text-5xl uppercase">
             {t.seo.title}
           </h2>
@@ -23,7 +23,7 @@ export function SeoContent() {
           </p>
         </div>
 
-        <section aria-labelledby="features-title" className="space-y-6">
+        <section aria-labelledby="features-title" className="animate-section-in space-y-6" style={{ '--section-delay': 100 } as React.CSSProperties}>
           <h3 id="features-title" className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground font-mono">
             [ {t.seo.featureTitle} ]
           </h3>
@@ -46,7 +46,7 @@ export function SeoContent() {
           </div>
         </section>
 
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="animate-section-in grid gap-6 lg:grid-cols-[1.1fr_0.9fr]" style={{ '--section-delay': 200 } as React.CSSProperties}>
           <section className="border border-border bg-background p-6 md:p-8">
             <h3 className="font-display text-xl font-bold text-foreground uppercase tracking-wider">{t.seo.whyTitle}</h3>
             <ul className="mt-6 space-y-4 text-xs font-mono leading-relaxed text-muted-foreground">
@@ -77,7 +77,7 @@ export function SeoContent() {
           </section>
         </div>
 
-        <section aria-labelledby="faq-title" className="space-y-6">
+        <section aria-labelledby="faq-title" className="animate-section-in space-y-6" style={{ '--section-delay': 300 } as React.CSSProperties}>
           <div>
             <h3 id="faq-title" className="font-display text-2xl font-bold text-foreground uppercase tracking-wider">
               {t.seo.faqTitle}
@@ -103,7 +103,7 @@ export function SeoContent() {
           </Accordion>
         </section>
 
-        <section className="border border-primary bg-primary/5 p-6 md:p-10 relative overflow-hidden">
+        <section className="animate-section-in border border-primary bg-primary/5 p-6 md:p-10 relative overflow-hidden" style={{ '--section-delay': 400 } as React.CSSProperties}>
           <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
              <Radar className="w-64 h-64 text-primary" />
           </div>
@@ -115,13 +115,13 @@ export function SeoContent() {
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-              <Button asChild className="rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+              <Button asChild className="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200">
                 <a href={SUBSCRIBE_URL}>
                   <ExternalLink className="mr-2 h-4 w-4" />
                   {t.seo.ctaPrimary}
                 </a>
               </Button>
-              <Button variant="outline" asChild className="rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 border-primary/30 hover:border-primary hover:bg-primary/10 transition-colors">
+              <Button variant="outline" asChild className="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-200">
                 <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
                   {t.seo.ctaSecondary}

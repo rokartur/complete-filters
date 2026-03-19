@@ -4,9 +4,10 @@ import { Clock3, ListChecks, ShieldCheck, ShieldX } from 'lucide-react'
 
 interface StatsBarProps {
   stats: TestStats
+  isRunning?: boolean
 }
 
-export function StatsBar({ stats }: StatsBarProps) {
+export function StatsBar({ stats, isRunning }: StatsBarProps) {
   const { t } = useI18n()
   const statItems = [
     {
@@ -44,21 +45,21 @@ export function StatsBar({ stats }: StatsBarProps) {
   ]
 
   return (
-    <div className="grid grid-cols-2 border-b border-border bg-card sm:grid-cols-2 xl:grid-cols-4">
+    <div className={`grid grid-cols-2 border-b border-border bg-card sm:grid-cols-2 xl:grid-cols-4 ${isRunning ? 'animate-testing-pulse' : ''}`}>
       {statItems.map((item, index) => {
         const Icon = item.icon
         return (
-        <div 
-          key={item.key} 
+        <div
+          key={item.key}
           className={`relative group border-border p-4 sm:p-6 text-left transition-colors duration-200 hover:bg-muted ${index % 2 === 0 ? 'border-r' : ''} ${index < 2 ? 'border-b xl:border-b-0' : ''} xl:border-r`}
         >
           <div className="mb-4 flex items-center gap-2">
-            <Icon className={`h-4 w-4 ${item.colorClass}`} />
+            <Icon className={`h-4 w-4 ${item.colorClass} transition-transform duration-200 group-hover:scale-110`} />
             <div className="text-[10px] font-mono font-semibold uppercase tracking-widest text-muted-foreground">
               {item.label}
             </div>
           </div>
-          <div className={`text-4xl font-display font-bold tabular-nums tracking-tight sm:text-5xl ${item.colorClass}`}>
+          <div className={`stat-value text-4xl font-display font-bold tabular-nums tracking-tight sm:text-5xl transition-all duration-300 ${item.colorClass}`}>
             {stats[item.key]}
           </div>
         </div>

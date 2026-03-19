@@ -89,6 +89,7 @@ export function useAdBlockTester() {
   const [isRunning, setIsRunning] = useState(false)
   const [filter, setFilter] = useState<FilterType>('all')
   const resultsRef = useRef<Record<string, TestStatus>>(createInitialResults())
+  const cancelledRef = useRef(false)
 
   const stats = computeStats(results)
   const progress =
@@ -133,23 +134,17 @@ export function useAdBlockTester() {
   )
 
   const startTests = useCallback(async () => {
+    cancelledRef.current = false
     setIsRunning(true)
     initResults()
 
     try {
-      // Initialize the reference filter engine in parallel with UI prep.
-      // This loads EasyList + EasyPrivacy from Ghostery CDN and provides
-      // hints that improve redirect detection accuracy. Non-blocking —
-      // if it fails, detection works without hints.
       const referenceReady = initReferenceEngine()
-
-      // Small delay to let React render the initial state
       await new Promise((r) => setTimeout(r, 50))
-
-      // Wait for reference engine (usually loads in <500ms, cached after first load)
       await referenceReady
 
-      // Collect all tests
+      if (cancelledRef.current) return
+
       const allTests: Array<{
         id: string
         test: (typeof TEST_CATEGORIES)[number]['tests'][number]
@@ -160,7 +155,6 @@ export function useAdBlockTester() {
         })
       })
 
-      // Run cosmetic tests first (they're fast and don't hit the network)
       const cosmeticTests = allTests.filter(
         ({ test }) => test.baitClass || test.baitId
       )
@@ -168,46 +162,45 @@ export function useAdBlockTester() {
         ({ test }) => test.url && !test.baitClass && !test.baitId
       )
 
-      // Run cosmetic tests in parallel (no network involved)
       await Promise.all(
         cosmeticTests.map(async ({ id, test }) => {
+          if (cancelledRef.current) return
           try {
             const blocked = await testBaitElement(test)
-            updateResult(id, blocked ? 'blocked' : 'not-blocked')
+            if (!cancelledRef.current) {
+              updateResult(id, blocked ? 'blocked' : 'not-blocked')
+            }
           } catch {
-            updateResult(id, 'not-blocked')
+            if (!cancelledRef.current) updateResult(id, 'not-blocked')
           }
         })
       )
 
-      // Run network tests in batches of 12 concurrent tests
-      // (each test now uses 3 detection methods internally, so 12 × 3 = 36
-      // concurrent network requests — within browser connection limits)
       const batchSize = 12
       for (let i = 0; i < networkTests.length; i += batchSize) {
+        if (cancelledRef.current) break
+
         const batch = networkTests.slice(i, i + batchSize)
         await Promise.all(
           batch.map(async ({ id, test }) => {
+            if (cancelledRef.current) return
             try {
               if (test.url) {
-                // Get hint from reference engine (instant lookup, no network)
                 const hint = getFilterHint(test.url)
                 const result = await testNetworkResource(test.url, hint)
-                updateResult(id, result)
+                if (!cancelledRef.current) updateResult(id, result)
               } else {
-                updateResult(id, 'not-blocked')
+                if (!cancelledRef.current) updateResult(id, 'not-blocked')
               }
             } catch {
-              updateResult(id, 'not-blocked')
+              if (!cancelledRef.current) updateResult(id, 'not-blocked')
             }
           })
         )
-        // Some underlying detection methods still read Performance API entries
-        // briefly after the main test promise resolves. Give them a small grace
-        // period before clearing the buffer.
-        await new Promise((r) => setTimeout(r, PERFORMANCE_CLEAR_SETTLE_DELAY_MS))
 
-        // Clear performance entries between batches to avoid buffer overflow
+        if (cancelledRef.current) break
+
+        await new Promise((r) => setTimeout(r, PERFORMANCE_CLEAR_SETTLE_DELAY_MS))
         try {
           performance.clearResourceTimings()
         } catch {
@@ -215,11 +208,13 @@ export function useAdBlockTester() {
         }
       }
     } finally {
-      setIsRunning(false)
+      if (!cancelledRef.current) setIsRunning(false)
     }
   }, [initResults, updateResult])
 
   const resetTests = useCallback(() => {
+    cancelledRef.current = true
+    setIsRunning(false)
     initResults()
     setFilter('all')
   }, [initResults])

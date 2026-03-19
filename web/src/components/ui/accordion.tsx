@@ -53,7 +53,7 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
         {...props}
       >
         {children}
-        <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
+        <ChevronDown className="accordion-chevron h-4 w-4 shrink-0 text-muted-foreground" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )
@@ -67,10 +67,11 @@ const AccordionContent = React.forwardRef<HTMLDivElement, AccordionContentProps>
   ({ className, children, ...props }, ref) => (
     <AccordionPrimitive.Panel
       ref={ref}
-      className="overflow-hidden text-sm"
+      keepMounted
+      className="accordion-panel overflow-hidden text-sm"
       {...props}
     >
-      <div className={cn("pb-4 pt-0", className)}>{children}</div>
+      <div className={cn("accordion-panel-content pb-4 pt-0", className)}>{children}</div>
     </AccordionPrimitive.Panel>
   )
 )

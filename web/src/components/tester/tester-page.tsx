@@ -16,7 +16,7 @@ export function TesterPage() {
   return (
     <div>
       {/* Tester Header — industrial tracking panel */}
-      <div className="relative border-b border-border bg-card px-4 py-8 sm:px-6 md:px-10">
+      <div className="animate-section-in relative border-b border-border bg-card px-4 py-8 sm:px-6 md:px-10" style={{ '--section-delay': 0 } as React.CSSProperties}>
         <div className="flex flex-col md:flex-row md:items-start gap-6">
           <div className="shrink-0 flex h-16 w-16 items-center justify-center border border-primary bg-primary/5 text-primary">
             <Crosshair className="h-8 w-8" />
@@ -39,34 +39,40 @@ export function TesterPage() {
       {tester.grade && <GradeBadge grade={tester.grade} />}
 
       {/* Stats */}
-      <StatsBar stats={tester.stats} />
+      <div className="animate-section-in" style={{ '--section-delay': 80 } as React.CSSProperties}>
+        <StatsBar stats={tester.stats} isRunning={tester.isRunning} />
+      </div>
 
       {/* Progress */}
-      <div className="border-b border-border bg-card px-4 py-6 sm:px-6 md:px-8">
+      <div className="animate-section-in border-b border-border bg-card px-4 py-6 sm:px-6 md:px-8" style={{ '--section-delay': 160 } as React.CSSProperties}>
         <div className="mx-auto w-full">
           <div className="mb-3 flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-muted-foreground">
             <span>{t.tester.progress}</span>
             <span className="tabular-nums text-foreground">[{Math.round(tester.progress)}%]</span>
           </div>
-          <Progress
-            value={tester.progress}
-            className="h-1 bg-muted rounded-none"
-            indicatorClassName="bg-primary rounded-none transition-all duration-300"
-          />
+          <div className={tester.isRunning ? 'progress-scanline' : ''}>
+            <Progress
+              value={tester.progress}
+              className="h-1 bg-muted rounded-none"
+              indicatorClassName="bg-primary rounded-none transition-all duration-300"
+            />
+          </div>
         </div>
       </div>
 
       {/* Controls */}
-      <ControlPanel
-        isRunning={tester.isRunning}
-        filter={tester.filter}
-        onStart={tester.startTests}
-        onReset={tester.resetTests}
-        onFilterChange={tester.setFilter}
-      />
+      <div className="animate-section-in" style={{ '--section-delay': 240 } as React.CSSProperties}>
+        <ControlPanel
+          isRunning={tester.isRunning}
+          filter={tester.filter}
+          onStart={tester.startTests}
+          onReset={tester.resetTests}
+          onFilterChange={tester.setFilter}
+        />
+      </div>
 
       {/* Test Categories */}
-      <div className="w-full bg-background px-4 py-8 sm:px-6 md:px-8">
+      <div className="animate-section-in w-full bg-background px-4 py-8 sm:px-6 md:px-8" style={{ '--section-delay': 320 } as React.CSSProperties}>
         <TestCategoryList
           categories={tester.categories}
           results={tester.results}

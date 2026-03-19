@@ -49,7 +49,7 @@ export function ControlPanel({
           <Button
             onClick={onStart}
             disabled={isRunning}
-            className="rounded-none border-0 border-l border-border hover:bg-primary hover:text-primary-foreground bg-primary/10 text-primary font-mono font-bold uppercase tracking-widest px-8 md:px-12 h-auto py-4 sm:py-0 transition-colors"
+            className="btn-press rounded-none border-0 border-l border-border hover:bg-primary hover:text-primary-foreground bg-primary/10 text-primary font-mono font-bold uppercase tracking-widest px-8 md:px-12 h-auto py-4 sm:py-0 transition-all duration-200"
           >
             {isRunning ? (
               <>
@@ -64,11 +64,10 @@ export function ControlPanel({
             )}
           </Button>
 
-          <Button 
-            variant="ghost" 
-            onClick={onReset} 
-            disabled={isRunning} 
-            className="rounded-none border-0 border-l border-border hover:bg-destructive hover:text-destructive-foreground font-mono font-bold uppercase tracking-widest px-6 h-auto py-4 sm:py-0 transition-colors"
+          <Button
+            variant="ghost"
+            onClick={onReset}
+            className="btn-press rounded-none border-0 border-l border-border hover:bg-destructive hover:text-destructive-foreground font-mono font-bold uppercase tracking-widest px-6 h-auto py-4 sm:py-0 transition-all duration-200"
           >
             <RotateCcw className="h-4 w-4" />
           </Button>

@@ -15,11 +15,11 @@ export function TestItem({ test, status }: TestItemProps) {
   const displayUrl = test.url ?? (test.baitClass ? `.${test.baitClass}` : `#${test.baitId}`)
 
   return (
-    <div className="group flex flex-col gap-2 px-3 py-2.5 text-sm transition-colors duration-150 hover:bg-muted/20 sm:flex-row sm:items-center sm:px-4">
+    <div className="test-item-enter group flex flex-col gap-2 px-3 py-2.5 text-sm transition-colors duration-150 hover:bg-muted/20 sm:flex-row sm:items-center sm:px-4">
       <div className="flex w-full min-w-0 flex-1 gap-3 sm:items-center">
         {/* Status icon */}
         <div
-          className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border transition-colors sm:mt-0 ${
+          className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border transition-all duration-300 sm:mt-0 ${
             status === 'blocked'
               ? 'border-emerald-500 bg-emerald-500/10 text-emerald-400'
               : status === 'not-blocked'
@@ -28,9 +28,9 @@ export function TestItem({ test, status }: TestItemProps) {
           }`}
         >
           {status === 'blocked' ? (
-            <Check className="h-3.5 w-3.5" />
+            <Check className="h-3.5 w-3.5 animate-status-pop" />
           ) : status === 'not-blocked' ? (
-            <X className="h-3.5 w-3.5" />
+            <X className="h-3.5 w-3.5 animate-status-pop" />
           ) : (
             <Loader2 className="h-3 w-3 animate-spin" />
           )}
@@ -42,7 +42,7 @@ export function TestItem({ test, status }: TestItemProps) {
             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-foreground transition-colors group-hover:text-primary">
               {translateTestName(test.name)}
             </span>
-            <span className="shrink-0 border border-border bg-muted px-1.5 py-0.5 text-[8px] uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="shrink-0 border border-border bg-muted px-1.5 py-0.5 text-[8px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200">
               {translateMethodTag(method)}
             </span>
           </div>
@@ -54,7 +54,7 @@ export function TestItem({ test, status }: TestItemProps) {
 
       {/* Result badge */}
       <span
-        className={`self-start shrink-0 border px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] sm:self-center font-mono ${
+        className={`self-start shrink-0 border px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] sm:self-center font-mono transition-all duration-300 ${
           status === 'blocked'
             ? 'border-emerald-500/30 bg-emerald-500/5 text-emerald-400'
             : status === 'not-blocked'

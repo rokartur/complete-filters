@@ -112,7 +112,7 @@ export function TestCategoryList({
 
   return (
     <Accordion type="multiple" defaultValue={[]} className="w-full space-y-2.5">
-      {visibleCategories.map(({ category, visibleTests }) => {
+      {visibleCategories.map(({ category, visibleTests }, catIndex) => {
         const catStats = getCategoryStats(category.id)
         const CategoryIcon = categoryIcons[category.id] ?? ChartColumn
         const isCategoryFullyBlocked = catStats.total > 0 && catStats.blocked === catStats.total
@@ -121,7 +121,8 @@ export function TestCategoryList({
           <AccordionItem
             key={category.id}
             value={category.id}
-            className="w-full border border-border bg-card overflow-hidden transition-colors hover:border-foreground/30 rounded-none!"
+            className="category-card animate-stagger-in w-full border border-border bg-card overflow-hidden hover:border-foreground/30 rounded-none!"
+            style={{ '--stagger': catIndex } as React.CSSProperties}
           >
             <AccordionTrigger className="flex flex-1 items-center justify-between px-3 py-3 transition-colors hover:bg-muted/40 hover:no-underline sm:px-4">
               <div className="flex flex-1 flex-col gap-2 pr-2 sm:flex-row sm:items-center sm:justify-between sm:pr-3">
@@ -161,12 +162,17 @@ export function TestCategoryList({
             </AccordionTrigger>
             <AccordionContent className="border-t border-border px-0 pb-0 bg-background">
               <div className="divide-y divide-border/50">
-                {visibleTests.map(({ test, index, status }) => (
-                  <TestItem
+                {visibleTests.map(({ test, index, status }, itemIdx) => (
+                  <div
                     key={`${category.id}-${index}`}
-                    test={test}
-                    status={status}
-                  />
+                    className="test-item-stagger"
+                    style={{ '--item-delay': Math.min(itemIdx * 25, 400) } as React.CSSProperties}
+                  >
+                    <TestItem
+                      test={test}
+                      status={status}
+                    />
+                  </div>
                 ))}
               </div>
             </AccordionContent>

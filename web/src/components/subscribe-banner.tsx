@@ -7,7 +7,7 @@ export function SubscribeBanner() {
   const { t } = useI18n()
 
   return (
-    <div className="relative border-b border-border bg-card">
+    <div className="animate-fade-in-up relative border-b border-border bg-card">
       <div className="relative px-4 py-6 sm:px-6 md:px-8">
         <div className="mb-6 flex justify-between items-center border-b border-border/50 pb-4">
           <div className="flex items-center gap-3">
@@ -28,22 +28,22 @@ export function SubscribeBanner() {
               {t.banner.description}
             </p>
           </div>
-          
+
           <div className="flex w-full gap-3 sm:w-auto shrink-0 flex-col sm:flex-row">
             <Button
               asChild
               variant="default"
-              className="w-full sm:w-auto transition-colors font-mono uppercase tracking-wider text-xs"
+              className="btn-press w-full sm:w-auto transition-all duration-200 font-mono uppercase tracking-wider text-xs"
             >
               <a href={SUBSCRIBE_URL}>
                 <ExternalLink className="h-4 w-4 mr-2" />
                 {t.banner.addButton}
               </a>
             </Button>
-            <Button 
-              variant="outline" 
-              asChild 
-              className="w-full sm:w-auto rounded-none transition-colors border-border font-mono uppercase tracking-wider text-xs hover:bg-foreground hover:text-background"
+            <Button
+              variant="outline"
+              asChild
+              className="btn-press w-full sm:w-auto rounded-none transition-all duration-200 border-border font-mono uppercase tracking-wider text-xs hover:bg-foreground hover:text-background"
             >
               <a
                 href={REPO_URL}

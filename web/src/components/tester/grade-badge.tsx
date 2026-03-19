@@ -9,7 +9,7 @@ export function GradeBadge({ grade }: GradeBadgeProps) {
   const { t } = useI18n()
 
   return (
-    <div className="border-b border-border bg-card">
+    <div className="animate-fade-in-up border-b border-border bg-card">
       <div className="mx-auto flex flex-col gap-6 px-4 py-8 md:flex-row md:items-start md:justify-between md:px-8 md:py-10">
         <div className="space-y-4 text-left max-w-xl">
           <div className="flex items-center gap-2">
@@ -26,9 +26,9 @@ export function GradeBadge({ grade }: GradeBadgeProps) {
           </p>
         </div>
 
-        <div className="flex items-center gap-6 border border-border bg-background p-6 shrink-0 mt-4 md:mt-0">
+        <div className="flex items-center gap-6 border border-border bg-background p-6 shrink-0 mt-4 md:mt-0 animate-glow-pulse">
           <div
-            className={`flex h-20 w-20 items-center justify-center border border-current text-4xl font-display font-black sm:h-24 sm:w-24 sm:text-5xl ${grade.colorClass}`}
+            className={`grade-glow animate-stamp-in flex h-20 w-20 items-center justify-center border border-current text-4xl font-display font-black sm:h-24 sm:w-24 sm:text-5xl ${grade.colorClass}`}
           >
             {grade.grade}
           </div>
