@@ -28,9 +28,7 @@ export const socialTrackers: TestCategory = {
     { name: 'Instagram Embed', url: 'https://www.instagram.com/embed.js' },
     { name: 'X (Twitter) Ads API', url: 'https://ads-api.twitter.com/' },
     { name: 'Threads Embed', url: 'https://www.threads.net/embed.js' },
-    { name: 'Discord Widget', url: 'https://discord.com/api/guilds/0/widget.json' },
     { name: 'Telegram Widget', url: 'https://telegram.org/js/telegram-widget.js' },
-    { name: 'WhatsApp Widget', url: 'https://web.whatsapp.com/' },
     { name: 'Quora Pixel', url: 'https://q.quora.com/_/ad/0/pixel' },
   ],
 }
