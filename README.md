@@ -72,7 +72,7 @@ Szczególną ostrożność warto zachować przy filtrowaniu na poziomie systemow
 - **AdGuard Desktop**,
 - inne rozwiązania filtrujące cały ruch systemowy.
 
-Repozytorium zawiera kilka jawnych wyjątków kompatybilności dla infrastruktury developerskiej, żeby ograniczyć ryzyko psucia narzędzi systemowych i CLI.
+Repozytorium zawiera kilka jawnych wyjątków kompatybilności dla infrastruktury developerskiej, żeby ograniczyć ryzyko psucia narzędzi systemowych i CLI — między innymi dla GitHub, GitLab, Bitbucket, popularnych rejestrów pakietów, rejestrów kontenerów, marketplace'ów rozszerzeń oraz wybranych platform deploymentowych i narzędzi takich jak HashiCorp / Terraform, Cloudflare, Vercel, Netlify i Supabase.
 
 ## Cel projektu
 

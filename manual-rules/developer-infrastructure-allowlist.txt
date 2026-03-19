@@ -1,8 +1,9 @@
 ! Developer infrastructure allowlist
-! Prevent breakage for package managers and CLI tooling that depend on GitHub.
+! Prevent breakage for code hosting, package managers, container registries,
+! editors and CLI tooling used in developer workflows.
 ! This is especially important for system-wide blockers (for example AdGuard DNS/Desktop).
 !
-! Homebrew
+! GitHub / Homebrew
 @@||github.com^
 @@||api.github.com^
 @@||codeload.github.com^
@@ -10,9 +11,77 @@
 @@||objects.githubusercontent.com^
 @@||github-releases.githubusercontent.com^
 @@||release-assets.githubusercontent.com^
+@@||release-assets.githubusercontent.com/github-production-release-asset$important
 @@||pkg-containers.githubusercontent.com^
 @@||ghcr.io^
+@@||npm.pkg.github.com^
+@@||maven.pkg.github.com^
+@@||nuget.pkg.github.com^
+@@||rubygems.pkg.github.com^
 @@||formulae.brew.sh^
+!
+! GitLab
+@@||gitlab.com^
+@@||assets.gitlab-static.net^
+@@||registry.gitlab.com^
+@@||packages.gitlab.com^
+!
+! Common package registries / SDK distribution
+@@||npmjs.com^
+@@||registry.npmjs.org^
+@@||registry.yarnpkg.com^
+@@||yarnpkg.com^
+@@||nodejs.org^
+@@||pypi.org^
+@@||files.pythonhosted.org^
+@@||rubygems.org^
+@@||crates.io^
+@@||index.crates.io^
+@@||static.crates.io^
+@@||proxy.golang.org^
+@@||sum.golang.org^
+@@||repo.maven.apache.org^
+@@||repo1.maven.org^
+@@||nuget.org^
+@@||api.nuget.org^
+@@||globalcdn.nuget.org^
+!
+! Container registries
+@@||hub.docker.com^
+@@||registry-1.docker.io^
+@@||auth.docker.io^
+@@||production.cloudflare.docker.com^
+!
+! Editors / IDE extensions
+@@||marketplace.visualstudio.com^
+@@||update.code.visualstudio.com^
+@@||vscode.download.prss.microsoft.com^
+@@||open-vsx.org^
+@@||plugins.jetbrains.com^
+@@||download.jetbrains.com^
+!
+! Additional developer platforms / deployment
+@@||bitbucket.org^
+@@||api.bitbucket.org^
+@@||id.atlassian.com^
+@@||api.atlassian.com^
+@@||hashicorp.com^
+@@||releases.hashicorp.com^
+@@||checkpoint-api.hashicorp.com^
+@@||registry.terraform.io^
+@@||app.terraform.io^
+@@||dash.cloudflare.com^
+@@||api.cloudflare.com^
+@@||developers.cloudflare.com^
+@@||vercel.com^
+@@||api.vercel.com^
+@@||assets.vercel.com^
+@@||netlify.com^
+@@||api.netlify.com^
+@@||app.netlify.com^
+@@||supabase.com^
+@@||api.supabase.com^
+@@||app.supabase.com^
 !
 ! Bun
 @@||bun.com^
