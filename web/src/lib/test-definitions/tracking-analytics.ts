@@ -5,6 +5,13 @@ export const trackingAnalytics: TestCategory = {
   name: 'Tracking i analityka',
   tests: [
     { name: 'Google Analytics', url: 'https://www.google-analytics.com/analytics.js' },
+    { name: 'Google Analytics Collect', url: 'https://www.google-analytics.com/collect' },
+    { name: 'Google Analytics GA4 g/collect', url: 'https://www.google-analytics.com/g/collect' },
+    { name: 'Google Analytics GA4 j/collect', url: 'https://www.google-analytics.com/j/collect' },
+    { name: 'Google Analytics Region1 g/collect', url: 'https://region1.google-analytics.com/g/collect' },
+    { name: 'Google Analytics Region1 j/collect', url: 'https://region1.google-analytics.com/j/collect' },
+    { name: 'Google Tag Manager', url: 'https://www.googletagmanager.com/gtm.js' },
+    { name: 'Google gtag.js', url: 'https://www.googletagmanager.com/gtag/js' },
     { name: 'analytics.google.com', url: 'https://analytics.google.com/' },
     { name: 'ssl.google-analytics.com', url: 'https://ssl.google-analytics.com/' },
     { name: 'Facebook Pixel', url: 'https://connect.facebook.net/en_US/fbevents.js' },

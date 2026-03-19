@@ -16,5 +16,6 @@ export const googleAds: TestCategory = {
     { name: 'static.doubleclick.net', url: 'https://static.doubleclick.net/' },
     { name: 'm.doubleclick.net', url: 'https://m.doubleclick.net/' },
     { name: 'mediavisor.doubleclick.net', url: 'https://mediavisor.doubleclick.net/' },
+    { name: 'googleads.g.doubleclick.net', url: 'https://googleads.g.doubleclick.net/' },
   ],
 }
