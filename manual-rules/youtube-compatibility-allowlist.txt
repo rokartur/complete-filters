@@ -53,3 +53,23 @@ www.youtube.com#@#+js(trusted-json-edit-xhr-request, [?..userAgent=/adunit|chann
 ||www.youtube.com/s/player/*/base.js$script,xmlhttprequest,replace=/if\(\!U\|\|\!U\.adPlacements&&\!U\.adSlots\)/if(!U||0)/,badfilter
 ||www.youtube.com^$replace=/<script id="bc-def" nonce=".*?">/<script>\/\//,document,badfilter
 ||youtube.com/watch$replace=/adSlots/no_ads/,document,badfilter
+!
+! ─── Comments visibility ────────────────────────────────────
+!
+! Mobile: upstream Brave yt-distracting list hides the comments
+! entry-point header and the watch-next modern-panels container
+! (which holds the comments section on m.youtube.com).
+m.youtube.com#@#ytm-comments-entry-point-header-renderer
+m.youtube.com#@#ytm-item-section-renderer.single-column-watch-next-modern-panels
+!
+! Desktop: web_streaming_watch=false (AdGuard + uBO) disables
+! progressive / streaming watch-page loading.  This prevents the
+! continuation-token flow that fetches and renders comments.
+! Exception for uBO (##+js) — AdGuard variant already covered by
+! the @@||youtube.com^$jsinject rule above.
+www.youtube.com#@#+js(set-constant, ytcfg.data_.EXPERIMENT_FLAGS.web_streaming_watch, false)
+!
+! web_bind_fetch=false changes how YouTube binds its internal
+! fetch calls, which can prevent the /next continuation request
+! that loads comments on the watch page.
+www.youtube.com#@#+js(set, yt.config_.EXPERIMENT_FLAGS.web_bind_fetch, false)
