@@ -37,8 +37,11 @@ www.youtube.com#@#+js(trusted-json-edit-xhr-request, [?..userAgent=/adunit|chann
 ! ─── googlevideo playback ────────────────────────────────────
 !
 ! Remove upstream blocks that restrict legitimate video delivery.
-! ctier=L blocks low-tier connections on mobile / music YouTube.
+! ctier=L blocks low-tier connections — multiple upstream variants
+! exist with different (or no) $domain scopes; cancel all of them.
 ||googlevideo.com/videoplayback*ctier=L&*%2Cxpc%2Cctier%2C$domain=m.youtube.com|music.youtube.com,badfilter
+||googlevideo.com/videoplayback*ctier=L&*%2Cxpc%2Cctier%2C$domain=m.youtube.com|www.youtube.com,badfilter
+||googlevideo.com/videoplayback*ctier=L&*%2Cxpc%2Cctier%2C$badfilter
 ! TVHTML5 initplayback blocks can prevent video init completely.
 ||googlevideo.com/initplayback?source=youtube&*c=TVHTML5&*oad=$xhr,domain=youtube.com,badfilter
 ||googlevideo.com/initplayback?source=youtube&*&c=TVHTML5&oad=$xhr,domain=youtube.com,badfilter
@@ -73,3 +76,34 @@ www.youtube.com#@#+js(set-constant, ytcfg.data_.EXPERIMENT_FLAGS.web_streaming_w
 ! fetch calls, which can prevent the /next continuation request
 ! that loads comments on the watch page.
 www.youtube.com#@#+js(set, yt.config_.EXPERIMENT_FLAGS.web_bind_fetch, false)
+!
+! ─── YouTube telemetry / stats exceptions ────────────────────
+!
+! Several upstream lists block YouTube's internal stats and logging
+! endpoints.  YouTube's client-side code interprets failed stat
+! reports as evidence of a managed / restricted network, which
+! triggers Restricted Mode banners and can degrade playback.
+! Allow these as first-party XHR only — third-party contexts stay
+! blocked, so cross-site tracking is still prevented.
+!
+! Ad stats — blocked by EasyList / EasyPrivacy; failure makes the
+! player enter a fallback path that can surface Restricted Mode.
+@@||youtube.com/api/stats/ads?$xhr,1p
+!
+! QoE (Quality of Experience) stats — affects stream-quality
+! negotiation; blocking can cause buffering and degraded playback.
+@@||youtube.com/api/stats/qoe?$xhr,1p
+!
+! Playback tracking beacon — failure can put the session into a
+! degraded / restricted state.
+@@||youtube.com/ptracking?$xhr,1p
+!
+! log_event on youtube.googleapis.com — the existing exception
+! covers youtube.com but not the googleapis.com hostname variant,
+! so the block leaks through.  Allow first-party XHR from YouTube.
+@@||youtube.googleapis.com/youtubei/v1/log_event?$xhr,domain=youtube.com
+!
+! YouTube infrastructure subdomains — DNS-level blocks from Hagezi
+! and similar lists.  Scoped to first-party context only.
+@@||analytics.youtube.com^$domain=youtube.com
+@@||fcmatch.youtube.com^$domain=youtube.com
