@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { LanguageSwitcher } from '@/components/language-switcher'
-import { REPO_URL, SUBSCRIBE_URL, useI18n } from '@/lib/i18n'
+import { FILTER_CATEGORIES_URL, REPO_URL, useI18n } from '@/lib/i18n'
 import { Shield, ExternalLink, Github } from 'lucide-react'
 
 export function SubscribeBanner() {
@@ -35,7 +35,7 @@ export function SubscribeBanner() {
               variant="default"
               className="btn-press w-full sm:w-auto transition-all duration-200 font-mono uppercase tracking-wider text-xs"
             >
-              <a href={SUBSCRIBE_URL}>
+              <a href={FILTER_CATEGORIES_URL} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4 mr-2" />
                 {t.banner.addButton}
               </a>

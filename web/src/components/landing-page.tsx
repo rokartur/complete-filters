@@ -1,13 +1,11 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { FILTER_CATEGORIES_URL } from '@/lib/i18n'
 import { Shield, ExternalLink, Github } from 'lucide-react'
 
 interface LandingPageProps {
   onNavigateToTester: () => void
 }
-
-const SUBSCRIBE_URL =
-  'abp:subscribe?location=https%3A%2F%2Fraw.githubusercontent.com%2Frokartur%2Fpolish-complete-filters%2Fmain%2Fpolish-complete-filters.txt&title=Polish%20Complete%20Filters'
 
 export function LandingPage({ onNavigateToTester }: LandingPageProps) {
   return (
@@ -18,11 +16,11 @@ export function LandingPage({ onNavigateToTester }: LandingPageProps) {
             <Shield className="h-8 w-8" />
           </div>
           <CardTitle className="text-3xl font-bold tracking-tight">
-            Polish Complete Filters
+            Complete Filters
           </CardTitle>
           <CardDescription className="text-base text-muted-foreground">
-            Zestaw filtrów usuwających irytujące elementy i reklamy ze stron WWW.
-            Dodaj filtry do uBlock Origin, klikając poniższy przycisk.
+            Zestaw kategorii filtrów usuwających reklamy, tracking i inne irytujące elementy ze stron WWW.
+            Przejdź do gotowych plików kategorii, aby wybrać listy pasujące do swojej konfiguracji.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-3 pt-4">
@@ -31,9 +29,9 @@ export function LandingPage({ onNavigateToTester }: LandingPageProps) {
             size="lg"
             className="w-full bg-red-900 hover:bg-red-800 text-white font-semibold text-base"
           >
-            <a href={SUBSCRIBE_URL}>
+            <a href={FILTER_CATEGORIES_URL} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="h-4 w-4 mr-1" />
-              Dodaj do adblocka
+              Przeglądaj kategorie
             </a>
           </Button>
 
@@ -49,7 +47,7 @@ export function LandingPage({ onNavigateToTester }: LandingPageProps) {
 
           <Button variant="ghost" size="lg" asChild className="w-full text-muted-foreground">
             <a
-              href="https://github.com/rokartur/polish-complete-filters"
+              href="https://github.com/rokartur/complete-filters"
               target="_blank"
               rel="noopener noreferrer"
             >

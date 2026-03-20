@@ -10,10 +10,10 @@ import {
 export type Language = 'pl' | 'en'
 export type MethodTag = 'cosmetic' | 'script' | 'image' | 'document' | 'network'
 
-export const REPO_URL = 'https://github.com/rokartur/polish-complete-filters'
-export const SITE_URL = 'https://rokartur.github.io/polish-complete-filters/'
-export const SUBSCRIBE_URL =
-  'abp:subscribe?location=https%3A%2F%2Fraw.githubusercontent.com%2Frokartur%2Fpolish-complete-filters%2Fmain%2Fpolish-complete-filters.txt&title=Polish%20Complete%20Filters'
+export const REPO_URL = 'https://github.com/rokartur/complete-filters'
+export const FILTER_CATEGORIES_URL =
+  'https://github.com/rokartur/complete-filters/tree/main/filter'
+export const SITE_URL = 'https://rokartur.github.io/complete-filters/'
 
 const STORAGE_KEY = 'pcf-language'
 const SUPPORTED_LANGUAGES: Language[] = ['pl', 'en']
@@ -147,13 +147,13 @@ interface TranslationPack {
 const translations: Record<Language, TranslationPack> = {
   pl: {
     meta: {
-      title: 'Polish Complete Filters Tester — test adblocka, uBlock Origin i AdGuard',
+      title: 'Complete Filters Tester — test adblocka, uBlock Origin i AdGuard',
       description:
-        'Sprawdź skuteczność blokowania reklam, trackerów, malware, popupów i skryptów anti-adblock. Tester Polish Complete Filters działa z uBlock Origin, AdGuard, Brave i innymi adblockami.',
+        'Sprawdź skuteczność blokowania reklam, trackerów, malware, popupów i skryptów anti-adblock. Tester Complete Filters działa z uBlock Origin, AdGuard, Brave i innymi adblockami.',
       keywords:
-        'tester adblocka, test uBlock Origin, test AdGuard, blokowanie reklam, polish complete filters, filtr reklam, test trackerów, adblock checker, brave shields test',
+        'tester adblocka, test uBlock Origin, test AdGuard, blokowanie reklam, Complete Filters, filtr reklam, test trackerów, adblock checker, brave shields test',
       locale: 'pl_PL',
-      socialTitle: 'Polish Complete Filters Tester — sprawdź swój adblock',
+      socialTitle: 'Complete Filters Tester — sprawdź swój adblock',
       socialDescription:
         'Przetestuj blokowanie reklam, trackerów, malware i popupów w uBlock Origin, AdGuard, Brave i innych adblockach.',
     },
@@ -163,9 +163,9 @@ const translations: Record<Language, TranslationPack> = {
       en: 'English',
     },
     banner: {
-      title: 'Polish Complete Filters',
-      description: 'Zestaw filtrów usuwających irytujące elementy, reklamy, tracking i złośliwe skrypty ze stron WWW.',
-      addButton: 'Dodaj do adblocka',
+      title: 'Complete Filters',
+      description: 'Zestaw kategorii filtrów usuwających reklamy, tracking, malware i inne irytujące elementy ze stron WWW.',
+      addButton: 'Przeglądaj kategorie',
       githubButton: 'GitHub',
     },
     tester: {
@@ -226,7 +226,7 @@ const translations: Record<Language, TranslationPack> = {
         'Tester używa preload, img, ukrytego iframe i fetch do symulacji różnych typów żądań. URL-e wyglądające jak strony są sprawdzane jako dokument, ale wynik nadal może różnić się od ręcznego otwarcia linku, jeśli filtr działa wyłącznie na nawigacji top-level.',
     },
     seo: {
-      title: 'Jak działa tester Polish Complete Filters?',
+      title: 'Jak działa tester Complete Filters?',
       intro:
         'To narzędzie pozwala szybko sprawdzić, czy Twój adblock faktycznie blokuje reklamy, trackery, popupy, skrypty anti-adblock, malware i inne problematyczne żądania sieciowe. Tester został zaprojektowany z myślą o polskim internecie, ale obejmuje też globalne sieci reklamowe i popularne mechanizmy śledzenia.',
       featureTitle: 'Co sprawdza ten tester?',
@@ -270,7 +270,7 @@ const translations: Record<Language, TranslationPack> = {
             'Nie. Oznacza bardzo dobrą skuteczność w ramach obecnego zestawu testów. Żaden tester nie pokryje wszystkich możliwych skryptów, domen i technik śledzenia spotykanych w sieci.',
         },
         {
-          question: 'Czy tester działa tylko z Polish Complete Filters?',
+          question: 'Czy tester działa tylko z Complete Filters?',
           answer:
             'Nie. Możesz go używać także z innymi listami filtrów oraz wbudowanymi mechanizmami blokowania, np. w Brave czy na poziomie DNS.',
         },
@@ -287,20 +287,20 @@ const translations: Record<Language, TranslationPack> = {
       ],
       ctaTitle: 'Chcesz poprawić wynik?',
       ctaDescription:
-        'Dodaj listę Polish Complete Filters do swojego adblocka i uruchom test ponownie, aby sprawdzić skuteczność blokowania po aktualizacji filtrów.',
-      ctaPrimary: 'Dodaj listę filtrów',
+        'Przejrzyj gotowe kategorie filtrów Complete Filters i uruchom test ponownie po dobraniu odpowiednich list do swojej konfiguracji.',
+      ctaPrimary: 'Zobacz kategorie',
       ctaSecondary: 'Zobacz repozytorium',
     },
   },
   en: {
     meta: {
-      title: 'Polish Complete Filters Tester — ad blocker test for uBlock Origin and AdGuard',
+      title: 'Complete Filters Tester — ad blocker test for uBlock Origin and AdGuard',
       description:
-        'Check how well your blocker stops ads, trackers, malware, popups, and anti-adblock scripts. Polish Complete Filters Tester works with uBlock Origin, AdGuard, Brave, and other blockers.',
+        'Check how well your blocker stops ads, trackers, malware, popups, and anti-adblock scripts. Complete Filters Tester works with uBlock Origin, AdGuard, Brave, and other blockers.',
       keywords:
-        'ad blocker tester, uBlock Origin test, AdGuard test, ad blocking checker, tracker test, Polish Complete Filters, Brave Shields test, malware blocking test',
+        'ad blocker tester, uBlock Origin test, AdGuard test, ad blocking checker, tracker test, Complete Filters, Brave Shields test, malware blocking test',
       locale: 'en_US',
-      socialTitle: 'Polish Complete Filters Tester — test your ad blocker',
+      socialTitle: 'Complete Filters Tester — test your ad blocker',
       socialDescription:
         'Measure ad, tracker, popup, malware, and anti-adblock blocking in uBlock Origin, AdGuard, Brave, and similar tools.',
     },
@@ -310,9 +310,9 @@ const translations: Record<Language, TranslationPack> = {
       en: 'English',
     },
     banner: {
-      title: 'Polish Complete Filters',
-      description: 'A filter list that removes annoying elements, ads, tracking, and malicious scripts from websites.',
-      addButton: 'Add to ad blocker',
+      title: 'Complete Filters',
+      description: 'A categorized filter set that removes ads, tracking, malware, and other annoying elements from websites.',
+      addButton: 'Browse categories',
       githubButton: 'GitHub',
     },
     tester: {
@@ -373,7 +373,7 @@ const translations: Record<Language, TranslationPack> = {
         'The tester uses preload, img, a hidden iframe, and fetch to simulate different request types. Page-like URLs are checked as documents, but results can still differ from manually opening a link when a filter only targets top-level navigation.',
     },
     seo: {
-      title: 'How does Polish Complete Filters Tester work?',
+      title: 'How does Complete Filters Tester work?',
       intro:
         'This tool helps you verify whether your ad blocker really blocks ads, trackers, popups, anti-adblock scripts, malware, and other problematic requests. It is optimized for the Polish web, but it also covers global ad networks and widely used tracking systems.',
       featureTitle: 'What does this tester check?',
@@ -417,7 +417,7 @@ const translations: Record<Language, TranslationPack> = {
             'No. It means excellent performance within this test suite. No single tester can cover every script, domain, and tracking technique used across the web.',
         },
         {
-          question: 'Does the tester only work with Polish Complete Filters?',
+          question: 'Does the tester only work with Complete Filters?',
           answer:
             'No. You can also use it with other filter lists, built-in browser blockers such as Brave Shields, and DNS-level blocking solutions.',
         },
@@ -434,8 +434,8 @@ const translations: Record<Language, TranslationPack> = {
       ],
       ctaTitle: 'Want a better score?',
       ctaDescription:
-        'Add Polish Complete Filters to your blocker and run the test again to measure the improvement after updating your filter setup.',
-      ctaPrimary: 'Add filter list',
+        'Browse the available Complete Filters categories and run the test again after picking the lists that fit your setup.',
+      ctaPrimary: 'Browse categories',
       ctaSecondary: 'View repository',
     },
   },

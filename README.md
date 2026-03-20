@@ -1,143 +1,145 @@
-# Polish Complete Filters
+# Complete Filters
 
-Kompletna, agresywna lista filtrów dla polskiego internetu, zbudowana jako agregat wielu publicznych źródeł dla adblockerów.
+Aggressive category-based filter lists for ad blockers.
 
 ## TL;DR
 
-- to jedna zbiorcza lista filtrów dla polskiego internetu,
-- działa agresywnie, więc czasem może psuć elementy stron,
-- dodasz ją przez: <https://rokartur.github.io/polish-complete-filters/>,
-- bezpośredni URL listy: `https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt`,
+- combines multiple public filter lists into category-specific outputs,
+- blocks ads, trackers, cookie banners, popups, anti-adblock, malware/phishing domains, and other unwanted web elements,
+- generated lists are available in [`filter/`](./filter/),
+- easiest installation: <https://rokartur.github.io/complete-filters/>,
+- you can also subscribe manually via raw GitHub URLs, for example:
 
-- jeśli coś przestaje działać, zgłoś problem: <https://github.com/rokartur/polish-complete-filters/issues/new/choose>
+  ```txt
+  https://raw.githubusercontent.com/rokartur/complete-filters/main/filter/malware.txt
+  ```
 
-## Najważniejsze informacje
+- the lists are intentionally aggressive, so some sites may partially break,
+- if that happens, please report it here: <https://github.com/rokartur/complete-filters/issues/new/choose>
 
-- blokuje reklamy, tracking, popupy i inne irytujące elementy stron,
-- łączy wiele publicznych list w jeden zestaw reguł,
-- usuwa duplikaty i scala reguły do jednego pliku,
-- jest przeznaczona głównie dla polskich użytkowników internetu.
+## What this project does
 
-## Uwaga: to są bardzo agresywne filtry
+Complete Filters is an aggregator of public upstream filter sources. The project:
 
-> Ta lista została przygotowana z naciskiem na maksymalną skuteczność blokowania.
-> W praktyce oznacza to, że niektóre strony albo ich elementy mogą działać niepoprawnie.
+- merges multiple community-maintained filter lists,
+- groups them into practical categories,
+- removes duplicate rules within each generated category,
+- adds local compatibility and manual rules where needed.
 
-Jeśli zauważysz problem:
+The repository is meant to provide ready-to-use category lists instead of a single monolithic file, so you can subscribe only to the parts that fit your setup.
 
-- sprawdź, czy znika po wyłączeniu listy,
-- upewnij się, że nie został już zgłoszony,
-- zgłoś błąd tutaj: [Issues](https://github.com/rokartur/polish-complete-filters/issues/new/choose).
+## Important: these are aggressive filters
 
-## Szybka instalacja
+> Complete Filters prioritizes blocking effectiveness over maximum compatibility.
+> In practice, that means some websites, embedded widgets, sign-in flows, consent dialogs, or app-like interfaces may stop working correctly.
 
-Najprostsza opcja:
+If something breaks:
 
-- wejdź na stronę projektu: <https://rokartur.github.io/polish-complete-filters/>
+- check whether the problem disappears after disabling the relevant list,
+- verify that it has not already been reported,
+- open a report in [Issues](https://github.com/rokartur/complete-filters/issues/new/choose).
 
-Możesz też dodać listę ręcznie przez URL:
+## Available categories
+
+Each file in [`filter/`](./filter/) is a separate generated list.
+
+| Category | Purpose |
+| --- | --- |
+| `ads` | General advertising and ad delivery domains |
+| `annoyances` | Popups, overlays, newsletter nags, fake urgency, and other annoyances |
+| `anti-adblock` | Anti-adblock scripts and related countermeasures |
+| `compatibility` | Compatibility fixes and exceptions to reduce breakage |
+| `content` | Content-specific clutter, sponsored sections, placeholders, or low-value page junk |
+| `cookies` | Cookie banners and consent frameworks |
+| `malware` | Malware, phishing, scam, and otherwise high-risk domains |
+| `mixed` | Rules that do not fit neatly into a single narrow category |
+| `mobile` | Mobile-specific nuisances and mobile web clutter |
+| `privacy` | Tracking, analytics, fingerprinting, and privacy-invasive requests |
+| `regional` | Poland-focused or region-specific rules |
+| `social` | Social widgets, embedded platforms, and social tracking |
+| `video` | Video ads and video-platform nuisances |
+
+## Installation
+
+### Recommended option
+
+Use the project site:
+
+- <https://rokartur.github.io/complete-filters/>
+
+This is the easiest way to browse the ready-made categories and access the hosted resources.
+
+### Manual subscription by URL
+
+You can subscribe to any generated category directly through its raw GitHub URL:
 
 ```txt
-https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt
+https://raw.githubusercontent.com/rokartur/complete-filters/main/filter/<category>.txt
 ```
 
-## Instalacja ręczna
+Example:
 
-1. Otwórz ustawienia swojego adblockera.
-2. Przejdź do sekcji typu **Własne filtry** / **Custom filters**.
-3. Dodaj adres listy:
+```txt
+https://raw.githubusercontent.com/rokartur/complete-filters/main/filter/ads.txt
+```
 
-   ```txt
-   https://raw.githubusercontent.com/rokartur/polish-complete-filters/main/polish-complete-filters.txt
-   ```
+### Manual installation steps
 
-4. Zapisz zmiany i odśwież listy filtrów.
+1. Open your ad blocker settings.
+2. Go to the **Custom filters** / **Filter lists** / **User-defined lists** section.
+3. Add the URL of the category you want to use.
+4. Save the changes and refresh the filter lists.
 
-## Obsługiwane adblocki
+## Supported blockers
 
-Lista powinna działać z większością narzędzi kompatybilnych ze składnią Adblock, w szczególności:
+The generated lists should work with most tools compatible with Adblock-style syntax, especially:
 
 - **uBlock Origin**,
 - **AdGuard**,
 - **AdBlock**,
 - **Adblock Plus**,
-- **Brave Browser** (wbudowane filtrowanie),
-- innymi rozwiązaniami zgodnymi z listami filtrów Adblock.
+- **Brave Browser** (built-in filtering),
+- and other blockers that support Adblock-compatible filter lists.
 
-## Kiedy używać ostrożnie
+## Use with extra care
 
-Szczególną ostrożność warto zachować przy filtrowaniu na poziomie systemowym lub DNS, np. w konfiguracjach takich jak:
+Be especially careful when using these filters in system-wide or DNS-level environments, for example:
 
 - **AdGuard DNS**,
 - **AdGuard Desktop**,
-- inne rozwiązania filtrujące cały ruch systemowy.
+- other tools that filter all traffic for the whole device or system.
 
-Repozytorium zawiera kilka jawnych wyjątków kompatybilności dla infrastruktury developerskiej, żeby ograniczyć ryzyko psucia narzędzi systemowych i CLI — między innymi dla GitHub, GitLab, Bitbucket, popularnych rejestrów pakietów, rejestrów kontenerów, marketplace'ów rozszerzeń oraz wybranych platform deploymentowych i narzędzi takich jak HashiCorp / Terraform, Cloudflare, Vercel, Netlify i Supabase.
+This repository also includes explicit compatibility exceptions for developer infrastructure to reduce the risk of breaking system tools and CLI workflows.
 
-## Cel projektu
+## Sources and attribution
 
-Celem projektu jest utrzymywanie jednej możliwie kompletnej listy filtrów dla polskiego internetu, która:
+This project is an aggregator. It uses publicly available filter lists maintained by the adblock community and respects the rights and licenses of their original authors.
 
-- agreguje istniejące źródła,
-- usuwa duplikaty reguł,
-- poprawia skuteczność blokowania,
-- upraszcza instalację dla użytkownika końcowego.
+The full source list is available in [`filters.txt`](./filters.txt).
 
-## Jak działa generator
+Some notable upstream sources used by the project include:
 
-Skrypt `build.py`:
-
-1. pobiera listy z adresów zapisanych w `filters.txt`,
-2. ładuje lokalne reguły dodatkowe z `manual-rules/`,
-3. normalizuje i porządkuje reguły,
-4. usuwa duplikaty,
-5. zapisuje wynik do `polish-complete-filters.txt`.
-
-## Źródła filtrów i attribution
-
-Projekt jest agregatorem. Korzysta z publicznie dostępnych list społeczności adblock i zachowuje prawa oraz licencje ich autorów.
-
-Pełną listę źródeł znajdziesz w pliku [`filters.txt`](./filters.txt).
-
-Przykładowe ważne źródła wykorzystywane w projekcie:
-
-- [MajkiIT / polish-ads-filter](https://github.com/MajkiIT/polish-ads-filter)
+- [MajkiIT / ads-filter](https://github.com/MajkiIT/ads-filter)
 - [FiltersHeroes / PolishAnnoyanceFilters](https://github.com/FiltersHeroes/PolishAnnoyanceFilters)
 - [FiltersHeroes / KAD](https://github.com/FiltersHeroes/KAD)
 - [uBlockOrigin / uAssets](https://github.com/uBlockOrigin/uAssets)
 - [AdGuard filters](https://github.com/AdguardTeam/AdguardFilters)
 - [HaGeZi DNS blocklists](https://github.com/hagezi/dns-blocklists)
 
-## Zgłaszanie problemów
+## What to report
 
-Warto zgłaszać przede wszystkim:
+Issues are especially useful for:
 
-- strony, które przestają działać po włączeniu listy,
-- fałszywe blokady,
-- niewyłapane reklamy lub trackery,
-- propozycje wyjątków kompatybilności,
-- nowe źródła lub reguły warte dodania.
+- sites or page elements that stop working after enabling a list,
+- false positives,
+- ads or trackers that are still not blocked,
+- missing compatibility exceptions,
+- new sources or rules worth adding.
 
-Zgłoszenia można tworzyć tutaj:
+## License
 
-- <https://github.com/rokartur/polish-complete-filters/issues/new/choose>
+This repository acts as an aggregator of filter lists.
 
-## Współtworzenie projektu
-
-Każdy może pomóc w rozwoju projektu.
-
-Najprostszy workflow:
-
-1. zrób fork repozytorium,
-2. dodaj lub popraw reguły,
-3. uruchom generator lokalnie,
-4. sprawdź wynik,
-5. otwórz Pull Request.
-
-## Licencja
-
-Ten projekt działa jako agregator filtrów.
-
-- kod i dokumentacja repozytorium są objęte licencją opisaną w pliku [`LICENSE`](./LICENSE),
-- poszczególne listy źródłowe i treści upstreamowe pozostają na licencjach swoich autorów,
-- przed dalszą redystrybucją warto sprawdzić warunki licencyjne upstreamów.
+- the repository code and documentation are covered by the license described in [`LICENSE`](./LICENSE),
+- upstream lists and other imported rule content remain under the licenses chosen by their original authors,
+- before redistributing generated outputs, review the licensing terms of the relevant upstream sources.

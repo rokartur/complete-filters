@@ -66,11 +66,11 @@ export function useSeo() {
     upsertMeta({ name: 'googlebot', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' })
     upsertMeta({ name: 'author', content: 'rokartur' })
     upsertMeta({ name: 'language', content: language })
-    upsertMeta({ name: 'application-name', content: 'Polish Complete Filters Tester' })
+    upsertMeta({ name: 'application-name', content: 'Complete Filters Tester' })
     upsertMeta({ name: 'apple-mobile-web-app-title', content: 'PCF Tester' })
     upsertMeta({ name: 'theme-color', content: '#050508' })
     upsertMeta({ property: 'og:type', content: 'website' })
-    upsertMeta({ property: 'og:site_name', content: 'Polish Complete Filters' })
+    upsertMeta({ property: 'og:site_name', content: 'Complete Filters' })
     upsertMeta({ property: 'og:locale', content: t.meta.locale })
     upsertMeta({ property: 'og:title', content: t.meta.socialTitle })
     upsertMeta({ property: 'og:description', content: t.meta.socialDescription })
@@ -93,7 +93,7 @@ export function useSeo() {
       {
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: 'Polish Complete Filters Tester',
+        name: 'Complete Filters Tester',
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'Any',
         isAccessibleForFree: true,
@@ -109,7 +109,7 @@ export function useSeo() {
         },
         publisher: {
           '@type': 'Organization',
-          name: 'Polish Complete Filters',
+          name: 'Complete Filters',
           url: SITE_URL,
           sameAs: [REPO_URL],
         },

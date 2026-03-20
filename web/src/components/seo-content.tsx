@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
-import { REPO_URL, SUBSCRIBE_URL, useI18n } from '@/lib/i18n'
+import { FILTER_CATEGORIES_URL, REPO_URL, useI18n } from '@/lib/i18n'
 import { ExternalLink, Github, ShieldCheck, Radar, TriangleAlert } from 'lucide-react'
 
 const featureIcons = [ShieldCheck, Radar, TriangleAlert]
@@ -116,7 +116,7 @@ export function SeoContent() {
             </div>
             <div className="flex flex-col gap-4 sm:flex-row shrink-0">
               <Button asChild className="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200">
-                <a href={SUBSCRIBE_URL}>
+                <a href={FILTER_CATEGORIES_URL} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   {t.seo.ctaPrimary}
                 </a>
