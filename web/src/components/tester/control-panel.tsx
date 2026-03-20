@@ -1,6 +1,6 @@
 import type { FilterType } from '@/hooks/use-adblocker-tester'
 import { Button } from '@/components/ui/button'
-import { useI18n } from '@/lib/i18n'
+import { SITE_COPY } from '@/lib/site-content'
 import { Play, RotateCcw, Loader2 } from 'lucide-react'
 
 interface ControlPanelProps {
@@ -18,12 +18,11 @@ export function ControlPanel({
   onReset,
   onFilterChange,
 }: ControlPanelProps) {
-  const { t } = useI18n()
   const filterOptions: Array<{ value: FilterType; label: string }> = [
-    { value: 'all', label: t.tester.filterAll },
-    { value: 'blocked', label: t.tester.filterBlocked },
-    { value: 'not-blocked', label: t.tester.filterNotBlocked },
-    { value: 'pending', label: t.tester.filterPending },
+    { value: 'all', label: SITE_COPY.tester.filterAll },
+    { value: 'blocked', label: SITE_COPY.tester.filterBlocked },
+    { value: 'not-blocked', label: SITE_COPY.tester.filterNotBlocked },
+    { value: 'pending', label: SITE_COPY.tester.filterPending },
   ]
 
   return (
@@ -54,12 +53,12 @@ export function ControlPanel({
             {isRunning ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                {t.tester.testing}
+                {SITE_COPY.tester.testing}
               </>
             ) : (
               <>
                 <Play className="mr-3 h-4 w-4" />
-                {t.tester.runTests}
+                {SITE_COPY.tester.runTests}
               </>
             )}
           </Button>

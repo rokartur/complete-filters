@@ -1,5 +1,5 @@
 import type { TestStats } from '@/hooks/use-adblocker-tester'
-import { useI18n } from '@/lib/i18n'
+import { SITE_COPY } from '@/lib/site-content'
 import { Clock3, ListChecks, ShieldCheck, ShieldX } from 'lucide-react'
 
 interface StatsBarProps {
@@ -8,11 +8,10 @@ interface StatsBarProps {
 }
 
 export function StatsBar({ stats, isRunning }: StatsBarProps) {
-  const { t } = useI18n()
   const statItems = [
     {
       key: 'total' as const,
-      label: t.tester.stats.total,
+      label: SITE_COPY.tester.stats.total,
       colorClass: 'text-blue-400',
       bgClass: 'from-blue-500/10 to-blue-500/5',
       borderClass: 'border-blue-500/10 hover:border-blue-500/25',
@@ -20,7 +19,7 @@ export function StatsBar({ stats, isRunning }: StatsBarProps) {
     },
     {
       key: 'blocked' as const,
-      label: t.tester.stats.blocked,
+      label: SITE_COPY.tester.stats.blocked,
       colorClass: 'text-emerald-400',
       bgClass: 'from-emerald-500/10 to-emerald-500/5',
       borderClass: 'border-emerald-500/10 hover:border-emerald-500/25',
@@ -28,7 +27,7 @@ export function StatsBar({ stats, isRunning }: StatsBarProps) {
     },
     {
       key: 'notBlocked' as const,
-      label: t.tester.stats.notBlocked,
+      label: SITE_COPY.tester.stats.notBlocked,
       colorClass: 'text-red-400',
       bgClass: 'from-red-500/10 to-red-500/5',
       borderClass: 'border-red-500/10 hover:border-red-500/25',
@@ -36,7 +35,7 @@ export function StatsBar({ stats, isRunning }: StatsBarProps) {
     },
     {
       key: 'pending' as const,
-      label: t.tester.stats.pending,
+      label: SITE_COPY.tester.stats.pending,
       colorClass: 'text-amber-400',
       bgClass: 'from-amber-500/10 to-amber-500/5',
       borderClass: 'border-amber-500/10 hover:border-amber-500/25',

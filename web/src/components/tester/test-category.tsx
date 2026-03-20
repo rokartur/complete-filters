@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { useI18n } from '@/lib/i18n'
+import { SITE_COPY, getCategoryLabel } from '@/lib/site-content'
 import {
   Bell,
   Bug,
@@ -77,7 +77,6 @@ export function TestCategoryList({
   filter,
   getCategoryStats,
 }: TestCategoryListProps) {
-  const { t, translateCategoryName } = useI18n()
   const visibleCategories = categories
     .map((category) => {
       const visibleTests = category.tests
@@ -100,10 +99,10 @@ export function TestCategoryList({
       <div className="w-full border border-border bg-card px-6 py-10 text-center">
         <div className="mx-auto max-w-md">
           <div className="font-display font-black uppercase text-2xl text-muted-foreground tracking-widest">
-            {t.tester.noResultsTitle}
+            {SITE_COPY.tester.noResultsTitle}
           </div>
           <p className="mt-4 text-xs leading-relaxed text-muted-foreground uppercase font-mono tracking-widest">
-            {t.tester.noResultsDescription}
+            {SITE_COPY.tester.noResultsDescription}
           </p>
         </div>
       </div>
@@ -138,10 +137,10 @@ export function TestCategoryList({
                   </span>
                   <div className="flex min-w-0 flex-col items-start font-mono leading-none">
                     <span className="text-xs font-bold uppercase tracking-[0.2em] text-foreground sm:text-[13px]">
-                      {translateCategoryName(category.id, category.name)}
+                      {getCategoryLabel(category.id, category.name)}
                     </span>
                     <span className="mt-1 text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
-                      {t.tester.testsCount(visibleTests.length)}
+                      {SITE_COPY.tester.testsCount(visibleTests.length)}
                       {filter !== 'all' && visibleTests.length !== category.tests.length
                         ? ` / ${category.tests.length}`
                         : ''}

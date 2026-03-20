@@ -1,5 +1,5 @@
 import type { TestStatus } from '@/hooks/use-adblocker-tester'
-import { useI18n } from '@/lib/i18n'
+import { SITE_COPY, getMethodTagLabel, getTestLabel } from '@/lib/site-content'
 import type { TestDefinition } from '@/lib/test-definitions'
 import { getMethodTag } from '@/lib/detection-engine'
 import { Check, X, Loader2 } from 'lucide-react'
@@ -10,7 +10,6 @@ interface TestItemProps {
 }
 
 export function TestItem({ test, status }: TestItemProps) {
-  const { t, translateMethodTag, translateTestName } = useI18n()
   const method = getMethodTag(test)
   const displayUrl = test.url ?? (test.baitClass ? `.${test.baitClass}` : `#${test.baitId}`)
 
@@ -40,10 +39,10 @@ export function TestItem({ test, status }: TestItemProps) {
         <div className="flex min-w-0 flex-1 flex-col gap-1 font-mono leading-none">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-foreground transition-colors group-hover:text-primary">
-              {translateTestName(test.name)}
+              {getTestLabel(test.name)}
             </span>
             <span className="shrink-0 border border-border bg-muted px-1.5 py-0.5 text-[8px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200">
-              {translateMethodTag(method)}
+              {getMethodTagLabel(method)}
             </span>
           </div>
           <div className="truncate text-[9px] leading-tight text-muted-foreground/60 transition-colors group-hover:text-muted-foreground">
@@ -63,10 +62,10 @@ export function TestItem({ test, status }: TestItemProps) {
         }`}
       >
         {status === 'blocked'
-          ? t.tester.status.blocked
+          ? SITE_COPY.tester.status.blocked
           : status === 'not-blocked'
-            ? t.tester.status.notBlocked
-            : t.tester.status.pending}
+            ? SITE_COPY.tester.status.notBlocked
+            : SITE_COPY.tester.status.pending}
       </span>
     </div>
   )

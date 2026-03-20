@@ -1,7 +1,7 @@
+import { CategorySubscriptionsModal } from '@/components/category-subscriptions-modal'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { FILTER_CATEGORIES_URL } from '@/lib/i18n'
-import { Shield, ExternalLink, Github } from 'lucide-react'
+import { Shield, Github } from 'lucide-react'
 
 interface LandingPageProps {
   onNavigateToTester: () => void
@@ -19,21 +19,16 @@ export function LandingPage({ onNavigateToTester }: LandingPageProps) {
             Complete Filters
           </CardTitle>
           <CardDescription className="text-base text-muted-foreground">
-            Zestaw kategorii filtrów usuwających reklamy, tracking i inne irytujące elementy ze stron WWW.
-            Przejdź do gotowych plików kategorii, aby wybrać listy pasujące do swojej konfiguracji.
+            A categorized filter set that removes ads, tracking, and other annoying elements from websites.
+            Browse the ready-made category files and pick the lists that fit your setup.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-3 pt-4">
-          <Button
-            asChild
-            size="lg"
-            className="w-full bg-red-900 hover:bg-red-800 text-white font-semibold text-base"
-          >
-            <a href={FILTER_CATEGORIES_URL} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="h-4 w-4 mr-1" />
-              Przeglądaj kategorie
-            </a>
-          </Button>
+          <CategorySubscriptionsModal
+            triggerLabel="Browse categories"
+            triggerSize="lg"
+            triggerClassName="w-full bg-red-900 hover:bg-red-800 text-white font-semibold text-base"
+          />
 
           <Button
             variant="outline"
@@ -42,7 +37,7 @@ export function LandingPage({ onNavigateToTester }: LandingPageProps) {
             onClick={onNavigateToTester}
           >
             <Shield className="h-4 w-4 mr-1" />
-            Tester blokowania reklam
+            Ad blocking tester
           </Button>
 
           <Button variant="ghost" size="lg" asChild className="w-full text-muted-foreground">

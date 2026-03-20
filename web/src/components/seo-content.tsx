@@ -1,13 +1,12 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { CategorySubscriptionsModal } from '@/components/category-subscriptions-modal'
 import { Button } from '@/components/ui/button'
-import { FILTER_CATEGORIES_URL, REPO_URL, useI18n } from '@/lib/i18n'
-import { ExternalLink, Github, ShieldCheck, Radar, TriangleAlert } from 'lucide-react'
+import { REPO_URL, SITE_COPY } from '@/lib/site-content'
+import { Github, ShieldCheck, Radar, TriangleAlert } from 'lucide-react'
 
 const featureIcons = [ShieldCheck, Radar, TriangleAlert]
 
 export function SeoContent() {
-  const { t } = useI18n()
-
   return (
     <section
       aria-labelledby="seo-content-title"
@@ -16,19 +15,19 @@ export function SeoContent() {
       <div className="mx-auto max-w-[1336px] space-y-12">
         <div className="animate-section-in max-w-3xl space-y-4" style={{ '--section-delay': 0 } as React.CSSProperties}>
           <h2 id="seo-content-title" className="font-display text-3xl font-bold tracking-tight text-foreground md:text-5xl uppercase">
-            {t.seo.title}
+            {SITE_COPY.seo.title}
           </h2>
           <p className="text-sm leading-relaxed text-muted-foreground md:text-base font-mono">
-            {t.seo.intro}
+            {SITE_COPY.seo.intro}
           </p>
         </div>
 
         <section aria-labelledby="features-title" className="animate-section-in space-y-6" style={{ '--section-delay': 100 } as React.CSSProperties}>
           <h3 id="features-title" className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground font-mono">
-            [ {t.seo.featureTitle} ]
+            [ {SITE_COPY.seo.featureTitle} ]
           </h3>
           <div className="grid gap-0 md:grid-cols-3 border border-border">
-            {t.seo.features.map((feature, index) => {
+            {SITE_COPY.seo.features.map((feature, index) => {
               const Icon = featureIcons[index] ?? ShieldCheck
               return (
                 <article
@@ -48,9 +47,9 @@ export function SeoContent() {
 
         <div className="animate-section-in grid gap-6 lg:grid-cols-[1.1fr_0.9fr]" style={{ '--section-delay': 200 } as React.CSSProperties}>
           <section className="border border-border bg-background p-6 md:p-8">
-            <h3 className="font-display text-xl font-bold text-foreground uppercase tracking-wider">{t.seo.whyTitle}</h3>
+            <h3 className="font-display text-xl font-bold text-foreground uppercase tracking-wider">{SITE_COPY.seo.whyTitle}</h3>
             <ul className="mt-6 space-y-4 text-xs font-mono leading-relaxed text-muted-foreground">
-              {t.seo.whyPoints.map((point) => (
+              {SITE_COPY.seo.whyPoints.map((point) => (
                 <li key={point} className="flex gap-4 items-start">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-primary" />
                   <span>{point}</span>
@@ -60,12 +59,12 @@ export function SeoContent() {
           </section>
 
           <section className="border border-border bg-background p-6 md:p-8 flex flex-col">
-            <h3 className="font-display text-xl font-bold text-foreground uppercase tracking-wider">{t.seo.supportedTitle}</h3>
+            <h3 className="font-display text-xl font-bold text-foreground uppercase tracking-wider">{SITE_COPY.seo.supportedTitle}</h3>
             <p className="mt-4 text-xs font-mono leading-relaxed text-muted-foreground flex-1">
-              {t.seo.supportedDescription}
+              {SITE_COPY.seo.supportedDescription}
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
-              {t.seo.supportedBlockers.map((blocker) => (
+              {SITE_COPY.seo.supportedBlockers.map((blocker) => (
                 <span
                   key={blocker}
                   className="border border-border bg-muted/30 px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold text-foreground font-mono transition-colors hover:bg-foreground hover:text-background cursor-default"
@@ -80,13 +79,13 @@ export function SeoContent() {
         <section aria-labelledby="faq-title" className="animate-section-in space-y-6" style={{ '--section-delay': 300 } as React.CSSProperties}>
           <div>
             <h3 id="faq-title" className="font-display text-2xl font-bold text-foreground uppercase tracking-wider">
-              {t.seo.faqTitle}
+              {SITE_COPY.seo.faqTitle}
             </h3>
-            <p className="mt-2 text-xs font-mono leading-relaxed text-muted-foreground">{t.seo.faqIntro}</p>
+            <p className="mt-2 text-xs font-mono leading-relaxed text-muted-foreground">{SITE_COPY.seo.faqIntro}</p>
           </div>
 
           <Accordion type="multiple" defaultValue={[]} className="space-y-0 border border-border bg-background">
-            {t.seo.faq.map((item, index) => (
+            {SITE_COPY.seo.faq.map((item, index) => (
               <AccordionItem
                 key={item.question}
                 value={`faq-${index}`}
@@ -109,22 +108,20 @@ export function SeoContent() {
           </div>
           <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between z-10">
             <div className="max-w-2xl">
-              <h3 className="text-3xl font-display font-black uppercase tracking-tight text-foreground">{t.seo.ctaTitle}</h3>
+              <h3 className="text-3xl font-display font-black uppercase tracking-tight text-foreground">{SITE_COPY.seo.ctaTitle}</h3>
               <p className="mt-4 text-xs font-mono leading-relaxed text-muted-foreground max-w-lg">
-                {t.seo.ctaDescription}
+                {SITE_COPY.seo.ctaDescription}
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-              <Button asChild className="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200">
-                <a href={FILTER_CATEGORIES_URL} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  {t.seo.ctaPrimary}
-                </a>
-              </Button>
+              <CategorySubscriptionsModal
+                triggerLabel={SITE_COPY.seo.ctaPrimary}
+                triggerClassName="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
+              />
               <Button variant="outline" asChild className="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-200">
                 <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
-                  {t.seo.ctaSecondary}
+                  {SITE_COPY.seo.ctaSecondary}
                 </a>
               </Button>
             </div>

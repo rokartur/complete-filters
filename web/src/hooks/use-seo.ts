@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { REPO_URL, SITE_URL, useI18n } from '@/lib/i18n'
+import { LANGUAGE, REPO_URL, SITE_URL, SITE_COPY } from '@/lib/site-content'
 
 function upsertMeta({
   name,
@@ -52,32 +52,30 @@ function upsertStructuredData(id: string, data: unknown) {
 }
 
 export function useSeo() {
-  const { language, t } = useI18n()
-
   useEffect(() => {
     const currentUrl = new URL(window.location.href)
     currentUrl.hash = ''
 
-    document.title = t.meta.title
+    document.title = SITE_COPY.meta.title
 
-    upsertMeta({ name: 'description', content: t.meta.description })
-    upsertMeta({ name: 'keywords', content: t.meta.keywords })
+    upsertMeta({ name: 'description', content: SITE_COPY.meta.description })
+    upsertMeta({ name: 'keywords', content: SITE_COPY.meta.keywords })
     upsertMeta({ name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' })
     upsertMeta({ name: 'googlebot', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' })
     upsertMeta({ name: 'author', content: 'rokartur' })
-    upsertMeta({ name: 'language', content: language })
+    upsertMeta({ name: 'language', content: LANGUAGE })
     upsertMeta({ name: 'application-name', content: 'Complete Filters Tester' })
     upsertMeta({ name: 'apple-mobile-web-app-title', content: 'PCF Tester' })
     upsertMeta({ name: 'theme-color', content: '#050508' })
     upsertMeta({ property: 'og:type', content: 'website' })
     upsertMeta({ property: 'og:site_name', content: 'Complete Filters' })
-    upsertMeta({ property: 'og:locale', content: t.meta.locale })
-    upsertMeta({ property: 'og:title', content: t.meta.socialTitle })
-    upsertMeta({ property: 'og:description', content: t.meta.socialDescription })
+    upsertMeta({ property: 'og:locale', content: SITE_COPY.meta.locale })
+    upsertMeta({ property: 'og:title', content: SITE_COPY.meta.socialTitle })
+    upsertMeta({ property: 'og:description', content: SITE_COPY.meta.socialDescription })
     upsertMeta({ property: 'og:url', content: currentUrl.toString() })
     upsertMeta({ name: 'twitter:card', content: 'summary' })
-    upsertMeta({ name: 'twitter:title', content: t.meta.socialTitle })
-    upsertMeta({ name: 'twitter:description', content: t.meta.socialDescription })
+    upsertMeta({ name: 'twitter:title', content: SITE_COPY.meta.socialTitle })
+    upsertMeta({ name: 'twitter:description', content: SITE_COPY.meta.socialDescription })
 
     const ogImage = document.head.querySelector('meta[property="og:image"]')
     const ogImageAlt = document.head.querySelector('meta[property="og:image:alt"]')
@@ -97,11 +95,11 @@ export function useSeo() {
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'Any',
         isAccessibleForFree: true,
-        inLanguage: language,
+        inLanguage: LANGUAGE,
         url: currentUrl.toString(),
-        description: t.meta.description,
+        description: SITE_COPY.meta.description,
         browserRequirements: 'Requires a modern browser with Fetch API and Performance API support.',
-        featureList: t.seo.features.map((item) => item.title),
+        featureList: SITE_COPY.seo.features.map((item) => item.title),
         offers: {
           '@type': 'Offer',
           price: '0',
@@ -117,8 +115,8 @@ export function useSeo() {
       {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        inLanguage: language,
-        mainEntity: t.seo.faq.map((item) => ({
+        inLanguage: LANGUAGE,
+        mainEntity: SITE_COPY.seo.faq.map((item) => ({
           '@type': 'Question',
           name: item.question,
           acceptedAnswer: {
@@ -128,5 +126,5 @@ export function useSeo() {
         })),
       },
     ])
-  }, [language, t])
+  }, [])
 }

@@ -1,4 +1,4 @@
-import type { MethodTag } from '@/lib/i18n'
+import type { MethodTag } from '@/lib/site-content'
 import type { FilterHint } from '@/lib/reference-engine'
 
 export type NetworkTestStatus = 'blocked' | 'not-blocked'

@@ -1,8 +1,6 @@
-import { REPO_URL, useI18n } from '@/lib/i18n'
+import { REPO_URL, SITE_COPY } from '@/lib/site-content'
 
 export function Footer() {
-  const { t } = useI18n()
-
   return (
     <footer className="border-t border-border bg-card">
       <div className="px-4 py-8 sm:px-6 md:px-8">
@@ -17,13 +15,13 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              [{t.footer.github}]
+              [{SITE_COPY.footer.github}]
             </a>
           </div>
         </div>
         <div className="mt-8 border-t border-border/50 pt-4">
           <p className="max-w-3xl text-[10px] font-mono text-muted-foreground/60 leading-relaxed uppercase tracking-wide">
-            {t.footer.note}
+            {SITE_COPY.footer.note}
           </p>
         </div>
       </div>

@@ -6,12 +6,11 @@ import { TestCategoryList } from './test-category'
 import { Footer } from '@/components/footer'
 import { Progress } from '@/components/ui/progress'
 import { SeoContent } from '@/components/seo-content'
-import { useI18n } from '@/lib/i18n'
+import { SITE_COPY } from '@/lib/site-content'
 import { Crosshair } from 'lucide-react'
 
 export function TesterPage() {
   const tester = useAdBlockTester()
-  const { t } = useI18n()
 
   return (
     <div>
@@ -26,10 +25,10 @@ export function TesterPage() {
               Module: Adblock Audit
             </div>
             <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-              {t.tester.title}
+              {SITE_COPY.tester.title}
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground font-mono">
-              {t.tester.description}
+              {SITE_COPY.tester.description}
             </p>
           </div>
         </div>
@@ -47,7 +46,7 @@ export function TesterPage() {
       <div className="animate-section-in border-b border-border bg-card px-4 py-6 sm:px-6 md:px-8" style={{ '--section-delay': 160 } as React.CSSProperties}>
         <div className="mx-auto w-full">
           <div className="mb-3 flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-muted-foreground">
-            <span>{t.tester.progress}</span>
+            <span>{SITE_COPY.tester.progress}</span>
             <span className="tabular-nums text-foreground">[{Math.round(tester.progress)}%]</span>
           </div>
           <div className={tester.isRunning ? 'progress-scanline' : ''}>
