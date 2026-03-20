@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
@@ -56,7 +55,7 @@ body {
   inset: 0;
   z-index: 10;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opactiy='0.08'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
   opacity: 0.04;
   mix-blend-mode: overlay;
 }
@@ -69,27 +68,22 @@ body {
 /* High-contrast industrial grade colors */
 .grade-a {
   color: #00ff9d;
-  background: transparent;
   border-color: #00ff9d;
 }
 .grade-b {
   color: #00e5ff;
-  background: transparent;
   border-color: #00e5ff;
 }
 .grade-c {
   color: #fbbf24;
-  background: transparent;
   border-color: #fbbf24;
 }
 .grade-d {
   color: #ff6a00;
-  background: transparent;
   border-color: #ff6a00;
 }
 .grade-f {
   color: #ff003c;
-  background: transparent;
   border-color: #ff003c;
 }
 
@@ -99,20 +93,9 @@ body {
   50% { opacity: 0.3; }
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
 }
 
 @keyframes stagger-in {
@@ -162,19 +145,6 @@ body {
 
 .animate-fade-in-up {
   animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 6s ease infinite;
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
 }
 
 .animate-stagger-in {
@@ -244,7 +214,7 @@ body {
 .test-item-enter {
   transition: background-color 0.2s ease, opacity 0.3s ease;
 }
-/
+
 .grade-glow {
   position: relative;
 }
@@ -315,25 +285,7 @@ body {
   transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ─── Gradient border accent ─── */
-.gradient-border-bottom {
-  position: relative;
-}
-.gradient-border-bottom::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
-  opacity: 0.3;
-}
-
 /* ─── Industrial utilities ─── */
-.panel-border {
-  border: 1px solid var(--color-border);
-}
 
 @media (prefers-reduced-motion: reduce) {
   .animate-stagger-in,
@@ -345,9 +297,6 @@ body {
     opacity: 1 !important;
     transform: none !important;
   }
-  .animate-pulse-glow,
-  .animate-gradient,
-  .animate-float,
   .animate-testing-pulse,
   .animate-glow-pulse {
     animation: none !important;
