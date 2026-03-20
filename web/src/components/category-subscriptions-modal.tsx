@@ -12,7 +12,36 @@ import {
   SITE_COPY,
   getAbpSubscriptionUrl,
 } from '@/lib/site-content'
-import { ExternalLink, ListFilter, X } from 'lucide-react'
+import { Check, Copy, ExternalLink, ListFilter, X } from 'lucide-react'
+
+async function copyTextToClipboard(text: string) {
+  if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text)
+    return
+  }
+
+  if (typeof document === 'undefined') {
+    throw new Error('Clipboard unavailable')
+  }
+
+  const textarea = document.createElement('textarea')
+  textarea.value = text
+  textarea.setAttribute('readonly', '')
+  textarea.style.position = 'fixed'
+  textarea.style.opacity = '0'
+  textarea.style.pointerEvents = 'none'
+
+  document.body.appendChild(textarea)
+  textarea.focus()
+  textarea.select()
+
+  const copied = document.execCommand('copy')
+  document.body.removeChild(textarea)
+
+  if (!copied) {
+    throw new Error('Copy failed')
+  }
+}
 
 interface CategorySubscriptionsModalProps {
   triggerLabel: string
@@ -31,6 +60,7 @@ export function CategorySubscriptionsModal({
 }: CategorySubscriptionsModalProps) {
   const [isMounted, setIsMounted] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [copyAllStatus, setCopyAllStatus] = useState<'idle' | 'copied' | 'error'>('idle')
   const titleId = useId()
   const descriptionId = useId()
   const animationDurationMs = 260
@@ -50,12 +80,26 @@ export function CategorySubscriptionsModal({
     [],
   )
 
+  const allCategoryLinks = useMemo(
+    () => categories.map((category) => category.subscriptionUrl).join('\n'),
+    [categories],
+  )
+
   const openModal = () => {
     setIsMounted(true)
   }
 
   const closeModal = () => {
     setIsVisible(false)
+  }
+
+  const handleCopyAllCategoryLinks = async () => {
+    try {
+      await copyTextToClipboard(allCategoryLinks)
+      setCopyAllStatus('copied')
+    } catch {
+      setCopyAllStatus('error')
+    }
   }
 
   useEffect(() => {
@@ -81,6 +125,18 @@ export function CategorySubscriptionsModal({
       window.clearTimeout(timeout)
     }
   }, [animationDurationMs, isMounted, isVisible])
+
+  useEffect(() => {
+    if (copyAllStatus === 'idle') return
+
+    const timeout = window.setTimeout(() => {
+      setCopyAllStatus('idle')
+    }, 2200)
+
+    return () => {
+      window.clearTimeout(timeout)
+    }
+  }, [copyAllStatus])
 
   useEffect(() => {
     if (!isMounted) return
@@ -195,6 +251,44 @@ export function CategorySubscriptionsModal({
                         </div>
                       </div>
                     </section>
+
+                    <div
+                      className={`mb-6 flex flex-col gap-3 border border-border bg-muted/20 p-4 transition-[opacity,transform] duration-300 ease-out sm:flex-row sm:items-center sm:justify-between ${
+                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                      }`}
+                      style={{ transitionDelay: isVisible ? '65ms' : '0ms' }}
+                    >
+                      <p className="max-w-3xl text-[10px] font-mono leading-relaxed text-muted-foreground sm:text-xs">
+                        {SITE_COPY.categoryModal.note}
+                      </p>
+
+                      <div className="flex items-center gap-2">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="btn-press w-full font-mono text-[11px] uppercase tracking-widest sm:w-auto"
+                          onClick={handleCopyAllCategoryLinks}
+                        >
+                          {copyAllStatus === 'copied' ? (
+                            <Check className="mr-2 h-4 w-4" />
+                          ) : (
+                            <Copy className="mr-2 h-4 w-4" />
+                          )}
+                          {copyAllStatus === 'copied'
+                            ? SITE_COPY.categoryModal.copyAllCopied
+                            : copyAllStatus === 'error'
+                              ? SITE_COPY.categoryModal.copyAllFailed
+                              : SITE_COPY.categoryModal.copyAll}
+                        </Button>
+                        <span aria-live="polite" className="sr-only">
+                          {copyAllStatus === 'copied'
+                            ? SITE_COPY.categoryModal.copyAllCopied
+                            : copyAllStatus === 'error'
+                              ? SITE_COPY.categoryModal.copyAllFailed
+                              : ''}
+                        </span>
+                      </div>
+                    </div>
 
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                       {categories.map((category, index) => (

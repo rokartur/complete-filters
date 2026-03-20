@@ -66,6 +66,9 @@ interface SiteCopy {
     note: string
     featuredTitle: string
     featuredDescription: string
+    copyAll: string
+    copyAllCopied: string
+    copyAllFailed: string
     subscribe: string
     subscribeFull: string
     openDirect: string
@@ -163,6 +166,9 @@ export const SITE_COPY: SiteCopy = {
     note: 'Each button opens the raw GitHub URL that you can add in your blocker\'s custom filter lists.',
     featuredTitle: 'Full list subscription',
     featuredDescription: 'Use the one-click ABP subscription link for the complete hosted list, or open the hosted URL directly as a fallback.',
+    copyAll: 'Copy all categories link',
+    copyAllCopied: 'Copied all category links',
+    copyAllFailed: 'Copy failed',
     subscribe: 'Subscribe to category',
     subscribeFull: 'Subscribe to full list',
     openDirect: 'Open direct URL',
