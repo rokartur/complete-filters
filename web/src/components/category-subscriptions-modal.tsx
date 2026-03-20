@@ -5,7 +5,13 @@ import {
   FILTER_SUBSCRIPTION_CATEGORIES,
   getFilterSubscriptionUrl,
 } from '@/lib/filter-subscriptions'
-import { SITE_COPY } from '@/lib/site-content'
+import {
+  FULL_FILTER_LIST_ABP_URL,
+  FULL_FILTER_LIST_TITLE,
+  FULL_FILTER_LIST_URL,
+  SITE_COPY,
+  getAbpSubscriptionUrl,
+} from '@/lib/site-content'
 import { ExternalLink, ListFilter, X } from 'lucide-react'
 
 interface CategorySubscriptionsModalProps {
@@ -23,9 +29,11 @@ export function CategorySubscriptionsModal({
   triggerSize = 'default',
   triggerIcon,
 }: CategorySubscriptionsModalProps) {
-  const [open, setOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
   const titleId = useId()
   const descriptionId = useId()
+  const animationDurationMs = 260
 
   const categories = useMemo(
     () =>
@@ -34,17 +42,53 @@ export function CategorySubscriptionsModal({
         localizedTitle: category.title,
         localizedDescription: category.description,
         subscriptionUrl: getFilterSubscriptionUrl(category.fileName),
+        abpSubscriptionUrl: getAbpSubscriptionUrl(
+          getFilterSubscriptionUrl(category.fileName),
+          `Complete Filters — ${category.title}`,
+        ),
       })),
     [],
   )
 
+  const openModal = () => {
+    setIsMounted(true)
+  }
+
+  const closeModal = () => {
+    setIsVisible(false)
+  }
+
   useEffect(() => {
-    if (!open) return
+    if (!isMounted) return
+
+    const frame = window.requestAnimationFrame(() => {
+      setIsVisible(true)
+    })
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+    }
+  }, [isMounted])
+
+  useEffect(() => {
+    if (!isMounted || isVisible) return
+
+    const timeout = window.setTimeout(() => {
+      setIsMounted(false)
+    }, animationDurationMs)
+
+    return () => {
+      window.clearTimeout(timeout)
+    }
+  }, [animationDurationMs, isMounted, isVisible])
+
+  useEffect(() => {
+    if (!isMounted) return
 
     const previousOverflow = document.body.style.overflow
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setOpen(false)
+        closeModal()
       }
     }
 
@@ -55,7 +99,7 @@ export function CategorySubscriptionsModal({
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [open])
+  }, [isMounted])
 
   return (
     <>
@@ -64,17 +108,19 @@ export function CategorySubscriptionsModal({
         variant={triggerVariant}
         size={triggerSize}
         className={triggerClassName}
-        onClick={() => setOpen(true)}
+        onClick={openModal}
       >
         {triggerIcon ?? <ListFilter className="h-4 w-4" />}
         {triggerLabel}
       </Button>
 
-      {open && typeof document !== 'undefined'
+      {isMounted && typeof document !== 'undefined'
         ? createPortal(
             <div
-              className="fixed inset-0 z-50 bg-background/85 backdrop-blur-sm"
-              onClick={() => setOpen(false)}
+              className={`modal-overlay fixed inset-0 z-50 bg-background/85 backdrop-blur-sm transition-opacity duration-300 ease-out ${
+                isVisible ? 'opacity-100' : 'opacity-0'
+              }`}
+              onClick={closeModal}
             >
               <div className="flex min-h-full items-center justify-center p-4 sm:p-6 lg:p-8">
                 <div
@@ -82,22 +128,22 @@ export function CategorySubscriptionsModal({
                   aria-modal="true"
                   aria-labelledby={titleId}
                   aria-describedby={descriptionId}
-                  className="w-full max-w-6xl border border-border bg-card shadow-2xl"
+                  className={`modal-panel flex max-h-[90vh] w-full max-w-6xl flex-col border border-border bg-card shadow-2xl transition-[opacity,transform] duration-300 ease-out ${
+                    isVisible
+                      ? 'translate-y-0 scale-100 opacity-100'
+                      : 'translate-y-4 scale-[0.98] opacity-0'
+                  }`}
                   onClick={(event) => event.stopPropagation()}
                 >
-                  <div className="flex items-start justify-between gap-4 border-b border-border p-5 sm:p-6">
-                    <div className="max-w-3xl space-y-3">
-                      <p className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-muted-foreground">
-                        Complete Filters / Subscription
-                      </p>
-                      <h2 id={titleId} className="font-display text-2xl font-black uppercase tracking-tight text-foreground sm:text-3xl">
+                  <div className={`flex shrink-0 items-center justify-between gap-4 border-b border-border px-4 py-3 transition-[opacity,transform] duration-300 ease-out sm:px-6 sm:py-4 ${
+                    isVisible ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
+                  }`}>
+                    <div className="space-y-1">
+                      <h2 id={titleId} className="font-display text-lg font-bold uppercase tracking-tight text-foreground sm:text-xl">
                         {SITE_COPY.categoryModal.title}
                       </h2>
-                      <p id={descriptionId} className="text-sm font-mono leading-relaxed text-muted-foreground">
+                      <p id={descriptionId} className="text-xs font-mono text-muted-foreground/90">
                         {SITE_COPY.categoryModal.description}
-                      </p>
-                      <p className="text-xs font-mono leading-relaxed text-muted-foreground/90">
-                        {SITE_COPY.categoryModal.note}
                       </p>
                     </div>
 
@@ -107,25 +153,64 @@ export function CategorySubscriptionsModal({
                       size="icon"
                       aria-label={SITE_COPY.categoryModal.close}
                       className="shrink-0"
-                      onClick={() => setOpen(false)}
+                      onClick={closeModal}
                     >
                       <X className="h-4 w-4" />
                     </Button>
                   </div>
 
-                  <div className="max-h-[75vh] overflow-y-auto p-5 sm:p-6">
-                    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+                    <section className={`mb-6 border border-primary/30 bg-primary/5 p-4 transition-[opacity,transform] duration-300 ease-out sm:p-6 ${
+                      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`} style={{ transitionDelay: isVisible ? '50ms' : '0ms' }}>
+                      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                        <div className="max-w-3xl space-y-2">
+                          <p className="text-[10px] font-mono font-bold uppercase tracking-[0.24em] text-primary/80">
+                            {FULL_FILTER_LIST_TITLE}
+                          </p>
+                          <h3 className="font-display text-xl font-bold uppercase tracking-tight text-foreground sm:text-2xl">
+                            {SITE_COPY.categoryModal.featuredTitle}
+                          </h3>
+                          <p className="text-sm font-mono leading-relaxed text-muted-foreground">
+                            {SITE_COPY.categoryModal.featuredDescription}
+                          </p>
+                          <div className="overflow-hidden border border-border bg-background/60 px-3 py-2 text-[10px] font-mono text-muted-foreground">
+                            <span className="block truncate">{FULL_FILTER_LIST_URL}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                          <Button asChild className="btn-press w-full font-mono text-xs uppercase tracking-widest sm:w-auto">
+                            <a href={FULL_FILTER_LIST_ABP_URL}>
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              {SITE_COPY.categoryModal.subscribeFull}
+                            </a>
+                          </Button>
+                          <Button asChild variant="outline" className="btn-press w-full font-mono text-xs uppercase tracking-widest sm:w-auto">
+                            <a href={FULL_FILTER_LIST_URL} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              {SITE_COPY.categoryModal.openDirect}
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+                    </section>
+
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                       {categories.map((category, index) => (
                         <article
                           key={category.id}
-                          className="category-card flex h-full flex-col border border-border bg-background p-5"
+                          className={`category-card flex h-full flex-col border border-border bg-background p-4 transition-[opacity,transform,border-color] duration-300 ease-out sm:p-5 ${
+                            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                          }`}
+                          style={{ transitionDelay: isVisible ? `${75 + index * 15}ms` : '0ms' }}
                         >
-                          <div className="mb-4 flex items-start justify-between gap-4">
+                          <div className="mb-3 flex items-start justify-between gap-4">
                             <div>
-                              <p className="text-[10px] font-mono font-bold uppercase tracking-[0.24em] text-muted-foreground">
+                              <p className="text-[10px] font-mono font-medium uppercase tracking-[0.24em] text-muted-foreground">
                                 {category.fileName}
                               </p>
-                              <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-wide text-foreground">
+                              <h3 className="mt-1 font-display text-lg font-bold uppercase tracking-wide text-foreground">
                                 {category.localizedTitle}
                               </h3>
                             </div>
@@ -134,12 +219,12 @@ export function CategorySubscriptionsModal({
                             </span>
                           </div>
 
-                          <p className="flex-1 text-xs font-mono leading-relaxed text-muted-foreground">
+                          <p className="mb-4 flex-1 text-xs font-mono leading-relaxed text-muted-foreground">
                             {category.localizedDescription}
                           </p>
 
-                          <div className="mt-5 space-y-3">
-                            <div className="overflow-hidden border border-border bg-muted/20 px-3 py-2 text-[10px] font-mono text-muted-foreground">
+                          <div className="mt-auto space-y-2">
+                            <div className="overflow-hidden border border-border bg-muted/20 px-2 py-1.5 text-[10px] font-mono text-muted-foreground">
                               <span className="block truncate">{category.subscriptionUrl}</span>
                             </div>
 
@@ -148,12 +233,25 @@ export function CategorySubscriptionsModal({
                               className="btn-press w-full font-mono text-xs uppercase tracking-widest"
                             >
                               <a
+                                href={category.abpSubscriptionUrl}
+                              >
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                {SITE_COPY.categoryModal.subscribe}
+                              </a>
+                            </Button>
+
+                            <Button
+                              asChild
+                              variant="outline"
+                              className="btn-press w-full font-mono text-xs uppercase tracking-widest"
+                            >
+                              <a
                                 href={category.subscriptionUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
                                 <ExternalLink className="mr-2 h-4 w-4" />
-                                {SITE_COPY.categoryModal.subscribe}
+                                {SITE_COPY.categoryModal.openDirect}
                               </a>
                             </Button>
                           </div>

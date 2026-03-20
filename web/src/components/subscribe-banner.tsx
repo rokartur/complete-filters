@@ -1,21 +1,12 @@
 import { CategorySubscriptionsModal } from '@/components/category-subscriptions-modal'
 import { Button } from '@/components/ui/button'
 import { REPO_URL, SITE_COPY } from '@/lib/site-content'
-import { Shield, Github } from 'lucide-react'
+import { Github } from 'lucide-react'
 
 export function SubscribeBanner() {
   return (
     <div className="animate-fade-in-up relative border-b border-border bg-card">
       <div className="relative px-4 py-6 sm:px-6 md:px-8">
-        <div className="mb-6 flex items-center justify-between border-b border-border/50 pb-4">
-          <div className="flex items-center gap-3">
-             <div className="flex h-10 w-10 items-center justify-center bg-primary text-primary-foreground">
-               <Shield className="h-5 w-5" />
-             </div>
-             <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">System.Banner</span>
-          </div>
-        </div>
-
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end justify-between">
           <div className="flex-1 max-w-2xl">
             <h1 className="font-display text-2xl font-bold uppercase tracking-tight sm:text-4xl text-foreground">

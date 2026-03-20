@@ -6,6 +6,9 @@ export const REPO_URL = 'https://github.com/rokartur/complete-filters'
 export const FILTER_CATEGORIES_URL =
   'https://github.com/rokartur/complete-filters/tree/main/filter'
 export const SITE_URL = 'https://rokartur.github.io/complete-filters/'
+export const FULL_FILTER_LIST_URL =
+  'https://raw.githubusercontent.com/rokartur/complete-filters/main/filter/all.txt'
+export const FULL_FILTER_LIST_TITLE = 'Complete Filters'
 
 const CATEGORY_LABELS: Record<string, string> = {
   'cosmetic-filters': 'Cosmetic filters (element hiding)',
@@ -61,7 +64,11 @@ interface SiteCopy {
     title: string
     description: string
     note: string
+    featuredTitle: string
+    featuredDescription: string
     subscribe: string
+    subscribeFull: string
+    openDirect: string
     close: string
   }
   tester: {
@@ -134,15 +141,15 @@ interface SiteCopy {
 
 export const SITE_COPY: SiteCopy = {
   meta: {
-    title: 'Complete Filters Tester — ad blocker test for uBlock Origin and AdGuard',
+    title: 'Complete Filters Tester — ad blocker test for uBlock Origin, AdGuard, and Brave',
     description:
-      'Check how well your blocker stops ads, trackers, malware, popups, and anti-adblock scripts. Complete Filters Tester works with uBlock Origin, AdGuard, Brave, and other blockers.',
+      'Check how well your blocker stops ads, trackers, malware, popups, anti-adblock scripts, and other unwanted web requests. Complete Filters Tester works with uBlock Origin, AdGuard, Brave, and similar blockers.',
     keywords:
-      'ad blocker tester, uBlock Origin test, AdGuard test, ad blocking checker, tracker test, Complete Filters, Brave Shields test, malware blocking test',
+      'ad blocker tester, uBlock Origin test, AdGuard test, Brave Shields test, ad blocking checker, tracker test, malware blocking test, privacy test, filter list tester, Complete Filters',
     locale: 'en_US',
     socialTitle: 'Complete Filters Tester — test your ad blocker',
     socialDescription:
-      'Measure ad, tracker, popup, malware, and anti-adblock blocking in uBlock Origin, AdGuard, Brave, and similar tools.',
+      'Measure ad, tracker, popup, malware, and anti-adblock blocking in uBlock Origin, AdGuard, Brave, and similar tools across general and regional web threats.',
   },
   banner: {
     title: 'Complete Filters',
@@ -154,7 +161,11 @@ export const SITE_COPY: SiteCopy = {
     title: 'Subscribe to categories',
     description: 'Pick a category and open its direct filter list URL.',
     note: 'Each button opens the raw GitHub URL that you can add in your blocker\'s custom filter lists.',
+    featuredTitle: 'Full list subscription',
+    featuredDescription: 'Use the one-click ABP subscription link for the complete hosted list, or open the hosted URL directly as a fallback.',
     subscribe: 'Subscribe to category',
+    subscribeFull: 'Subscribe to full list',
+    openDirect: 'Open direct URL',
     close: 'Close',
   },
   tester: {
@@ -217,27 +228,27 @@ export const SITE_COPY: SiteCopy = {
   seo: {
     title: 'How does Complete Filters Tester work?',
     intro:
-      'This tool helps you verify whether your ad blocker really blocks ads, trackers, popups, anti-adblock scripts, malware, and other problematic requests. It is optimized for the Polish web, but it also covers global ad networks and widely used tracking systems.',
+      'This tool helps you verify whether your ad blocker really blocks ads, trackers, popups, anti-adblock scripts, malware, and other problematic requests. It is designed for broad real-world coverage across general, regional, and high-risk web traffic.',
     featureTitle: 'What does this tester check?',
     features: [
       {
         title: 'Ads and sponsored elements',
-        description: 'It validates Google Ads, ad networks, sponsored widgets, and cosmetic filtering that hides ad-like elements from the page.',
+        description: 'It validates Google Ads, ad networks, sponsored widgets, affiliate placements, and cosmetic filtering that hides ad-like elements from the page.',
       },
       {
         title: 'Trackers and analytics',
-        description: 'It checks analytics scripts, tracking pixels, fingerprinting, retargeting, and common telemetry endpoints.',
+        description: 'It checks analytics scripts, tracking pixels, fingerprinting, retargeting, telemetry endpoints, and other privacy-invasive requests.',
       },
       {
         title: 'Threats and annoying scripts',
-        description: 'It tests popups, push notifications, anti-adblock scripts, suspicious domains, and selected malware or phishing vectors.',
+        description: 'It tests popups, push notifications, anti-adblock scripts, suspicious domains, malicious infrastructure, and selected malware or phishing vectors.',
       },
     ],
     whyTitle: 'Why should you test your filters?',
     whyPoints: [
       'You can quickly see whether uBlock Origin, AdGuard, Brave, or another blocker is configured effectively.',
-      'You can compare the real-world impact of different filter lists and privacy setups.',
-      'You can verify whether trackers, ads, and risky domains still slip through your protection.',
+      'You can compare the real-world impact of different filter lists, category subscriptions, and privacy setups.',
+      'You can verify whether trackers, ads, risky domains, and nuisance scripts still slip through your protection.',
     ],
     supportedTitle: 'Supported blockers and setups',
     supportedDescription:
@@ -266,7 +277,7 @@ export const SITE_COPY: SiteCopy = {
       {
         question: 'Why are some resources shown as not blocked?',
         answer:
-          'Possible reasons include missing rules for that domain, rules that only match a specific request type (for example document vs script vs image), or a less aggressive privacy setup. This matters especially for links opened directly in a tab.',
+          'Possible reasons include missing rules for that domain, rules that only match a specific request type (for example document vs script vs image), or a less aggressive privacy setup. This matters especially for top-level pages and links opened directly in a tab.',
       },
       {
         question: 'Can the tester detect DNS-level blocking?',
@@ -276,7 +287,7 @@ export const SITE_COPY: SiteCopy = {
     ],
     ctaTitle: 'Want a better score?',
     ctaDescription:
-      'Browse the available Complete Filters categories and run the test again after picking the lists that fit your setup.',
+      'Browse the available Complete Filters categories or subscribe to the full list, then run the test again after choosing the setup that fits your protection level.',
     ctaPrimary: 'Browse categories',
     ctaSecondary: 'View repository',
   },
@@ -294,6 +305,15 @@ export function getCategoryLabel(categoryId: string, fallback: string) {
 export function getMethodTagLabel(tag: MethodTag) {
   return SITE_COPY.tester.methodTags[tag]
 }
+
+export function getAbpSubscriptionUrl(location: string, title: string) {
+  return `abp:subscribe?location=${encodeURIComponent(location)}&title=${encodeURIComponent(title)}`
+}
+
+export const FULL_FILTER_LIST_ABP_URL = getAbpSubscriptionUrl(
+  FULL_FILTER_LIST_URL,
+  FULL_FILTER_LIST_TITLE,
+)
 
 export function getTestLabel(name: string): string {
   const exactTranslations: Record<string, string> = {
