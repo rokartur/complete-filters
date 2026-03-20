@@ -11,7 +11,7 @@ on:
       - build.py
       - .github/workflows/update-filters.yml
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 0 * * *'
  
 permissions:
   contents: write
