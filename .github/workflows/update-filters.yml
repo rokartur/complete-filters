@@ -30,7 +30,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: cd scripts && bun install
+        run: cd scripts && bun install --frozen-lockfile
 
       - name: Run full pipeline
         run: cd scripts && bun run all
