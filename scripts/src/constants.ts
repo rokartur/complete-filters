@@ -15,6 +15,7 @@ export const NOT_FOUND_TXT = resolve(ROOT, "not-found.txt")
 export const CATEGORIES_DIR = resolve(ROOT, "categories")
 export const FILTER_DIR = resolve(ROOT, "filter")
 export const MANUAL_RULES = [
+	resolve(ROOT, "manual-rules", "website-compatibility-allowlist.txt"),
 	resolve(ROOT, "manual-rules", "developer-infrastructure-allowlist.txt"),
 	resolve(ROOT, "manual-rules", "manual-blocklist.txt"),
 ] as const

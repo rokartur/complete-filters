@@ -1,0 +1,318 @@
+! Website compatibility allowlist
+! Prevent breakage on major websites that users visit daily.
+! These exceptions use @@||domain^ (and $important where needed) to ensure
+! core functionality is preserved even when aggressive upstream lists are enabled.
+!
+! ═══════════════════════════════════════════════════════════════
+! YouTube — video playback, comments, channels, embeds
+! ═══════════════════════════════════════════════════════════════
+@@||youtube.com^
+@@||www.youtube.com^
+@@||m.youtube.com^
+@@||music.youtube.com^
+@@||tv.youtube.com^
+@@||studio.youtube.com^
+@@||youtu.be^
+@@||youtube-nocookie.com^
+@@||youtubei.googleapis.com^$important
+@@||i.ytimg.com^
+@@||yt3.ggpht.com^
+@@||yt3.googleusercontent.com^
+@@||lh3.googleusercontent.com^
+@@||play.google.com^
+@@||jnn-pa.googleapis.com^$important
+@@||wide-youtube.l.google.com^$important
+@@||redirector.googlevideo.com^$important
+@@||manifest.googlevideo.com^$important
+@@||*.googlevideo.com^$important
+@@||imasdk.googleapis.com^$important
+@@||youtube.googleapis.com^
+@@||video-stats.l.google.com^
+!
+! ═══════════════════════════════════════════════════════════════
+! Facebook / Meta — timeline, comments, messenger, images, CDN
+! ═══════════════════════════════════════════════════════════════
+@@||facebook.com^
+@@||www.facebook.com^
+@@||m.facebook.com^
+@@||web.facebook.com^
+@@||static.xx.fbcdn.net^$important
+@@||scontent.xx.fbcdn.net^$important
+@@||scontent-*.xx.fbcdn.net^$important
+@@||video.xx.fbcdn.net^$important
+@@||*.fbcdn.net^$important
+@@||*.facebook.com^$important,domain=facebook.com
+@@||connect.facebook.net^$important,domain=facebook.com
+@@||graph.facebook.com^$important,domain=facebook.com
+@@||edge-chat.facebook.com^$important
+@@||upload.facebook.com^
+@@||rupload.facebook.com^
+@@||messenger.com^
+@@||www.messenger.com^
+@@||edge-chat.messenger.com^
+@@||*.fna.fbcdn.net^$important
+!
+! Instagram
+@@||instagram.com^
+@@||www.instagram.com^
+@@||i.instagram.com^
+@@||scontent-*.cdninstagram.com^$important
+@@||*.cdninstagram.com^$important
+!
+! WhatsApp Web
+@@||web.whatsapp.com^
+@@||*.whatsapp.net^
+!
+! Threads
+@@||threads.net^
+@@||www.threads.net^
+!
+! ═══════════════════════════════════════════════════════════════
+! Google — search, maps, gmail, drive, docs, translate, etc.
+! ═══════════════════════════════════════════════════════════════
+@@||google.com^
+@@||www.google.com^
+@@||google.pl^
+@@||www.google.pl^
+@@||mail.google.com^
+@@||accounts.google.com^
+@@||myaccount.google.com^
+@@||drive.google.com^
+@@||docs.google.com^
+@@||sheets.google.com^
+@@||slides.google.com^
+@@||calendar.google.com^
+@@||meet.google.com^
+@@||chat.google.com^
+@@||photos.google.com^
+@@||translate.google.com^
+@@||maps.google.com^
+@@||maps.googleapis.com^
+@@||maps.gstatic.com^
+@@||news.google.com^
+@@||keep.google.com^
+@@||contacts.google.com^
+@@||fonts.googleapis.com^
+@@||fonts.gstatic.com^
+@@||www.gstatic.com^
+@@||ssl.gstatic.com^
+@@||encrypted-tbn0.gstatic.com^
+@@||apis.google.com^
+@@||clients1.google.com^
+@@||clients2.google.com^
+@@||clients3.google.com^
+@@||clients4.google.com^
+@@||clients5.google.com^
+@@||clients6.google.com^
+@@||lh3.googleusercontent.com^
+@@||storage.googleapis.com^
+@@||firebaseinstallations.googleapis.com^
+@@||firestore.googleapis.com^
+@@||fcm.googleapis.com^
+@@||android.googleapis.com^
+@@||recaptcha.net^
+@@||www.recaptcha.net^
+@@||www.google.com/recaptcha/$important
+@@||google.com/recaptcha/$important
+!
+! ═══════════════════════════════════════════════════════════════
+! Twitter / X
+! ═══════════════════════════════════════════════════════════════
+@@||twitter.com^
+@@||x.com^
+@@||api.twitter.com^
+@@||api.x.com^
+@@||abs.twimg.com^
+@@||pbs.twimg.com^
+@@||video.twimg.com^
+@@||ton.twimg.com^
+@@||mobile.twitter.com^
+@@||tweetdeck.twitter.com^
+!
+! ═══════════════════════════════════════════════════════════════
+! Reddit
+! ═══════════════════════════════════════════════════════════════
+@@||reddit.com^
+@@||www.reddit.com^
+@@||old.reddit.com^
+@@||new.reddit.com^
+@@||i.redd.it^
+@@||v.redd.it^
+@@||preview.redd.it^
+@@||external-preview.redd.it^
+@@||styles.redditmedia.com^
+@@||www.redditstatic.com^
+@@||*.thumbs.redditmedia.com^
+!
+! ═══════════════════════════════════════════════════════════════
+! TikTok
+! ═══════════════════════════════════════════════════════════════
+@@||tiktok.com^
+@@||www.tiktok.com^
+@@||*.tiktokcdn.com^
+@@||*.musical.ly^
+!
+! ═══════════════════════════════════════════════════════════════
+! Twitch
+! ═══════════════════════════════════════════════════════════════
+@@||twitch.tv^
+@@||www.twitch.tv^
+@@||static.twitchcdn.net^
+@@||*.jtvnw.net^
+@@||*.ttvnw.net^
+@@||usher.ttvnw.net^
+@@||gql.twitch.tv^
+!
+! ═══════════════════════════════════════════════════════════════
+! Discord
+! ═══════════════════════════════════════════════════════════════
+@@||discord.com^
+@@||discordapp.com^
+@@||cdn.discordapp.com^
+@@||media.discordapp.net^
+@@||gateway.discord.gg^
+@@||images-ext-1.discordapp.net^
+!
+! ═══════════════════════════════════════════════════════════════
+! Spotify
+! ═══════════════════════════════════════════════════════════════
+@@||open.spotify.com^
+@@||api.spotify.com^
+@@||*.scdn.co^
+@@||*.spotifycdn.com^
+!
+! ═══════════════════════════════════════════════════════════════
+! Wikipedia / Wikimedia
+! ═══════════════════════════════════════════════════════════════
+@@||wikipedia.org^
+@@||*.wikipedia.org^
+@@||upload.wikimedia.org^
+@@||*.wikimedia.org^
+!
+! ═══════════════════════════════════════════════════════════════
+! Microsoft — Outlook, Office 365, OneDrive, Teams, Bing
+! ═══════════════════════════════════════════════════════════════
+@@||microsoft.com^
+@@||login.microsoftonline.com^
+@@||outlook.live.com^
+@@||outlook.office.com^
+@@||outlook.office365.com^
+@@||onedrive.live.com^
+@@||office.com^
+@@||office365.com^
+@@||sharepoint.com^
+@@||teams.microsoft.com^
+@@||bing.com^
+@@||www.bing.com^
+@@||live.com^
+@@||login.live.com^
+@@||*.onenote.com^
+@@||copilot.microsoft.com^
+@@||cdn.onenote.net^
+!
+! ═══════════════════════════════════════════════════════════════
+! Apple
+! ═══════════════════════════════════════════════════════════════
+@@||apple.com^
+@@||*.apple.com^
+@@||icloud.com^
+@@||*.icloud.com^
+@@||*.icloud-content.com^
+@@||*.mzstatic.com^
+!
+! ═══════════════════════════════════════════════════════════════
+! Amazon
+! ═══════════════════════════════════════════════════════════════
+@@||amazon.com^
+@@||amazon.pl^
+@@||amazon.de^
+@@||amazon.co.uk^
+@@||*.cloudfront.net^$domain=amazon.com|amazon.pl|amazon.de|amazon.co.uk
+@@||images-na.ssl-images-amazon.com^
+@@||images-eu.ssl-images-amazon.com^
+@@||m.media-amazon.com^
+@@||fls-eu.amazon.com^$domain=amazon.com|amazon.pl|amazon.de|amazon.co.uk
+!
+! ═══════════════════════════════════════════════════════════════
+! Polish popular sites (Allegro, OLX, WP, Onet, etc.)
+! ═══════════════════════════════════════════════════════════════
+@@||allegro.pl^
+@@||allegro.pl.allegrosandbox.pl^
+@@||*.allegroimg.com^
+@@||edge.allegro.pl^
+@@||olx.pl^
+@@||www.olx.pl^
+@@||wp.pl^
+@@||www.wp.pl^
+@@||poczta.wp.pl^
+@@||onet.pl^
+@@||www.onet.pl^
+@@||poczta.onet.pl^
+@@||interia.pl^
+@@||www.interia.pl^
+@@||gazeta.pl^
+@@||www.gazeta.pl^
+@@||sport.pl^
+@@||pudelek.pl^
+@@||tvn24.pl^
+@@||tvn.pl^
+@@||player.pl^
+@@||polsatboxgo.pl^
+@@||bankier.pl^
+@@||money.pl^
+@@||pracuj.pl^
+@@||ceneo.pl^
+!
+! ═══════════════════════════════════════════════════════════════
+! Streaming services
+! ═══════════════════════════════════════════════════════════════
+@@||netflix.com^
+@@||www.netflix.com^
+@@||*.nflxvideo.net^
+@@||*.nflxext.com^
+@@||*.nflximg.net^
+@@||*.nflxso.net^
+@@||disneyplus.com^
+@@||*.bamgrid.com^
+@@||*.dssott.com^
+@@||hbomax.com^
+@@||max.com^
+@@||play.max.com^
+@@||primevideo.com^
+@@||*.pv-cdn.net^
+!
+! ═══════════════════════════════════════════════════════════════
+! Banking / payments — never break banking functionality
+! ═══════════════════════════════════════════════════════════════
+@@||paypal.com^
+@@||www.paypal.com^
+@@||*.paypal.com^
+@@||stripe.com^
+@@||js.stripe.com^
+@@||m.stripe.network^
+@@||revolut.com^
+@@||app.revolut.com^
+!
+! ═══════════════════════════════════════════════════════════════
+! CDNs and common infrastructure (needed by many sites)
+! ═══════════════════════════════════════════════════════════════
+@@||cdn.jsdelivr.net^
+@@||cdnjs.cloudflare.com^
+@@||unpkg.com^
+@@||ajax.googleapis.com^
+@@||code.jquery.com^
+@@||stackpath.bootstrapcdn.com^
+@@||maxcdn.bootstrapcdn.com^
+@@||use.fontawesome.com^
+@@||challenges.cloudflare.com^$important
+@@||static.cloudflareinsights.com^
+!
+! ═══════════════════════════════════════════════════════════════
+! CAPTCHA services — blocking these makes login impossible
+! ═══════════════════════════════════════════════════════════════
+@@||hcaptcha.com^$important
+@@||*.hcaptcha.com^$important
+@@||www.google.com/recaptcha/$important
+@@||recaptcha.net^$important
+@@||www.recaptcha.net^$important
+@@||challenges.cloudflare.com^$important
