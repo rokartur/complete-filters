@@ -8,33 +8,40 @@ on:
     paths:
       - categories/**
       - filters.txt
-      - not-found.txt
       - manual-rules/**
       - scripts/**
       - .github/workflows/update-filters.yml
   schedule:
     - cron: '0 1 * * *'
- 
+
 permissions:
   contents: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  GIT_LFS_SKIP_SMUDGE: '1'
+
+concurrency:
+  group: update-filters
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository (skip LFS — filter files are rebuilt from scratch)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           lfs: false
-        env:
-          GIT_LFS_SKIP_SMUDGE: '1'
 
-      - name: Set up Git LFS (needed for commit/push only)
-        run: git lfs install --skip-smudge
+      - name: Disable Git LFS for push
+        run: |
+          git lfs uninstall || true
+          git config --unset-all filter.lfs.smudge || true
+          git config --unset-all filter.lfs.clean || true
+          git config --unset-all filter.lfs.process || true
+          git config --unset-all filter.lfs.required || true
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
@@ -49,21 +56,18 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config http.postBuffer 524288000
-          git lfs install
 
-      - name: "Build filter lists from categories and filters.txt"
+      - name: Build filter lists
         run: bun run index.ts all
         working-directory: scripts
 
-      - name: "Commit & push: built filters"
+      - name: Commit & push built filters
         run: |
           git add filter/*.txt not-found.txt
           if git diff --cached --quiet; then
-            echo "No built filter changes"
+            echo "✅ No filter changes to commit"
           else
-            git commit -m "chore(filter): rebuild generated filters"
+            git commit -m "chore(filter): rebuild generated filters [skip ci]"
             git push
+            echo "✅ Filters updated and pushed"
           fi
-        env:
-          GIT_LFS_SKIP_SMUDGE: '0'
