@@ -33,12 +33,55 @@ jobs:
         run: bun install
         working-directory: scripts
 
-      - name: Run full pipeline
-        run: bun run all
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: "Phase 1: Discover filter list URLs"
+        run: bun run index.ts fetch
         working-directory: scripts
 
-      - name: Commit updated files
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: 'chore: update filters'
-          file_pattern: 'filters.txt not-found.txt categories/*.txt filter/*.txt'
+      - name: "Commit: discovery phase"
+        run: |
+          git add filters.txt not-found.txt
+          if git diff --cached --quiet; then
+            echo "No changes in discovery phase"
+          else
+            git commit -m "chore: update discovered filter lists"
+          fi
+
+      - name: "Phase 2: Categorize sources"
+        run: bun run index.ts categorize
+        working-directory: scripts
+
+      - name: "Commit: categorization phase"
+        run: |
+          for file in categories/*.txt; do
+            if [ -f "$file" ]; then
+              category=$(basename "$file" .txt)
+              git add "$file"
+              if ! git diff --cached --quiet; then
+                git commit -m "chore(categories): update ${category}"
+              fi
+            fi
+          done
+
+      - name: "Phase 3: Build filter lists"
+        run: bun run index.ts build
+        working-directory: scripts
+
+      - name: "Commit: built filters per category"
+        run: |
+          for file in filter/*.txt; do
+            if [ -f "$file" ]; then
+              category=$(basename "$file" .txt)
+              git add "$file"
+              if ! git diff --cached --quiet; then
+                git commit -m "chore(filter): update ${category}"
+              fi
+            fi
+          done
+
+      - name: Push changes
+        run: git push
