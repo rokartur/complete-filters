@@ -10,10 +10,10 @@ const USAGE = `
 Usage: bun run index.ts <command> [options]
 
 Commands:
-  fetch        Discover uBlock-compatible URLs from FilterLists API
-  categorize   Classify sources into category manifests
-  build        Build category filter lists from manifests
-  all          Run full pipeline: fetch → categorize → build
+	fetch        Discover uBlock-compatible URLs from FilterLists API
+	categorize   Classify filters.txt sources into category manifests
+	build        Build category filter lists from category manifests and all.txt from filters.txt
+	all          Alias for build (no FilterLists API fetch)
 
 Options:
   --jobs, -j <n>   Concurrent workers (default: 24)
@@ -64,17 +64,7 @@ try {
 
 		case "all":
 			log("═".repeat(60))
-			log("Phase 1: Discovering filter list URLs")
-			log("═".repeat(60))
-			await runFetchFilterLists({ jobs, dryRun, verbose })
-
-			log("\n" + "═".repeat(60))
-			log("Phase 2: Categorizing sources")
-			log("═".repeat(60))
-			await runCategorize({ jobs, verbose })
-
-			log("\n" + "═".repeat(60))
-			log("Phase 3: Building filter lists")
+			log("Building filter lists from category manifests and filters.txt")
 			log("═".repeat(60))
 			await runBuildCategories({ jobs, dryRun, verbose })
 			break
