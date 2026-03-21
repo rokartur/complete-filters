@@ -36,32 +36,48 @@
 @@||www.facebook.com^
 @@||m.facebook.com^
 @@||web.facebook.com^
-@@||static.xx.fbcdn.net^$important
-@@||scontent.xx.fbcdn.net^$important
-@@||scontent-*.xx.fbcdn.net^$important
-@@||video.xx.fbcdn.net^$important
-@@||*.fbcdn.net^$important
 @@||*.facebook.com^$important,domain=facebook.com
 @@||connect.facebook.net^$important,domain=facebook.com
 @@||graph.facebook.com^$important,domain=facebook.com
 @@||edge-chat.facebook.com^$important
 @@||upload.facebook.com^
 @@||rupload.facebook.com^
+! Facebook/Meta image & video CDN — all regional scontent/fbcdn nodes
+@@||fbcdn.net^$image,important
+@@||fbcdn.net^$media,important
+@@||fbcdn.net^$xhr,important,domain=facebook.com|instagram.com|messenger.com
+@@||*.fbcdn.net^$important
+@@||*.fna.fbcdn.net^$important
+@@||static.xx.fbcdn.net^$important
+@@||scontent.xx.fbcdn.net^$important
+@@||scontent-*.xx.fbcdn.net^$important
+@@||video.xx.fbcdn.net^$important
+@@||video-*.xx.fbcdn.net^$important
+@@||external.xx.fbcdn.net^$important
+@@||external-*.xx.fbcdn.net^$important
+@@||xy.fbcdn.net^$important
+@@||xz.fbcdn.net^$important
+@@||fbcdn2.com^$important
+! Messenger
 @@||messenger.com^
 @@||www.messenger.com^
 @@||edge-chat.messenger.com^
-@@||*.fna.fbcdn.net^$important
 !
-! Instagram
+! Instagram — images, stories, reels, profile pictures
 @@||instagram.com^
 @@||www.instagram.com^
 @@||i.instagram.com^
-@@||scontent-*.cdninstagram.com^$important
+@@||graph.instagram.com^
+@@||cdninstagram.com^$image,important
+@@||cdninstagram.com^$media,important
 @@||*.cdninstagram.com^$important
+@@||scontent-*.cdninstagram.com^$important
+@@||scontent.cdninstagram.com^$important
 !
 ! WhatsApp Web
 @@||web.whatsapp.com^
 @@||*.whatsapp.net^
+@@||mmg.whatsapp.net^$important
 !
 ! Threads
 @@||threads.net^
@@ -116,70 +132,135 @@
 @@||google.com/recaptcha/$important
 !
 ! ═══════════════════════════════════════════════════════════════
-! Twitter / X
+! Twitter / X — tweets, profile pics, media
 ! ═══════════════════════════════════════════════════════════════
 @@||twitter.com^
 @@||x.com^
 @@||api.twitter.com^
 @@||api.x.com^
-@@||abs.twimg.com^
-@@||pbs.twimg.com^
-@@||video.twimg.com^
-@@||ton.twimg.com^
+! Twitter image & video CDN
+@@||twimg.com^$image,important
+@@||twimg.com^$media,important
+@@||pbs.twimg.com^$important
+@@||abs.twimg.com^$important
+@@||video.twimg.com^$important
+@@||ton.twimg.com^$important
+@@||r.twimg.com^$important
+@@||syndication.twimg.com^$important,domain=twitter.com|x.com
 @@||mobile.twitter.com^
 @@||tweetdeck.twitter.com^
 !
 ! ═══════════════════════════════════════════════════════════════
-! Reddit
+! Reddit — posts, thumbnails, previews
 ! ═══════════════════════════════════════════════════════════════
 @@||reddit.com^
 @@||www.reddit.com^
 @@||old.reddit.com^
 @@||new.reddit.com^
-@@||i.redd.it^
-@@||v.redd.it^
-@@||preview.redd.it^
-@@||external-preview.redd.it^
-@@||styles.redditmedia.com^
-@@||www.redditstatic.com^
-@@||*.thumbs.redditmedia.com^
+@@||i.redd.it^$important
+@@||v.redd.it^$important
+@@||preview.redd.it^$important
+@@||external-preview.redd.it^$important
+@@||styles.redditmedia.com^$important
+@@||www.redditstatic.com^$important
+@@||*.thumbs.redditmedia.com^$important
+@@||a.thumbs.redditmedia.com^$important
+@@||b.thumbs.redditmedia.com^$important
 !
 ! ═══════════════════════════════════════════════════════════════
-! TikTok
+! TikTok — videos, thumbnails, profile pics
 ! ═══════════════════════════════════════════════════════════════
 @@||tiktok.com^
 @@||www.tiktok.com^
-@@||*.tiktokcdn.com^
+@@||tiktokcdn.com^$image,important
+@@||tiktokcdn.com^$media,important
+@@||*.tiktokcdn.com^$important
+@@||tiktokcdn-us.com^$image,important
+@@||*.tiktokcdn-us.com^$important
 @@||*.musical.ly^
+@@||p16-sign.tiktokcdn-us.com^$important
+@@||p16-sign-sg.tiktokcdn.com^$important
+@@||v16-webapp.tiktok.com^$important
 !
 ! ═══════════════════════════════════════════════════════════════
-! Twitch
+! Twitch — streams, emotes, profile pics
 ! ═══════════════════════════════════════════════════════════════
 @@||twitch.tv^
 @@||www.twitch.tv^
-@@||static.twitchcdn.net^
-@@||*.jtvnw.net^
-@@||*.ttvnw.net^
-@@||usher.ttvnw.net^
-@@||gql.twitch.tv^
+@@||static.twitchcdn.net^$important
+@@||static-cdn.jtvnw.net^$important
+@@||*.jtvnw.net^$important
+@@||*.ttvnw.net^$important
+@@||usher.ttvnw.net^$important
+@@||gql.twitch.tv^$important
+@@||clips.twitch.tv^
 !
 ! ═══════════════════════════════════════════════════════════════
-! Discord
+! Discord — messages, attachments, emojis, avatars
 ! ═══════════════════════════════════════════════════════════════
 @@||discord.com^
 @@||discordapp.com^
-@@||cdn.discordapp.com^
-@@||media.discordapp.net^
+@@||cdn.discordapp.com^$important
+@@||media.discordapp.net^$important
+@@||images-ext-1.discordapp.net^$important
+@@||images-ext-2.discordapp.net^$important
 @@||gateway.discord.gg^
-@@||images-ext-1.discordapp.net^
+@@||discord.gg^
 !
 ! ═══════════════════════════════════════════════════════════════
-! Spotify
+! Pinterest — pins, boards, images
+! ═══════════════════════════════════════════════════════════════
+@@||pinterest.com^
+@@||www.pinterest.com^
+@@||pl.pinterest.com^
+@@||pinimg.com^$image,important
+@@||pinimg.com^$media,important
+@@||*.pinimg.com^$important
+@@||i.pinimg.com^$important
+@@||s.pinimg.com^$important
+!
+! ═══════════════════════════════════════════════════════════════
+! LinkedIn — profile pics, post images, articles
+! ═══════════════════════════════════════════════════════════════
+@@||linkedin.com^
+@@||www.linkedin.com^
+@@||licdn.com^$image,important
+@@||*.licdn.com^$important
+@@||media.licdn.com^$important
+@@||static.licdn.com^$important
+@@||platform.linkedin.com^$important,domain=linkedin.com
+!
+! ═══════════════════════════════════════════════════════════════
+! Snapchat
+! ═══════════════════════════════════════════════════════════════
+@@||snapchat.com^
+@@||www.snapchat.com^
+@@||*.snapchat.com^$image,important
+@@||*.sc-cdn.net^$important
+@@||cf-st.sc-cdn.net^$important
+@@||bolt.sc-cdn.net^$important
+!
+! ═══════════════════════════════════════════════════════════════
+! Spotify — album art, profile pics
 ! ═══════════════════════════════════════════════════════════════
 @@||open.spotify.com^
 @@||api.spotify.com^
-@@||*.scdn.co^
-@@||*.spotifycdn.com^
+@@||*.scdn.co^$important
+@@||*.spotifycdn.com^$important
+@@||i.scdn.co^$important
+@@||mosaic.scdn.co^$important
+@@||blend-playlist-covers.spotifycdn.com^$important
+@@||thisis-images.spotifycdn.com^$important
+!
+! ═══════════════════════════════════════════════════════════════
+! Tumblr — posts, images, blogs
+! ═══════════════════════════════════════════════════════════════
+@@||tumblr.com^
+@@||www.tumblr.com^
+@@||*.tumblr.com^$image,important
+@@||*.media.tumblr.com^$important
+@@||64.media.tumblr.com^$important
+@@||assets.tumblr.com^$important
 !
 ! ═══════════════════════════════════════════════════════════════
 ! Wikipedia / Wikimedia

@@ -18,18 +18,23 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (skip LFS — filter files are rebuilt from scratch)
         uses: actions/checkout@v4
         with:
-          lfs: true
+          lfs: false
+        env:
+          GIT_LFS_SKIP_SMUDGE: '1'
 
-      - name: Set up Git LFS
-        run: git lfs install
+      - name: Set up Git LFS (needed for commit/push only)
+        run: git lfs install --skip-smudge
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
@@ -60,3 +65,5 @@ jobs:
             git commit -m "chore(filter): rebuild generated filters"
             git push
           fi
+        env:
+          GIT_LFS_SKIP_SMUDGE: '0'
