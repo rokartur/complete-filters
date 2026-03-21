@@ -1,4 +1,5 @@
 import type { FetchResult, ParsedLine, LineKind } from "./types.ts"
+import { getPublicSuffix } from "tldts"
 import {
 	FORMAT_HEADER_RE,
 	META_PREFIXES,
@@ -15,11 +16,45 @@ const SCRIPTLET_MARKER = "##+js("
 const HTML_FILTER_MARKER = "##^"
 const BADFILTER_RE = /\$.*\bbadfilter\b/i
 const COSMETIC_SEP_RE = /(?:^|[^\\])(?:##\^|#@?\??#)/
+const HOSTNAME_CANDIDATE_RE = /^[a-z0-9.-]+$/i
 
 function isCosmetic(line: string): boolean {
 	if (line.includes(SCRIPTLET_MARKER)) return true
 	if (line.includes(HTML_FILTER_MARKER)) return true
 	return COSMETIC_SEP_RE.test(line)
+}
+
+function extractRuleHostnameCandidate(line: string): string | null {
+	if (isCosmetic(line)) return null
+
+	const body = line.startsWith("@@") ? line.slice(2) : line
+	if (!body || body.startsWith("/")) return null
+
+	// Bare host/domain-like entries from host/domain blocklists.
+	if (HOSTNAME_CANDIDATE_RE.test(body)) {
+		const host = body.toLowerCase().replace(/^\.+|\.+$/g, "")
+		return host || null
+	}
+
+	if (!body.startsWith("||")) return null
+
+	const remainder = body.slice(2)
+	let end = remainder.length
+	for (const sep of ["^", "/", "*", "?", "$", ":", "|"]) {
+		const idx = remainder.indexOf(sep)
+		if (idx !== -1 && idx < end) end = idx
+	}
+
+	const host = remainder.slice(0, end).toLowerCase().replace(/^\.+|\.+$/g, "")
+	return host || null
+}
+
+function isPublicSuffixRule(line: string): boolean {
+	const host = extractRuleHostnameCandidate(line)
+	if (!host || !HOSTNAME_CANDIDATE_RE.test(host)) return false
+
+	const publicSuffix = getPublicSuffix(host)
+	return publicSuffix !== null && host === publicSuffix
 }
 
 // ── Option normalization ───────────────────────────────────────────────────
@@ -197,6 +232,7 @@ export function parseSource(result: FetchResult): ParsedLine[] {
 			}
 			const converted = convertHostsLine(line)
 			if (converted) {
+				if (isPublicSuffixRule(converted)) continue
 				hostsConverted++
 				lines.push({ text: converted, condStack: [...condStack], kind: "rule" })
 				continue
@@ -205,6 +241,8 @@ export function parseSource(result: FetchResult): ParsedLine[] {
 			lines.push({ text: "", condStack: [...condStack], kind: "blank" })
 			continue
 		}
+
+		if (isPublicSuffixRule(line)) continue
 
 		lines.push({ text: line, condStack: [...condStack], kind: "rule" })
 	}
