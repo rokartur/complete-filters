@@ -64,7 +64,7 @@ try {
 
 		case "all":
 			log("═".repeat(60))
-			log("Building filter lists from category manifests and filters.txt")
+			log("Building filter lists from category manifests")
 			log("═".repeat(60))
 			await runBuildCategories({ jobs, dryRun, verbose })
 			break
