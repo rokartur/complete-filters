@@ -23,6 +23,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Git LFS
+        run: git lfs install
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
@@ -38,6 +43,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config http.postBuffer 524288000
+          git lfs install
 
       - name: "Phase 1: Discover filter list URLs"
         run: bun run index.ts fetch
