@@ -79,6 +79,8 @@
 @@||xz.fbcdn.net^$important
 @@||fbcdn2.com^$important
 ! Messenger
+@@||messenger.com^$all,important
+@@||*.messenger.com^$all,important
 @@||messenger.com^
 @@||www.messenger.com^
 @@||edge-chat.messenger.com^
@@ -190,6 +192,14 @@
 ! ═══════════════════════════════════════════════════════════════
 ! TikTok — videos, thumbnails, profile pics
 ! ═══════════════════════════════════════════════════════════════
+@@||tiktok.com^$all,important
+@@||*.tiktok.com^$all,important
+@@||tiktokcdn.com^$all,important
+@@||*.tiktokcdn.com^$all,important
+@@||tiktokcdn-us.com^$all,important
+@@||*.tiktokcdn-us.com^$all,important
+@@||musical.ly^$all,important
+@@||*.musical.ly^$all,important
 @@||tiktok.com^
 @@||www.tiktok.com^
 @@||tiktokcdn.com^$image,important
@@ -205,6 +215,14 @@
 ! ═══════════════════════════════════════════════════════════════
 ! Twitch — streams, emotes, profile pics
 ! ═══════════════════════════════════════════════════════════════
+@@||twitch.tv^$all,important
+@@||*.twitch.tv^$all,important
+@@||jtvnw.net^$all,important
+@@||*.jtvnw.net^$all,important
+@@||ttvnw.net^$all,important
+@@||*.ttvnw.net^$all,important
+@@||gql.twitch.tv^$all,important
+@@||usher.ttvnw.net^$all,important
 @@||twitch.tv^
 @@||www.twitch.tv^
 @@||static.twitchcdn.net^$important
@@ -214,6 +232,19 @@
 @@||usher.ttvnw.net^$important
 @@||gql.twitch.tv^$important
 @@||clips.twitch.tv^
+
+! ═══════════════════════════════════════════════════════════════
+! Kick — streams, chat, video delivery
+! ═══════════════════════════════════════════════════════════════
+@@||kick.com^$all,important
+@@||*.kick.com^$all,important
+@@||kick.com^
+@@||www.kick.com^
+@@||*.kick.com^
+@@||kickcdn.com^$all,important
+@@||*.kickcdn.com^$all,important
+@@||kickcdn.com^$important
+@@||*.kickcdn.com^$important
 !
 ! ═══════════════════════════════════════════════════════════════
 ! Discord — messages, attachments, emojis, avatars
@@ -281,6 +312,34 @@
 @@||*.media.tumblr.com^$important
 @@||64.media.tumblr.com^$important
 @@||assets.tumblr.com^$important
+
+! ═══════════════════════════════════════════════════════════════
+! Additional community platforms / forums — document safety net
+! Prevent whole-site breakage while still allowing normal subresource blocking.
+! ═══════════════════════════════════════════════════════════════
+@@||telegram.org^$document,important
+@@||web.telegram.org^$document,important
+@@||t.me^$document,important
+@@||telegram.me^$document,important
+@@||bsky.app^$document,important
+@@||bsky.social^$document,important
+@@||quora.com^$document,important
+@@||www.quora.com^$document,important
+@@||patreon.com^$document,important
+@@||www.patreon.com^$document,important
+@@||mastodon.social^$document,important
+@@||fosstodon.org^$document,important
+@@||hachyderm.io^$document,important
+@@||lemmy.world^$document,important
+@@||lemmy.ml^$document,important
+@@||kbin.social^$document,important
+@@||vk.com^$document,important
+@@||weibo.com^$document,important
+@@||steamcommunity.com^$document,important
+@@||news.ycombinator.com^$document,important
+@@||substack.com^$document,important
+@@||medium.com^$document,important
+@@||community.cloudflare.com^$document,important
 !
 ! ═══════════════════════════════════════════════════════════════
 ! Wikipedia / Wikimedia
