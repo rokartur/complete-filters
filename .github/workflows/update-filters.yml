@@ -37,25 +37,27 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config http.postBuffer 524288000
 
       - name: "Phase 1: Discover filter list URLs"
         run: bun run index.ts fetch
         working-directory: scripts
 
-      - name: "Commit: discovery phase"
+      - name: "Commit & push: discovery phase"
         run: |
           git add filters.txt not-found.txt
           if git diff --cached --quiet; then
             echo "No changes in discovery phase"
           else
             git commit -m "chore: update discovered filter lists"
+            git push
           fi
 
       - name: "Phase 2: Categorize sources"
         run: bun run index.ts categorize
         working-directory: scripts
 
-      - name: "Commit: categorization phase"
+      - name: "Commit & push: categorization phase"
         run: |
           for file in categories/*.txt; do
             if [ -f "$file" ]; then
@@ -63,6 +65,7 @@ jobs:
               git add "$file"
               if ! git diff --cached --quiet; then
                 git commit -m "chore(categories): update ${category}"
+                git push
               fi
             fi
           done
@@ -71,7 +74,7 @@ jobs:
         run: bun run index.ts build
         working-directory: scripts
 
-      - name: "Commit: built filters per category"
+      - name: "Commit & push: built filters per category"
         run: |
           for file in filter/*.txt; do
             if [ -f "$file" ]; then
@@ -79,9 +82,7 @@ jobs:
               git add "$file"
               if ! git diff --cached --quiet; then
                 git commit -m "chore(filter): update ${category}"
+                git push
               fi
             fi
           done
-
-      - name: Push changes
-        run: git push
