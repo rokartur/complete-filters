@@ -30,10 +30,12 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: cd scripts && bun install --frozen-lockfile
+        run: bun install
+        working-directory: scripts
 
       - name: Run full pipeline
-        run: cd scripts && bun run all
+        run: bun run all
+        working-directory: scripts
 
       - name: Commit updated files
         uses: stefanzweifel/git-auto-commit-action@v5
