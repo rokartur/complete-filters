@@ -11,7 +11,7 @@ on:
       - scripts/**
       - .github/workflows/update-filters.yml
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 1 * * *'
  
 permissions:
   contents: write
@@ -24,16 +24,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          python-version: '3.12'
+          bun-version: latest
 
-      - name: Build filter lists
-        run: python3 scripts/build.py
+      - name: Install dependencies
+        run: cd scripts && bun install
+
+      - name: Run full pipeline
+        run: cd scripts && bun run all
 
       - name: Commit updated files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: update filters'
-          file_pattern: 'categories/*.txt filter/*.txt'
+          file_pattern: 'filters.txt not-found.txt categories/*.txt filter/*.txt'

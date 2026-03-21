@@ -1,0 +1,19 @@
+{
+  "name": "scripts",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "fetch": "bun run index.ts fetch",
+    "categorize": "bun run index.ts categorize",
+    "build": "bun run index.ts build",
+    "all": "bun run index.ts all",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
