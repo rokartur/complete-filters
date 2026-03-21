@@ -3,8 +3,31 @@ import { NOT_FOUND_TXT } from "./constants.ts"
 
 // ── URL helpers ────────────────────────────────────────────────────────────
 
+function encodeUrlComponentStrict(value: string): string {
+	return encodeURIComponent(value).replace(/[!'()*]/g, (char) => {
+		return `%${char.charCodeAt(0).toString(16).toUpperCase()}`
+	})
+}
+
 export function normalizeUrl(url: string): string {
-	return url.trim()
+	const trimmed = url.trim()
+	if (!trimmed) return ""
+
+	try {
+		const parsed = new URL(trimmed)
+		if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+			return trimmed
+		}
+
+		parsed.pathname = parsed.pathname
+			.split("/")
+			.map((segment) => encodeUrlComponentStrict(decodeURIComponent(segment)))
+			.join("/")
+
+		return parsed.toString()
+	} catch {
+		return trimmed
+	}
 }
 
 export function isValidHttpUrl(value: string): boolean {
@@ -36,10 +59,10 @@ export async function loadUrls(path: string): Promise<string[]> {
 	const file = Bun.file(path)
 	if (!(await file.exists())) return []
 	const text = await file.text()
-	return text
+	return dedupePreserveOrder(text
 		.split("\n")
 		.map((l) => l.trim())
-		.filter((l) => l && !l.startsWith("#"))
+		.filter((l) => l && !l.startsWith("#")))
 }
 
 export async function loadNotFound(path: string = NOT_FOUND_TXT): Promise<Set<string>> {
@@ -48,7 +71,7 @@ export async function loadNotFound(path: string = NOT_FOUND_TXT): Promise<Set<st
 	const text = await file.text()
 	const urls = text
 		.split("\n")
-		.map((l) => l.trim())
+		.map((l) => normalizeUrl(l))
 		.filter(Boolean)
 	return new Set(urls)
 }
@@ -58,7 +81,8 @@ export async function appendToNotFound(urls: string[], path: string = NOT_FOUND_
 
 	// Load existing, merge, dedupe, write back
 	const existing = await loadNotFound(path)
-	const newUrls = urls.filter((u) => !existing.has(u))
+	const normalizedUrls = dedupePreserveOrder(urls)
+	const newUrls = normalizedUrls.filter((u) => !existing.has(u))
 	if (newUrls.length === 0) return
 
 	const file = Bun.file(path)

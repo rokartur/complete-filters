@@ -5,7 +5,7 @@ import {
 	HOSTS_RE,
 	HOSTS_SKIP,
 } from "./constants.ts"
-import { pooled, log, logError, appendToNotFound } from "./utils.ts"
+import { pooled, log, logError, appendToNotFound, normalizeUrl } from "./utils.ts"
 
 // ── Hosts format detection ─────────────────────────────────────────────────
 
@@ -35,39 +35,41 @@ export function convertHostsLine(line: string): string | null {
 // ── Single URL content fetch (1 attempt, no retries) ──────────────────────
 
 export async function fetchContent(url: string): Promise<FetchResult> {
+	const normalizedUrl = normalizeUrl(url)
 	try {
-		const response = await fetch(url, {
+		const response = await fetch(normalizedUrl, {
 			headers: { "User-Agent": USER_AGENT },
 			signal: AbortSignal.timeout(FETCH_TIMEOUT),
 			redirect: "follow",
 		})
 		if (!response.ok) {
-			return { url, content: null, error: `HTTP ${response.status}`, isHosts: false }
+			return { url: normalizedUrl, content: null, error: `HTTP ${response.status}`, isHosts: false }
 		}
 		const text = await response.text()
-		return { url, content: text, error: null, isHosts: isHostsFormat(text) }
+		return { url: normalizedUrl, content: text, error: null, isHosts: isHostsFormat(text) }
 	} catch (err) {
 		const msg = err instanceof Error ? err.message : String(err)
-		return { url, content: null, error: msg, isHosts: false }
+		return { url: normalizedUrl, content: null, error: msg, isHosts: false }
 	}
 }
 
 // ── Fetch first N bytes of a URL (for metadata extraction) ─────────────
 
 export async function fetchHead(url: string, maxBytes: number): Promise<FetchResult> {
+	const normalizedUrl = normalizeUrl(url)
 	try {
-		const response = await fetch(url, {
+		const response = await fetch(normalizedUrl, {
 			headers: { "User-Agent": USER_AGENT },
 			signal: AbortSignal.timeout(FETCH_TIMEOUT),
 			redirect: "follow",
 		})
 		if (!response.ok) {
-			return { url, content: null, error: `HTTP ${response.status}`, isHosts: false }
+			return { url: normalizedUrl, content: null, error: `HTTP ${response.status}`, isHosts: false }
 		}
 		// Read only the first chunk
 		const reader = response.body?.getReader()
 		if (!reader) {
-			return { url, content: null, error: "No response body", isHosts: false }
+			return { url: normalizedUrl, content: null, error: "No response body", isHosts: false }
 		}
 
 		const chunks: Uint8Array[] = []
@@ -92,10 +94,10 @@ export async function fetchHead(url: string, maxBytes: number): Promise<FetchRes
 		}
 
 		const text = decoder.decode(combined)
-		return { url, content: text, error: null, isHosts: false }
+		return { url: normalizedUrl, content: text, error: null, isHosts: false }
 	} catch (err) {
 		const msg = err instanceof Error ? err.message : String(err)
-		return { url, content: null, error: msg, isHosts: false }
+		return { url: normalizedUrl, content: null, error: msg, isHosts: false }
 	}
 }
 
