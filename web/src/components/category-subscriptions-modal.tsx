@@ -102,6 +102,14 @@ export function CategorySubscriptionsModal({
     }
   }
 
+  const handleAbpSubscriptionClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    subscriptionUrl: string,
+  ) => {
+    event.preventDefault()
+    window.location.assign(subscriptionUrl)
+  }
+
   useEffect(() => {
     if (!isMounted) return
 
@@ -237,7 +245,10 @@ export function CategorySubscriptionsModal({
 
                         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
                           <Button asChild className="btn-press w-full font-mono text-xs uppercase tracking-widest sm:w-auto">
-                            <a href={FULL_FILTER_LIST_ABP_URL}>
+                            <a
+                              href={FULL_FILTER_LIST_ABP_URL}
+                              onClick={(event) => handleAbpSubscriptionClick(event, FULL_FILTER_LIST_ABP_URL)}
+                            >
                               <ExternalLink className="mr-2 h-4 w-4" />
                               {SITE_COPY.categoryModal.subscribeFull}
                             </a>
@@ -328,6 +339,9 @@ export function CategorySubscriptionsModal({
                             >
                               <a
                                 href={category.abpSubscriptionUrl}
+                                onClick={(event) =>
+                                  handleAbpSubscriptionClick(event, category.abpSubscriptionUrl)
+                                }
                               >
                                 <ExternalLink className="mr-2 h-4 w-4" />
                                 {SITE_COPY.categoryModal.subscribe}

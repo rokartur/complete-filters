@@ -163,7 +163,7 @@ export const SITE_COPY: SiteCopy = {
   categoryModal: {
     title: 'Subscribe to categories',
     description: 'Pick a category and open its direct filter list URL.',
-    note: 'Each button opens the raw GitHub URL that you can add in your blocker\'s custom filter lists.',
+    note: 'If your blocker does not open the subscription prompt automatically, use the raw GitHub URL below and add it manually in Custom filters.',
     featuredTitle: 'Full list subscription',
     featuredDescription: 'Use the one-click ABP subscription link for the complete hosted list, or open the hosted URL directly as a fallback.',
     copyAll: 'Copy all categories link',
@@ -313,7 +313,7 @@ export function getMethodTagLabel(tag: MethodTag) {
 }
 
 export function getAbpSubscriptionUrl(location: string, title: string) {
-  return `abp:subscribe?location=${encodeURIComponent(location)}&title=${encodeURIComponent(title)}`
+  return `abp:subscribe?location=${location}&title=${encodeURIComponent(title)}`
 }
 
 export const FULL_FILTER_LIST_ABP_URL = getAbpSubscriptionUrl(
