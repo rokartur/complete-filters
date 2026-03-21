@@ -6,7 +6,7 @@ export interface FilterSubscriptionCategory {
 }
 
 export const FILTER_RAW_BASE_URL =
-  'https://raw.githubusercontent.com/rokartur/complete-filters/main/filter'
+  'https://media.githubusercontent.com/media/rokartur/complete-filters/refs/heads/main/filter'
 
 export const FILTER_SUBSCRIPTION_CATEGORIES: FilterSubscriptionCategory[] = [
   {

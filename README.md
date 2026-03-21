@@ -8,10 +8,10 @@ Aggressive category-based filter lists for ad blockers.
 - blocks ads, trackers, cookie banners, popups, anti-adblock, malware/phishing domains, and other unwanted web elements,
 - generated lists are available in [`filter/`](./filter/),
 - easiest installation: <https://rokartur.github.io/complete-filters/>,
-- you can also subscribe manually via raw GitHub URLs, for example:
+- you can also subscribe manually via direct GitHub media URLs, for example:
 
   ```txt
-  https://raw.githubusercontent.com/rokartur/complete-filters/main/filter/malware.txt
+  https://media.githubusercontent.com/media/rokartur/complete-filters/refs/heads/main/filter/malware.txt
   ```
 
 - the lists are intentionally aggressive, so some sites may partially break,
@@ -71,16 +71,16 @@ This is the easiest way to browse the ready-made categories and access the hoste
 
 ### Manual subscription by URL
 
-You can subscribe to any generated category directly through its raw GitHub URL:
+You can subscribe to any generated category directly through its GitHub media URL:
 
 ```txt
-https://raw.githubusercontent.com/rokartur/complete-filters/main/filter/<category>.txt
+https://media.githubusercontent.com/media/rokartur/complete-filters/refs/heads/main/filter/<category>.txt
 ```
 
 Example:
 
 ```txt
-https://raw.githubusercontent.com/rokartur/complete-filters/main/filter/ads.txt
+https://media.githubusercontent.com/media/rokartur/complete-filters/refs/heads/main/filter/ads.txt
 ```
 
 ### Manual installation steps
