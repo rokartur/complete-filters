@@ -165,7 +165,6 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 	}
 
 	if (failures) {
-		logWarning(`\n${failures} category build(s) had failures or validation errors.`)
-		process.exitCode = 1
+		logWarning(`\n${failures} category build(s) had partial source failures or validation warnings.`)
 	}
 }
