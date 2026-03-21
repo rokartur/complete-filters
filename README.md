@@ -5,7 +5,6 @@ Aggressive category-based filter lists for ad blockers.
 ## TL;DR
 
 - combines multiple public filter lists into category-specific outputs,
-- also generates one combined full list in [`filter/all.txt`](./filter/all.txt),
 - blocks ads, trackers, cookie banners, popups, anti-adblock, malware/phishing domains, and other unwanted web elements,
 - generated lists are available in [`filter/`](./filter/),
 - easiest installation: <https://rokartur.github.io/complete-filters/>,
@@ -27,7 +26,7 @@ Complete Filters is an aggregator of public upstream filter sources. The project
 - removes duplicate rules within each generated category,
 - adds local compatibility and manual rules where needed.
 
-The repository is meant to provide ready-to-use category lists so you can subscribe only to the parts that fit your setup. It also generates a full combined list as [`filter/all.txt`](./filter/all.txt) if you prefer a single subscription.
+The repository is meant to provide ready-to-use category lists so you can subscribe only to the parts that fit your setup.
 
 ## Important: these are aggressive filters
 
@@ -46,7 +45,6 @@ Each file in [`filter/`](./filter/) is a separate generated list.
 
 | Category | Purpose |
 | --- | --- |
-| `all` | Full combined list built from all configured sources |
 | `ads` | General advertising and ad delivery domains |
 | `annoyances` | Popups, overlays, newsletter nags, fake urgency, and other annoyances |
 | `anti-adblock` | Anti-adblock scripts and related countermeasures |

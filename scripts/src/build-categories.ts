@@ -3,7 +3,6 @@ import {
 	CATEGORIES_DIR,
 	DEFAULT_JOBS,
 	FILTER_DIR,
-	FILTERS_TXT,
 	MANUAL_RULES,
 	NOT_FOUND_TXT,
 } from "./constants.ts"
@@ -40,7 +39,7 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 		throw new Error(`No manifest files found in ${CATEGORIES_DIR}`)
 	}
 
-	const expectedOutputNames = new Set([...manifests, "all.txt"])
+	const expectedOutputNames = new Set(manifests)
 
 	// ── Clean stale outputs ──────────────────────────────────────────────
 	await mkdir(FILTER_DIR, { recursive: true })
@@ -69,11 +68,6 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 		allCategoryUrls.set(category, urls)
 		for (const u of urls) globalUrlSet.add(u)
 	}
-
-	// Also collect all.txt URLs
-	const allTxtRawUrls = await loadUrls(FILTERS_TXT)
-	const allTxtUrls = allTxtRawUrls.filter((u) => !notFoundSet.has(u))
-	for (const u of allTxtUrls) globalUrlSet.add(u)
 
 	const globalUrlList = [...globalUrlSet]
 	log(`Global URL pool: ${globalUrlList.length} unique URLs across all categories`)
@@ -121,40 +115,6 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 			metadata: {
 				title: categoryTitle(category),
 				description: categoryDescription(category),
-				homepage: "https://github.com/rokartur/complete-filters",
-			},
-			extraRulesets: MANUAL_RULES,
-			cachedResults: globalCache,
-		})
-
-		if (stats.sourcesFailed || !valid) failures++
-	}
-
-	// ── Build aggregate all.txt ──────────────────────────────────────────────
-	const allOutputPath = `${FILTER_DIR}/all.txt`
-
-	if (allTxtUrls.length === 0) {
-		const file = Bun.file(allOutputPath)
-		if (await file.exists()) {
-			if (dryRun) {
-				log(`Dry run — would remove empty aggregate output all.txt`)
-			} else {
-				await unlink(allOutputPath)
-				log(`Removed empty aggregate output all.txt`)
-			}
-		} else {
-			log(`Skipping all.txt (no source URLs)`)
-		}
-	} else {
-		log("\n" + "=".repeat(60))
-		log(`Building aggregate list all.txt (${allTxtUrls.length} sources)`)
-
-		const { stats, valid } = await runBuild(allTxtUrls, allOutputPath, {
-			jobs,
-			dryRun,
-			metadata: {
-				title: "Complete Filters",
-				description: "Combined filter list from all configured sources.",
 				homepage: "https://github.com/rokartur/complete-filters",
 			},
 			extraRulesets: MANUAL_RULES,

@@ -6,9 +6,6 @@ export const REPO_URL = 'https://github.com/rokartur/complete-filters'
 export const FILTER_CATEGORIES_URL =
   'https://github.com/rokartur/complete-filters/tree/main/filter'
 export const SITE_URL = 'https://rokartur.github.io/complete-filters/'
-export const FULL_FILTER_LIST_URL =
-  'https://raw.githubusercontent.com/rokartur/complete-filters/main/filter/all.txt'
-export const FULL_FILTER_LIST_TITLE = 'Complete Filters'
 
 const CATEGORY_LABELS: Record<string, string> = {
   'cosmetic-filters': 'Cosmetic filters (element hiding)',
@@ -64,13 +61,10 @@ interface SiteCopy {
     title: string
     description: string
     note: string
-    featuredTitle: string
-    featuredDescription: string
     copyAll: string
     copyAllCopied: string
     copyAllFailed: string
     subscribe: string
-    subscribeFull: string
     openDirect: string
     close: string
   }
@@ -164,13 +158,10 @@ export const SITE_COPY: SiteCopy = {
     title: 'Subscribe to categories',
     description: 'Pick a category and open its direct filter list URL.',
     note: 'If your blocker does not open the subscription prompt automatically, use the raw GitHub URL below and add it manually in Custom filters.',
-    featuredTitle: 'Full list subscription',
-    featuredDescription: 'Use the one-click ABP subscription link for the complete hosted list, or open the hosted URL directly as a fallback.',
     copyAll: 'Copy all categories link',
     copyAllCopied: 'Copied all category links',
     copyAllFailed: 'Copy failed',
     subscribe: 'Subscribe to category',
-    subscribeFull: 'Subscribe to full list',
     openDirect: 'Open direct URL',
     close: 'Close',
   },
@@ -293,7 +284,7 @@ export const SITE_COPY: SiteCopy = {
     ],
     ctaTitle: 'Want a better score?',
     ctaDescription:
-      'Browse the available Complete Filters categories or subscribe to the full list, then run the test again after choosing the setup that fits your protection level.',
+      'Browse the available Complete Filters categories, then run the test again after choosing the setup that fits your protection level.',
     ctaPrimary: 'Browse categories',
     ctaSecondary: 'View repository',
   },
@@ -315,11 +306,6 @@ export function getMethodTagLabel(tag: MethodTag) {
 export function getAbpSubscriptionUrl(location: string, title: string) {
   return `abp:subscribe?location=${location}&title=${encodeURIComponent(title)}`
 }
-
-export const FULL_FILTER_LIST_ABP_URL = getAbpSubscriptionUrl(
-  FULL_FILTER_LIST_URL,
-  FULL_FILTER_LIST_TITLE,
-)
 
 export function getTestLabel(name: string): string {
   const exactTranslations: Record<string, string> = {

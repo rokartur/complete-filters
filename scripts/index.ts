@@ -12,7 +12,7 @@ Usage: bun run index.ts <command> [options]
 Commands:
 	fetch        Discover uBlock-compatible URLs from FilterLists API
 	categorize   Classify filters.txt sources into category manifests
-	build        Build category filter lists from category manifests and all.txt from filters.txt
+	build        Build category filter lists from category manifests
 	all          Alias for build (no FilterLists API fetch)
 
 Options:
