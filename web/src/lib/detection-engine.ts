@@ -33,22 +33,24 @@ export type NetworkTestStatus = 'blocked' | 'not-blocked'
  * Priority when combining signals: BLOCKED > NOT BLOCKED
  */
 
-// Increase buffer for 400+ tests (each may generate 2-3 Performance entries)
+// Increase buffer for 400+ tests (each may generate 3-4 Performance entries)
+// With thorough mode we no longer clear the buffer between batches,
+// so we need space for ALL entries across the entire test run.
 try {
-  performance.setResourceTimingBufferSize(8000)
+  performance.setResourceTimingBufferSize(32000)
 } catch {
   // older browsers may not support this
 }
 
-const ELEMENT_ERROR_SETTLE_DELAY_MS = 150
-const ELEMENT_TIMEOUT_MS = 4000
-const FRAME_SETTLE_DELAY_MS = 250
-const FRAME_ABOUT_BLANK_RETRY_DELAY_MS = 300
-const FRAME_TIMEOUT_MS = 5000
-const NETWORK_TEST_TIMEOUT_MS = 7000
-const BAIT_CLEANUP_TIMEOUT_MS = 1500
+const ELEMENT_ERROR_SETTLE_DELAY_MS = 200
+const ELEMENT_TIMEOUT_MS = 10000
+const FRAME_SETTLE_DELAY_MS = 400
+const FRAME_ABOUT_BLANK_RETRY_DELAY_MS = 500
+const FRAME_TIMEOUT_MS = 12000
+const NETWORK_TEST_TIMEOUT_MS = 20000
+const BAIT_CLEANUP_TIMEOUT_MS = 5000
 const REDIRECT_DURATION_THRESHOLD_MS = 10
-const REDIRECT_CHECK_DELAY_MS = 50
+const REDIRECT_CHECK_DELAY_MS = 100
 
 /**
  * Retry delays for redirect detection when the reference engine hints that
@@ -56,7 +58,14 @@ const REDIRECT_CHECK_DELAY_MS = 50
  * immediately — especially on slower devices or when the buffer was recently
  * cleared between batches. These retries give the browser extra time.
  */
-const REDIRECT_RETRY_DELAYS_MS = [100, 250, 500]
+const REDIRECT_RETRY_DELAYS_MS = [100, 250, 500, 1000, 2000]
+
+/**
+ * Shorter retry sequence used when no hint is available but we still want
+ * to be thorough. The user has 6M+ filters — many $redirect rules exist
+ * that the reference engine (EasyList/EasyPrivacy only) doesn't know about.
+ */
+const REDIRECT_RETRY_NO_HINT_MS = [100, 300]
 
 /**
  * Check whether a URL looks like a JavaScript file based on extension.
@@ -76,14 +85,15 @@ export function isImageUrl(url: string): boolean {
  * Check whether a URL likely represents a page/document navigation rather than
  * a script, image, or data endpoint.
  *
- * This is intentionally conservative. We only treat clearly page-like URLs as
- * document requests:
- * - bare origins and root paths (https://example.com/)
- * - trailing-slash paths that look like sections/pages
- * - common HTML/server-side page extensions (.html, .php, .asp, ...)
+ * IMPORTANT: This function is intentionally VERY conservative. Only URLs with
+ * explicit page extensions (.html, .php, .asp, etc.) are treated as documents.
  *
- * Everything else falls back to generic network probing, because many tracking
- * endpoints also have extensionless paths (e.g. /collect, /visit, /track).
+ * Root-domain URLs like https://media.net/ or https://analytics.google.com/
+ * are NOT documents — they are tracker/ad endpoints that should be tested via
+ * the standard fetch + image + stylesheet triple-detection. Treating them as
+ * documents would route them through the unreliable iframe method, which fails
+ * due to X-Frame-Options / CSP frame-ancestors on most ad/tracking domains,
+ * causing massive false "not-blocked" results.
  */
 export function isDocumentUrl(url: string): boolean {
   if (isScriptUrl(url) || isImageUrl(url)) return false
@@ -92,14 +102,10 @@ export function isDocumentUrl(url: string): boolean {
     const parsed = new URL(url)
     const pathname = parsed.pathname || '/'
 
-    if (pathname === '/' || pathname === '') {
-      return true
-    }
-
-    if (pathname.endsWith('/')) {
-      return true
-    }
-
+    // Only treat URLs with explicit page extensions as document requests.
+    // Root domains (/) and trailing-slash paths are NOT documents — they are
+    // tracker endpoints that respond to sub-resource requests and need the
+    // standard triple-detection (fetch + image + stylesheet).
     return /\.(html?|xhtml|php|asp|aspx|jsp|jspx|cfm|cgi)($|\?|#)/i.test(
       pathname
     )
@@ -295,8 +301,7 @@ function detectViaPreload(
 
     link.onerror = () => {
       // Preload failed — could be ad blocker, CORS error, or 404.
-      // Check Performance API to distinguish. If ambiguous, report not-blocked
-      // because fetch is the authoritative signal for blocking.
+      // Check Performance API to distinguish.
       setTimeout(() => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
@@ -306,18 +311,95 @@ function detectViaPreload(
           // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry — ambiguous: could be extension blocking OR redirect
-          // OR buffer cleared. Report not-blocked; fetch is authoritative.
-          settle('not-blocked')
+          // No entry + element error — the ad blocker intercepted the
+          // request before it could be tracked by Performance API.
+          // This is a strong signal of blocking, not ambiguous.
+          settle('blocked')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     document.head.appendChild(link)
 
-    // Timeout for preload — if nothing responds, assume not blocked
+    // Timeout for preload — if nothing responds after extended wait,
+    // the request is likely being held/blocked by the ad blocker.
     timeoutId = window.setTimeout(() => {
-      settle('not-blocked')
+      settle('blocked')
+    }, ELEMENT_TIMEOUT_MS)
+  })
+}
+
+/**
+ * Detect blocking via <script> element (directly triggers $script type matching).
+ *
+ * More direct than <link rel="preload" as="script"> — creates an actual script
+ * element which triggers the browser's $script resource type, matching rules like:
+ *   ||googlesyndication.com/adsbygoogle.js$script,redirect=noopjs
+ *
+ * The script is appended to the DOM but blocked scripts never execute.
+ * If the ad blocker allows it through but redirects to noopjs, the redirect
+ * is detected via Performance API (missing entry or near-zero duration).
+ *
+ * When hintHasRedirect is true, the redirect check uses retries with longer
+ * delays to catch Performance API entries that haven't been written yet.
+ */
+function detectViaScript(
+  url: string,
+  hintHasRedirect = false
+): Promise<NetworkTestStatus> {
+  return new Promise((resolve) => {
+    const script = document.createElement('script')
+    script.type = 'text/javascript'
+    let timeoutId: number | undefined
+
+    const settle = (status: NetworkTestStatus) => {
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId)
+      }
+      cleanup()
+      resolve(status)
+    }
+
+    const cleanup = () => {
+      try {
+        script.remove()
+      } catch {
+        /* already removed */
+      }
+    }
+
+    script.onload = () => {
+      // Script loaded — but might be a neutered $redirect resource (noopjs).
+      // Detect via Performance API: missing entry or near-zero duration.
+      setTimeout(async () => {
+        const redirected = await isLikelyRedirectedWithRetry(url, hintHasRedirect)
+        settle(redirected ? 'blocked' : 'not-blocked')
+      }, REDIRECT_CHECK_DELAY_MS)
+    }
+
+    script.onerror = () => {
+      // Script failed to load — check Performance API to distinguish.
+      setTimeout(() => {
+        const perf = checkPerformanceEntry(url)
+        if (perf === 'loaded') {
+          // Server responded but script failed (CORS, syntax) — NOT blocked
+          settle('not-blocked')
+        } else if (perf === 'blocked') {
+          // Performance entry shows DNS-level blocking (responseEnd=0)
+          settle('blocked')
+        } else {
+          // No entry + script error — ad blocker intercepted before dispatch.
+          settle('blocked')
+        }
+      }, ELEMENT_ERROR_SETTLE_DELAY_MS)
+    }
+
+    script.src = url
+    document.head.appendChild(script)
+
+    // Timeout — if nothing responds after extended wait, likely blocked.
+    timeoutId = window.setTimeout(() => {
+      settle('blocked')
     }, ELEMENT_TIMEOUT_MS)
   })
 }
@@ -360,7 +442,6 @@ function detectViaImage(
     img.onerror = () => {
       // Image failed — check Performance API to distinguish
       // blocked vs server error / not-an-image.
-      // If ambiguous, report not-blocked — fetch is the authoritative signal.
       setTimeout(() => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
@@ -370,16 +451,19 @@ function detectViaImage(
           // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry — ambiguous. Report not-blocked; fetch is authoritative.
-          settle('not-blocked')
+          // No entry + element error — the ad blocker intercepted the
+          // request before Performance API could track it.
+          // This is a strong signal of blocking.
+          settle('blocked')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     img.src = url
 
-    // Timeout for image — if nothing responds, assume not blocked
-    timeoutId = window.setTimeout(() => settle('not-blocked'), ELEMENT_TIMEOUT_MS)
+    // Timeout for image — if nothing responds after extended wait,
+    // the request is likely being held/blocked by the ad blocker.
+    timeoutId = window.setTimeout(() => settle('blocked'), ELEMENT_TIMEOUT_MS)
   })
 }
 
@@ -582,8 +666,10 @@ function detectViaStylesheet(
 
     document.head.appendChild(link)
 
+    // Timeout for stylesheet — if nothing responds after extended wait,
+    // the request is likely being held/blocked by the ad blocker.
     timeoutId = window.setTimeout(() => {
-      settle('not-blocked')
+      settle('blocked')
     }, ELEMENT_TIMEOUT_MS)
   })
 }
@@ -592,29 +678,49 @@ function detectViaStylesheet(
  * Test a bait element (cosmetic filter test).
  * Creates a div with ad-like class/id and checks if the ad blocker hides it.
  *
- * Creates multiple bait elements with different ad-like attributes for better
- * detection. Checks at multiple intervals since cosmetic filters may apply at
- * different times depending on the ad blocker's mutation observer timing.
+ * Thorough mode: uses multiple bait elements at different positions, checks
+ * at many intervals over 4+ seconds to catch delayed cosmetic filter
+ * application with large filter lists (1M+ cosmetic rules).
+ *
+ * Creates both an off-screen bait AND an in-viewport bait because some
+ * ad blockers only process elements visible in the layout tree.
  */
 export function testBaitElement(test: {
   baitClass?: string
   baitId?: string
 }): Promise<boolean> {
   return new Promise((resolve) => {
-    const bait = document.createElement('div')
-    bait.innerHTML = '&nbsp;'
-    // Use ad-like dimensions but keep off-screen
-    bait.style.cssText =
+    // Create TWO bait elements: one off-screen (traditional) and one
+    // technically in-viewport but invisible to the user. Some ad blockers
+    // only fire MutationObserver callbacks for elements in the viewport.
+    const baits: HTMLElement[] = []
+
+    // Bait 1: off-screen (catches most ad blockers)
+    const bait1 = document.createElement('div')
+    bait1.innerHTML = '&nbsp;'
+    bait1.style.cssText =
       'position:absolute;left:-10000px;top:-10000px;width:300px;height:250px;pointer-events:none;'
+    if (test.baitClass) bait1.className = test.baitClass
+    if (test.baitId) bait1.id = test.baitId
+    bait1.setAttribute('data-ad', 'true')
+    bait1.setAttribute('aria-label', 'advertisement')
+    baits.push(bait1)
 
-    if (test.baitClass) bait.className = test.baitClass
-    if (test.baitId) bait.id = test.baitId
+    // Bait 2: in-viewport but effectively invisible (catches ad blockers
+    // that only process visible/attached elements)
+    const bait2 = document.createElement('div')
+    bait2.innerHTML = '&nbsp;'
+    bait2.style.cssText =
+      'position:fixed;left:0;top:0;width:1px;height:1px;opacity:0.01;z-index:-2147483647;pointer-events:none;overflow:hidden;'
+    if (test.baitClass) bait2.className = test.baitClass
+    // Don't duplicate the ID — use a data attribute instead
+    if (test.baitId) bait2.setAttribute('data-bait-id', test.baitId)
+    bait2.setAttribute('data-ad', 'true')
+    bait2.setAttribute('data-ad-slot', 'test')
+    bait2.setAttribute('data-google-query-id', 'test')
+    baits.push(bait2)
 
-    // Add ad-like data attributes to improve cosmetic filter matching
-    bait.setAttribute('data-ad', 'true')
-    bait.setAttribute('aria-label', 'advertisement')
-
-    document.body.appendChild(bait)
+    baits.forEach((b) => document.body.appendChild(b))
 
     let settled = false
     let cleanupTimeoutId: number | undefined
@@ -625,20 +731,18 @@ export function testBaitElement(test: {
       if (cleanupTimeoutId !== undefined) {
         window.clearTimeout(cleanupTimeoutId)
       }
-      try {
-        bait.remove()
-      } catch {
-        /* already removed */
-      }
+      baits.forEach((b) => {
+        try { b.remove() } catch { /* already removed */ }
+      })
       resolve(blocked)
     }
 
-    const checkBlocked = (): boolean => {
+    const checkElementBlocked = (el: HTMLElement): boolean => {
       try {
-        if (!document.body.contains(bait)) {
+        if (!document.body.contains(el)) {
           return true // Element was removed from DOM entirely
         }
-        const style = window.getComputedStyle(bait)
+        const style = window.getComputedStyle(el)
         return (
           style.display === 'none' ||
           style.visibility === 'hidden' ||
@@ -647,10 +751,10 @@ export function testBaitElement(test: {
             style.clip === 'rect(0px, 0px, 0px, 0px)') ||
           style.height === '0px' ||
           style.maxHeight === '0px' ||
-          bait.offsetHeight === 0 ||
-          bait.offsetWidth === 0 ||
-          bait.getBoundingClientRect().height === 0 ||
-          (!bait.offsetParent &&
+          el.offsetHeight === 0 ||
+          el.offsetWidth === 0 ||
+          el.getBoundingClientRect().height === 0 ||
+          (!el.offsetParent &&
             style.position !== 'fixed' &&
             style.position !== 'absolute')
         )
@@ -659,13 +763,18 @@ export function testBaitElement(test: {
       }
     }
 
-    // Check at multiple intervals to catch delayed cosmetic filter application
-    // uBlock Origin's DOM observer typically fires within 50-200ms
-    const checkTimes = [200, 500, 1000]
+    const checkAnyBlocked = (): boolean => {
+      return baits.some((b) => checkElementBlocked(b))
+    }
+
+    // Check at many intervals to catch delayed cosmetic filter application.
+    // With 1.2M+ cosmetic rules the MutationObserver may fire much later
+    // than the typical 50-200ms. We check over 4 seconds total.
+    const checkTimes = [50, 100, 200, 400, 700, 1000, 1500, 2000, 3000, 4000]
     let checkIndex = 0
 
     const runCheck = () => {
-      if (checkBlocked()) {
+      if (checkAnyBlocked()) {
         finish(true)
         return
       }
@@ -680,7 +789,7 @@ export function testBaitElement(test: {
     }
 
     cleanupTimeoutId = window.setTimeout(() => {
-      finish(checkBlocked())
+      finish(checkAnyBlocked())
     }, checkTimes[checkTimes.length - 1] + BAIT_CLEANUP_TIMEOUT_MS)
 
     setTimeout(runCheck, checkTimes[0])
@@ -704,14 +813,20 @@ async function isLikelyRedirectedWithRetry(
   // First check — immediate
   if (isLikelyRedirected(url)) return true
 
-  // If no hint says redirect expected, don't retry
-  if (!hintHasRedirect) return false
-
-  // Retry with increasing delays — the hint gives us confidence
-  // that a redirect SHOULD exist, so it's worth waiting longer.
-  for (const delay of REDIRECT_RETRY_DELAYS_MS) {
-    await new Promise((r) => setTimeout(r, delay))
-    if (isLikelyRedirected(url)) return true
+  if (hintHasRedirect) {
+    // Reference engine confirms $redirect rule — use full extended retry.
+    for (const delay of REDIRECT_RETRY_DELAYS_MS) {
+      await new Promise((r) => setTimeout(r, delay))
+      if (isLikelyRedirected(url)) return true
+    }
+  } else {
+    // No hint, but the user may have $redirect rules that the reference
+    // engine (EasyList/EasyPrivacy only) doesn't know about. Always do
+    // a shorter retry sequence to catch late Performance API writes.
+    for (const delay of REDIRECT_RETRY_NO_HINT_MS) {
+      await new Promise((r) => setTimeout(r, delay))
+      if (isLikelyRedirected(url)) return true
+    }
   }
 
   // Even after retries, no redirect detected. This can happen when:
@@ -788,18 +903,14 @@ export function testNetworkResource(
       resolve(status)
     }
 
-    // Collect detection promises — 3 methods for maximum coverage
+    // Collect detection promises — up to 4 methods for maximum coverage.
+    // More methods = higher accuracy, even at the cost of speed.
     const detections: Promise<NetworkTestStatus>[] = []
 
     // Method 1: Fetch-based detection (always — catches generic rules)
     detections.push(detectViaFetch(url))
 
     // Method 2: Primary element-based detection (type-specific signal)
-    // - .js URLs:  <link rel="preload" as="script"> catches $script rules
-    // - Document URLs: <iframe> catches $subdocument and some $document rules
-    // - Image URLs: <img> catches $image rules and $redirect=1x1.gif
-    // - Other URLs: <img> for generic blocking signal
-    //
     // When the reference engine hints that a $redirect rule exists, pass
     // hintHasRedirect so the redirect check retries with longer delays.
     if (isScriptUrl(url)) {
@@ -810,20 +921,28 @@ export function testNetworkResource(
       detections.push(detectViaImage(url, hintHasRedirect))
     }
 
-    // Method 3: Supplementary element-based detection (additional signal)
-    // A third independent method catches blocking that method 2 might miss:
-    // - Script URLs + image: generic ||domain.com^ rules also block images
-    // - Document URLs + image: generic rules block all types including images
-    // - Image URLs + stylesheet: catches generic rules via a different type
-    // - Other URLs + stylesheet: catches $stylesheet and generic rules
+    // Method 3: Direct script element for .js URLs (triggers $script type
+    // matching more reliably than preload), image for everything else.
     if (isScriptUrl(url)) {
-      detections.push(detectViaImage(url, hintHasRedirect))
+      detections.push(detectViaScript(url, hintHasRedirect))
     } else if (isDocumentUrl(url)) {
       detections.push(detectViaImage(url, hintHasRedirect))
     } else if (isImageUrl(url)) {
       detections.push(detectViaStylesheet(url, hintHasRedirect))
     } else {
       detections.push(detectViaStylesheet(url, hintHasRedirect))
+    }
+
+    // Method 4: Supplementary cross-type detection
+    // Uses a DIFFERENT resource type to catch generic ||domain.com^ rules
+    // that block all types. This maximizes the chance of at least one
+    // method detecting the block.
+    if (isScriptUrl(url)) {
+      detections.push(detectViaStylesheet(url, hintHasRedirect))
+    } else if (isDocumentUrl(url)) {
+      detections.push(detectViaStylesheet(url, hintHasRedirect))
+    } else {
+      detections.push(detectViaImage(url, hintHasRedirect))
     }
 
     // Combine results incrementally so a clear signal can finish early.

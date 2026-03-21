@@ -60,9 +60,8 @@ function isDocumentUrl(url: string): boolean {
     const parsed = new URL(url)
     const pathname = parsed.pathname || '/'
 
-    if (pathname === '/' || pathname === '') return true
-    if (pathname.endsWith('/')) return true
-
+    // Only explicit page extensions are documents — root domains and
+    // trailing-slash paths are tracker endpoints, not navigable pages.
     return /\.(html?|xhtml|php|asp|aspx|jsp|jspx|cfm|cgi)($|\?|#)/i.test(
       pathname
     )
