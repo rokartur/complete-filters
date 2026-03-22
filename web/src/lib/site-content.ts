@@ -74,6 +74,7 @@ interface SiteCopy {
     progress: string
     runTests: string
     testing: string
+    verifying: string
     reset: string
     testModeLabel: string
     quickMode: string
@@ -172,6 +173,7 @@ export const SITE_COPY: SiteCopy = {
     progress: 'Test progress',
     runTests: 'Run tests',
     testing: 'Testing...',
+    verifying: 'Verifying...',
     reset: 'Reset',
     testModeLabel: 'Test scope',
     quickMode: 'Quick test',

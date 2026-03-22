@@ -108,9 +108,13 @@ function computeGrade(stats: TestStats): GradeInfo | null {
   return { grade, labelKey, pct, colorClass }
 }
 
+export type TestPhase = 'idle' | 'testing' | 'retrying'
+
 export function useAdBlockTester() {
   const [results, setResults] = useState<Record<string, TestStatus>>(() => createInitialResults())
   const [isRunning, setIsRunning] = useState(false)
+  const [phase, setPhase] = useState<TestPhase>('idle')
+  const [testedCount, setTestedCount] = useState(0)
   const [filter, setFilter] = useState<FilterType>('all')
   const resultsRef = useRef<Record<string, TestStatus>>(createInitialResults())
   const cancelledRef = useRef(false)
@@ -124,6 +128,7 @@ export function useAdBlockTester() {
     const initial = createInitialResults()
     resultsRef.current = initial
     setResults({ ...initial })
+    setTestedCount(0)
     // Clear performance entries and backup map from previous runs
     try {
       performance.clearResourceTimings()
@@ -137,6 +142,7 @@ export function useAdBlockTester() {
     resultsRef.current[testId] = status
     // Batch UI updates - only update React state periodically
     setResults({ ...resultsRef.current })
+    setTestedCount((c) => c + 1)
   }, [])
 
   const getCategoryStats = useCallback(
@@ -161,9 +167,11 @@ export function useAdBlockTester() {
   const startTests = useCallback(async () => {
     cancelledRef.current = false
     setIsRunning(true)
-    initResults()
+    setPhase('testing')
+    setTestedCount(0)
 
     try {
+      initResults()
       const referenceReady = initReferenceEngine()
       await new Promise((r) => setTimeout(r, 50))
       await referenceReady
@@ -235,19 +243,24 @@ export function useAdBlockTester() {
       }
 
       // --- Retry pass for unexpected "not-blocked" results ---
-      // After all batches complete, re-test URLs that came back "not-blocked"
-      // but the reference engine says should be blocked. Run in small parallel
-      // batches with a fresh Performance buffer for reliability.
+      // After all batches complete, re-test ALL URLs that came back "not-blocked".
+      // The reference engine only covers EasyList/EasyPrivacy (~50K rules), but
+      // users may have millions of custom rules (e.g., 6M+) that the reference
+      // engine doesn't know about. Retrying all not-blocked URLs catches:
+      // - $redirect rules unknown to the reference engine
+      // - Race conditions where redirect detection didn't finish in time
+      // - Intermittent Performance API buffer issues
+      // Run in small parallel batches with a fresh Performance buffer.
       if (!cancelledRef.current) {
+        setPhase('retrying')
+
         // Clear buffer and wait for it to settle before retry pass
         try { performance.clearResourceTimings() } catch { /* ignore */ }
         await new Promise((r) => setTimeout(r, RETRY_PASS_SETTLE_MS))
 
         const retryTargets = networkTests.filter(({ id, test }) => {
           if (!test.url) return false
-          if (resultsRef.current[id] !== 'not-blocked') return false
-          const hint = getFilterHint(test.url)
-          return hint.shouldBlock
+          return resultsRef.current[id] === 'not-blocked'
         })
 
         for (let i = 0; i < retryTargets.length; i += RETRY_BATCH_SIZE) {
@@ -279,13 +292,18 @@ export function useAdBlockTester() {
       // Final cleanup
       try { performance.clearResourceTimings() } catch { /* ignore */ }
       clearPerfEntryBackup()
-      if (!cancelledRef.current) setIsRunning(false)
+      if (!cancelledRef.current) {
+        setIsRunning(false)
+        setPhase('idle')
+      }
     }
   }, [initResults, updateResult])
 
   const resetTests = useCallback(() => {
     cancelledRef.current = true
     setIsRunning(false)
+    setPhase('idle')
+    setTestedCount(0)
     initResults()
     setFilter('all')
   }, [initResults])
@@ -297,6 +315,9 @@ export function useAdBlockTester() {
     progress,
     grade,
     isRunning,
+    phase,
+    testedCount,
+    totalTests: TOTAL_TESTS,
     filter,
     setFilter,
     startTests,

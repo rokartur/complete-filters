@@ -1,10 +1,13 @@
-import type { FilterType } from '@/hooks/use-adblocker-tester'
+import type { FilterType, TestPhase } from '@/hooks/use-adblocker-tester'
 import { Button } from '@/components/ui/button'
 import { SITE_COPY } from '@/lib/site-content'
 import { Play, RotateCcw, Loader2 } from 'lucide-react'
 
 interface ControlPanelProps {
   isRunning: boolean
+  phase: TestPhase
+  testedCount: number
+  totalTests: number
   filter: FilterType
   onStart: () => void
   onReset: () => void
@@ -13,6 +16,9 @@ interface ControlPanelProps {
 
 export function ControlPanel({
   isRunning,
+  phase,
+  testedCount,
+  totalTests,
   filter,
   onStart,
   onReset,
@@ -53,7 +59,9 @@ export function ControlPanel({
             {isRunning ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                {SITE_COPY.tester.testing}
+                {phase === 'retrying'
+                  ? SITE_COPY.tester.verifying
+                  : `${SITE_COPY.tester.testing} (${testedCount}/${totalTests})`}
               </>
             ) : (
               <>

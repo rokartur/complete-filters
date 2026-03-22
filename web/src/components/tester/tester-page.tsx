@@ -74,6 +74,9 @@ export function TesterPage({ onScrollToCategories }: TesterPageProps) {
       <div className="animate-section-in" style={DELAY_240}>
         <ControlPanel
           isRunning={tester.isRunning}
+          phase={tester.phase}
+          testedCount={tester.testedCount}
+          totalTests={tester.totalTests}
           filter={tester.filter}
           onStart={tester.startTests}
           onReset={tester.resetTests}

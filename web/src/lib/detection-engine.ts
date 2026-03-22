@@ -492,75 +492,11 @@ function detectViaPreload(
  * When hintHasRedirect is true, the redirect check uses retries with longer
  * delays to catch Performance API entries that haven't been written yet.
  */
-function detectViaScript(
-  url: string,
-  hintHasRedirect = false,
-  signal?: AbortSignal
-): Promise<NetworkTestStatus> {
-  return new Promise((resolve) => {
-    if (signal?.aborted) { resolve('blocked'); return }
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    let timeoutId: number | undefined
-    let resolved = false
-
-    const settle = (status: NetworkTestStatus) => {
-      if (resolved) return
-      resolved = true
-      if (timeoutId !== undefined) {
-        window.clearTimeout(timeoutId)
-      }
-      cleanup()
-      resolve(status)
-    }
-
-    const cleanup = () => {
-      try {
-        script.remove()
-      } catch {
-        /* already removed */
-      }
-    }
-
-    // Listen for external abort (another method detected blocking first)
-    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
-
-    script.onload = () => {
-      // Script loaded — but might be a neutered $redirect resource (noopjs).
-      // Detect via Performance API: missing entry or near-zero duration.
-      setTimeout(async () => {
-        const redirected = await isLikelyRedirectedWithRetry(url, hintHasRedirect)
-        settle(redirected ? 'blocked' : 'not-blocked')
-      }, REDIRECT_CHECK_DELAY_MS)
-    }
-
-    script.onerror = () => {
-      // Script failed to load — check Performance API to distinguish.
-      setTimeout(async () => {
-        const perf = checkPerformanceEntry(url)
-        if (perf === 'loaded') {
-          // Server responded but script failed (CORS, syntax) — NOT blocked
-          settle('not-blocked')
-        } else if (perf === 'blocked') {
-          // Performance entry shows DNS-level blocking (responseEnd=0)
-          settle('blocked')
-        } else {
-          // No entry + script error — disambiguate CORS from ad blocker.
-          const reachable = await isReachableDespiteCors(url)
-          settle(reachable ? 'not-blocked' : 'blocked')
-        }
-      }, ELEMENT_ERROR_SETTLE_DELAY_MS)
-    }
-
-    script.src = url
-    document.head.appendChild(script)
-
-    // Timeout — if nothing responds after extended wait, likely blocked.
-    timeoutId = window.setTimeout(() => {
-      settle('blocked')
-    }, ELEMENT_TIMEOUT_MS)
-  })
-}
+// NOTE: detectViaScript was removed in v5 because creating real <script>
+// elements and appending them to the DOM executes the downloaded JavaScript.
+// This caused third-party scripts (e.g., consentmanager.net) to inject
+// visible overlays/warning icons on the test page. detectViaImage is used
+// instead — it triggers a network request for the URL without executing JS.
 
 /**
  * Noop redirect images are tiny (1x1 pixel). Real tracking pixels/images are
@@ -1204,9 +1140,14 @@ function detectViaSendBeacon(url: string): Promise<NetworkTestStatus> {
 /**
  * Minimum "not-blocked" votes needed to resolve early when there is no
  * reference engine hint. With 4-5 detection methods running, if 3 independent
- * methods (fetch, element, stylesheet/beacon) all agree the URL is reachable,
- * the remaining methods won't change the verdict. This avoids waiting 5-10s
- * for the slowest method to time out.
+ * methods agree the URL is reachable AND at least 1 of those is a redirect-aware
+ * method (preload, image — which run isLikelyRedirectedWithRetry), the remaining
+ * methods won't change the verdict.
+ *
+ * CRITICAL: sendBeacon, fetch, and stylesheet are "redirect-unaware" — they
+ * cannot detect $redirect neutering. If only those 3 agree, we must wait for
+ * a redirect-aware method to complete before exiting. Otherwise $redirect rules
+ * (e.g., $script,redirect=noopjs) would be missed and reported as "not-blocked".
  *
  * When the reference engine hints that a URL should be blocked (hintShouldBlock
  * or hintHasRedirect), we still wait for ALL methods — conservative path.
@@ -1231,6 +1172,7 @@ export function testNetworkResource(
     let settled = false
     let completed = 0
     let notBlockedCount = 0
+    let redirectAwareNotBlockedCount = 0
     const hintHasRedirect = hint?.hasRedirect ?? false
     const hintShouldBlock = hint?.shouldBlock ?? false
 
@@ -1248,40 +1190,49 @@ export function testNetworkResource(
       resolve(status)
     }
 
-    // Collect detection promises — up to 5 methods for maximum coverage.
-    const detections: Promise<NetworkTestStatus>[] = []
+    // --- Detection method registry ---
+    // Each entry pairs a detection promise with a boolean indicating whether
+    // that method performs redirect detection (isLikelyRedirectedWithRetry).
+    // Redirect-aware methods: detectViaPreload, detectViaImage
+    // Redirect-unaware methods: detectViaFetch, detectViaSendBeacon, detectViaStylesheet, detectViaFrame
+    const detections: Array<{ promise: Promise<NetworkTestStatus>; redirectAware: boolean }> = []
 
     // Method 1: Fetch-based detection (always — catches generic rules)
-    detections.push(detectViaFetch(url, signal))
+    // Redirect-unaware: fetch sends as 'xmlhttprequest', $script/$image redirect rules don't match
+    detections.push({ promise: detectViaFetch(url, signal), redirectAware: false })
 
     // Method 2: Primary element-based detection (type-specific signal)
     if (isScriptUrl(url)) {
-      detections.push(detectViaPreload(url, hintHasRedirect, signal))
+      detections.push({ promise: detectViaPreload(url, hintHasRedirect, signal), redirectAware: true })
     } else if (isDocumentUrl(url)) {
-      detections.push(detectViaFrame(url, signal))
+      detections.push({ promise: detectViaFrame(url, signal), redirectAware: false })
     } else {
-      detections.push(detectViaImage(url, hintHasRedirect, signal))
+      detections.push({ promise: detectViaImage(url, hintHasRedirect, signal), redirectAware: true })
     }
 
-    // Method 3: Direct script element for .js URLs, stylesheet for others.
+    // Method 3: Cross-type element detection.
+    // For .js URLs we use <img> (catches $image rules + detects $redirect=1x1.gif).
+    // NOTE: detectViaScript was removed in v5 — it executed arbitrary JS,
+    // causing third-party overlays (e.g., consentmanager warning icon).
     if (isScriptUrl(url)) {
-      detections.push(detectViaScript(url, hintHasRedirect, signal))
+      detections.push({ promise: detectViaImage(url, hintHasRedirect, signal), redirectAware: true })
     } else if (isDocumentUrl(url)) {
-      detections.push(detectViaImage(url, hintHasRedirect, signal))
+      detections.push({ promise: detectViaImage(url, hintHasRedirect, signal), redirectAware: true })
     } else {
-      detections.push(detectViaStylesheet(url, hintHasRedirect, signal))
+      detections.push({ promise: detectViaStylesheet(url, hintHasRedirect, signal), redirectAware: false })
     }
 
     // Method 4: Supplementary cross-type detection
     if (isScriptUrl(url) || isDocumentUrl(url)) {
-      detections.push(detectViaStylesheet(url, hintHasRedirect, signal))
+      detections.push({ promise: detectViaStylesheet(url, hintHasRedirect, signal), redirectAware: false })
     } else {
-      detections.push(detectViaImage(url, hintHasRedirect, signal))
+      detections.push({ promise: detectViaImage(url, hintHasRedirect, signal), redirectAware: true })
     }
 
     // Method 5: sendBeacon (instant synchronous signal, skipped for documents)
+    // Redirect-unaware: beacon returns true/false instantly, no redirect detection possible
     if (!isDocumentUrl(url)) {
-      detections.push(detectViaSendBeacon(url))
+      detections.push({ promise: detectViaSendBeacon(url), redirectAware: false })
     }
 
     const totalDetections = detections.length
@@ -1291,7 +1242,7 @@ export function testNetworkResource(
     const allowEarlyNotBlocked = !hintShouldBlock && !hintHasRedirect
 
     // Combine results incrementally so a clear signal can finish early.
-    detections.forEach((detection) => {
+    detections.forEach(({ promise: detection, redirectAware }) => {
       detection
         .then((result) => {
           if (settled) return
@@ -1304,13 +1255,25 @@ export function testNetworkResource(
           }
 
           notBlockedCount += 1
+          if (redirectAware) {
+            redirectAwareNotBlockedCount += 1
+          }
 
-          // --- Early "not-blocked" exit (Phase 4) ---
-          // If 3+ independent methods say not-blocked AND no hint suggests
-          // the URL should be blocked, resolve immediately. Waiting for the
-          // remaining 1-2 methods (which may take 5-10s to time out) is
-          // not worth the time — 3 independent signals are sufficient.
-          if (allowEarlyNotBlocked && notBlockedCount >= EARLY_NOT_BLOCKED_THRESHOLD) {
+          // --- Early "not-blocked" exit ---
+          // Requires BOTH conditions:
+          // 1) Total not-blocked count ≥ threshold (3)
+          // 2) At least 1 redirect-aware method confirmed not-blocked
+          //    (ensures $redirect rules have been checked before exiting)
+          //
+          // Without condition (2), sendBeacon + fetch + stylesheet could
+          // all report "not-blocked" in ~200ms, triggering early exit
+          // BEFORE preload/image redirect detection completes — causing
+          // $redirect-blocked URLs to be falsely reported as not-blocked.
+          if (
+            allowEarlyNotBlocked &&
+            notBlockedCount >= EARLY_NOT_BLOCKED_THRESHOLD &&
+            redirectAwareNotBlockedCount >= 1
+          ) {
             finish('not-blocked')
             return
           }
