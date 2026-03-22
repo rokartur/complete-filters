@@ -2122,10 +2122,14 @@ $subdocument,domain=urlbluemedia.shop
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1985
 @@||itoya.ec-optimizer.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1976
+! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1820
+@@||sbs.demdex.net^|
 @@||go.redirectingat.com^|
+@@||cl.link-ag.net^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/215941
 ! Blocked by CNAME servedbyadbutler.com
 @@||ref.rbauction.com^|
+! Blocked by CNAME s1search.co
 ! https://github.com/AdguardTeam/AdguardFilters/issues/215116
 @@||puzzles-games-api.gp-prod.conde.digital^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/212351
@@ -2169,14 +2173,10 @@ $subdocument,domain=urlbluemedia.shop
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1822
 @@|www.daraz.pk^|
 @@|daraz.com^|
-! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1820
-@@||sbs.demdex.net^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/194309
-@@||cl.link-ag.net^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1784
 @@||action.metaffiliation.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1773
-! Blocked by CNAME s1search.co
 @@||www.dogpile.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1771
 ! Related to disguised tracker
@@ -11136,18 +11136,26 @@ https://www.eff.org/files/cookieblocklist.txt
 @@||youtu.be^$all,important
 @@||youtube-nocookie.com^$all,important
 @@||youtubei.googleapis.com^$all,important
+! Native/mobile YouTube clients can hit Google APIs outside a youtube.com page
+! context, so origin-scoped @@||googleapis.com^ exceptions are not enough.
+@@||www.googleapis.com^$all,important
 @@||*.googlevideo.com^$all,important
 @@||manifest.googlevideo.com^$all,important
 @@||redirector.googlevideo.com^$all,important
 @@||jnn-pa.googleapis.com^$all,important
 @@||wide-youtube.l.google.com^$all,important
+@@||*.ytimg.com^$all,important
 @@||i.ytimg.com^$all,important
 @@||s.ytimg.com^$all,important
+@@||*.ggpht.com^$all,important
 @@||yt3.ggpht.com^$all,important
 @@||yt4.ggpht.com^$all,important
 @@||yt3.googleusercontent.com^$all,important
 @@||lh3.googleusercontent.com^$all,important
 @@||imasdk.googleapis.com^$all,important
+! Upstream compatibility lists also need this app-specific exception for
+! YouTube Android/Samsung breakage.
+@@||googleadservices.com^|$app=com.google.android.youtube
 @@||googleapis.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
 @@||accounts.google.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
 @@||www.gstatic.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
@@ -11162,13 +11170,22 @@ https://www.eff.org/files/cookieblocklist.txt
 @@||studio.youtube.com^$important
 @@||youtu.be^$important
 @@||youtube-nocookie.com^$important
+@@||youtubei.googleapis.com^$all,important
+@@||*.ytimg.com^$important
 @@||i.ytimg.com^$important
 @@||s.ytimg.com^$important
+@@||*.ggpht.com^$important
 @@||yt3.ggpht.com^$important
 @@||yt4.ggpht.com^$important
 @@||yt3.googleusercontent.com^$important
 @@||lh3.googleusercontent.com^$important
 @@||play.google.com^$important
+@@||jnn-pa.googleapis.com^$all,important
+@@||wide-youtube.l.google.com^$all,important
+@@||redirector.googlevideo.com^$all,important
+@@||manifest.googlevideo.com^$all,important
+@@||*.googlevideo.com^$all,important
+@@||imasdk.googleapis.com^$all,important
 @@||youtube.googleapis.com^$all,important
 @@||video-stats.l.google.com^$all,important
 !
@@ -11504,6 +11521,15 @@ https://www.eff.org/files/cookieblocklist.txt
 @@||icloud.com^
 @@||*.icloud.com^
 @@||*.icloud-content.com^
+! iCloud Web also relies on Apple infrastructure outside apple.com / icloud.com.
+@@||appleid.apple.com^$important
+@@||idmsa.apple.com^$important
+@@||appleidcdn-apple.com^$important
+@@||appleid.cdn-apple.com^$important
+@@||cdn.apple-cloudkit.com^$important
+@@||api.apple-mapkit.com^$important
+@@||cdn.apple-mapkit.com^$important
+@@||store.storeimages.cdn-apple.com^$important
 @@||*.mzstatic.com^
 !
 ! ═══════════════════════════════════════════════════════════════
