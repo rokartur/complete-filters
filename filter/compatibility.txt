@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 22 Mar 2026 14:23:28 UTC
+! Last modified: 22 Mar 2026 14:48:59 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 17 / 17
@@ -21458,8 +21458,17 @@ wikipedia.org#@#.modal
 ||trk.klclick.com^
 !
 ! Consent / CMP exact overrides
-! NOTE: $important needed — upstream @@||app.termly.io^$third-party in cookies filter negates the block
+! NOTE: $important needed — upstream @@||app.termly.io^$third-party in cookies filter negates the block,
+! and the tester first checks this URL via fetch(), not only as a <script>.
+||app.termly.io/embed-policy.min.js$important
 ||app.termly.io/embed-policy.min.js$script,important
+!
+! Explicit overrides against our own broad compatibility allowlists
+! NOTE: $important needed — our own @@||*.tiktok.com^$all,important allowlist would otherwise let this ad host through
+||ads.tiktok.com^$important
+! NOTE: $important needed — our own @@||*.apple.com^ compatibility allowlist would otherwise let these telemetry hosts through
+||xp.apple.com^$important
+||notes-analytics-events.apple.com^$important
 !
 ! Retargeting / Affiliate Tracking
 ||creativecdn.com/tags
@@ -21517,5 +21526,5 @@ wikipedia.org#@#.modal
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 14195
+! Total unique rules: 14199
 ! Duplicates removed: 7566
