@@ -65,9 +65,9 @@ jobs:
         run: |
           git add filter/*.txt not-found.txt
           if git diff --cached --quiet; then
-            echo "✅ No filter changes to commit"
+            echo "No filter changes to commit"
           else
-            git commit -m "chore(filter): rebuild generated filters [skip ci]"
+            git commit -m "chore(filter): rebuild generated filters"
             git push
-            echo "✅ Filters updated and pushed"
+            echo "Filters updated and pushed"
           fi
