@@ -1,8 +1,9 @@
 import { memo } from 'react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { CopyFilterListButton } from '@/components/copy-filter-list-button'
 import { Button } from '@/components/ui/button'
 import { REPO_URL, SITE_COPY } from '@/lib/site-content'
-import { Github, ShieldCheck, Radar, TriangleAlert, ListFilter } from 'lucide-react'
+import { Github, ShieldCheck, Radar, TriangleAlert } from 'lucide-react'
 
 const featureIcons = [ShieldCheck, Radar, TriangleAlert]
 
@@ -16,11 +17,7 @@ const SECTION_DELAY_400 = { '--section-delay': 400 } as React.CSSProperties
 /** Stable defaultValue — prevents Accordion from re-initialising */
 const EMPTY_ACCORDION_DEFAULT: string[] = []
 
-interface SeoContentProps {
-  onScrollToCategories: () => void
-}
-
-export const SeoContent = memo(function SeoContent({ onScrollToCategories }: SeoContentProps) {
+export const SeoContent = memo(function SeoContent() {
   return (
     <section
       aria-labelledby="seo-content-title"
@@ -128,14 +125,12 @@ export const SeoContent = memo(function SeoContent({ onScrollToCategories }: Seo
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-              <Button
-                type="button"
+              <CopyFilterListButton
+                idleLabel={SITE_COPY.seo.ctaPrimary}
+                variant="default"
                 className="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                onClick={onScrollToCategories}
-              >
-                <ListFilter className="mr-2 h-4 w-4" />
-                {SITE_COPY.seo.ctaPrimary}
-              </Button>
+                aria-label={SITE_COPY.seo.ctaPrimary}
+              />
               <Button variant="outline" asChild className="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-200">
                 <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />

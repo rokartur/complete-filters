@@ -28,16 +28,16 @@ export const FILTER_SUBSCRIPTION_CATEGORIES: FilterSubscriptionCategory[] = [
     description: 'Anti-adblock scripts and related countermeasures.',
   },
   {
+    id: 'brave',
+    fileName: 'brave.txt',
+    title: 'Brave',
+    description: 'Rules tailored for Brave-specific annoyances and compatibility cases.',
+  },
+  {
     id: 'compatibility',
     fileName: 'compatibility.txt',
     title: 'Compatibility',
     description: 'Compatibility fixes and exceptions that reduce site breakage.',
-  },
-  {
-    id: 'content',
-    fileName: 'content.txt',
-    title: 'Low-value content',
-    description: 'Content clutter, sponsored sections, placeholders, and other low-value page junk.',
   },
   {
     id: 'cookies',
@@ -70,6 +70,12 @@ export const FILTER_SUBSCRIPTION_CATEGORIES: FilterSubscriptionCategory[] = [
     description: 'Mobile-specific nuisances and clutter from the mobile web.',
   },
   {
+    id: 'polish',
+    fileName: 'polish.txt',
+    title: 'Polish',
+    description: 'Poland-focused rules split out into their own dedicated subscription.',
+  },
+  {
     id: 'privacy',
     fileName: 'privacy.txt',
     title: 'Privacy',
@@ -98,3 +104,9 @@ export const FILTER_SUBSCRIPTION_CATEGORIES: FilterSubscriptionCategory[] = [
 export function getFilterSubscriptionUrl(fileName: FilterSubscriptionCategory['fileName']) {
   return `${FILTER_RAW_BASE_URL}/${fileName}`
 }
+
+export const FILTER_SUBSCRIPTION_URLS = FILTER_SUBSCRIPTION_CATEGORIES.map(({ fileName }) =>
+  getFilterSubscriptionUrl(fileName)
+)
+
+export const FILTER_SUBSCRIPTION_LINKS_TEXT = FILTER_SUBSCRIPTION_URLS.join('\n')

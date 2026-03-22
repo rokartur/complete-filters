@@ -54,8 +54,7 @@ interface SiteCopy {
   banner: {
     title: string
     description: string
-    addButton: string
-    hideButton: string
+    copyButton: string
     githubButton: string
   }
   categorySection: {
@@ -65,8 +64,6 @@ interface SiteCopy {
     copyAll: string
     copyAllCopied: string
     copyAllFailed: string
-    subscribe: string
-    openDirect: string
   }
   tester: {
     title: string
@@ -151,20 +148,17 @@ export const SITE_COPY: SiteCopy = {
   },
   banner: {
     title: 'Complete Filters',
-    description: 'A categorized filter set that removes ads, tracking, malware, and other annoying elements from websites.',
-    addButton: 'Browse categories',
-    hideButton: 'Hide categories',
+    description: 'Aggressive category-based filter lists for ad blockers.',
+    copyButton: 'Copy filter list',
     githubButton: 'GitHub',
   },
   categorySection: {
-    title: 'Filter categories',
-    description: 'Pick a category and subscribe to its filter list.',
-    note: 'If your blocker does not open the subscription prompt automatically, use the raw GitHub URL below and add it manually in Custom filters.',
+    title: 'Filter list',
+    description: 'Copy the raw URLs for all available Complete Filters subscriptions in one click.',
+    note: 'All current categories in one copyable list, including Brave and Polish, without content.',
     copyAll: 'Copy all links',
     copyAllCopied: 'Copied all links',
     copyAllFailed: 'Copy failed',
-    subscribe: 'Subscribe',
-    openDirect: 'Open direct URL',
   },
   tester: {
     title: 'Ad blocking tester',
@@ -286,8 +280,8 @@ export const SITE_COPY: SiteCopy = {
     ],
     ctaTitle: 'Want a better score?',
     ctaDescription:
-      'Browse the available Complete Filters categories, then run the test again after choosing the setup that fits your protection level.',
-    ctaPrimary: 'Browse categories',
+      'Copy the full Complete Filters subscription list, add the categories you want to your blocker, then run the test again.',
+    ctaPrimary: 'Copy filter list',
     ctaSecondary: 'View repository',
   },
 }

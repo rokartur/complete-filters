@@ -38,7 +38,7 @@ export function ControlPanel({
           {filterOptions.map((opt) => (
             <button
               key={opt.value}
-              className={`flex-1 px-3 py-4 text-[10px] md:text-xs font-semibold uppercase tracking-widest transition-colors duration-200 cursor-pointer border-r border-border last:border-r-0 ${
+              className={`flex-1 px-3 py-3 text-[10px] md:text-xs font-semibold uppercase tracking-widest cursor-pointer border-r border-border last:border-r-0 ${
                 filter === opt.value
                   ? 'bg-foreground text-background'
                   : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
@@ -54,7 +54,7 @@ export function ControlPanel({
           <Button
             onClick={onStart}
             disabled={isRunning}
-            className="btn-press rounded-none border-0 border-l border-border hover:bg-primary hover:text-primary-foreground bg-primary/10 text-primary font-mono font-bold uppercase tracking-widest px-8 md:px-12 h-auto py-4 sm:py-0 transition-all duration-200"
+            className="btn-press rounded-none border-0 border-l border-border hover:bg-primary hover:text-primary-foreground bg-primary/10 text-primary font-mono font-bold uppercase tracking-widest px-6 md:px-10 h-auto py-3 sm:py-0"
           >
             {isRunning ? (
               <>
@@ -74,7 +74,7 @@ export function ControlPanel({
           <Button
             variant="ghost"
             onClick={onReset}
-            className="btn-press rounded-none border-0 border-l border-border hover:bg-destructive hover:text-destructive-foreground font-mono font-bold uppercase tracking-widest px-6 h-auto py-4 sm:py-0 transition-all duration-200"
+            className="btn-press rounded-none border-0 border-l border-border hover:bg-destructive hover:text-destructive-foreground font-mono font-bold uppercase tracking-widest px-4 h-auto py-3 sm:py-0"
           >
             <RotateCcw className="h-4 w-4" />
           </Button>

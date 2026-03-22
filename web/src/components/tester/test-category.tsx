@@ -110,7 +110,7 @@ export function TestCategoryList({
   }
 
   return (
-    <Accordion type="multiple" defaultValue={[]} className="w-full space-y-2.5">
+    <Accordion type="multiple" defaultValue={[]} className="w-full space-y-2">
       {visibleCategories.map(({ category, visibleTests }, catIndex) => {
         const catStats = getCategoryStats(category.id)
         const CategoryIcon = categoryIcons[category.id] ?? ChartColumn
@@ -120,14 +120,13 @@ export function TestCategoryList({
           <AccordionItem
             key={category.id}
             value={category.id}
-            className="category-card animate-stagger-in w-full border border-border bg-card overflow-hidden hover:border-foreground/30 rounded-none!"
-            style={{ '--stagger': catIndex } as React.CSSProperties}
+            className="category-card w-full border border-border bg-card overflow-hidden hover:border-foreground/30 rounded-none!"
           >
-            <AccordionTrigger className="flex flex-1 items-center justify-between px-3 py-3 transition-colors hover:bg-muted/40 hover:no-underline sm:px-4">
+            <AccordionTrigger className="flex flex-1 items-center justify-between px-3 py-3 hover:bg-muted/40 hover:no-underline sm:px-4">
               <div className="flex flex-1 flex-col gap-2 pr-2 sm:flex-row sm:items-center sm:justify-between sm:pr-3">
                 <div className="flex min-w-0 items-center gap-3">
                   <span
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center border border-current transition-colors ${
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center border border-current ${
                       isCategoryFullyBlocked
                         ? 'bg-emerald-500/10 text-emerald-400'
                         : 'bg-primary/5 text-primary/70'

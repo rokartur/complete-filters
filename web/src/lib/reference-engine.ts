@@ -206,18 +206,17 @@ export function initReferenceEngine(): Promise<void> {
  * Catches rules like: ||consentmanager.net^$domain=kicker.de|onet.pl|...
  *
  * Memory footprint: ~1 MB (vs 5+ GB if all rules were parsed).
- * Download: ~65 MB across 9 files → pre-filtered to ~8.5K rules (~500 KB).
+ * Download: ~67 MB across 10 files → pre-filtered to ~8.5K rules (~500 KB).
  *
  * Massive domain blocklists are SKIPPED to save bandwidth:
  * - hagezi.txt  (69 MB, 13 $domain= rules → not worth downloading)
  * - malware.txt (53 MB, 32 $domain= rules → not worth downloading)
  * - privacy.txt (33 MB, 568 $domain= rules → marginal, but too heavy)
- * - content.txt (4.1 MB, 0 $domain= rules → nothing to extract)
  * - mixed.txt   (9.2 MB, 0 $domain= rules → nothing to extract)
  *
  * Safe to call multiple times — subsequent calls return the same promise.
  */
-const SKIPPED_CATEGORIES = new Set(['hagezi', 'malware', 'privacy', 'content', 'mixed'])
+const SKIPPED_CATEGORIES = new Set(['hagezi', 'malware', 'privacy', 'mixed'])
 
 export function initCompleteFiltersEngine(): Promise<void> {
   if (completeEngine) return Promise.resolve()

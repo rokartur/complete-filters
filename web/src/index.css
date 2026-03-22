@@ -88,97 +88,12 @@ body {
 }
 
 /* ─── Animations ─── */
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.3; }
-}
-
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes stagger-in {
-  from { opacity: 0; transform: translateX(-10px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes stamp-in {
-  0% { opacity: 0; transform: scale(2.2); filter: blur(6px); }
-  45% { opacity: 1; transform: scale(0.92); filter: blur(0); }
-  65% { transform: scale(1.04); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes status-pop {
-  0% { transform: scale(0); opacity: 0; }
-  55% { transform: scale(1.2); }
-  100% { transform: scale(1); opacity: 1; }
-}
 
 @keyframes scanline-sweep {
   0% { transform: translateX(0); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { transform: translateX(533%); opacity: 0; }
-}
-
-@keyframes section-in {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes testing-pulse {
-  0%, 100% { border-color: var(--color-border); }
-  50% { border-color: rgba(255, 255, 255, 0.12); }
-}
-
-@keyframes number-tick {
-  0% { transform: translateY(6px); opacity: 0.4; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-  50% { box-shadow: 0 0 20px 2px rgba(255, 255, 255, 0.06); }
-}
-
-@keyframes modal-shimmer {
-  0% { transform: translateX(-20%); opacity: 0; }
-  20% { opacity: 1; }
-  100% { transform: translateX(130%); opacity: 0; }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-stagger-in {
-  opacity: 0;
-  animation: stagger-in 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: calc(var(--stagger, 0) * 60ms);
-}
-
-.animate-stamp-in {
-  animation: stamp-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-status-pop {
-  animation: status-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.animate-section-in {
-  opacity: 0;
-  animation: section-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--section-delay, 0) * 1ms);
-}
-
-.animate-testing-pulse {
-  animation: testing-pulse 2s ease-in-out infinite;
-}
-
-.animate-glow-pulse {
-  animation: glow-pulse 3s ease-in-out infinite;
 }
 
 .progress-scanline {
@@ -198,74 +113,16 @@ body {
   will-change: transform;
 }
 
-.stat-value {
-  transition: color 0.3s ease;
-}
-.stat-value[data-changed="true"] {
-  animation: number-tick 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 .btn-press:active {
   transform: scale(0.97);
-  transition: transform 0.08s ease;
 }
 
-.category-card {
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
 .category-card:hover {
-  transform: translateY(-1px);
-}
-
-.test-item-enter {
-  transition: background-color 0.2s ease, opacity 0.3s ease;
-}
-
-.grade-glow {
-  position: relative;
-}
-.grade-glow::before {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  border: 1px solid currentColor;
-  opacity: 0.15;
-  animation: pulse-glow 3s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.modal-panel {
-  position: relative;
-  overflow: hidden;
-}
-
-.modal-panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -20%;
-  width: 20%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
-  pointer-events: none;
-  animation: modal-shimmer 1.2s cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
-}
-
-.modal-overlay {
-  will-change: opacity;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .accordion-panel {
   height: var(--accordion-panel-height);
-  transition:
-          height 280ms cubic-bezier(0.4, 0, 0.2, 1) 60ms,
-          opacity 180ms ease;
-}
-
-.accordion-panel[data-open] {
-  transition:
-          height 350ms cubic-bezier(0.16, 1, 0.3, 1),
-          opacity 250ms ease 60ms;
 }
 
 .accordion-panel[data-starting-style],
@@ -274,79 +131,8 @@ body {
   opacity: 0;
 }
 
-.accordion-panel-content {
-  transition:
-          transform 180ms ease,
-          opacity 150ms ease;
-}
-
-.accordion-panel[data-open] .accordion-panel-content {
-  transition:
-          transform 320ms cubic-bezier(0.16, 1, 0.3, 1) 80ms,
-          opacity 280ms ease 80ms;
-}
-
-.accordion-panel[data-starting-style] .accordion-panel-content,
-.accordion-panel[data-ending-style] .accordion-panel-content {
-  transform: translateY(6px);
-  opacity: 0;
-}
-
-.accordion-panel[data-open] .test-item-stagger {
-  animation: accordion-item-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: calc(var(--item-delay, 0) * 1ms);
-}
-
-@keyframes accordion-item-in {
-  from {
-    opacity: 0;
-    transform: translateX(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 .accordion-chevron {
-  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0s;
 }
 
 /* ─── Industrial utilities ─── */
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-stagger-in,
-  .animate-stamp-in,
-  .animate-status-pop,
-  .animate-section-in,
-  .animate-fade-in-up {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .animate-testing-pulse,
-  .animate-glow-pulse {
-    animation: none !important;
-  }
-  .modal-panel::before {
-    animation: none !important;
-    display: none;
-  }
-  .progress-scanline::after {
-    animation: none !important;
-    display: none;
-  }
-  .accordion-panel,
-  .accordion-panel-content {
-    transition: none !important;
-  }
-  .accordion-panel[data-starting-style] .accordion-panel-content,
-  .accordion-panel[data-ending-style] .accordion-panel-content {
-    transform: none !important;
-    opacity: 1 !important;
-  }
-  .accordion-panel[data-open] .test-item-stagger {
-    animation: none !important;
-    opacity: 1 !important;
-  }
-}
