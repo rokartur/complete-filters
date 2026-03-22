@@ -25,5 +25,7 @@ export const polishAds: TestCategory = {
     { name: 'CallPage', url: 'https://callpage.io/' },
     { name: 'QuarticON (global)', url: 'https://quarticon.com/' },
     { name: 'Piwik PRO', url: 'https://piwik.pro/' },
+    { name: 'GetResponse', url: 'https://cdn.getresponse.com/widget.js' },
+    { name: 'Albacross', url: 'https://serve.albacross.com/track.js' },
   ],
 }

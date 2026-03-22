@@ -12,5 +12,8 @@ export const cdnWidgets: TestCategory = {
     { name: 'EthicalAds', url: 'https://media.ethicalads.io/media/client/ethicalads.min.js' },
     { name: 'Yandex Metrica', url: 'https://mc.yandex.ru/metrika/tag.js' },
     { name: 'Baidu Statistics', url: 'https://hm.baidu.com/hm.js' },
+    { name: 'Disqus', url: 'https://complete-filters.disqus.com/embed.js' },
+    { name: 'AddToAny', url: 'https://static.addtoany.com/menu/page.js' },
+    { name: 'OpenWeb (Spot.im)', url: 'https://launcher.spot.im/spot/0' },
   ],
 }

@@ -13,5 +13,8 @@ export const errorTrackers: TestCategory = {
     { name: 'Rollbar', url: 'https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.26.0/rollbar.min.js' },
     { name: 'Datadog RUM', url: 'https://www.datadoghq-browser-agent.com/datadog-rum-v4.js' },
     { name: 'Datadog Logs', url: 'https://www.datadoghq-browser-agent.com/datadog-logs-v4.js' },
+    { name: 'TrackJS', url: 'https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js' },
+    { name: 'Raygun', url: 'https://cdn.raygun.io/raygun4js/raygun.min.js' },
+    { name: 'Honeybadger', url: 'https://js.honeybadger.io/v6.0/honeybadger.min.js' },
   ],
 }

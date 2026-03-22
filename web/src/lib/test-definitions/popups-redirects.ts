@@ -13,5 +13,7 @@ export const popupsRedirects: TestCategory = {
     { name: 'TrafficJunky', url: 'https://cdn.trafficjunky.net/ads/js/v2/tj_loader.js' },
     { name: 'AdCash', url: 'https://www.adcash.com/script/java.php' },
     { name: 'Propeller Push', url: 'https://propu.sh/pfe/current/tag.min.js' },
+    { name: 'ExoClick', url: 'https://syndication.exoclick.com/splash.php' },
+    { name: 'ExoClick (a)', url: 'https://a.exoclick.com/' },
   ],
 }

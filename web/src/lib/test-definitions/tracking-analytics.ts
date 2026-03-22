@@ -80,5 +80,13 @@ export const trackingAnalytics: TestCategory = {
     { name: 'Branch.io', url: 'https://cdn.branch.io/branch-latest.min.js' },
     { name: 'AppsFlyer', url: 'https://cdn.appsflyer.com/web-sdk/v1/af.min.js' },
     { name: 'Adjust', url: 'https://cdn.adjust.com/adjust-latest.min.js' },
+    { name: 'Microsoft Clarity', url: 'https://www.clarity.ms/tag/0' },
+    { name: 'Matomo', url: 'https://cdn.matomo.cloud/matomo.js' },
+    { name: 'AB Tasty', url: 'https://try.abtasty.com/0.js' },
+    { name: 'Woopra', url: 'https://static.woopra.com/js/w.js' },
+    { name: 'Clicky', url: 'https://static.getclicky.com/js' },
+    { name: 'Inspectlet', url: 'https://cdn.inspectlet.com/inspectlet.js' },
+    { name: 'Pingdom RUM', url: 'https://rum-static.pingdom.net/pa-0.js' },
+    { name: 'SpeedCurve LUX', url: 'https://cdn.speedcurve.com/js/lux.js' },
   ],
 }

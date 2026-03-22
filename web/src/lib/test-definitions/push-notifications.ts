@@ -12,5 +12,6 @@ export const pushNotifications: TestCategory = {
     { name: 'CleverPush', url: 'https://static.cleverpush.com/channel/loader/0.js' },
     { name: 'VWO Engage', url: 'https://d5phz18u4wuww.cloudfront.net/PushSDK-Latest.js' },
     { name: 'Aimtell', url: 'https://cdn.aimtell.com/trackpush/sdk.js' },
+    { name: 'WonderPush', url: 'https://cdn.by.wonderpush.com/sdk/1.1/wonderpush-loader.min.js' },
   ],
 }

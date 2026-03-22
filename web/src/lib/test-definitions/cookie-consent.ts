@@ -18,5 +18,6 @@ export const cookieConsent: TestCategory = {
     { name: 'Iubenda TCF Stub', url: 'https://cdn.iubenda.com/cs/tcf/stub-v2.js' },
     { name: 'Iubenda GPP Stub', url: 'https://cdn.iubenda.com/cs/gpp/stub.js' },
     { name: 'Axeptio', url: 'https://static.axept.io/sdk.js' },
+    { name: 'Cookie Script', url: 'https://cdn.cookie-script.com/s/0.js' },
   ],
 }

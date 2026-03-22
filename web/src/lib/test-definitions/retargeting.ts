@@ -8,7 +8,6 @@ export const retargeting: TestCategory = {
     { name: 'AdRoll Retargeting', url: 'https://d.adroll.com/pixel/0/0' },
     { name: 'Criteo Retargeting', url: 'https://dis.criteo.com/dis/rtb/appnexus/cookieMatch.aspx' },
     { name: 'RTB House', url: 'https://creativecdn.com/tags' },
-    { name: 'Perfect Audience', url: 'https://tag.perfectaudience.com/serve/0.js' },
-    { name: 'Magnetic', url: 'https://ad.atdmt.com/m/a.js' },
+    { name: 'Facebook Custom Audiences', url: 'https://www.facebook.com/tr?id=0&ev=PageView' },
   ],
 }

@@ -17,5 +17,6 @@ export const dataBrokers: TestCategory = {
     { name: 'Clearbit', url: 'https://tag.clearbitscripts.com/v1/0/tags.js' },
     { name: 'ZoomInfo', url: 'https://ws.zoominfo.com/pixel/0' },
     { name: 'Bombora DMP', url: 'https://ml314.com/tag.aspx' },
+    { name: 'Treasure Data', url: 'https://cdn.treasuredata.com/sdk/2.5/td.min.js' },
   ],
 }

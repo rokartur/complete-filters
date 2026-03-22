@@ -12,5 +12,6 @@ export const affiliateTracking: TestCategory = {
     { name: 'Tradedoubler', url: 'https://pf.tradedoubler.com/pf/tr' },
     { name: 'Skimlinks', url: 'https://s.skimresources.com/js/0.js' },
     { name: 'VigLink', url: 'https://cdn.viglink.com/api/vglnk.js' },
+    { name: 'PartnerStack', url: 'https://js.partnerstack.com/v1/' },
   ],
 }

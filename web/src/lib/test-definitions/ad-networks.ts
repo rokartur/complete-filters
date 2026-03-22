@@ -47,5 +47,6 @@ export const adNetworks: TestCategory = {
     { name: 'Spotify Ads', url: 'https://ads-fa.spotify.com/' },
     { name: 'Spotify spclient', url: 'https://spclient.wg.spotify.com/ads/' },
     { name: 'Yahoo DSP', url: 'https://s.yimg.com/wi/ytc.js' },
+    { name: 'MediaVine', url: 'https://scripts.mediavine.com/tags/0.js' },
   ],
 }
