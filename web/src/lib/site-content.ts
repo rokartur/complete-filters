@@ -304,12 +304,7 @@ export function getMethodTagLabel(tag: MethodTag) {
 }
 
 export function getAbpSubscriptionUrl(location: string, title: string) {
-  const params = new URLSearchParams({
-    location,
-    title,
-  })
-
-  return `abp:subscribe?${params.toString()}`
+  return `abp:subscribe?location=${location}&title=${encodeURIComponent(title)}`
 }
 
 export function getTestLabel(name: string): string {
