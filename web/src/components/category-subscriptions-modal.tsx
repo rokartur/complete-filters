@@ -99,14 +99,6 @@ export function CategorySubscriptionsModal({
     }
   }
 
-  const handleAbpSubscriptionClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    subscriptionUrl: string,
-  ) => {
-    event.preventDefault()
-    window.location.assign(subscriptionUrl)
-  }
-
   useEffect(() => {
     if (!isMounted) return
 
@@ -297,9 +289,6 @@ export function CategorySubscriptionsModal({
                             >
                               <a
                                 href={category.abpSubscriptionUrl}
-                                onClick={(event) =>
-                                  handleAbpSubscriptionClick(event, category.abpSubscriptionUrl)
-                                }
                               >
                                 <ExternalLink className="mr-2 h-4 w-4" />
                                 {SITE_COPY.categoryModal.subscribe}
