@@ -11,7 +11,7 @@ Aggressive category-based filter lists for ad blockers.
 - you can also subscribe manually via direct GitHub media URLs, for example:
 
   ```txt
-  https://media.githubusercontent.com/media/rokartur/complete-filters/refs/heads/main/filter/malware.txt
+  http://raw.githubusercontent.com/rokartur/complete-filters/main/filter/malware.txt
   ```
 
 - the lists are intentionally aggressive, so some sites may partially break,
