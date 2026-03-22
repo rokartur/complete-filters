@@ -5,17 +5,11 @@ import {
 	FILTER_DIR,
 	MANUAL_RULES,
 	NOT_FOUND_TXT,
-	ROOT,
 } from "./constants.ts"
 import { loadUrls, loadNotFound, log, logWarning } from "./utils.ts"
 import { fetchAll } from "./fetcher.ts"
 import { runBuild } from "./builder.ts"
 import { readdir, mkdir, unlink } from "node:fs/promises"
-import { resolve } from "node:path"
-
-const ANTI_ADBLOCK_EXTRA_RULESETS = [
-	resolve(ROOT, "manual-rules", "anti-adblock-dns-compat.txt"),
-] as const
 
 export interface BuildCategoriesOptions {
 	jobs?: number
@@ -96,9 +90,7 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 
 	for (const [category, urls] of allCategoryUrls) {
 		const outputPath = `${FILTER_DIR}/${category}.txt`
-		const extraRulesets = category === "anti-adblock"
-			? [...MANUAL_RULES, ...ANTI_ADBLOCK_EXTRA_RULESETS]
-			: [...MANUAL_RULES]
+		const extraRulesets = [...MANUAL_RULES]
 
 		if (urls.length === 0) {
 			const file = Bun.file(outputPath)
