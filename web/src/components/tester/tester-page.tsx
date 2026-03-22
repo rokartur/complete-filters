@@ -9,6 +9,13 @@ import { SeoContent } from '@/components/seo-content'
 import { SITE_COPY } from '@/lib/site-content'
 import { Crosshair } from 'lucide-react'
 
+/** Pre-computed style objects — stable references across renders */
+const DELAY_0 = { '--section-delay': 0 } as React.CSSProperties
+const DELAY_80 = { '--section-delay': 80 } as React.CSSProperties
+const DELAY_160 = { '--section-delay': 160 } as React.CSSProperties
+const DELAY_240 = { '--section-delay': 240 } as React.CSSProperties
+const DELAY_320 = { '--section-delay': 320 } as React.CSSProperties
+
 interface TesterPageProps {
   onScrollToCategories: () => void
 }
@@ -19,7 +26,7 @@ export function TesterPage({ onScrollToCategories }: TesterPageProps) {
   return (
     <div>
       {/* Tester Header — industrial tracking panel */}
-      <div className="animate-section-in relative border-b border-border bg-card px-4 py-8 sm:px-6 md:px-10" style={{ '--section-delay': 0 } as React.CSSProperties}>
+      <div className="animate-section-in relative border-b border-border bg-card px-4 py-8 sm:px-6 md:px-10" style={DELAY_0}>
         <div className="flex flex-col md:flex-row md:items-start gap-6">
           <div className="shrink-0 flex h-16 w-16 items-center justify-center border border-primary bg-primary/5 text-primary">
             <Crosshair className="h-8 w-8" />
@@ -42,12 +49,12 @@ export function TesterPage({ onScrollToCategories }: TesterPageProps) {
       {tester.grade && <GradeBadge grade={tester.grade} />}
 
       {/* Stats */}
-      <div className="animate-section-in" style={{ '--section-delay': 80 } as React.CSSProperties}>
+      <div className="animate-section-in" style={DELAY_80}>
         <StatsBar stats={tester.stats} isRunning={tester.isRunning} />
       </div>
 
       {/* Progress */}
-      <div className="animate-section-in border-b border-border bg-card px-4 py-6 sm:px-6 md:px-8" style={{ '--section-delay': 160 } as React.CSSProperties}>
+      <div className="animate-section-in border-b border-border bg-card px-4 py-6 sm:px-6 md:px-8" style={DELAY_160}>
         <div className="mx-auto w-full">
           <div className="mb-3 flex items-center justify-between text-[11px] font-mono font-medium uppercase tracking-wider text-muted-foreground">
             <span>{SITE_COPY.tester.progress}</span>
@@ -64,7 +71,7 @@ export function TesterPage({ onScrollToCategories }: TesterPageProps) {
       </div>
 
       {/* Controls */}
-      <div className="animate-section-in" style={{ '--section-delay': 240 } as React.CSSProperties}>
+      <div className="animate-section-in" style={DELAY_240}>
         <ControlPanel
           isRunning={tester.isRunning}
           filter={tester.filter}
@@ -75,7 +82,7 @@ export function TesterPage({ onScrollToCategories }: TesterPageProps) {
       </div>
 
       {/* Test Categories */}
-      <div className="animate-section-in w-full bg-background px-4 py-8 sm:px-6 md:px-8" style={{ '--section-delay': 320 } as React.CSSProperties}>
+      <div className="animate-section-in w-full bg-background px-4 py-8 sm:px-6 md:px-8" style={DELAY_320}>
         <TestCategoryList
           categories={tester.categories}
           results={tester.results}
