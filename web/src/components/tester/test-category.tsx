@@ -111,7 +111,7 @@ export function TestCategoryList({
 
   return (
     <Accordion type="multiple" defaultValue={[]} className="w-full space-y-2">
-      {visibleCategories.map(({ category, visibleTests }, catIndex) => {
+      {visibleCategories.map(({ category, visibleTests }) => {
         const catStats = getCategoryStats(category.id)
         const CategoryIcon = categoryIcons[category.id] ?? ChartColumn
         const isCategoryFullyBlocked = catStats.total > 0 && catStats.blocked === catStats.total

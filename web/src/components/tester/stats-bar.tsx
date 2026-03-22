@@ -7,7 +7,7 @@ interface StatsBarProps {
   isRunning?: boolean
 }
 
-export function StatsBar({ stats, isRunning }: StatsBarProps) {
+export function StatsBar({ stats }: StatsBarProps) {
   const statItems = [
     {
       key: 'total' as const,
