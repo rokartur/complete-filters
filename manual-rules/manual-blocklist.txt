@@ -102,8 +102,17 @@
 ||trk.klclick.com^
 !
 ! Consent / CMP exact overrides
-! NOTE: $important needed — upstream @@||app.termly.io^$third-party in cookies filter negates the block
+! NOTE: $important needed — upstream @@||app.termly.io^$third-party in cookies filter negates the block,
+! and the tester first checks this URL via fetch(), not only as a <script>.
+||app.termly.io/embed-policy.min.js$important
 ||app.termly.io/embed-policy.min.js$script,important
+!
+! Explicit overrides against our own broad compatibility allowlists
+! NOTE: $important needed — our own @@||*.tiktok.com^$all,important allowlist would otherwise let this ad host through
+||ads.tiktok.com^$important
+! NOTE: $important needed — our own @@||*.apple.com^ compatibility allowlist would otherwise let these telemetry hosts through
+||xp.apple.com^$important
+||notes-analytics-events.apple.com^$important
 !
 ! Retargeting / Affiliate Tracking
 ||creativecdn.com/tags
