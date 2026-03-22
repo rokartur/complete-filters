@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 22 Mar 2026 15:28:13 UTC
+! Last modified: 22 Mar 2026 17:12:07 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
@@ -2122,14 +2122,10 @@ $subdocument,domain=urlbluemedia.shop
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1985
 @@||itoya.ec-optimizer.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1976
-! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1820
-@@||sbs.demdex.net^|
 @@||go.redirectingat.com^|
-@@||cl.link-ag.net^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/215941
 ! Blocked by CNAME servedbyadbutler.com
 @@||ref.rbauction.com^|
-! Blocked by CNAME s1search.co
 ! https://github.com/AdguardTeam/AdguardFilters/issues/215116
 @@||puzzles-games-api.gp-prod.conde.digital^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/212351
@@ -2173,10 +2169,14 @@ $subdocument,domain=urlbluemedia.shop
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1822
 @@|www.daraz.pk^|
 @@|daraz.com^|
+! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1820
+@@||sbs.demdex.net^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/194309
+@@||cl.link-ag.net^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1784
 @@||action.metaffiliation.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1773
+! Blocked by CNAME s1search.co
 @@||www.dogpile.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1771
 ! Related to disguised tracker
@@ -11170,7 +11170,6 @@ https://www.eff.org/files/cookieblocklist.txt
 @@||studio.youtube.com^$important
 @@||youtu.be^$important
 @@||youtube-nocookie.com^$important
-@@||youtubei.googleapis.com^$all,important
 @@||*.ytimg.com^$important
 @@||i.ytimg.com^$important
 @@||s.ytimg.com^$important
@@ -11180,12 +11179,6 @@ https://www.eff.org/files/cookieblocklist.txt
 @@||yt3.googleusercontent.com^$important
 @@||lh3.googleusercontent.com^$important
 @@||play.google.com^$important
-@@||jnn-pa.googleapis.com^$all,important
-@@||wide-youtube.l.google.com^$all,important
-@@||redirector.googlevideo.com^$all,important
-@@||manifest.googlevideo.com^$all,important
-@@||*.googlevideo.com^$all,important
-@@||imasdk.googleapis.com^$all,important
 @@||youtube.googleapis.com^$all,important
 @@||video-stats.l.google.com^$all,important
 !
@@ -13169,5 +13162,5 @@ wikipedia.org#@#.modal
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 9547
+! Total unique rules: 9561
 ! Duplicates removed: 2260

@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 22 Mar 2026 15:28:25 UTC
+! Last modified: 22 Mar 2026 17:12:19 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 16 / 16
@@ -53679,18 +53679,25 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||youtu.be^$all,important
 @@||youtube-nocookie.com^$all,important
 @@||youtubei.googleapis.com^$all,important
+! Native/mobile YouTube clients can hit Google APIs outside a youtube.com page
+! context, so origin-scoped @@||googleapis.com^ exceptions are not enough.
+@@||www.googleapis.com^$all,important
 @@||*.googlevideo.com^$all,important
 @@||manifest.googlevideo.com^$all,important
 @@||redirector.googlevideo.com^$all,important
 @@||jnn-pa.googleapis.com^$all,important
 @@||wide-youtube.l.google.com^$all,important
+@@||*.ytimg.com^$all,important
 @@||i.ytimg.com^$all,important
 @@||s.ytimg.com^$all,important
+@@||*.ggpht.com^$all,important
 @@||yt3.ggpht.com^$all,important
 @@||yt4.ggpht.com^$all,important
 @@||yt3.googleusercontent.com^$all,important
 @@||lh3.googleusercontent.com^$all,important
 @@||imasdk.googleapis.com^$all,important
+! Upstream compatibility lists also need this app-specific exception for
+! YouTube Android/Samsung breakage.
 @@||googleapis.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
 @@||accounts.google.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
 @@||www.gstatic.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
@@ -53705,8 +53712,10 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||studio.youtube.com^$important
 @@||youtu.be^$important
 @@||youtube-nocookie.com^$important
+@@||*.ytimg.com^$important
 @@||i.ytimg.com^$important
 @@||s.ytimg.com^$important
+@@||*.ggpht.com^$important
 @@||yt3.ggpht.com^$important
 @@||yt4.ggpht.com^$important
 @@||yt3.googleusercontent.com^$important
@@ -54047,6 +54056,15 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||icloud.com^
 @@||*.icloud.com^
 @@||*.icloud-content.com^
+! iCloud Web also relies on Apple infrastructure outside apple.com / icloud.com.
+@@||appleid.apple.com^$important
+@@||idmsa.apple.com^$important
+@@||appleidcdn-apple.com^$important
+@@||appleid.cdn-apple.com^$important
+@@||cdn.apple-cloudkit.com^$important
+@@||api.apple-mapkit.com^$important
+@@||cdn.apple-mapkit.com^$important
+@@||store.storeimages.cdn-apple.com^$important
 @@||*.mzstatic.com^
 !
 ! ═══════════════════════════════════════════════════════════════
@@ -55679,5 +55697,5 @@ wikipedia.org#@#.modal
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 50875
-! Duplicates removed: 8625
+! Total unique rules: 50888
+! Duplicates removed: 8626
