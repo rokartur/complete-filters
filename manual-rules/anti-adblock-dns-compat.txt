@@ -1,0 +1,27 @@
+! Anti-adblock DNS compatibility patch
+! Some upstream anti-adblock / adblock-test rules are safe in browser filter
+! engines only because later @@ exception rules restore critical endpoints.
+! DNS blockers such as AdGuard Home cannot reliably apply those richer
+! exceptions (for example app-scoped or request-type scoped rules), so a few
+! broad test rules end up breaking the native YouTube mobile app.
+!
+! Keep these neutralizations scoped to the anti-adblock category only.
+!
+! YouTube core/mobile endpoints
+||s.youtube.com^$badfilter
+||*redirector.googlevideo.com*^$badfilter
+||*youtubei.googleapis.com*^$badfilter
+||www.googleapis.com^$third-party,badfilter
+||imasdk.googleapis.com^$third-party,badfilter
+||imasdk.googleapis.com^$badfilter
+!
+! YouTube Android compatibility
+! We already carry app-scoped @@ exceptions for googleadservices, but DNS
+! resolvers cannot honor app scoping, so neutralize the broad anti-adblock
+! test rules here as well.
+||googleadservices.com^$badfilter
+||googleadservices.com^$third-party,badfilter
+||*googleadservices.com*^$badfilter
+||www.googleadservices.com/pagead/conversion.js$badfilter
+||www.googleadservices.com/pagead/conversion_async.js$badfilter
+||pagead2.googleadservices.com^$badfilter

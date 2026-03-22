@@ -1,10 +1,10 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 22 Mar 2026 17:12:07 UTC
+! Last modified: 22 Mar 2026 19:11:36 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 15 / 15
+! Source count: 16 / 16
 !
 ! ===== SOURCE: https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
 !
@@ -13162,5 +13162,34 @@ wikipedia.org#@#.modal
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 9561
+! ===== SOURCE: local:anti-adblock-dns-compat.txt
+! Anti-adblock DNS compatibility patch
+! Some upstream anti-adblock / adblock-test rules are safe in browser filter
+! engines only because later @@ exception rules restore critical endpoints.
+! DNS blockers such as AdGuard Home cannot reliably apply those richer
+! exceptions (for example app-scoped or request-type scoped rules), so a few
+! broad test rules end up breaking the native YouTube mobile app.
+!
+! Keep these neutralizations scoped to the anti-adblock category only.
+!
+! YouTube core/mobile endpoints
+||s.youtube.com^$badfilter
+||*redirector.googlevideo.com*^$badfilter
+||*youtubei.googleapis.com*^$badfilter
+||www.googleapis.com^$third-party,badfilter
+||imasdk.googleapis.com^$third-party,badfilter
+||imasdk.googleapis.com^$badfilter
+!
+! YouTube Android compatibility
+! We already carry app-scoped @@ exceptions for googleadservices, but DNS
+! resolvers cannot honor app scoping, so neutralize the broad anti-adblock
+! test rules here as well.
+||googleadservices.com^$badfilter
+||googleadservices.com^$third-party,badfilter
+||*googleadservices.com*^$badfilter
+||www.googleadservices.com/pagead/conversion.js$badfilter
+||www.googleadservices.com/pagead/conversion_async.js$badfilter
+||pagead2.googleadservices.com^$badfilter
+
+! Total unique rules: 9573
 ! Duplicates removed: 2260
