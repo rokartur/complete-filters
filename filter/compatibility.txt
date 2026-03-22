@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 22 Mar 2026 04:15:21 UTC
+! Last modified: 22 Mar 2026 14:23:28 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 17 / 17
@@ -13305,9 +13305,10 @@ japscan.*##+js(norafif, Date)
 japscan.*##.HuKlQ > div > div:not(#reader):remove()
 japscan.*##+js(aost, MessageChannel, /stackDepth:2.+inlineScript/)
 japscan.*###noticeMessage[role] ~ div:not(#reader):remove()
-japscan.*##div[yoripz]:remove()
-japscan.*##+js(prevent-innerHTML, , /\.(gif|jpg|png)/)
-japscan.*##:matches-path(/^\/man(g|hu)a/) div[id]:matches-attr("/[0-9A-Za-z]{6,}/"="/.{3,}/")
+japscan.*##div[yaripz]:remove()
+japscan.*##+js(prevent-innerHTML, , /\.(gif|jpe?g|png|webp)/)
+japscan.*##+js(aopr, Element.prototype.textContent)
+japscan.*##:matches-path(/^\/man(g|hw)a/) div[id]:matches-attr("/[0-9A-Za-z]{6,}/"="/.{3,}/")
 japscan.*##html > div[style="position: fixed; inset: 0px; z-index: 2147483647; pointer-events: auto;"]
 japscan.*##+js(norafif, requestAnimationFrame)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.createElement, '"span"', abort, /apply in.+[0-9A-Za-z]{8\,10} inlineScript/)
@@ -13318,6 +13319,7 @@ japscan.*##+js(trusted-suppress-native-method, Element.prototype.getElementsByTa
 japscan.*##+js(aost, performance.now, /\s[0-9A-Za-z]{8\,10} inlineScript:1/)
 japscan.*##+js(acs, Array.prototype.push, /^([\S\s]{2500\,4000}|[\S\s]{4500\,5000})$/)
 japscan.*##+js(acs, Array.prototype.join, /^[\S\s]{2000\,6000}$/)
+japscan.*##+js(acs, DOMTokenList.prototype.remove, /^[\S\s]{3000\,4000}$/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
@@ -21515,5 +21517,5 @@ wikipedia.org#@#.modal
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 14193
+! Total unique rules: 14195
 ! Duplicates removed: 7566
