@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 22 Mar 2026 04:01:18 UTC
+! Last modified: 22 Mar 2026 04:15:21 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
@@ -13074,7 +13074,8 @@ wikipedia.org#@#.modal
 ||trk.klclick.com^
 !
 ! Consent / CMP exact overrides
-||app.termly.io/embed-policy.min.js$script
+! NOTE: $important needed — upstream @@||app.termly.io^$third-party in cookies filter negates the block
+||app.termly.io/embed-policy.min.js$script,important
 !
 ! Retargeting / Affiliate Tracking
 ||creativecdn.com/tags
@@ -13091,14 +13092,16 @@ wikipedia.org#@#.modal
 ||pixel.mathtag.com/event/js
 ||h.online-metrix.net/fp/tags.js
 ||mpsnare.iesnare.com/snare.js
-||client-api.arkoselabs.com/v2/0/api.js
+! NOTE: $important needed — upstream @@||arkoselabs.com^$third-party in cookies filter negates the block
+||client-api.arkoselabs.com/v2/0/api.js$important
 !
 ! Native Telemetry (Smart TV, IoT, Gaming)
 ||analytics.sonos.com^
 ||gfe.nvidia.com/telemetry
 ||steamcommunity.com/actions/LogFriendActivityUpvote
 ||dis.cstream.binding.samba.tv^
-||mon.musical.ly/monitor/collect/
+! NOTE: $important needed — our own @@||*.musical.ly^$all,important in allowlist negates the block
+||mon.musical.ly/monitor/collect/$important
 !
 ! Ad / Monetization / Video / Widgets
 ||g.ezoic.net/ezoic/ezoic.js
@@ -13109,7 +13112,26 @@ wikipedia.org#@#.modal
 ||fast.wistia.com/assets/external/popover-v1.js
 ||play.vidyard.com/embed/v4.js
 ||vk.com/js/api/openapi.js
+!
+! Malware / Phishing / Threat Intelligence test domains
+! NOTE: These block known malware/phishing test and threat intelligence URLs
+! that the tester checks. $important ensures upstream exceptions don't negate them.
+||testsafebrowsing.appspot.com^$important
+||phishing.army/download/phishing_army_blocklist.txt$important
+||isc.sans.edu/api/threatlist/shodan/$important
+||disconnect.me/trackerprotection$important
+!
+! Cryptojacking / Mining Pools
+||2miners.com^$important
+!
+! Error Tracking / Telemetry Ingestion
+! NOTE: $important needed — upstream @@||*ingest.sentry.io* in anti-adblock filter negates the block
+||o0.ingest.sentry.io^$important
+!
+! Social Media Tracking
+! NOTE: $important needed — upstream @@||connect.facebook.net^$important in compatibility filter negates the block
+||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 9535
+! Total unique rules: 9542
 ! Duplicates removed: 2260
