@@ -22,21 +22,29 @@ export interface GradeInfo {
 
 /**
  * Delay between batches — gives Performance API time to finalize entries
- * and prevents batches from overlapping.
+ * and prevents batches from overlapping. We don't clear the buffer between
+ * batches so 300ms is sufficient for the browser to write entries.
  */
-const BATCH_SETTLE_DELAY_MS = 800
+const BATCH_SETTLE_DELAY_MS = 300
 
 /**
- * Batch size for network tests — smaller batches = more reliable
- * Performance API entries. With 4 detection methods per URL, each URL
- * generates up to 4 requests. 4 URLs × 4 methods = 16 concurrent requests.
+ * Batch size for network tests. With AbortController-based cancellation,
+ * blocked URLs finish almost instantly (fetch throws → abort all remaining),
+ * so larger batches are safe. 8 URLs × 5 methods = 40 concurrent requests,
+ * well within browser limits (~256 per domain, 6 per origin for HTTP/1.1).
  */
-const BATCH_SIZE = 4
+const BATCH_SIZE = 8
 
 /**
  * How long to wait before the retry pass to let everything settle.
  */
-const RETRY_PASS_SETTLE_MS = 1500
+const RETRY_PASS_SETTLE_MS = 800
+
+/**
+ * Batch size for the retry pass. Retries run in small parallel batches
+ * instead of one-at-a-time for faster completion.
+ */
+const RETRY_BATCH_SIZE = 4
 
 const TOTAL_TESTS = TEST_CATEGORIES.reduce((sum, category) => sum + category.tests.length, 0)
 
@@ -228,8 +236,8 @@ export function useAdBlockTester() {
 
       // --- Retry pass for unexpected "not-blocked" results ---
       // After all batches complete, re-test URLs that came back "not-blocked"
-      // but the reference engine says should be blocked. Test ONE AT A TIME
-      // with a fresh Performance buffer for maximum reliability.
+      // but the reference engine says should be blocked. Run in small parallel
+      // batches with a fresh Performance buffer for reliability.
       if (!cancelledRef.current) {
         // Clear buffer and wait for it to settle before retry pass
         try { performance.clearResourceTimings() } catch { /* ignore */ }
@@ -242,23 +250,29 @@ export function useAdBlockTester() {
           return hint.shouldBlock
         })
 
-        for (const { id, test } of retryTargets) {
+        for (let i = 0; i < retryTargets.length; i += RETRY_BATCH_SIZE) {
           if (cancelledRef.current) break
-          if (!test.url) continue
 
-          // Clear buffer before each individual retry for clean state
+          // Clear buffer before each retry batch for clean state
           try { performance.clearResourceTimings() } catch { /* ignore */ }
-          await new Promise((r) => setTimeout(r, 200))
+          await new Promise((r) => setTimeout(r, 100))
 
-          try {
-            const hint = getFilterHint(test.url)
-            const result = await testNetworkResource(test.url, hint)
-            if (!cancelledRef.current && result === 'blocked') {
-              updateResult(id, 'blocked')
-            }
-          } catch {
-            // Keep original result on error
-          }
+          const retryBatch = retryTargets.slice(i, i + RETRY_BATCH_SIZE)
+          await Promise.all(
+            retryBatch.map(async ({ id, test }) => {
+              if (cancelledRef.current) return
+              if (!test.url) return
+              try {
+                const hint = getFilterHint(test.url)
+                const result = await testNetworkResource(test.url, hint)
+                if (!cancelledRef.current && result === 'blocked') {
+                  updateResult(id, 'blocked')
+                }
+              } catch {
+                // Keep original result on error
+              }
+            })
+          )
         }
       }
     } finally {

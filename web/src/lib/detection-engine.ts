@@ -4,7 +4,7 @@ import type { FilterHint } from '@/lib/reference-engine'
 export type NetworkTestStatus = 'blocked' | 'not-blocked'
 
 /**
- * Ad Blocker Detection Engine v4
+ * Ad Blocker Detection Engine v5
  *
  * Detects whether URLs/elements are blocked by:
  * - Browser-based ad blockers (uBlock Origin, AdGuard, etc.)
@@ -42,6 +42,22 @@ export type NetworkTestStatus = 'blocked' | 'not-blocked'
  *   On buffer overflow, entries are backed up to an in-memory Map before
  *   the browser clears them. Redirect detection checks both live entries
  *   and the backup map.
+ *
+ * ABORT CONTROLLER — each URL gets a shared AbortController. When ANY method
+ *   detects blocking, abort() cancels all remaining in-flight fetch requests
+ *   and triggers early DOM element cleanup via abort event listeners.
+ *
+ * EARLY EXIT — when 3+ independent methods agree "not-blocked" AND no
+ *   reference engine hint suggests blocking, resolve immediately without
+ *   waiting for remaining methods to time out.
+ *
+ * ABORT CONTROLLER — each URL gets a shared AbortController. When ANY method
+ *   detects blocking, abort() cancels all remaining in-flight fetch requests
+ *   and triggers early DOM element cleanup via abort event listeners.
+ *
+ * EARLY EXIT — when 3+ independent methods agree "not-blocked" AND no
+ *   reference engine hint suggests blocking, resolve immediately without
+ *   waiting for remaining methods to time out.
  *
  * Priority when combining signals: BLOCKED > NOT BLOCKED
  */
@@ -99,14 +115,14 @@ export function clearPerfEntryBackup(): void {
 }
 
 const ELEMENT_ERROR_SETTLE_DELAY_MS = 200
-const ELEMENT_TIMEOUT_MS = 10000
-const FRAME_SETTLE_DELAY_MS = 400
-const FRAME_ABOUT_BLANK_RETRY_DELAY_MS = 500
-const FRAME_TIMEOUT_MS = 12000
-const NETWORK_TEST_TIMEOUT_MS = 20000
-const BAIT_CLEANUP_TIMEOUT_MS = 5000
+const ELEMENT_TIMEOUT_MS = 5000
+const FRAME_SETTLE_DELAY_MS = 300
+const FRAME_ABOUT_BLANK_RETRY_DELAY_MS = 400
+const FRAME_TIMEOUT_MS = 8000
+const NETWORK_TEST_TIMEOUT_MS = 12000
+const BAIT_CLEANUP_TIMEOUT_MS = 2000
 const REDIRECT_DURATION_THRESHOLD_MS = 10
-const REDIRECT_CHECK_DELAY_MS = 100
+const REDIRECT_CHECK_DELAY_MS = 50
 
 /**
  * Retry delays for redirect detection when the reference engine hints that
@@ -114,14 +130,14 @@ const REDIRECT_CHECK_DELAY_MS = 100
  * immediately — especially on slower devices or when the buffer was recently
  * cleared between batches. These retries give the browser extra time.
  */
-const REDIRECT_RETRY_DELAYS_MS = [100, 250, 500, 1000, 2000]
+const REDIRECT_RETRY_DELAYS_MS = [80, 200, 500]
 
 /**
  * Shorter retry sequence used when no hint is available but we still want
  * to be thorough. The user has 6M+ filters — many $redirect rules exist
  * that the reference engine (EasyList/EasyPrivacy only) doesn't know about.
  */
-const REDIRECT_RETRY_NO_HINT_MS = [100, 300]
+const REDIRECT_RETRY_NO_HINT_MS = [80, 200]
 
 /**
  * Disambiguate CORS failures from ad blocker blocks.
@@ -147,7 +163,7 @@ const REDIRECT_RETRY_NO_HINT_MS = [100, 300]
 async function isReachableDespiteCors(url: string): Promise<boolean> {
   try {
     const controller = new AbortController()
-    const timeout = window.setTimeout(() => controller.abort(), 3000)
+    const timeout = window.setTimeout(() => controller.abort(), 2000)
     const response = await fetch(url, {
       mode: 'cors',
       cache: 'no-store',
@@ -353,11 +369,17 @@ function isLikelyRedirected(url: string): boolean {
  * Type-specific rules like `$script,redirect=noopjs` do NOT match fetch.
  * The element-based methods (preload/img) handle these via redirect detection.
  */
-async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
+async function detectViaFetch(
+  url: string,
+  signal?: AbortSignal
+): Promise<NetworkTestStatus> {
+  if (signal?.aborted) return 'blocked'
   try {
-    await fetch(url, { mode: 'no-cors', cache: 'no-store' })
+    await fetch(url, { mode: 'no-cors', cache: 'no-store', signal })
     return 'not-blocked'
-  } catch {
+  } catch (err) {
+    // AbortError means the parent cancelled us (another method detected block)
+    if (err instanceof DOMException && err.name === 'AbortError') return 'blocked'
     return 'blocked'
   }
 }
@@ -371,16 +393,21 @@ async function detectViaFetch(url: string): Promise<NetworkTestStatus> {
  */
 function detectViaPreload(
   url: string,
-  hintHasRedirect = false
+  hintHasRedirect = false,
+  signal?: AbortSignal
 ): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
+    if (signal?.aborted) { resolve('blocked'); return }
     const link = document.createElement('link')
     link.rel = 'preload'
     link.as = 'script'
     link.href = url
     let timeoutId: number | undefined
+    let resolved = false
 
     const settle = (status: NetworkTestStatus) => {
+      if (resolved) return
+      resolved = true
       if (timeoutId !== undefined) {
         window.clearTimeout(timeoutId)
       }
@@ -395,6 +422,9 @@ function detectViaPreload(
         /* already removed */
       }
     }
+
+    // Listen for external abort (another method detected blocking first)
+    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
 
     link.onload = () => {
       // Preload succeeded — but might be a neutered $redirect resource.
@@ -464,14 +494,19 @@ function detectViaPreload(
  */
 function detectViaScript(
   url: string,
-  hintHasRedirect = false
+  hintHasRedirect = false,
+  signal?: AbortSignal
 ): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
+    if (signal?.aborted) { resolve('blocked'); return }
     const script = document.createElement('script')
     script.type = 'text/javascript'
     let timeoutId: number | undefined
+    let resolved = false
 
     const settle = (status: NetworkTestStatus) => {
+      if (resolved) return
+      resolved = true
       if (timeoutId !== undefined) {
         window.clearTimeout(timeoutId)
       }
@@ -486,6 +521,9 @@ function detectViaScript(
         /* already removed */
       }
     }
+
+    // Listen for external abort (another method detected blocking first)
+    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
 
     script.onload = () => {
       // Script loaded — but might be a neutered $redirect resource (noopjs).
@@ -544,13 +582,18 @@ const NOOP_IMAGE_MAX_DIMENSION = 2
  */
 function detectViaImage(
   url: string,
-  hintHasRedirect = false
+  hintHasRedirect = false,
+  signal?: AbortSignal
 ): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
+    if (signal?.aborted) { resolve('blocked'); return }
     const img = new Image()
     let timeoutId: number | undefined
+    let resolved = false
 
     const settle = (status: NetworkTestStatus) => {
+      if (resolved) return
+      resolved = true
       if (timeoutId !== undefined) {
         window.clearTimeout(timeoutId)
       }
@@ -560,6 +603,9 @@ function detectViaImage(
       img.src = ''
       resolve(status)
     }
+
+    // Listen for external abort (another method detected blocking first)
+    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
 
     img.onload = () => {
       // Image loaded — but might be a neutered $redirect resource.
@@ -643,10 +689,12 @@ function detectViaImage(
  * - No entry + iframe stayed on about:blank -> likely BLOCKED before dispatch
  * - Everything else -> NOT BLOCKED / ambiguous
  */
-function detectViaFrame(url: string): Promise<NetworkTestStatus> {
+function detectViaFrame(url: string, signal?: AbortSignal): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
+    if (signal?.aborted) { resolve('blocked'); return }
     const frame = document.createElement('iframe')
     let timeoutId: number | undefined
+    let resolved = false
 
     frame.style.cssText =
       'position:absolute;left:-10000px;top:-10000px;width:1px;height:1px;border:0;opacity:0;pointer-events:none;'
@@ -679,12 +727,17 @@ function detectViaFrame(url: string): Promise<NetworkTestStatus> {
     }
 
     const settle = (status: NetworkTestStatus) => {
+      if (resolved) return
+      resolved = true
       if (timeoutId !== undefined) {
         window.clearTimeout(timeoutId)
       }
       cleanup()
       resolve(status)
     }
+
+    // Listen for external abort (another method detected blocking first)
+    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
 
     frame.onload = () => {
       setTimeout(() => {
@@ -771,17 +824,22 @@ function detectViaFrame(url: string): Promise<NetworkTestStatus> {
  */
 function detectViaStylesheet(
   url: string,
-  hintHasRedirect = false
+  hintHasRedirect = false,
+  signal?: AbortSignal
 ): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
+    if (signal?.aborted) { resolve('blocked'); return }
     const link = document.createElement('link')
     link.rel = 'stylesheet'
     link.href = url
     // media="print" prevents accidental layout changes if CSS loads
     link.media = 'print'
     let timeoutId: number | undefined
+    let resolved = false
 
     const settle = (status: NetworkTestStatus) => {
+      if (resolved) return
+      resolved = true
       if (timeoutId !== undefined) {
         window.clearTimeout(timeoutId)
       }
@@ -796,6 +854,9 @@ function detectViaStylesheet(
         /* already removed */
       }
     }
+
+    // Listen for external abort (another method detected blocking first)
+    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
 
     link.onload = () => {
       // Stylesheet "loaded" — but might be a neutered $redirect resource.
@@ -996,7 +1057,7 @@ export function testBaitElement(test: {
     // Ad blockers that inject CSS stylesheets (##.ad-class) don't trigger
     // MutationObserver because no DOM attribute changes — only computed style.
     // Polling catches these by re-reading getComputedStyle at intervals.
-    const checkTimes = [50, 100, 200, 400, 700, 1000, 1500, 2000, 3000, 4000]
+    const checkTimes = [30, 80, 150, 300, 500, 800, 1200, 2000, 3000]
     let checkIndex = 0
 
     const runCheck = () => {
@@ -1140,6 +1201,18 @@ function detectViaSendBeacon(url: string): Promise<NetworkTestStatus> {
   })
 }
 
+/**
+ * Minimum "not-blocked" votes needed to resolve early when there is no
+ * reference engine hint. With 4-5 detection methods running, if 3 independent
+ * methods (fetch, element, stylesheet/beacon) all agree the URL is reachable,
+ * the remaining methods won't change the verdict. This avoids waiting 5-10s
+ * for the slowest method to time out.
+ *
+ * When the reference engine hints that a URL should be blocked (hintShouldBlock
+ * or hintHasRedirect), we still wait for ALL methods — conservative path.
+ */
+const EARLY_NOT_BLOCKED_THRESHOLD = 3
+
 export function testNetworkResource(
   url: string,
   hint?: FilterHint
@@ -1157,63 +1230,65 @@ export function testNetworkResource(
   return new Promise((resolve) => {
     let settled = false
     let completed = 0
+    let notBlockedCount = 0
     const hintHasRedirect = hint?.hasRedirect ?? false
     const hintShouldBlock = hint?.shouldBlock ?? false
+
+    // Shared AbortController — when any method detects blocking,
+    // abort() cancels remaining in-flight fetch requests and triggers
+    // early cleanup of DOM elements via abort event listeners.
+    const controller = new AbortController()
+    const { signal } = controller
+
     const finish = (status: NetworkTestStatus) => {
       if (settled) return
       settled = true
+      // Cancel all remaining in-flight detection methods
+      controller.abort()
       resolve(status)
     }
 
-    // Collect detection promises — up to 4 methods for maximum coverage.
-    // More methods = higher accuracy, even at the cost of speed.
+    // Collect detection promises — up to 5 methods for maximum coverage.
     const detections: Promise<NetworkTestStatus>[] = []
 
     // Method 1: Fetch-based detection (always — catches generic rules)
-    detections.push(detectViaFetch(url))
+    detections.push(detectViaFetch(url, signal))
 
     // Method 2: Primary element-based detection (type-specific signal)
-    // When the reference engine hints that a $redirect rule exists, pass
-    // hintHasRedirect so the redirect check retries with longer delays.
     if (isScriptUrl(url)) {
-      detections.push(detectViaPreload(url, hintHasRedirect))
+      detections.push(detectViaPreload(url, hintHasRedirect, signal))
     } else if (isDocumentUrl(url)) {
-      detections.push(detectViaFrame(url))
+      detections.push(detectViaFrame(url, signal))
     } else {
-      detections.push(detectViaImage(url, hintHasRedirect))
+      detections.push(detectViaImage(url, hintHasRedirect, signal))
     }
 
-    // Method 3: Direct script element for .js URLs (triggers $script type
-    // matching more reliably than preload), image for everything else.
+    // Method 3: Direct script element for .js URLs, stylesheet for others.
     if (isScriptUrl(url)) {
-      detections.push(detectViaScript(url, hintHasRedirect))
+      detections.push(detectViaScript(url, hintHasRedirect, signal))
     } else if (isDocumentUrl(url)) {
-      detections.push(detectViaImage(url, hintHasRedirect))
+      detections.push(detectViaImage(url, hintHasRedirect, signal))
     } else {
-      // For both image and generic URLs, use stylesheet as an independent
-      // cross-type signal (catches generic ||domain^ rules).
-      detections.push(detectViaStylesheet(url, hintHasRedirect))
+      detections.push(detectViaStylesheet(url, hintHasRedirect, signal))
     }
 
     // Method 4: Supplementary cross-type detection
-    // Uses a DIFFERENT resource type to catch generic ||domain.com^ rules
-    // that block all types. This maximizes the chance of at least one
-    // method detecting the block.
     if (isScriptUrl(url) || isDocumentUrl(url)) {
-      detections.push(detectViaStylesheet(url, hintHasRedirect))
+      detections.push(detectViaStylesheet(url, hintHasRedirect, signal))
     } else {
-      // For image/generic URLs, method 2 already used img and method 3
-      // used stylesheet — add an image-as-different-path probe.
-      detections.push(detectViaImage(url, hintHasRedirect))
+      detections.push(detectViaImage(url, hintHasRedirect, signal))
     }
 
-    // Method 5: sendBeacon detection (catches $ping/beacon rules)
-    // Lightweight synchronous check — provides an instant extra signal
-    // for domains blocked at the generic level (||domain.com^).
-    // Skip for document URLs (sendBeacon is meant for data endpoints).
+    // Method 5: sendBeacon (instant synchronous signal, skipped for documents)
     if (!isDocumentUrl(url)) {
       detections.push(detectViaSendBeacon(url))
     }
+
+    const totalDetections = detections.length
+
+    // Whether early "not-blocked" exit is allowed.
+    // Only when the reference engine has NO indication the URL should be blocked.
+    const allowEarlyNotBlocked = !hintShouldBlock && !hintHasRedirect
 
     // Combine results incrementally so a clear signal can finish early.
     detections.forEach((detection) => {
@@ -1228,20 +1303,24 @@ export function testNetworkResource(
             return
           }
 
-          if (completed === detections.length) {
+          notBlockedCount += 1
+
+          // --- Early "not-blocked" exit (Phase 4) ---
+          // If 3+ independent methods say not-blocked AND no hint suggests
+          // the URL should be blocked, resolve immediately. Waiting for the
+          // remaining 1-2 methods (which may take 5-10s to time out) is
+          // not worth the time — 3 independent signals are sufficient.
+          if (allowEarlyNotBlocked && notBlockedCount >= EARLY_NOT_BLOCKED_THRESHOLD) {
+            finish('not-blocked')
+            return
+          }
+
+          if (completed === totalDetections) {
             // All methods returned not-blocked.
-            if (hintHasRedirect) {
-              // The reference engine says a $redirect rule exists — the ad
-              // blocker SHOULD have redirected the resource. Do one final
-              // redirect check — the entry may have been written late.
-              isLikelyRedirectedWithRetry(url, true).then((redirected) => {
-                finish(redirected ? 'blocked' : 'not-blocked')
-              })
-            } else if (hintShouldBlock) {
-              // Reference engine says this URL should be blocked, but all
-              // 3 methods say not-blocked. Run one aggressive final redirect
-              // check — some ad blockers may have redirected without the
-              // standard redirect hint.
+            if (hintHasRedirect || hintShouldBlock) {
+              // Reference engine says this URL should be blocked or redirected.
+              // Do one final aggressive redirect check — some ad blockers may
+              // have redirected without standard signals being caught.
               isLikelyRedirectedWithRetry(url, true).then((redirected) => {
                 finish(redirected ? 'blocked' : 'not-blocked')
               })
@@ -1253,7 +1332,7 @@ export function testNetworkResource(
         .catch(() => {
           if (settled) return
           completed += 1
-          if (completed === detections.length) {
+          if (completed === totalDetections) {
             finish('not-blocked')
           }
         })
