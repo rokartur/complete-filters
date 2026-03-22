@@ -46,6 +46,20 @@ const RETRY_PASS_SETTLE_MS = 800
  */
 const RETRY_BATCH_SIZE = 4
 
+/**
+ * Minimum blocking rate (0–1) required before trusting $domain= and $document
+ * reference engine hints. If the user's adblocker blocks fewer than this
+ * fraction of network tests, we don't trust domainRestricted / hasDocumentRule
+ * hints — the user might not have the filter lists that contain those rules.
+ *
+ * At 30%, this correctly handles:
+ * - No adblocker (0% blocked) → hints ignored → no false positives
+ * - Basic adblocker (EasyList only, ~50% blocked) → hints trusted → correct
+ * - Comprehensive adblocker (80%+ blocked) → hints trusted → correct
+ * - Complete-filters subscribed (90%+ blocked) → hints trusted → correct
+ */
+const DOMAIN_RULE_CONFIDENCE_THRESHOLD = 0.3
+
 const TOTAL_TESTS = TEST_CATEGORIES.reduce((sum, category) => sum + category.tests.length, 0)
 
 function createInitialResults(): Record<string, TestStatus> {
@@ -296,6 +310,40 @@ export function useAdBlockTester() {
               }
             })
           )
+        }
+      }
+
+      // --- Domain-restricted & document rule upgrade pass ---
+      // $domain= rules (e.g. ||tracker.com^$domain=kicker.de|onet.pl) and
+      // $document rules can't be detected by network-based methods from the
+      // tester's domain. The reference engine flags these, but we only trust
+      // them when the user's blocking rate proves they have an active ad blocker.
+      //
+      // This prevents false "blocked" results when:
+      // - User has NO adblocker at all (0% blocking rate)
+      // - User has a minimal blocker without these specific filter lists
+      // - User only has DNS-level blocking without browser extension rules
+      if (!cancelledRef.current) {
+        const networkBlockedCount = networkTests.filter(
+          ({ id }) => resultsRef.current[id] === 'blocked'
+        ).length
+        const blockingRate =
+          networkTests.length > 0
+            ? networkBlockedCount / networkTests.length
+            : 0
+
+        if (blockingRate >= DOMAIN_RULE_CONFIDENCE_THRESHOLD) {
+          // User has an active ad blocker — trust reference engine hints
+          // for $domain= and $document rules that can't be network-detected.
+          for (const { id, test } of networkTests) {
+            if (cancelledRef.current) break
+            if (resultsRef.current[id] !== 'not-blocked') continue
+            if (!test.url) continue
+            const hint = getFilterHint(test.url)
+            if (hint.domainRestricted || hint.hasDocumentRule) {
+              updateResult(id, 'blocked')
+            }
+          }
         }
       }
     } finally {

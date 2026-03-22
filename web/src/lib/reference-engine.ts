@@ -107,11 +107,77 @@ let engine: FiltersEngine | null = null
 let loadPromise: Promise<void> | null = null
 
 /**
- * Complete-filters engine — loaded from the project's own filter/*.txt files.
- * Contains ALL rules including $domain= restricted, cookies, regional, etc.
+ * Complete-filters engine — loaded from the project's filter/*.txt files,
+ * but with aggressive pre-filtering to keep only $domain= restricted rules.
+ *
+ * WHY PRE-FILTER: The complete filter set is 232MB / 9M lines. Parsing all
+ * of that with @ghostery/adblocker would consume 5+ GB of RAM. However, the
+ * only rules that network detection CANNOT catch are $domain= restricted ones
+ * (they only fire from specific source websites, not the tester's domain).
+ *
+ * Simple rules like ||domain.com^ are already detected by fetch/img/preload.
+ * $redirect rules are caught by Performance API timing detection.
+ * $third-party rules work because the tester's requests ARE third-party.
+ *
+ * So we fetch each file, filter to lines containing "domain=" (~8.5K rules
+ * from all 14 files), and parse only those. This uses <1 MB of memory vs 5+ GB.
  */
 let completeEngine: FiltersEngine | null = null
 let completeLoadPromise: Promise<void> | null = null
+
+/**
+ * Fetch a filter list and extract only lines containing $domain= rules.
+ *
+ * Keeps:
+ * - Block rules with domain= (e.g. ||tracker.com^$domain=kicker.de)
+ * - Exception rules with domain= (e.g. @@||tracker.com^$domain=kicker.de)
+ *
+ * Strips: comments, cosmetic rules, simple domain blocks, empty lines.
+ * This reduces ~65 MB of text to ~500 KB of $domain= rules.
+ *
+ * Uses streaming (ReadableStream) to process large files without loading
+ * the entire file into memory at once. Each chunk is decoded and filtered
+ * incrementally — only matching lines are accumulated.
+ */
+async function fetchDomainRestrictedRules(url: string): Promise<string> {
+  const response = await fetch(url)
+  if (!response.ok || !response.body) return ''
+
+  const reader = response.body.getReader()
+  const decoder = new TextDecoder()
+  const kept: string[] = []
+  let partial = '' // Leftover from previous chunk (incomplete line)
+
+  try {
+    for (;;) {
+      const { done, value } = await reader.read()
+      const chunk = partial + decoder.decode(value ?? new Uint8Array(), { stream: !done })
+      const lines = chunk.split('\n')
+
+      // Last element might be incomplete — save for next iteration
+      partial = done ? '' : (lines.pop() ?? '')
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i]
+        // Fast path: skip empty lines and comments
+        if (line.length === 0 || line[0] === '!') continue
+        // Skip cosmetic rules (##, #@#, #$#, #%#, #+js)
+        if (line.includes('##') || line.includes('#@#') || line.includes('#$#') || line.includes('#%#')) continue
+        // Keep only lines with domain= modifier
+        if (line.includes('domain=')) {
+          kept.push(line)
+        }
+      }
+
+      if (done) break
+    }
+  } catch {
+    // Stream read error — release the reader and return what we have so far
+    reader.releaseLock()
+  }
+
+  return kept.join('\n')
+}
 
 /**
  * Initialize the reference engine by loading prebuilt EasyList + EasyPrivacy.
@@ -134,22 +200,52 @@ export function initReferenceEngine(): Promise<void> {
 }
 
 /**
- * Initialize the complete-filters engine by loading all filter/*.txt files
- * from the project's GitHub repository. These contain the full rule set
- * including $domain= restricted rules, cookies/consent, regional, etc.
+ * Initialize the complete-filters engine by loading filter/*.txt files from
+ * the project's GitHub repository, keeping ONLY $domain= restricted rules.
+ *
+ * Catches rules like: ||consentmanager.net^$domain=kicker.de|onet.pl|...
+ *
+ * Memory footprint: ~1 MB (vs 5+ GB if all rules were parsed).
+ * Download: ~65 MB across 9 files → pre-filtered to ~8.5K rules (~500 KB).
+ *
+ * Massive domain blocklists are SKIPPED to save bandwidth:
+ * - hagezi.txt  (69 MB, 13 $domain= rules → not worth downloading)
+ * - malware.txt (53 MB, 32 $domain= rules → not worth downloading)
+ * - privacy.txt (33 MB, 568 $domain= rules → marginal, but too heavy)
+ * - content.txt (4.1 MB, 0 $domain= rules → nothing to extract)
+ * - mixed.txt   (9.2 MB, 0 $domain= rules → nothing to extract)
  *
  * Safe to call multiple times — subsequent calls return the same promise.
  */
+const SKIPPED_CATEGORIES = new Set(['hagezi', 'malware', 'privacy', 'content', 'mixed'])
+
 export function initCompleteFiltersEngine(): Promise<void> {
   if (completeEngine) return Promise.resolve()
   if (completeLoadPromise) return completeLoadPromise
 
   completeLoadPromise = (async () => {
     try {
-      const urls = FILTER_SUBSCRIPTION_CATEGORIES.map((cat) =>
+      const categories = FILTER_SUBSCRIPTION_CATEGORIES.filter(
+        (cat) => !SKIPPED_CATEGORIES.has(cat.id)
+      )
+      const urls = categories.map((cat) =>
         getFilterSubscriptionUrl(cat.fileName)
       )
-      completeEngine = await FiltersEngine.fromLists(fetch, urls)
+
+      // Fetch all files in parallel and pre-filter to $domain= rules only.
+      // Each file is downloaded, filtered in-memory, then the raw text is
+      // released to GC — only the small filtered strings survive.
+      const ruleChunks = await Promise.all(
+        urls.map((url) =>
+          fetchDomainRestrictedRules(url).catch(() => '')
+        )
+      )
+
+      const combinedRules = ruleChunks.filter(Boolean).join('\n')
+
+      if (combinedRules.length > 0) {
+        completeEngine = FiltersEngine.parse(combinedRules)
+      }
     } catch (err) {
       console.warn(
         '[reference-engine] Failed to load complete-filters:',

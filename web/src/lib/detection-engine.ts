@@ -1158,19 +1158,26 @@ export function testNetworkResource(
   url: string,
   hint?: FilterHint
 ): Promise<NetworkTestStatus> {
-  // If the reference engine matched a $document / main_frame rule,
-  // the ad blocker blocks this URL when navigated to directly, but there
-  // is no reliable way to detect $document blocking from within a page
-  // (fetch, img, preload all use sub-resource types that aren't affected).
-  // Trust the reference engine for these rules — EasyList/EasyPrivacy
-  // $document rules are standard and present in virtually all ad blockers.
-  if (hint?.hasDocumentRule) {
-    return Promise.resolve('blocked')
+  // $document / main_frame rules block this URL when navigated to directly,
+  // but there is no reliable way to detect $document blocking from within a
+  // page (fetch, img, preload all use sub-resource types that aren't affected).
+  // We DON'T auto-trust here — the hook's upgrade pass will apply the verdict
+  // only when the user's blocking rate proves they have an active ad blocker.
+  // This prevents false "blocked" for users without any blocker.
+  const hintHasDocumentRule = hint?.hasDocumentRule ?? false
+  if (hintHasDocumentRule) {
+    // Skip network detection entirely — it can't detect $document rules and
+    // would just waste 10+ seconds timing out. Return 'not-blocked' immediately
+    // and let the hook upgrade it based on blocking rate.
+    return Promise.resolve('not-blocked')
   }
 
   // Track whether the hint indicates this is a $domain= restricted rule.
-  // Network detection will still run (in case an unrestricted rule also exists),
-  // but if all methods say "not-blocked", we trust the reference engine verdict.
+  // Network detection will still run (in case an unrestricted rule also exists).
+  // If all methods say "not-blocked", we return "not-blocked" here — the hook's
+  // upgrade pass will trust domainRestricted ONLY when the user's blocking rate
+  // proves they have an active ad blocker (prevents false positives for users
+  // without a blocker or with different filter lists).
   const hintDomainRestricted = hint?.domainRestricted ?? false
 
   return new Promise((resolve) => {
@@ -1244,7 +1251,10 @@ export function testNetworkResource(
 
     // Whether early "not-blocked" exit is allowed.
     // Only when the reference engine has NO indication the URL should be blocked.
-    const allowEarlyNotBlocked = !hintShouldBlock && !hintHasRedirect
+    // hintDomainRestricted is included because the "all completed" path runs
+    // a final aggressive redirect check that might catch the block — early exit
+    // would skip that important check.
+    const allowEarlyNotBlocked = !hintShouldBlock && !hintHasRedirect && !hintDomainRestricted
 
     // Combine results incrementally so a clear signal can finish early.
     detections.forEach(({ promise: detection, redirectAware }) => {
@@ -1285,17 +1295,17 @@ export function testNetworkResource(
 
           if (completed === totalDetections) {
             // All methods returned not-blocked.
-            if (hintDomainRestricted) {
-              // URL matched a $domain= restricted rule in complete-filters.
-              // Network detection can't trigger these rules from the tester's
-              // domain — they only fire on specific websites. Since the rule
-              // EXISTS in the user's filter lists and would block on real
-              // websites, trust the reference engine verdict.
-              finish('blocked')
-            } else if (hintHasRedirect || hintShouldBlock) {
-              // Reference engine says this URL should be blocked or redirected.
-              // Do one final aggressive redirect check — some ad blockers may
-              // have redirected without standard signals being caught.
+            //
+            // NOTE: $domain= restricted rules (hintDomainRestricted) are NOT
+            // auto-trusted here. They're handled by the hook's upgrade pass
+            // which only trusts them when the user's overall blocking rate
+            // proves they have an active ad blocker. This prevents false
+            // "blocked" results when users visit the tester without a blocker
+            // or with different filter lists.
+            if (hintDomainRestricted || hintHasRedirect || hintShouldBlock) {
+              // Reference engine matched something — do one final aggressive
+              // redirect check. Some ad blockers may have redirected without
+              // standard signals being caught.
               isLikelyRedirectedWithRetry(url, true).then((redirected) => {
                 finish(redirected ? 'blocked' : 'not-blocked')
               })
