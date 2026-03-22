@@ -55,9 +55,10 @@ interface SiteCopy {
     title: string
     description: string
     addButton: string
+    hideButton: string
     githubButton: string
   }
-  categoryModal: {
+  categorySection: {
     title: string
     description: string
     note: string
@@ -66,7 +67,6 @@ interface SiteCopy {
     copyAllFailed: string
     subscribe: string
     openDirect: string
-    close: string
   }
   tester: {
     title: string
@@ -152,18 +152,18 @@ export const SITE_COPY: SiteCopy = {
     title: 'Complete Filters',
     description: 'A categorized filter set that removes ads, tracking, malware, and other annoying elements from websites.',
     addButton: 'Browse categories',
+    hideButton: 'Hide categories',
     githubButton: 'GitHub',
   },
-  categoryModal: {
-    title: 'Subscribe to categories',
-    description: 'Pick a category and open its direct filter list URL.',
+  categorySection: {
+    title: 'Filter categories',
+    description: 'Pick a category and subscribe to its filter list.',
     note: 'If your blocker does not open the subscription prompt automatically, use the raw GitHub URL below and add it manually in Custom filters.',
-    copyAll: 'Copy all categories link',
-    copyAllCopied: 'Copied all category links',
+    copyAll: 'Copy all links',
+    copyAllCopied: 'Copied all links',
     copyAllFailed: 'Copy failed',
-    subscribe: 'Subscribe to category',
+    subscribe: 'Subscribe',
     openDirect: 'Open direct URL',
-    close: 'Close',
   },
   tester: {
     title: 'Ad blocking tester',

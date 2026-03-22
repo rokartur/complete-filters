@@ -9,7 +9,11 @@ import { SeoContent } from '@/components/seo-content'
 import { SITE_COPY } from '@/lib/site-content'
 import { Crosshair } from 'lucide-react'
 
-export function TesterPage() {
+interface TesterPageProps {
+  onScrollToCategories: () => void
+}
+
+export function TesterPage({ onScrollToCategories }: TesterPageProps) {
   const tester = useAdBlockTester()
 
   return (
@@ -80,7 +84,7 @@ export function TesterPage() {
         />
       </div>
 
-      <SeoContent />
+      <SeoContent onScrollToCategories={onScrollToCategories} />
 
       {/* Footer */}
       <Footer />

@@ -1,9 +1,21 @@
+import { useCallback, useRef, useState } from 'react'
 import { SubscribeBanner } from '@/components/subscribe-banner'
 import { TesterPage } from '@/components/tester/tester-page'
 import { useSeo } from '@/hooks/use-seo'
 
 export default function App() {
   useSeo()
+  const [categoriesOpen, setCategoriesOpen] = useState(false)
+  const bannerRef = useRef<HTMLDivElement>(null)
+
+  const toggleCategories = useCallback(() => {
+    setCategoriesOpen((prev) => !prev)
+  }, [])
+
+  const scrollToCategories = useCallback(() => {
+    setCategoriesOpen(true)
+    bannerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [])
 
   return (
     <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground bg-noise font-sans">
@@ -16,11 +28,14 @@ export default function App() {
 
       <div className="relative mx-auto w-full max-w-[1336px] px-0 py-0 sm:px-4 sm:py-6 md:py-8 lg:py-12">
         <div className="w-full overflow-hidden border border-border bg-card">
-          <header className="border-b border-border">
-            <SubscribeBanner />
+          <header ref={bannerRef} className="border-b border-border">
+            <SubscribeBanner
+              categoriesOpen={categoriesOpen}
+              onCategoriesToggle={toggleCategories}
+            />
           </header>
           <main id="main-content">
-            <TesterPage />
+            <TesterPage onScrollToCategories={scrollToCategories} />
           </main>
         </div>
       </div>
