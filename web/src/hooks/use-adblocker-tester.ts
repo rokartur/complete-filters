@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from 'react'
 import { TEST_CATEGORIES } from '@/lib/test-definitions'
-import { testBaitElement, testNetworkResource } from '@/lib/detection-engine'
+import { testBaitElement, testNetworkResource, clearPerfEntryBackup } from '@/lib/detection-engine'
 import { initReferenceEngine, getFilterHint } from '@/lib/reference-engine'
 
 export type TestStatus = 'pending' | 'blocked' | 'not-blocked'
@@ -116,12 +116,13 @@ export function useAdBlockTester() {
     const initial = createInitialResults()
     resultsRef.current = initial
     setResults({ ...initial })
-    // Clear performance entries from previous runs
+    // Clear performance entries and backup map from previous runs
     try {
       performance.clearResourceTimings()
     } catch {
       // ignore
     }
+    clearPerfEntryBackup()
   }, [])
 
   const updateResult = useCallback((testId: string, status: TestStatus) => {
@@ -263,6 +264,7 @@ export function useAdBlockTester() {
     } finally {
       // Final cleanup
       try { performance.clearResourceTimings() } catch { /* ignore */ }
+      clearPerfEntryBackup()
       if (!cancelledRef.current) setIsRunning(false)
     }
   }, [initResults, updateResult])

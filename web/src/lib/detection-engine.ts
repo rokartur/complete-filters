@@ -4,7 +4,7 @@ import type { FilterHint } from '@/lib/reference-engine'
 export type NetworkTestStatus = 'blocked' | 'not-blocked'
 
 /**
- * Ad Blocker Detection Engine v3
+ * Ad Blocker Detection Engine v4
  *
  * Detects whether URLs/elements are blocked by:
  * - Browser-based ad blockers (uBlock Origin, AdGuard, etc.)
@@ -23,12 +23,25 @@ export type NetworkTestStatus = 'blocked' | 'not-blocked'
  *   Catches type-specific rules ($script, $image) AND detects $redirect neutering:
  *   - onload + Performance entry missing or duration < 10ms → REDIRECT detected → BLOCKED
  *   - onload + Performance entry with normal duration → genuinely loaded → NOT BLOCKED
+ *   - onload + img.naturalWidth ≤ 2 (noop 1x1.gif) → REDIRECT detected → BLOCKED
  *   - onerror + Performance 'loaded' → server error, not blocked
  *   - onerror + Performance 'blocked' (responseEnd=0) → DNS blocking
- *   - onerror + Performance 'not-found' → NOT BLOCKED (fetch is authoritative)
+ *   - onerror + Performance 'not-found' → CORS disambiguation via secondary fetch
+ *
+ * TERTIARY signal — navigator.sendBeacon()
+ *   Catches $ping/beacon rules with instant synchronous result.
  *
  * COSMETIC signal — DOM visibility check
  *   Creates bait elements with ad-like class/id and checks if ad blocker hides them.
+ *   Dual strategy: MutationObserver (instant) + polling (fallback for CSS injection).
+ *
+ * CORS DISAMBIGUATION — when element onerror fires with no Performance entry,
+ *   a secondary mode:'cors' fetch distinguishes CORS failures from ad blocker blocks.
+ *
+ * PERFORMANCE BUFFER PROTECTION — Safari caps buffer at ~150 entries.
+ *   On buffer overflow, entries are backed up to an in-memory Map before
+ *   the browser clears them. Redirect detection checks both live entries
+ *   and the backup map.
  *
  * Priority when combining signals: BLOCKED > NOT BLOCKED
  */
@@ -40,6 +53,49 @@ try {
   performance.setResourceTimingBufferSize(32000)
 } catch {
   // older browsers may not support this
+}
+
+/**
+ * Backup map for Performance entries that survive buffer overflow.
+ *
+ * Safari caps the Performance buffer at ~150 entries (ignoring our
+ * setResourceTimingBufferSize call). When it fills, all entries are flushed.
+ * We listen to the `resourcetimingbufferfull` event and copy entries to
+ * this map BEFORE the browser clears them. The redirect-detection code
+ * checks this map as a fallback when live entries are missing.
+ *
+ * Key: URL → Value: { duration, responseEnd }
+ */
+const perfEntryBackup = new Map<
+  string,
+  { duration: number; responseEnd: number }
+>()
+
+try {
+  performance.addEventListener('resourcetimingbufferfull', () => {
+    const entries = performance.getEntriesByType(
+      'resource'
+    ) as PerformanceResourceTiming[]
+    for (const entry of entries) {
+      // Only store the FIRST occurrence per URL (earliest = most relevant)
+      if (!perfEntryBackup.has(entry.name)) {
+        perfEntryBackup.set(entry.name, {
+          duration: entry.duration,
+          responseEnd: entry.responseEnd,
+        })
+      }
+    }
+    // Let the browser clear the buffer — we have our backup
+  })
+} catch {
+  // older browsers may not support addEventListener on performance
+}
+
+/**
+ * Clear the backup map. Called from the hook when starting a fresh test run.
+ */
+export function clearPerfEntryBackup(): void {
+  perfEntryBackup.clear()
 }
 
 const ELEMENT_ERROR_SETTLE_DELAY_MS = 200
@@ -66,6 +122,56 @@ const REDIRECT_RETRY_DELAYS_MS = [100, 250, 500, 1000, 2000]
  * that the reference engine (EasyList/EasyPrivacy only) doesn't know about.
  */
 const REDIRECT_RETRY_NO_HINT_MS = [100, 300]
+
+/**
+ * Disambiguate CORS failures from ad blocker blocks.
+ *
+ * When an element's onerror fires and Performance API has no entry, it is
+ * ambiguous: could be ad blocker intercepting before the request, or the
+ * browser rejecting a CORS preflight.
+ *
+ * Strategy: send a `mode: 'cors'` fetch (which respects CORS headers).
+ * - If the CORS fetch returns a Response (status > 0) or throws a TypeError
+ *   OTHER than network error → the server is reachable, it's a CORS issue.
+ * - If the CORS fetch throws a TypeError → same as no-cors → likely blocked.
+ *
+ * Since ad blockers intercept before the network layer, a blocked URL will
+ * throw TypeError on BOTH no-cors and cors mode. But a CORS-restricted
+ * server will return an opaque error (TypeError on no-cors, but the cors
+ * fetch itself may also fail with TypeError due to CORS policy). However,
+ * the key insight is: if we get an AbortError or the response has a status,
+ * the server IS reachable.
+ *
+ * We use a short timeout to avoid waiting too long for genuinely blocked URLs.
+ */
+async function isReachableDespiteCors(url: string): Promise<boolean> {
+  try {
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), 3000)
+    const response = await fetch(url, {
+      mode: 'cors',
+      cache: 'no-store',
+      signal: controller.signal,
+    })
+    window.clearTimeout(timeout)
+    // Got a response (even if blocked by CORS, status may be 0 for opaque)
+    // If status > 0, server definitively reachable
+    return response.status > 0 || response.type === 'cors'
+  } catch (err) {
+    // AbortError = our timeout → inconclusive (assume blocked)
+    if (err instanceof DOMException && err.name === 'AbortError') return false
+    // TypeError = network error — still ambiguous.
+    // Try one more signal: a no-cors HEAD request (lighter than GET).
+    try {
+      const res = await fetch(url, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
+      // If HEAD succeeds, the server is reachable (CORS was the issue)
+      void res
+      return true
+    } catch {
+      return false
+    }
+  }
+}
 
 /**
  * Check whether a URL looks like a JavaScript file based on extension.
@@ -136,14 +242,20 @@ function checkPerformanceEntry(
     ) as PerformanceResourceTiming[]
 
     // Search with exact match and common normalization variants
-    const entry = entries.find(
-      (e) =>
-        e.name === url ||
-        e.name === url.replace(/\/$/, '') ||
-        e.name === url + '/'
-    )
+    const urlVariants = [url, url.replace(/\/$/, ''), url + '/']
+    const entry = entries.find((e) => urlVariants.includes(e.name))
 
     if (!entry) {
+      // Fallback: check the backup map (survives Safari buffer overflow)
+      const backup = urlVariants.reduce<
+        { duration: number; responseEnd: number } | undefined
+      >((found, variant) => found ?? perfEntryBackup.get(variant), undefined)
+
+      if (backup) {
+        if (backup.responseEnd === 0) return 'blocked'
+        return 'loaded'
+      }
+
       return 'not-found' // No entry → browser ad blocker intercepted before request
     }
 
@@ -192,14 +304,20 @@ function isLikelyRedirected(url: string): boolean {
       'resource'
     ) as PerformanceResourceTiming[]
 
-    const matching = entries.filter(
-      (e) =>
-        e.name === url ||
-        e.name === url.replace(/\/$/, '') ||
-        e.name === url + '/'
-    )
+    const urlVariants = [url, url.replace(/\/$/, ''), url + '/']
+    const matching = entries.filter((e) => urlVariants.includes(e.name))
 
     if (matching.length === 0) {
+      // No live entry — check the backup map (Safari buffer overflow)
+      const backup = urlVariants.reduce<
+        { duration: number; responseEnd: number } | undefined
+      >((found, variant) => found ?? perfEntryBackup.get(variant), undefined)
+
+      if (backup) {
+        // We have a backup entry — check its duration
+        return backup.duration >= 0 && backup.duration < REDIRECT_DURATION_THRESHOLD_MS
+      }
+
       // No Performance entry for original URL — ad blocker redirected to
       // extension-internal URL. Common in MV2/Firefox where the entry is
       // recorded under moz-extension:// instead of the original URL.
@@ -302,7 +420,7 @@ function detectViaPreload(
     link.onerror = () => {
       // Preload failed — could be ad blocker, CORS error, or 404.
       // Check Performance API to distinguish.
-      setTimeout(() => {
+      setTimeout(async () => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Request reached server (CORS or 404) — NOT blocked
@@ -311,10 +429,11 @@ function detectViaPreload(
           // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry + element error — the ad blocker intercepted the
-          // request before it could be tracked by Performance API.
-          // This is a strong signal of blocking, not ambiguous.
-          settle('blocked')
+          // No entry + element error — usually ad blocker interception.
+          // But could also be a CORS failure that prevented tracking.
+          // Disambiguate with a secondary fetch check.
+          const reachable = await isReachableDespiteCors(url)
+          settle(reachable ? 'not-blocked' : 'blocked')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
@@ -379,7 +498,7 @@ function detectViaScript(
 
     script.onerror = () => {
       // Script failed to load — check Performance API to distinguish.
-      setTimeout(() => {
+      setTimeout(async () => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Server responded but script failed (CORS, syntax) — NOT blocked
@@ -388,8 +507,9 @@ function detectViaScript(
           // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry + script error — ad blocker intercepted before dispatch.
-          settle('blocked')
+          // No entry + script error — disambiguate CORS from ad blocker.
+          const reachable = await isReachableDespiteCors(url)
+          settle(reachable ? 'not-blocked' : 'blocked')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
@@ -405,10 +525,22 @@ function detectViaScript(
 }
 
 /**
+ * Noop redirect images are tiny (1x1 pixel). Real tracking pixels/images are
+ * typically larger or at least varied in size. When an <img> onload fires,
+ * checking naturalWidth/naturalHeight provides a Performance-API-independent
+ * signal that works even when the buffer is full (Safari).
+ */
+const NOOP_IMAGE_MAX_DIMENSION = 2
+
+/**
  * Detect blocking via <img> element (matches $image rules).
  *
  * When hintHasRedirect is true, the redirect check uses retries with longer
  * delays to catch Performance API entries that haven't been written yet.
+ *
+ * Additionally checks img.naturalWidth / img.naturalHeight after onload:
+ * if the loaded image is exactly 1×1 pixels (noop 1x1.gif redirect), that's
+ * an independent redirect signal that doesn't depend on Performance API at all.
  */
 function detectViaImage(
   url: string,
@@ -424,6 +556,8 @@ function detectViaImage(
       }
       img.onload = null
       img.onerror = null
+      // Cancel any pending network request to avoid wasted bandwidth
+      img.src = ''
       resolve(status)
     }
 
@@ -431,8 +565,38 @@ function detectViaImage(
       // Image loaded — but might be a neutered $redirect resource.
       // Ad blockers can redirect $image requests to local noop images
       // (1x1 transparent pixel) via $image,redirect=1x1.gif rules.
-      // Detect via Performance API: missing entry or near-zero duration.
+      //
+      // Two independent signals:
+      // 1. Performance API: missing entry or near-zero duration
+      // 2. Image dimensions: naturalWidth/Height ≤ 2 (noop 1x1.gif)
+      //    This works even when Performance buffer is full (Safari).
+      //
       // When hintHasRedirect is true, use retry logic for reliability.
+
+      // Signal 2: Check image dimensions (independent of Performance API)
+      if (
+        img.naturalWidth > 0 &&
+        img.naturalWidth <= NOOP_IMAGE_MAX_DIMENSION &&
+        img.naturalHeight > 0 &&
+        img.naturalHeight <= NOOP_IMAGE_MAX_DIMENSION
+      ) {
+        // Tiny image loaded — very likely a noop redirect.
+        // Verify with Performance API: if entry is also suspicious, it's a redirect.
+        // If no Performance entry exists at all, it's definitely a redirect (MV2).
+        setTimeout(async () => {
+          const perf = checkPerformanceEntry(url)
+          if (perf === 'not-found' || perf === 'blocked') {
+            settle('blocked')
+          } else {
+            // Performance says loaded — check timing too
+            const redirected = await isLikelyRedirectedWithRetry(url, hintHasRedirect)
+            settle(redirected ? 'blocked' : 'not-blocked')
+          }
+        }, REDIRECT_CHECK_DELAY_MS)
+        return
+      }
+
+      // Signal 1: Standard redirect detection via Performance API
       setTimeout(async () => {
         const redirected = await isLikelyRedirectedWithRetry(url, hintHasRedirect)
         settle(redirected ? 'blocked' : 'not-blocked')
@@ -442,7 +606,7 @@ function detectViaImage(
     img.onerror = () => {
       // Image failed — check Performance API to distinguish
       // blocked vs server error / not-an-image.
-      setTimeout(() => {
+      setTimeout(async () => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Server responded (just not with a valid image) — NOT blocked
@@ -451,10 +615,9 @@ function detectViaImage(
           // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry + element error — the ad blocker intercepted the
-          // request before Performance API could track it.
-          // This is a strong signal of blocking.
-          settle('blocked')
+          // No entry + element error — disambiguate CORS from ad blocker.
+          const reachable = await isReachableDespiteCors(url)
+          settle(reachable ? 'not-blocked' : 'blocked')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
@@ -646,7 +809,7 @@ function detectViaStylesheet(
     link.onerror = () => {
       // Stylesheet failed — could be ad blocker, CORS, or invalid MIME.
       // Check Performance API to distinguish.
-      setTimeout(() => {
+      setTimeout(async () => {
         const perf = checkPerformanceEntry(url)
         if (perf === 'loaded') {
           // Server responded (just not with valid CSS) — NOT blocked
@@ -655,11 +818,9 @@ function detectViaStylesheet(
           // Performance entry shows DNS-level blocking (responseEnd=0)
           settle('blocked')
         } else {
-          // No entry — likely blocked before dispatch (extension cancelled it).
-          // Unlike preload/img onerror where we defer to fetch, here we can be
-          // slightly more aggressive: stylesheet requests rarely fail silently
-          // for any reason OTHER than ad blocker interception.
-          settle('blocked')
+          // No entry — disambiguate CORS from ad blocker interception.
+          const reachable = await isReachableDespiteCors(url)
+          settle(reachable ? 'not-blocked' : 'blocked')
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
@@ -684,6 +845,11 @@ function detectViaStylesheet(
  *
  * Creates both an off-screen bait AND an in-viewport bait because some
  * ad blockers only process elements visible in the layout tree.
+ *
+ * Uses a dual detection strategy:
+ * 1. MutationObserver — instantly detects attribute/style/removal changes
+ * 2. Polling — fallback for ad blockers that bypass MutationObserver or
+ *    apply CSS rules without triggering mutations (e.g. stylesheet injection)
  */
 export function testBaitElement(test: {
   baitClass?: string
@@ -724,6 +890,7 @@ export function testBaitElement(test: {
 
     let settled = false
     let cleanupTimeoutId: number | undefined
+    const observers: MutationObserver[] = []
 
     const finish = (blocked: boolean) => {
       if (settled) return
@@ -731,6 +898,10 @@ export function testBaitElement(test: {
       if (cleanupTimeoutId !== undefined) {
         window.clearTimeout(cleanupTimeoutId)
       }
+      // Disconnect all MutationObservers
+      observers.forEach((obs) => {
+        try { obs.disconnect() } catch { /* ignore */ }
+      })
       baits.forEach((b) => {
         try { b.remove() } catch { /* already removed */ }
       })
@@ -747,16 +918,31 @@ export function testBaitElement(test: {
           style.display === 'none' ||
           style.visibility === 'hidden' ||
           style.opacity === '0' ||
+          // Classic clip rect hiding
           (style.position === 'absolute' &&
             style.clip === 'rect(0px, 0px, 0px, 0px)') ||
+          // Modern clip-path hiding
+          style.clipPath === 'inset(100%)' ||
+          // Size-based hiding
           style.height === '0px' ||
           style.maxHeight === '0px' ||
           el.offsetHeight === 0 ||
           el.offsetWidth === 0 ||
           el.getBoundingClientRect().height === 0 ||
+          // Layout tree removal
           (!el.offsetParent &&
             style.position !== 'fixed' &&
-            style.position !== 'absolute')
+            style.position !== 'absolute') ||
+          // Modern CSS hiding methods
+          style.contentVisibility === 'hidden' ||
+          // Transform-based hiding
+          style.transform === 'scale(0)' ||
+          style.transform === 'scale(0, 0)' ||
+          // Filter-based opacity hiding
+          style.filter === 'opacity(0)' ||
+          // Overflow + zero-size hiding
+          (style.overflow === 'hidden' &&
+            (style.width === '0px' || style.height === '0px'))
         )
       } catch {
         return true // if we can't read it, it's been removed/blocked
@@ -767,9 +953,49 @@ export function testBaitElement(test: {
       return baits.some((b) => checkElementBlocked(b))
     }
 
-    // Check at many intervals to catch delayed cosmetic filter application.
-    // With 1.2M+ cosmetic rules the MutationObserver may fire much later
-    // than the typical 50-200ms. We check over 4 seconds total.
+    // --- Strategy 1: MutationObserver (instant detection) ---
+    // Watches for attribute changes (style, class) and child list changes
+    // (element removal) on each bait. When a mutation is detected, immediately
+    // check if the element is hidden. This catches ad blockers that modify
+    // the DOM directly (e.g. setting style="display:none !important").
+    try {
+      for (const bait of baits) {
+        const observer = new MutationObserver(() => {
+          if (settled) return
+          if (checkAnyBlocked()) {
+            finish(true)
+          }
+        })
+        observer.observe(bait, {
+          attributes: true,
+          attributeFilter: ['style', 'class', 'hidden'],
+          childList: true,
+        })
+        observers.push(observer)
+      }
+
+      // Also observe document.body for child removal (element removed entirely)
+      const bodyObserver = new MutationObserver((mutations) => {
+        if (settled) return
+        for (const mutation of mutations) {
+          for (const removed of mutation.removedNodes) {
+            if (baits.includes(removed as HTMLElement)) {
+              finish(true)
+              return
+            }
+          }
+        }
+      })
+      bodyObserver.observe(document.body, { childList: true })
+      observers.push(bodyObserver)
+    } catch {
+      // MutationObserver not available — rely on polling only
+    }
+
+    // --- Strategy 2: Polling (fallback for stylesheet-injected CSS rules) ---
+    // Ad blockers that inject CSS stylesheets (##.ad-class) don't trigger
+    // MutationObserver because no DOM attribute changes — only computed style.
+    // Polling catches these by re-reading getComputedStyle at intervals.
     const checkTimes = [50, 100, 200, 400, 700, 1000, 1500, 2000, 3000, 4000]
     let checkIndex = 0
 
@@ -878,6 +1104,42 @@ async function isLikelyRedirectedWithRetry(
  * - image: onerror (not an image) + perf loaded → 'not-blocked'
  * - Combined: 'blocked' wins ✅
  */
+
+/**
+ * Detect blocking via navigator.sendBeacon().
+ *
+ * sendBeacon() is designed for analytics/tracking beacons and returns a
+ * boolean: true if the beacon was successfully queued, false if rejected.
+ * Ad blockers that intercept beacon requests will cause sendBeacon to
+ * return false or throw, providing an additional synchronous signal.
+ *
+ * This catches $ping filter rules and generic domain blocks that also
+ * match the beacon request type. It's lightweight (no response parsing)
+ * and provides an instant synchronous result.
+ *
+ * NOTE: sendBeacon sends with type "ping/beacon", which is a different
+ * request type than fetch (xmlhttprequest) — catching rules that
+ * specifically target beacon requests.
+ */
+function detectViaSendBeacon(url: string): Promise<NetworkTestStatus> {
+  return new Promise((resolve) => {
+    try {
+      if (!navigator.sendBeacon) {
+        // sendBeacon not available — can't determine
+        resolve('not-blocked')
+        return
+      }
+      // sendBeacon returns true if the browser successfully queued the beacon.
+      // If the ad blocker intercepts, it returns false (or throws).
+      const queued = navigator.sendBeacon(url)
+      resolve(queued ? 'not-blocked' : 'blocked')
+    } catch {
+      // Exception during sendBeacon — likely blocked by ad blocker
+      resolve('blocked')
+    }
+  })
+}
+
 export function testNetworkResource(
   url: string,
   hint?: FilterHint
@@ -927,9 +1189,9 @@ export function testNetworkResource(
       detections.push(detectViaScript(url, hintHasRedirect))
     } else if (isDocumentUrl(url)) {
       detections.push(detectViaImage(url, hintHasRedirect))
-    } else if (isImageUrl(url)) {
-      detections.push(detectViaStylesheet(url, hintHasRedirect))
     } else {
+      // For both image and generic URLs, use stylesheet as an independent
+      // cross-type signal (catches generic ||domain^ rules).
       detections.push(detectViaStylesheet(url, hintHasRedirect))
     }
 
@@ -937,12 +1199,20 @@ export function testNetworkResource(
     // Uses a DIFFERENT resource type to catch generic ||domain.com^ rules
     // that block all types. This maximizes the chance of at least one
     // method detecting the block.
-    if (isScriptUrl(url)) {
-      detections.push(detectViaStylesheet(url, hintHasRedirect))
-    } else if (isDocumentUrl(url)) {
+    if (isScriptUrl(url) || isDocumentUrl(url)) {
       detections.push(detectViaStylesheet(url, hintHasRedirect))
     } else {
+      // For image/generic URLs, method 2 already used img and method 3
+      // used stylesheet — add an image-as-different-path probe.
       detections.push(detectViaImage(url, hintHasRedirect))
+    }
+
+    // Method 5: sendBeacon detection (catches $ping/beacon rules)
+    // Lightweight synchronous check — provides an instant extra signal
+    // for domains blocked at the generic level (||domain.com^).
+    // Skip for document URLs (sendBeacon is meant for data endpoints).
+    if (!isDocumentUrl(url)) {
+      detections.push(detectViaSendBeacon(url))
     }
 
     // Combine results incrementally so a clear signal can finish early.
