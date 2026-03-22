@@ -5,9 +5,6 @@ export function Footer() {
     <footer className="border-t border-border bg-card">
       <div className="px-4 py-8 sm:px-6 md:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="text-[10px] sm:text-xs font-mono text-muted-foreground uppercase tracking-widest">
-            <span>SYS_RDY // POLISH-FILTERS</span>
-          </div>
           <div className="flex items-center gap-6 text-xs font-mono uppercase tracking-wider text-muted-foreground">
             <a
               href={REPO_URL}
