@@ -120,7 +120,6 @@ export const CATEGORIES: readonly Category[] = [
 	"anti-adblock",
 	"brave",
 	"compatibility",
-	"content",
 	"cookies",
 	"hagezi",
 	"malware",

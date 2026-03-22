@@ -74,7 +74,6 @@ export type Category =
 	| "anti-adblock"
     | "brave"
 	| "compatibility"
-	| "content"
 	| "cookies"
 	| "hagezi"
 	| "malware"
