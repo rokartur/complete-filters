@@ -75,6 +75,7 @@ export type Category =
 	| "compatibility"
 	| "content"
 	| "cookies"
+	| "hagezi"
 	| "malware"
 	| "mobile"
 	| "mixed"

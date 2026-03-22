@@ -46,6 +46,12 @@ export const FILTER_SUBSCRIPTION_CATEGORIES: FilterSubscriptionCategory[] = [
     description: 'Cookie banners and consent frameworks.',
   },
   {
+    id: 'hagezi',
+    fileName: 'hagezi.txt',
+    title: 'HaGeZi',
+    description: 'Dedicated HaGeZi upstream blocklists separated into their own subscription.',
+  },
+  {
     id: 'malware',
     fileName: 'malware.txt',
     title: 'Malware',

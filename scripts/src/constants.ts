@@ -121,6 +121,7 @@ export const CATEGORIES: readonly Category[] = [
 	"compatibility",
 	"content",
 	"cookies",
+	"hagezi",
 	"malware",
 	"mobile",
 	"mixed",

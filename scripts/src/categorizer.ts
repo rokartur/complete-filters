@@ -76,6 +76,10 @@ export function classifySource(
 		return ["ads", "uAssets core filters family"]
 	}
 
+	if (hasPrimary("raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/", "github.com/hagezi/dns-blocklists")) {
+		return ["hagezi", "HaGeZi upstream family"]
+	}
+
 	if (hasPrimary("quick-fixes", "unbreak", "brave-unbreak", "sugarcoat")) {
 		return ["compatibility", "compatibility family"]
 	}

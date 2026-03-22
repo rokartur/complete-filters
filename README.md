@@ -51,6 +51,7 @@ Each file in [`filter/`](./filter/) is a separate generated list.
 | `compatibility` | Compatibility fixes and exceptions to reduce breakage |
 | `content` | Content-specific clutter, sponsored sections, placeholders, or low-value page junk |
 | `cookies` | Cookie banners and consent frameworks |
+| `hagezi` | Dedicated HaGeZi upstream blocklists, separated into their own subscription |
 | `malware` | Malware, phishing, scam, and otherwise high-risk domains |
 | `mixed` | Rules that do not fit neatly into a single narrow category |
 | `mobile` | Mobile-specific nuisances and mobile web clutter |
