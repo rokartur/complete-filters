@@ -144,3 +144,6 @@ This repository acts as an aggregator of filter lists.
 - the repository code and documentation are covered by the license described in [`LICENSE`](./LICENSE),
 - upstream lists and other imported rule content remain under the licenses chosen by their original authors,
 - before redistributing generated outputs, review the licensing terms of the relevant upstream sources.
+
+
+[add malware](https://subscribe.adblockplus.org/?location=https://raw.githubusercontent.com/rokartur/complete-filters/refs/heads/main/filter/malware.txt&title=Complete%20Filters%20-%20Malware).
