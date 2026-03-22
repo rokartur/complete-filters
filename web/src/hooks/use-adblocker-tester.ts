@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react'
 import { TEST_CATEGORIES } from '@/lib/test-definitions'
 import { testBaitElement, testNetworkResource, clearPerfEntryBackup } from '@/lib/detection-engine'
-import { initReferenceEngine, getFilterHint } from '@/lib/reference-engine'
+import { initReferenceEngine, initCompleteFiltersEngine, getFilterHint } from '@/lib/reference-engine'
 
 export type TestStatus = 'pending' | 'blocked' | 'not-blocked'
 export type FilterType = 'all' | 'blocked' | 'not-blocked' | 'pending'
@@ -172,9 +172,19 @@ export function useAdBlockTester() {
 
     try {
       initResults()
-      const referenceReady = initReferenceEngine()
+      // Load both reference engines in parallel:
+      // 1. Prebuilt (EasyList + EasyPrivacy) — fast, provides baseline hints
+      // 2. Complete-filters (all filter/*.txt) — provides full coverage
+      //    including $domain= restricted rules for accurate detection
+      const [referenceResult] = await Promise.allSettled([
+        initReferenceEngine(),
+        initCompleteFiltersEngine(),
+      ])
+      // Wait for prebuilt engine (critical for $redirect hints).
+      // Complete engine loads in parallel — if it's still loading when tests
+      // start, hints will be available for later batches and the retry pass.
+      void referenceResult
       await new Promise((r) => setTimeout(r, 50))
-      await referenceReady
 
       if (cancelledRef.current) return
 

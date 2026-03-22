@@ -1168,6 +1168,11 @@ export function testNetworkResource(
     return Promise.resolve('blocked')
   }
 
+  // Track whether the hint indicates this is a $domain= restricted rule.
+  // Network detection will still run (in case an unrestricted rule also exists),
+  // but if all methods say "not-blocked", we trust the reference engine verdict.
+  const hintDomainRestricted = hint?.domainRestricted ?? false
+
   return new Promise((resolve) => {
     let settled = false
     let completed = 0
@@ -1280,7 +1285,14 @@ export function testNetworkResource(
 
           if (completed === totalDetections) {
             // All methods returned not-blocked.
-            if (hintHasRedirect || hintShouldBlock) {
+            if (hintDomainRestricted) {
+              // URL matched a $domain= restricted rule in complete-filters.
+              // Network detection can't trigger these rules from the tester's
+              // domain — they only fire on specific websites. Since the rule
+              // EXISTS in the user's filter lists and would block on real
+              // websites, trust the reference engine verdict.
+              finish('blocked')
+            } else if (hintHasRedirect || hintShouldBlock) {
               // Reference engine says this URL should be blocked or redirected.
               // Do one final aggressive redirect check — some ad blockers may
               // have redirected without standard signals being caught.
