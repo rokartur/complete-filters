@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 23 Mar 2026 00:11:55 UTC
+! Last modified: 23 Mar 2026 00:23:55 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10839,7 +10839,11 @@ wikipedia.org#@#.modal
 ||uponit.com/front.js
 ||asset.pagefair.com/measures.js
 ||cdn.blockadblock.com/blockadblock.js
-||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$script
+! NOTE: $important needed — our own @@||cdnjs.cloudflare.com^ compatibility allowlist would otherwise let this anti-adblock script through
+||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$important
+||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$script,important
+||detectadblock.com^$important
+||www.detectadblock.com^$important
 ||gdpr-tcfv2.sp-prod.net/wrapperMessagingWithoutDetection.js
 !
 ! Email Tracking Pixels
@@ -10864,8 +10868,13 @@ wikipedia.org#@#.modal
 ! NOTE: $important needed — our own @@||*.tiktok.com^$all,important allowlist would otherwise let this ad host through
 ||ads.tiktok.com^$important
 ! NOTE: $important needed — our own @@||*.apple.com^ compatibility allowlist would otherwise let these telemetry hosts through
+||api-adservices.apple.com^$important
+||books-analytics-events.apple.com^$important
+||weather-analytics-events.apple.com^$important
 ||xp.apple.com^$important
 ||notes-analytics-events.apple.com^$important
+! NOTE: $important needed — our own @@||*.icloud.com^ compatibility allowlist would otherwise let this telemetry host through
+||metrics.icloud.com^$important
 !
 ! Retargeting / Affiliate Tracking
 ||creativecdn.com/tags
@@ -10923,5 +10932,5 @@ wikipedia.org#@#.modal
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 7946
+! Total unique rules: 7953
 ! Duplicates removed: 2010
