@@ -81,7 +81,8 @@ The canonical upstream URL manifests live in [`categories/`](./categories/). Eac
 
 Local repo-maintained overlays currently added during builds include:
 
-- [`manual-rules/manual-blocklist.txt`](./manual-rules/manual-blocklist.txt)
+- [`manual-rules/manual-blocklist.txt`](./manual-rules/manual-blocklist.txt) - Custom blocking rules to prevent breakage and block additional threats
+- [`manual-rules/manual-allowlist.txt`](./manual-rules/manual-allowlist.txt) - Whitelisting rules to allow critical services and prevent site breakage
 
 Category source overview:
 
