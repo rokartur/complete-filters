@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Video
 ! Description: Combined filter list for the video category.
-! Last modified: 23 Mar 2026 06:58:23 UTC
+! Last modified: 23 Mar 2026 07:25:51 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -4830,7 +4830,7 @@ www.microsoft.com##.card[data-bi-cn*=pregnan i][data-bi-cn*=doctor i]
 ! These exceptions use @@||domain^ (and $important where needed) to ensure
 ! core functionality is preserved even when aggressive upstream lists are enabled.
 !
-@@||pages.dev^
+@@||*.protondb.pages.dev^
 
 
 ! Total unique rules: 2519
