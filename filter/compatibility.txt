@@ -1,10 +1,10 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 23 Mar 2026 02:59:37 UTC
+! Last modified: 23 Mar 2026 06:58:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 14 / 14
+! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
 ! Diff-Path: ../patches/11/11-s-1774030855-3600.patch
@@ -19703,5 +19703,14 @@ thegatewaypundit.com##+js(rmnt, script, Object.getOwnPropertyDescriptor(Document
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 12750
+! ===== SOURCE: local:manual-allowlist.txt
+! Allow list for rules that can cause damage on websites
+! Prevent breakage on major websites that users visit daily.
+! These exceptions use @@||domain^ (and $important where needed) to ensure
+! core functionality is preserved even when aggressive upstream lists are enabled.
+!
+@@||pages.dev^
+
+
+! Total unique rules: 12751
 ! Duplicates removed: 7515

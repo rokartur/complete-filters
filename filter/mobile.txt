@@ -1,10 +1,10 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 23 Mar 2026 02:59:51 UTC
+! Last modified: 23 Mar 2026 06:58:16 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 8 / 8
+! Source count: 9 / 9
 !
 ! ===== SOURCE: https://abpvn.com/android/abpvn.txt
 ! Android host file - Adaway
@@ -39587,5 +39587,14 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 37572
+! ===== SOURCE: local:manual-allowlist.txt
+! Allow list for rules that can cause damage on websites
+! Prevent breakage on major websites that users visit daily.
+! These exceptions use @@||domain^ (and $important where needed) to ensure
+! core functionality is preserved even when aggressive upstream lists are enabled.
+!
+@@||pages.dev^
+
+
+! Total unique rules: 37573
 ! Duplicates removed: 1674

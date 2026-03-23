@@ -1,10 +1,10 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Video
 ! Description: Combined filter list for the video category.
-! Last modified: 23 Mar 2026 02:59:57 UTC
+! Last modified: 23 Mar 2026 06:58:23 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 9 / 9
+! Source count: 10 / 10
 !
 ! ===== SOURCE: https://raw.githubusercontent.com/kbinani/adblock-youtube-ads/master/signed.txt
 ##.ad-container
@@ -4824,5 +4824,14 @@ www.microsoft.com##.card[data-bi-cn*=pregnan i][data-bi-cn*=doctor i]
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 2518
+! ===== SOURCE: local:manual-allowlist.txt
+! Allow list for rules that can cause damage on websites
+! Prevent breakage on major websites that users visit daily.
+! These exceptions use @@||domain^ (and $important where needed) to ensure
+! core functionality is preserved even when aggressive upstream lists are enabled.
+!
+@@||pages.dev^
+
+
+! Total unique rules: 2519
 ! Duplicates removed: 16

@@ -1,10 +1,10 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 23 Mar 2026 02:59:37 UTC
+! Last modified: 23 Mar 2026 06:58:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 11 / 11
+! Source count: 12 / 12
 !
 ! ===== SOURCE: https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
 !
@@ -9076,5 +9076,14 @@ https://www.eff.org/files/cookieblocklist.txt
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 6478
+! ===== SOURCE: local:manual-allowlist.txt
+! Allow list for rules that can cause damage on websites
+! Prevent breakage on major websites that users visit daily.
+! These exceptions use @@||domain^ (and $important where needed) to ensure
+! core functionality is preserved even when aggressive upstream lists are enabled.
+!
+@@||pages.dev^
+
+
+! Total unique rules: 6479
 ! Duplicates removed: 1963
