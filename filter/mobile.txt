@@ -1,10 +1,10 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 22 Mar 2026 23:57:48 UTC
+! Last modified: 23 Mar 2026 00:02:50 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 17 / 17
+! Source count: 19 / 19
 !
 ! ===== SOURCE: https://abpvn.com/android/abpvn.txt
 ! Android host file - Adaway
@@ -54615,6 +54615,49 @@ mobi24.net#@#a[href^="http://www.mobi24.net/"]
 mobi24.net#@#a[href^="https://www.mobi24.net/"]
 
 
+! ===== SOURCE: https://raw.githubusercontent.com/LanikSJ/webannoyances/refs/heads/master/filters/adguard_app_android_exclusion_filters.txt
+! Last Modified: 2024-08-29 07:33 UTC
+! Forum: https://forums.lanik.us
+! Issues: https://github.com/LanikSJ/webannoyances/issues
+! Copyright: © 2016-2024 by yourduskquibbles and LanikSJ
+! Works Best With: uBlock Origin or AdGuard
+
+! Start Web Annoyances Ultralist - AdGuard Android App Exclusion Filters
+!#if adguard_app_android
+mobile.twitter.com###react-root > .rn-ipm5af.rn-zchlnj.rn-u8s1d.rn-1d2f490, ._3f2NsD-H.W1P7mM7E, ._3f2NsD-H._1363jyKz, ._3f2NsD-H._22omdtNH._8qpj9SE2._3xujJ3kq, ._3f2NsD-H._2qq9pBP0, header > .css-1dbjc4n[style^="height: calc(106px);"]
+mobile.twitter.com#@##react-root > .rn-ipm5af.rn-zchlnj.rn-u8s1d.rn-1d2f490, ._3f2NsD-H.W1P7mM7E, ._3f2NsD-H._1363jyKz, ._3f2NsD-H._22omdtNH._8qpj9SE2._3xujJ3kq, ._3f2NsD-H._2qq9pBP0, header > .css-1dbjc4n[style^="height: calc(106px);"], header[role="banner"] > div[style*="height"], header[role="banner"] > div[style]
+mobile.twitter.com#@#header[role="banner"] > div[style*="height"]
+mobile.twitter.com#@#header[role="banner"] > div[style]
+support.google.com#@#.fixed-sidebar-container:not([style*="left:"]):style(position: absolute !important; top: 0 !important;)
+www.google.com##.jhFIre
+www.google.com#@#.Lj9fsd:style(position: absolute !important; top: 20px !important; padding: 6px 0 0 0 !important; box-shadow: none !important;)
+www.google.com#@#header.Lj9fsd:style(position: absolute !important; top: 10px !important; box-shadow: none !important;)
+!#endif
+
+! ===== SOURCE: https://raw.githubusercontent.com/LanikSJ/webannoyances/refs/heads/master/filters/adguard_app_ios_exclusion_filters.txt
+! Last Modified: 2024-08-29 07:34 UTC
+! Forum: https://forums.lanik.us
+! Issues: https://github.com/LanikSJ/webannoyances/issues
+! Copyright: © 2016-2024 by yourduskquibbles and LanikSJ
+! Works Best With: uBlock Origin or AdGuard
+
+! Start Web Annoyances Ultralist - AdGuard iOS App Exclusion Filters
+!#if adguard_app_ios
+9to5google.com,9to5mac.com,9to5toys.com,dronedj.com,electrek.co,spaceexplored.com#@#.site-header-placeholder, .site-header.js-header-sticky .primary-menu
+baltimoresun.com,capitalgazette.com,chicagotribune.com,citypaper.com,courant.com,dailypress.com,mcall.com,nydailynews.com,orlandosentinel.com,pilotonline.com,sun-sentinel.com#@#.trb_close_button_svg, .videoPlayer.barker .titleBarContainer .prepend, .videoPlayer.barker .titleBarContainer .title, .videoPlayer:not(.barker) .titleBarContainer .barkerTitle, videoPlayer.barker .menuButton, .videoPlayer .floatCloseButton
+bloomberg.com#@##graphics-paywall-overlay, #paywall-banner, .navi-push-notification-prompt
+bloomberg.com#@#body:style(overflow: auto !important;)
+bloomberg.com#@#body[data-paywall-overlay-status="show"]:style(overflow-x: hidden !important; overflow-y: scroll !important;)
+mobile.twitter.com###react-root > .rn-ipm5af.rn-zchlnj.rn-u8s1d.rn-1d2f490, ._3f2NsD-H.W1P7mM7E, ._3f2NsD-H._1363jyKz, ._3f2NsD-H._22omdtNH._8qpj9SE2._3xujJ3kq, ._3f2NsD-H._2qq9pBP0, header > .css-1dbjc4n[style^="height: calc(106px);"]
+mobile.twitter.com#@##react-root > .rn-ipm5af.rn-zchlnj.rn-u8s1d.rn-1d2f490, ._3f2NsD-H.W1P7mM7E, ._3f2NsD-H._1363jyKz, ._3f2NsD-H._22omdtNH._8qpj9SE2._3xujJ3kq, ._3f2NsD-H._2qq9pBP0, header > .css-1dbjc4n[style^="height: calc(106px);"], header[role="banner"] > div[style*="height"], header[role="banner"] > div[style]
+mobile.twitter.com#@#header[role="banner"] > div[style*="height"]
+mobile.twitter.com#@#header[role="banner"] > div[style]
+msn.com#@#.dismiss-mini
+standard.co.uk#@#.video-popout-close
+thehill.com#@#.close-btn, [class="rollover-people-block"]
+verizon.com,verizonwireless.com#@#.gnav20-sticky-header
+!#endif
+
 ! ===== SOURCE: local:website-compatibility-allowlist.txt
 ! Website compatibility allowlist
 ! Prevent breakage on major websites that users visit daily.
@@ -56649,5 +56692,5 @@ wikipedia.org#@#.modal
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 51700
+! Total unique rules: 51721
 ! Duplicates removed: 8631
