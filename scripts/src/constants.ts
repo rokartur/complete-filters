@@ -16,6 +16,7 @@ export const CATEGORIES_DIR = resolve(ROOT, "categories")
 export const FILTER_DIR = resolve(ROOT, "filter")
 export const MANUAL_RULES = [
 	resolve(ROOT, "manual-rules", "manual-blocklist.txt"),
+	resolve(ROOT, "manual-rules", "manual-allowlist.txt"),
 ] as const
 
 // ── API ────────────────────────────────────────────────────────────────────

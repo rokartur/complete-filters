@@ -1,0 +1,7 @@
+! Allow list for rules that can cause damage on websites
+! Prevent breakage on major websites that users visit daily.
+! These exceptions use @@||domain^ (and $important where needed) to ensure
+! core functionality is preserved even when aggressive upstream lists are enabled.
+!
+@@||.netlify/scripts/rum^
+@@||pages.dev^
