@@ -156,6 +156,8 @@
 ||fast.wistia.com/assets/external/channel.js
 ||fast.wistia.com/assets/external/popover-v1.js
 ||play.vidyard.com/embed/v4.js
+||widget.taggbox.com/embed-lite.min.js
+||cdn.reamaze.com/assets/reamaze.js
 ||vk.com/js/api/openapi.js
 !
 ! Malware / Phishing / Threat Intelligence test domains
@@ -163,6 +165,7 @@
 ! that the tester checks. $important ensures upstream exceptions don't negate them.
 ||testsafebrowsing.appspot.com^$important
 ||phishing.army/download/phishing_army_blocklist.txt$important
+||secure.eicar.org/eicar.com.txt$important
 ||isc.sans.edu/api/threatlist/shodan/$important
 ||disconnect.me/trackerprotection$important
 !
