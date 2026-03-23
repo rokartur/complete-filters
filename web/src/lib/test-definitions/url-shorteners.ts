@@ -8,6 +8,5 @@ export const urlShorteners: TestCategory = {
     { name: 'exe.io', url: 'https://exe.io/js/full-page-script.js' },
     { name: 'linkvertise', url: 'https://linkvertise.com/cdn/publisher.js' },
     { name: 'ouo.io', url: 'https://ouo.io/' },
-    { name: 'shorte.st', url: 'https://shorte.st/' },
   ],
 }

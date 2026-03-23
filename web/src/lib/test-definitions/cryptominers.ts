@@ -11,7 +11,6 @@ export const cryptominers: TestCategory = {
     { name: '2Miners', url: 'https://2miners.com/' },
     { name: 'MinerAlt', url: 'https://mineralt.com/' },
     { name: 'NFWebMiner', url: 'https://nfwebminer.com/miner.js' },
-    { name: 'CoinHive', url: 'https://coin-hive.com/lib/coinhive.min.js' },
     { name: 'CryptoLoot', url: 'https://crypto-loot.com/lib/crlt.js' },
     { name: 'JSEcoin', url: 'https://jsecoin.com/server/api/' },
     { name: 'CoinIMP Miner', url: 'https://www.coinimp.com/scripts/min.js' },
