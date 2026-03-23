@@ -1,10 +1,10 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 23 Mar 2026 00:47:57 UTC
+! Last modified: 23 Mar 2026 01:06:19 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 14 / 14
+! Source count: 13 / 13
 !
 ! ===== SOURCE: https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
 !
@@ -8888,118 +8888,6 @@ https://www.eff.org/files/cookieblocklist.txt
 ! core functionality is preserved even when aggressive upstream lists are enabled.
 !
 ! ═══════════════════════════════════════════════════════════════
-! YouTube — video playback, comments, channels, embeds
-! ═══════════════════════════════════════════════════════════════
-! Emergency unbreak set: force-allow core playback endpoints even if an
-! upstream list uses very aggressive network filters.
-@@||youtube.com^$all,important
-@@||*.youtube.com^$all,important
-@@||youtu.be^$all,important
-@@||youtube-nocookie.com^$all,important
-@@||youtubei.googleapis.com^$all,important
-! Native/mobile YouTube clients can hit Google APIs outside a youtube.com page
-! context, so origin-scoped @@||googleapis.com^ exceptions are not enough.
-@@||www.googleapis.com^$all,important
-@@||*.googlevideo.com^$all,important
-@@||manifest.googlevideo.com^$all,important
-@@||redirector.googlevideo.com^$all,important
-@@||jnn-pa.googleapis.com^$all,important
-@@||wide-youtube.l.google.com^$all,important
-@@||*.ytimg.com^$all,important
-@@||i.ytimg.com^$all,important
-@@||s.ytimg.com^$all,important
-@@||*.ggpht.com^$all,important
-@@||yt3.ggpht.com^$all,important
-@@||yt4.ggpht.com^$all,important
-@@||yt3.googleusercontent.com^$all,important
-@@||lh3.googleusercontent.com^$all,important
-@@||imasdk.googleapis.com^$all,important
-! Upstream compatibility lists also need this app-specific exception for
-! YouTube Android/Samsung breakage.
-@@||googleadservices.com^|$app=com.google.android.youtube
-@@||googleapis.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
-@@||accounts.google.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
-@@||www.gstatic.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
-@@||ssl.gstatic.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
-@@||play.googleapis.com^$all,important,domain=youtube.com|www.youtube.com|m.youtube.com|music.youtube.com|tv.youtube.com
-
-@@||youtube.com^$important
-@@||www.youtube.com^$important
-@@||m.youtube.com^$important
-@@||music.youtube.com^$important
-@@||tv.youtube.com^$important
-@@||studio.youtube.com^$important
-@@||youtu.be^$important
-@@||youtube-nocookie.com^$important
-@@||*.ytimg.com^$important
-@@||i.ytimg.com^$important
-@@||s.ytimg.com^$important
-@@||*.ggpht.com^$important
-@@||yt3.ggpht.com^$important
-@@||yt4.ggpht.com^$important
-@@||yt3.googleusercontent.com^$important
-@@||lh3.googleusercontent.com^$important
-@@||play.google.com^$important
-@@||youtube.googleapis.com^$all,important
-@@||video-stats.l.google.com^$all,important
-!
-! ═══════════════════════════════════════════════════════════════
-! Facebook / Meta — timeline, comments, messenger, images, CDN
-! ═══════════════════════════════════════════════════════════════
-@@||facebook.com^
-@@||www.facebook.com^
-@@||m.facebook.com^
-@@||web.facebook.com^
-@@||*.facebook.com^$important,domain=facebook.com
-@@||connect.facebook.net^$important,domain=facebook.com
-@@||graph.facebook.com^$important,domain=facebook.com
-@@||edge-chat.facebook.com^$important
-@@||upload.facebook.com^
-@@||rupload.facebook.com^
-! Facebook/Meta image & video CDN — all regional scontent/fbcdn nodes
-@@||fbcdn.net^$image,important
-@@||fbcdn.net^$media,important
-@@||fbcdn.net^$xhr,important,domain=facebook.com|instagram.com|messenger.com
-@@||*.fbcdn.net^$important
-@@||*.fna.fbcdn.net^$important
-@@||static.xx.fbcdn.net^$important
-@@||scontent.xx.fbcdn.net^$important
-@@||scontent-*.xx.fbcdn.net^$important
-@@||video.xx.fbcdn.net^$important
-@@||video-*.xx.fbcdn.net^$important
-@@||external.xx.fbcdn.net^$important
-@@||external-*.xx.fbcdn.net^$important
-@@||xy.fbcdn.net^$important
-@@||xz.fbcdn.net^$important
-@@||fbcdn2.com^$important
-! Messenger
-@@||messenger.com^$all,important
-@@||*.messenger.com^$all,important
-@@||messenger.com^
-@@||www.messenger.com^
-@@||edge-chat.messenger.com^
-!
-! Instagram — images, stories, reels, profile pictures
-@@||instagram.com^
-@@||www.instagram.com^
-@@||i.instagram.com^
-@@||graph.instagram.com^
-@@||cdninstagram.com^$image,important
-@@||cdninstagram.com^$media,important
-@@||*.cdninstagram.com^$important
-@@||scontent-*.cdninstagram.com^$important
-@@||scontent.cdninstagram.com^$important
-!
-! WhatsApp Web
-@@||web.whatsapp.com^
-@@||*.whatsapp.net^
-@@||mmg.whatsapp.net^$important
-!
-! Threads
-@@||threads.net^
-@@||www.threads.net^
-!
-! ═══════════════════════════════════════════════════════════════
 ! Google — search, maps, gmail, drive, docs, translate, etc.
 ! ═══════════════════════════════════════════════════════════════
 ! Core Google infrastructure that YouTube (and other services) depends on.
@@ -9039,6 +8927,7 @@ https://www.eff.org/files/cookieblocklist.txt
 @@||clients4.google.com^$all,important
 @@||clients5.google.com^$all,important
 @@||clients6.google.com^$all,important
+@@||lh3.googleusercontent.com^$important
 @@||play.googleapis.com^$all,important
 @@||storage.googleapis.com^$important
 @@||firebaseinstallations.googleapis.com^$important
@@ -9497,250 +9386,6 @@ drive.google.com#@#[role="listbox"]
 maps.google.com#@#[role="dialog"]
 maps.google.com#@#[role="menu"]
 maps.google.com#@#[role="listbox"]
-!
-! ═══════════════════════════════════════════════════════════════
-! Facebook / Meta — comments, reactions, modals, stories
-! ═══════════════════════════════════════════════════════════════
-facebook.com#@#[role="dialog"]
-facebook.com#@#[role="menu"]
-facebook.com#@#[role="listbox"]
-facebook.com#@#[role="combobox"]
-facebook.com#@#[role="complementary"]
-facebook.com#@#[data-pagelet]
-facebook.com#@#.modal
-facebook.com#@#[aria-label="Comments"]
-facebook.com#@#[aria-label="Komentarze"]
-facebook.com#@#[data-testid="UFI2CommentsCount/root"]
-facebook.com#@#[data-testid]
-instagram.com#@#[role="dialog"]
-instagram.com#@#[role="menu"]
-instagram.com#@#[role="presentation"]
-instagram.com#@#[role="listbox"]
-instagram.com#@#.modal
-messenger.com#@#[role="dialog"]
-messenger.com#@#[role="menu"]
-messenger.com#@#[role="listbox"]
-messenger.com#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! Twitter / X — tweets, modals, menus, compose
-! ═══════════════════════════════════════════════════════════════
-twitter.com#@#[role="dialog"]
-twitter.com#@#[role="menu"]
-twitter.com#@#[role="listbox"]
-twitter.com#@#[role="combobox"]
-twitter.com#@#[data-testid="primaryColumn"]
-twitter.com#@#[data-testid="sidebarColumn"]
-twitter.com#@#[data-testid="tweet"]
-twitter.com#@#.modal
-x.com#@#[role="dialog"]
-x.com#@#[role="menu"]
-x.com#@#[role="listbox"]
-x.com#@#[role="combobox"]
-x.com#@#[data-testid="primaryColumn"]
-x.com#@#[data-testid="sidebarColumn"]
-x.com#@#[data-testid="tweet"]
-x.com#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! Reddit — comments, modals, overlays, vote buttons
-! ═══════════════════════════════════════════════════════════════
-reddit.com#@#[role="dialog"]
-reddit.com#@#[role="menu"]
-reddit.com#@#[role="listbox"]
-reddit.com#@#.modal
-reddit.com#@#.comment
-reddit.com#@#[data-testid="comment"]
-reddit.com#@#shreddit-comment
-reddit.com#@#shreddit-comment-tree
-reddit.com#@#.Comment
-!
-! ═══════════════════════════════════════════════════════════════
-! TikTok — comments, modals, menus
-! ═══════════════════════════════════════════════════════════════
-tiktok.com#@#[role="dialog"]
-tiktok.com#@#[role="menu"]
-tiktok.com#@#[role="listbox"]
-tiktok.com#@#.modal
-tiktok.com#@#[data-e2e="comment-list"]
-tiktok.com#@#[data-e2e="comment-item"]
-!
-! ═══════════════════════════════════════════════════════════════
-! Twitch — chat, modals, menus, dropdowns
-! ═══════════════════════════════════════════════════════════════
-twitch.tv#@#[role="dialog"]
-twitch.tv#@#[role="menu"]
-twitch.tv#@#[role="listbox"]
-twitch.tv#@#.modal
-twitch.tv#@#.chat-shell
-twitch.tv#@#.chat-list
-twitch.tv#@#.stream-chat
-twitch.tv#@#[data-a-target="chat-welcome-message"]
-!
-! ═══════════════════════════════════════════════════════════════
-! Discord — messages, modals, menus
-! ═══════════════════════════════════════════════════════════════
-discord.com#@#[role="dialog"]
-discord.com#@#[role="menu"]
-discord.com#@#[role="listbox"]
-discord.com#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! LinkedIn — feed, modals, menus, job cards
-! ═══════════════════════════════════════════════════════════════
-linkedin.com#@#[role="dialog"]
-linkedin.com#@#[role="menu"]
-linkedin.com#@#[role="listbox"]
-linkedin.com#@#.modal
-linkedin.com#@#.msg-overlay-list-bubble
-linkedin.com#@#.comments-comments-list
-!
-! ═══════════════════════════════════════════════════════════════
-! Pinterest — modals, pin detail, boards
-! ═══════════════════════════════════════════════════════════════
-pinterest.com#@#[role="dialog"]
-pinterest.com#@#[role="menu"]
-pinterest.com#@#[role="listbox"]
-pinterest.com#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! GitHub — modals, dropdowns, discussions, actions
-! ═══════════════════════════════════════════════════════════════
-github.com#@#[role="dialog"]
-github.com#@#[role="menu"]
-github.com#@#[role="listbox"]
-github.com#@#.modal
-github.com#@#.Overlay
-github.com#@#.SelectMenu
-github.com#@#.js-discussion
-github.com#@#.comment
-github.com#@#.timeline-comment
-github.com#@#.review-comment
-!
-! ═══════════════════════════════════════════════════════════════
-! Stack Overflow — answers, comments, modals
-! ═══════════════════════════════════════════════════════════════
-stackoverflow.com#@#[role="dialog"]
-stackoverflow.com#@#[role="menu"]
-stackoverflow.com#@#.modal
-stackoverflow.com#@#.comment
-stackoverflow.com#@#.answer
-stackoverflow.com#@##answers
-!
-! ═══════════════════════════════════════════════════════════════
-! Netflix — modals, menus, player controls
-! ═══════════════════════════════════════════════════════════════
-netflix.com#@#[role="dialog"]
-netflix.com#@#[role="menu"]
-netflix.com#@#[role="listbox"]
-netflix.com#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! Amazon — product details, modals, reviews, search results
-! ═══════════════════════════════════════════════════════════════
-amazon.com#@#[role="dialog"]
-amazon.com#@#[role="menu"]
-amazon.com#@#[role="listbox"]
-amazon.com#@#.modal
-amazon.com#@##reviewsMedley
-amazon.com#@#.review
-amazon.com#@##productDescription
-amazon.pl#@#[role="dialog"]
-amazon.pl#@#[role="menu"]
-amazon.pl#@#[role="listbox"]
-amazon.pl#@#.modal
-amazon.de#@#[role="dialog"]
-amazon.de#@#[role="menu"]
-amazon.de#@#[role="listbox"]
-amazon.de#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! eBay — modals, search, product
-! ═══════════════════════════════════════════════════════════════
-ebay.com#@#[role="dialog"]
-ebay.com#@#[role="menu"]
-ebay.com#@#[role="listbox"]
-ebay.com#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! Polish popular sites (Allegro, OLX, WP, Onet, etc.)
-! ═══════════════════════════════════════════════════════════════
-allegro.pl#@#[role="dialog"]
-allegro.pl#@#[role="menu"]
-allegro.pl#@#[role="listbox"]
-allegro.pl#@#.modal
-allegro.pl#@#._9c44d_2gFti
-allegro.pl#@#.opbox-listing
-olx.pl#@#[role="dialog"]
-olx.pl#@#[role="menu"]
-olx.pl#@#[role="listbox"]
-olx.pl#@#.modal
-wp.pl#@#[role="dialog"]
-wp.pl#@#.modal
-onet.pl#@#[role="dialog"]
-onet.pl#@#.modal
-tvn24.pl#@#[role="dialog"]
-tvn24.pl#@#.modal
-bankier.pl#@#[role="dialog"]
-bankier.pl#@#.modal
-ceneo.pl#@#[role="dialog"]
-ceneo.pl#@#.modal
-pracuj.pl#@#[role="dialog"]
-pracuj.pl#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! Banking / Payments — never break banking UI
-! ═══════════════════════════════════════════════════════════════
-paypal.com#@#[role="dialog"]
-paypal.com#@#[role="menu"]
-paypal.com#@#[role="listbox"]
-paypal.com#@#.modal
-paypal.com#@#select
-paypal.com#@#form
-stripe.com#@#[role="dialog"]
-stripe.com#@#.modal
-revolut.com#@#[role="dialog"]
-revolut.com#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! Kick — chat, modals, menus
-! ═══════════════════════════════════════════════════════════════
-kick.com#@#[role="dialog"]
-kick.com#@#[role="menu"]
-kick.com#@#[role="listbox"]
-kick.com#@#.modal
-kick.com#@#.chat-entry
-!
-! ═══════════════════════════════════════════════════════════════
-! Microsoft — Outlook, Office 365, Teams
-! ═══════════════════════════════════════════════════════════════
-microsoft.com#@#[role="dialog"]
-microsoft.com#@#[role="menu"]
-microsoft.com#@#[role="listbox"]
-microsoft.com#@#.modal
-outlook.live.com#@#[role="dialog"]
-outlook.live.com#@#[role="menu"]
-outlook.live.com#@#[role="listbox"]
-outlook.live.com#@#.modal
-outlook.office.com#@#[role="dialog"]
-outlook.office.com#@#[role="menu"]
-teams.microsoft.com#@#[role="dialog"]
-teams.microsoft.com#@#[role="menu"]
-!
-! ═══════════════════════════════════════════════════════════════
-! Spotify — player, modals, menus
-! ═══════════════════════════════════════════════════════════════
-open.spotify.com#@#[role="dialog"]
-open.spotify.com#@#[role="menu"]
-open.spotify.com#@#[role="listbox"]
-open.spotify.com#@#.modal
-!
-! ═══════════════════════════════════════════════════════════════
-! Wikipedia / Wikimedia
-! ═══════════════════════════════════════════════════════════════
-wikipedia.org#@#[role="dialog"]
-wikipedia.org#@#.modal
-!
 !
 ! #############################################################
 ! #                                                           #
@@ -10653,103 +10298,6 @@ wikipedia.org#@#.modal
 @@||pexels.com^$document,important
 @@||pixabay.com^$document,important
 
-! ===== SOURCE: local:developer-infrastructure-allowlist.txt
-! Developer infrastructure allowlist
-! Prevent breakage for code hosting, package managers, container registries,
-! editors and CLI tooling used in developer workflows.
-! This is especially important for system-wide blockers (for example AdGuard DNS/Desktop).
-!
-! GitHub / Homebrew
-@@||github.com^
-@@||api.github.com^
-@@||codeload.github.com^
-@@||raw.githubusercontent.com^
-@@||objects.githubusercontent.com^
-@@||github-releases.githubusercontent.com^
-@@||release-assets.githubusercontent.com^
-@@||release-assets.githubusercontent.com/github-production-release-asset$important
-@@||pkg-containers.githubusercontent.com^
-@@||ghcr.io^
-@@||npm.pkg.github.com^
-@@||maven.pkg.github.com^
-@@||nuget.pkg.github.com^
-@@||rubygems.pkg.github.com^
-@@||formulae.brew.sh^
-!
-! GitLab
-@@||gitlab.com^
-@@||assets.gitlab-static.net^
-@@||registry.gitlab.com^
-@@||packages.gitlab.com^
-!
-! Common package registries / SDK distribution
-@@||npmjs.com^
-@@||registry.npmjs.org^
-@@||registry.yarnpkg.com^
-@@||yarnpkg.com^
-@@||nodejs.org^
-@@||pypi.org^
-@@||files.pythonhosted.org^
-@@||rubygems.org^
-@@||crates.io^
-@@||index.crates.io^
-@@||static.crates.io^
-@@||proxy.golang.org^
-@@||sum.golang.org^
-@@||repo.maven.apache.org^
-@@||repo1.maven.org^
-@@||nuget.org^
-@@||api.nuget.org^
-@@||globalcdn.nuget.org^
-!
-! Container registries
-@@||hub.docker.com^
-@@||registry-1.docker.io^
-@@||auth.docker.io^
-@@||production.cloudflare.docker.com^
-!
-! Editors / IDE extensions
-@@||marketplace.visualstudio.com^
-@@||update.code.visualstudio.com^
-@@||vscode.download.prss.microsoft.com^
-@@||open-vsx.org^
-@@||plugins.jetbrains.com^
-@@||download.jetbrains.com^
-!
-! Additional developer platforms / deployment
-@@||bitbucket.org^
-@@||api.bitbucket.org^
-@@||id.atlassian.com^
-@@||api.atlassian.com^
-@@||hashicorp.com^
-@@||releases.hashicorp.com^
-@@||checkpoint-api.hashicorp.com^
-@@||registry.terraform.io^
-@@||app.terraform.io^
-@@||dash.cloudflare.com^
-@@||api.cloudflare.com^
-@@||developers.cloudflare.com^
-@@||vercel.com^
-@@||api.vercel.com^
-@@||assets.vercel.com^
-@@||netlify.com^
-@@||api.netlify.com^
-@@||app.netlify.com^
-@@||supabase.com^
-@@||api.supabase.com^
-@@||app.supabase.com^
-!
-! Bun
-@@||bun.com^
-@@||oven.sh^
-@@||pkg.bun.sh^
-@@||downloads.bun.sh^
-!
-! TailScale
-@@||tailscale.com^
-@@||login.tailscale.com^
-
-
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
 ! Additional explicit blocking rules for endpoints tested by the tester tool.
@@ -10813,7 +10361,6 @@ wikipedia.org#@#.modal
 ||mediavisor.doubleclick.net^
 ||googleads.g.doubleclick.net^
 ||admob-sdk.google.com/adunit
-! NOTE: imasdk.googleapis.com REMOVED — blocking it breaks YouTube video playback entirely
 ||us.posthog.com/static/array.js
 ||eu.posthog.com/static/array.js
 ||us.posthog.com/static/array.full.js
@@ -10928,9 +10475,8 @@ wikipedia.org#@#.modal
 ||o0.ingest.sentry.io^$important
 !
 ! Social Media Tracking
-! NOTE: $important needed — upstream @@||connect.facebook.net^$important in compatibility filter negates the block
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 7953
-! Duplicates removed: 2010
+! Total unique rules: 7624
+! Duplicates removed: 2002
