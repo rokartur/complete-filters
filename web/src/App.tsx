@@ -14,7 +14,7 @@ export default function App() {
         Skip to tester
       </a>
 
-      <div className="relative mx-auto w-full max-w-[1336px] px-0 py-0 sm:px-4 sm:py-4">
+      <div className="relative mx-auto w-full max-w-334 px-0 py-0 sm:px-4 sm:py-4">
         <div className="w-full overflow-hidden border border-border bg-card">
           <header className="border-b border-border">
             <SubscribeBanner />

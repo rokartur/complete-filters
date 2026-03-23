@@ -23,7 +23,7 @@ export const SeoContent = memo(function SeoContent() {
       aria-labelledby="seo-content-title"
       className="border-t border-border bg-card px-4 py-8 md:px-6 md:py-12 font-sans"
     >
-      <div className="mx-auto max-w-[1336px] space-y-12">
+      <div className="mx-auto max-w-334 space-y-12">
         <div className="animate-section-in max-w-3xl space-y-4" style={SECTION_DELAY_0}>
           <h2 id="seo-content-title" className="font-display text-3xl font-bold tracking-tight text-foreground md:text-5xl uppercase">
             {SITE_COPY.seo.title}
