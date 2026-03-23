@@ -15,12 +15,9 @@ export function TesterPage() {
       {/* Tester Header */}
       <div className="border-b border-border bg-card px-4 py-4 sm:px-6 md:px-8">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="font-display text-lg font-bold uppercase tracking-tight text-foreground sm:text-xl">
+          <h2 className="font-display text-lg font-bold tracking-tight text-foreground sm:text-xl">
             {SITE_COPY.tester.title}
           </h2>
-          <p className="text-xs text-muted-foreground font-mono">
-            {SITE_COPY.tester.description}
-          </p>
         </div>
       </div>
 

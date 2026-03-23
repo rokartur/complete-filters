@@ -67,7 +67,6 @@ interface SiteCopy {
   }
   tester: {
     title: string
-    description: string
     progress: string
     runTests: string
     testing: string
@@ -147,7 +146,7 @@ export const SITE_COPY: SiteCopy = {
       'Measure ad, tracker, popup, malware, and anti-adblock blocking in uBlock Origin, AdGuard, Brave, and similar tools across general and regional web threats.',
   },
   banner: {
-    title: 'Complete Filters',
+    title: 'Want better blocking? Try Complete Filters',
     description: 'Aggressive category-based filter lists for ad blockers.',
     copyButton: 'Copy filter list',
     githubButton: 'GitHub',
@@ -161,9 +160,7 @@ export const SITE_COPY: SiteCopy = {
     copyAllFailed: 'Copy failed',
   },
   tester: {
-    title: 'Ad blocking tester',
-    description:
-      'A comprehensive filter test that checks whether ad, tracking, malware, popup, and other risky domains are blocked correctly.',
+    title: 'Check your blocker\'s real-world performance',
     progress: 'Test progress',
     runTests: 'Run tests',
     testing: 'Testing...',
