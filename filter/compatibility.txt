@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 23 Mar 2026 01:59:01 UTC
+! Last modified: 23 Mar 2026 02:34:19 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 16 / 16
@@ -21103,6 +21103,8 @@ maps.google.com#@#[role="listbox"]
 ||fast.wistia.com/assets/external/channel.js
 ||fast.wistia.com/assets/external/popover-v1.js
 ||play.vidyard.com/embed/v4.js
+||widget.taggbox.com/embed-lite.min.js
+||cdn.reamaze.com/assets/reamaze.js
 ||vk.com/js/api/openapi.js
 !
 ! Malware / Phishing / Threat Intelligence test domains
@@ -21110,6 +21112,7 @@ maps.google.com#@#[role="listbox"]
 ! that the tester checks. $important ensures upstream exceptions don't negate them.
 ||testsafebrowsing.appspot.com^$important
 ||phishing.army/download/phishing_army_blocklist.txt$important
+||secure.eicar.org/eicar.com.txt$important
 ||isc.sans.edu/api/threatlist/shodan/$important
 ||disconnect.me/trackerprotection$important
 !
@@ -21124,5 +21127,5 @@ maps.google.com#@#[role="listbox"]
 ||connect.facebook.net/en_US/fbevents.js$important
 
 
-! Total unique rules: 13915
+! Total unique rules: 13918
 ! Duplicates removed: 7535
