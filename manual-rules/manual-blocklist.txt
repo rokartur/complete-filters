@@ -109,8 +109,17 @@
 ! and the tester first checks this URL via fetch(), not only as a <script>.
 ||app.termly.io/embed-policy.min.js$important
 ||app.termly.io/embed-policy.min.js$script,important
+||cdn.consentmanager.net/delivery/autoblocking/
 !
 ! Explicit overrides against our own broad compatibility allowlists
+! NOTE: $important needed — our own @@||microsoft.com^ compatibility allowlist would otherwise let this ad host through
+||ads.microsoft.com^$important
+! NOTE: $important needed — our own @@||allegro.pl^ compatibility allowlist would otherwise let this tracking host through
+||analytics.allegro.pl^$important
+! NOTE: $important needed — our own @@||wp.pl^ compatibility allowlist would otherwise let this ad host through
+||reklama.wp.pl^$important
+! NOTE: $important needed — our own @@||static.cloudflareinsights.com^ compatibility allowlist would otherwise let this analytics script through
+||static.cloudflareinsights.com/beacon.min.js$important
 ! NOTE: $important needed — our own @@||*.tiktok.com^$all,important allowlist would otherwise let this ad host through
 ||ads.tiktok.com^$important
 ! NOTE: $important needed — our own @@||*.apple.com^ compatibility allowlist would otherwise let these telemetry hosts through
@@ -175,6 +184,9 @@
 ! Error Tracking / Telemetry Ingestion
 ! NOTE: $important needed — upstream @@||*ingest.sentry.io* in anti-adblock filter negates the block
 ||o0.ingest.sentry.io^$important
+! NOTE: $important needed — our own @@||cdnjs.cloudflare.com^ compatibility allowlist would otherwise let this error tracker through
+||cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.26.0/rollbar.min.js$important
+||cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.26.0/rollbar.min.js$script,important
 !
 ! Social Media Tracking
 ||connect.facebook.net/en_US/fbevents.js$important

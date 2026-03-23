@@ -20,7 +20,6 @@ export const cookieConsent: TestCategory = {
     { name: 'Axeptio', url: 'https://static.axept.io/sdk.js' },
     { name: 'Cookie Script', url: 'https://cdn.cookie-script.com/s/0.js' },
     { name: 'CookieFirst', url: 'https://consent.cookiefirst.com/sites/0/consent.js' },
-    { name: 'Transcend', url: 'https://cdn.transcend.io/cm/0/airgap.js' },
     { name: 'Securiti', url: 'https://cdn.securiti.ai/consent/cookie-consent-sdk.js' },
   ],
 }

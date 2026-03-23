@@ -26,7 +26,6 @@ export const socialTrackers: TestCategory = {
     { name: 'ShareThis', url: 'https://platform-api.sharethis.com/js/sharethis.js' },
     { name: 'AddThis', url: 'https://s7.addthis.com/js/300/addthis_widget.js' },
     { name: 'Instagram Embed', url: 'https://www.instagram.com/embed.js' },
-    { name: 'X (Twitter) Ads API', url: 'https://ads-api.twitter.com/' },
     { name: 'Threads Embed', url: 'https://www.threads.net/embed.js' },
     { name: 'Telegram Widget', url: 'https://telegram.org/js/telegram-widget.js' },
     { name: 'Quora Pixel', url: 'https://q.quora.com/_/ad/0/pixel' },
