@@ -60,7 +60,6 @@
 ||mediavisor.doubleclick.net^
 ||googleads.g.doubleclick.net^
 ||admob-sdk.google.com/adunit
-! NOTE: imasdk.googleapis.com REMOVED — blocking it breaks YouTube video playback entirely
 ||us.posthog.com/static/array.js
 ||eu.posthog.com/static/array.js
 ||us.posthog.com/static/array.full.js
@@ -175,5 +174,4 @@
 ||o0.ingest.sentry.io^$important
 !
 ! Social Media Tracking
-! NOTE: $important needed — upstream @@||connect.facebook.net^$important in compatibility filter negates the block
 ||connect.facebook.net/en_US/fbevents.js$important

@@ -73,8 +73,6 @@ Be especially careful when using these filters in system-wide or DNS-level envir
 - **AdGuard Desktop**,
 - other tools that filter all traffic for the whole device or system.
 
-This repository also includes explicit compatibility exceptions for developer infrastructure to reduce the risk of breaking system tools and CLI workflows.
-
 ## Sources and attribution
 
 This project is an aggregator. It uses publicly available filter lists maintained by the adblock community and respects the rights and licenses of their original authors.
@@ -85,7 +83,6 @@ Local repo-maintained overlays currently added during builds include:
 
 - [`manual-rules/website-compatibility-allowlist.txt`](./manual-rules/website-compatibility-allowlist.txt)
 - [`manual-rules/popular-sites-document-allowlist.txt`](./manual-rules/popular-sites-document-allowlist.txt)
-- [`manual-rules/developer-infrastructure-allowlist.txt`](./manual-rules/developer-infrastructure-allowlist.txt)
 - [`manual-rules/manual-blocklist.txt`](./manual-rules/manual-blocklist.txt)
 
 Category source overview:

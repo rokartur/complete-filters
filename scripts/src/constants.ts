@@ -17,7 +17,6 @@ export const FILTER_DIR = resolve(ROOT, "filter")
 export const MANUAL_RULES = [
 	resolve(ROOT, "manual-rules", "website-compatibility-allowlist.txt"),
 	resolve(ROOT, "manual-rules", "popular-sites-document-allowlist.txt"),
-	resolve(ROOT, "manual-rules", "developer-infrastructure-allowlist.txt"),
 	resolve(ROOT, "manual-rules", "manual-blocklist.txt"),
 ] as const
 
