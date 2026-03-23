@@ -9,5 +9,10 @@ export const retargeting: TestCategory = {
     { name: 'Criteo Retargeting', url: 'https://dis.criteo.com/dis/rtb/appnexus/cookieMatch.aspx' },
     { name: 'RTB House', url: 'https://creativecdn.com/tags' },
     { name: 'Facebook Custom Audiences', url: 'https://www.facebook.com/tr?id=0&ev=PageView' },
+    { name: 'Tealium', url: 'https://tags.tiqcdn.com/utag/0/utag.js' },
+    { name: 'TradeDesk Insight', url: 'https://insight.adsrvr.org/track/evnt/' },
+    { name: 'TradeDesk Match', url: 'https://match.adsrvr.org/' },
+    { name: 'LiveIntent', url: 'https://i.liadm.com/' },
+    { name: 'Adobe Everest', url: 'https://cm.everesttech.net/' },
   ],
 }

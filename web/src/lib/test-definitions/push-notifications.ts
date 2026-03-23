@@ -13,5 +13,9 @@ export const pushNotifications: TestCategory = {
     { name: 'VWO Engage', url: 'https://d5phz18u4wuww.cloudfront.net/PushSDK-Latest.js' },
     { name: 'Aimtell', url: 'https://cdn.aimtell.com/trackpush/sdk.js' },
     { name: 'WonderPush', url: 'https://cdn.by.wonderpush.com/sdk/1.1/wonderpush-loader.min.js' },
+    { name: 'Gravitec', url: 'https://cdn.gravitec.net/storage/0/client.js' },
+    { name: 'Pushwoosh', url: 'https://cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js' },
+    { name: 'PushAssist', url: 'https://cdn.pushassist.com/account/assets/pa.js' },
+    { name: 'Pushnami', url: 'https://api.pushnami.com/scripts/v1/pushnami-adv/0' },
   ],
 }

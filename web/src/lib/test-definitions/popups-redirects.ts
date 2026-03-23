@@ -15,5 +15,9 @@ export const popupsRedirects: TestCategory = {
     { name: 'Propeller Push', url: 'https://propu.sh/pfe/current/tag.min.js' },
     { name: 'ExoClick', url: 'https://syndication.exoclick.com/splash.php' },
     { name: 'ExoClick (a)', url: 'https://a.exoclick.com/' },
+    { name: 'ClickAdu', url: 'https://js.clickadu.com/' },
+    { name: 'Galaksion', url: 'https://servicer.galaksion.com/' },
+    { name: 'RichAds', url: 'https://richads.com/' },
+    { name: 'Monetag', url: 'https://monetag.com/' },
   ],
 }

@@ -15,5 +15,10 @@ export const cdnWidgets: TestCategory = {
     { name: 'Disqus', url: 'https://complete-filters.disqus.com/embed.js' },
     { name: 'AddToAny', url: 'https://static.addtoany.com/menu/page.js' },
     { name: 'OpenWeb (Spot.im)', url: 'https://launcher.spot.im/spot/0' },
+    { name: 'Zotabox', url: 'https://static.zotabox.com/c/0.js' },
+    { name: 'Elfsight', url: 'https://static.elfsight.com/platform/platform.js' },
+    { name: 'Wisepops', url: 'https://wisepops.net/loader.js' },
+    { name: 'Crazy Egg', url: 'https://script.crazyegg.com/pages/scripts/0/0.js' },
+    { name: 'Taggbox', url: 'https://widget.taggbox.com/embed-lite.min.js' },
   ],
 }

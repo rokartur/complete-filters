@@ -14,5 +14,9 @@ export const emailTracking: TestCategory = {
     { name: 'ActiveCampaign Email', url: 'https://lt.actcampaign.com/open' },
     { name: 'Brevo (Sendinblue)', url: 'https://sibautomation.com/sa.js' },
     { name: 'ConvertKit', url: 'https://f.convertkit.com/ckjs/ck.5.js' },
+    { name: 'SendGrid Tracking', url: 'https://u.sendgrid.net/' },
+    { name: 'Customer.io', url: 'https://track.customer.io/' },
+    { name: 'Amazon SES Tracking', url: 'https://r.us-east-1.awstrack.me/' },
+    { name: 'Iterable Tracking', url: 'https://links.iterable.com/' },
   ],
 }

@@ -27,5 +27,10 @@ export const newslettersPopups: TestCategory = {
     { name: 'JivoChat', url: 'https://code.jivosite.com/widget/0' },
     { name: 'Tidio', url: 'https://code.tidio.co/0.js' },
     { name: 'Gorgias', url: 'https://config.gorgias.chat/bundle-loader/0' },
+    { name: 'Chatra', url: 'https://call.chatra.io/chatra.js' },
+    { name: 'Re:amaze', url: 'https://cdn.reamaze.com/assets/reamaze.js' },
+    { name: 'Gleam', url: 'https://js.gleam.io/e.js' },
+    { name: 'Poptin', url: 'https://cdn.popt.in/pixel.js' },
+    { name: 'OptiMonk', url: 'https://front.optimonk.com/public/0/js/onsite/optiMonk.js' },
   ],
 }

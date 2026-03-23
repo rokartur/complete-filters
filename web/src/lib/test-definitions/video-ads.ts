@@ -16,5 +16,10 @@ export const videoAds: TestCategory = {
     { name: 'VAST (video ads)', url: 'https://pubads.g.doubleclick.net/gampad/ads?iu=/0/video' },
     { name: 'Teads (video)', url: 'https://cdn.teads.tv/media/format.js' },
     { name: 'Dailymotion', url: 'https://api.dmcdn.net/all.js' },
+    { name: 'SpotX', url: 'https://cdn.spotxcdn.com/integration/instreamRenderer/1.0/main.js' },
+    { name: 'SpringServe', url: 'https://vid.springserve.com/vast/0' },
+    { name: 'Brightcove Ads', url: 'https://players.brightcove.net/videojs-ima3/5/videojs.ima3.min.js' },
+    { name: 'AppNexus Video', url: 'https://acdn.adnxs.com/video/static/vpaid/ANPrebidAd.js' },
+    { name: 'Aniview', url: 'https://player.aniview.com/script/6.1/aniview.js' },
   ],
 }

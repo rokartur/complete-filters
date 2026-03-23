@@ -29,5 +29,7 @@ export const telemetry: TestCategory = {
     { name: 'Yandex offerwall', url: 'https://offerwall.yandex.net/' },
     { name: 'Yandex adfox', url: 'https://adfox.yandex.ru/' },
     { name: 'Unity webview', url: 'https://webview.unityads.unity3d.com/' },
+    { name: 'Mozilla Telemetry', url: 'https://incoming.telemetry.mozilla.org/' },
+    { name: 'Firefox Normandy', url: 'https://normandy.cdn.mozilla.net/' },
   ],
 }

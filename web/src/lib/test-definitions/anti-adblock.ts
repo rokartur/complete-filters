@@ -11,5 +11,9 @@ export const antiAdblock: TestCategory = {
     { name: 'Uponit', url: 'https://uponit.com/front.js' },
     { name: 'Detect AdBlock', url: 'https://www.detectadblock.com/' },
     { name: 'Google Funding Choices', url: 'https://fundingchoicesmessages.google.com/i/pub-0' },
+    { name: 'PageFair', url: 'https://asset.pagefair.com/measure.min.js' },
+    { name: 'Clean.io', url: 'https://cdn.clean.io/tags/main.js' },
+    { name: 'Instart Logic', url: 'https://script.instartlogic.com/' },
+    { name: 'Adskeeper Anti-Adblock', url: 'https://jsc.adskeeper.com/site.js' },
   ],
 }

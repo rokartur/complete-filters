@@ -18,5 +18,9 @@ export const dataBrokers: TestCategory = {
     { name: 'ZoomInfo', url: 'https://ws.zoominfo.com/pixel/0' },
     { name: 'Bombora DMP', url: 'https://ml314.com/tag.aspx' },
     { name: 'Treasure Data', url: 'https://cdn.treasuredata.com/sdk/2.5/td.min.js' },
+    { name: 'IntentIQ', url: 'https://cdn.intentiq.com/intentiq/loader.js' },
+    { name: 'Permutive', url: 'https://cdn.permutive.com/0-web.js' },
+    { name: 'Weborama', url: 'https://cstatic.weborama.fr/js/advertiserv2/adperf_launch.js' },
+    { name: 'Nielsen DAR', url: 'https://secure-dcr.imrworldwide.com/cgi-bin/gn' },
   ],
 }

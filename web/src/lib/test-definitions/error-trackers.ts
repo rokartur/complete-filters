@@ -16,5 +16,8 @@ export const errorTrackers: TestCategory = {
     { name: 'TrackJS', url: 'https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js' },
     { name: 'Raygun', url: 'https://cdn.raygun.io/raygun4js/raygun.min.js' },
     { name: 'Honeybadger', url: 'https://js.honeybadger.io/v6.0/honeybadger.min.js' },
+    { name: 'Airbrake', url: 'https://cdn.airbrake.io/modules/v1/notifier.esm.min.js' },
+    { name: 'Sentry Browser v8', url: 'https://browser.sentry-cdn.com/8.0.0/bundle.min.js' },
+    { name: 'CatchJS', url: 'https://cdn.catchjs.com/catch.js' },
   ],
 }

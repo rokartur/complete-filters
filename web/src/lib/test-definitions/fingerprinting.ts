@@ -20,5 +20,10 @@ export const fingerprinting: TestCategory = {
     { name: 'Telesign', url: 'https://cdn.telesign.com/sdk/verify.js' },
     { name: 'Iovation', url: 'https://mpsnare.iesnare.com/snare.js' },
     { name: 'Arkose Labs', url: 'https://client-api.arkoselabs.com/v2/0/api.js' },
+    { name: 'FingerprintJS Pro', url: 'https://fpjscdn.net/v3/0' },
+    { name: 'DoubleVerify', url: 'https://pub.doubleverify.com/' },
+    { name: 'Moat Analytics', url: 'https://z.moatads.com/0/moatad.js' },
+    { name: 'Oracle MOAT', url: 'https://cdn.moat.com/moatad.js' },
+    { name: 'Proximic', url: 'https://segment-data.zqtk.net/' },
   ],
 }

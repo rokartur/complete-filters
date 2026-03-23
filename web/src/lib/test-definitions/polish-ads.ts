@@ -27,5 +27,11 @@ export const polishAds: TestCategory = {
     { name: 'Piwik PRO', url: 'https://piwik.pro/' },
     { name: 'GetResponse', url: 'https://cdn.getresponse.com/widget.js' },
     { name: 'Albacross', url: 'https://serve.albacross.com/track.js' },
+    { name: 'Gemius (Polsat)', url: 'https://polsat.hit.gemius.pl/' },
+    { name: 'Gemius (Gazeta)', url: 'https://gazeta.hit.gemius.pl/' },
+    { name: 'Gemius (RMF)', url: 'https://rmf.hit.gemius.pl/' },
+    { name: 'adocean (Onet)', url: 'https://onet.adocean.pl/' },
+    { name: 'adocean (WP)', url: 'https://wp.adocean.pl/' },
+    { name: 'adocean (Interia)', url: 'https://interia.adocean.pl/' },
   ],
 }

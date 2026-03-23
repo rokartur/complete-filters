@@ -32,5 +32,7 @@ export const nativeTelemetry: TestCategory = {
     { name: 'Apple books-analytics', url: 'https://books-analytics-events.apple.com/' },
     { name: 'Apple weather-analytics', url: 'https://weather-analytics-events.apple.com/' },
     { name: 'Apple notes-analytics', url: 'https://notes-analytics-events.apple.com/' },
+    { name: 'LG Ad Solutions', url: 'https://ad.lgappstv.com/' },
+    { name: 'TCL Smart TV', url: 'https://data.rumba.tclclouds.com/' },
   ],
 }

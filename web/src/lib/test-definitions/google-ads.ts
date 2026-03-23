@@ -17,5 +17,11 @@ export const googleAds: TestCategory = {
     { name: 'm.doubleclick.net', url: 'https://m.doubleclick.net/' },
     { name: 'mediavisor.doubleclick.net', url: 'https://mediavisor.doubleclick.net/' },
     { name: 'googleads.g.doubleclick.net', url: 'https://googleads.g.doubleclick.net/' },
+    { name: 'tpc.googlesyndication.com', url: 'https://tpc.googlesyndication.com/' },
+    { name: 'ade.googlesyndication.com', url: 'https://ade.googlesyndication.com/' },
+    { name: 'adclick.g.doubleclick.net', url: 'https://adclick.g.doubleclick.net/' },
+    { name: 'cm.g.doubleclick.net', url: 'https://cm.g.doubleclick.net/' },
+    { name: 'bid.g.doubleclick.net', url: 'https://bid.g.doubleclick.net/' },
+    { name: 'fls.doubleclick.net', url: 'https://fls.doubleclick.net/' },
   ],
 }

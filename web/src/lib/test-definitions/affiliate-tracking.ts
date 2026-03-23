@@ -13,5 +13,10 @@ export const affiliateTracking: TestCategory = {
     { name: 'Skimlinks', url: 'https://s.skimresources.com/js/0.js' },
     { name: 'VigLink', url: 'https://cdn.viglink.com/api/vglnk.js' },
     { name: 'PartnerStack', url: 'https://js.partnerstack.com/v1/' },
+    { name: 'CJ (tkqlhce)', url: 'https://www.tkqlhce.com/' },
+    { name: 'CJ (dpbolvw)', url: 'https://www.dpbolvw.net/' },
+    { name: 'CJ (anrdoezrs)', url: 'https://www.anrdoezrs.net/' },
+    { name: 'CJ (jdoqocy)', url: 'https://www.jdoqocy.com/' },
+    { name: 'Rakuten Advertising', url: 'https://click.linksynergy.com/' },
   ],
 }
