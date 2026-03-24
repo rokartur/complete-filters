@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 23 Mar 2026 07:25:31 UTC
+! Last modified: 24 Mar 2026 00:31:24 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1774030855-3600.patch
+! Diff-Path: ../patches/11/11-s-1774258249-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -169,6 +169,8 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+||ad.bestools.group^
+||ad.zankhana.ltd^
 ||afs.googlesyndication.com^
 ||pob-mob2.websearchbrowser.com^
 ||ucads.ucweb.com^
@@ -2639,6 +2641,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+aydindenge.com.tr##.mad
 ole.com.ar#$#.bannerTopHeader ~ section[class^="sc-"]:has(> div[class^="sc-"] div.right) { top: 0 !important; }
 ole.com.ar#$##__next > header { padding-top: 50px !important; }
 ole.com.ar##article > div[class^="sc-"]:has(> div[id^="div-gpt-ad"])
@@ -9381,7 +9384,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1774030879-3600.patch
+! Diff-Path: ../patches/11/11-s-1774258275-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -19712,5 +19715,5 @@ thegatewaypundit.com##+js(rmnt, script, Object.getOwnPropertyDescriptor(Document
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12751
-! Duplicates removed: 7515
+! Total unique rules: 12754
+! Duplicates removed: 7518
