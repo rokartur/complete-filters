@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 24 Mar 2026 01:35:49 UTC
+! Last modified: 25 Mar 2026 01:36:11 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -6431,6 +6431,9 @@ game8.jp##div[id^="g8-ad-placement"]
 ||game8.jp/api/ad/advertisement_placements?
 ||game8.jp/assets/*/ads/
 ||game8.jp/assets/pc/jack_ad/
+! gigafile.nu
+gigafile.nu##.gf-bottom-panel-left
+gigafile.nu##.pr_area_sp
 ! Japanese first-party (exception rules)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150552
 @@||ads.nicovideo.jp/assets/js/ads2.js$domain=com.nicovideo.jp
@@ -6819,5 +6822,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5809
+! Total unique rules: 5811
 ! Duplicates removed: 8

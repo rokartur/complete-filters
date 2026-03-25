@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 24 Mar 2026 01:35:49 UTC
+! Last modified: 25 Mar 2026 01:36:11 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1774258249-3600.patch
+! Diff-Path: ../patches/11/11-s-1774333965-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -160,10 +160,10 @@
 ||plugin.mobopay.baidu.com^
 ||mo.freeindoapp.com^
 ! AfreecaTV
-||vod-mplayer.sooplive.co.kr^
-||reqde.sooplive.co.kr^
-||adballoon.sooplive.co.kr^
-||deapi.sooplive.co.kr^
+||vod-mplayer.sooplive.com^
+||reqde.sooplive.com^
+||adballoon.sooplive.com^
+||deapi.sooplive.com^
 ! Yandex ads in apps
 ||startup.mobile.yandex.net^
 ||startup.mobile.webvisor.com^
@@ -2063,7 +2063,7 @@ motherless.com$$script[tag-content="awentw.com"][min-length="2000"][max-length="
 ! https://github.com/AdguardTeam/AdguardFilters/issues/62745
 @@||hit.gemius.pl^$app=pl.allegro
 ! https://github.com/AdguardTeam/AdguardFilters/issues/61569
-||sooplive.co.kr/data/af_app_ad_mobile.js
+||sooplive.com/data/af_app_ad_mobile.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/59674
 @@||cdp.cloud.unity3d.com^$app=com.rovio.baba
 @@||config.uca.cloud.unity3d.com^$app=com.rovio.baba
@@ -2641,6 +2641,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+noticias.yahoo.com##div.sticky.bottom-0:has(> div.ad-container)
+support.huawei.com##.mobile-common-doc-footer
+liteapks.com###ad-unit-1
 aydindenge.com.tr##.mad
 ole.com.ar#$#.bannerTopHeader ~ section[class^="sc-"]:has(> div[class^="sc-"] div.right) { top: 0 !important; }
 ole.com.ar#$##__next > header { padding-top: 50px !important; }
@@ -9384,7 +9387,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1774258275-3600.patch
+! Diff-Path: ../patches/11/11-s-1774333997-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13308,10 +13311,10 @@ japscan.*##+js(norafif, Date)
 japscan.*##.HuKlQ > div > div:not(#reader):remove()
 japscan.*##+js(aost, MessageChannel, /stackDepth:2.+inlineScript/)
 japscan.*###noticeMessage[role] ~ div:not(#reader):remove()
-japscan.*##div[yaripz]:remove()
+japscan.*##div[oeipqaa]:remove()
 japscan.*##+js(prevent-innerHTML, , /\.(gif|jpe?g|png|webp)/)
-japscan.*##+js(aopr, Element.prototype.textContent)
-japscan.*##:matches-path(/^\/man(g|hw)a/) div[id]:matches-attr("/[0-9A-Za-z]{6,}/"="/.{3,}/")
+japscan.*##+js(set, Element.prototype.textContent, undefined)
+japscan.*##:matches-path(/^\/man(g|h.)a/) div div[id]:matches-attr("/[0-9A-Za-z]{5,}/"="/.{3,}/"):matches-css(position:fixed)
 japscan.*##html > div[style="position: fixed; inset: 0px; z-index: 2147483647; pointer-events: auto;"]
 japscan.*##+js(norafif, requestAnimationFrame)
 japscan.*##+js(trusted-suppress-native-method, Document.prototype.createElement, '"span"', abort, /apply in.+[0-9A-Za-z]{8\,10} inlineScript/)
@@ -13320,7 +13323,7 @@ japscan.*##+js(trusted-suppress-native-method, Document.prototype.createElement,
 japscan.*##+js(aopr, aclib)
 japscan.*##+js(trusted-suppress-native-method, Element.prototype.getElementsByTagName, '"div"', abort, /apply in.+[0-9A-Za-z]{8\,10} inlineScript/)
 japscan.*##+js(aost, performance.now, /\s[0-9A-Za-z]{8\,10} inlineScript:1/)
-japscan.*##+js(acs, Array.prototype.push, /^([\S\s]{2500\,4000}|[\S\s]{4500\,5000})$/)
+japscan.*##+js(acs, Array.prototype.push, /^\s*\(\s*function\s*\(\s*[-$0-9A-Z_a-z]+[\S\s]{2000\,6000}$/)
 japscan.*##+js(acs, Array.prototype.join, /^[\S\s]{2000\,6000}$/)
 japscan.*##+js(acs, DOMTokenList.prototype.remove, /^[\S\s]{3000\,4000}$/)
 
@@ -19509,6 +19512,8 @@ temperatur.nu#@#.holidAds:upward(1)
 ! https://github.com/uBlockOrigin/uAssets/issues/32196
 ||ruamupr.com^$script,redirect=noopjs,domain=thegatewaypundit.com
 thegatewaypundit.com##+js(rmnt, script, Object.getOwnPropertyDescriptor(Document.prototype)
+thegatewaypundit.com##+js(set, String.prototype.allReplace, 1)
+thegatewaypundit.com##^script[onload][onerror]
 
 
 ! ===== SOURCE: local:manual-blocklist.txt
@@ -19715,5 +19720,5 @@ thegatewaypundit.com##+js(rmnt, script, Object.getOwnPropertyDescriptor(Document
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12754
-! Duplicates removed: 7518
+! Total unique rules: 12759
+! Duplicates removed: 7521
