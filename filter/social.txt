@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 26 Mar 2026 01:36:49 UTC
+! Last modified: 27 Mar 2026 01:36:25 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10637,6 +10637,7 @@ datacenterdynamics.com##.a2a_default_style
 tandfonline.com##.a2a_share_target
 reserveamerica.com##.acm-article-share
 marriott.com,sandiegouniontribune.com##.action-bar
+consequence.net##.add-to-google
 womansworld.com##.add-to-google-banner__wrapper___1PWZa
 city-journal.org##.addthis-trigger
 lwlies.com##.addthis_toolbox
@@ -13811,7 +13812,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1774427024-3600.patch
+! Diff-Path: ../patches/4/4-s-1774532389-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14419,6 +14420,11 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+gucluanadolugazetesi.com##aside[data-widget-unique-key^="sosyal_medya_sayfalarim"]
+sabah.com.tr##.row > div.col-xs-12:has(> div.facebookWidget)
+amedsportv.com##.w-full > div.flex-wrap:has(> ul.ssk-group)
+amedsportv.com##.col-span-1 > div.grid:has(> div.flex > a[href="https://x.com/amedsportv21"])
+quiz-maker.site#?#p.heading_message:contains(結果をシェア!!)
 youtube.com###bottom-sheet-wrapper ytm-share-target-renderer:not(:has(> a[href^="mailto:?"]))
 cadenaser.com##.bt-share
 zoff.co.jp##.zm__article__header__sns
@@ -17320,7 +17326,7 @@ lifematome.blog##.sb_copy
 polygamia.pl##div[data-content="Udostępnij"]
 polygamia.pl##button[aria-label="Udostępnij"]
 pudelek.pl,dobreprogramy.pl##button[aria-label="UDOSTĘPNIJ"]
-genic-web.com,toriizaka46.jp##.sns-share-list
+genic-web.com##.sns-share-list
 siliconangle.com##.m_social-icon-container
 divernet.com##.saboxplugin-socials
 nandemoiiyoch.com##div[id^="sns-"]
@@ -22079,7 +22085,7 @@ drugs.com##a[data-ga-category="social"]
 china-review.com.ua##div[class="butn  pull-left"]
 webtekno.com,teknotalk.com,edumap.az,emlakkulisi.com,mundoconectado.com.br##.share-items
 stylebook.de,fitbook.de,techbook.de##body .shariff
-xasiat.com,sxspy.com,porngem.com,thebussybandit.com##a[href="#tab_share"]
+megatube.xxx,xasiat.com,sxspy.com,porngem.com,thebussybandit.com##a[href="#tab_share"]
 borkenerzeitung.de##.StoryShowShare
 cosmo.com.ua##.pinterest1
 tproger.ru##.quiz_share_wrapper
@@ -29848,7 +29854,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1774471690-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1774558061-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38031,7 +38037,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1774427043-3600.patch
+! Diff-Path: ../patches/4/4-s-1774532404-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -38376,6 +38382,7 @@ m.tf.co.kr##li.sBtn_reply:style(float: initial!important; display: inline-block!
 !
 ! NOTE: Specific rules
 !
+quiz-maker.site##p.heading_message:contains(結果をシェア!!)
 googlegaido.quest,androidjapan.one##+js(set-cookie, tpgwcc, 1)
 beincrypto.com##div[class^="Container-sc-"] > div[class^="Label-"]:contains(Share Article)
 cohere.com##main p.text-xs.uppercase:contains(Share:)
@@ -40276,7 +40283,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1774427043-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1774532404-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54508,5 +54515,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51238
-! Duplicates removed: 63892
+! Total unique rules: 51245
+! Duplicates removed: 63901
