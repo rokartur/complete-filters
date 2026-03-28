@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 27 Mar 2026 01:36:19 UTC
+! Last modified: 28 Mar 2026 01:36:05 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -37223,6 +37223,10 @@ fmovies.co###ics
 ! dailymail.co.uk
 dailymail.co.uk##+js(abort-on-property-read, Notification)
 
+! imdb.com
+||media-amazon.com/images/S/sash/$domain=imdb.com
+||imdbtv.amazon.dev/2021-01-01/ads?$domain=imdb.com
+
 ! https://github.com/easylist/easylist/commit/d3a2c54ac
 @@||app.posthog.com/decide/
 
@@ -39596,5 +39600,5 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 37573
+! Total unique rules: 37575
 ! Duplicates removed: 1674
