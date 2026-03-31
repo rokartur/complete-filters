@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 30 Mar 2026 01:36:17 UTC
+! Last modified: 31 Mar 2026 01:36:18 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -8994,7 +8994,6 @@ turbopages.org#%#//scriptlet('json-prune', '*.blockId')
 [$path=/q]yandex.*#%#//scriptlet('json-prune', 'direct rtb')
 !
 ! Kinopoisk
-kinopoisk.ru##div[class*="adfoxSpecialPopup"]
 www.kinopoisk.ru#%#//scriptlet('set-constant', 'Object.prototype.renderToNode', 'undefined')
 www.kinopoisk.ru##div[class^="styles_fixed_"][class*="styles_"][data-tid]
 www.kinopoisk.ru##div[class^="toaster-container"]
@@ -9002,6 +9001,9 @@ hd.kinopoisk.ru##.ReactModalPortal > div[class*=" styles_fixed__"]:has(> div > a
 kinopoisk.ru##div[class*="_adBlockWarningRoot__"]
 www.kinopoisk.ru##.media-post-page > div[class*=" "][data-tid]:not([class*="media"])
 www.kinopoisk.ru#?#div[class*="_"]:has(> div[aria-hidden][data-tid] > div[id][class][data-tid] + script:contains(/JSON\.parse\(\'\{\"containerId\"/))
+! Breaks useful popups
+! https://github.com/AdguardTeam/AdguardFilters/issues/227462#issue-4110610712
+! kinopoisk.ru##div[class*="adfoxSpecialPopup"]
 !
 ! auto.ru
 auto.ru#%#//scriptlet('json-prune', 'ads')
@@ -9579,7 +9581,8 @@ strumyk.icu#$##adblock-overlay { display: none !important; }
 strumyk.icu#$#body.ab-locked { overflow: auto !important; }
 ||cdn.ziffstatic.com/jst/zdconsent.js$domain=maxroll.gg
 maxroll.gg#%#//scriptlet('set-constant', 'adblock', 'false')
-maxroll.gg#%#//scriptlet('prevent-addEventListener', 'adblock', '(!0)')
+maxroll.gg#%#//scriptlet('prevent-addEventListener', '/adblock|[a-zA-Z0-9]{40,80}/', '(!0)')
+maxroll.gg#%#//scriptlet('prevent-element-src-loading', 'script', 'cdn.ziffstatic.com/')
 linovelib.com#%#//scriptlet('abort-on-stack-trace', 'document.querySelectorAll', '_0x')
 linovelib.com#$##adblock-dialog { display: none !important; }
 linovelib.com#$#body.no-scroll { overflow: auto !important; }
@@ -12120,9 +12123,6 @@ ka-news.de,insideevs.de,de.motor1.com,rlptoday.de,news.de,mainpost.de,aufderbueh
 ! #@#.banner_ad
 !#safari_cb_affinity
 !
-! Hdrezka - window.abc
-hdrezka.inc,hdrezka-home.tv,3ivi.com,bestofkinopoisk.com,drezka.pl,flymaterez.net,hdrezka-sex-city.net,hdrezka.ag,hdrezka.club,hdrezka.cm,hdrezka.co,hdrezka.in,hdrezka.kim,hdrezka.me,hdrezka.name,hdrezka.pl,hdrezka.rest,hdrezka.sh,hdrezka.site,hdrezka.today,hdrezka.tv,hdrezka.vip,hdrezka.website,hdrezka19139.org,hdrezka1twwpb.org,hdrezka2tepnm.org,hdrezka2vmmty.org,hdrezka720dhh.org,hdrezka8bdhtq.org,hdrezka9bsbhq.org,hdrezka9fmskj.org,hdrezkaonline.com,hdrezkayou.com,hello-rezka.tv,kinopub.me,kvk.pub,omnirezka.tv,punisher-hdrezka.net,rezka-ua.in,rezka-ua.org,rezka-ua.tv,rezka.fi,rezka.si,rezka.space,rezkery.com,rezkify.com,standby-rezka.tv,rezka.ag#%#//scriptlet("set-constant", "window.abc", "false")
-!
 ! online-fix.me
 online-fix.me#%#//scriptlet('prevent-setTimeout', '/[a-w0-9]{12,}/')
 online-fix.me#$#div.quote a.btn { pointer-events: auto !important; }
@@ -12580,5 +12580,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 9310
+! Total unique rules: 9309
 ! Duplicates removed: 1995

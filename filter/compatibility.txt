@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 30 Mar 2026 01:36:17 UTC
+! Last modified: 31 Mar 2026 01:36:18 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1774808242-3600.patch
+! Diff-Path: ../patches/11/11-s-1774881625-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2641,6 +2641,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+onedio.com##div[class^="sm:"] > div.bg-white:has(> div > div#mansetAlti-container)
+thothub.to,thothub.ch,thothub.*##.content > .top
+shareanynudes.com,hornyfap.tv##.container > .content:has(.video-strip-shell)
 idnes.cz##.list-art-odklad > div.section > .art-full div[class*="touch-"]:has(> div .ads-interscroller)
 idnes.cz##.list-art-odklad > div.section > .art-full div[class*="touch-"]:has(> div a[href^="https://servix.idnes.cz/data.aspx"] > img[src^="https://1gr.cz/"])
 idnes.cz###wrapper > div.section > div[class*="touch-"]:has(> div .ads-interscroller)
@@ -2651,7 +2654,6 @@ tvtonight.com.au###mobile-anchor-container
 health.tvbs.com.tw##div[data-testid="ad-uptop-mobile-wrapper"]
 noticias.yahoo.com##div.sticky.bottom-0:has(> div.ad-container)
 support.huawei.com##.mobile-common-doc-footer
-liteapks.com###ad-unit-1
 aydindenge.com.tr##.mad
 ole.com.ar#$#.bannerTopHeader ~ section[class^="sc-"]:has(> div[class^="sc-"] div.right) { top: 0 !important; }
 ole.com.ar#$##__next > header { padding-top: 50px !important; }
@@ -7235,7 +7237,7 @@ netzwelt.de###leaderboard_mobile
 deviantart.com##.mobile_instream_ad_resizable
 pdalife.com,pdalife.to,utro.ru,dni.ru,pdalife.ru##.js-banner
 anifresh.com###minpack-sticker-frame
-noticias.yahoo.com,mtgsalvation.com,aydinlik.com.tr,insider.com,rookie.shonenjump.com,gmx.*,zeit.de,jp.ign.com,opencritic.com,www-news18-com.cdn.ampproject.org,eurogamer.net,mumsnet.com,news18.com,amp.indiatimes.com,dronedj.com,bodybuilding.com,transfermarkt.de##.ad-container
+pornoenspanish.es,noticias.yahoo.com,mtgsalvation.com,aydinlik.com.tr,insider.com,rookie.shonenjump.com,gmx.*,zeit.de,jp.ign.com,opencritic.com,www-news18-com.cdn.ampproject.org,eurogamer.net,mumsnet.com,news18.com,amp.indiatimes.com,dronedj.com,bodybuilding.com,transfermarkt.de##.ad-container
 jp.ign.com,amp.theguardian.com,zeenews.india.com,amp.fakty.ua,indianexpress.com##amp-iframe
 rbc.ru##.banners__mobile-freeze
 lifo.gr##.ad_inside > .sticky-wrap
@@ -9395,7 +9397,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1774808265-3600.patch
+! Diff-Path: ../patches/11/11-s-1774881649-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -19697,5 +19699,5 @@ ebc.com.br##+js(set, executaGoogleAnalytics3, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12736
-! Duplicates removed: 7529
+! Total unique rules: 12738
+! Duplicates removed: 7531
