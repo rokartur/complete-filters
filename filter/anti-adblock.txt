@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 31 Mar 2026 01:36:18 UTC
+! Last modified: 01 Apr 2026 01:35:56 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10744,8 +10744,6 @@ techinferno.com##.ipsModal
 techinferno.com##div[aria-label^="AdBlock Detected!"]
 techinferno.com#$#body { overflow: visible !important; }
 technews.tw##.AD_wrapper
-techobest.com#%#//scriptlet("abort-current-inline-script", "document.getElementById", "adback")
-techobest.com$$script[tag-content="adback_configuration"][min-length="100000"][max-length="360000"]
 techonthenet.com##.adsblocked
 techsolutiontips.com#%#window.google_jobrunner = function() { };
 techtobo.com##.notices--block
@@ -12580,5 +12578,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 9309
+! Total unique rules: 9307
 ! Duplicates removed: 1995

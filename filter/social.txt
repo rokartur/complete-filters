@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 31 Mar 2026 01:36:38 UTC
+! Last modified: 01 Apr 2026 01:36:16 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -13755,7 +13755,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1774902060-3600.patch
+! Diff-Path: ../patches/4/4-s-1774971324-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14363,6 +14363,8 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+volkskrant.nl##div[class]:has(> button[title="Delen via Facebook"])
+vdata.nikkei.com###twitterShareBtn
 caliber.az##.instagram
 caliber.az#?#.post_view > div.block:has(> div.block_title:contains(Share it))
 bokser.org##.block > div.flex:has(> a[href^="https://www.facebook.com/sharer/sharer.php?"])
@@ -14392,7 +14394,6 @@ world.kbs.co.kr##.right_youtube_banners
 world.kbs.co.kr##.comp_right_SNS
 hentaila.com##button[aria-label="Compartir"]
 bleague.jp##.sns-links
-gamesradar.com###utilitybar__button--share
 qiita.com##div[id^="PersonalArticlePage-"] > div[class^="style-"] > div[class^="style-"] > button[aria-label]:has(> span.is-fill.material-symbols-outlined)
 qiita.com##.is-fill.material-symbols-outlined
 missav.run##div[onclick="onShareVideo()"]
@@ -14518,7 +14519,6 @@ thetoc.gr##.social.a2a_kit
 tapatalk.com##.share_icon_area
 news.web.nhk#?#h1 + div > div > div >  button:contains(シェアする)
 kolesa.ru##div[id^="vk_groups_"]
-livescience.com###utilitybar__button--share
 zhihu.com##.Popover-content div.ShareMenu-menuItems > button.ShareMenu-button:has(> svg[class*="-Weibo24"])
 gamefile.news#?#.pencraft > div.pencraft:has(> button > div:contains(Share))
 gamefile.news##button:has(> svg > path[d^="M4 12v8a2"])
@@ -14639,7 +14639,7 @@ hominis.media##.share-modal-open
 hominis.media##li:has(> a.share-modal-open)
 qms.ru##.result-link
 kyivindependent.com##div[class^="ShareButton_wrapButton"]
-windowscentral.com###utilitybar__button--share
+techradar.com,gamesradar.com,livescience.com,windowscentral.com,pcgamer.com,tomshardware.com###utilitybar__button--share
 thepounddropper.com,seededatthetable.com,kitchendivas.com##.social-rocket-inline-buttons
 inkatrinaskitchen.com##div[class^="social-rocket-"][class*="-button"]
 dinnerthendessert.com##.share-recipe
@@ -19517,7 +19517,6 @@ needtoknow.co.uk,faindx.com,whatifgaming.com,geekman.in##.sticky-share-list
 mel.fm##.mobile-share__menu
 mashingup.jp##.p-Post_Share
 kickz.com##.b-product_details-share
-labnol.org##.max-w-xs > div.flex
 etnews.com##.articla_acc a:not(.share_scrap):not([class^="fs_"])
 digital.izu-np.co.jp,agrinews.co.jp##.hk-sns
 atlanticcouncil.org##.gta-hover-share
@@ -24109,7 +24108,7 @@ uludagsozluk.com##a[onclick^="ulu.paylas"]
 tasit.com##.content-detail-social
 mp3.zing.vn##.social-mini
 mp3.zing.vn###app.zs > .zs-container
-hypebeast.cn###mobile-share-bar
+geekwire.com,hypebeast.cn###mobile-share-bar
 rg.ru##rg-share
 hurriyet.com.tr##.list-detail .right.aligned.column > button.tiny.icon
 courrier.jp,makeup.com.ua,thisismoney.co.uk##.fb
@@ -25834,7 +25833,6 @@ healthinfo.ua##.mc-share-post
 yerkoyhabergazetesi.com##.mediaShareGroup
 hotcopper.com.au,spot.im##.message-share
 wccftech.com##.meta-share-bottom
-thesportbible.com##.meta__shares
 mashable.com##.microcontent-shares
 thefreethoughtproject.com##.mini-share-post
 songtexte.com##.mobileShare
@@ -25936,7 +25934,7 @@ huffingtonpost.com##.share-bar-highlight
 haberself.com##.share-box-new
 ajanskarabuk.com,sanattanyansimalar.com,duzcepusula.com,denizlidesiyaset.com,malatyadan.com,habermarmara.com.tr,larende.com,karamandauyanis.com,iskilipinsesi.com,ankaraport.net##.share-buttons-2
 cambridge.org,beebom.com,pressandjournal.co.uk,gl.ali213.net,watchmojo.com,m.slashdot.org,ssrn.com,g24.gal,techgear.gr,fortnite.com,firstsportz.com,panini.com.br,theadvocate.com,dagbladet.no,estadao.com.br,techbang.com,punto-informatico.it,lemon8-app.com,kauf-unique.de,rebootonline.com,seireigensouki.com,moriarty-anime.com,pokemon.co.jp,familyminded.com,workandmoney.com,you.regettingold.com,robots.net,cnews.ru,konkret24.tvn24.pl,dailyprogress.com,webtekno.com##.share-container
-blogspot.com,blogspot.de,thesportbible.com##.share-controls
+blogspot.com,blogspot.de##.share-controls
 dailymail.co.uk##.share-count
 last.fm##.share-desktop
 nspk.ru,japantimes.co.jp,salon24.pl,gamespot.com##.share-dropdown
@@ -29806,7 +29804,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1774889494-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1774990131-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -37989,7 +37987,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1774902074-3600.patch
+! Diff-Path: ../patches/4/4-s-1774971346-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40237,7 +40235,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1774902074-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1774971346-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54489,5 +54487,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51277
-! Duplicates removed: 63853
+! Total unique rules: 51275
+! Duplicates removed: 63851

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 31 Mar 2026 01:36:18 UTC
+! Last modified: 01 Apr 2026 01:35:56 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1774881625-3600.patch
+! Diff-Path: ../patches/11/11-s-1774952953-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -169,6 +169,8 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+||multiww.com^
+||geegad.com^
 ||ad.bestools.group^
 ||ad.zankhana.ltd^
 ||afs.googlesyndication.com^
@@ -2641,6 +2643,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+mamastar.jp##.p-bbs__bottom__ad__bottom_border
+technologymagazine.com###wrapper-undefined:has(> div[class^="Advert_"])
 onedio.com##div[class^="sm:"] > div.bg-white:has(> div > div#mansetAlti-container)
 thothub.to,thothub.ch,thothub.*##.content > .top
 shareanynudes.com,hornyfap.tv##.container > .content:has(.video-strip-shell)
@@ -2744,7 +2748,6 @@ baseballchannel.jp###sp_all_header
 ||cdn.sinparty.com^$subdocument,domain=imgbox.com
 imgbox.com##a[href^="https://sinparty.com/"]
 imgbox.com##._ln-floater
-abtranny.com##.under-header-slider
 abtranny.com##.header_mobile:has(> div.ad__title)
 abtranny.com##.video__wrapper > div.wrapper:has(> section div.ad__title)
 abtranny.com#$#.video-page__info > div.headline { margin-top: 0 !important; }
@@ -9397,7 +9400,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1774881649-3600.patch
+! Diff-Path: ../patches/11/11-s-1774952972-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13580,6 +13583,9 @@ embedtv.best##+js(rpnt, script, (popupLoaded), (true))
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/88e8b74bc6a9936fcf0fef4de0555f7410c17ddd
 ://*.*.cn/jp^$doc,to=cn,badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/32293
+winaero.com#@#.windia:not(.thank-you-adguard)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19478,6 +19484,9 @@ temperatur.nu#@#.holidAds:upward(1)
 ! https://github.com/uBlockOrigin/uAssets/issues/31892#issuecomment-3983638436
 ||target-video.com^$3p,badfilter
 
+! https://github.com/uBlockOrigin/uAssets/discussions/32384
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=fastcompany.com,redirect=google-ima.js,important
+
 ! https://github.com/uBlockOrigin/uAssets/issues/32074
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,3p,redirect-rule,from=webmd.com
 
@@ -19699,5 +19708,5 @@ ebc.com.br##+js(set, executaGoogleAnalytics3, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12738
-! Duplicates removed: 7531
+! Total unique rules: 12743
+! Duplicates removed: 7534
