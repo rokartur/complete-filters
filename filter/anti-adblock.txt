@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 02 Apr 2026 01:36:04 UTC
+! Last modified: 03 Apr 2026 01:35:31 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -11152,6 +11152,7 @@ goduke.com,uwaterloo.ca##div[aria-label="Ad Blocker Detected"]
 ! SECTION[id=general]: Anti-adblock - Common '!#safari_cb_affinity(general)' directive
 !#safari_cb_affinity(general)
 !
+@@||usersdrive.com/aclib.js
 fotpforums.com#@#ins.adsbygoogle[data-ad-slot]
 fotpforums.com#@#ins.adsbygoogle[data-ad-client]
 @@||content.adriver.ru/AdRiverFPS.js$domain=rg.ru
@@ -12580,5 +12581,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 9309
+! Total unique rules: 9310
 ! Duplicates removed: 1995

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 02 Apr 2026 01:36:04 UTC
+! Last modified: 03 Apr 2026 01:35:31 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775064441-3600.patch
+! Diff-Path: ../patches/11/11-s-1775137205-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -169,6 +169,11 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+||pullcf.com^
+||fnyfeds.com^
+||api2.wshareit.com^
+||mcds.dalyfeds.com^
+||api-v2.shareitgames.com^
 ||catsonictp.com^
 ||multiww.com^
 ||geegad.com^
@@ -2647,6 +2652,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+wikwik.org##.a_v
+||wikwik.org/a1.js
 decrypt.co##div.post-content > div.post-content-w-full:has(> div > div[id^="decrypt_mobile_articles_inline"])
 mamastar.jp##.p-bbs__bottom__ad__bottom_border
 technologymagazine.com###wrapper-undefined:has(> div[class^="Advert_"])
@@ -5929,7 +5936,7 @@ tripnote.jp###button-booking
 hochi.news##.ad[style^="min-width: 360px; min-height: 100px"]
 hochi.news##.ad[style^="min-width: 336px"]
 hochi.news##div[style^="min-width: 320px; min-height: 1"]
-inporn.com##.video__wrapper > div.header__item
+manysex.com,manysex.tube,inporn.com##.video__wrapper > div.header__item
 number.bunshun.jp##div[class^="container-banner-"]
 comic.pixiv.net##.w-screen.bg-surface4-default[data-testid="container"]
 refind2ch.org##.ads_sp_base
@@ -9408,7 +9415,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775064472-3600.patch
+! Diff-Path: ../patches/11/11-s-1775137234-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13384,29 +13391,30 @@ $frame,3p,domain=8rm3l0i9.fun|iqksisgw.xyz|u6lyxl0w.skin|l1afav.net,replace='/^/
 ! Ad-Shield
 dogdrip.net##html[lang="ko"] [id^="img_"][style]:has(iframe[frameborder="0"][style]):style(clip-path: circle(0) !important;)
 smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[frameborder="0"][style]):style(clip-path: circle(0) !important;)
-~dogdrip.net,~smsonline.cloud##div[style^="height:    250px; width:    300px;"]
-~dogdrip.net,~smsonline.cloud##div[style^="width:    160px; height:    600px; margin: 0px auto; min-width: 160px; min-height: 600px;"]
-~dogdrip.net,~smsonline.cloud##div[style^="width:    300px; height:    250px;"]
-~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2502032353000"]
-~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2507172035000"]
-~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2509031727000"]
-~dogdrip.net,~smsonline.cloud##img[height="   250"][width="   300"]
-~dogdrip.net,~smsonline.cloud##img[height="   90"][width="   728"]
-~dogdrip.net,~smsonline.cloud##ins[style$="height:    90px; width:    728px;"]
-~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://content-loader.com/"]
-~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://html-load.com/"]
-~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://07c225f3.online/"]
-~dogdrip.net,~smsonline.cloud##amp-img[height="   120"]
-~dogdrip.net,~smsonline.cloud##amp-img[width="   300"]
-~dogdrip.net,~smsonline.cloud##amp-img[width="   336"]
-~dogdrip.net,~smsonline.cloud##div[id^="img_"][style^="margin:0;padding:0;display:block;position:fixed;left:0;"]
-~dogdrip.net,~smsonline.cloud##div[id^="img_"][data-google-query-id]
-~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="2147483647; justify-content: center;"]
-~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="display: block;"]
-~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="height: 90px;"]
-~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="max-height:100px;background-color:rgba(128, 128, 128, 0.4);"]
-~dogdrip.net,~smsonline.cloud##div[id^="img_"][style^="width: 100%;height: 90px;position: fixed;bottom: 0px;left: 0px;z-index:"]
-~dogdrip.net,~smsonline.cloud##div[id^="img_"] > button.gCloseButton
+! https://github.com/uBlockOrigin/uAssets/issues/32413
+~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="height:    250px; width:    300px;"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="width:    160px; height:    600px; margin: 0px auto; min-width: 160px; min-height: 600px;"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="width:    300px; height:    250px;"]
+~bing.com,~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2502032353000"]
+~bing.com,~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2507172035000"]
+~bing.com,~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2509031727000"]
+~bing.com,~dogdrip.net,~smsonline.cloud##img[height="   250"][width="   300"]
+~bing.com,~dogdrip.net,~smsonline.cloud##img[height="   90"][width="   728"]
+~bing.com,~dogdrip.net,~smsonline.cloud##ins[style$="height:    90px; width:    728px;"]
+~bing.com,~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://content-loader.com/"]
+~bing.com,~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://html-load.com/"]
+~bing.com,~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://07c225f3.online/"]
+~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[height="   120"]
+~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[width="   300"]
+~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[width="   336"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style^="margin:0;padding:0;display:block;position:fixed;left:0;"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][data-google-query-id]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="2147483647; justify-content: center;"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="display: block;"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="height: 90px;"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="max-height:100px;background-color:rgba(128, 128, 128, 0.4);"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style^="width: 100%;height: 90px;position: fixed;bottom: 0px;left: 0px;z-index:"]
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"] > button.gCloseButton
 content-loader.com,css-load.com,html-load.com,img-load.com##html:not(:has(> head > style:only-child:has-text(width:399px;height:411px))):style(filter: opacity(0) !important; pointer-events: none !important;)
 /^https:\/\/[a-z]{3,4}\.[0-9a-z-]{6,}\.(?:com|xyz)\/script\/(?:[-.0-9A-Za-z]+\.)?[-0-9A-Za-z]{2,30}\.js$/$script,3p,match-case,header=x-length
 .html-load.com/*/a/$font,domain=~dogdrip.net|~smsonline.cloud
@@ -13470,7 +13478,7 @@ pvpoke-re.com##+js(ra, data-instype, ins.adsbygoogle:has(> div#aswift_0_host), s
 pvpoke-re.com##+js(trusted-set-attr, ins.adsbygoogle.nitro-side\,ins.adsbygoogle.nitro-banner, data-ad-status, filled)
 pvpoke-re.com##+js(no-fetch-if, url:https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3497863494706299 method:HEAD mode:no-cors, , , throttle, 121)
 pvpoke-re.com##+js(trusted-replace-argument, String.prototype.indexOf, 0, json:"/", condition, /premium)
-pvpoke-re.com##+js(trusted-rpnt, script, var menuSlideProtection, /*start*/!function(){"use strict";const e=Function.prototype.toString\,t=new WeakMap\,n=(e\,n)=>{if("function"==typeof e&&(t.set(e\,`function ${n}() { [native code] }`)\,n))try{Object.defineProperty(e\,"name"\,{value:n\,configurable:!0})}catch(e){}return e}\,o=()=>{const e=(new Error).stack;return e&&/[A-Za-z]{3}\d[0-9A-Za-z]{4\,}\.js\?v=/.test(e)?e:null}\,r=1769944387823;let i=0;const a=window.Date\,c=a.now\,s=window.performance.now.bind(window.performance);window.Date=n(class extends a{constructor(...e){return 0===e.length&&o()?new a(r+i):super(...e)}static now(){return o()?r+i:c()}}\,"Date")\,window.performance.now=n((()=>s()+i)\,"now");const p=e=>{try{const t=Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype\,"contentWindow").get;Object.defineProperty(e\,"contentWindow"\,{get:function(){const e=t.apply(this);return e&&e.Function&&e.Function.prototype.toString!==window.Function.prototype.toString&&(e.Function.prototype.toString=window.Function.prototype.toString)\,e}\,configurable:!0})}catch(e){}}\,u=document.createElement;document.createElement=n((function(e){const t=u.apply(this\,arguments);return e&&"iframe"===e.toLowerCase()&&p(t)\,t})\,"createElement");const l=Element.prototype.appendChild;Element.prototype.appendChild=n((function(e){return e&&"IFRAME"===e.tagName&&p(e)\,l.apply(this\,arguments)})\,"appendChild");const d=window.performance\,g=d.getEntriesByType\,y=(e\,t)=>{const n=Object.create(PerformanceResourceTiming.prototype);return Object.defineProperties(n\,{name:{value:e\,enumerable:!0}\,entryType:{value:"resource"\,enumerable:!0}\,initiatorType:{value:t\,enumerable:!0}\,duration:{value:15\,enumerable:!0}\,startTime:{value:100\,enumerable:!0}\,responseEnd:{value:115\,enumerable:!0}\,transferSize:{value:0\,enumerable:!0}\,encodedBodySize:{value:0\,enumerable:!0}\,decodedBodySize:{value:0\,enumerable:!0}})\,n}\,m=n((function(e){let t=[];try{t=g.call(d\,e)}catch(e){t=[]}return"resource"===e&&o()?[...t\,y("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3497863494706299"\,"script")\,y("https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202602170101/show_ads_impl_fy2021.js"\,"script")\,y("https://googleads.g.doubleclick.net/pagead/html/r20260218/r20190131/zrt_lookup_fy2021.html"\,"iframe")\,y("https://pagead2.googlesyndication.com/pagead/gen_204"\,"img")\,y("https://pagead2.googlesyndication.com/pagead/ping?e=1"\,"fetch")]:t})\,"getEntriesByType");Object.defineProperty(d\,"getEntriesByType"\,{value:m\,configurable:!0});const h=Array.prototype.push;Array.prototype.push=n((function(...e){if((e=>{if(!e)return!1;const t=e.split("\n").length-1;return t>=4&&t<=6&&(e.includes("_executeCallback")||/at\s+([0-9A-Z_a-z]{1\,3}|<anonymous>)\s+\(/.test(e))})((new Error).stack)){const t=["fetch"\,"XMLHttpRequest"]\,n=e.filter((e=>!t.includes(e)));return 0===n.length&&e.length>0?this.length:h.apply(this\,n)}return h.apply(this\,e)})\,"push");const f=window.XMLHttpRequest;window.XMLHttpRequest=n(class extends f{constructor(){super()}}\,"XMLHttpRequest")\,Function.prototype.toString=n((function(){if(t.has(this))return t.get(this);return["XMLHttpRequest"\,"fetch"\,"querySelectorAll"\,"bind"\,"push"\,"toString"\,"addEventListener"\,"now"\,"Date"\,"match"\,"createElement"\,"getEntriesByType"\,"setTimeout"].includes(this.name)?`function ${this.name}() { [native code] }`:e.apply(this\,arguments)})\,"toString");const w=window.fetch;window.fetch=n((function(e){return"string"==typeof e&&e.includes("googleads")?w.apply(this\,arguments).then((e=>(i+=40\,e))):w.apply(this\,arguments)})\,"fetch");const b=window.setTimeout;window.setTimeout=n((function(e\,t){if("function"==typeof e){const t=e.toString().replace(/\s+/g\,"");if(t.length<50&&/[$0-9A-Z_a-z]+&&[$0-9A-Z_a-z]+\(\)/i.test(t))return}return b.apply(this\,arguments)})\,"setTimeout")}();document.currentScript.textContent=document.currentScript.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//\,"");/*end*/var menuSlideProtection, sedCount, 1)
+pvpoke-re.com##+js(trusted-rpnt, script, var menuSlideProtection, /*start*/!function(){"use strict";const e=Function.prototype.toString\,t=new WeakMap;let n=0;const o=(e\,n)=>{if("function"==typeof e&&(t.set(e\,`function ${n}() { [native code] }`)\,n))try{Object.defineProperty(e\,"name"\,{value:n\,configurable:!0})}catch(e){}return e}\,r=()=>{const e=(new Error).stack;return e&&/[A-Za-z]{3}\d[0-9A-Za-z]{4\,}\.js\?v=/.test(e)?e:null}\,i=1770030787823;let a=0;const c=window.Date\,s=c.now\,p=window.performance.now.bind(window.performance);window.Date=o(class extends c{constructor(...e){const t=r();return 0===e.length&&t?(n++\,1===n?new c(i+a):new c):super(...e)}static now(){return r()?i+a:s()}}\,"Date")\,window.performance.now=o((()=>p()+a)\,"now");const u=e=>{try{const t=Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype\,"contentWindow").get;Object.defineProperty(e\,"contentWindow"\,{get:function(){const e=t.apply(this);return e&&e.Function&&e.Function.prototype.toString!==window.Function.prototype.toString&&(e.Function.prototype.toString=window.Function.prototype.toString)\,e}\,configurable:!0})}catch(e){}}\,l=document.createElement;document.createElement=o((function(e){const t=l.apply(this\,arguments);return e&&"iframe"===e.toLowerCase()&&u(t)\,t})\,"createElement");const d=Element.prototype.appendChild;Element.prototype.appendChild=o((function(e){return e&&"IFRAME"===e.tagName&&u(e)\,d.apply(this\,arguments)})\,"appendChild");const y=window.performance\,g=y.getEntriesByType\,f=(e\,t)=>{const n=Object.create(PerformanceResourceTiming.prototype)\,o={name:{value:e\,enumerable:!0}\,entryType:{value:"resource"\,enumerable:!0}\,initiatorType:{value:t\,enumerable:!0}\,duration:{value:15\,enumerable:!0}\,startTime:{value:100\,enumerable:!0}\,responseEnd:{value:115\,enumerable:!0}\,transferSize:{value:0\,enumerable:!0}\,encodedBodySize:{value:0\,enumerable:!0}\,decodedBodySize:{value:0\,enumerable:!0}};return Object.defineProperties(n\,o)\,n}\,m=o((function(e){let t=[];try{t=g.call(y\,e)}catch(e){t=[]}if("resource"===e){if(r())return[...t\,f("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3497863494706299"\,"script")\,f("https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202602170101/show_ads_impl_fy2021.js"\,"script")\,f("https://googleads.g.doubleclick.net/pagead/html/r20260218/r20190131/zrt_lookup_fy2021.html"\,"iframe")\,f("https://pagead2.googlesyndication.com/pagead/gen_204"\,"img")\,f("https://pagead2.googlesyndication.com/pagead/ping?e=1"\,"fetch")]}return t})\,"getEntriesByType");try{Object.defineProperty(y\,"getEntriesByType"\,{value:m\,writable:!1\,configurable:!0})}catch(e){y.getEntriesByType=m}const h=Array.prototype.push;Array.prototype.push=o((function(...e){if((e=>{if(!e)return!1;const t=e.split("\n").length-1\,n=e.includes("_executeCallback")\,o=/at\s+([0-9A-Z_a-z]{1\,3}|<anonymous>)\s+\(/.test(e);return t>=4&&t<=6&&(n||o)})((new Error).stack)){const t=["fetch"\,"XMLHttpRequest"]\,n=e.filter((e=>!t.includes(e)));return 0===n.length&&e.length>0?this.length:h.apply(this\,n)}return h.apply(this\,e)})\,"push");const w=window.XMLHttpRequest\,b=o((function(){return new w(...arguments)})\,"XMLHttpRequest");b.prototype=w.prototype\,Object.setPrototypeOf(b\,w)\,window.XMLHttpRequest=b\,Function.prototype.toString=o((function(){if(t.has(this))return t.get(this);return["XMLHttpRequest"\,"fetch"\,"querySelectorAll"\,"bind"\,"push"\,"toString"\,"addEventListener"\,"now"\,"Date"\,"match"\,"createElement"\,"getEntriesByType"\,"setTimeout"].includes(this.name)?`function ${this.name}() { [native code] }`:e.apply(this\,arguments)})\,"toString");const E=window.fetch;window.fetch=o((function(e){return"string"==typeof e&&e.includes("googleads")?E.apply(this\,arguments).then((e=>(a+=40\,e))):E.apply(this\,arguments)})\,"fetch");const v=window.setTimeout;window.setTimeout=o((function(e\,t){if("function"==typeof e){const t=e.toString().replace(/\s+/g\,"");if(t.length<50&&/[$0-9A-Z_a-z]+&&[$0-9A-Z_a-z]+\(\)/i.test(t))return}return v.apply(this\,arguments)})\,"setTimeout")}();document.currentScript.textContent=document.currentScript.textContent.replace(/\/\*start\*\/(.*)\/\*end\*\//\,"");/*end*/var menuSlideProtection, sedCount, 1)
 pvpoke-re.com##+js(trusted-set-attr, ins.adsbygoogle, data-adsbygoogle-status, done)
 ||pvpoke-re.com/*.js?v=$replace=/try\{GameMaster/try{return;GameMaster/
 pvpoke-re.com##+js(trusted-override-element-method, HTMLIFrameElement.prototype.remove, iframe[src^="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3497863494706299"])
@@ -19723,5 +19731,5 @@ ebc.com.br##+js(set, executaGoogleAnalytics3, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12750
-! Duplicates removed: 7537
+! Total unique rules: 12757
+! Duplicates removed: 7544
