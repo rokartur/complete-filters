@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 04 Apr 2026 01:35:44 UTC
+! Last modified: 05 Apr 2026 01:35:30 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775215337-3600.patch
+! Diff-Path: ../patches/11/11-s-1775312299-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2652,6 +2652,10 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+||i-pclub.com/m/ama_$script
+||i-pclub.com/m/randam_$script
+i-pclub.com##center > .zoon:has(> div#trip)
+i-pclub.com##.zoon2:has(> div#nex)
 qz.com##.ay-ad-slot
 wikwik.org##.a_v
 ||wikwik.org/a1.js
@@ -3888,7 +3892,7 @@ cyzowoman.jp##.section_common:has(> .entryad)
 ckworks.jp##.adbox310x100
 cyberdaily.au##.dfp-ticker
 zenless.gamerstand.net##.post > div[style="padding:20px 0px;"] > div.execphpwidget
-seikeidouga.blog.jp#%#//scriptlet('abort-current-inline-script', 'navigator.userAgent', '_rand')
+blog.jp#%#//scriptlet('abort-current-inline-script', 'document.write', '_rand')
 haberler.com##div[id^="ana_mobile_336x280_"]
 cyberdaily.au##.tabletSkinBlock
 nikkansports.com###photoScrollText
@@ -7820,7 +7824,7 @@ theatlantic.com##.native-promo-slider
 ulm-news.de###SWU-schwabenstrom
 ulm-news.de##div[id^="banner_"]
 www.yahoo.com###act-ad-parallax
-totalwar.doorblog.jp,xn--dkqp0gri91r38rn1wmlurtz.com,gigazine.net,medicinenet.com,rxlist.com,wap.lexun.com###ad
+2ch-ero-report.blog.jp,totalwar.doorblog.jp,xn--dkqp0gri91r38rn1wmlurtz.com,gigazine.net,medicinenet.com,rxlist.com,wap.lexun.com###ad
 m.sondakika.com###adsgoogle
 opodo.de###appLayer
 russian7.ru###bottomLine-banner
@@ -9420,7 +9424,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775215370-3600.patch
+! Diff-Path: ../patches/11/11-s-1775312336-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13310,10 +13314,11 @@ japscan.*##+js(trusted-suppress-native-method, Document.prototype.createElement,
 japscan.*##+js(aopr, aclib)
 japscan.*##+js(trusted-suppress-native-method, Element.prototype.getElementsByTagName, '"div"', abort, /apply in.+[0-9A-Za-z]{8\,10} inlineScript/)
 japscan.*##+js(aost, performance.now, /\s[0-9A-Za-z]{8\,10} inlineScript:1/)
-japscan.*##+js(acs, Array.prototype.push, /^\s*\(\s*function\s*\(\s*[-$0-9A-Z_a-z]+[\S\s]{2000\,}$|jso\$ft\$/)
+!japscan.*##+js(acs, Array.prototype.push, /^\s*\(\s*function\s*\(\s*[-$0-9A-Z_a-z]+[\S\s]{2000\,}$|jso\$ft\$/)
 japscan.*##+js(acs, Array.prototype.join, /^[\S\s]{2000\,6000}$/)
 japscan.*##+js(acs, DOMTokenList.prototype.remove, /^[\S\s]{3000\,4000}$/)
 japscan.*##+js(acs, Node.prototype.appendChild, /cssText'|:'style'/)
+japscan.*##+js(acs, Promise.resolve, jso$f)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
@@ -19724,5 +19729,5 @@ winaero.com#@#.windia:not(.thank-you-adguard)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12750
-! Duplicates removed: 7546
+! Total unique rules: 12754
+! Duplicates removed: 7550

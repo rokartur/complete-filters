@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 04 Apr 2026 01:36:03 UTC
+! Last modified: 05 Apr 2026 01:35:51 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -11119,11 +11119,12 @@ alarabiya.net##.google-news-callout
 dailygalaxy.com,glassalmanac.com##.google-news-card
 cybernews.com,sammobile.com##.google-news-cta
 phonearena.com,quiverquant.com##.google-news-follow
+kyivpost.com##.google-news-preffer-button
 bleedingcool.com##.google-news-source
 ringsidenews.com,tmz.com##.google-preferred-btn
 sammobile.com##.google-preferred-news-source-cta
 cultofmac.com##.google-preferred-source
-9to5google.com,9to5mac.com,9to5toys.com,dronedj.com,spaceexplored.com##.google-preferred-source-badge
+9to5google.com,9to5mac.com,9to5toys.com,dronedj.com,mathrubhumi.com,spaceexplored.com##.google-preferred-source-badge
 restofworld.org##.google-preferred-v1
 bolde.com##.google-source-button
 goal.com##.google-trusted-source
@@ -11534,6 +11535,7 @@ audi-sport.net,overtake.gg##.shareButtons
 oxfordamerican.org##.shareLinkContainer
 tech.hindustantimes.com##.shareLinks
 windowsreport.com##.shareMobile
+economictimes.indiatimes.com##.sharePbanner
 drexel.edu##.share__body
 gov.br,wtop.com##.share__container
 vimeo.com##.share_body
@@ -29809,7 +29811,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1775249285-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1775335667-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -40241,7 +40243,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1775226269-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1775272231-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54494,5 +54496,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51280
-! Duplicates removed: 63860
+! Total unique rules: 51282
+! Duplicates removed: 63880
