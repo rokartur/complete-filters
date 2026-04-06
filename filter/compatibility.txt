@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 05 Apr 2026 01:35:30 UTC
+! Last modified: 06 Apr 2026 01:36:13 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775312299-3600.patch
+! Diff-Path: ../patches/11/11-s-1775374362-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2652,6 +2652,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+oppaisan.com##.click_fit__tab_tie_up
+geinoukame.com##.entry_more > a[href="http://geinoukame.com/blog-entry-77130.html"]
 ||i-pclub.com/m/ama_$script
 ||i-pclub.com/m/randam_$script
 i-pclub.com##center > .zoon:has(> div#trip)
@@ -9424,7 +9426,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775312336-3600.patch
+! Diff-Path: ../patches/11/11-s-1775374382-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13589,18 +13591,11 @@ historicaerials.com##+js(trusted-create-html, #historicaerials_g_160x600_Right, 
 ! https://github.com/uBlockOrigin/uAssets/issues/31585
 magma.com##+js(trusted-set, Object.prototype.adsStrategy, 'json:{"tag":"","phase":0,"permaProvider":0,"tempoProvider":0,"buckets":[],"comment":"no-user","rotationPaused":true}', as, function)
 
-! https://github.com/easylist/easylist/commit/994e7e694654676d36d28e205c7697ff2ad20020
-cdn.m-78.jp#@#.ad-panel
-
-! https://github.com/easylist/easylist/issues/23713
-://0.*.*.com/papi/$script,xhr,badfilter
-://0.*.*.com/player/$script,xhr,badfilter
-
 ! https://github.com/uBlockOrigin/uAssets/issues/31775
 embedtv.best##+js(rpnt, script, (popupLoaded), (true))
 
-! https://github.com/AdguardTeam/AdguardFilters/commit/88e8b74bc6a9936fcf0fef4de0555f7410c17ddd
-://*.*.cn/jp^$doc,to=cn,badfilter
+! https://www.reddit.com/r/uBlockOrigin/comments/1scukvq/comment/oeesd07/
+facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#@#div[role="feed"] > div:has(div[role="article"] a[attributionsrc^="/privacy_sandbox/comet/register/source/"])
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19729,5 +19724,5 @@ winaero.com#@#.windia:not(.thank-you-adguard)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12754
-! Duplicates removed: 7550
+! Total unique rules: 12753
+! Duplicates removed: 7552
