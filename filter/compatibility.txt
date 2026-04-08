@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 07 Apr 2026 01:36:22 UTC
+! Last modified: 08 Apr 2026 01:36:03 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775492619-3600.patch
+! Diff-Path: ../patches/11/11-s-1775572947-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -169,6 +169,9 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+||mmp-api.itpub.cloud^
+||mt-api.itpub.cloud^
+||uydeqs9.xyz^
 ||pullcf.com^
 ||fnyfeds.com^
 ||api2.wshareit.com^
@@ -2652,6 +2655,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+kbook8.com##.box > div[id]:has(> div > img[src^="https://pebfvv.icu/"])
+solscan.io#?#.flex.flex-wrap:has(div.not-italic:contains(Sponsored))
+solscan.io##div[id^="wrapper-sevio"]:has(> div.sevioads)
 mynet.com##div[style="min-height: 200px; min-width: 360px; width: 100%"]
 oppaisan.com##.click_fit__tab_tie_up
 geinoukame.com##.entry_more > a[href="http://geinoukame.com/blog-entry-77130.html"]
@@ -4685,7 +4691,7 @@ justthegays.com###block-31
 soccerstats.com###content_old > div[style*="padding-bottom:"]:not([id])
 soccerstats.com##div[style*="margin-top:"]:not([id]) div[style*="padding-bottom:"]
 porndr.com##div[style="text-align: center; display: block; margin: 0px 0px 10px;"]
-ebony8.com,zeenite.com,shemalesin.com,sortporn.com,porndr.com,freeporn8.com##.top
+teenager365.to,ebony8.com,zeenite.com,shemalesin.com,sortporn.com,porndr.com,freeporn8.com##.top
 amateur8.com,freeporn8.com##.mobile_nav.pignr
 hotmovs.com##.video-page > div > div > div:empty
 tv.yahoo.co.jp##.adMmon
@@ -9427,7 +9433,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775492654-3600.patch
+! Diff-Path: ../patches/11/11-s-1775572984-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -11553,6 +11559,13 @@ firstthings.com##+js(set-cookie, pum_popup_14631_page_views, 1)
 ! paywall counter (fix wired.com hamburger menu being unresponsive)
 ! /\.com\/[-\w]+/$script,~third-party,domain=architecturaldigest.com|bonappetit.com|cntraveler.com|epicurious.com|gq.com|newyorker.com|vanityfair.com|vogue.com|wired.com
 @@/verso/static/*$script,domain=architecturaldigest.com|bonappetit.com|cntraveler.com|epicurious.com|gq.com|newyorker.com|vanityfair.com|vogue.com|wired.com
+! bizjournals.com fix articles not showing.
+! Maintainer refuses to fix
+/\.bizjournals\.com\/.+\/(news|stories)\/.+\.html/$inline-script,badfilter
+bizjournals.com#@#div[id^="headlessui-dialog-"], div.sheet-overlay
+@@||c2.piano.io/xbuilder/experience/$xhr,domain=bizjournals.com
+@@||buy.tinypass.com/api/$xhr,domain=bizjournals.com
+||cxense.com^$script,important,from=bizjournals.com,badfilter
 
 ! dzen.ru breakage
 dzen.ru#@#:matches-path(/a/) [data-appid] > [itemscope] > div > div[id]
@@ -19718,5 +19731,5 @@ winaero.com#@#.windia:not(.thank-you-adguard)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12748
-! Duplicates removed: 7553
+! Total unique rules: 12759
+! Duplicates removed: 7559

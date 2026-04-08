@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 07 Apr 2026 01:36:42 UTC
+! Last modified: 08 Apr 2026 01:36:22 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -13758,7 +13758,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1775474807-3600.patch
+! Diff-Path: ../patches/4/4-s-1775554405-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14367,6 +14367,8 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+turkifsahub.com##section > button:has(> svg.fa-share-nodes)
+dev.ozon.ru##div[class^="_shareList_"] > ul[class^="_list_"]
 bankinform.ru##.bi-share-fill
 labottegadelnerd.com##.my_share_button
 mynet.com##.ep-shareButton
@@ -14551,7 +14553,7 @@ media1.hu##.elementor-widget-heading:has(> div.elementor-widget-container a[href
 media1.hu#?#.elementor-widget-wrap > div.elementor-widget-heading:has(> div > h4:contains(Kövessen minket!))
 m.twitch.tv##div[class*="secondaryContent-"] > div[class^="Layout-sc-"]:has(> button[class^="ScCoreButton-sc-"] [data-a-selector="tw-core-button-icon"])
 wartezeiten.app##.card:has(> .card-content > .share-buttons)
-uakinogo.online##.shareUs
+uakinogo.io,uakinogo.online##.shareUs
 businessnovinite.bg##.articleDetail_socials
 businessnovinite.bg##.articleDetail_main > p:has(> strong > a[href^="https://"]:not([class]))
 13dl.me##.share-icon:not(.follow, .report)
@@ -29813,7 +29815,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1775508515-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1775594953-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -37997,7 +37999,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1775474823-3600.patch
+! Diff-Path: ../patches/4/4-s-1775554428-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40245,7 +40247,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1775474824-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1775554428-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54498,5 +54500,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51284
-! Duplicates removed: 63879
+! Total unique rules: 51286
+! Duplicates removed: 63908
