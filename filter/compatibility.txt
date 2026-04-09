@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 08 Apr 2026 01:36:03 UTC
+! Last modified: 09 Apr 2026 01:36:27 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775572947-3600.patch
+! Diff-Path: ../patches/11/11-s-1775673389-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -1213,6 +1213,8 @@ turbopages.org##.page__result > div[class*="type_native"]
 ##.happy-under-player-mobile
 ##.b-mobile-spots
 ###ad_inview_area
+! Tegna Inc.
+##body > div.page[data-kochava-app-guid^="kotegna-web-prod-"] > .page__top > .universal-ad
 ! Sinclair, Inc
 ##div[class^="MidArticleAdUnit_mobile_"]
 ##div[class^="PrimisMidArticleAdUnit_mobile_"]
@@ -2655,6 +2657,11 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+link.snipcash.com##.banner-inner
+thothub.ch##iframe[src^="https://engine.zerodayromance.com/"]
+championat.com##div[data-banner-place-id]
+pimpbunny.com##ul[class^="includes-header-"] > li:has(> a[href="https://livehdcams.net/"])
+exporntoons.net##.container > div[style]:has(> ins)
 kbook8.com##.box > div[id]:has(> div > img[src^="https://pebfvv.icu/"])
 solscan.io#?#.flex.flex-wrap:has(div.not-italic:contains(Sponsored))
 solscan.io##div[id^="wrapper-sevio"]:has(> div.sevioads)
@@ -3748,7 +3755,7 @@ uploady.io###dlnk1
 schizophonic9-2.com##body > a[href^="https://"][href*="linksynergy.com/"]
 schizophonic9-2.com##body > a[href="https://amzn.to/3UQkNZ0"]
 schizophonic9-2.com##body > div.ad_footer ~ br
-wusa9.com,krem.com,kare11.com,wzzm13.com,king5.com##.universal-ad
+9news.com,wusa9.com,krem.com,kare11.com,wzzm13.com,king5.com##.universal-ad
 pulzo.com##.connatix-spacer
 bloomberg.com##.adWrapper
 wired.com##.ad--footer
@@ -5422,13 +5429,14 @@ theporndude.vip,theporndude.com##.pdc-casting
 soccerdigestweb.com##div[class^="bnr_w3"]
 teleprogramma.pro##.header-bottom-wrapper
 nukemanga.com##.widget-text
-m.viptube.icu,m.viptube.com,m.viptube.*##.player_premium_bar
-m.viptube.icu,m.viptube.com,m.viptube.*##.partner_text_link
-m.viptube.icu,m.viptube.com,m.viptube.*##.livecams_main
-m.viptube.icu,m.viptube.com,m.viptube.*##.lcb
-m.viptube.icu,m.viptube.com,m.viptube.*###mobile-header-1
-m.viptube.icu,m.viptube.com,m.viptube.*###mobile-middle-1
-m.viptube.icu,m.viptube.com,m.viptube.*###mobile-footer-1
+m.viptube.*#%#//scriptlet('set-cookie', 'adv_show', '3')
+m.viptube.*##.player_premium_bar
+m.viptube.*##.partner_text_link
+m.viptube.*##.livecams_main
+m.viptube.*##.lcb
+m.viptube.*###mobile-header-1
+m.viptube.*###mobile-middle-1
+m.viptube.*###mobile-footer-1
 olive-hitomawashi.com###main > .bl_articles > h3[style="margin-bottom:0;"]
 olive-hitomawashi.com##h3[style="margin-bottom:0;"] + div[style^="padding-bottom: 50px; text-align: -webkit-center"]
 bisweb.jp###sp_all_header_1st
@@ -8379,8 +8387,8 @@ hanime1.me#$#iframe[src^="//a.magsrv.com/"] { height: 100px !important; width: 0
 ! noodlemagazine.com
 noodlemagazine.com##.container > noindex
 noodlemagazine.com##div[style^="height:110px;max-width:450px;"]
-noodlemagazine.com##.container > div[style*="height:100px"]
-noodlemagazine.com##.container > div[style*="height:250px"]
+mat6tube.com,noodlemagazine.com##.container > div[style*="height:100px"]
+mat6tube.com,noodlemagazine.com##.container > div[style*="height:250px"]
 noodlemagazine.com##.main > div.container > div[style^="max-width:450px;margin:0 auto;padding:15px"]
 noodlemagazine.com#?#div[style^="background-color:"]:has(> iframe[data-src^="//go."])
 ! op.gg
@@ -9433,7 +9441,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775572984-3600.patch
+! Diff-Path: ../patches/11/11-s-1775673406-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -9638,6 +9646,7 @@ wr.de,wp.de,nrz.de#@#.ad
 ! Good: ##.adv
 ! Bad: example.org##.adv (should be in specific.txt)
 !
+! Tegna Inc.
 ! Sinclair, Inc
 !--- popular banner sizes ---
 ! AMP websites ad container class
@@ -13257,7 +13266,7 @@ www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', /g
 ! web.facebook.com,www.facebook.com##+js(json-prune-xhr-response, data.viewer.sideFeed.nodes.0.{-}.nodes.0.rhc_ad, , propsToMatch, /api/graphql)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.viewer.sideFeedUnit.nodes.[].new_adverts.nodes.[-].sponsored_data)
 web.facebook.com,www.facebook.com##+js(json-prune-xhr-response, data.viewer.sideFeedUnit.nodes.[].new_adverts.nodes.[-].sponsored_data, , propsToMatch, /graphql)
-web.facebook.com,www.facebook.com##+js(json-edit, ..sideFeed.nodes.*[?.__typename=="AdsSideFeedUnit"])
+web.facebook.com,www.facebook.com##+js(json-edit, ..sideFeedUnit.nodes.*[?.__typename=="AdsSideFeedUnit"])
 web.facebook.com,www.facebook.com##+js(set, Env.nxghljssj, false)
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-3060431385
 web.facebook.com,www.facebook.com##div[role="complementary"] a[aria-labelledby][attributionsrc^="/privacy_sandbox/comet/register/source/?eid="][href^="http"][target="_blank"]
@@ -19526,6 +19535,10 @@ winaero.com#@#.windia:not(.thank-you-adguard)
 ! https://github.com/uBlockOrigin/uAssets/issues/32407
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=infiny.live
 
+! https://github.com/uBlockOrigin/uAssets/issues/32458
+alltransistors.com#@##reklama
+alltransistors.com###reklama:style(display: block !important;)
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19731,5 +19744,5 @@ winaero.com#@#.windia:not(.thank-you-adguard)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12759
-! Duplicates removed: 7559
+! Total unique rules: 12768
+! Duplicates removed: 7566

@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 08 Apr 2026 01:36:22 UTC
+! Last modified: 09 Apr 2026 01:36:47 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -11803,6 +11803,7 @@ tenable.com##.sticky-social-widget
 healthshots.com##.stickySocial
 amazonadviser.com,apptrigger.com,arrowheadaddict.com,bamsmackpow.com,fansided.com,gamesided.com,gojoebruin.com,hiddenremote.com,lastnighton.com,mlsmultiplex.com,netflixlife.com,playingfor90.com,stormininnorman.com,winteriscoming.net##.sticky_1ds30c3
 natlawreview.com##.sticky__sidebar
+hackster.io##.sticky_actions__stickyButton__vVglk
 futurity.org##.sticy-share-block
 aetv.com,wccftech.com##.story-share
 wccftech.com##.story-share-bottom
@@ -12032,6 +12033,7 @@ goodyfeed.com##[href^="https://t.me/"]
 irishnews.com##[href^="https://whatsapp.com/channel/"]
 militarywatchmagazine.com##[href^="https://x.com/MilitaryWatchM"]
 colourlovers.com##a.mr-10.left > [src]
+hackster.io##a.social_icons__icon__BxTgB
 telekom.com##a[title="Share"]
 straitstimes.com##button.desktop\:block
 thinkglobalhealth.org##button.hover\:bg-accent-social-button
@@ -13758,7 +13760,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1775554405-3600.patch
+! Diff-Path: ../patches/4/4-s-1775666085-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14367,6 +14369,9 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+podcast.ru##.episode-action-bar-buttons
+podcast.ru##.action-bar
+aa.com.tr##button[aria-label="Linki kopyala"]
 turkifsahub.com##section > button:has(> svg.fa-share-nodes)
 dev.ozon.ru##div[class^="_shareList_"] > ul[class^="_list_"]
 bankinform.ru##.bi-share-fill
@@ -14701,7 +14706,7 @@ seeklogo.com##.containerSocialShare
 arigus.tv##.e-share
 shonanjin.com##.p-post-detail__sns
 observerbd.com##.dtl > div[style="margin: 35px 0 45px 0"]
-lancewhosedifficult.com,lauradaydo.com,crystaltreatmenteast.com,walterprettytheir.com,christopheruntilpoint.com,mikaylaarealike.com,lukesitturn.com,jilliandescribecompany.com,kellywhatcould.com,johnalwayssame.com,mariatheserepublican.com,jonathansociallike.com,diananatureforeign.com,sarahnewspaperbeat.com,richardsignfish.com,jennifercertaindevelopment.com,nathanfromsubject.com,adrianmissionminute.com,kristiesoundsimply.com,heatherwholeinvolve.com,alejandrocenturyoil.com,maxfinishseveral.com,robertordercharacter.com,sandratableother.com,brittneystandardwestern.com,jamessoundcost.com,toddpartneranimal.com,kimberlyonlocal.com,richardstorehalf.com,zacharycollectionmight.com,thomasalthoughhear.com,susanhavekeep.com,lorimuchbenefit.com,evelynthankregion.com,jessicaglassauthor.com,lisatrialidea.com,bethshouldercan.com,donaldlineelse.com,josephseveralconcern.com,alleneconomicmatter.com,robertplacespace.com,heatherdiscussionwhen.com,jayservicestuff.com,morganoperationface.com,johntryopen.com,jamiesamewalk.com,kennethofficialitem.com,lukecomparetwo.com,edwardarriveoften.com,paulkitchendark.com,kathleenmemberhistory.com,phenomenalityuniform.com,gamoneinterrupted.com,urochsunloath.com,35volitantplimsoles5.com,antecoxalbobbing1010.com,cyamidpulverulence530.com,guidon40hyporadius9.com,bigclatterhomesguideservice.com,housecardsummerbutton.com,fittingcentermondaysunday.com,un-block-voe.net,voeunblk.com,voeunbl0ck.com,voeunblock2.com,voeunblock.com,voe-unblock.*,voe.sx##.jw-share-item
+jessicaclearout.com,lancewhosedifficult.com,lauradaydo.com,crystaltreatmenteast.com,walterprettytheir.com,christopheruntilpoint.com,mikaylaarealike.com,lukesitturn.com,jilliandescribecompany.com,kellywhatcould.com,johnalwayssame.com,mariatheserepublican.com,jonathansociallike.com,diananatureforeign.com,sarahnewspaperbeat.com,richardsignfish.com,jennifercertaindevelopment.com,nathanfromsubject.com,adrianmissionminute.com,kristiesoundsimply.com,heatherwholeinvolve.com,alejandrocenturyoil.com,maxfinishseveral.com,robertordercharacter.com,sandratableother.com,brittneystandardwestern.com,jamessoundcost.com,toddpartneranimal.com,kimberlyonlocal.com,richardstorehalf.com,zacharycollectionmight.com,thomasalthoughhear.com,susanhavekeep.com,lorimuchbenefit.com,evelynthankregion.com,jessicaglassauthor.com,lisatrialidea.com,bethshouldercan.com,donaldlineelse.com,josephseveralconcern.com,alleneconomicmatter.com,robertplacespace.com,heatherdiscussionwhen.com,jayservicestuff.com,morganoperationface.com,johntryopen.com,jamiesamewalk.com,kennethofficialitem.com,lukecomparetwo.com,edwardarriveoften.com,paulkitchendark.com,kathleenmemberhistory.com,phenomenalityuniform.com,gamoneinterrupted.com,urochsunloath.com,35volitantplimsoles5.com,antecoxalbobbing1010.com,cyamidpulverulence530.com,guidon40hyporadius9.com,bigclatterhomesguideservice.com,housecardsummerbutton.com,fittingcentermondaysunday.com,un-block-voe.net,voeunblk.com,voeunbl0ck.com,voeunblock2.com,voeunblock.com,voe-unblock.*,voe.sx##.jw-share-item
 pon-navi.net##.socialBox
 ynjn.jp##.flex:has(> a[href^="https://twitter.com/intent/tweet?"])
 juventus-journal.com##.hupso-share-buttons
@@ -17527,7 +17532,7 @@ fizkult-nn.ru##.social-buttons-default-block
 goodlooker.ru##.socials-after_post-right
 oe24.at##body .articleShareBox
 sravni.ru##div[class^="article-footer_wrapper"] button[name="Поделиться"]
-patasdacasa.com.br,maxnet.ua,nsenergybusiness.com##.social-media
+vsquare.org,patasdacasa.com.br,maxnet.ua,nsenergybusiness.com##.social-media
 barchart.com##.modal-share-group
 barchart.com##.bc-twittertimeline-wrapper
 rosbalt.ru,tagilcity.ru,newia.ru,udm-info.ru,oilcapital.ru,newizv.ru,inkazan.ru,vostokmedia.com##button[class^="LeftcolSocials"]
@@ -18673,7 +18678,7 @@ web-ole.lilax.io,ole.com.ar##.socialAuthorContainer > ul
 recipesandcooker.com,lectortmo.com##button.btn-social[onclick^="copyToClipboard"]
 mp3xa.cc##.album_social_container
 mynavi-agent.jp##.box_share
-extra-life.org###socialBtns
+ipforce.jp,extra-life.org###socialBtns
 mailchimp.com##.article__shareLinks
 botostore.com##.bot-share
 nikkei.com##button[data-testid^="Shareicon"]
@@ -24423,7 +24428,7 @@ fikriyat.com##.pageSocial > ul > li:not(.print)
 fikriyat.com##.shareFrame > .item:not(.send):not(.share):not(.embedLink)
 sofra.com.tr##.newShare
 dailysabah.com##.navSocial
-chatgptdemo.net,gingyshop.it,coursecouponclub.com,geekhacker.ru,bestcouponhunter.com,ufficiospettacoli.it,phpscripttr.com##.share-link-image
+chatgptdemo.net,gingyshop.it,coursecouponclub.com,geekhacker.ru,bestcouponhunter.com,ufficiospettacoli.it##.share-link-image
 wired.com##.social-share-sidebar-component
 rossaprimavera.ru##.share_tool
 n-tv.de##.social-services
@@ -29815,7 +29820,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1775594953-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1775681342-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -37999,7 +38004,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1775554428-3600.patch
+! Diff-Path: ../patches/4/4-s-1775666102-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40247,7 +40252,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1775554428-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1775666102-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54500,5 +54505,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51286
-! Duplicates removed: 63908
+! Total unique rules: 51291
+! Duplicates removed: 63964
