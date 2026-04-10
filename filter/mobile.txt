@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 09 Apr 2026 01:36:41 UTC
+! Last modified: 10 Apr 2026 01:36:44 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10,7 +10,7 @@
 ! Android host file - Adaway
 ! 
 ! Title: ABPVN Hosts
-! Updated: 30 Mar 2026 11:14 UTC+7
+! Updated: 09 Apr 2026 09:58 UTC+7
 ! License: ABPVN
 ! Please report any unblocked ads or problems by email or in our forums
 ! Email: support@abpvn.com
@@ -2322,6 +2322,7 @@
 ||logsdk.qq.com^
 ||mtrace.qq.com^
 ||rmonitor.qq.com^
+||snowflake.qq.com^
 ! [3g.qq.com]
 ||up-hl.3g.qq.com^
 ||yun-hl.3g.qq.com^
@@ -10501,17 +10502,28 @@
 ||rum-http-intake.logs.datadoghq.eu^
 ! [browser-intake-datadoghq.com]
 ||browser-intake-datadoghq.com^
+||csp-report.browser-intake-datadoghq.com^
 ||logs.browser-intake-datadoghq.com^
 ||rum.browser-intake-datadoghq.com^
 ||session-replay.browser-intake-datadoghq.com^
 ||trace.browser-intake-datadoghq.com^
 ! [browser-intake-*-datadoghq.com]
 ||browser-intake-ap1-datadoghq.com^
+||browser-intake-ap2-datadoghq.com^
 ||browser-intake-us3-datadoghq.com^
 ||browser-intake-us5-datadoghq.com^
 ! [datadoghq]
 ||browser-intake-datadoghq.eu^
+||csp-report.browser-intake-datadoghq.eu^
+||logs.browser-intake-datadoghq.eu^
+||rum.browser-intake-datadoghq.eu^
+||session-replay.browser-intake-datadoghq.eu^
+||www.browser-intake-datadoghq.eu^
+! [browser-intake-ddog-gov.com]
 ||browser-intake-ddog-gov.com^
+||rum.browser-intake-ddog-gov.com^
+||session-replay.browser-intake-ddog-gov.com^
+||www.browser-intake-ddog-gov.com^
 ! [aliyuncs.com]
 ||beacon-api.aliyuncs.com^
 ||adash.man.aliyuncs.com^
@@ -12983,6 +12995,16 @@
 ||sdk-oversea.dmrtb.com^
 ||ssp-api.dmrtb.com^
 ||www.dmrtb.com^
+! [dailymotion.com]
+||dmads.dailymotion.com^
+||dmxleo.dailymotion.com^
+! [optoutadvertising.com]
+||optoutadvertising.com^
+||adserving.optoutadvertising.com^
+||cdn.optoutadvertising.com^
+||proxy.optoutadvertising.com^
+||ster.optoutadvertising.com^
+||www.optoutadvertising.com^
 ! --- GroupVN block ---
 ! [adtimaserver]
 ||log.adtimaserver.vn^
@@ -16577,7 +16599,6 @@
 ||dlrioxg1637dk.cloudfront.net^
 ||dmp.starbolt.io^
 ||dmtracker.com^
-||dmxleo.dailymotion.com^
 ||dn.loupmismaze.com^
 ||dn0qt3r0xannq.cloudfront.net^
 ||dnemkhkbsdbl.com^
@@ -19622,6 +19643,7 @@
 ||log.umsns.com^
 ||log.x2convert.com^
 ||log.ys7.com^
+||logger.eji6.cc^
 ||logger.unsplash.com^
 ||logriancesenius.com^
 ||logs.amap.com^
@@ -21446,7 +21468,6 @@ zdalnakontrola.pl
 ||smartad.10010.com^
 ||sms.ads.oppomobile.com^
 ||sngmta.qq.com^
-||snowflake.qq.com^
 ||staging-notify.sec.miui.com^
 ||stat.dongqiudi.com^
 ||stat.y.qq.com^
@@ -39603,5 +39624,5 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 37581
-! Duplicates removed: 1674
+! Total unique rules: 37599
+! Duplicates removed: 1675
