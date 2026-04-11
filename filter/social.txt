@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 10 Apr 2026 01:36:51 UTC
+! Last modified: 11 Apr 2026 01:35:51 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -12121,6 +12121,7 @@ theshovel.com.au#?#.padding-top-small > .widgetizedArea:has-text(Like this)
 tvblackbox.com.au#?#.tdm-descr:has-text(Share)
 twitch.tv#?#.tw-balloon:has-text(Share To)
 royalqueenseeds.*##.social-media-icons-footer
+miruro.*##section[class^="_noticeSection_"]
 agfk-bw.de,clara.es,hcb.net,travel.state.gov##.socialmedia
 1movies.bz,avira.com,betakit.com,byjus.com,commentpicker.com,hakaimagazine.com,hollywoodlife.com,homemark.co.za,ilgiornale.it,iphoneitalia.com,malaymail.com,maxabout.com,motorsport-xl.de,ncbi.nlm.nih.gov,novosti.rs,nu.nl,politico.eu,tennismagazin.de,thepostmillennial.com,uncnews.unc.edu##.social-sharing
 exafm.com,goldderby.com,lacaderadeeva.com,lamejor.com.mx,lasillarota.com,mvsnoticias.com,pronto.com.ar,radioformula.com.mx,revistaforum.com.br,sumedico.com##.share-group
@@ -13671,8 +13672,8 @@ tmstor.es#@#.top_social
 swingliteracy.com#@#.tve_social_items
 nothiefsallowed.com#@#.twitter-timeline
 google.com#@#SHARE-BUTTON
-geki-cine.jp,heiwa-9inday.jp,hypnosismic-anime.com,idolmaster-official.jp,mamodan-plus.clony.co.jp,monsterhunternow.belugacpn.jp,ufret.jp#@#a[href^="https://twitter.com/intent/tweet?"]
-petsmart.com#@#a[href^="https://www.facebook.com/sharer/sharer.php"]
+geki-cine.jp,heiwa-9inday.jp,hypnosismic-anime.com,idolmaster-official.jp,mamodan-plus.clony.co.jp,monsterhunternow.belugacpn.jp,ranking.sanrio.co.jp,ufret.jp#@#a[href^="https://twitter.com/intent/tweet?"]
+petsmart.com,ranking.sanrio.co.jp#@#a[href^="https://www.facebook.com/sharer/sharer.php"]
 playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"]
 ! *** easylist:fanboy-addon/fanboy_social_allowlist.txt ***
 ! fanboy_social_allowlist.txt
@@ -13760,7 +13761,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1775749285-3600.patch
+! Diff-Path: ../patches/4/4-s-1775831505-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14369,6 +14370,13 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+memedroid.com##.item-controls-icon-share
+mosregtoday.ru##footer > div[class]:has(> ul > li > a[href^="https://vk.com/share.php?"])
+games.gg##.justify-self-center > button:has(> span > svg > path[d^="M237.66"])
+space.com##div[role="tooltip"]:has(> button#utilitybar__button--share)
+ficbook.net##.justify-content-between > div.jsVueComponent:has(> button.social-btn)
+hotchamas.com##.watch-share-button
+porn300.com##.list__item:has(> button[data-target="video-footer__share"])
 8kporner.com,avporner.com,4k69.com##.video-options
 ero-labs.com,ero-labs.*###gameShare
 theins.press,theins.ru##div[class^="sideSocials_socialWrapper__"]
@@ -22172,7 +22180,7 @@ peramuzesi.org.tr###paylas
 netzwelt.de##.nl-share
 netzwelt.de##ul.mfb--bl
 budzma.org##a[href="https://t.me/budzmaby"]
-baseballchannel.jp,sunstarqais.com,nxprime.in,aba-net.com,kazeniwa.net,jw-webmagazine.com,m.starnewskorea.com,wikitree.co.kr,proptiger.com,9post.tv,ringon.site,sxyprn.com,sxyprn.net,cc.com,motor.ru,mapsofworld.com,software.informer.com##.share_btn
+linkco.re,baseballchannel.jp,sunstarqais.com,nxprime.in,aba-net.com,kazeniwa.net,jw-webmagazine.com,m.starnewskorea.com,wikitree.co.kr,proptiger.com,9post.tv,ringon.site,sxyprn.com,sxyprn.net,cc.com,motor.ru,mapsofworld.com,software.informer.com##.share_btn
 naked-science.ru##.shesht-social-sharing-block
 pleer.ru##div[itemtype] > div#comment + div[class]
 hromadske.ua##.SocialShareBlock
@@ -29022,6 +29030,10 @@ bomb01.com#$#.modal-open { overflow: visible!important; }
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://ranking.sanrio.co.jp/mypage/#ad
+ranking.sanrio.co.jp#@#a[href^="https://twitter.com/intent/tweet?"]
+ranking.sanrio.co.jp#@#a[href^="https://www.facebook.com/sharer/sharer.php"]
+ranking.sanrio.co.jp#@#a[href^="https://social-plugins.line.me/lineit/share?url="]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/227472
 hatenablog-parts.com#@#a[href*="//b.hatena.ne.jp/entry/"]:not(.http-bookmark):not([data-track-component="bookmark_count_image"])
 ! https://github.com/AdguardTeam/AdguardFilters/issues/226624
@@ -29823,7 +29835,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1775767782-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1775854098-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38007,7 +38019,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1775749305-3600.patch
+! Diff-Path: ../patches/4/4-s-1775831524-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -39863,6 +39875,7 @@ bomb01.com##.modal-open:style(overflow: visible!important;)
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://ranking.sanrio.co.jp/mypage/#ad
 ! https://github.com/AdguardTeam/AdguardFilters/issues/227472
 ! https://github.com/AdguardTeam/AdguardFilters/issues/226624
 ! https://github.com/AdguardTeam/AdguardFilters/issues/225334
@@ -40255,7 +40268,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1775749305-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1775831524-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -40895,6 +40908,7 @@ unn.com.ua##body > div.fancybox-opened + div.fancybox-overlay
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://ranking.sanrio.co.jp/mypage/#ad
 ! https://github.com/AdguardTeam/AdguardFilters/issues/227472
 ! https://github.com/AdguardTeam/AdguardFilters/issues/226624
 ! https://github.com/AdguardTeam/AdguardFilters/issues/225334
@@ -53143,7 +53157,7 @@ finance.yahoo.com##html:style(overflow: auto !important; position: initial !impo
 500ish.com,artplusmarketing.com,atrium.co,backchannel.com,backstage.1blocker.com,badootech.badoo.com,bitcointechtalk.com,blazingdb.com,blog.angularindepth.com,blog.bitwarden.com,blog.coinbase.com,blog.confiant.com,blog.devcolor.org,blog.discordapp.com,blog.growthhackers.com,blog.hiri.com,blog.ltse.com,blog.statebox.org,blog.twitch.tv,blog.waffle.io,bluerockpublicradio.com,bolt.io,boomsupersonic.com,bradfieldcs.com,brightthemag.com,broadcast.listennotes.com,checkio.org,citizen428.net,coach.me,codeburst.io,dave-bailey.com,doist.com,doit-intl.com,dotandline.net,doublepulsar.com,electricliterature.com,elidourado.com,esciencecenter.nl,fossa.io,freecodecamp.org,fritz.ai,getadblock.com,greylock.com,helium.com,howwegettonext.com,iheart.com,injusticetoday.com,insightdatascience.com,iota.org,itnext.io,itsyourturnblog.com,jupyter.org,keepingstock.net,kiwi.com,learngoprogramming.com,learningbyshipping.com,ledwards.com,legalist.com,logrocket.com,mapbox.com,medium.com,melmagazine.com,mondaynote.com,newco.co,news.smugmug.com,nyulocal.com,ofdollarsanddata.com,okmeter.io,open.nytimes.com,postlight.com,prototypr.io,rainway.io,sagefy.org,signalvnoise.com,slack.engineering,slackhq.com,springboard.com,standardnotes.org,startupsventurecapital.com,stoplight.io,tech.buzzfeed.com,theabacus.io,theawl.com,thebigroundtable.com,thebillfold.com,thebolditalic.com,thecontrol.co,theringer.com,thinkprogress.org,thriveglobal.com,timeline.com,towardsdatascience.com,udacity.com,unpatent.co,usejournal.com,uxdesign.cc,uxplanet.org,warisboring.com,wearemel.com,whatahowler.com,x.company##a[href*="/share/facebook"], a[href*="/share/twitter?"]:upward()
 500ish.com,artplusmarketing.com,atrium.co,backchannel.com,backstage.1blocker.com,badootech.badoo.com,bitcointechtalk.com,blazingdb.com,blog.angularindepth.com,blog.bitwarden.com,blog.coinbase.com,blog.confiant.com,blog.devcolor.org,blog.discordapp.com,blog.growthhackers.com,blog.hiri.com,blog.ltse.com,blog.statebox.org,blog.twitch.tv,blog.waffle.io,bluerockpublicradio.com,bolt.io,boomsupersonic.com,bradfieldcs.com,brightthemag.com,broadcast.listennotes.com,checkio.org,citizen428.net,coach.me,codeburst.io,dave-bailey.com,doist.com,doit-intl.com,dotandline.net,doublepulsar.com,electricliterature.com,elidourado.com,esciencecenter.nl,fossa.io,freecodecamp.org,fritz.ai,getadblock.com,greylock.com,helium.com,howwegettonext.com,iheart.com,injusticetoday.com,insightdatascience.com,iota.org,itnext.io,itsyourturnblog.com,jupyter.org,keepingstock.net,kiwi.com,learngoprogramming.com,learningbyshipping.com,ledwards.com,legalist.com,logrocket.com,mapbox.com,medium.com,melmagazine.com,mondaynote.com,newco.co,news.smugmug.com,nyulocal.com,ofdollarsanddata.com,okmeter.io,open.nytimes.com,postlight.com,prototypr.io,rainway.io,sagefy.org,signalvnoise.com,slack.engineering,slackhq.com,springboard.com,standardnotes.org,startupsventurecapital.com,stoplight.io,tech.buzzfeed.com,theabacus.io,theawl.com,thebigroundtable.com,thebillfold.com,thebolditalic.com,thecontrol.co,theringer.com,thinkprogress.org,thriveglobal.com,timeline.com,towardsdatascience.com,udacity.com,unpatent.co,usejournal.com,uxdesign.cc,uxplanet.org,warisboring.com,wearemel.com,whatahowler.com,x.company##body > #root > div > article > div:not([class*=""]) > section > div.n.p > div > div.eu > div > div:nth-of-type(2) > div > div[class="gz r au"] > button > svg > path[fill-rule="evenodd"][clip-rule="evenodd"][d^="M10.76"]:upward()
 500ish.com,artplusmarketing.com,atrium.co,backchannel.com,backstage.1blocker.com,badootech.badoo.com,bitcointechtalk.com,blazingdb.com,blog.angularindepth.com,blog.bitwarden.com,blog.coinbase.com,blog.confiant.com,blog.devcolor.org,blog.discordapp.com,blog.growthhackers.com,blog.hiri.com,blog.ltse.com,blog.statebox.org,blog.twitch.tv,blog.waffle.io,bluerockpublicradio.com,bolt.io,boomsupersonic.com,bradfieldcs.com,brightthemag.com,broadcast.listennotes.com,checkio.org,citizen428.net,coach.me,codeburst.io,dave-bailey.com,doist.com,doit-intl.com,dotandline.net,doublepulsar.com,electricliterature.com,elidourado.com,esciencecenter.nl,fossa.io,freecodecamp.org,fritz.ai,getadblock.com,greylock.com,helium.com,howwegettonext.com,iheart.com,injusticetoday.com,insightdatascience.com,iota.org,itnext.io,itsyourturnblog.com,jupyter.org,keepingstock.net,kiwi.com,learngoprogramming.com,learningbyshipping.com,ledwards.com,legalist.com,logrocket.com,mapbox.com,medium.com,melmagazine.com,mondaynote.com,newco.co,news.smugmug.com,nyulocal.com,ofdollarsanddata.com,okmeter.io,open.nytimes.com,postlight.com,prototypr.io,rainway.io,sagefy.org,signalvnoise.com,slack.engineering,slackhq.com,springboard.com,standardnotes.org,startupsventurecapital.com,stoplight.io,tech.buzzfeed.com,theabacus.io,theawl.com,thebigroundtable.com,thebillfold.com,thebolditalic.com,thecontrol.co,theringer.com,thinkprogress.org,thriveglobal.com,timeline.com,towardsdatascience.com,udacity.com,unpatent.co,usejournal.com,uxdesign.cc,uxplanet.org,warisboring.com,wearemel.com,whatahowler.com,x.company##body > #root > div > article > div:not([class*=""]) > section > div.n.p > div > div.eu > div > div:nth-of-type(2) > div > div[class="gz r au"] > button > svg:upward()
-500ish.com,artplusmarketing.com,backchannel.com,backstage.1blocker.com,badootech.badoo.com,bitcointechtalk.com,blazingdb.com,blog.bitwarden.com,blog.coinbase.com,blog.confiant.com,blog.devcolor.org,blog.discordapp.com,blog.growthhackers.com,blog.hiri.com,blog.ltse.com,blog.statebox.org,blog.twitch.tv,bolt.io,boomsupersonic.com,bradfieldcs.com,brightthemag.com,broadcast.listennotes.com,checkio.org,citizen428.net,coach.me,codeburst.io,dave-bailey.com,doist.com,doit-intl.com,dotandline.net,doublepulsar.com,electricliterature.com,elidourado.com,esciencecenter.nl,fossa.io,freecodecamp.org,fritz.ai,getadblock.com,greylock.com,helium.com,howwegettonext.com,iheart.com,injusticetoday.com,insightdatascience.com,iota.org,itnext.io,itsyourturnblog.com,jupyter.org,keepingstock.net,kiwi.com,learngoprogramming.com,learningbyshipping.com,ledwards.com,legalist.com,logrocket.com,mapbox.com,medium.com,melmagazine.com,mondaynote.com,newco.co,news.smugmug.com,nyulocal.com,ofdollarsanddata.com,okmeter.io,open.nytimes.com,prototypr.io,signalvnoise.com,slack.engineering,slackhq.com,springboard.com,standardnotes.org,startupsventurecapital.com,stoplight.io,tech.buzzfeed.com,theabacus.io,theawl.com,thebigroundtable.com,thebillfold.com,thebolditalic.com,thecontrol.co,theringer.com,thinkprogress.org,thriveglobal.com,timeline.com,towardsdatascience.com,udacity.com,uxdesign.cc,uxplanet.org,warisboring.com,wearemel.com,whatahowler.com,x.company##a[href*="/share/facebook"], a[href*="/share/twitter"], a[href*="/share/linkedIn"]
+500ish.com,artplusmarketing.com,backchannel.com,backstage.1blocker.com,badootech.badoo.com,bitcointechtalk.com,blazingdb.com,blog.bitwarden.com,blog.coinbase.com,blog.confiant.com,blog.devcolor.org,blog.discordapp.com,blog.growthhackers.com,blog.hiri.com,blog.ltse.com,blog.statebox.org,blog.twitch.tv,bolt.io,boomsupersonic.com,bradfieldcs.com,brightthemag.com,broadcast.listennotes.com,checkio.org,citizen428.net,coach.me,codeburst.io,dave-bailey.com,doist.com,doit-intl.com,dotandline.net,doublepulsar.com,electricliterature.com,elidourado.com,esciencecenter.nl,fossa.io,freecodecamp.org,fritz.ai,getadblock.com,greylock.com,helium.com,howwegettonext.com,iheart.com,injusticetoday.com,insightdatascience.com,iota.org,itnext.io,itsyourturnblog.com,jupyter.org,keepingstock.net,kiwi.com,learngoprogramming.com,learningbyshipping.com,ledwards.com,legalist.com,logrocket.com,mapbox.com,medium.com,melmagazine.com,mondaynote.com,newco.co,news.smugmug.com,nyulocal.com,ofdollarsanddata.com,okmeter.io,open.nytimes.com,prototypr.io,signalvnoise.com,slack.engineering,slackhq.com,springboard.com,standardnotes.org,stoplight.io,tech.buzzfeed.com,theabacus.io,theawl.com,thebigroundtable.com,thebillfold.com,thebolditalic.com,thecontrol.co,theringer.com,thinkprogress.org,thriveglobal.com,timeline.com,towardsdatascience.com,udacity.com,uxdesign.cc,uxplanet.org,warisboring.com,wearemel.com,whatahowler.com,x.company##a[href*="/share/facebook"], a[href*="/share/twitter"], a[href*="/share/linkedIn"]
 500px.com##.ul-sharing
 6abc.com,abc11.com,abc13.com,abc30.com,abc7.com,abc7chicago.com,abc7news.com,abc7ny.com##.share-sticky-outer.left-outer.social-icons
 7news.com.au##[class*="StyledSharing-StyledSharing"]
@@ -54508,5 +54522,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51294
-! Duplicates removed: 64022
+! Total unique rules: 51305
+! Duplicates removed: 64052
