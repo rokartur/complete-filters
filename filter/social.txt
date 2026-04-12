@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 11 Apr 2026 01:35:51 UTC
+! Last modified: 12 Apr 2026 01:35:58 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -11955,6 +11955,7 @@ mobilemarketingreads.com##.widget_media_image
 factkeepers.com##.widget_monarchwidget
 411mania.com##.widget_sm411_widget
 lithub.com##.widget_twitter_timeline
+whats-on-netflix.com##.widget_won_google_preferred_widget
 fandom.com##.wikia-bar-anon
 windowslatest.com##.wl-floatbar
 project-management.com##.wp-block-bssb-social-share
@@ -13761,7 +13762,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1775831505-3600.patch
+! Diff-Path: ../patches/4/4-s-1775902704-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14370,6 +14371,7 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+teknoblog.com##.entry-content > div:has(> a[href^="https://news.google.com/publications/"])
 memedroid.com##.item-controls-icon-share
 mosregtoday.ru##footer > div[class]:has(> ul > li > a[href^="https://vk.com/share.php?"])
 games.gg##.justify-self-center > button:has(> span > svg > path[d^="M237.66"])
@@ -29835,7 +29837,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1775854098-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1775940590-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38019,7 +38021,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1775831524-3600.patch
+! Diff-Path: ../patches/4/4-s-1775902728-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40268,7 +40270,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1775831524-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1775902728-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54522,5 +54524,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51305
-! Duplicates removed: 64052
+! Total unique rules: 51307
+! Duplicates removed: 64072
