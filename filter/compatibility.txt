@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 12 Apr 2026 01:35:36 UTC
+! Last modified: 13 Apr 2026 01:36:46 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775927831-3600.patch
+! Diff-Path: ../patches/11/11-s-1776035876-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -3357,7 +3357,7 @@ telugu.goodreturns.in###oneliner-promo ~ p
 pinzuba.news##.m-instream
 ebony8.com##.mobile_nav
 vook.vc##.note-sp-spnsr
-thestar.com###sticky-anchor
+postandcourier.com,thestar.com###sticky-anchor
 milffox.com##.mobile_top_ads
 milffox.com###side_content > div.header.red
 makemytrip.com##.landingContainer > .makeFlex:has(> div[class^="adtech"])
@@ -9451,7 +9451,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1775927848-3600.patch
+! Diff-Path: ../patches/11/11-s-1776035902-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13291,11 +13291,12 @@ web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, .data.viewer.new
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=jessicaclearout.com,important
-jessicaclearout.com##+js(nowoif)
-jessicaclearout.com##+js(set, console.clear, undefined)
-jessicaclearout.com##+js(acs, globalThis, break;case)
-jessicaclearout.com##+js(acs, WebAssembly, atob)
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=marissasharecareer.com,important
+marissasharecareer.com##+js(nowoif)
+marissasharecareer.com##+js(set, console.clear, undefined)
+marissasharecareer.com##+js(acs, globalThis, break;case)
+marissasharecareer.com##+js(acs, WebAssembly, atob)
+||marissasharecareer.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -13619,9 +13620,6 @@ magma.com##+js(trusted-set, Object.prototype.adsStrategy, 'json:{"tag":"","phase
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31775
 embedtv.best##+js(rpnt, script, (popupLoaded), (true))
-
-! https://www.reddit.com/r/uBlockOrigin/comments/1scukvq/comment/oeesd07/
-facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#@#div[role="feed"] > div:has(div[role="article"] a[attributionsrc^="/privacy_sandbox/comet/register/source/"])
 
 ! https://github.com/easylist/easylist/commit/73460e0ef8aff07d3f60b53cf4d30c659c941e28
 ranking.sanrio.co.jp#@#.is-ad
