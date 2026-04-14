@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 13 Apr 2026 01:36:46 UTC
+! Last modified: 14 Apr 2026 01:36:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776035876-3600.patch
+! Diff-Path: ../patches/11/11-s-1776105389-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -1917,6 +1917,8 @@ motherless.com$$script[tag-content="awentw.com"][min-length="2000"][max-length="
 @@77.88.21.122$network,app=ru.yandex.rasp
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/228886
+@@||pubads.g.doubleclick.net^$app=com.channel2.mobile.ui
 ! https://github.com/AdguardTeam/AdguardFilters/issues/228276
 @@||securepubads.g.doubleclick.net^$app=com.walla.wallasports
 @@||pagead2.googlesyndication.com^$app=com.walla.wallasports
@@ -2659,6 +2661,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+erome.com##.hidden-sm.sp-mob
+||m.xp600.com/js/*.js?v=
+iex.nl##.mobilebillboard
 talk.jp##.comments > div[class^="display-module-scss-module__"]
 classicpornvids.com##.right_col
 porn300.com##.aan__wrapper
@@ -8349,6 +8354,10 @@ contexto.me#$#.top-ad-padding { padding-top: 15px !important; }
 ! NOTE: Regular rules end ⬆️
 ! !SECTION: Regular rules
 !
+! TXXX network/tubecorp
+voyeurhit.com##a[class^="tag"][target="_blank"]
+hdzog.tube,hdzog.com##div[class="tag"] > [href][target="_blank"]
+txxxporn.tube,txxx.*##div[class^="links"] > [href][target="_blank"]
 ! pornhub.com
 pornhub.com,pornhub.org##div[class]:has(> ins.adsbytrafficjunky)
 pornhub.com,pornhub.org##.eudsaLink
@@ -9451,7 +9460,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776035902-3600.patch
+! Diff-Path: ../patches/11/11-s-1776105413-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -9963,6 +9972,7 @@ plus.rtl.de#%#//scriptlet("set-constant", "cbcAdvertisingAdapter.smartClientCore
 ! Yandex ads in mobile apps
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/228886
 ! https://github.com/AdguardTeam/AdguardFilters/issues/228276
 ! https://github.com/AdguardTeam/AdguardFilters/issues/223253
 ! https://github.com/AdguardTeam/AdguardFilters/issues/219449
@@ -10344,6 +10354,7 @@ spielen.de###headerad
 ! NOTE: Regular rules end ⬆️
 ! !SECTION: Regular rules
 !
+! TXXX network/tubecorp
 ! pornhub.com
 !
 ! m.yelp.com
@@ -13348,7 +13359,7 @@ japscan.*##+js(norafif, requestAnimationFrame)
 japscan.*##+js(acs, Array.prototype.join, /^[\S\s]{2000\,6000}$/)
 japscan.*##+js(acs, DOMTokenList.prototype.remove, /^[\S\s]{3000\,4000}$/)
 japscan.*##+js(acs, Node.prototype.appendChild, /cssText'|:'style'/)
-japscan.*##+js(acs, Promise.resolve, /jso\$|\(_0x|['"`]~['"`]/)
+japscan.*##+js(acs, Promise.resolve, /jso\$|\(_0x|(['"`][-0-9A-Z_a-z]+['"`]\,){50\,}/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/21064
 ! https://github.com/uBlockOrigin/uAssets/issues/24220
@@ -19768,5 +19779,5 @@ conceptoweb-studio.com##+js(set, initJWPlayerMux.utils.now, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12783
-! Duplicates removed: 7575
+! Total unique rules: 12790
+! Duplicates removed: 7581
