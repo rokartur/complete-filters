@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 14 Apr 2026 01:36:25 UTC
+! Last modified: 15 Apr 2026 01:36:05 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10675,6 +10675,7 @@ japan.go.jp##.article-fix-sns
 gfinityesports.com,stealthoptional.com##.article-float-buttons
 f1oversteer.com##.article-follow
 investmentexecutive.com,just-food.com##.article-footer
+dallasobserver.com,ecowatch.com,miaminewtimes.com,phoenixnewtimes.com,westword.com##.article-google-preferred-button
 gamingbible.com,ladbible.com,sportbible.com,tyla.com,unilad.com,uniladtech.com##.article-header-meta_discoverButton__58lwg
 foodbible.com##.article-header_discoverButton__PDfrQ
 infoworld.com##.article-hero__social
@@ -11428,6 +11429,7 @@ romper.com##.qyh
 prdaily.com##.ragan-social-share
 reason.com##.rcom-social-tools
 dermatologytimes.com,drive.com.au##.react-share__ShareButton
+newsukraine.rbc.ua##.read-in-google
 newsukraine.rbc.ua##.read-in-socials
 tasteofhome.com##.recipe-social-share
 fleischmannsyeast.com##.recipe__social
@@ -13762,7 +13764,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1776101530-3600.patch
+! Diff-Path: ../patches/4/4-s-1776174168-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14371,6 +14373,15 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+livelib.ru##.post-sab__link
+versii.if.ua##aside > div.fb-s-blog-two-main__box:has(> ul.fb-share-one)
+varta1.com.ua##.ova-engine-native-share-button
+banki.ru##div[data-test="tooltip"] div[role="button"]
+20minut.ua##.dropdown-soc
+notion.site##div[data-popup-origin="true"] > div[role="button"]:has(> svg.squareAndArrowUp)
+sn-jp.com##.p-entry__tw-follow
+sn-jp.com#?#.single-post-main > p:contains(SNSで記事をシェア)
+msdmanuals.com##button[class*="StickyRightToolbar_shareIcon"]
 thefinancialexpress.com.bd##.share-network-facebook
 thefinancialexpress.com.bd##.share-network-twitter
 thefinancialexpress.com.bd##.share-network-messenger
@@ -29852,7 +29863,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1776113408-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1776199835-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38036,7 +38047,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1776101549-3600.patch
+! Diff-Path: ../patches/4/4-s-1776174188-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -38381,6 +38392,7 @@ m.tf.co.kr##li.sBtn_reply:style(float: initial!important; display: inline-block!
 !
 ! NOTE: Specific rules
 !
+sn-jp.com##.single-post-main > p:contains(SNSで記事をシェア)
 caliber.az##.post_view > div.block:has(> div.block_title:contains(Share it))
 quiz-maker.site##p.heading_message:contains(結果をシェア!!)
 googlegaido.quest,androidjapan.one##+js(set-cookie, tpgwcc, 1)
@@ -40285,7 +40297,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1776101549-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1776174188-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54550,5 +54562,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51333
-! Duplicates removed: 64142
+! Total unique rules: 51345
+! Duplicates removed: 64207
