@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 16 Apr 2026 01:36:37 UTC
+! Last modified: 17 Apr 2026 01:36:21 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10707,6 +10707,7 @@ u.today##.article__gnews
 rt.com##.article__google-news
 odessa-journal.com##.article__hictory-descr_share
 tvpworld.com##.article__icons
+medicalxpress.com##.article__info-goog
 noticiabrasil.net.br,noticiaslatam.lat,spnfa.ir,sputnik-abkhazia.info,sputnik-georgia.com,sputnik-ossetia.com,sputnik.af,sputnik.by,sputnik.kg,sputnik.kz,sputnik.tj,sputnikglobe.com,sputniknews.africa,sputniknews.cn,sputniknews.in,sputniknews.jp,sputniknews.ru,sputniknews.uz,sputnikportal.rs##.article__news-services-subscribe
 thenewhumanitarian.org##.article__post-share
 salon.com##.article__share
@@ -11281,6 +11282,7 @@ travelandleisure.com##.mntl-footer__social
 thehackernews.com##.mobile-share
 recipes.timesofindia.com##.mobile-sprite
 ronorp.net##.mobile_social_block
+963theblaze.com##.modals
 zenger.news##.module-social-share-wrapper
 boxofficemojo.com##.mojo-fb-logo
 boxofficemojo.com##.mojo-tw-logo
@@ -11990,6 +11992,7 @@ firstpost.com##.yt-ch
 blog.youtube##.yt-social__list
 application-remuneratrice.com##.zd-social
 nypost.com##.zephrModal
+zmescience.com##.zme-google-follow-banners
 wdwmagic.com##.zocial
 securityweek.com##.zox-post-soc-list
 retbit.com##.zox-post-soc-scroll-out
@@ -12100,6 +12103,7 @@ economictimes.indiatimes.com#?#.Pbanner:has-text(as a Reliable and Trusted News 
 freethoughtnow.org#?#.elementor-widget-container > h2:has-text(Please share)
 gizmodo.com#?#.border-t-grey-200:has-text(Share this story)
 heritagedaily.com#?#.tds-button:has-text(FOLLOW ON GOOGLE NEWS)
+houstonchronicle.com,nhregister.com,registercitizen.com,sfchronicle.com,sfgate.com,stamfordadvocate.com#?#.deep:has-text(Google)
 ign.com#?#.promo-card:has-text(Follow us!)
 jacobin.com#?#.po-fr__heading:has-text(Share this article)
 lifenews.com#?#.post_style_zk > p:has-text(Please subscribe)
@@ -13764,7 +13768,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1776256384-3600.patch
+! Diff-Path: ../patches/4/4-s-1776350665-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14373,6 +14377,10 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+nieruchomosci-online.pl##.nav-share
+nieruchomosci-online.pl##.box-share-mobile-link
+trouw.nl##.paywall:has(> div[class] > button[title="Delen via Facebook"])
+tokyo-sports.co.jp##.article-footer-other__sns
 sexydixy.com##.d-inline-flex > div.right-icon:has(> i.bi-share-fill)
 sexydixy.com##p[role="button"]:has(> i.bi-share-fill)
 uafix.net###btns-share
@@ -28550,6 +28558,7 @@ designboom.com,livescience.com,pbtech.co.nz,peoplesworld.org,space.com##.fa-face
 ||mailget.net^$third-party
 ||my.hellobar.com^$third-party
 !
+genbank.ru##div[data-popup="socials"]
 lmusic.kz##.c-subscribe-alert__wrapper
 yeniavaz.com#%#//scriptlet('prevent-setTimeout', '#divModalPageLike')
 poupatempo.sp.gov.br##.float-icon-whatsapp
@@ -29866,7 +29875,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1776286183-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1776372584-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -29882,6 +29891,7 @@ economictimes.indiatimes.com##.Pbanner:contains(as a Reliable and Trusted News S
 freethoughtnow.org##.elementor-widget-container > h2:contains(Please share)
 gizmodo.com##.border-t-grey-200:contains(Share this story)
 heritagedaily.com##.tds-button:contains(FOLLOW ON GOOGLE NEWS)
+houstonchronicle.com,nhregister.com,registercitizen.com,sfchronicle.com,sfgate.com,stamfordadvocate.com##.deep:contains(Google)
 ign.com##.promo-card:contains(Follow us!)
 jacobin.com##.po-fr__heading:contains(Share this article)
 lifenews.com##.post_style_zk > p:contains(Please subscribe)
@@ -38050,7 +38060,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1776256400-3600.patch
+! Diff-Path: ../patches/4/4-s-1776350682-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40300,7 +40310,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1776256400-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1776350682-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54565,5 +54575,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51348
-! Duplicates removed: 64237
+! Total unique rules: 51358
+! Duplicates removed: 64266
