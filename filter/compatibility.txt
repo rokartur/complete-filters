@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 17 Apr 2026 01:36:00 UTC
+! Last modified: 18 Apr 2026 01:36:07 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776368160-3600.patch
+! Diff-Path: ../patches/11/11-s-1776439881-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2662,13 +2662,13 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+vocus.cc##.editor-content-block > div[style]:has(> #vocus_m_reading_parallax_middle)
+hotukdeals.com##.js-threadList > div:not([class]):not([id]):has(> .box--contents > div[class] > .slot--bg)
 alternet.org##.widget__body > span.widget__section:has(> div#alternet_mob_incontent)
 tvguia.es##div.channel-programs-main > div:not(.channel-row):has(> div.Clickio-Mobile-Channel-Banner)
 dexerto.com##div.mt-6:has(> div[id^="FooterAd"])
 dexerto.com##nav[aria-label="Navigation"] ~ div:has(> #top-leaderboard-ad)
 news.cnyes.com##body > div#content-main-news + div[class]
-battlecats-db.com#@#ins.adsbygoogle[data-ad-slot]
-battlecats-db.com#@#ins.adsbygoogle[data-ad-client]
 dic.pixiv.net###ad-d-sp-footer-not-spa
 porntrex.*##.bottomNav > [target="_blank"]
 ukr.net##[data-report-ad-id]
@@ -9478,7 +9478,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776368190-3600.patch
+! Diff-Path: ../patches/11/11-s-1776439906-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -10875,6 +10875,7 @@ search.ask.com#@##sponsoredTop
 ! ad in the tooltip when typing
 yandex.*#@#body:not([data-bem*="pogoda"]) .mini-suggest__popup-content > li[data-type="nav"]
 ! ads in the search results
+[$path=/search]ya.ru,yandex.*#@#.content__left li.serp-item:not(.serp-item__futuris-snippet):has(> div[class] div.AdvLabel)
 ya.ru,yandex.*#@##search-result > [class]:has(> div.Organic > div a[href*="_crpd"])
 yandex.*#@#.content__left > ul#search-result > li:has(> div.organic > div.OrganicTitle > a[href^="https://ya.ru/search/_crpd/"])
 ! Mobile
@@ -11694,6 +11695,7 @@ dzen.ru#@#:matches-path(/articles) div:has(> article > div > [class*="image"]:em
 *.qpon/$3p,domain=cartelive.club|clerkopera.net|gopst.link|antenasport.top|sanet.lc|piratecat.online|foxtrend.net|streams.center|streameast.ga|sportzonline.click|sticky-sports.cfd|soccerworldcup.me|casthill.net|smarthard.click|ntvstream.cx|xstreameast.com|streamion.city|insidesport.info|embedsports.top|istreameast.is|filecrypt.cc|animepahe.si|daddyhd.com|soap2day.day|nextgencloudtools.com|fbstreams.co|eztvx.to|moviesapi.club|anroll.net|anime4i.vip|businascart.com|evfancy.link|bedsport.live|tvableon.me|vidsrc.xyz|vidsrc.cc|streamingnow.mov|sportsurge.net
 *.cfd/$3p,domain=cartelive.club|clerkopera.net|gopst.link|antenasport.top|sanet.lc|piratecat.online|foxtrend.net|streams.center|streameast.ga|sportzonline.click|sticky-sports.cfd|soccerworldcup.me|casthill.net|smarthard.click|ntvstream.cx|xstreameast.com|streamion.city|insidesport.info|embedsports.top|istreameast.is|filecrypt.cc|vidfast.pro|vidora.stream|animepahe.si|daddyhd.com|soap2day.day|nextgencloudtools.com|fbstreams.co|eztvx.to|moviesapi.club|anroll.net|anime4i.vip|businascart.com|evfancy.link|bedsport.live|tvableon.me|vidsrc.xyz|vidsrc.cc|streamingnow.mov|sportsurge.net
 *.rest/$3p,domain=cartelive.club|clerkopera.net|gopst.link|antenasport.top|sanet.lc|piratecat.online|foxtrend.net|streams.center|streameast.ga|sportzonline.click|soccerworldcup.me|casthill.net|smarthard.click|ntvstream.cx|xstreameast.com|streamion.city|insidesport.info|embedsports.top|istreameast.is|filecrypt.cc|vidfast.pro|vidora.stream|animepahe.si|daddyhd.com|soap2day.day|nextgencloudtools.com|fbstreams.co|eztvx.to|moviesapi.club|anroll.net|anime4i.vip|businascart.com|evfancy.link|bedsport.live|tvableon.me|vidsrc.xyz|vidsrc.cc|streamingnow.mov|sportsurge.net
+*.in/$3p,domain=tpead.net|turbo.cr|dianaavoidthey.com|bunkr.si|templetoons.com|javfc2.xyz|masahub2.com|lewdzone.com|turbo.cr|bunkr.cr|porn-xp.com|filmbioskop21.at.ua|filmisub.cc|hentai2read.com|xxxpicss.com|mangaraw.ma|aniworld.to|marissasharecareer.com|simpcity.cr
 ! minimised regex popads
 =0$script,domain=streamingnow.mov|daddyhd.com|4stream.watch|mixdrop.my|xxxpicss.com|do7go.com|camgirlfap.com|eztvx.to|watchkobestreams.info|fastpic.org|businascart.com|evfancy.link|bedsport.live|s2watch.link|istorm.live|tv247365.link|admitsettle.net|daddylive.dad
 ! min.css (script)
@@ -13307,12 +13309,13 @@ www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', /g
 ! web.facebook.com,www.facebook.com##+js(json-prune-xhr-response, data.viewer.sideFeed.nodes.0.{-}.nodes.0.rhc_ad, , propsToMatch, /api/graphql)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.viewer.sideFeedUnit.nodes.[].new_adverts.nodes.[-].sponsored_data)
 web.facebook.com,www.facebook.com##+js(json-prune-xhr-response, data.viewer.sideFeedUnit.nodes.[].new_adverts.nodes.[-].sponsored_data, , propsToMatch, /graphql)
-web.facebook.com,www.facebook.com##+js(json-edit, ..sideFeedUnit.nodes.*[?.__typename=="AdsSideFeedUnit"])
+web.facebook.com,www.facebook.com##+js(json-edit, ..data.viewer..nodes.*[?.__typename=="AdsSideFeedUnit"])
 web.facebook.com,www.facebook.com##+js(set, Env.nxghljssj, false)
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-3060431385
-web.facebook.com,www.facebook.com##div[role="complementary"] a[aria-labelledby][attributionsrc^="/privacy_sandbox/comet/register/source/./?eid="][href^="http"][target="_blank"]
+web.facebook.com,www.facebook.com##div[role="complementary"] a[rel="nofollow noreferrer external"][attributionsrc^="/privacy_sandbox/comet/register/source/"][attributionsrc*="?eid="]
 web.facebook.com,www.facebook.com##div[role="complementary"] div[data-visualcompletion="ignore-dynamic"] a[aria-label][attributionsrc="_blank"][href*="utm_medium"][href*="utm_source"][href*="utm_id"][href*="utm_content"][href*="utm_term"][href*="utm_campaign"]
-web.facebook.com,www.facebook.com##div[role="complementary"] a[aria-labelledby][attributionsrc][href^="http"][target="_blank"][role="link"][rel$="noreferrer"]:has(img[src])
+web.facebook.com,www.facebook.com##div[role="complementary"] a[attributionsrc][href^="http"][target="_blank"][role="link"][rel*="noreferrer"]:has(img[src])
+web.facebook.com,www.facebook.com##div[role="complementary"] h3 span[style^="-webkit-box-orient:vertical"]:has-text(/^Sponsored$/)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.serpResponse.results.edges.[-].rendering_strategy.view_model.story.sponsored_data.ad_id)
 web.facebook.com,www.facebook.com##+js(json-edit, ..__bbox.result.data.node[?@.*.__typename=="SponsoredData"])
 web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, .data[?@.category=="SPONSORED"].node, propsToMatch, /graphql)
@@ -13659,9 +13662,6 @@ magma.com##+js(trusted-set, Object.prototype.adsStrategy, 'json:{"tag":"","phase
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31775
 embedtv.best##+js(rpnt, script, (popupLoaded), (true))
-
-! https://github.com/easylist/easylist/commit/73460e0ef8aff07d3f60b53cf4d30c659c941e28
-ranking.sanrio.co.jp#@#.is-ad
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/1sgy34h/ads_showing_on_myanimelist/
 ! https://github.com/uBlockOrigin/uAssets/issues/17018#issuecomment-4226692901
@@ -18391,7 +18391,7 @@ vidaextra.com##.base-asset-video:remove-class(base-asset-video)
 ! https://mod.reddit.com/mail/perma/1rqklb/2iwe9l + sub fixes
 www.reddit.com,sh.reddit.com##community-highlight-card[subreddit-prefixed-name="r/uBlockOrigin"][src]:remove-attr(src)
 www.reddit.com,sh.reddit.com##in-feed-community-recommendations:is([subreddit-name="uBlockOrigin"],[subreddit-id="t5_37z6i"])
-www.reddit.com,sh.reddit.com##shreddit-title[title$="r/uBlockOrigin"]~[id^="comment-tree-content-anchor-"]+div:has(>[id^="answers-suggested-queries"])
+www.reddit.com,sh.reddit.com##shreddit-title[title$="r/uBlockOrigin"]~[id^="comment-tree-content-anchor-"]~div:has(>[id^="answers-suggested-queries"])
 www.reddit.com,sh.reddit.com###main-content:has(>shreddit-title[title$="r/uBlockOrigin"])+#right-sidebar-container [data-slug="pdp_right_rail_related"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20667
@@ -19813,5 +19813,5 @@ conceptoweb-studio.com##+js(set, initJWPlayerMux.utils.now, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12818
+! Total unique rules: 12820
 ! Duplicates removed: 7598
