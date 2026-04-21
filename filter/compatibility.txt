@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 20 Apr 2026 01:36:34 UTC
+! Last modified: 21 Apr 2026 01:36:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776439881-3600.patch
+! Diff-Path: ../patches/11/11-s-1776699517-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2662,6 +2662,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+livedoor.blog,softon.blog.jp,mona-news.com##.slot-insert
 vocus.cc##.editor-content-block > div[style]:has(> #vocus_m_reading_parallax_middle)
 hotukdeals.com##.js-threadList > div:not([class]):not([id]):has(> .box--contents > div[class] > .slot--bg)
 alternet.org##.widget__body > span.widget__section:has(> div#alternet_mob_incontent)
@@ -2749,7 +2750,7 @@ marieclaire.com.tr##div[style^="width:320px;"][style*="height:100px"]
 player4me.vip#%#//scriptlet('abort-on-property-write', 'cache_loader')
 dalealbo.cl#$#.top-sticky-wrapper { display: none !important; }
 dalealbo.cl#$#header { top: 0 !important; }
-xca.cymru,vidara.to,vidara.so##.ad-download-box
+vindaz.shop,xca.cymru,vidara.to,vidara.so##.ad-download-box
 gubdaily.ru#$?#.gub-ad-mob { remove: true; }
 gubdaily.ru##div[class^="ai-viewport"]:has(> .code-block > .gub-ad-article)
 medex.com.bd##.campaign-block
@@ -9478,7 +9479,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776439906-3600.patch
+! Diff-Path: ../patches/11/11-s-1776699540-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -19604,9 +19605,6 @@ conceptoweb-studio.com##+js(set, initJWPlayerMux, {})
 conceptoweb-studio.com##+js(set, initJWPlayerMux.utils, {})
 conceptoweb-studio.com##+js(set, initJWPlayerMux.utils.now, noopFunc)
 
-! https://x.com/Joe_Atsui/status/2042956181963161915 Dan Pollock FP
-||www.yodobashi.com^$badfilter
-
 ! https://github.com/uBlockOrigin/uAssets/issues/32560
 ||adman.gr^$media,domain=antenna.gr,redirect=noopmp3-0.1s
 
@@ -19816,4 +19814,4 @@ conceptoweb-studio.com##+js(set, initJWPlayerMux.utils.now, noopFunc)
 
 
 ! Total unique rules: 12822
-! Duplicates removed: 7598
+! Duplicates removed: 7599
