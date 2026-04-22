@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 21 Apr 2026 01:36:25 UTC
+! Last modified: 22 Apr 2026 01:36:21 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10638,6 +10638,7 @@ datacenterdynamics.com##.a2a_default_style
 tandfonline.com##.a2a_share_target
 reserveamerica.com##.acm-article-share
 marriott.com,sandiegouniontribune.com##.action-bar
+wccftech.com##.add-google
 consequence.net##.add-to-google
 womansworld.com##.add-to-google-banner__wrapper___1PWZa
 city-journal.org##.addthis-trigger
@@ -10802,6 +10803,7 @@ koimoi.com##.btn-whatsup
 androidpolice.com##.btn-x
 consumerreports.org##.btn__social
 bu.edu##.bu-sharing
+channelnewsasia.com##.button--google-preferred
 notateslaapp.com##.button-follow
 unz.com##.button-holder
 healthline.com##.button-wrapper
@@ -10964,6 +10966,7 @@ blogto.com##.facebook-round-control
 news.stv.tv##.facebook-share
 moparinsiders.com##.facebook-widget
 thefastmode.com##.facebook_plugin
+channelnewsasia.com##.fast-card__share-button
 shepherd.com##.fav3-share
 thefreedictionary.com##.fb-share
 bearingarms.com,hotair.com,redstate.com##.fb-social
@@ -11656,6 +11659,7 @@ videocardz.com##.social-item-mail
 videocardz.com##.social-item-media
 knewz.com,revolvermag.com##.social-items
 afro.com,berlin-live.de,elsol.com.ar,hongkongfp.com,investigatemidwest.org,lafocusnews.com,ourweekly.com,theatlantavoice.com,washingtoncitypaper.com,washingtonmonthly.com##.social-links-menu
+complex.com##.social-links-top
 bidfood.nl,businesspost.ie##.social-links-wrapper
 denofgeek.com##.social-links__anchor--sharing
 casino.org##.social-list
@@ -13771,7 +13775,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1776692554-3600.patch
+! Diff-Path: ../patches/4/4-s-1776782612-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14380,6 +14384,12 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+ligazakon.net##.globalsinglepage_body_share
+pcmag.com###author-byline + div.mt-4 div.flex.gap-2
+mtsbank.ru##div[class^="styled__Cell-sc-"] > div[class^="sc-"]:has(> div[class^="sc-"] > a[aria-label="share-button-vk"])
+dailymail.com###articleIconLinksContainer > ul
+dailymail.com###articleIconLinksContainer > ul + div.share-count
+dailymail.com###socialLinks > ul > li[class^="share-"]
 carandmotor.gr##.bar-social-shares
 i24news.tv##div[class^="ShareButton"]
 svpressa.ru##.b-text__info > a.b-email
@@ -15273,7 +15283,7 @@ blog.hatena.ne.jp##.edit-done-socialize-header
 blog.hatena.ne.jp##.js-refresh-socialize-box
 auto.ru##button[class*="CatalogActionButtons__shareBtn-"]
 isekaitube.com##.entry-meta-right
-mlive.com##button[aria-label="Share this article"]
+musicradar.com,mlive.com##button[aria-label="Share this article"]
 centralasia.media##.share-aki-btns
 sport24.gr##.single_article_social
 pap.pl##.youTube
@@ -29884,7 +29894,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1776718172-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1776804577-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38069,7 +38079,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1776692573-3600.patch
+! Diff-Path: ../patches/4/4-s-1776782636-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40319,7 +40329,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1776692573-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1776782636-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54583,5 +54593,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51366
-! Duplicates removed: 64395
+! Total unique rules: 51376
+! Duplicates removed: 64462
