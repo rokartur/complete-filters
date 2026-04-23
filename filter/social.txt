@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 22 Apr 2026 01:36:21 UTC
+! Last modified: 23 Apr 2026 01:36:35 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10658,6 +10658,7 @@ ttgmedia.com##.ao-sbcontent
 asiaone.com##.ao-share-buttons
 thebookseller.com##.aos-Article-ShareLinks
 apnews.com##.ap-embed-wrap-whatsapp
+courthousenews.com##.apps-links
 chargedevs.com##.apss-social-share
 storyboard18.com##.ar_share
 businessday.co.za##.arena-share-bar
@@ -12117,6 +12118,7 @@ lifenews.com#?#.post_style_zk > p:has-text(Please subscribe)
 nbcsports.com#?#p.cms-textAlign-center:has-text(follow NBC Sports)
 newskarnataka.com#?#.elementor-button-wrapper:has-text(Social Media)
 newsroom.ucla.edu#?#.promo-card-muted:has-text(RSS feed)
+nytimes.com#?#.gps-module:has-text(on Google)
 openculture.com#?#.execphpwidget:has-text(FREE UPDATES!)
 psypost.org#?#strong:has-text(/Stay informed|Stay on top/)
 qodo.ai#?#.block-single-post__aside-heading:has-text(Share)
@@ -13775,7 +13777,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1776782612-3600.patch
+! Diff-Path: ../patches/4/4-s-1776872230-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14384,6 +14386,8 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+fortune.com##button:has(> svg.lucide-share2)
+ozon.ru##div[data-widget="sellerTransparency"] button[moleculetype="SELLER"] + div > button[style*="--graphicTertiary"]
 ligazakon.net##.globalsinglepage_body_share
 pcmag.com###author-byline + div.mt-4 div.flex.gap-2
 mtsbank.ru##div[class^="styled__Cell-sc-"] > div[class^="sc-"]:has(> div[class^="sc-"] > a[aria-label="share-button-vk"])
@@ -19512,7 +19516,7 @@ natalie.mu##.NA_share
 ledkia.com##div.c-product-deco__share__button
 chickenramen.jp###footShare
 asainvestments.com,qualy.com.br##div[data-component="cookiebar"]
-filmekseni.net,xeiaso.net,oyungemisi.com,pornhub.com,mediafire.com###shareButton
+androeed.ru,filmekseni.net,xeiaso.net,oyungemisi.com,pornhub.com,mediafire.com###shareButton
 honz.jp##.snstools
 detector.media##.artSocSticky
 detector.media###artSocBLK
@@ -25477,7 +25481,7 @@ eatthis.com##.article-social-rel
 windowsreport.com##.widget.dp-social
 theatlantic.com##nav#action-bar
 allmusic.com##.allmusic-share
-emlak365.com,kamugundemi.com,medyafaresi.com,chip.com.tr,hyser.com.ua##.post-socials
+eneba.com,emlak365.com,kamugundemi.com,medyafaresi.com,chip.com.tr,hyser.com.ua##.post-socials
 hyser.com.ua##.aside-socials
 beztabu.net##.news-sharing
 lostfilm.download,lostfilm.life,lostfilm.download,lostfilmtv5.site,lostfilm.pro,lostfilm.uno,lostfilm.today,lostfilm.tv##.social-pane
@@ -28204,7 +28208,7 @@ designboom.com,livescience.com,pbtech.co.nz,peoplesworld.org,space.com##.fa-face
 ~rottentomatoes.com,~slashdot.org##.icon-facebook-squared
 ~itsfoss.com,~alternativeto.net,~gog.com##.icon-reddit
 ##.icon-stumbleupon
-~dailymail.co.uk##.img-share
+~dailymail.com,~dailymail.co.uk##.img-share
 ##.j_social_share
 ##.js-shares
 ##.large_share_holder
@@ -28340,7 +28344,7 @@ designboom.com,livescience.com,pbtech.co.nz,peoplesworld.org,space.com##.fa-face
 ##.social__likes
 ##.social_btn
 ##.social_btns
-~career.habr.com##.social_buttons
+~androeed.ru,~career.habr.com##.social_buttons
 ##.social_container
 ~cekkazan.com.tr,~fotografwdrodze.pl,~raiffeisen-media.ru##.social_facebook
 ##.social_google
@@ -29894,7 +29898,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1776804577-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1776891001-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -29917,6 +29921,7 @@ lifenews.com##.post_style_zk > p:contains(Please subscribe)
 nbcsports.com##p.cms-textAlign-center:contains(follow NBC Sports)
 newskarnataka.com##.elementor-button-wrapper:contains(Social Media)
 newsroom.ucla.edu##.promo-card-muted:contains(RSS feed)
+nytimes.com##.gps-module:contains(on Google)
 openculture.com##.execphpwidget:contains(FREE UPDATES!)
 psypost.org##strong:contains(/Stay informed|Stay on top/)
 qodo.ai##.block-single-post__aside-heading:contains(Share)
@@ -38079,7 +38084,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1776782636-3600.patch
+! Diff-Path: ../patches/4/4-s-1776872245-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40329,7 +40334,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1776782636-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1776872245-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54593,5 +54598,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51376
-! Duplicates removed: 64462
+! Total unique rules: 51381
+! Duplicates removed: 64491

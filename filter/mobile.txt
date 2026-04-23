@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 22 Apr 2026 01:36:15 UTC
+! Last modified: 23 Apr 2026 01:36:28 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10,7 +10,7 @@
 ! Android host file - Adaway
 ! 
 ! Title: ABPVN Hosts
-! Updated: 21 Apr 2026 14:09 UTC+7
+! Updated: 22 Apr 2026 15:11 UTC+7
 ! License: ABPVN
 ! Please report any unblocked ads or problems by email or in our forums
 ! Email: support@abpvn.com
@@ -15013,6 +15013,7 @@
 ||aboardlevel.com^
 ||above.com^
 ||aboveredirect.top^
+||abpziztci.in^
 ||abroad-ad.kingsoft-office-service.com^
 ||abruptroad.com^
 ||absorbingband.com^
@@ -15769,8 +15770,10 @@
 ||antiadblocksystems.com^
 ||antlerlode.com^
 ||antvoice.com^
+||antxmmerxmdhu.com^
 ||anvilfunctions.com^
 ||anxiousapples.com^
+||anym8.com^
 ||anymedia.lv^
 ||ap2h9d2g3.com^
 ||apercusdimly.com^
@@ -16133,6 +16136,7 @@
 ||bvmcdn.net^
 ||bvtpk.com^
 ||bwp.download.com^
+||bytefrom2010.com^
 ||bzyfzusiqohk.com^
 ||c.bannerflow.net^
 ||c.bigmir.net^
@@ -16812,6 +16816,7 @@
 ||feedyourheadmag.com^
 ||feuageepitoke.com^
 ||fhsmtrnsfnt.com^
+||fhvfd.com^
 ||fibqukktuv.in^
 ||fiksu.com^
 ||filezoness.com^
@@ -17234,6 +17239,7 @@
 ||jailbulb.com^
 ||jailorscoman.cfd^
 ||jaiporukodaisa.com^
+||janitorprecisiontrio.com^
 ||jappkummodah.in^
 ||jarvispopsu.com^
 ||jatxt.com^
@@ -17799,6 +17805,7 @@
 ||oljqobudyusf.com^
 ||omazeiros.com^
 ||omciecoa37tw4.com^
+||omg10.com^
 ||omgcoool.com^
 ||ommentsere.biz^
 ||omnatuor.com^
@@ -18217,6 +18224,7 @@
 ||rate.ru^
 ||rb.rhussvelter.com^
 ||rcvlink.com^
+||rcyopmpfef.in^
 ||rdr.wargaming.net^
 ||reachjunction.com^
 ||reactx.com^
@@ -36988,6 +36996,10 @@ sinensistoon.com##+js(aopr, block_ads)
 ! YT ads fallback on snippet
 ||googlevideo.com/videoplayback*ctier=L&*%2Cxpc%2Cctier%2C$domain=m.youtube.com|music.youtube.com
 
+! www.google.com AI button not working
+! https://github.com/brave/brave-core/pull/31152
+www.google.com##+js(aeld, resize, .blur())
+
 ! cvs.com app banner  cvs.com##cvs-smart-app-banner  not being applied
 cvs.com##+js(trusted-set-local-storage-item, appBannerClosed, $now$)
 
@@ -39651,5 +39663,5 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 37624
+! Total unique rules: 37633
 ! Duplicates removed: 1675

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 22 Apr 2026 01:36:03 UTC
+! Last modified: 23 Apr 2026 01:36:14 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776782598-3600.patch
+! Diff-Path: ../patches/11/11-s-1776865292-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -169,6 +169,10 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+||wcp.taobao.com^
+||yfanads.com^
+||mobads-pre-config.cdn.bcebos.com^
+||mobads-logs.bcebos.com^
 ||prismriotads.com^
 ||bidder.a11.vega.aurion11.io^
 ||ad-api.revoaidapp.com^
@@ -2663,6 +2667,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+||apis.pchome.com.tw/PFB_AD.php
+pchome.megatime.com.tw##div:has(> ins[data-rmax-space-id])
+pchome.megatime.com.tw##center[style="border-bottom:1px #d3d3d3 solid;"]
 hotokami.jp##.spots__main > div.block:has(> div.flex > div[onclick^="gtag"] > a[href*="utm_campaign"])
 techblog.gr##div[class^="single-mobile-billboard"]
 smartapps.baidu.com##.mount-fc-promo-wrapper
@@ -3000,7 +3007,6 @@ pornoxo.com##.video-listing > div.no-popup
 pornoxo.com##.container:has(> h3 > a[href="/live-cam-models/"])
 pornoxo.com##a[href^="https://xo.show/"]
 pornoxo.com##a[href^="https://tsyndicate.com/"]
-motogonki.ru##section:has(> div[style] > a[onclick*="/go/click.php?"])
 motogonki.ru###article > div[style^="position:"]:has(> a[onclick*="/go/click.php?"])
 motogonki.ru##section[id^="adv"]
 motogonki.ru###widget
@@ -9486,7 +9492,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776782636-3600.patch
+! Diff-Path: ../patches/11/11-s-1776865332-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -19821,5 +19827,5 @@ conceptoweb-studio.com##+js(set, initJWPlayerMux.utils.now, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12828
-! Duplicates removed: 7605
+! Total unique rules: 12834
+! Duplicates removed: 7611

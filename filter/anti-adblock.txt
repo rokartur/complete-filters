@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 22 Apr 2026 01:36:03 UTC
+! Last modified: 23 Apr 2026 01:36:14 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -9019,14 +9019,6 @@ shedevrum.ai###app > div.z-\[12\].bg-white
 !
 ! END: Yandex
 !
-!
-! mtproto.xyz
-mtpro.xyz#%#//scriptlet('trusted-replace-argument', 'document.getElementById', '0', 'modal-1-content', 'detect-')
-mtpro.xyz#$#figure > div:has(> a[href="tg://resolve?domain=durevpnbot"]) { display: none !important; }
-mtpro.xyz#$#a[class~="wp-block-button__link"][target="_blank"]:not([href*="mtpro"]) { display: none !important; }
-mtpro.xyz#$#figure[class] > div:has(> a[href="https://px6.me/"]) { display: none !important; }
-mtpro.xyz#$#.wp-block-navigation__submenu-container > li[class]:has(> a[href="https://mod.ovh/proxy"]) { display: none !important; }
-!
 !#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android && !adguard_app_cli)
 ! pikabu.ru
 pikabu.ru##.b-page-story__bf-comments > div.story:not(:has(*))
@@ -12593,5 +12585,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 9318
+! Total unique rules: 9313
 ! Duplicates removed: 1995
