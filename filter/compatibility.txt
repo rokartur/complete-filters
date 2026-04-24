@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 23 Apr 2026 01:36:14 UTC
+! Last modified: 24 Apr 2026 01:36:36 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776865292-3600.patch
+! Diff-Path: ../patches/11/11-s-1776969262-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -169,6 +169,7 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+||goads2023.com^
 ||wcp.taobao.com^
 ||yfanads.com^
 ||mobads-pre-config.cdn.bcebos.com^
@@ -2264,6 +2265,9 @@ motherless.com$$script[tag-content="awentw.com"][min-length="2000"][max-length="
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/229403
+ai.ettoday.net#@#amp-ad
+ai.ettoday.net#@#.amp-unresolved
 ! https://github.com/AdguardTeam/AdguardFilters/issues/225641
 usnews.com#%#//scriptlet('set-constant', 'Object.prototype.vjsPlayer.ads', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/224076
@@ -2667,6 +2671,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+weathernews.jp##.main > section.dmenu-non:has(> div[id^="div-gpt-ad"])
+s.kakaku.com##.s-billboard
 ||apis.pchome.com.tw/PFB_AD.php
 pchome.megatime.com.tw##div:has(> ins[data-rmax-space-id])
 pchome.megatime.com.tw##center[style="border-bottom:1px #d3d3d3 solid;"]
@@ -2674,7 +2680,7 @@ hotokami.jp##.spots__main > div.block:has(> div.flex > div[onclick^="gtag"] > a[
 techblog.gr##div[class^="single-mobile-billboard"]
 smartapps.baidu.com##.mount-fc-promo-wrapper
 ||staff.livedoor.blog/slot-fallback.js
-livedoor.blog,softon.blog.jp,mona-news.com##.slot-insert
+keiba-umanami.com,2chblog.jp,blog.jp,blog.livedoor.jp,bloggeek.jp,blogism.jp,blogo.jp,blogstation.jp,blogto.jp,cafeblog.jp,corpblog.jp,diary.to,doorblog.jp,dreamlog.jp,gger.jp,golog.jp,ldblog.jp,liblo.jp,livedoor.biz,livedoor.blog,myjournal.jp,mynikki.jp,officeblog.jp,officialblog.jp,publog.jp,storeblog.jp,teamblog.jp,techblog.jp,weblog.to,xxxblog.jp,youblog.jp,mona-news.com##.slot-insert
 vocus.cc##.editor-content-block > div[style]:has(> #vocus_m_reading_parallax_middle)
 hotukdeals.com##.js-threadList > div:not([class]):not([id]):has(> .box--contents > div[class] > .slot--bg)
 alternet.org##.widget__body > span.widget__section:has(> div#alternet_mob_incontent)
@@ -3723,7 +3729,8 @@ op.gg##.w-full:has(> .flex:only-child > #mobile_takeover:only-child)
 cna.com.tw##.advertiseMobile
 sushi.ski##.xuKt2
 mobalytics.gg##main > div[class]:has(> div[class] > div#poe-2-video-all-pages-mobile)
-star-ettoday-net.cdn.ampproject.org##.adHint
+ai.ettoday.net##div[id^="adsense_matched_content"]
+ai.ettoday.net,star-ettoday-net.cdn.ampproject.org##.adHint
 star-ettoday-net.cdn.ampproject.org##a[href^="https://ad.ettoday.net/adclick.php"]
 stars.glavred.info##.article-column > div[style^="height"]:has(> amp-ad)
 glavred.info##.infinite-item > div[style^="height"]:has(> div.bnr-block__ad)
@@ -9492,7 +9499,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1776865332-3600.patch
+! Diff-Path: ../patches/11/11-s-1776969285-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -10163,6 +10170,7 @@ plus.rtl.de#%#//scriptlet("set-constant", "cbcAdvertisingAdapter.smartClientCore
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/229403
 ! https://github.com/AdguardTeam/AdguardFilters/issues/225641
 !+ PLATFORM(ios, ext_android_cb)
 @@||unpkg.com/videojs-contrib-ads@7.5.2/dist/videojs-contrib-ads.min.js$script,domain=usnews.com
@@ -19827,5 +19835,5 @@ conceptoweb-studio.com##+js(set, initJWPlayerMux.utils.now, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12834
-! Duplicates removed: 7611
+! Total unique rules: 12840
+! Duplicates removed: 7617
