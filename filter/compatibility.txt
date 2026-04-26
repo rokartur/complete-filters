@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 25 Apr 2026 01:35:27 UTC
+! Last modified: 26 Apr 2026 01:35:44 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
@@ -13351,13 +13351,12 @@ web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, .data.viewer.new
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=charlestoughrace.com|ianrequireadult.com,important
-charlestoughrace.com,ianrequireadult.com##+js(nowoif)
-charlestoughrace.com,ianrequireadult.com##+js(set, console.clear, undefined)
-charlestoughrace.com,ianrequireadult.com##+js(acs, globalThis, break;case)
-charlestoughrace.com,ianrequireadult.com##+js(acs, WebAssembly, atob)
-||charlestoughrace.com^$badfilter
-||ianrequireadult.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=timmaybealready.com,important
+timmaybealready.com##+js(nowoif)
+timmaybealready.com##+js(set, console.clear, undefined)
+timmaybealready.com##+js(acs, globalThis, break;case)
+timmaybealready.com##+js(acs, WebAssembly, atob)
+||timmaybealready.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -13402,7 +13401,6 @@ japscan.*##+js(aost, setTimeout, /stackDepth:3.+inlineScript:\d{4}:1/)
 japscan.*##+js(norafif, Date)
 japscan.*##+js(aost, MessageChannel, /stackDepth:2.+inlineScript/)
 japscan.*##+js(prevent-innerHTML, , /\.(gif|jpe?g|png|webp)/)
-japscan.*##+js(set, Element.prototype.textContent, undefined)
 japscan.*##:matches-path(/^\/man(g|h.)a/) div div:matches-attr("/[-0-9A-Za-z]{6,}/"="/.+/"):matches-css(position:fixed)
 japscan.*##html > div[style="position: fixed; inset: 0px; z-index: 2147483647; pointer-events: auto;"]
 japscan.*##+js(norafif, requestAnimationFrame)
@@ -18417,7 +18415,7 @@ vidaextra.com##.base-asset-video:remove-class(base-asset-video)
 ! https://mod.reddit.com/mail/perma/1rqklb/2iwe9l + sub fixes
 www.reddit.com,sh.reddit.com##community-highlight-card[subreddit-prefixed-name="r/uBlockOrigin"][src]:remove-attr(src)
 www.reddit.com,sh.reddit.com##in-feed-community-recommendations:is([subreddit-name="uBlockOrigin"],[subreddit-id="t5_37z6i"])
-www.reddit.com,sh.reddit.com##shreddit-title[title$="r/uBlockOrigin"]~[id^="comment-tree-content-anchor-"]~div:has(>[id^="answers-suggested-queries"])
+www.reddit.com,sh.reddit.com##shreddit-title[title$="r/uBlockOrigin"]~:is([id^="comment-tree-content-anchor-"],shreddit-comment-tree)~div:has(>[id^="answers-suggested-queries"])
 www.reddit.com,sh.reddit.com###main-content:has(>shreddit-title[title$="r/uBlockOrigin"])+#right-sidebar-container [data-slug="pdp_right_rail_related"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/20667
@@ -19836,5 +19834,5 @@ conceptoweb-studio.com##+js(set, initJWPlayerMux.utils.now, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12843
+! Total unique rules: 12841
 ! Duplicates removed: 7621
