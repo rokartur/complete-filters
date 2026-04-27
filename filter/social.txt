@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 26 Apr 2026 01:36:06 UTC
+! Last modified: 27 Apr 2026 01:37:19 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -11830,7 +11830,7 @@ aetv.com,wccftech.com##.story-share
 wccftech.com##.story-share-bottom
 tribune.com.pk##.story-social-icons
 gadgets360.com##.story_social_share
-thenewsmarket.com##.storyshare-div
+news.adidas.com,thenewsmarket.com##.storyshare-div
 stuff.co.nz##.stuff-article-sharebar
 barrons.com##.style--save-and-share-container--KMiFF4od
 userstyles.org##.style-image_shareStyleButtonWrapper__PwC0C
@@ -11985,6 +11985,7 @@ destructoid.com##.wp-block-gamurs-footer-nav__website-info__socials
 hsph.harvard.edu##.wp-block-hsph-sharing
 ogbongeblog.com##.wp-block-jetpack-send-a-message
 comicbook.com,hyperallergic.com,reneweconomy.com.au,vice.com##.wp-block-jetpack-sharing-buttons
+vice.com##.wp-block-jetpack-sharing-buttons-wrapper
 publichealthpolicyjournal.com,theonion.com##.wp-block-outermost-social-sharing
 newsreleases.sandia.gov##.wp-block-snl-blocks-snl-social-share-btns
 techcrunch.com##.wp-block-techcrunch-social-share
@@ -16282,7 +16283,6 @@ dailycaller.com##.flex:has(> li > button[aria-label="share on Facebook"])
 impact.ed.ac.uk##.ultp-post-share
 impact.ed.ac.uk#?#.ultp-wrapper-block > div.wp-block-ultimate-post-heading:has(h2:contains(Share))
 overlord-anime.com##.navi-share
-vice.com##.wp-block-jetpack-sharing-buttons-wrapper
 championsleague.basketball##div[data-contentful-field-id="body"] > div[class]:has(> button > span > svg > path[d^="M13 14H11C7.54202 14 4.53953 15.9502"])
 interestingengineering.com##li[class^="socialShare_"][class*="share_item"]
 livemint.com##div[class^="storyPage_storySocial"] a:has(> div > img[alt="Share Link"])
@@ -29922,7 +29922,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1777150081-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1777236488-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -40361,7 +40361,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1777086785-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1777173311-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54627,4 +54627,4 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 
 
 ! Total unique rules: 51406
-! Duplicates removed: 64618
+! Duplicates removed: 64635
