@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 28 Apr 2026 01:37:14 UTC
+! Last modified: 29 Apr 2026 01:37:44 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777293791-3600.patch
+! Diff-Path: ../patches/11/11-s-1777391759-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2676,6 +2676,14 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+pcgamesn.com##.entry-content > div[data-format="isvideo"]
+pcgamesn.com#?#div[class]:has(> div[id][class]:matches-css(before, content: /^Advertisement$/))
+telepolis.de##div[class^="ad-mobile-"]
+fapnado.xxx##.top
+fapnado.xxx##a[href^="https://www.tckcandy.com/"]
+thelayoff.com#$#.epp-blinds { display: none !important; }
+thelayoff.com#$#body.anchoradtop { margin-top: 0 !important; }
+thelayoff.com#$#body.anchoradtop > #navbar { top: 0 !important; }
 toyokeizai.net##.article-related__list > article.article-related__item:has(> div.ad-container)
 techorange.com#?#.elementor-hidden-desktop:has(> div.e-con-inner:only-child:not(:has(*)))
 immowelt.de##div[data-testid="serp-core-scrollablelistview-testid"] > div[class^="css-"]:has(> div[class] > div[class] > div[id^="div-gam-ad-"])
@@ -8401,9 +8409,9 @@ contexto.me#$#.top-ad-padding { padding-top: 15px !important; }
 ! TXXX network/tubecorp
 bdsmx.tube,manysex.com,manysex.tube,inporn.com##.video__wrapper > div.header__item
 txxxporn.tube,txxx.*##.video-conten > div[class] > div[class]:has(> div[class] > div[style="height: 100px;"])
-peporn.com,teen21.com,pornuse.com,uanal.com##.video-wrapper > section
+ourgay.tube,xshemale.tube,pornl.tube,fuxxx.com,keporn.vip,keporn.com,peporn.com,teen21.com,pornuse.com,uanal.com##.content > [class$="wrapper"] > section
 desi-porn.tube##.content > div > div[class]:has(> div[class] > div.da-container)
-voyeurhit.com##a[class^="tag"][target="_blank"]
+voyeurhit.tube,voyeurhit.com##a[class^="tag"][target="_blank"]
 hotmovs.tube,hotmovs.com,hdzog.tube,hdzog.com##div[class^="tag"] > a[href][target="_blank"]
 txxxporn.tube,txxx.*##div[class^="links"] > [href][target="_blank"]
 ! pornhub.com
@@ -9512,7 +9520,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777293817-3600.patch
+! Diff-Path: ../patches/11/11-s-1777391799-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -19848,5 +19856,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12851
-! Duplicates removed: 7629
+! Total unique rules: 12859
+! Duplicates removed: 7637
