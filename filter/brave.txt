@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 29 Apr 2026 01:37:44 UTC
+! Last modified: 30 Apr 2026 01:37:36 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -2695,6 +2695,10 @@ zillow.com##[data-test="search-list-first-ad"]
 ! entrepreneur.com
 entrepreneur.com##.adbox
 entrepreneur.com###anchorcontainer
+! dailymotion.com
+||dmads.dailymotion.com^
+dailymotion.com##.WatchingDiscovery__adSection___eLtfR
+dailymotion.com##div[class^="DisplayAd"]
 ! theepochtimes.com
 theepochtimes.com##.eet-ad
 theepochtimes.com##.top_ad
@@ -6869,5 +6873,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5841
+! Total unique rules: 5844
 ! Duplicates removed: 8

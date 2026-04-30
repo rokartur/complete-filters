@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 29 Apr 2026 01:37:44 UTC
+! Last modified: 30 Apr 2026 01:37:36 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777391759-3600.patch
+! Diff-Path: ../patches/11/11-s-1777459459-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -1215,6 +1215,7 @@ turbopages.org##.page__result > div[class*="type_native"]
 ! Good: ##.adv
 ! Bad: example.org##.adv (should be in specific.txt)
 !
+##body > #js-adContainer.adBlock
 ###mobile-adhesion:not(#style_important)
 ###ad-300x250_mid_mobile
 ##amp-iframe[src^="https://ad.vidverto.io/"]
@@ -2676,6 +2677,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+redgifs.com#%#//scriptlet('json-prune', 'boosted_gifs')
+redgifs.com#%#//scriptlet('json-prune', 'camera')
+redgifs.com#$#div[data-feed-module-type="live-cam"] { display: none !important; }
 pcgamesn.com##.entry-content > div[data-format="isvideo"]
 pcgamesn.com#?#div[class]:has(> div[id][class]:matches-css(before, content: /^Advertisement$/))
 telepolis.de##div[class^="ad-mobile-"]
@@ -9520,7 +9524,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777391799-3600.patch
+! Diff-Path: ../patches/11/11-s-1777459482-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -19856,5 +19860,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12859
-! Duplicates removed: 7637
+! Total unique rules: 12863
+! Duplicates removed: 7641
