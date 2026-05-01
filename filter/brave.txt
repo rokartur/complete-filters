@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 30 Apr 2026 01:37:36 UTC
+! Last modified: 01 May 2026 01:37:53 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -282,6 +282,7 @@ baeldung.com##.aelzmn
 sonichits.com##+js(set-session-storage-item, fs.adb831.dis, 1)
 baeldung.com##+js(set-session-storage-item, fs.adb.dis, 1)
 newrepublic.com,smithsonianmag.com,thenation.com##+js(set-local-storage-item, fs.adb, 1)
+||autoblog.com/.api/admiral
 ! google popup
 google.com##.Ryrdad:has-text(Please help us improve)
 developer.android.com##.devsite-snackbar-snack:has-text(Please help us)
@@ -3075,6 +3076,9 @@ visualcapitalist.com##.visua-target
 breakingbelizenews.com,cardealermagazine.co.uk,headfonics.com,igorslab.de,landline.media,mikesmoneytalks.ca,sundayworld.co.za,theroanokestar.com,visualcapitalist.com##a[href*="/linkout/"]
 ! cuevana.biz
 cuevana.biz###mdl-ads
+! overclock3d.net
+overclock3d.net##.stage-sidebar-3
+##img[width="728"][height="90"]
 ! tmz.com
 tmz.com##.ad-header-wrapper
 ! abcnews
@@ -6873,5 +6877,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5844
+! Total unique rules: 5847
 ! Duplicates removed: 8
