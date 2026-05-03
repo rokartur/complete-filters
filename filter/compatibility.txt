@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 02 May 2026 01:36:48 UTC
+! Last modified: 03 May 2026 01:36:28 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777526172-3600.patch
+! Diff-Path: ../patches/11/11-s-1777746414-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2679,6 +2679,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+meteo60.fr##.encart750x300
+meteo60.fr##.encart336SmartVertical
 m.soundcloud.com##div[class^="BannerAd"]
 redgifs.com#%#//scriptlet('json-prune', 'boosted_gifs')
 redgifs.com#%#//scriptlet('json-prune', 'camera')
@@ -9527,7 +9529,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777526209-3600.patch
+! Diff-Path: ../patches/11/11-s-1777746437-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13719,8 +13721,9 @@ embedtv.best##+js(rpnt, script, (popupLoaded), (true))
 myanimelist.net##a.ga-click[data-ga-click-type="hia"]
 myanimelist.net##div[id$="_NXU_wrap"], div[id$="_NXU_TITLE_wrap"]
 
-! https://github.com/uBlockOrigin/uAssets/issues/32546#issuecomment-4253067253
-||ac.rule34.xxx^$badfilter
+! https://github.com/uBlockOrigin/uAssets/issues/32452
+getthispdf.com##+js(rmnt, script, document.styleSheets)
+getthispdf.com##+js(set, _adBlockState, undefined)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19865,5 +19868,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12866
-! Duplicates removed: 7643
+! Total unique rules: 12869
+! Duplicates removed: 7645
