@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 04 May 2026 01:37:35 UTC
+! Last modified: 05 May 2026 01:36:41 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777746414-3600.patch
+! Diff-Path: ../patches/11/11-s-1777906386-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -296,7 +296,6 @@
 ||nbcollect.kugou.com^
 ||nbcollectretry.kugou.com^
 ||dl-adx.op-mobile.opera.com^
-||dsp-api.moloco.com^
 ||ads.smrtbid.com^
 ||bidjora.com^
 ||aomsitf.com^
@@ -465,6 +464,7 @@
 ||mobondhrd.appspot.com^
 ||api.ads.newsdigest.jp^
 ||mobi.yanosik.pl^
+||mobileadvertiser.yanosik.pl^
 ||videoads-cloud.rovio.com^
 ||vmap.v.ad-generation.jp^
 ||iyes.youku.com^
@@ -2679,6 +2679,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+greatandhra.com##.mob-Ad
 meteo60.fr##.encart750x300
 meteo60.fr##.encart336SmartVertical
 m.soundcloud.com##div[class^="BannerAd"]
@@ -2856,8 +2857,6 @@ baseballchannel.jp###sp_all_header
 ||cdn.sinparty.com^$subdocument,domain=imgbox.com
 imgbox.com##a[href^="https://sinparty.com/"]
 imgbox.com##._ln-floater
-abtranny.com##.header_mobile:has(> div.ad__title)
-abtranny.com##.video__wrapper > div.wrapper:has(> section div.ad__title)
 abtranny.com#$#.video-page__info > div.headline { margin-top: 0 !important; }
 tapatalk.com###TapatalkFooterMobileAds
 nfl.com##.flex.justify-center.lg\:my-8:has(> #adv_league)
@@ -4873,7 +4872,6 @@ wsj.com#?#div[class^="WhatsNewsTheme"] > div[class]:has(div[class] > div[class^=
 amp.dantri.com.vn##div[id^="xds-"]
 outdoorlife.com#?##empire-unit-footer-close-btn
 outdoorlife.com#?#div[id^="empire-unit-sticky_footer__mobile"]
-manysex.com,xjav.tube,aniporn.com##.header__item
 esquire.com#?#section > div[class*="css"]:has(> div.ad-container)
 thegreatoutdoorsmag.com,amateurphotographer.com##.post-content-ad
 themanual.com##body .dtads-mobile
@@ -8415,14 +8413,15 @@ contexto.me#$#.top-ad-padding { padding-top: 15px !important; }
 ! NOTE: Regular rules end ⬆️
 ! !SECTION: Regular rules
 !
-! TXXX network/tubecorp
+! TXXX network/tubecorp/Adultnext
 bdsmx.tube,manysex.com,manysex.tube,inporn.com##.video__wrapper > div.header__item
 txxxporn.tube,txxx.*##.video-conten > div[class] > div[class]:has(> div[class] > div[style="height: 100px;"])
 ourgay.tube,xshemale.tube,pornl.tube,fuxxx.com,keporn.vip,keporn.com,peporn.com,teen21.com,pornuse.com,uanal.com##.content > [class$="wrapper"] > section
 desi-porn.tube##.content > div > div[class]:has(> div[class] > div.da-container)
 voyeurhit.tube,voyeurhit.com##a[class^="tag"][target="_blank"]
-hotmovs.tube,hotmovs.com,hdzog.tube,hdzog.com##div[class^="tag"] > a[href][target="_blank"]
-txxxporn.tube,txxx.*##div[class^="links"] > [href][target="_blank"]
+hclips.com,hotmovs.tube,hotmovs.com,hdzog.tube,hdzog.com##div[class^="tag"] > a[href][target="_blank"]
+abbdsm.com,abgay.tube,abjav.com,abxxx.com,abmilf.com,abtranny.com,manysex.com,xjav.tube,aniporn.com##.header__item
+transtxxx.com,txxxporn.tube,txxx.*##div[class^="links"] > [href][target="_blank"]
 ! pornhub.com
 pornhub.com,pornhub.org##div[class]:has(> ins.adsbytrafficjunky)
 pornhub.com,pornhub.org##.eudsaLink
@@ -9378,8 +9377,6 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ! https://github.com/AdguardTeam/AdguardFilters/issues/10326
 ||api.ambelbet.com/assets/js/page.ads.js$script,redirect=noopjs
 ||api.ambelbet.com/assets/js/in.ads.js$script,redirect=noopjs
-! https://github.com/AdguardTeam/AdguardFilters/issues/8935
-||mobi.yanosik.pl:8080/mobile-advertizer/
 ! https://github.com/AdguardTeam/AdguardFilters/issues/8162
 ||api.mobpowertech.com^$app=cn.wps.moffice_eng
 ||cloudservice14.kingsoft-office-service.com^$app=cn.wps.moffice_eng
@@ -9529,7 +9526,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777746437-3600.patch
+! Diff-Path: ../patches/11/11-s-1777906419-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -10426,7 +10423,7 @@ spielen.de###headerad
 ! NOTE: Regular rules end ⬆️
 ! !SECTION: Regular rules
 !
-! TXXX network/tubecorp
+! TXXX network/tubecorp/Adultnext
 ! pornhub.com
 !
 ! m.yelp.com
@@ -10709,7 +10706,6 @@ adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_i
 ! https://github.com/AdguardTeam/AdguardFilters/issues/13224
 ! https://github.com/AdguardTeam/AdguardFilters/issues/11459
 ! https://github.com/AdguardTeam/AdguardFilters/issues/10326
-! https://github.com/AdguardTeam/AdguardFilters/issues/8935
 ! https://github.com/AdguardTeam/AdguardFilters/issues/8162
 ! https://github.com/AdguardTeam/AdguardFilters/issues/7352
 ! https://github.com/AdguardTeam/AdguardFilters/issues/7287
@@ -19868,5 +19864,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12869
-! Duplicates removed: 7645
+! Total unique rules: 12867
+! Duplicates removed: 7643
