@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 05 May 2026 01:36:41 UTC
+! Last modified: 06 May 2026 01:36:39 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777906386-3600.patch
+! Diff-Path: ../patches/11/11-s-1777995897-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -1050,6 +1050,8 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/230216
+planetf1.com#%#//scriptlet('abort-on-property-read', 'freeProConfig.btnRefresh')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/229892
 vodafone.de##.mc-content > #adbl
 ! https://github.com/AdguardTeam/AdguardFilters/issues/221944
@@ -2679,6 +2681,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+fishingjapan.jp##.common__adv_chowari_app
 greatandhra.com##.mob-Ad
 meteo60.fr##.encart750x300
 meteo60.fr##.encart336SmartVertical
@@ -9526,7 +9529,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777906419-3600.patch
+! Diff-Path: ../patches/11/11-s-1777995922-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -9619,6 +9622,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/230216
 ! https://github.com/AdguardTeam/AdguardFilters/issues/229892
 ! https://github.com/AdguardTeam/AdguardFilters/issues/221944
 ! https://github.com/AdguardTeam/AdguardFilters/issues/211147
@@ -19864,5 +19868,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12867
-! Duplicates removed: 7643
+! Total unique rules: 12869
+! Duplicates removed: 7645
