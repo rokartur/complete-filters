@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 06 May 2026 01:36:39 UTC
+! Last modified: 07 May 2026 01:37:16 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777995897-3600.patch
+! Diff-Path: ../patches/11/11-s-1778051106-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2681,6 +2681,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+yay.porn,1porno.net##.rekspan
 fishingjapan.jp##.common__adv_chowari_app
 greatandhra.com##.mob-Ad
 meteo60.fr##.encart750x300
@@ -9529,7 +9530,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1777995922-3600.patch
+! Diff-Path: ../patches/11/11-s-1778051131-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -19868,5 +19869,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12869
-! Duplicates removed: 7645
+! Total unique rules: 12870
+! Duplicates removed: 7646
