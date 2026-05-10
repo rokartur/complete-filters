@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 09 May 2026 01:36:52 UTC
+! Last modified: 10 May 2026 01:36:45 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1778258362-3600.patch
+! Diff-Path: ../patches/11/11-s-1778337077-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2276,6 +2276,9 @@ motherless.com$$script[tag-content="awentw.com"][min-length="2000"][max-length="
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/230428
+!+ PLATFORM(android)
+@@||meet.dramirtavari.com^$content
 ! https://github.com/AdguardTeam/AdguardFilters/issues/229403
 ettoday.net#@#amp-ad
 ettoday.net#@#.amp-unresolved
@@ -9533,7 +9536,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1778258391-3600.patch
+! Diff-Path: ../patches/11/11-s-1778337100-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -10207,6 +10210,7 @@ plus.rtl.de#%#//scriptlet("set-constant", "cbcAdvertisingAdapter.smartClientCore
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/230428
 ! https://github.com/AdguardTeam/AdguardFilters/issues/229403
 ! https://github.com/AdguardTeam/AdguardFilters/issues/225641
 !+ PLATFORM(ios, ext_android_cb)
@@ -19675,6 +19679,9 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||albuquerque.newzware.com/newzlib/js/common/fingerprint2.min.js$script,3p,domain=abqjournal.com
 @@||cdn.sophi.io^$3p,script,from=abqjournal.com
 
+! https://github.com/uBlockOrigin/uAssets/issues/32874
+||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=google-ima.js,domain=mnetplus.world
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19880,5 +19887,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12875
+! Total unique rules: 12877
 ! Duplicates removed: 7649

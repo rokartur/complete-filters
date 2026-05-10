@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Annoyances
 ! Description: Combined filter list for the annoyances category.
-! Last modified: 09 May 2026 01:36:52 UTC
+! Last modified: 10 May 2026 01:36:44 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 42 / 42
@@ -30564,6 +30564,7 @@ dashboard.razorpay.com#@##credential_picker_container
 ||guce.techcrunch.com/v1/consentRecord?
 ||harpercollins.co.uk/js/cookie.js
 ||hunstoncanoeclub.co.uk/media/system/js/modal.js
+||icao.int/libraries/klaro/dist/klaro-no-translations-no-css.js
 ||icgp.ie/ionic-consent/
 ||immoweb.be/250/js/thorConsent.js
 ||immozentral.com/js/stylecc
@@ -31658,6 +31659,7 @@ reneweconomy.com.au##.sc__container_outer
 indianexpress.com##.screen-banner-link
 slideshare.net##.scribd-ad-exit-modal
 golem.de##.sdgSlotContainer
+wbur.org##.section--takeover
 civileats.com##.section-banner
 infoworld.com##.section-block--announcementbar
 news.shib.io##.section-shortcode
@@ -31739,6 +31741,7 @@ saigoneer.com##.support-us
 kyivindependent.com##.supportUs-article__banner
 stuff.co.nz##.supporter-wrapper
 vg247.com##.supporters_promo
+realestate.com.au##.survey-cta-card
 banggood.com##.suspended-banner-wrap
 opb.org##.sustainer
 restofworld.org##.sustainer_campaign
@@ -33624,7 +33627,6 @@ cnbc.com##.CNBCFooter-info
 kcrw.com##.CTAnewsletter
 declassifieduk.org,retailwire.com,wlrn.org##.Campaign
 scrippsnews.com##.Campaign.sewaren-campaign
-wbur.org##.Campaign__innerWrapper
 nyctourism.com##.Container_newsletterBlock__LRiMf
 westword.com##.ContentFooterNewsletterSignup
 aftermath.site,defector.com,sf.gazetteer.co##.ContentGate_wrapper__tNtjt
@@ -34581,6 +34583,7 @@ parade.com##.m-flex-nav--right-engagement
 boston.com##.m-generic-cta
 boston.com##.m-generic-cta--email-signup
 minds.com##.m-modal-bg
+aol.com##.m-newsletter
 politifact.com##.m-supporter
 money.com##.m00646-mc-newsletter
 city-journal.org##.m_newsletter-container
@@ -36737,6 +36740,7 @@ phonearena.com,quiverquant.com##.google-news-follow
 kyivpost.com##.google-news-preffer-button
 bleedingcool.com##.google-news-source
 ringsidenews.com,tmz.com##.google-preferred-btn
+realestate.com.au##.google-preferred-link
 sammobile.com##.google-preferred-news-source-cta
 cultofmac.com##.google-preferred-source
 9to5google.com,9to5mac.com,9to5toys.com,dronedj.com,mathrubhumi.com,spaceexplored.com##.google-preferred-source-badge
@@ -37106,6 +37110,7 @@ dailygalaxy.com,glassalmanac.com##.share-buttons-toggler
 cknxnewstoday.ca##.share-buttons_buttons__V3uFu
 apptrigger.com##.share-capture
 cryptopolitan.com##.share-col
+smithsonianmag.com##.share-control
 paloaltonetworks.com##.share-copy-mail
 coindesk.com##.share-dialog-button
 dailymail.co.uk,thisismoney.co.uk##.share-email
@@ -37173,7 +37178,7 @@ searchenginejournal.com##.sharebtn
 econotimes.com##.sharebutton
 mydorpie.com##.sharecell
 whowhatwhy.org##.shared-counts-wrap
-aftvnews.com,baptistnews.com,calmatters.org,cardinalnews.org,cartoonbrew.com,jta.org,thefrisc.com,usmagazine.com,washingtoncitypaper.com,washingtoninformer.com##.sharedaddy
+aftvnews.com,baptistnews.com,calmatters.org,cardinalnews.org,cartoonbrew.com,dailybulletin.com,jta.org,thefrisc.com,usmagazine.com,washingtoncitypaper.com,washingtoninformer.com##.sharedaddy
 muscleandfitness.com##.sharedaddy__wrapper
 hakaimagazine.com##.shareicons
 mid-day.com##.sharelink_act
@@ -40817,7 +40822,7 @@ nakedwines.co.uk##nkd-cookie-banner
 weatherbug.com##notification-footer
 northwell.edu##nwhlit-gdpr-banner
 1inch.com##oi-cookies-popup
-eu.reservewheels.com##pandectes-cmp
+eu.reservewheels.com,kingkoil.com##pandectes-cmp
 playpaxdei.com##paxdei-cookie-consent
 proactua.com##proactua-cookie-consent
 lookup.icann.org##rwc-cookie-notification
@@ -54500,6 +54505,10 @@ thebarentsobserver.com##+js(set-cookie, mm_f_45691, true)
 ms.now##.fb_lightbox-overlay
 ms.now##.preloaded_lightbox
 ms.now##body,html:style(overflow: auto !important; position: initial !important;)
+! wbur.org
+wbur.org##.Campaign
+wbur.org##.Campaign__innerWrapper
+wbur.org##html:style(overflow: auto !important)
 ! lgbtqnation.com
 lgbtqnation.com##.Campaign
 lgbtqnation.com##html:style(overflow: auto !important; position: initial !important;)
@@ -56155,7 +56164,7 @@ lighterusa.com#@##shopify-section-age-gate
 
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/14.txt
-! Diff-Path: ../patches/14/14-s-1778265578-3600.patch
+! Diff-Path: ../patches/14/14-s-1778343953-3600.patch
 !
 !-------------------------------------------------------------------!
 !---------------------- Cookies ------------------------------------!
@@ -60110,9 +60119,9 @@ netbanking.dhbbank.com#$#body.modal-open { overflow: auto !important; }
 netbanking.dhbbank.com#$##cookie-warning { display: none !important; }
 netbanking.dhbbank.com#$#.cookie-modal { display: none !important; }
 netbanking.dhbbank.com#$#.modal-backdrop { display: none !important; }
-imazing.com#$#body.modal-open { overflow: auto !important; }
-imazing.com#$#div#cookie-consent-modal { display: none !important; }
-imazing.com#$#div.modal-backdrop { display: none !important; }
+autoglas-spezialist.com,imazing.com#$#body.modal-open { overflow: auto !important; }
+autoglas-spezialist.com,imazing.com#$#div#cookie-consent-modal { display: none !important; }
+autoglas-spezialist.com,imazing.com#$#div.modal-backdrop { display: none !important; }
 xxxlutz.cz#%#//scriptlet('trusted-click-element', 'button[data-purpose="cookieBar.button.accept"] + div[class] > button', '', '2000')
 ||elearn.sunway.edu.my/webapps/privacy-disclosure/js/cookieConsent.js
 albert.cz#%#//scriptlet('trusted-set-cookie', 'VersionedCookieConsent', 'v%3A2%2Cessential%3A1%2Canalytics%3A0%2Csocial%3A0%2Cperso_cont_ads%3A0%2Cads_external%3A0')
@@ -72827,6 +72836,8 @@ poznancongresscenter.pl,arenapoznan.pl,garden-city.pl,city-marketing.pl,ideaexpo
 ! When request is blocked then there is an error "Unexpected token / in JSON at position 0"
 ! It's loaded by cdn.cookielaw.org/scripttemplates/otSDKStub.js, so it should be only unblocked on websites for which this script is unblocked
 !
+! https://github.com/uBlockOrigin/uAssets/issues/32875
+@@||robertsspaceindustries.com/plt-client/assets/chunks/CookieConsent-*.js$domain=robertsspaceindustries.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230129
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230829
 @@||consent.cookiebot.com/uc.js$domain=nibelungen-wohnbau.de
@@ -97800,7 +97811,7 @@ pikabu.ru##.sidebar-block_mail
 fdr.com.br,hacks.mozilla.org###newsletterForm
 androidpolice.com#?#ul#sbar-content > li[id^="custom_html-"]:has(> div > section > form[action$="/subscriptions"])
 appleinsider.ru#?#.entry-content > p:has(> code > a[href="https://zen.yandex.ru/appleinsider.ru"])
-pitchfork.com,glamour.mx,allure.com,vogue.com,gq.com,cntraveler.com,wired.com,spicebar.de,vanityfair.com,self.com,cnet.com,newyorker.com##.newsletter-subscribe-form
+gqjapan.jp,pitchfork.com,glamour.mx,allure.com,vogue.com,gq.com,cntraveler.com,wired.com,spicebar.de,vanityfair.com,self.com,cnet.com,newyorker.com##.newsletter-subscribe-form
 newyorker.com#?#div[class^="PageSections__container"] > section[class^="SoloPromoSection__promoWrapper"]:has(> div[class^="SoloPromoSection__promoColumn"] > p[class^="SoloPromoSection__promo"] > span > a[href="https://www.newyorker.com/newsletters"])
 belretail.by##.bannerAfterArticle
 ettoday.net#?#.inner > div.block:has(> div.sidebar-hot-express)
@@ -116734,7 +116745,6 @@ novaramedia.com##.background-support-texture
 nonciclopedia.org,miraheze.org###siteNotice
 winstall.app##div[class^="donateCard_container__"]
 openstreetmap.org###banner
-wbur.org##.section--takeover
 www.wikipedia.org##div[id^="portalBanner_"].banner-bottom
 ||wisepops.net/loader.js$domain=civileats.com
 misskey.io##div[class="_panel _shadow xmiJR"][style="--1ab2fbc0: 1000100;"]
@@ -116892,7 +116902,7 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_annoyances_widgets
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/14.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/14/14-s-1778265598-3600.patch
+! Diff-Path: ../patches/14/14-s-1778343972-3600.patch
 !
 !-------------------------------------------------------------------!
 !---------------------- Cookies ------------------------------------!
@@ -117877,9 +117887,9 @@ netbanking.dhbbank.com##body.modal-open:style(overflow: auto !important;)
 netbanking.dhbbank.com###cookie-warning:style(display: none !important;)
 netbanking.dhbbank.com##.cookie-modal:style(display: none !important;)
 netbanking.dhbbank.com##.modal-backdrop:style(display: none !important;)
-imazing.com##body.modal-open:style(overflow: auto !important;)
-imazing.com##div#cookie-consent-modal:style(display: none !important;)
-imazing.com##div.modal-backdrop:style(display: none !important;)
+autoglas-spezialist.com,imazing.com##body.modal-open:style(overflow: auto !important;)
+autoglas-spezialist.com,imazing.com##div#cookie-consent-modal:style(display: none !important;)
+autoglas-spezialist.com,imazing.com##div.modal-backdrop:style(display: none !important;)
 kosik.cz##.cmp-modal:style(display: none !important;)
 kosik.cz##html.is-scroll-hidden:style(overflow: auto !important;)
 kosik.cz##body[style*="padding-right:"]:style(padding-right: 0 !important;)
@@ -122080,6 +122090,7 @@ poznancongresscenter.pl,arenapoznan.pl,garden-city.pl,city-marketing.pl,ideaexpo
 ! When request is blocked then there is an error "Unexpected token / in JSON at position 0"
 ! It's loaded by cdn.cookielaw.org/scripttemplates/otSDKStub.js, so it should be only unblocked on websites for which this script is unblocked
 !
+! https://github.com/uBlockOrigin/uAssets/issues/32875
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230129
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230829
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230717
@@ -131443,6 +131454,7 @@ m.tokopedia.com##div[data-testid="divOverlay"]:style(display: none!important;)
 ! Limit it to mobile versions only
 ! causes some issues: https://github.com/AdguardTeam/AdguardForMac/issues/550
 !
+yamap.com##.DownloadBanner
 www.kinopoisk.ru##+js(set-cookie, kp_mobile_app_sheet, true)
 etsy.com##div[data-appears-component-name="app_download"]
 jobs.meinestadt.de##.o-smartBanner
@@ -138994,6 +139006,7 @@ adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_i
 !+ NOT_OPTIMIZED PLATFORM(windows, mac, android, cli)
 ||geolocation.onetrust.com/cookieconsentpub/*/geo/location$xmlhttprequest,redirect-rule=noopjson
 !
+! https://github.com/uBlockOrigin/uAssets/issues/32875
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230129
 @@||mobile-data.onetrust.io^$app=com.lidl.eci.lidlplus
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230829
@@ -143569,6 +143582,7 @@ reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion#$#body
 ! causes some issues: https://github.com/AdguardTeam/AdguardForMac/issues/550
 ~odaibako.net,~lineup.withgoogle.com,~vert.sh,~search.brave.com,~status.im,~lafenice.io,~kurer-sreda.ru,~chorki.com,~zattoo.com,~zaycev.net,~hitta.se,~mail.ru,~facebook.com,~instagram.com,~drive.google.com$$link[rel="manifest"]
 !
+yamap.com##.DownloadBanner
 www.kinopoisk.ru#%#//scriptlet('set-cookie', 'kp_mobile_app_sheet', 'true')
 etsy.com##div[data-appears-component-name="app_download"]
 jobs.meinestadt.de##.o-smartBanner
@@ -163068,6 +163082,7 @@ paloaltonetworks.com##+js(nostif, /adbl/i)
 ! klaviyo-prevent-body-scrolling
 ! thebarentsobserver.com
 ! ms.now
+! wbur.org
 ! lgbtqnation.com
 ! addapinch.com
 ! outsports.com
@@ -163281,7 +163296,7 @@ paloaltonetworks.com##+js(nostif, /adbl/i)
 !   Formularz (nie wymaga rejestracji) => https://polishannoyancefilters.netlify.app/issues
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Maintainer: Filters Heroes
-! Aktualizacja: nie, 03 maj 2026, 22:03 UTC+02:00
+! Aktualizacja: sob, 09 maj 2026, 18:12 UTC+02:00
 !
 !
 ! Specyficzne filtry
@@ -163309,6 +163324,7 @@ account.dm.pl##button[title="scrollTop"]
 acer.com##.btn--btt
 ach-te-internety.pl,applemania.pl###cenote-back-to-top
 active.sklep.pl,epicgames.com,grupawsparcia.pl,smaki.pl,wprost.pl##.up-button
+activefalcon.nazwa.pl,jaw.com.pl,market-point.pl,meblem4.pl,ogrodniksklep.pl,vipmajster.pl##.scrollup
 activefamily.pl##.moto-back-to-top-button_visible
 ad-al.pl,barszcz.edu.pl,misericordia.media.pl##.hc_scrollup
 adata.com###back-2-top.back-2-top-rocket
@@ -163320,6 +163336,7 @@ afgmarket.pl##.button-sticky-top
 aforyzmy-cytaty.pl###topBtn
 aftermarket.pl###scroll-bottom
 aga-toma.pl##.pow_start
+agatameble.pl##.scrollTopButton-button-Spn
 agdserwis.eu,sklep.party###toTop
 agendo.pl,millymally.pl##.page-up
 agora.pl,b2c.vds.pl,buyava.pl,domczasuhurt.pl,ewozki.eu,forcell.pl,johndog.pl,kociewie24.eu,kulig.pl,pl.techinfus.com,pogotowie-komputerowe.org.pl,yummo.pl##.up
@@ -163372,7 +163389,7 @@ armytek.pl,dolinski.pl##.ab__scroll_to_top
 aros.pl,bonito.pl##.circle_arrow
 arriva.pl###move
 art-pol.pl,pl.akyga.com###jumpUpBtn
-artillo.pl,dstreet.pl,e-baseus.com,evertourist.com,yerbamarket.com###backTop
+artillo.pl,dstreet.pl,e-baseus.com,evertourist.com,yerbamarket.com,zegarki.pl###backTop
 astoreo.pl##.scrollButtons
 asus.com##div[class*="scrollTopWrapper_"]
 asystentbhp.pl##.gototop-button.gototop
@@ -163398,7 +163415,7 @@ barbrafeszyn.pl##.tn-back-top
 batyra.pl,krasnystaw.eu,rolnex.pl##.js-up
 baza-firm.com.pl###goTopArrow
 bdb.com.pl###powrotBT
-beardrust.pl,gazetasenior.pl,gezeta.pl,mamygadzety.pl,pitbull.pl,skleprolniczy.com##.scroll-up
+beardrust.pl,gazetasenior.pl,gezeta.pl,mamygadzety.pl,pitbull.pl,skleprolniczy.com,targowek.gcity.pl##.scroll-up
 beaton.pl###btn-to-top
 begryf.pl##.base-scroll-to-top
 bekoczesci.pl###tbScrollToTop
@@ -163498,7 +163515,7 @@ czystyszop.pl##.ib-scroll-top
 czytio.pl,jaw.com.pl###scrollTop-btn
 dakoma.com.pl##.spin-scroll-top
 damy-rade.info,podforak.rzeszow.pl##.nav-up, .nav-down
-danrol-sklep.pl,ksiegarniamorska.pl,papiernicza.pl,sklep-agro.pl,sklep.najlepszy-przyjaciel.pl,timetrend.pl##.scroll-button
+danrol-sklep.pl,ksiegarniamorska.pl,nexterio.pl,papiernicza.pl,sklep-agro.pl,sklep.najlepszy-przyjaciel.pl,timetrend.pl##.scroll-button
 darent.net,netbiel.pl###scroll-top-top
 darkarea.pl###bttop
 decathlon.pl###messagetop
@@ -163760,6 +163777,7 @@ kosmetyczna-hedonistka.blogspot.com##.totop-arrow
 krainaoszczedzania.pl###finoScroll
 krakow.pl###footer-scroll-up
 krd.pl##.krd-footer-scroller
+kreisel.pl##.buttonTop
 kufer.poznajemyswiat.pl##.fa-arrow-up.ssttbutton-symbol
 kulinarnastronamocy.pl##.stick.stnsvn-btt
 kultura.krasnik.eu###skip_to
@@ -163815,7 +163833,6 @@ malafabryczka.pl###button-up
 marbo-sport.pl##.upArrow
 marenaspa.pl###desktop-bottom-bar-arrow
 marfafashion.com,sklep.energylandia.pl,sklep.mpay.pl##.scroll-visible
-market-point.pl,meblem4.pl,ogrodniksklep.pl##.scrollup
 marketdino.pl##button:has(> .icon-arrow-up)
 marki.pl###linktop
 mastersport.pl##ktr-rollup
@@ -167726,7 +167743,7 @@ pl##iframe[src^="https://esa.nask.pl/widget/"]
 !   Formularz (nie wymaga rejestracji) => https://polishannoyancefilters.netlify.app/issues
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Maintainer: Filters Heroes
-! Aktualizacja: nie, 03 maj 2026, 18:05 UTC+02:00
+! Aktualizacja: sob, 09 maj 2026, 19:55 UTC+02:00
 !
 !
 !
@@ -167978,7 +167995,6 @@ bardomed.pl,grzechhair.com##.popup_cont, .popup_back
 barokko.pl,butylukow.pl,korob.pl###tws_i_2
 batom.pl##div[class*="Modal__ModalPortalStyled-sc-"]
 bazarek-deco.com.pl###NewsPop
-bboptic.com###POPUPS_ROOT.POPUPS_ROOT:has(#lmsjg, .lmsjg)
 bdl.lasy.gov.pl##.blockPage.blockMsg.blockUI, .blockOverlay.blockUI
 beardman.pl,polskicaravaning.pl,swiatopon.info,warsztat.pl,wiadomoscihandlowe.pl,wiadomoscikosmetyczne.pl###newsletter-popup-wrapper
 beardman.pl,subiektywnieofinansach.pl###newsletter-overlay
@@ -169153,7 +169169,7 @@ polishannoyancefilters.netlify.app##+js(set, pafDetect, true)
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Creator: blocker999
 ! Maintainer: Filters Heroes
-! Aktualizacja: śro, 06 maj 2026, 18:58 UTC+02:00
+! Aktualizacja: sob, 09 maj 2026, 19:55 UTC+02:00
 !
 !
 ! Newslettery (nie popupy)
@@ -179127,7 +179143,7 @@ cyclistsbest.se##.Partners
 cyclistsbest.se##section.pos-relative:has(.FeaturedCard--spot)
 cykla.se##.featured-post--sponsored, .grid-item--sponsored, #advert-once-banner-fullskarm
 cykla.se#@#.advertisment
-dackavisen.se##.dacka-widget, div[id^="dacka-"]
+dackavisen.se##.dacka-widget, div[id^="dacka-"], #fancybox-wrap
 dagensarena.se##.fp__row--banner
 dagensarena.se,mytaste.se,matklubben.se,vivavinomat.se##.popup
 dagensinnovation.se,nyheter.swebbtv.se,modernalivet.se###moove_gdpr_cookie_info_bar
@@ -179219,7 +179235,6 @@ driva-eget.se##.sponsored_content
 driva-eget.se##:is(.articles-swiper-item, .article-content, .articles-masonry-item):has(.bgcolor-ad-card)
 drugnews.se##.ad-swiper-container
 drugnews.se##:is(#sidebarleft, #sidebarright) .widget:has(.ad-swiper-container)
-dx-radio.se###header .fl_right a[target]
 dykarna.nu###rightbanners
 edgeflyfishing.com###g-header, #g-aside, #g-sidebar, a[href*="utm_campaign"], a:not([href^="/"], [href*="edgeflyfishing.com"]) img
 edukatus.se###g-preloader
@@ -179417,6 +179432,7 @@ frihetsnytt.se##.tdm_block_inline_image:has(a[target])
 frihetsnytt.se##.td-block-title-wrap:has-text(/annons/i):upward(1)
 frilagt.se##.elementor-location-header section.elementor-element:first-child
 friluftsframjandet.se##[id^="ad-"]
+frizon.se##.maintop
 funktionshinderpolitik.se##.topp-banner, .annons-mark
 funnygames.se,nyckelspel.se##.slot-container
 fuska.nu##:is(.elementor-widget-text-editor, .recent-post, .slick-slide):has(a[href*="casino"], a[href*="betting"], a[href*="bingo"], a[href*="poker"])
@@ -179753,7 +179769,7 @@ linguee.se##div[class*="ad_container"], div[class*="_ads_"]
 linux.se##h5[style^="text-transform"]:has-text(annons):upward(1)
 linux.se##.post:has(a[href*="/annons"])
 lira.se###cookies-accept
-lira.se,danstidningen.se,slangopedia.se,tidningen.se###ads
+lira.se,danstidningen.se,slangopedia.se,tidningen.se,frizon.se###ads
 listaroo.se##.ct-link[target="_blank"], a[href*="casino"], a[href*="spellicens"]
 listor.se##:is(a[href*="casino"], a[href*="betting"], a[href*="poker"]):upward(.ct-widget)
 litteraturmagazinet.se###pageContainer > div:first-child:not([id]), #topContainer a:not([href="/"], a[href="/sitesearch"])
@@ -180086,7 +180102,7 @@ sanghafte.se##:is(aside.widget_text_widget_startpage_only, .entry-content .has-p
 sbf.se,skaneridsport.se##.hiq-partners-banner
 sceffect.se##.a-single
 schack.se##.schac-widget
-schafertidningen.se##.gutentor-element-image-link[target="_blank"]
+schafertidningen.se##a[href*="addrevenue.io"]
 schoolido.se##.so-cookie__area
 sdhl.se,ssl.se,storvretaibk.se##.rmss_module-block-linked_image, a[href*="svenskaspel.se"]
 sefnextgen.se##sponsor-block
@@ -180154,7 +180170,6 @@ snowmobile.se,tobaksfakta.se,dagenslogistik.se,magasinetkonkret.se,a-traktorer.s
 softonic.se##div[data-meta="placeholder-slot"]
 sokbat.se##a[target="_blank"][onclick]
 sonicmagazine.com,ratsit.se##[class^="ad-"]
-soundshine.se##div[data-testid="mesh-container-content"] > section:first-child:has(a[target="_blank"])
 so-rummet.se##.article-list:has(.sponsrad-over)
 so-rummet.se##.block-rr
 so-rummet.se##.link-list-item:has(img[src*="sponsrad"])
@@ -180386,7 +180401,7 @@ uppsatser.se##.results li[style^="margin"]:not(.result), .spahotels
 usabil.nu##.image-post-link[target]
 utkiken.net##.friends-module
 utm_$document,removeparam=/^utm_/,domain=tv.nu|booli.se|expressen.se|aftonbladet.se|dagensps.se|prisjakt.nu|vinborsen.se
-utsidan.se###member-cta
+utsidan.se###member-cta, .offcanvas-backdrop
 utslappsratt.se,heleneholmsif.se,trafikskola.se,melodifestivalklubben.se,morotsliv.com,nyadagbladet.se##+js(set, em_track_user, false)
 utslappsratt.se,heleneholmsif.se,trafikskola.se,melodifestivalklubben.se,morotsliv.com,nyadagbladet.se##+js(set, exactmetrics_frontend, undefined)
 utstallningskritik.se##.widget-title:has-text(Annonsörer):upward(.widget_media_gallery)
@@ -187767,5 +187782,5 @@ zwaveproducts.com###livechat-compact-container
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 150242
-! Duplicates removed: 199992
+! Total unique rules: 150252
+! Duplicates removed: 200005
