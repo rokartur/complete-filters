@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 12 May 2026 01:37:36 UTC
+! Last modified: 13 May 2026 01:39:11 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -138,6 +138,9 @@ alltrails.com##+js(trusted-set-local-storage-item, banner-dismissal-date, $now$)
 
 ! YouTube navigation fix scriptlet rule
 youtube.*##+js(brave-youtube-navigation-fix)
+
+! Youtube playback speed fix scriptlet rule
+www.youtube.*##+js(brave-youtube-playback-speed-fix)
 
 ! pageview-api detection
 music.youtube.com##+js(brave-video-bg-play)
@@ -6934,5 +6937,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5889
+! Total unique rules: 5890
 ! Duplicates removed: 8
