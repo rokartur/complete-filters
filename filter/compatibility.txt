@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 13 May 2026 01:39:11 UTC
+! Last modified: 14 May 2026 01:41:00 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1778590337-3600.patch
+! Diff-Path: ../patches/11/11-s-1778680236-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -1109,8 +1109,6 @@ m.livehindustan.com#%#//scriptlet("prevent-addEventListener", "scroll", "adBlock
 ! https://github.com/AdguardTeam/AdguardFilters/issues/14752
 ! https://github.com/AdguardTeam/AdguardFilters/issues/5033
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=dthforum.com
-! https://forum.adguard.com/index.php?threads/20215/
-@@||smedia2.intoday.in/aajtak_pwapp$script
 ! https://forum.adguard.com/index.php?threads/19885/
 ||m.eisamay.com/detector.cms
 ! https://forum.adguard.com/index.php?threads/19892/
@@ -2685,6 +2683,10 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+atlas.taboolanews.com##section[aria-label="Advertisement"]
+porntourist.com##.header__bar > div.bar > a[href][target="_blank"][rel="nofollow"]
+2ch.logpo.jp##.AmazonItems
+hochi.news##.kyujin__head
 timeshighereducation.com##.pane-multiple-hub-traffic-drivers
 article.auone.jp##.infeed__large--block
 s.kabutan.jp##main > div > div.justify-center[style="min-height:280px;"]
@@ -8427,7 +8429,7 @@ contexto.me#$#.top-ad-padding { padding-top: 15px !important; }
 ! TXXX network/tubecorp/Adultnext
 bdsmx.tube,manysex.com,manysex.tube,inporn.com##.video__wrapper > div.header__item
 txxxporn.tube,txxx.*##.video-conten > div[class] > div[class]:has(> div[class] > div[style="height: 100px;"])
-boobse.com,ourgay.tube,xshemale.tube,pornl.tube,fuxxx.com,keporn.vip,keporn.com,peporn.com,teen21.com,pornuse.com,uanal.com##.content > [class$="wrapper"] > section
+porn-latina.com,gfthai.com,lesbigo.com,boobse.com,ourgay.tube,xshemale.tube,pornl.tube,fuxxx.com,keporn.vip,keporn.com,peporn.com,teen21.com,pornuse.com,uanal.com##.content > [class$="wrapper"] > section
 desi-porn.tube##.content > div > div[class]:has(> div[class] > div.da-container)
 voyeurhit.tube,voyeurhit.com##a[class^="tag"][target="_blank"]
 hclips.com,hotmovs.tube,hotmovs.com,hdzog.tube,hdzog.com##div[class^="tag"] > a[href][target="_blank"]
@@ -9537,7 +9539,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1778590361-3600.patch
+! Diff-Path: ../patches/11/11-s-1778680277-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -9690,7 +9692,6 @@ wr.de,wp.de,nrz.de#@#.ad
 !+ PLATFORM(ios, ext_android_cb)
 @@||farmeramania.de^$generichide
 ! https://github.com/AdguardTeam/AdguardFilters/issues/5033
-! https://forum.adguard.com/index.php?threads/20215/
 ! https://forum.adguard.com/index.php?threads/19885/
 ! https://forum.adguard.com/index.php?threads/19892/
 ! https://forum.adguard.com/index.php?threads/16365/
@@ -13742,6 +13743,10 @@ getthispdf.com##+js(rmnt, script, /'onerror'|'offsetHe|'offsetWi/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32865
 gumtree.com#@#+js(trusted-set, experimentOverrides, json:"%5B%7B%20defaultValue%3A%20%22OFF%22%7D%5D")
+
+! https://github.com/uBlockOrigin/uAssets/issues/31664
+bus-location.1507t.xyz#@#+js(nostif, ()=>{, 2501-)
+bus-location.1507t.xyz##+js(nostif, /^\s*\(\s*\)\s*=>\s*\{\s*[-$0-9A-Z_a-z]+\s*\(\s*[-$0-9A-Z_a-z]*\s*\)\s*\}\s*$/)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19891,5 +19896,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12881
-! Duplicates removed: 7650
+! Total unique rules: 12886
+! Duplicates removed: 7653

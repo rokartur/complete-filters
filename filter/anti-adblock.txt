@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 13 May 2026 01:39:11 UTC
+! Last modified: 14 May 2026 01:41:00 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -2101,6 +2101,8 @@ $subdocument,domain=urlbluemedia.shop
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/AdguardTeam/AdGuardSDNSFilter/master/Filters/exceptions.txt
+! taboolanews.com
+@@|cdn.taboola.com^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230786
 @@||unsubscribe.lhinsights.com^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/227852
@@ -9566,6 +9568,9 @@ fuucdayo.com#$#.fuuc-adblock-overlay-open { overflow: auto !important; }
 fuucdayo.com#@#ins.adsbygoogle[data-ad-slot]
 fuucdayo.com#@#ins.adsbygoogle[data-ad-client]
 !
+myradioonline.pl##.js-appAdv
+myradioonline.pl##.popup_layer
+myradioonline.pl#%#//scriptlet('prevent-element-src-loading', 'script', 'cfusion-internet.com')
 replacedbyrobot.info#%#//scriptlet('abort-current-inline-script', 'EventTarget.prototype.addEventListener', 'window.getComputedStyle')
 manoramamax.com#$#body { overflow: auto !important; }
 manoramamax.com#$##__next ~ .MuiDialog-root { display: none !important; }
@@ -12595,5 +12600,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 9321
+! Total unique rules: 9325
 ! Duplicates removed: 1995
