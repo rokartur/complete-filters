@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Annoyances
 ! Description: Combined filter list for the annoyances category.
-! Last modified: 16 May 2026 01:37:07 UTC
+! Last modified: 17 May 2026 01:37:23 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 42 / 42
@@ -30440,6 +30440,7 @@ dashboard.razorpay.com#@##credential_picker_container
 ||form.jotform.com^$domain=premierchristian.news
 ||forms-content.sg-form.com^$domain=12tomatoes.com
 ||forms.aweber.com^$domain=thetruthaboutguns.com
+||forms.blackhawks.com/newsletter-signup$subdocument
 ||gn-flagpoles.api.bbci.co.uk^
 ||hartmannreport.com/embed
 ||herokuapp.com/email$domain=peopleofcolorintech.com
@@ -30459,6 +30460,7 @@ dashboard.razorpay.com#@##credential_picker_container
 ||sibforms.com/serve/$domain=maidenhead-advertiser.co.uk|sloughexpress.co.uk
 ||smartbrief.com/TheForecast?$subdocument
 ||subscriptions.cbc.ca^$xmlhttprequest
+||tdgardenapps.com/countdown/2024_Game_Clock.html$subdocument
 ||thejewishstar.com/images/enews-ad.png
 ||tinypass.com^$domain=artnews.com|bbc.com|bbcgoodfood.com|billboard.com|businessinsider.com.pl|deadline.com|hollywoodreporter.com|nationalobserver.com|npr.org|outsideonline.com|prospectmagazine.co.uk|rawstory.com|refinery29.com|rollingstone.com|sifted.eu|stuff.co.nz|telegraph.co.uk|the42.ie|thedailybeast.com|thelogic.co|thenation.com|variety.com|wwd.com
 ||waterfordwhispersnews.com/wp-content/themes/therex-child/js/_newsletter-article-signup.js
@@ -32686,6 +32688,7 @@ observer-reporter.com###tncms-block-689490
 m.economictimes.com###wapFooter
 reddit.com###xpromo-bottom-sheet[aria-label*="See Reddit in..."]
 reddit.com###xpromo-bottom-sheet[aria-label*="See this post in..."]
+nhl.com##.-promo
 imgur.io##.Ad
 redfin.com##.AppInstallBannerWrapper
 dailymotion.com##.AppPromotion__appPromotion___28-_Y
@@ -34834,6 +34837,7 @@ theasianparent.com##.newsletter-subscribe-card-warp
 itnews.com.au##.newsletter-subscribe-container
 newyorker.com,wired.com##.newsletter-subscribe-form
 essence.com##.newsletter-subscribe-inline
+apa.org##.newsletter-subscription
 youcouldtravel.com##.newsletter-subscription-block
 rand.org##.newsletter-subscription-box-wrapper
 citizen.co.za##.newsletter-subscription-cta-wrapper
@@ -35555,6 +35559,7 @@ kbb.com##.wp-block-kbb-email-subscription-form
 bikerumor.com,gearjunkie.com##.wp-block-ldm-blocks-call-to-action
 blockclubchicago.org##.wp-block-lede-common-newsletter
 thewrap.com##.wp-block-newsletter-builder-signup-form
+snexplores.org##.wp-block-newsletter-signup
 esecurityplanet.com,project-management.com##.wp-block-newsletter-widget
 observer.com##.wp-block-observer-newsletters
 pewresearch.org##.wp-block-prc-block-promo
@@ -36177,7 +36182,7 @@ saturdayeveningpost.com##.-newsletter_social
 tennis.com##.-sharebar
 nhl.com,petri.com##.-social
 ynet.co.il,ynetnews.com##.AccordionShareWrapper
-abebooks.com,americanbanker.com,nbcsports.com,newatlas.com,nhpr.org,pitchbook.com,scrippsnews.com##.ActionBar
+abebooks.com,americanbanker.com,nbcsports.com,newatlas.com,nhpr.org,pitchbook.com,refractor.io,scrippsnews.com##.ActionBar
 kpbs.org,wmar2news.com##.ActionBar-items
 newatlas.com##.ActionLink
 cnbc.com##.ArticleBody-googlePreferredSourceContainer
@@ -37688,6 +37693,7 @@ maps4heroes.com##[href="https://t.me/maps4heroes"]
 clashmusic.com##[href="https://vero.co/clashmagazine"]
 zycrypto.com##[href="https://zycryp.to/GoogleNews"]
 eteknix.com##[href^="http://bit.ly/"]
+frvr.com##[href^="http://google.com/preferences/source"]
 webfail.com##[href^="http://twitter.com/intent/tweet"]
 windowslatest.com##[href^="https://google.com/preferences/source"]
 newskarnataka.com,psypost.org##[href^="https://news.google.com/publications/"]
@@ -39307,6 +39313,7 @@ pinpointproperties.com##.cookie-authority
 whitepages.com##.cookie-banner-container
 team.repair##.cookie-banner-inner
 businesscomparison.com##.cookie-banner-mask
+powerbox-systems.com##.cookie-banner-overlay
 aerofilms.cz,uxcel.com##.cookie-banner-wrap
 thewhitecompany.com##.cookie-banner__dimmer
 surferseo.com##.cookie-banner_component
@@ -49880,7 +49887,6 @@ amazon.*##html.fable-no-scroll:style(overflow: auto !important; touch-action: au
 ! fanboy_social_thirdparty.txt
 ! fanboy_social_specific_block.txt
 ! fanboy_social_specific_hide.txt
-digitaltrends.com##[href^="https://www.google.com/preferences/source"]
 !! :has
 !! top-level domain wildcard
 !! .socialmedia
@@ -49897,7 +49903,6 @@ digitaltrends.com##[href^="https://www.google.com/preferences/source"]
 !! #share
 !! .share
 !! .share-button
-almanar.com.lb,bergamonews.it,combinationsmag.com,deraktionaer.de,fantasymagazine.it,heidi.news,inforum.com,letemps.ch,liberta.it,ndmais.com.br,overwolf.com,portswigger.net,tastecooking.com,thetruthaboutcars.com,tirto.id##.share-button
 !! .share-box
 !! .twitter
 !! .t-shared-sec
@@ -53964,7 +53969,6 @@ klimahotelmilano.com##.tpl-cookie
 !! #mc_embed_signup
 !! .mc_embed_signup
 !! .newsletter
-01net.it,2gb.com,4investors.de,aawsat.com,addictivetips.com,administradores.com.br,adventures.com,advisoronline.it,advocate.com,aeroporto.net,agenziacasaclima.it,airliners.de,airqualitynews.com,aiscoop.com,alattefood.com,aldianews.com,alexander-wallasch.de,algemeiner.com,allclassical.org,antlionaudio.com,apracticalwedding.com,arab24.com,arsenalinsider.com,artnews.com,asteriskmag.com,astrooroscopo.it,atlantadailyworld.com,atlatszo.hu,autocasion.com,autoguide.com,automotive-fleet.com,baguete.com.br,basketinside.com,bestlifeonline.com,billboard.com,bintmusic.it,biometricupdate.com,bit.pt,bitmag.com.br,boardgameprices.co.uk,boerse-express.com,bolzano-bozen.it,bostonglobe.com,bostonmagazine.com,brindisisera.it,brooklynbased.com,buoyant.io,businessfleet.com,businessinsider.com,capx.co,carolinajournal.com,carpicalcionews.it,ccmagazine.es,cdt.ch,cheapies.nz,chicagodefender.com,chiesadimilano.it,cittaceleste.it,clevelandclinic.org,clubic.com,cmjornal.pt,cnn.com,comicsands.com,commondreams.org,condominioweb.com,corsedimoto.com,crn.com,cronista.com,crypto.news,cuisineetvinsdefrance.com,culture.pl,cyberscoop.com,dazeddigital.com,defensescoop.com,delamar.de,denofgeek.com,diepresse.com,digiday.com,digitaleterrestrefacile.it,dissipatio.it,dn.pt,dojacat.com,doktersvandewereld.org,dreambigtravelfarblog.com,dri.es,edscoop.com,electricfencing.co.uk,electronicsweekly.com,elmostrador.cl,enstarz.com,epicurious.com,estadao.com.br,estrelando.com.br,etonline.com,euractiv.com,euractiv.de,eventfinda.co.nz,evz.ro,familyhandyman.com,fandom.com,fantamagazine.com,fashionotes.com,fcinter1908.it,fdr.com.br,fedscoop.com,fliegermagazin.de,fmc.hu,focusardegna.com,forbesafrica.com,forzaroma.info,futura-sciences.com,gault-millau.nl,gaultmillau.be,gaultmillau.lu,giornaledibrescia.it,gizchina.com,gogedizioni.it,golssip.it,goodbye.be,goodnet.org,goodrx.com,gooieneemlander.nl,government-fleet.com,greatbritishchefs.com,greenbot.com,haarlemsdagblad.nl,hacks.mozilla.org,handdoekentoiletpapier.nl,hannity.com,hausgeraete-test.de,hcb.net,hdwallpapers.in,heimwerker-test.de,hifitest.de,historic-uk.com,hits973.com,hngn.com,hodinkee.com,hollywoodreporter.com,horse-canada.com,hottopics.ht,huffpost.com,i24news.tv,icij.org,ilgiorno.it,ilmilanista.it,ilposticipo.it,ilrestodelcarlino.it,ilsecoloxix.it,ilsussidiario.net,iltascabile.com,imasters.com.br,indypendent.org,infoq.com,insidehighered.com,inthesetimes.com,investopedia.com,israeltoday.co.il,itechpost.com,jewishjournal.com,jfrog.com,jornaldebrasilia.com.br,jornaldenegocios.pt,jornaldocomercio.com,juvenews.eu,key4biz.it,kipparilehti.fi,kleinezeitung.at,klimahaus.it,kpfa.org,lanazione.it,lanutrition.fr,laopinion.com,laprensafl.com,laraza.com,lavoz.com.ar,legab.it,leidschdagblad.nl,lescienze.it,life.com,linkiesta.it,lintellettualedissidente.it,livability.com,longislandpress.com,lvh.it,maplin.co.uk,maritimejobs.com,massivesci.com,mcsweeneys.net,mediagol.it,meteolive.it,metro-magazine.com,michiganchronicle.com,micura.it,mlb.com,mmajunkie.usatoday.com,mondoudinese.it,moodiedavittreport.com,motorionline.com,muscleandfitness.com,muslimnews.co.uk,mymodernmet.com,nationalgeographic.com.es,nationalgeographic.pt,nationalinterest.org,newbeauty.com,newpittsburghcourier.com,newrepublic.com,nieuwrechts.nl,nofilmschool.com,noordhollandsdagblad.nl,nooun.net,noticiasrcn.com,numericalcio.it,offresasaisir.fr,oilcity.news,omelete.com.br,out.com,ozbargain.com.au,padovasport.tv,participaties.nl,passioneinter.com,phillymag.com,phonandroid.com,pianetagenoa1893.net,pianetamilan.it,pitchfork.com,pomade.com,portalinsights.com.br,profil.at,prospectmagazine.co.uk,psfk.com,quickanddirtytips.com,quotidiano.net,rainbowplantlife.com,recombu.com,record.pt,redsharknews.com,responsiblestatecraft.org,revealnews.org,reynardsec.com,rivistacontrasti.it,rollingstone.com,sabado.pt,salon.com,sangbadpratidin.in,sapo.pt,sassuolocalcionews.it,saucemagazine.com,sayrodigital.net,schoolbusfleet.com,screencrush.com,serieously.com,servus.com,sfitalianheritage.org,sheknows.com,silicon.co.uk,silicon.de,silicon.es,slashfilm.com,sourcingjournal.com,speedcafe.com,sportavellino.it,sportico.com,spy.com,startpage.com,startpagel6srwcjlue4zgq3zevrujfaow726kjytqbbjyrswwmjzcqd.onion,statescoop.com,superfly.fm,surfer.com,swz.it,syria.tv,taste.com.au,tasteofhome.com,tasty.co,tech.trivago.com,tenniscircus.com,the-decoder.com,the-decoder.de,the-star.co.ke,theblaze.com,thedp.com,thedrinknation.com,thefulcrum.us,theitaliantimes.it,themeshreport.com,thenevadaindependent.com,theodysseyonline.com,thepointsguy.com,thetruthaboutcars.com,thrillercafe.it,tiempoar.com.ar,time.com,timeslive.co.za,timesofisrael.com,topdocumentaryfilms.com,toronews.net,torresette.news,toutelanutrition.com,transworld.net,travelweekly.com,trendy.letudiant.fr,truthdig.com,tuasaude.com,turkiyetoday.com,tuttobolognaweb.it,tvquran.com,twitchy.com,ukraine-nachrichten.de,undercurrentnews.com,unsolved.com,usatoday.com,usopen.org,valori.it,variety.com,verdesmares.com.br,verportugal.net,vibe.com,videogamer.com,violanews.com,voetbalnieuws.be,voxeurop.eu,vtvgujarati.com,wccftech.com,web3wire.news,welivesecurity.com,wielernieuws.be,wikihow.com,wizworkwear.com,workscoop.com,worktruckonline.com,wwd.com,ziarulevenimentul.ro##.newsletter
 !! #newsletter
 !! .newsletter-block
 !! .featherlight
@@ -56205,7 +56209,7 @@ lighterusa.com#@##shopify-section-age-gate
 
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/14.txt
-! Diff-Path: ../patches/14/14-s-1778870556-3600.patch
+! Diff-Path: ../patches/14/14-s-1778956102-3600.patch
 !
 !-------------------------------------------------------------------!
 !---------------------- Cookies ------------------------------------!
@@ -57118,10 +57122,10 @@ psychologie-heute.de,onionite.pl,affenhand.de,hydroexpress.pl,petcover.pl,zapspl
 ! ##.cc-overlay
 lagerhaus.at,kmu-boerse.at,stopline.at,meisterdrucke.jp,omvpetrom.com,petrom.ro,omv.com,omv.ro,omv.at,omv-gas.de,omv-gas-storage.com,omv.de,seg-social.pt,hausmagazin.com,evn.at,foodbrothers.com,semikolon.com,leuchtturm1917.de,laenderbahn.com,jhdversicherungen.de,computerwelt.at,torquato.de,dtv.de,vinzenz-klinik.de,herold.at,internorm.com,colop.com##.cc-overlay
 ! ###__tealiumGDPRecModal
-nuernberger.com,transitions.com,unaitalianhospitality.com,telekom.com,barclays.co.uk,otterbox.fr,unicreditbank.cz,essilor.com,tastecooking.com,cinemark.com,lavazza.it,parcelforce.com,iberostar.com,nsandi.com,forcepoint.com,vodafone.com,sony-asia.com,abnamro.com,avis.de,unipolsai.it,o2.co.uk,sainsburysbank.co.uk,hsbc.co.uk,sunglasshut.com,oakley.com,telekom-dienste.de,zurich.it,ray-ban.com,lavazzagroup.com,sony.*,tescomobile.com,falke.com,disney.pl,thewaltdisneycompany.eu,shopdisney.eu,tuclothing.sainsburys.co.uk,epson.com.br,avisautonoleggio.it,qvc.it,gap.eu,sites.prh.com,khaleejtimes.com,tealium.com,robeco.com,totalenergies.de,hsbc.com,newbalance.*,sick.com,aktion-mensch.de,diesel.com,totalenergies.com,zurich.de,cineworld.co.uk,otterbox.de,dropbox.com,penguinrandomhouse.com,familienratgeber.de,barclaycard.co.uk,tuicruises.com,bahia-principe.com,open-telekom-cloud.com,t-systems.com,nh-hotels.de,magentasport.de,goertz.de,stepstone.de,smarthome.de,nuernberger.de,cloud.telekom-dienste.de,tui.com,france.tv,opendns.com,victoriassecret.com,huawei.com,argos.co.uk,tealiumiq.com,ti.com,disney.de,ups.com,macys.com,rakuten.de,trendmicro.com,epson.com,3m.com.tr,command.com.tr,virginmedia.com,francetvinfo.fr,greenmangaming.com,logitech.com,logitechg.com,webex.com###__tealiumGDPRecModal
+hsbc.com.tr,nuernberger.com,transitions.com,unaitalianhospitality.com,telekom.com,barclays.co.uk,otterbox.fr,unicreditbank.cz,essilor.com,tastecooking.com,cinemark.com,lavazza.it,parcelforce.com,iberostar.com,nsandi.com,forcepoint.com,vodafone.com,sony-asia.com,abnamro.com,avis.de,unipolsai.it,o2.co.uk,sainsburysbank.co.uk,hsbc.co.uk,sunglasshut.com,oakley.com,telekom-dienste.de,zurich.it,ray-ban.com,lavazzagroup.com,sony.*,tescomobile.com,falke.com,disney.pl,thewaltdisneycompany.eu,shopdisney.eu,tuclothing.sainsburys.co.uk,epson.com.br,avisautonoleggio.it,qvc.it,gap.eu,sites.prh.com,khaleejtimes.com,tealium.com,robeco.com,totalenergies.de,hsbc.com,newbalance.*,sick.com,aktion-mensch.de,diesel.com,totalenergies.com,zurich.de,cineworld.co.uk,otterbox.de,dropbox.com,penguinrandomhouse.com,familienratgeber.de,barclaycard.co.uk,tuicruises.com,bahia-principe.com,open-telekom-cloud.com,t-systems.com,nh-hotels.de,magentasport.de,goertz.de,stepstone.de,smarthome.de,nuernberger.de,cloud.telekom-dienste.de,tui.com,france.tv,opendns.com,victoriassecret.com,huawei.com,argos.co.uk,tealiumiq.com,ti.com,disney.de,ups.com,macys.com,rakuten.de,trendmicro.com,epson.com,3m.com.tr,command.com.tr,virginmedia.com,francetvinfo.fr,greenmangaming.com,logitech.com,logitechg.com,webex.com###__tealiumGDPRecModal
 ! ###__tealiumGDPRecModal - useful on some sites
 ! Also update the rule in Tracking Protection filter
-||tags.tiqcdn.com/utag/*/utag.$domain=firstdirect.com|hs.fi|radissonhotels.com|louisvuitton.com|simplybusiness.co.uk|vivimilano.corriere.it|lineadirecta.com|modernatx.com|totaljobs.com|brother-usa.com|anantara.com|calvinklein.ca|agoda.com|vodafone.com.tr
+||tags.tiqcdn.com/utag/*/utag.$domain=firstdirect.com|hs.fi|radissonhotels.com|louisvuitton.com|simplybusiness.co.uk|vivimilano.corriere.it|lineadirecta.com|modernatx.com|totaljobs.com|brother-usa.com|anantara.com|calvinklein.ca|agoda.com|vodafone.com.tr|hsbc.com.tr
 ! ###__tealiumGDPRcpPrefs
 sim24.de,premiumsim.de,polpasiecstop.pl,pepperl-fuchs.com,ospawietrzna.pl,szczepienia.pl,wyprzedzmeningokoki.pl,britax-roemer.de,austrian.com,brusselsairlines.com,drillisch-online.de,sim.de,fit-for-travel.de,swiss.com,mainova.de,simplytel.de,handyvertrag.de,yourfone.de,maxxim.de,smartmobil.de,winsim.de,deutschlandsim.de,lufthansa.com,gsk.com,gskpro.com,tr.gsk.com,discotel.de,1und1.de###__tealiumGDPRcpPrefs
 ! ##.cookies:not(html, body)
@@ -57433,6 +57437,10 @@ cornhub.army#%#//scriptlet('trusted-click-element', 'dialog a[role="button"][dat
 !
 ! NOTE: Regular rules
 !
+hsbc.com.tr###__tealiumGDPRecModal
+hsbc.com.tr###RenewedWebsiteModal
+hsbc.com.tr##.modal-backdrop
+euyansang.com##.tracking-consent
 arena.ai#%#//scriptlet('trusted-click-element', 'div[data-state="open"] > div > button', 'containsText:Accept Cookies')
 stepik.org#%#//scriptlet('set-local-storage-item', 'stepik.org:use-cookies-confirmed', 'true')
 detect.expert###accept-cookies
@@ -58111,7 +58119,7 @@ narita-airport.jp#%#//scriptlet('set-cookie', 'company_gdpr_accept', '1')
 teamdeutschland.de###ikanos-privacy-cookielayer
 anton-paar.com###cookie-policy-shadow
 jgc.com###cookie_contents
-vans.com.tw,thebodyshop.com.hk,solhelmets.com,snowpeak.com.tw,peachjohn.com.tw,momentum.com.tw,magy.com.tw,looder.com.tw,leejeans.com.tw,hme.tw,dot-st.tw,cocochicosme.com.tw,cinquain.com.tw,bioderma-naos.com.tw,bcqueen.com,barbourtaiwan.com,74oz.com.tw,teascovery.com,muji.tw,hengstyle.com,cwbook.com.tw,cosmed.com.tw,sunmaigroup.com,hk.puma.com,jv3c.com,store.apujan.com,bodyvine.store,buy.artso.com.tw,buy.gugugoo.com,candybox.com.tw,petshop.tw.virbac.com,shop.coffeebox.tw,shop.goodyoung.info,shop.kky.com.tw,shop.klight.com.tw,shop.singen.com.tw,shop.sstandc.com,shopping.hands.com.tw,store.barftaiwan.com,1966go.com.tw,aigle-taiwan.com.tw,aingyea.com.tw,ajiangshi.com,alasha.com.tw,aroma-housewares.tw,asics.com.tw,aura-cosmetics.com.tw,blueway-jeans.com,byhue-official.com,celesteterry.com.tw,chensmochi.com.tw,columbiasportswear.com.tw,dk-shoes.com.tw,drmay.com.tw,eat120.com.tw,eatbliss.com.tw,eelee.com.tw,eglaf.com.my,ehobby.com.tw,ewear.com.tw,fansfassiii.com,fbshop.com.tw,fevrier.com.tw,footer.com.tw,ftvmall.com.tw,ganso.com.tw,ginkgolin.com,guwang.com.tw,hjfood.com.tw,iqueen.com.tw,jacklinghair.com.tw,jasonfood.com.tw,kipling.com.tw,kurumira.com.tw,kyosho.tw,ladies.tw,lichuan.tw,lottosport.com.tw,manfair-se.com,myselect.com.tw,mysimply.tw,opitaiwan.com,poyabuy.com.tw,premierfood.com.hk,profi46.com,puzzleplanet.com.my,sasa.com.hk,shingfangpastry.com,shop0315.com.tw,sky-blue.com.tw,so-nice.com.tw,soloneshop.com.tw,spp.com.tw,starbeauty.com.tw,takoda-active.com,tcsb.com.tw,tgtg.com.tw,thenorthface.com.tw,timberland.com.tw,tokuyo.com,tomor.com,touched.com.tw,well-come.com.tw,woawoa.com.tw,wyteshop.com,xexymix.com.tw,easycard.suhul.com.tw,hunter.brandedlifestyle.com,mall.e-muse.com.tw,shop.5soap.com,shop.atunas.com.tw,shop.seamild.com.tw,shop.skechers-twn.com,shop.wacoal.com.tw,store.2ndstreet.com.tw,store.eurocafe.com.tw,abyssebeauty.com.tw,arnoldpalmer-apparel.com,ausupreme.com,cipu.com.tw,ctbcflyingoyster.com,deya.tw,discovery-expedition.com.hk,doga.com.tw,dot-st.tw,e-hilltop.com,efuji.com.tw,elleactive.com.tw,esnie.com.tw,fet.com.tw,hoihome.tw,hwccoffee-shop.com,ispo.com.tw,joyce-mall.com,kaldi.tw,kedstaiwan.com,kokko.com.tw,kuaiche.com.tw,larrieconceptstore.com,lbd.com.tw,levis.com.tw,mlb-korea.com.tw,nushoptw.com,obdesign.com.tw,peachjohn.com.hk,ps-company.com.tw,ricians.tw,roots.com.tw,stand-collection.com,stripe-club.com.tw,tiaratiara.com.tw,tkfood.com.tw,truu.tw,trygogo.com,my.melvita.com,cafein.com.tw,app.arwin.com.tw,tw.puma.com,adidas.com.tw,beldora.com.tw,boardriders.com.tw,combi.com.tw,hh-taiwan.com.tw,itsuworldhk.com,jsstore.com.tw,m2.com.tw,medfirst.com.tw,onitsukatiger.com.tw,saime.com.tw,underarmour.tw,whose-books.com,myacgmall.com.tw,solhelmets.com,willmusic.com.tw,shop.showba.com.tw,mart.family.com.tw#%#//scriptlet('set-cookie', 'allowGetPrivacyInfo', 'true')
+zongtools.com,yunyun.tw,ypshop.com.tw,tsaumama.com.tw,store-philips.tw,renefurterer.com.tw,oneder.com.tw,naruko.com.tw,locknlock.tw,lanew.com.tw,hoya-bedding.com.tw,albioncosmetics.com.tw,agift.my,fwusow.com.tw,coville.com.tw,conas.com.tw,vans.com.tw,thebodyshop.com.hk,solhelmets.com,snowpeak.com.tw,peachjohn.com.tw,momentum.com.tw,magy.com.tw,looder.com.tw,leejeans.com.tw,hme.tw,dot-st.tw,cocochicosme.com.tw,cinquain.com.tw,bioderma-naos.com.tw,bcqueen.com,barbourtaiwan.com,74oz.com.tw,teascovery.com,muji.tw,hengstyle.com,cwbook.com.tw,cosmed.com.tw,sunmaigroup.com,hk.puma.com,jv3c.com,store.apujan.com,bodyvine.store,buy.artso.com.tw,buy.gugugoo.com,candybox.com.tw,petshop.tw.virbac.com,shop.coffeebox.tw,shop.goodyoung.info,shop.kky.com.tw,shop.klight.com.tw,shop.singen.com.tw,shop.sstandc.com,shopping.hands.com.tw,store.barftaiwan.com,1966go.com.tw,aigle-taiwan.com.tw,aingyea.com.tw,ajiangshi.com,alasha.com.tw,aroma-housewares.tw,asics.com.tw,aura-cosmetics.com.tw,blueway-jeans.com,byhue-official.com,celesteterry.com.tw,chensmochi.com.tw,columbiasportswear.com.tw,dk-shoes.com.tw,drmay.com.tw,eat120.com.tw,eatbliss.com.tw,eelee.com.tw,eglaf.com.my,ehobby.com.tw,ewear.com.tw,fansfassiii.com,fbshop.com.tw,fevrier.com.tw,footer.com.tw,ftvmall.com.tw,ganso.com.tw,ginkgolin.com,guwang.com.tw,hjfood.com.tw,iqueen.com.tw,jacklinghair.com.tw,jasonfood.com.tw,kipling.com.tw,kurumira.com.tw,kyosho.tw,ladies.tw,lichuan.tw,lottosport.com.tw,manfair-se.com,myselect.com.tw,mysimply.tw,opitaiwan.com,poyabuy.com.tw,premierfood.com.hk,profi46.com,puzzleplanet.com.my,sasa.com.hk,shingfangpastry.com,shop0315.com.tw,sky-blue.com.tw,so-nice.com.tw,soloneshop.com.tw,spp.com.tw,starbeauty.com.tw,takoda-active.com,tcsb.com.tw,tgtg.com.tw,thenorthface.com.tw,timberland.com.tw,tokuyo.com,tomor.com,touched.com.tw,well-come.com.tw,woawoa.com.tw,wyteshop.com,xexymix.com.tw,easycard.suhul.com.tw,hunter.brandedlifestyle.com,mall.e-muse.com.tw,shop.5soap.com,shop.atunas.com.tw,shop.seamild.com.tw,shop.skechers-twn.com,shop.wacoal.com.tw,store.2ndstreet.com.tw,store.eurocafe.com.tw,abyssebeauty.com.tw,arnoldpalmer-apparel.com,ausupreme.com,cipu.com.tw,ctbcflyingoyster.com,deya.tw,discovery-expedition.com.hk,doga.com.tw,dot-st.tw,e-hilltop.com,efuji.com.tw,elleactive.com.tw,esnie.com.tw,fet.com.tw,hoihome.tw,hwccoffee-shop.com,ispo.com.tw,joyce-mall.com,kaldi.tw,kedstaiwan.com,kokko.com.tw,kuaiche.com.tw,larrieconceptstore.com,lbd.com.tw,levis.com.tw,mlb-korea.com.tw,nushoptw.com,obdesign.com.tw,peachjohn.com.hk,ps-company.com.tw,ricians.tw,roots.com.tw,stand-collection.com,stripe-club.com.tw,tiaratiara.com.tw,tkfood.com.tw,truu.tw,trygogo.com,my.melvita.com,cafein.com.tw,app.arwin.com.tw,tw.puma.com,adidas.com.tw,beldora.com.tw,boardriders.com.tw,combi.com.tw,hh-taiwan.com.tw,itsuworldhk.com,jsstore.com.tw,m2.com.tw,medfirst.com.tw,onitsukatiger.com.tw,saime.com.tw,underarmour.tw,whose-books.com,myacgmall.com.tw,solhelmets.com,willmusic.com.tw,shop.showba.com.tw,mart.family.com.tw#%#//scriptlet('set-cookie', 'allowGetPrivacyInfo', 'true')
 properstar.co.uk#%#//scriptlet('trusted-click-element', '.consent .btn-outline-secondary, .consent-settings-modal-content .consent-buttons .btn-primary', '', '1500')
 gzt.com#%#//scriptlet('set-cookie', 'kvkk-accepted', 'true')
 letgo.com##.consent-banner-wrapper
@@ -59553,7 +59561,7 @@ autoersatzteile.de#$#.popup--cookies { display: none !important; }
 autoersatzteile.de#$#body { overflow: auto !important; }
 autoersatzteile.de#$##loader { display: none !important; }
 meqqe.jp##body > div > .MuiBox-root:has(> div[class] > a[href*="privacypolicy"])
-whitebit.com,s3rl.link##.cm--bottom
+ersag.com.tr,whitebit.com,s3rl.link##.cm--bottom
 s3rl.link#%#//scriptlet('set-cookie', 'im_youtube', '1')
 djs3rl.com#%#//scriptlet('set-cookie', 'cc_youtube', '1')
 autoteilexxl.de#$#body { overflow: auto !important; }
@@ -72901,6 +72909,9 @@ poznancongresscenter.pl,arenapoznan.pl,garden-city.pl,city-marketing.pl,ideaexpo
 ! When request is blocked then there is an error "Unexpected token / in JSON at position 0"
 ! It's loaded by cdn.cookielaw.org/scripttemplates/otSDKStub.js, so it should be only unblocked on websites for which this script is unblocked
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/231343
+@@||cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js$domain=einfachkochen.de
+@@||cdn.privacy-mgmt.com/mms/$domain=einfachkochen.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231332
 @@||cdn.cookielaw.org^$domain=managingmadrid.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231284
@@ -78278,6 +78289,9 @@ fuucdayo.com#$#.fuuc-adblock-overlay-open { overflow: auto !important; }
 fuucdayo.com#@#ins.adsbygoogle[data-ad-slot]
 fuucdayo.com#@#ins.adsbygoogle[data-ad-client]
 !
+sht-link.com#$##load-modal { display: none !important; }
+sht-link.com#$#.modal-backdrop { display: none !important; }
+sht-link.com#$#body.modal-open { overflow: auto !important; padding-right: 0 !important; }
 smartzone.de##.toast-ad-block-wrapper
 ||a.pemsrv.com/ad-provider.js$domain=xvideos.es,redirect=nooptext
 cloudfam.io##.cf-warning-section
@@ -81004,6 +81018,9 @@ sport-express.ru,pikabu.ru##iframe[src^="https://autofill.yandex.ru/suggest?"]
 !
 ! SECTION: Popups - Regular rules
 !
+euyansang.com#$##newsletter-popup { display: none !important; }
+euyansang.com#$#.modal-backdrop { display: none !important; }
+euyansang.com#$#body.modal-open { overflow: auto !important; padding-right: 0 !important; }
 dzen.ru##.dzen-desktop--default-auth-trap__container-1i
 dzen.ru##.dzen-mobile--bottom-view-v2__rootElement-2E
 youtubetotranscript.com###api-floating-card
@@ -90324,7 +90341,6 @@ wish.com#%#//scriptlet('set-cookie', 'progressiveBottomSheetTimeStamp', 'emptyOb
 wishmaster.me##.catalog-detail-subscribe-block
 sciencenews.org##.sn-conversion
 snexplores.org##div[class^="newsletter-global-subscribe__wrapper"]
-snexplores.org##.wp-block-newsletter-signup
 ||sciencenews.org/conversion/zephr-iframe-test
 sciencealert.com##.post-content > p:has(> a[href^="https://www.sciencealert.com/newsletter"])
 scitechdaily.com##.post-content > p:has(> b > a[href="https://scitechdaily.com/newsletter/"])
@@ -90844,7 +90860,7 @@ newsweek.com##section[class^="InlineNewsletterSignup_"]
 newsweek.com##div[class^="HpRightNewsletters_"]
 asahi.com##main.article > .magazine_entry
 f1oversteer.com###prop-audience-exit
-noticias.yahoo.com,hurriyet.com.tr,dexerto.com,saltandbaker.com,bbc.com,decrypt.co,uniladtech.com,mothership.sg,pcmag.com,coindesk.com,sammyfans.com,m9.news,crankers.com,asiaone.com,cbr.com,thedailyjagran.com,digitaltrends.com,hardwaretimes.com,www.yahoo.com,interestingengineering.com##a[href^="https://www.google.com/preferences/source?q="]
+glavcom.ua,noticias.yahoo.com,hurriyet.com.tr,dexerto.com,saltandbaker.com,bbc.com,decrypt.co,uniladtech.com,mothership.sg,pcmag.com,coindesk.com,sammyfans.com,m9.news,crankers.com,asiaone.com,cbr.com,thedailyjagran.com,digitaltrends.com,hardwaretimes.com,www.yahoo.com,interestingengineering.com##a[href^="https://www.google.com/preferences/source?q="]
 troyhunt.com##.footer_subscription_block
 bitwarden.com###featured-highlight ~ div.flex:has(> div.mb-4 > div.contents > div.hubspot-form > div.hubspot-form-container > form[action^="https://forms.hsforms.com/submissions/v3/public/submit/formsnext/multipart/"])
 bitwarden.com##p:has(> a[href="/help/releasenotes/#release-announcements"])
@@ -96936,7 +96952,7 @@ omio.*##div[id^="LpsContent-EmailSubscription"]
 thecode.media##.main-subscribe-wrp
 jrnlst.ru##.maincontent > div.region-content > div#block-multiblock-1
 grottonetwork.com###signup-full
-blog.gitbutler.com,ya.zerocoder.ru,conmebol.com,n-e-n.ru,moyo.ua,azbigmedia.com##.subscribe-section
+euyansang.com,blog.gitbutler.com,ya.zerocoder.ru,conmebol.com,n-e-n.ru,moyo.ua,azbigmedia.com##.subscribe-section
 ||joinsubtext.com^$third-party
 trendblog.euronics.de##.trendblog-subscription-card
 in.gr,broadwayworld.com,idec.org.br,bahndampf.de##.newsletter-row
@@ -106317,6 +106333,7 @@ yasir252.com#%#document.addEventListener('DOMContentLoaded', function(){setTimeo
 ||trimay.ru/?
 !
 !
+euyansang.com##.fixed-footer-email-signup
 aiosearch.com##.v-tour > .v-step:has(> div.v-step__content > div > div > a[href="/login"])
 aiosearch.com##iframe[src="/ban/1.html"]
 road.cc##.af-form-wrapper
@@ -117067,7 +117084,7 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_annoyances_widgets
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/14.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/14/14-s-1778870576-3600.patch
+! Diff-Path: ../patches/14/14-s-1778956121-3600.patch
 !
 !-------------------------------------------------------------------!
 !---------------------- Cookies ------------------------------------!
@@ -117502,7 +117519,7 @@ comfortticket.de##html:style(overflow: auto !important;)
 comfortticket.de###cookieDisclaimerOverlay:style(display: none !important;)
 biomol.com##.page-wrap:style(opacity: 1 !important;)
 narita-airport.jp##+js(set-cookie, company_gdpr_accept, 1)
-vans.com.tw,thebodyshop.com.hk,solhelmets.com,snowpeak.com.tw,peachjohn.com.tw,momentum.com.tw,magy.com.tw,looder.com.tw,leejeans.com.tw,hme.tw,dot-st.tw,cocochicosme.com.tw,cinquain.com.tw,bioderma-naos.com.tw,bcqueen.com,barbourtaiwan.com,74oz.com.tw,teascovery.com,muji.tw,hengstyle.com,cwbook.com.tw,cosmed.com.tw,sunmaigroup.com,hk.puma.com,jv3c.com,store.apujan.com,bodyvine.store,buy.artso.com.tw,buy.gugugoo.com,candybox.com.tw,petshop.tw.virbac.com,shop.coffeebox.tw,shop.goodyoung.info,shop.kky.com.tw,shop.klight.com.tw,shop.singen.com.tw,shop.sstandc.com,shopping.hands.com.tw,store.barftaiwan.com,1966go.com.tw,aigle-taiwan.com.tw,aingyea.com.tw,ajiangshi.com,alasha.com.tw,aroma-housewares.tw,asics.com.tw,aura-cosmetics.com.tw,blueway-jeans.com,byhue-official.com,celesteterry.com.tw,chensmochi.com.tw,columbiasportswear.com.tw,dk-shoes.com.tw,drmay.com.tw,eat120.com.tw,eatbliss.com.tw,eelee.com.tw,eglaf.com.my,ehobby.com.tw,ewear.com.tw,fansfassiii.com,fbshop.com.tw,fevrier.com.tw,footer.com.tw,ftvmall.com.tw,ganso.com.tw,ginkgolin.com,guwang.com.tw,hjfood.com.tw,iqueen.com.tw,jacklinghair.com.tw,jasonfood.com.tw,kipling.com.tw,kurumira.com.tw,kyosho.tw,ladies.tw,lichuan.tw,lottosport.com.tw,manfair-se.com,myselect.com.tw,mysimply.tw,opitaiwan.com,poyabuy.com.tw,premierfood.com.hk,profi46.com,puzzleplanet.com.my,sasa.com.hk,shingfangpastry.com,shop0315.com.tw,sky-blue.com.tw,so-nice.com.tw,soloneshop.com.tw,spp.com.tw,starbeauty.com.tw,takoda-active.com,tcsb.com.tw,tgtg.com.tw,thenorthface.com.tw,timberland.com.tw,tokuyo.com,tomor.com,touched.com.tw,well-come.com.tw,woawoa.com.tw,wyteshop.com,xexymix.com.tw,easycard.suhul.com.tw,hunter.brandedlifestyle.com,mall.e-muse.com.tw,shop.5soap.com,shop.atunas.com.tw,shop.seamild.com.tw,shop.skechers-twn.com,shop.wacoal.com.tw,store.2ndstreet.com.tw,store.eurocafe.com.tw,abyssebeauty.com.tw,arnoldpalmer-apparel.com,ausupreme.com,cipu.com.tw,ctbcflyingoyster.com,deya.tw,discovery-expedition.com.hk,doga.com.tw,dot-st.tw,e-hilltop.com,efuji.com.tw,elleactive.com.tw,esnie.com.tw,fet.com.tw,hoihome.tw,hwccoffee-shop.com,ispo.com.tw,joyce-mall.com,kaldi.tw,kedstaiwan.com,kokko.com.tw,kuaiche.com.tw,larrieconceptstore.com,lbd.com.tw,levis.com.tw,mlb-korea.com.tw,nushoptw.com,obdesign.com.tw,peachjohn.com.hk,ps-company.com.tw,ricians.tw,roots.com.tw,stand-collection.com,stripe-club.com.tw,tiaratiara.com.tw,tkfood.com.tw,truu.tw,trygogo.com,my.melvita.com,cafein.com.tw,app.arwin.com.tw,tw.puma.com,adidas.com.tw,beldora.com.tw,boardriders.com.tw,combi.com.tw,hh-taiwan.com.tw,itsuworldhk.com,jsstore.com.tw,m2.com.tw,medfirst.com.tw,onitsukatiger.com.tw,saime.com.tw,underarmour.tw,whose-books.com,myacgmall.com.tw,solhelmets.com,willmusic.com.tw,shop.showba.com.tw,mart.family.com.tw##+js(set-cookie, allowGetPrivacyInfo, true)
+zongtools.com,yunyun.tw,ypshop.com.tw,tsaumama.com.tw,store-philips.tw,renefurterer.com.tw,oneder.com.tw,naruko.com.tw,locknlock.tw,lanew.com.tw,hoya-bedding.com.tw,albioncosmetics.com.tw,agift.my,fwusow.com.tw,coville.com.tw,conas.com.tw,vans.com.tw,thebodyshop.com.hk,solhelmets.com,snowpeak.com.tw,peachjohn.com.tw,momentum.com.tw,magy.com.tw,looder.com.tw,leejeans.com.tw,hme.tw,dot-st.tw,cocochicosme.com.tw,cinquain.com.tw,bioderma-naos.com.tw,bcqueen.com,barbourtaiwan.com,74oz.com.tw,teascovery.com,muji.tw,hengstyle.com,cwbook.com.tw,cosmed.com.tw,sunmaigroup.com,hk.puma.com,jv3c.com,store.apujan.com,bodyvine.store,buy.artso.com.tw,buy.gugugoo.com,candybox.com.tw,petshop.tw.virbac.com,shop.coffeebox.tw,shop.goodyoung.info,shop.kky.com.tw,shop.klight.com.tw,shop.singen.com.tw,shop.sstandc.com,shopping.hands.com.tw,store.barftaiwan.com,1966go.com.tw,aigle-taiwan.com.tw,aingyea.com.tw,ajiangshi.com,alasha.com.tw,aroma-housewares.tw,asics.com.tw,aura-cosmetics.com.tw,blueway-jeans.com,byhue-official.com,celesteterry.com.tw,chensmochi.com.tw,columbiasportswear.com.tw,dk-shoes.com.tw,drmay.com.tw,eat120.com.tw,eatbliss.com.tw,eelee.com.tw,eglaf.com.my,ehobby.com.tw,ewear.com.tw,fansfassiii.com,fbshop.com.tw,fevrier.com.tw,footer.com.tw,ftvmall.com.tw,ganso.com.tw,ginkgolin.com,guwang.com.tw,hjfood.com.tw,iqueen.com.tw,jacklinghair.com.tw,jasonfood.com.tw,kipling.com.tw,kurumira.com.tw,kyosho.tw,ladies.tw,lichuan.tw,lottosport.com.tw,manfair-se.com,myselect.com.tw,mysimply.tw,opitaiwan.com,poyabuy.com.tw,premierfood.com.hk,profi46.com,puzzleplanet.com.my,sasa.com.hk,shingfangpastry.com,shop0315.com.tw,sky-blue.com.tw,so-nice.com.tw,soloneshop.com.tw,spp.com.tw,starbeauty.com.tw,takoda-active.com,tcsb.com.tw,tgtg.com.tw,thenorthface.com.tw,timberland.com.tw,tokuyo.com,tomor.com,touched.com.tw,well-come.com.tw,woawoa.com.tw,wyteshop.com,xexymix.com.tw,easycard.suhul.com.tw,hunter.brandedlifestyle.com,mall.e-muse.com.tw,shop.5soap.com,shop.atunas.com.tw,shop.seamild.com.tw,shop.skechers-twn.com,shop.wacoal.com.tw,store.2ndstreet.com.tw,store.eurocafe.com.tw,abyssebeauty.com.tw,arnoldpalmer-apparel.com,ausupreme.com,cipu.com.tw,ctbcflyingoyster.com,deya.tw,discovery-expedition.com.hk,doga.com.tw,dot-st.tw,e-hilltop.com,efuji.com.tw,elleactive.com.tw,esnie.com.tw,fet.com.tw,hoihome.tw,hwccoffee-shop.com,ispo.com.tw,joyce-mall.com,kaldi.tw,kedstaiwan.com,kokko.com.tw,kuaiche.com.tw,larrieconceptstore.com,lbd.com.tw,levis.com.tw,mlb-korea.com.tw,nushoptw.com,obdesign.com.tw,peachjohn.com.hk,ps-company.com.tw,ricians.tw,roots.com.tw,stand-collection.com,stripe-club.com.tw,tiaratiara.com.tw,tkfood.com.tw,truu.tw,trygogo.com,my.melvita.com,cafein.com.tw,app.arwin.com.tw,tw.puma.com,adidas.com.tw,beldora.com.tw,boardriders.com.tw,combi.com.tw,hh-taiwan.com.tw,itsuworldhk.com,jsstore.com.tw,m2.com.tw,medfirst.com.tw,onitsukatiger.com.tw,saime.com.tw,underarmour.tw,whose-books.com,myacgmall.com.tw,solhelmets.com,willmusic.com.tw,shop.showba.com.tw,mart.family.com.tw##+js(set-cookie, allowGetPrivacyInfo, true)
 gzt.com##+js(set-cookie, kvkk-accepted, true)
 huk24.de,huk.de##+js(set-cookie, consent_technical, ALLOW)
 huk24.de,huk.de##+js(set-cookie, consent_marketing, DENY)
@@ -122258,6 +122275,7 @@ poznancongresscenter.pl,arenapoznan.pl,garden-city.pl,city-marketing.pl,ideaexpo
 ! When request is blocked then there is an error "Unexpected token / in JSON at position 0"
 ! It's loaded by cdn.cookielaw.org/scripttemplates/otSDKStub.js, so it should be only unblocked on websites for which this script is unblocked
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/231343
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231332
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231284
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231198
@@ -124886,6 +124904,9 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 fuucdayo.com##.fuuc-adblock-overlay:style(display: none !important;)
 fuucdayo.com##.fuuc-adblock-overlay-open:style(overflow: auto !important;)
 !
+sht-link.com###load-modal:style(display: none !important;)
+sht-link.com##.modal-backdrop:style(display: none !important;)
+sht-link.com##body.modal-open:style(overflow: auto !important; padding-right: 0 !important;)
 ||a.pemsrv.com/ad-provider.js$domain=xvideos.es,redirect=noop.txt,image,media,subdocument,stylesheet,script,xhr,other
 replacedbyrobot.info##+js(abort-current-script, EventTarget.prototype.addEventListener, window.getComputedStyle)
 manoramamax.com##body:style(overflow: auto !important;)
@@ -125757,6 +125778,9 @@ klerk.ru##iframe[src^="https://autofill.yandex.ru/suggest?"][src*="widget"]
 !
 ! SECTION: Popups - Regular rules
 !
+euyansang.com###newsletter-popup:style(display: none !important;)
+euyansang.com##.modal-backdrop:style(display: none !important;)
+euyansang.com##body.modal-open:style(overflow: auto !important; padding-right: 0 !important;)
 hardlinenutrition.com###videoModalCenter:style(display: none !important;)
 hardlinenutrition.com##.modal-backdrop:style(display: none !important;)
 hardlinenutrition.com##body:style(overflow: auto !important;)
@@ -131645,6 +131669,7 @@ m.tokopedia.com##div[data-testid="divOverlay"]:style(display: none!important;)
 ! Limit it to mobile versions only
 ! causes some issues: https://github.com/AdguardTeam/AdguardForMac/issues/550
 !
+yamap.com##.SideBar__is--loaded > .SideBar__Download:has(> img[src*="common_app_banner_"])
 yamap.com##.MomentsId__Main__Footer
 hokkaido-np.co.jp###js-smart-banner:style(display: none !important;)
 hokkaido-np.co.jp##.header:style(padding-top: 0px !important;)
@@ -131743,7 +131768,7 @@ m.yahoo.co.jp##div[class^="RichSmartAppBanner"]
 hotelscombined.jp,kayak.com,momondo.com###mobile-app-promo-banner
 okinawatimes.co.jp##.deeplink_txt_color
 fedex.com##trk-shared-simplified-mobile-app-banner
-vans.com.tw,thebodyshop.com.hk,solhelmets.com,snowpeak.com.tw,peachjohn.com.tw,momentum.com.tw,magy.com.tw,looder.com.tw,leejeans.com.tw,hme.tw,dot-st.tw,cocochicosme.com.tw,cinquain.com.tw,bioderma-naos.com.tw,bcqueen.com,barbourtaiwan.com,74oz.com.tw,teascovery.com,muji.tw,hengstyle.com,cwbook.com.tw,cosmed.com.tw,sunmaigroup.com,hk.puma.com,jv3c.com,store.apujan.com,bodyvine.store,buy.artso.com.tw,buy.gugugoo.com,candybox.com.tw,petshop.tw.virbac.com,shop.coffeebox.tw,shop.goodyoung.info,shop.kky.com.tw,shop.klight.com.tw,shop.singen.com.tw,shop.sstandc.com,shopping.hands.com.tw,store.barftaiwan.com,1966go.com.tw,aigle-taiwan.com.tw,aingyea.com.tw,ajiangshi.com,alasha.com.tw,aroma-housewares.tw,asics.com.tw,aura-cosmetics.com.tw,blueway-jeans.com,byhue-official.com,celesteterry.com.tw,chensmochi.com.tw,columbiasportswear.com.tw,dk-shoes.com.tw,drmay.com.tw,eat120.com.tw,eatbliss.com.tw,eelee.com.tw,eglaf.com.my,ehobby.com.tw,ewear.com.tw,fansfassiii.com,fbshop.com.tw,fevrier.com.tw,footer.com.tw,ftvmall.com.tw,ganso.com.tw,ginkgolin.com,guwang.com.tw,hjfood.com.tw,iqueen.com.tw,jacklinghair.com.tw,jasonfood.com.tw,kipling.com.tw,kurumira.com.tw,kyosho.tw,ladies.tw,lichuan.tw,lottosport.com.tw,manfair-se.com,myselect.com.tw,mysimply.tw,opitaiwan.com,poyabuy.com.tw,premierfood.com.hk,profi46.com,puzzleplanet.com.my,sasa.com.hk,shingfangpastry.com,shop0315.com.tw,sky-blue.com.tw,so-nice.com.tw,soloneshop.com.tw,spp.com.tw,starbeauty.com.tw,takoda-active.com,tcsb.com.tw,tgtg.com.tw,thenorthface.com.tw,timberland.com.tw,tokuyo.com,tomor.com,touched.com.tw,well-come.com.tw,woawoa.com.tw,wyteshop.com,xexymix.com.tw,easycard.suhul.com.tw,hunter.brandedlifestyle.com,mall.e-muse.com.tw,shop.5soap.com,shop.atunas.com.tw,shop.seamild.com.tw,shop.skechers-twn.com,shop.wacoal.com.tw,store.2ndstreet.com.tw,store.eurocafe.com.tw,abyssebeauty.com.tw,arnoldpalmer-apparel.com,ausupreme.com,cipu.com.tw,ctbcflyingoyster.com,deya.tw,discovery-expedition.com.hk,doga.com.tw,dot-st.tw,e-hilltop.com,efuji.com.tw,elleactive.com.tw,esnie.com.tw,fet.com.tw,hoihome.tw,hwccoffee-shop.com,ispo.com.tw,joyce-mall.com,kaldi.tw,kedstaiwan.com,kokko.com.tw,kuaiche.com.tw,larrieconceptstore.com,lbd.com.tw,levis.com.tw,mlb-korea.com.tw,nushoptw.com,obdesign.com.tw,peachjohn.com.hk,ps-company.com.tw,ricians.tw,roots.com.tw,stand-collection.com,stripe-club.com.tw,tiaratiara.com.tw,tkfood.com.tw,truu.tw,trygogo.com,my.melvita.com,cafein.com.tw,app.arwin.com.tw,tw.puma.com,adidas.com.tw,beldora.com.tw,boardriders.com.tw,combi.com.tw,hh-taiwan.com.tw,itsuworldhk.com,jsstore.com.tw,m2.com.tw,medfirst.com.tw,onitsukatiger.com.tw,saime.com.tw,underarmour.tw,whose-books.com,willmusic.com.tw,shop.showba.com.tw,mart.family.com.tw##+js(set-session-storage-item, AdHide, true)
+zongtools.com,yunyun.tw,ypshop.com.tw,tsaumama.com.tw,store-philips.tw,renefurterer.com.tw,oneder.com.tw,naruko.com.tw,locknlock.tw,lanew.com.tw,hoya-bedding.com.tw,albioncosmetics.com.tw,agift.my,fwusow.com.tw,coville.com.tw,conas.com.tw,vans.com.tw,thebodyshop.com.hk,solhelmets.com,snowpeak.com.tw,peachjohn.com.tw,momentum.com.tw,magy.com.tw,looder.com.tw,leejeans.com.tw,hme.tw,dot-st.tw,cocochicosme.com.tw,cinquain.com.tw,bioderma-naos.com.tw,bcqueen.com,barbourtaiwan.com,74oz.com.tw,teascovery.com,muji.tw,hengstyle.com,cwbook.com.tw,cosmed.com.tw,sunmaigroup.com,hk.puma.com,jv3c.com,store.apujan.com,bodyvine.store,buy.artso.com.tw,buy.gugugoo.com,candybox.com.tw,petshop.tw.virbac.com,shop.coffeebox.tw,shop.goodyoung.info,shop.kky.com.tw,shop.klight.com.tw,shop.singen.com.tw,shop.sstandc.com,shopping.hands.com.tw,store.barftaiwan.com,1966go.com.tw,aigle-taiwan.com.tw,aingyea.com.tw,ajiangshi.com,alasha.com.tw,aroma-housewares.tw,asics.com.tw,aura-cosmetics.com.tw,blueway-jeans.com,byhue-official.com,celesteterry.com.tw,chensmochi.com.tw,columbiasportswear.com.tw,dk-shoes.com.tw,drmay.com.tw,eat120.com.tw,eatbliss.com.tw,eelee.com.tw,eglaf.com.my,ehobby.com.tw,ewear.com.tw,fansfassiii.com,fbshop.com.tw,fevrier.com.tw,footer.com.tw,ftvmall.com.tw,ganso.com.tw,ginkgolin.com,guwang.com.tw,hjfood.com.tw,iqueen.com.tw,jacklinghair.com.tw,jasonfood.com.tw,kipling.com.tw,kurumira.com.tw,kyosho.tw,ladies.tw,lichuan.tw,lottosport.com.tw,manfair-se.com,myselect.com.tw,mysimply.tw,opitaiwan.com,poyabuy.com.tw,premierfood.com.hk,profi46.com,puzzleplanet.com.my,sasa.com.hk,shingfangpastry.com,shop0315.com.tw,sky-blue.com.tw,so-nice.com.tw,soloneshop.com.tw,spp.com.tw,starbeauty.com.tw,takoda-active.com,tcsb.com.tw,tgtg.com.tw,thenorthface.com.tw,timberland.com.tw,tokuyo.com,tomor.com,touched.com.tw,well-come.com.tw,woawoa.com.tw,wyteshop.com,xexymix.com.tw,easycard.suhul.com.tw,hunter.brandedlifestyle.com,mall.e-muse.com.tw,shop.5soap.com,shop.atunas.com.tw,shop.seamild.com.tw,shop.skechers-twn.com,shop.wacoal.com.tw,store.2ndstreet.com.tw,store.eurocafe.com.tw,abyssebeauty.com.tw,arnoldpalmer-apparel.com,ausupreme.com,cipu.com.tw,ctbcflyingoyster.com,deya.tw,discovery-expedition.com.hk,doga.com.tw,dot-st.tw,e-hilltop.com,efuji.com.tw,elleactive.com.tw,esnie.com.tw,fet.com.tw,hoihome.tw,hwccoffee-shop.com,ispo.com.tw,joyce-mall.com,kaldi.tw,kedstaiwan.com,kokko.com.tw,kuaiche.com.tw,larrieconceptstore.com,lbd.com.tw,levis.com.tw,mlb-korea.com.tw,nushoptw.com,obdesign.com.tw,peachjohn.com.hk,ps-company.com.tw,ricians.tw,roots.com.tw,stand-collection.com,stripe-club.com.tw,tiaratiara.com.tw,tkfood.com.tw,truu.tw,trygogo.com,my.melvita.com,cafein.com.tw,app.arwin.com.tw,tw.puma.com,adidas.com.tw,beldora.com.tw,boardriders.com.tw,combi.com.tw,hh-taiwan.com.tw,itsuworldhk.com,jsstore.com.tw,m2.com.tw,medfirst.com.tw,onitsukatiger.com.tw,saime.com.tw,underarmour.tw,whose-books.com,willmusic.com.tw,shop.showba.com.tw,mart.family.com.tw##+js(set-session-storage-item, AdHide, true)
 hotpepper.jp##.app-bottom-modal-container:style(display: none !important;)
 hotpepper.jp##body.fixed-body:style(overflow: auto !important)
 baito.line.me##div[class^="AppDownloadLinkBar"]
@@ -139213,6 +139238,7 @@ adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_i
 !+ NOT_OPTIMIZED PLATFORM(windows, mac, android, cli)
 ||geolocation.onetrust.com/cookieconsentpub/*/geo/location$xmlhttprequest,redirect-rule=noopjson
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/231343
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231332
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231284
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231198
@@ -143799,6 +143825,7 @@ reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion#$#body
 ! causes some issues: https://github.com/AdguardTeam/AdguardForMac/issues/550
 ~odaibako.net,~lineup.withgoogle.com,~vert.sh,~search.brave.com,~status.im,~lafenice.io,~kurer-sreda.ru,~chorki.com,~zattoo.com,~zaycev.net,~hitta.se,~mail.ru,~facebook.com,~instagram.com,~drive.google.com$$link[rel="manifest"]
 !
+yamap.com##.SideBar__is--loaded > .SideBar__Download:has(> img[src*="common_app_banner_"])
 yamap.com##.MomentsId__Main__Footer
 hokkaido-np.co.jp#$##js-smart-banner { display: none !important; }
 hokkaido-np.co.jp#$#.header { padding-top: 0px !important; }
@@ -143914,7 +143941,7 @@ m.yahoo.co.jp##div[class^="RichSmartAppBanner"]
 hotelscombined.jp,kayak.com,momondo.com###mobile-app-promo-banner
 okinawatimes.co.jp##.deeplink_txt_color
 fedex.com##trk-shared-simplified-mobile-app-banner
-vans.com.tw,thebodyshop.com.hk,solhelmets.com,snowpeak.com.tw,peachjohn.com.tw,momentum.com.tw,magy.com.tw,looder.com.tw,leejeans.com.tw,hme.tw,dot-st.tw,cocochicosme.com.tw,cinquain.com.tw,bioderma-naos.com.tw,bcqueen.com,barbourtaiwan.com,74oz.com.tw,teascovery.com,muji.tw,hengstyle.com,cwbook.com.tw,cosmed.com.tw,sunmaigroup.com,hk.puma.com,jv3c.com,store.apujan.com,bodyvine.store,buy.artso.com.tw,buy.gugugoo.com,candybox.com.tw,petshop.tw.virbac.com,shop.coffeebox.tw,shop.goodyoung.info,shop.kky.com.tw,shop.klight.com.tw,shop.singen.com.tw,shop.sstandc.com,shopping.hands.com.tw,store.barftaiwan.com,1966go.com.tw,aigle-taiwan.com.tw,aingyea.com.tw,ajiangshi.com,alasha.com.tw,aroma-housewares.tw,asics.com.tw,aura-cosmetics.com.tw,blueway-jeans.com,byhue-official.com,celesteterry.com.tw,chensmochi.com.tw,columbiasportswear.com.tw,dk-shoes.com.tw,drmay.com.tw,eat120.com.tw,eatbliss.com.tw,eelee.com.tw,eglaf.com.my,ehobby.com.tw,ewear.com.tw,fansfassiii.com,fbshop.com.tw,fevrier.com.tw,footer.com.tw,ftvmall.com.tw,ganso.com.tw,ginkgolin.com,guwang.com.tw,hjfood.com.tw,iqueen.com.tw,jacklinghair.com.tw,jasonfood.com.tw,kipling.com.tw,kurumira.com.tw,kyosho.tw,ladies.tw,lichuan.tw,lottosport.com.tw,manfair-se.com,myselect.com.tw,mysimply.tw,opitaiwan.com,poyabuy.com.tw,premierfood.com.hk,profi46.com,puzzleplanet.com.my,sasa.com.hk,shingfangpastry.com,shop0315.com.tw,sky-blue.com.tw,so-nice.com.tw,soloneshop.com.tw,spp.com.tw,starbeauty.com.tw,takoda-active.com,tcsb.com.tw,tgtg.com.tw,thenorthface.com.tw,timberland.com.tw,tokuyo.com,tomor.com,touched.com.tw,well-come.com.tw,woawoa.com.tw,wyteshop.com,xexymix.com.tw,easycard.suhul.com.tw,hunter.brandedlifestyle.com,mall.e-muse.com.tw,shop.5soap.com,shop.atunas.com.tw,shop.seamild.com.tw,shop.skechers-twn.com,shop.wacoal.com.tw,store.2ndstreet.com.tw,store.eurocafe.com.tw,abyssebeauty.com.tw,arnoldpalmer-apparel.com,ausupreme.com,cipu.com.tw,ctbcflyingoyster.com,deya.tw,discovery-expedition.com.hk,doga.com.tw,dot-st.tw,e-hilltop.com,efuji.com.tw,elleactive.com.tw,esnie.com.tw,fet.com.tw,hoihome.tw,hwccoffee-shop.com,ispo.com.tw,joyce-mall.com,kaldi.tw,kedstaiwan.com,kokko.com.tw,kuaiche.com.tw,larrieconceptstore.com,lbd.com.tw,levis.com.tw,mlb-korea.com.tw,nushoptw.com,obdesign.com.tw,peachjohn.com.hk,ps-company.com.tw,ricians.tw,roots.com.tw,stand-collection.com,stripe-club.com.tw,tiaratiara.com.tw,tkfood.com.tw,truu.tw,trygogo.com,my.melvita.com,cafein.com.tw,app.arwin.com.tw,tw.puma.com,adidas.com.tw,beldora.com.tw,boardriders.com.tw,combi.com.tw,hh-taiwan.com.tw,itsuworldhk.com,jsstore.com.tw,m2.com.tw,medfirst.com.tw,onitsukatiger.com.tw,saime.com.tw,underarmour.tw,whose-books.com,willmusic.com.tw,shop.showba.com.tw,mart.family.com.tw#%#//scriptlet('set-session-storage-item', 'AdHide', 'true')
+zongtools.com,yunyun.tw,ypshop.com.tw,tsaumama.com.tw,store-philips.tw,renefurterer.com.tw,oneder.com.tw,naruko.com.tw,locknlock.tw,lanew.com.tw,hoya-bedding.com.tw,albioncosmetics.com.tw,agift.my,fwusow.com.tw,coville.com.tw,conas.com.tw,vans.com.tw,thebodyshop.com.hk,solhelmets.com,snowpeak.com.tw,peachjohn.com.tw,momentum.com.tw,magy.com.tw,looder.com.tw,leejeans.com.tw,hme.tw,dot-st.tw,cocochicosme.com.tw,cinquain.com.tw,bioderma-naos.com.tw,bcqueen.com,barbourtaiwan.com,74oz.com.tw,teascovery.com,muji.tw,hengstyle.com,cwbook.com.tw,cosmed.com.tw,sunmaigroup.com,hk.puma.com,jv3c.com,store.apujan.com,bodyvine.store,buy.artso.com.tw,buy.gugugoo.com,candybox.com.tw,petshop.tw.virbac.com,shop.coffeebox.tw,shop.goodyoung.info,shop.kky.com.tw,shop.klight.com.tw,shop.singen.com.tw,shop.sstandc.com,shopping.hands.com.tw,store.barftaiwan.com,1966go.com.tw,aigle-taiwan.com.tw,aingyea.com.tw,ajiangshi.com,alasha.com.tw,aroma-housewares.tw,asics.com.tw,aura-cosmetics.com.tw,blueway-jeans.com,byhue-official.com,celesteterry.com.tw,chensmochi.com.tw,columbiasportswear.com.tw,dk-shoes.com.tw,drmay.com.tw,eat120.com.tw,eatbliss.com.tw,eelee.com.tw,eglaf.com.my,ehobby.com.tw,ewear.com.tw,fansfassiii.com,fbshop.com.tw,fevrier.com.tw,footer.com.tw,ftvmall.com.tw,ganso.com.tw,ginkgolin.com,guwang.com.tw,hjfood.com.tw,iqueen.com.tw,jacklinghair.com.tw,jasonfood.com.tw,kipling.com.tw,kurumira.com.tw,kyosho.tw,ladies.tw,lichuan.tw,lottosport.com.tw,manfair-se.com,myselect.com.tw,mysimply.tw,opitaiwan.com,poyabuy.com.tw,premierfood.com.hk,profi46.com,puzzleplanet.com.my,sasa.com.hk,shingfangpastry.com,shop0315.com.tw,sky-blue.com.tw,so-nice.com.tw,soloneshop.com.tw,spp.com.tw,starbeauty.com.tw,takoda-active.com,tcsb.com.tw,tgtg.com.tw,thenorthface.com.tw,timberland.com.tw,tokuyo.com,tomor.com,touched.com.tw,well-come.com.tw,woawoa.com.tw,wyteshop.com,xexymix.com.tw,easycard.suhul.com.tw,hunter.brandedlifestyle.com,mall.e-muse.com.tw,shop.5soap.com,shop.atunas.com.tw,shop.seamild.com.tw,shop.skechers-twn.com,shop.wacoal.com.tw,store.2ndstreet.com.tw,store.eurocafe.com.tw,abyssebeauty.com.tw,arnoldpalmer-apparel.com,ausupreme.com,cipu.com.tw,ctbcflyingoyster.com,deya.tw,discovery-expedition.com.hk,doga.com.tw,dot-st.tw,e-hilltop.com,efuji.com.tw,elleactive.com.tw,esnie.com.tw,fet.com.tw,hoihome.tw,hwccoffee-shop.com,ispo.com.tw,joyce-mall.com,kaldi.tw,kedstaiwan.com,kokko.com.tw,kuaiche.com.tw,larrieconceptstore.com,lbd.com.tw,levis.com.tw,mlb-korea.com.tw,nushoptw.com,obdesign.com.tw,peachjohn.com.hk,ps-company.com.tw,ricians.tw,roots.com.tw,stand-collection.com,stripe-club.com.tw,tiaratiara.com.tw,tkfood.com.tw,truu.tw,trygogo.com,my.melvita.com,cafein.com.tw,app.arwin.com.tw,tw.puma.com,adidas.com.tw,beldora.com.tw,boardriders.com.tw,combi.com.tw,hh-taiwan.com.tw,itsuworldhk.com,jsstore.com.tw,m2.com.tw,medfirst.com.tw,onitsukatiger.com.tw,saime.com.tw,underarmour.tw,whose-books.com,willmusic.com.tw,shop.showba.com.tw,mart.family.com.tw#%#//scriptlet('set-session-storage-item', 'AdHide', 'true')
 hotpepper.jp#$#.app-bottom-modal-container { display: none !important; }
 hotpepper.jp#$#body.fixed-body { overflow: auto !important }
 baito.line.me##div[class^="AppDownloadLinkBar"]
@@ -163554,7 +163581,7 @@ megaplay.buzz##+js(set, devtoolsDetector.launch, noopFunc)
 !   Formularz (nie wymaga rejestracji) => https://polishannoyancefilters.netlify.app/issues
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Maintainer: Filters Heroes
-! Aktualizacja: śro, 13 maj 2026, 19:31 UTC+02:00
+! Aktualizacja: sob, 16 maj 2026, 22:08 UTC+02:00
 !
 !
 ! Specyficzne filtry
@@ -163969,7 +163996,7 @@ hurtum.pl,juvepoland.com,myphone.pl,reeva-foods.com##.scroller
 i-apteka.pl##.n60972_main_cop_right
 iautomatyka.pl##.pf-up-but
 ideagetinleasing.pl##.js-footer-scroll-up
-idream.pl##.ab__scroll_to_top_button
+idream.pl,schmith.pl##.ab__scroll_to_top_button
 iform4u.com,witow-ski.pl,xlomza.pl##.uk-totop
 ifriko.pl,zooexpress.pl###toTop2
 igimag.pl##.up-square
@@ -164141,12 +164168,14 @@ motogen.pl###gora-przycisk-fixed
 moveria.pl,perfumehub.pl###scroll-top-button
 moyamatcha.com##et_pb_scroll_top
 mualasklep.pl##.btn--scroll-top
+multigenus.com##.xo-scroll2top
 murapol.pl##.arrow-navigator
 muscat.pl##.tp-back-to-top
 musicexpert.pl###sp-totop
 mustache.pl,www.mila.pl##.scroll-arrow
 mutti-jakoscbezkompromisow.pl###btn-go-up
 mypewex.com###goToTop
+nac.com.pl##.eael-ext-scroll-to-top-button
 nagaba.pl###fixed_top
 najlepszekonto.pl##.footer__to-the-top
 napad.pl###ssRollTop
@@ -164326,6 +164355,7 @@ sklep.panasonic.pl##.btn-go-top
 sklepjubilerski.com##app-scroll-to-top
 sklepyinfo.pl##.direction-top.fixed-action-btn
 sklum.com##.js-goToTop
+skoda.pl##div[data-props*="MoveToTop"]
 skrzynie.com.pl###wsa_button_up
 skutecznie.tv##.to_the_top
 slomski.us##.to-the-top
@@ -164744,7 +164774,7 @@ zooplus.pl##div:not([class*="sidebar"]) > div[id*="tracker_banner-yt-channel-"].
 !   Formularz (nie wymaga rejestracji) => https://polishannoyancefilters.netlify.app/issues
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Maintainer: Filters Heroes
-! Aktualizacja: śro, 13 maj 2026, 23:03 UTC+02:00
+! Aktualizacja: sob, 16 maj 2026, 13:10 UTC+02:00
 !
 !
 !
@@ -165518,6 +165548,7 @@ jadwizanki.com.pl,opi.org.pl,rosebikes.pl##.newsletterform
 jagodnik.pl##.tdi_70.vc_widget_sidebar.td_block_wrap.wpb_wrapper > .widget_text.widget.td_block_template_1
 jakiwniosek.pl##.footer > div > div > div:first-child > :nth-last-child(n+2):nth-last-child(-n+4)
 jakrobicmarketing.pl###\31 -2
+jaktodaleko.pl##.custom_html-11
 jaroslawiak.pl###nwslBoxCnt
 jaw.com.pl##footer > div > .row > div.col-md-3:nth-of-type(3) > h3, #em_sub
 jestemfit.pl##.footer__section.form-fields-std, .newsletter--sg-2
@@ -168005,7 +168036,7 @@ pl##iframe[src^="https://esa.nask.pl/widget/"]
 !   Formularz (nie wymaga rejestracji) => https://polishannoyancefilters.netlify.app/issues
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Maintainer: Filters Heroes
-! Aktualizacja: pią, 15 maj 2026, 19:06 UTC+02:00
+! Aktualizacja: sob, 16 maj 2026, 14:57 UTC+02:00
 !
 !
 !
@@ -168267,6 +168298,7 @@ bestape.pl,instamarketing.pl#.popup-overlay
 bestcentrum.pl##.modal-popup
 bezgluten.pl,creativehobby.pl##.iziToast-wrapper, .iziToast-overlay
 bialykruk.pl,swiato-podglad.pl###popup-background
+bielenda.com##.km-pg-modal-frame, .km-pg-backdrop-shield
 bielskakraina.pl,delikatesy.pl,godealla.pl,kruksdifferent.com,mpolska24.pl,selectshop.pl,wakacjezprocentem.pl##.overlay
 bigchina.pl,pkwieruszow.pl,rzeszow4u.pl,solidsecurity.pl,sportgdansk.pl###myModal
 bilety.laczynaspilka.pl##.shadowbox-popup, .shadowbox_overlay
@@ -169149,7 +169181,7 @@ pl##cwc-floating-box[name="newsletterSignupFloatingBox"]
 !   Formularz (nie wymaga rejestracji) => https://polishannoyancefilters.netlify.app/issues
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Maintainer: Filters Heroes
-! Aktualizacja: nie, 03 maj 2026, 22:04 UTC+02:00
+! Aktualizacja: sob, 16 maj 2026, 13:10 UTC+02:00
 !
 !
 !
@@ -169199,7 +169231,6 @@ andzela.com##.kb-cs-notify-container
 at-outlet.pl###WebPushAddSubscription
 atakto.pl,aurum-optics.pl,panwybierak.pl###yl__prompt > .yl__prompt--slide-down.yl__prompt
 best.aliexpress.com,pl.aliexpress.com#?#body > div ~ script ~ div > div:first-child:has(> div:has-text(Zezwalaj na powiadomienia))
-bnpparibas.pl,eneba.com,estyl.pl,semahead.pl###ue_push_dialog
 boardpc.pl,forum.manjaro.pl##.alert-info.alert.consent_banner
 boop.pl###smart_push_smio_window
 businessinsider.com.pl,noizz.pl##.pushBell
@@ -169281,6 +169312,7 @@ zdrowie.pap.pl##section ~ span[onclick="window.scrollTo(0, 0);"]
 ~pl###edrone_push--bubble:lang(pl), #edrone--push--alert--box:lang(pl)
 ~pl###onesignal-bell-container:lang(pl)
 ~pl###onesignal-slidedown-container:lang(pl)
+com,pl###ue_push_dialog
 pl###edrone_push--bubble, #edrone--push--alert--box
 pl###onesignal-bell-container
 pl###onesignal-popover-dialog
@@ -169301,7 +169333,7 @@ pl###onesignal-slidedown-container
 !   Formularz (nie wymaga rejestracji) => https://polishannoyancefilters.netlify.app/issues
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Maintainer: Filters Heroes
-! Aktualizacja: śro, 18 mar 2026, 17:35 UTC+01:00
+! Aktualizacja: sob, 16 maj 2026, 13:12 UTC+02:00
 !
 !
 !
@@ -169320,6 +169352,8 @@ auto-swiat.pl,businessinsider.com.pl,fakt.pl,forbes.pl,komputerswiat.pl,medonet.
 beszamel.pl,eska.pl,eskacinema.pl,eskarock.pl,hotplota.pl,mjakmama.pl,mjakmama24.pl,murator.pl,muratorfinanse.pl,muratorplus.pl,podroze.pl,poradnikzdrowie.pl,radioplus.pl,radiosupernova.pl,radiowawa.pl,se.pl,urzadzamy.pl,voxfm.pl,wiemiwybieram.pl##.vjs-minimized .video-js
 beszamel.pl,eska.pl,eskacinema.pl,eskarock.pl,hotplota.pl,mjakmama.pl,mjakmama24.pl,murator.pl,muratorfinanse.pl,muratorplus.pl,podroze.pl,poradnikzdrowie.pl,radioplus.pl,radiosupernova.pl,radiowawa.pl,se.pl,urzadzamy.pl,voxfm.pl,wiemiwybieram.pl##div.sticky-container_sticky video-js
 bezpiecznystrazak.pl##.video_zminimalizowane
+biznes24.pl##[id*="fixed"][id*="player"]:is(div, button)
+biznes24.pl##div.is-sticky:has(iframe[id*="player"])
 businessinsider.com.pl##.sticky.article_video-container
 codziennypoznan.pl,interia.pl,interia.tv,ipolska24.pl,~m.interia.pl,poboczem.pl,pomponik.pl,styl.pl##.floating-player-started > .xlink-floating-wsx
 crazypig.pl##.wengdo-scroll-to-top
@@ -169355,6 +169389,7 @@ prymat.pl##body > div[style*="fixed"]:has(a[href*="promocje"] video)
 przeambitni.pl##.mvp-vid-fixed
 punkt.media##div[id^="em"][style*="position: fixed;"]
 radio.katowice.pl##div[id^="sidebar"].fixed-player
+radio.rzeszow.pl##div[id*="ytlive_"][id*="-floating"][aria-hidden="false"][style*="block"]
 rodzicielskieinspiracje.pl##div[id^="rehub_sticky_on_scroll-"].scrollsticky.stickyscroll_widget
 shopify.com##button[data-component-name="video-modal-pip-button"]:has(video)
 softonic.pl##iframe.is-sticky-left-bottom.zeus_iframe
@@ -169431,7 +169466,7 @@ polishannoyancefilters.netlify.app##+js(set, pafDetect, true)
 !   GitHub => https://github.com/FiltersHeroes/PolishAnnoyanceFilters/issues
 ! Creator: blocker999
 ! Maintainer: Filters Heroes
-! Aktualizacja: pią, 15 maj 2026, 19:06 UTC+02:00
+! Aktualizacja: sob, 16 maj 2026, 22:09 UTC+02:00
 !
 !
 ! Newslettery (nie popupy)
@@ -170117,6 +170152,8 @@ racing-planet.pl###contactable_inner
 raczynski-kominki.pl###pozvonim-button
 radio17.pl##.chat
 radio17.pl##.sidebar-buttons li:has(.mdi-message)
+radio.rzeszow.pl##.jeg_block_heading:has(+ div .social-container > .messenger)
+radio.rzeszow.pl##.social-container > .messenger
 radioplus.pl,radiosupernova.pl,rivieraparkmarvipol.pl,senatkomorki.pl,ss24.pl,stopcafe.pl,viva.pl,wp.pl##.messenger
 raiffeisenpolbank.com###pomocne_menu > ul > li:nth-child(n+3)
 rainbowzoom.pl###lz_overlay_chat
@@ -175044,7 +175081,7 @@ wtk.pl#@#.privacy-container:not(body, html, .content-container)
 !   Github => https://github.com/FiltersHeroes/PolishAntiAnnoyingSpecialSupplement/issues
 ! Original creator: RikoDev
 ! Current maintainer: Filters Heroes
-! Aktualizacja: nie, 26 kwi 2026, 01:25 UTC+02:00
+! Aktualizacja: nie, 17 maj 2026, 01:38 UTC+02:00
 !
 !
 ! Ogólne filtry ukrywające
@@ -175058,6 +175095,8 @@ wtk.pl#@#.privacy-container:not(body, html, .content-container)
 ~pl##a[href*="news.google.com/publications/"] img:lang(pl)
 ~pl##footer a[href$="/rss.xml"]:lang(pl)
 ~pl##li > a > .icon-rss:lang(pl)
+com,eu,info,pl##.prefer-google-source
+eu,info,pl##.google-news__button
 eu,pl##.componentsNavigationFooterNewExpanded__socialMediaLink:is([href*="google.com/publications/"], [href*="msn.com/"])
 info,pl##.stickySocialIcon a[href*=".xml"]
 pl###naglowek-link-rss
@@ -175673,6 +175712,7 @@ yves-rocher.pl##.l-footer__services div.service__column:nth-of-type(2)
 zadania.info###atomR > a[href^="/feed"]
 zaufanatrzeciastrona.pl##.sidebar-box-wrap:nth-of-type(2) > .sidebar-box
 zbooy.pl##a[href^="/360/rss.xml"] > img
+zielonyogrodek.pl##a.footer__icon:is([href*="news.google.com"], [href*="atom.xml"])
 zlotoryjska.pl##.rss_ul
 zlotyaniol.pl###ic3
 zmiksowani.pl##a[href*="/feed.xml"]
@@ -176287,6 +176327,7 @@ m1.com.sg##div:has(> [class^="ChatWindow"])
 ||chatdealer.jp^$third-party
 ||chatway.app^$third-party
 ||chatwidget-prod.web.app^
+||chatwidget.kodif.ai^
 ||chatwoot.frai.pro^$third-party
 ||chatwoot.on-mail.ru^$third-party
 ||cibbot.com^$third-party
@@ -181155,7 +181196,7 @@ zeromagazine.nu##div[id^="ads"]
 /adsaga.
 /adsense.index.js$domain=husbil.se
 /adsm.macro$script
-/ads$domain=allastudier.se|cirkulation.se|ordmedzcxy.se|rimlab.se|allaaktier.se|varldenom.com
+/ads$domain=allastudier.se|cirkulation.se|ordmedzcxy.se|rimlab.se|allaaktier.se|varldenom.com|kottchark.se
 /ads-countdown.js$domain=aftonbladet.se|godare.se
 /ads-dm.js
 /ads.for.me/jsa?$script
@@ -181188,7 +181229,7 @@ zeromagazine.nu##div[id^="ads"]
 /ajax/ads.php$domain=garaget.org
 /ajax/docu_stats.jsp
 /aller-ads$domain=~seiska.fi
-/analytics$domain=gbgfotboll.se|stff.se|svenskfotboll.se|di.se|etc.se|vackertvader.se|skogsforum.se|skolporten.se|sjf.se|rimlab.se|alandsradio.ax|dagen.se|global.morningstar.com|vidzflow.com|vinia.se|kvartal.se|shortcut.se|inredningsvis.se
+/analytics$domain=gbgfotboll.se|stff.se|svenskfotboll.se|di.se|etc.se|vackertvader.se|skogsforum.se|skolporten.se|sjf.se|rimlab.se|alandsradio.ax|dagen.se|global.morningstar.com|vidzflow.com|vinia.se|kvartal.se|shortcut.se|inredningsvis.se|kottchark.se
 /analytics-bmb
 /analytics/collect|
 /analytics/cts.min.js
@@ -181517,6 +181558,7 @@ zeromagazine.nu##div[id^="ads"]
 /pageView$xhr,domain=altinget.se|ifokus.se
 /pagead$domain=vilaser.se|horoskoptid.se|eniro.se
 /pageviews$domain=vk.se|folkbladet.nu|nordsverige.se|mellanbygden.nu|vasterbottningen.se|lokaltidningen.nu
+/page_views$domain=kottchark.se
 /parsely$script,domain=expressen.se
 /partners?$domain=hockeynews.se
 /peertube-plugin-google-analytics
@@ -182042,6 +182084,7 @@ _banner.php?$domain=tvmatchen.nu
 ||analytics.citreamedia.com^
 ||analytics.gen.shield.monitoringservice.co^
 ||analytics.ozzi.io^$third-party
+||analytics.samnytt.se^
 ||analytics.teknikveckan.se^
 ||analytics.undeco.se^
 ||analytics.webfokus.no^$third-party
@@ -188063,5 +188106,5 @@ zwaveproducts.com###livechat-compact-container
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 150478
-! Duplicates removed: 200336
+! Total unique rules: 150518
+! Duplicates removed: 200396

@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 16 May 2026 01:37:28 UTC
+! Last modified: 17 May 2026 01:37:45 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10569,7 +10569,7 @@ saturdayeveningpost.com##.-newsletter_social
 tennis.com##.-sharebar
 nhl.com,petri.com##.-social
 ynet.co.il,ynetnews.com##.AccordionShareWrapper
-abebooks.com,americanbanker.com,nbcsports.com,newatlas.com,nhpr.org,pitchbook.com,scrippsnews.com##.ActionBar
+abebooks.com,americanbanker.com,nbcsports.com,newatlas.com,nhpr.org,pitchbook.com,refractor.io,scrippsnews.com##.ActionBar
 kpbs.org,wmar2news.com##.ActionBar-items
 newatlas.com##.ActionLink
 cnbc.com##.ArticleBody-googlePreferredSourceContainer
@@ -12081,6 +12081,7 @@ maps4heroes.com##[href="https://t.me/maps4heroes"]
 clashmusic.com##[href="https://vero.co/clashmagazine"]
 zycrypto.com##[href="https://zycryp.to/GoogleNews"]
 eteknix.com##[href^="http://bit.ly/"]
+frvr.com##[href^="http://google.com/preferences/source"]
 webfail.com##[href^="http://twitter.com/intent/tweet"]
 windowslatest.com##[href^="https://google.com/preferences/source"]
 newskarnataka.com,psypost.org##[href^="https://news.google.com/publications/"]
@@ -29999,10 +30000,9 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1778878265-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1778964555-14400.patch
 /Resources/twitter-$~xhr
-abebooks.com,nbcsports.com,newatlas.com,nhpr.org,pitchbook.com,scrippsnews.com##.ActionBar
-digitaltrends.com##[href^="https://www.google.com/preferences/source"]
+abebooks.com,americanbanker.com,nbcsports.com,newatlas.com,nhpr.org,pitchbook.com,scrippsnews.com##.ActionBar
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
 archaeologymag.com##.widget_custom_html:contains(Follow us)
@@ -30046,7 +30046,6 @@ theshovel.com.au##.padding-top-small > .widgetizedArea:contains(Like this)
 tvblackbox.com.au##.tdm-descr:contains(Share)
 twitch.tv##.tw-balloon:contains(Share To)
 yahoo.com##.py-\[10px\]:contains(Add Yahoo on Google)
-almanar.com.lb,bergamonews.it,combinationsmag.com,deraktionaer.de,fantasymagazine.it,heidi.news,inforum.com,letemps.ch,liberta.it,ndmais.com.br,overwolf.com,portswigger.net,tastecooking.com,thetruthaboutcars.com,tirto.id##.share-button
 viranomaisuutiset.fi##.wpb_wrapper.td_block_wrap:has(a[href^="https://whatsapp.com"])
 arbys.com##[class^="linkBlocks_linkBlock__"]:has(> [class^="linkBlocks_socialLinkBlockList__"])
 relationshiphero.com##div:has(+ .socialIcons)
@@ -40443,7 +40442,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1778863448-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1778901407-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54741,5 +54740,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51518
-! Duplicates removed: 64477
+! Total unique rules: 51517
+! Duplicates removed: 64469

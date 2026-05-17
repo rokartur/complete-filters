@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 16 May 2026 01:37:08 UTC
+! Last modified: 17 May 2026 01:37:24 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10611,6 +10611,9 @@ fuucdayo.com#$#.fuuc-adblock-overlay-open { overflow: auto !important; }
 fuucdayo.com#@#ins.adsbygoogle[data-ad-slot]
 fuucdayo.com#@#ins.adsbygoogle[data-ad-client]
 !
+sht-link.com#$##load-modal { display: none !important; }
+sht-link.com#$#.modal-backdrop { display: none !important; }
+sht-link.com#$#body.modal-open { overflow: auto !important; padding-right: 0 !important; }
 smartzone.de##.toast-ad-block-wrapper
 ||a.pemsrv.com/ad-provider.js$domain=xvideos.es,redirect=nooptext
 cloudfam.io##.cf-warning-section
@@ -13648,5 +13651,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10373
+! Total unique rules: 10376
 ! Duplicates removed: 3037
