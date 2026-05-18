@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 17 May 2026 01:37:24 UTC
+! Last modified: 18 May 2026 01:43:20 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1778956095-3600.patch
+! Diff-Path: ../patches/11/11-s-1778995513-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2685,6 +2685,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+jukenbbs.com##div[style="padding:25px 0; text-align:center;"]
+jukenbbs.com##div[style="padding:25px 0; text-align:center;"] + hr
 appagg.com##.ftblad ~ div[class][style*="box-shadow:none"]:has(> div[class] ins.adsbygoogle)
 appagg.com##.hbody > .si_list > .si_li:has(> div[class] ins.adsbygoogle)
 atlas.taboolanews.com##section[aria-label="Advertisement"]
@@ -9542,7 +9544,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1778956124-3600.patch
+! Diff-Path: ../patches/11/11-s-1778995539-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -19698,6 +19700,9 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/32874
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=google-ima.js,domain=mnetplus.world
 
+! https://github.com/uBlockOrigin/uAssets/issues/32955
+proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.googletagmanager.com/gtag/js?id="])
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19903,5 +19908,5 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12888
-! Duplicates removed: 7654
+! Total unique rules: 12891
+! Duplicates removed: 7656
