@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 18 May 2026 01:43:20 UTC
+! Last modified: 19 May 2026 01:42:15 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1778995513-3600.patch
+! Diff-Path: ../patches/11/11-s-1779124020-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2685,6 +2685,11 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+news.mynavi.jp##.gn-scroll-catch-ad
+navitime.co.jp###inview-koten
+tugatech.com.pt#$#body > div#header::before { display: none !important; }
+tugatech.com.pt#$?#body > div#header { margin-top: 0 !important; }
+karapaia.com##.kb-links
 jukenbbs.com##div[style="padding:25px 0; text-align:center;"]
 jukenbbs.com##div[style="padding:25px 0; text-align:center;"] + hr
 appagg.com##.ftblad ~ div[class][style*="box-shadow:none"]:has(> div[class] ins.adsbygoogle)
@@ -4065,7 +4070,8 @@ timesofindia.indiatimes.com##div[onclick="stpPgtn(event)"]:has(> div.wdt-taboola
 timesofindia.indiatimes.com##div[data-sp-click="stpPgtn(event)"]:has(> div.wdt-taboola)
 nplus1.ru##.header-bidding-ad-container
 wunderweib.de##div[data-ad-slot-id^="mobile"]
-sondakika.com#$##native_masthead_mobil { height: 0 !important; }
+sondakika.com#$##video-ad-container-mobile { display: none !important; }
+sondakika.com#$##native_masthead_mobil { height: 0 !important; margin: 0 !important; }
 vxxx.com##.popular-models + div[class]
 baseball-mag.net##div[style="width:100%;text-align: center;height:152px;overflow:hidden;"]
 news.yahoo.co.jp#$##inf_mid { border-bottom: unset !important; }
@@ -6176,7 +6182,6 @@ vokrug.tv##div[style="width:250px;margin:0 auto;text-align: center;padding: 30px
 vokrug.tv###GPM_vokrugtv_M_300x250_Top
 sport.de###topbanner-mobile
 tabootube.xxx##.wrap-spot
-xvideos.es##.e-banner-game
 nanovids.com,xvideos.video,manga-dome.com,kimagurekizokunoadriatic.site,comichronicle.com,onlyporn.tube,watchporn.to,lifematome.blog,tora-kekkon.com,m.eprice.com.tw,dodoyo.jp,life-alright.com,bookwiz.me,yasasiikurasi.com,tabootube.xxx##.sponsor
 profile.ru##div[data-typeitem="ad"]
 rbc.ua##.adsens-wrap
@@ -8591,6 +8596,7 @@ m.vk.com,m.vk.ru#?#.wall_item > div.wi_head > div[class^="PostHeader"] span[clas
 m.vk.com,m.vk.ru##.wall_item[data-ad-view]
 !
 ! xhamster.com
+tr.usbxh.life,xhamster44.desi,aawweb.beauty,colourxh.site,xhamster43.desi,fullxh.com,interxh.site,xhspot.com,xhwide5.com,xhchannel.com,xhtotal.com,xhtree.com,xhwide2.com,xhlease.world,xhamsterporno.mx,valuexh.life,xhdate.world,xhbranch5.com,galleryxh.site,xhbig.com,xhaccess.com,xhofficial.com,seexh.com,xhamster42.desi,xhvid.com,xhamster20.desi,xhamster19.desi,xhwebsite2.com,xhamster18.desi,xhadult3.com,xhadult2.com,xhmoon5.com,xhwide1.com,xhamster3.com,xhplanet2.com,megaxh.com,xhamster16.*,xhamster.com,xhamster2.com,xhamster7.com,xhamster8.com,xhamster9.com,xhamster10.com,xhamster12.com,xhamster13.*,xhamster14.com,xhamster15.com,xhamster17.*,xhamster18.*,xhamster19.com,xhamster1.desi,xhamster2.desi,xhamster3.*,xhamster4.desi,xhamster22.com,xhamster27.com,openxh.com,xhamster5.desi,xhopen.com,openxh1.com,xhamster40.com,xhamster.one,xhamster.desi,stripchat.com##.subscribe-block__container > div[class^="linkButton-"]
 tr.usbxh.life,xhamster44.desi,aawweb.beauty,colourxh.site,xhamster43.desi,fullxh.com,interxh.site,xhspot.com,xhwide5.com,xhchannel.com,xhtotal.com,xhtree.com,xhwide2.com,xhlease.world,xhamsterporno.mx,valuexh.life,xhdate.world,xhbranch5.com,galleryxh.site,xhbig.com,xhaccess.com,xhofficial.com,seexh.com,xhamster42.desi,xhvid.com,xhamster20.desi,xhamster19.desi,xhwebsite2.com,xhamster18.desi,xhadult3.com,xhadult2.com,xhmoon5.com,xhwide1.com,xhamster3.com,xhplanet2.com,megaxh.com,xhamster16.*,xhamster.com,xhamster2.com,xhamster7.com,xhamster8.com,xhamster9.com,xhamster10.com,xhamster12.com,xhamster13.*,xhamster14.com,xhamster15.com,xhamster17.*,xhamster18.*,xhamster19.com,xhamster1.desi,xhamster2.desi,xhamster3.*,xhamster4.desi,xhamster22.com,xhamster27.com,openxh.com,xhamster5.desi,xhopen.com,openxh1.com,xhamster40.com,xhamster.one,xhamster.desi,stripchat.com#%#//scriptlet('set-cookie-reload', 'pShowMob', 'true')
 tr.usbxh.life,xhamster44.desi,aawweb.beauty,colourxh.site,xhamster43.desi,fullxh.com,interxh.site,xhspot.com,xhwide5.com,xhchannel.com,xhtotal.com,xhtree.com,xhwide2.com,xhlease.world,xhamsterporno.mx,valuexh.life,xhdate.world,xhbranch5.com,galleryxh.site,xhbig.com,xhaccess.com,xhofficial.com,seexh.com,xhamster42.desi,xhvid.com,xhamster20.desi,xhamster19.desi,xhwebsite2.com,xhamster18.desi,xhadult3.com,xhadult2.com,xhmoon5.com,xhwide1.com,xhamster3.com,xhplanet2.com,megaxh.com,xhamster16.*,xhamster.com,xhamster2.com,xhamster7.com,xhamster8.com,xhamster9.com,xhamster10.com,xhamster12.com,xhamster13.*,xhamster14.com,xhamster15.com,xhamster17.*,xhamster18.*,xhamster19.com,xhamster1.desi,xhamster2.desi,xhamster3.*,xhamster4.desi,xhamster22.com,xhamster27.com,openxh.com,xhamster5.desi,xhopen.com,openxh1.com,xhamster40.com,xhamster.one,xhamster.desi,stripchat.com##.video_info + div[class^="container-"]
 tr.usbxh.life,xhamster44.desi,aawweb.beauty,colourxh.site,xhamster43.desi,fullxh.com,interxh.site,xhspot.com,xhwide5.com,xhchannel.com,xhtotal.com,xhtree.com,xhwide2.com,xhlease.world,xhamsterporno.mx,valuexh.life,xhdate.world,xhbranch5.com,galleryxh.site,xhbig.com,xhaccess.com,xhofficial.com,seexh.com,xhamster42.desi,xhvid.com,xhamster20.desi,xhamster19.desi,xhwebsite2.com,xhamster18.desi,xhadult3.com,xhadult2.com,xhmoon5.com,xhwide1.com,xhamster3.com,xhplanet2.com,megaxh.com,xhamster16.*,xhamster.com,xhamster2.com,xhamster7.com,xhamster8.com,xhamster9.com,xhamster10.com,xhamster12.com,xhamster13.*,xhamster14.com,xhamster15.com,xhamster17.*,xhamster18.*,xhamster19.com,xhamster1.desi,xhamster2.desi,xhamster3.*,xhamster4.desi,xhamster22.com,xhamster27.com,openxh.com,xhamster5.desi,xhopen.com,openxh1.com,xhamster40.com,xhamster.one,xhamster.desi,stripchat.com##.thumb-list-mobile > li.thumb-list-mobile-item[role="button"]
@@ -9544,7 +9550,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1778995539-3600.patch
+! Diff-Path: ../patches/11/11-s-1779124045-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13400,12 +13406,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototyp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=charlessheimprove.com,important
-charlessheimprove.com##+js(nowoif)
-charlessheimprove.com##+js(set, console.clear, undefined)
-charlessheimprove.com##+js(acs, globalThis, break;case)
-charlessheimprove.com##+js(acs, WebAssembly, atob)
-||charlessheimprove.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=ericeastweight.com,important
+ericeastweight.com##+js(nowoif)
+ericeastweight.com##+js(set, console.clear, undefined)
+ericeastweight.com##+js(acs, globalThis, break;case)
+ericeastweight.com##+js(acs, WebAssembly, atob)
+||ericeastweight.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -13756,6 +13762,9 @@ gumtree.com#@#+js(trusted-set, experimentOverrides, json:"%5B%7B%20defaultValue%
 ! https://github.com/uBlockOrigin/uAssets/issues/31664
 bus-location.1507t.xyz#@#+js(nostif, ()=>{, 2501-)
 bus-location.1507t.xyz##+js(nostif, /^\s*\(\s*\)\s*=>\s*\{\s*[-$0-9A-Z_a-z]+\s*\(\s*[-$0-9A-Z_a-z]*\s*\)\s*\}\s*$/)
+
+! https://github.com/easylist/easylist/commit/f2acb6bcb8416ce1f7917ee9eb2028f48ca90e1c
+||vidsrc.to^$badfilter
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19908,5 +19917,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12891
-! Duplicates removed: 7656
+! Total unique rules: 12898
+! Duplicates removed: 7662
