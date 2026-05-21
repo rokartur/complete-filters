@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 20 May 2026 01:43:22 UTC
+! Last modified: 21 May 2026 01:42:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -3144,6 +3144,9 @@ $subdocument,domain=urlbluemedia.shop
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/AdguardTeam/AdGuardSDNSFilter/master/Filters/exceptions.txt
+! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/
+! Blocked by CNAME omtrdc.net
+@@||om-ssl.consorsbank.de^|
 ! taboolanews.com
 @@|cdn.taboola.com^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230786
@@ -3315,10 +3318,12 @@ $subdocument,domain=urlbluemedia.shop
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150038
 ! Blocked by CNAME getblueshift.com
 @@||clickattr.wayup.com^|
+! https://github.com/AdguardTeam/AdguardFilters/issues/231294
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213677
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1393
 ! Blocked by CNAME adperfect.com
 @@||remembering.ca^|
+@@||obituaries.toacorn.com^|
 @@||obituaries.thestar.com^|
 @@||obituaries.therecord.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1265
@@ -11941,7 +11946,7 @@ zinzinzibidi.com##.xl-rklm-container
 zkillboard.com###adsensetop
 ||abcya.com/client/main-*.js$script,replace=/\,n.src=s.ri.adDetect//
 ||absorbingprison.com^$third-party
-||ad-ipd.sxp.smartclip.net^$redirect=nooptext,important,domain=chefkoch.de|plus.rtl.de
+||ad-ipd.sxp.smartclip.net^$redirect=nooptext,important,domain=chefkoch.de
 ||addons.palemoon.org/skin/palemoon/abfunctions.js
 ||adfree-stat.p3g.hu/detect/detect.min.js
 ||adfree-stat.p3g.hu/layer/
@@ -13654,5 +13659,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10379
+! Total unique rules: 10381
 ! Duplicates removed: 3037

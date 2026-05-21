@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 20 May 2026 01:43:22 UTC
+! Last modified: 21 May 2026 01:42:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779196699-3600.patch
+! Diff-Path: ../patches/11/11-s-1779268693-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2685,6 +2685,12 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+plus-msg.auone.jp##.news__rectangle-ad--under-first
+plus-msg.auone.jp##.news__genre-item--taboola-ads
+plus-msg.auone.jp##.news__genre-item--ads
+plus-msg.auone.jp##.ad__under-article-content
+pornocarioca.com##.pc-info-box__clickad
+pornocarioca.com##.top-banner--mobile
 eda.yandex.ru#$?#main > div[style^="margin-bottom:"]:has(> div > ul.scroll-snap-slider button[aria-label="Акция"] > div > img[src*="get-market-adv"]) { remove: true; }
 ebaumsworld.com##.mobile-ad-space
 xxxtik.com##.navigation-container > a[href][rel="nofollow"][target="_blank"]
@@ -4404,7 +4410,7 @@ grapee.jp##.comment > aside:has(> div.OUTBRAIN)
 ||frontend.vh.yandex.ru/player/*&adConfig=$domain=mentoday.ru
 quotidiano.net#%#//scriptlet('set-local-storage-item', 'pwa_show', 'true')
 akashi-journal.com###custom_html-46
-topics.smt.docomo.ne.jp,bayburtmedya.com,m.business-gazeta.ru##.banner
+plus-msg.auone.jp,topics.smt.docomo.ne.jp,bayburtmedya.com,m.business-gazeta.ru##.banner
 privatehomeclips.com##.video__wrapper > section[style="display: flex;"]
 m.tsumanne.net##object[data*="/ad.html"]
 inrlp.de##div[class^="w4_Mobile_Pos"]
@@ -9553,7 +9559,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779196738-3600.patch
+! Diff-Path: ../patches/11/11-s-1779268726-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13409,12 +13415,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototyp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=ericeastweight.com,important
-ericeastweight.com##+js(nowoif)
-ericeastweight.com##+js(set, console.clear, undefined)
-ericeastweight.com##+js(acs, globalThis, break;case)
-ericeastweight.com##+js(acs, WebAssembly, atob)
-||ericeastweight.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=kathyinformationwhether.com,important
+kathyinformationwhether.com##+js(nowoif)
+kathyinformationwhether.com##+js(set, console.clear, undefined)
+kathyinformationwhether.com##+js(acs, globalThis, break;case)
+kathyinformationwhether.com##+js(acs, WebAssembly, atob)
+||kathyinformationwhether.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -19924,5 +19930,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12903
-! Duplicates removed: 7665
+! Total unique rules: 12909
+! Duplicates removed: 7671
