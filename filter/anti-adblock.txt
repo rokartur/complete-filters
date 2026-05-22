@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 21 May 2026 01:42:04 UTC
+! Last modified: 22 May 2026 01:42:22 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10616,6 +10616,9 @@ fuucdayo.com#$#.fuuc-adblock-overlay-open { overflow: auto !important; }
 fuucdayo.com#@#ins.adsbygoogle[data-ad-slot]
 fuucdayo.com#@#ins.adsbygoogle[data-ad-client]
 !
+lusometeo.com#$#body { overflow: auto !important; }
+lusometeo.com#$##detect-modal { display: none !important; }
+lusometeo.com#%#//scriptlet('abort-on-stack-trace', 'document.createElement', 'doTest')
 imgo.info#$#body.modal-open { overflow: auto !important; }
 imgo.info#$#.modal-backdrop { display: none !important; }
 imgo.info#$##load-modal { display: none !important; }
@@ -12860,7 +12863,7 @@ autosport.com#@#.ms-hapb
 @@/wp-content/themes/wp-mason/static/js/ads.js$~third-party
 w3resource.com#@#.ad-placement
 @@||androidplanet.nl/wp-content/themes/bigspark/scripts/adb.min.js
-usatoday.com#@#.ad-slot
+lusometeo.com,usatoday.com#@#.ad-slot
 @@||t-online.de/s/paper/public/js/ads/adfox/ad.js
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=moto.it|automoto.it
 tvdigital.de#@#.AdSense
@@ -13659,5 +13662,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10381
+! Total unique rules: 10384
 ! Duplicates removed: 3037

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 21 May 2026 01:42:04 UTC
+! Last modified: 22 May 2026 01:42:22 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779268693-3600.patch
+! Diff-Path: ../patches/11/11-s-1779382915-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -171,6 +171,9 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+||ads.heytapmobi.com^
+||adsfs.heytapimage.com^
+||shiyifacaisalzc.com^
 ||kw0xlh4wig.com^
 ||h-adashx.ut.taobao.com^
 ||p3-ad-sign.byteimg.com^
@@ -4739,7 +4742,6 @@ crx4chrome.com##div[style="min-height:336px;"]
 erologz.com##div[class^="cls-"]
 ||templates.stroeerdigital.de/[PROD]_MobileExpandableStickyFooter.min.js
 t-online.de##div[id^="mobileexpandablestickyfooter"]
-news-postseven.com##div[style="min-height: 180px; margin-bottom:10px;"]
 news-postseven.com##div[style^="position:fixed; height:auto; min-height: 100px; top:0px; width:100%;"]
 news-postseven.com##div[style="display:block; height:120px;"]
 appleinsider.com###mobile-ad-wrap
@@ -9559,7 +9561,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779268726-3600.patch
+! Diff-Path: ../patches/11/11-s-1779382946-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13777,6 +13779,12 @@ bus-location.1507t.xyz##+js(nostif, /^\s*\(\s*\)\s*=>\s*\{\s*[-$0-9A-Z_a-z]+\s*\
 
 ! https://github.com/uBlockOrigin/uAssets/issues/32976
 ||amazonlogistics.jp^$all,badfilter
+
+! https://github.com/AdguardTeam/AdguardFilters/commit/a8c70642589c4d0148f6f2ebfb165218cbce1eff
+/shogakukan-utility-script.js$badfilter
+
+! https://github.com/easylist/easylist/commit/15e67e6bb18789bd87db7e4bf6c69ceb03a70f0b
+@@||cxense.com/cx.js$domain=gizmodo.jp
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19440,9 +19448,6 @@ developer.arm.com##+js(set, Munchkin.init, noopFunc)
 @@||widgets.trustedshops.com/reviews/tsSticker/$domain=sportnahrung-engel.de
 ||widgets.trustedshops.com/reviews/tsSticker/*.gif?$important
 
-! https://github.com/uBlockOrigin/uAssets/issues/28438
-io.google##+js(aeld, click, Event)
-
 ! https://github.com/easylist/easylist/issues/21841
 sterkinekor.com##+js(set, ttd_dom_ready, noopFunc)
 ||js.adsrvr.org/up_loader.$domain=sterkinekor.com,important
@@ -19930,5 +19935,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12909
-! Duplicates removed: 7671
+! Total unique rules: 12912
+! Duplicates removed: 7673
