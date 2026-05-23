@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 22 May 2026 01:42:22 UTC
+! Last modified: 23 May 2026 01:37:38 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779382915-3600.patch
+! Diff-Path: ../patches/11/11-s-1779454881-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2688,6 +2688,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+finans.cnnturk.com###cnn-app > .d-block:has(> .ad-border:only-child)
+finans.cnnturk.com##.col-lg-4 > .widget-card:has(> .banner300x600:only-child)
 plus-msg.auone.jp##.news__rectangle-ad--under-first
 plus-msg.auone.jp##.news__genre-item--taboola-ads
 plus-msg.auone.jp##.news__genre-item--ads
@@ -3558,7 +3560,7 @@ wife.koe-koe.com##div[style="min-height:240px"]
 juken-mikata.net##.\31 th-ad
 pokeca-zanmai.jp##.mobile-anchor-ad
 blog.2nt.com##.fc2spad_noactive + div[style="font-size:8px;"]
-thegay.com##.video-page > div:not(.video-page__content):has(> div > div >  iframe[width="300"][height="100"])
+thegay.tube,thegay.com##.video-page > div:not(.video-page__content):has(> div > div >  iframe[width="300"][height="100"])
 m.minixiaoshuow.com#%#//scriptlet('set-constant', 'showme', 'false')
 m.minixiaoshuow.com#%#//scriptlet('set-constant', 'pcc', '1')
 pleasureme.jp##.mobile-footer-menu-buttons
@@ -8451,7 +8453,7 @@ txxxporn.tube,txxx.*##.video-conten > div[class] > div[class]:has(> div[class] >
 porn-latina.com,gfthai.com,lesbigo.com,boobse.com,ourgay.tube,xshemale.tube,pornl.tube,fuxxx.com,keporn.vip,keporn.com,peporn.com,teen21.com,pornuse.com,uanal.com##.content > [class$="wrapper"] > section
 desi-porn.tube##.content > div > div[class]:has(> div[class] > div.da-container)
 voyeurhit.tube,voyeurhit.com##a[class^="tag"][target="_blank"]
-xjav.tube,hclips.com,hotmovs.tube,hotmovs.com,hdzog.tube,hdzog.com##div[class^="tag"] > a[href][target="_blank"]
+thegay.tube,shemalez.tube,shemalez.com,xjav.tube,hclips.com,hotmovs.tube,hotmovs.com,hdzog.tube,hdzog.com##div[class^="tag"] > a[href][target="_blank"]
 gettranny.com,blackporn.tube,abbdsm.com,abgay.tube,abjav.com,abxxx.com,abmilf.com,abtranny.com,manysex.com,xjav.tube,aniporn.com##.header__item
 mrgay.tube,transtxxx.com,txxxporn.tube,txxx.*##div[class^="links"] > [href][target="_blank"]
 ! pornhub.com
@@ -9561,7 +9563,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779382946-3600.patch
+! Diff-Path: ../patches/11/11-s-1779454904-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13417,12 +13419,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototyp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=kathyinformationwhether.com,important
-kathyinformationwhether.com##+js(nowoif)
-kathyinformationwhether.com##+js(set, console.clear, undefined)
-kathyinformationwhether.com##+js(acs, globalThis, break;case)
-kathyinformationwhether.com##+js(acs, WebAssembly, atob)
-||kathyinformationwhether.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=bryantenunder.com,important
+bryantenunder.com##+js(nowoif)
+bryantenunder.com##+js(set, console.clear, undefined)
+bryantenunder.com##+js(acs, globalThis, break;case)
+bryantenunder.com##+js(acs, WebAssembly, atob)
+||bryantenunder.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -19730,6 +19732,9 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/32955
 proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.googletagmanager.com/gtag/js?id="])
 
+! https://www.eventim.ro/event/alifantis-mirica-gemini-2-0-casa-de-cultura-a-sindicatelor-21322560/ - maps breakage
+@@||stay22.com/embed/$frame,domain=eventim.ro
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19935,5 +19940,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12912
-! Duplicates removed: 7673
+! Total unique rules: 12915
+! Duplicates removed: 7675
