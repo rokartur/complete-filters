@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 26 May 2026 01:40:00 UTC
+! Last modified: 27 May 2026 01:44:32 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779721911-3600.patch
+! Diff-Path: ../patches/11/11-s-1779821830-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2688,6 +2688,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+web.gekisaka.jp#$?##PC_SP_NEWS_D_GROUP { remove: true; }
+teamtalk.com##main > div > .bs_hint[style^="height:"]
+freesoft-100.com###header_ad_text
 inews.hket.com##.adunit.detail-page[data-admap]
 football365.com##div[style="height: 300px;"]
 finans.cnnturk.com###cnn-app > .d-block:has(> .ad-border:only-child)
@@ -2748,7 +2751,7 @@ pchome.megatime.com.tw##center[style="border-bottom:1px #d3d3d3 solid;"]
 hotokami.jp##.spots__main > div.block:has(> div.flex > div[onclick^="gtag"] > a[href*="utm_campaign"])
 techblog.gr##div[class^="single-mobile-billboard"]
 smartapps.baidu.com##.mount-fc-promo-wrapper
-||staff.livedoor.blog/slot-fallback.js
+||staff.livedoor.blog/slot-fallback$script
 keiba-umanami.com,2chblog.jp,blog.jp,blog.livedoor.jp,bloggeek.jp,blogism.jp,blogo.jp,blogstation.jp,blogto.jp,cafeblog.jp,corpblog.jp,diary.to,doorblog.jp,dreamlog.jp,gger.jp,golog.jp,ldblog.jp,liblo.jp,livedoor.biz,livedoor.blog,myjournal.jp,mynikki.jp,officeblog.jp,officialblog.jp,publog.jp,storeblog.jp,teamblog.jp,techblog.jp,weblog.to,xxxblog.jp,youblog.jp,mona-news.com##.slot-insert
 vocus.cc##.editor-content-block > div[style]:has(> #vocus_m_reading_parallax_middle)
 hotukdeals.com##.js-threadList > div:not([class]):not([id]):has(> .box--contents > div[class] > .slot--bg)
@@ -3091,8 +3094,8 @@ h1g.jp##div[style^="width:300px;height:280px"]
 futbolperuano.com#$#header.sticky-top { top: 0 !important; }
 sxyprn.net,sxyprn.com##.tbd
 mydramalist.com##div:has(> div[style="min-height:327px;"]:only-child)
-coloradoan.com##.gnt_x__bvc:has(> aside[aria-label="advertisement"])
-coloradoan.com##aside[aria-label="advertisement"]
+hoopshype.com,coloradoan.com##.gnt_x__bvc:has(> aside[aria-label="advertisement"])
+hoopshype.com,coloradoan.com##aside[aria-label="advertisement"]
 capetownetc.com##.mobile-advertisements
 famitsu.com##section[class^="Top_topHeaderBanner"]
 famitsu.com##div[class^="ArticleDetailMiddleRectangle_container_"]
@@ -9563,7 +9566,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779721953-3600.patch
+! Diff-Path: ../patches/11/11-s-1779821862-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13563,7 +13566,6 @@ smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[framebord
 ~bing.com,~dogdrip.net,~smsonline.cloud##ins[style$="height:    90px; width:    728px;"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://content-loader.com/"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://html-load.com/"]
-~bing.com,~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://07c225f3.online/"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[height="   120"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[width="   300"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[width="   336"]
@@ -13575,12 +13577,14 @@ smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[framebord
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="max-height:100px;background-color:rgba(128, 128, 128, 0.4);"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style^="width: 100%;height: 90px;position: fixed;bottom: 0px;left: 0px;z-index:"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"] > button.gCloseButton
+~bing.com,~dogdrip.net,~smsonline.cloud##div[id][class][style^="display"][style*="hidden"][style*="width:   "]
+~bing.com,~dogdrip.net,~smsonline.cloud##ins[id][style*="--gn-ov-ad-height"]
 content-loader.com,css-load.com,html-load.com,img-load.com##html:not(:has(> head > style:only-child:has-text(width:399px;height:411px))):style(filter: opacity(0) !important; pointer-events: none !important;)
 /^https:\/\/(?:[a-z]{3,4}\.)?[0-9a-z-]{6,}\.(?:com|xyz)\/script\/(?:[-.0-9A-Za-z]+\.)?[-0-9A-Za-z]{2,30}\.js$/$script,3p,match-case,header=x-length
-.html-load.com/*/a/$font,domain=~dogdrip.net|~smsonline.cloud
-.html-load.com/*/d/$domain=~dogdrip.net|~smsonline.cloud
-.fb2.html-load.com/player/$domain=~dogdrip.net|~smsonline.cloud
+.stg.html-load.com/feed/$xhr,domain=~dogdrip.net|~smsonline.cloud
+.stg.html-load.com/media/$xhr,domain=~dogdrip.net|~smsonline.cloud
 ||html-load.com^$image,1p
+||html-load.com/l/$xhr
 /^https:\/\/(?:as(?:loader)?|(?:shield)?load(?:er)?)\.([-0-9A-Za-z]+\.[-A-Za-z]{2,16})\/(?:loader\.min|script\/(?:www\.)?\1)\.js$/$script,1p,strict3p,match-case,domain=~edu|~gov
 /^https:\/\/[a-z]{3,4}\.[a-z]{8,16}\.com\/loader\.min\.js$/$script,3p,match-case,header=etag:/^W\/"[0-9a-f]{32}-\d{13}"$/
 /^https:\/\/d[0-9a-z]{12,13}\.cloudfront\.net\/loader\.min\.js$/$script,3p,match-case,header=etag:/^W\/"[0-9a-f]{32}"$/
@@ -19936,5 +19940,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12917
-! Duplicates removed: 7677
+! Total unique rules: 12921
+! Duplicates removed: 7680

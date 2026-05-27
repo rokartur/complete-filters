@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 26 May 2026 01:40:21 UTC
+! Last modified: 27 May 2026 01:44:54 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10621,6 +10621,7 @@ manofmany.com##.ShareBar_listItem__6t0E_
 birminghammail.co.uk,bristolpost.co.uk,dailyrecord.co.uk,dailystar.co.uk,irishstar.com,liverpoolecho.co.uk,manchestereveningnews.co.uk,mirror.co.uk,stokesentinel.co.uk,themirror.com,walesonline.co.uk##.ShareBar_sharebar-inner-wrapper__D0YTf
 thescore.com##.ShareLinks__container--3C8C4
 meduza.io##.SharePanel-module-root
+wbur.org##.Share_shareContainer__ZHMXj
 hoorayteams.com##.Share_share__FQTKw
 ynet.co.il,ynetnews.com##.SiteArticleSocialShareNew1280
 futurework.org.au##.SiteFooter_socials
@@ -11009,6 +11010,7 @@ sacurrent.com##.fdn-icon-button-smaller
 phoenixnewtimes.com##.fdn-site-header-social-icons
 westword.com##.fdn-site-header-social-icons-block
 eadaily.com##.feed
+ourworldindata.org##.feedbackPromptContainer
 lubuntu.me##.ff-social-icon
 teaonews.co.nz##.ffsAxx
 thebarentsobserver.com##.field-name-sharing-buttons-1
@@ -11167,6 +11169,7 @@ phonearena.com,quiverquant.com##.google-news-follow
 kyivpost.com##.google-news-preffer-button
 bleedingcool.com##.google-news-source
 essentiallysports.com##.google-perference_googlePerference__h94ae
+timesofisrael.com##.google-prefer-module
 ringsidenews.com,tmz.com##.google-preferred-btn
 realestate.com.au##.google-preferred-link
 sammobile.com##.google-preferred-news-source-cta
@@ -12085,6 +12088,7 @@ news.sky.com##[data-component-name="sdc-article-strapline"]
 lifehacker.com##[data-ga-element="social-link"]
 cnet.com##[data-meta="footer-section-social"]
 cnet.com##[data-meta="footer-section-social"] + ul
+scmp.com##[data-qa="ArticleGoogleNewsButton-Container"]
 newstalkzb.co.nz##[data-test-ui="social-connect"]
 sundayworld.com##[data-testid="article-share"]
 stuff.co.nz##[data-testid="body-cta"]
@@ -13851,7 +13855,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1779741506-3600.patch
+! Diff-Path: ../patches/4/4-s-1779815676-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14460,6 +14464,11 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+dev.ua##.article__container > figure.incut:has(> div.card_media > div.card__info > div.card__body > a[href^="https://t.me/devukraine"])
+express.co.uk##div.text-description:has(> p > a[href^="https://www.facebook.com/DailyExpressSport#"])
+maltadaily.mt##button[aria-label="Share article"]
+atn.ua##.penci-social-media
+devonlive.com,dailyrecord.co.uk##div[class^="ShareBar_sharebar-wrapper_"] > div[class^="ShareBar_"]
 thepublic.info##.vertical-share-bl
 thepublic.info##.main-article-share
 xsport.ua##.MuiStack-root > div.MuiBox-root:has(> div.MuiStack-root > div.MuiBox-root > button.react-share__ShareButton)
@@ -14500,8 +14509,8 @@ lettuceclub.net##a[href^="javascript:void(0);"][class^="inline-block"]
 cumhuriyet.com.tr##.flex.gap-2:has(> nav > a[data-platform="facebook"])
 goldmansachs.com##.gs-page-header__article-header-actions:has(> span[data-gs-uitk-component="popover-target"] > a.gs-link > span[role="img"] > span[data-cy="gs-uitk-icon__content"] > svg > path[d^="M687.66-65.87q-52.55"][d$="36.92"])
 n-tv.de##div[class^="ArticleShare_share-items"]
-birminghammail.co.uk,mirror.co.uk,liverpoolecho.co.uk,manchestereveningnews.co.uk##section[data-testid="social-follow"]
-birminghammail.co.uk,mirror.co.uk,liverpoolecho.co.uk,manchestereveningnews.co.uk##div[class^="ShareBar_sharebar-inner-wrapper__"]
+dailystar.co.uk,birminghammail.co.uk,mirror.co.uk,liverpoolecho.co.uk,manchestereveningnews.co.uk##section[data-testid="social-follow"]
+dailystar.co.uk,birminghammail.co.uk,mirror.co.uk,liverpoolecho.co.uk,manchestereveningnews.co.uk##div[class^="ShareBar_sharebar-inner-wrapper__"]
 tools.pdf24.org###sharePageSection
 amazon.co.jp##.new-social-share-widget-container
 amazon.co.jp##.profile-masthead-social-share-container
@@ -15183,7 +15192,7 @@ zena.aktualne.cz##.e-web-zena-ui-share
 seikei.med.saga-u.ac.jp##aside[class]:has(> div.col-auto > div.d-inline-block > svg[data-icon="share-alt"])
 qz.com##.flex-nowrap.gap-2.group:has(> a[title^="Share to"])
 flamis.gr##.td-is-sticky > div.wpb_wrapper > div.vc_row:has(div.td-post-sharing)
-mezha.media##.post_social_wrapper
+mezha.ua,mezha.media##.post_social_wrapper
 webgradients.com##.index_page__social_container
 portalporn.net##.smi
 hyperts.net###profile
@@ -15646,7 +15655,7 @@ koreatimes.co.kr##button[aria-controls="share-popover"]
 koreatimes.co.kr#$#div[class^="FnBar_inner_"]:has(> button[aria-controls="share-popover"]) { height: 100px !important; }
 rd.nl##button[name="shareArticle"]
 tupaki.com,kontur.ru,eaomedia.ru,helpnetsecurity.com,stavropol.media,unicreditgroup.eu##.share:not(#style_important)
-telegraph.co.uk##.share-modal
+foxnews.com,telegraph.co.uk##.share-modal
 citilink.ru##div[class*="StyledDropdown"] button:has(> span path[d^="M23.5999"])
 tgcom24.mediaset.it##.flex > button.buttonClass:has(> svg > path[d^="M16.4999"][d$="18.75Z"])
 telugu.hindustantimes.com##.scoialShareIcon
@@ -18473,7 +18482,6 @@ mecze24.pl##.content-info > label.social
 gpnbonus.ru,informer.rs,bloombergadria.com##.single-news-share
 tecnologia.libero.it##.share-cont-lnc
 tecnologia.libero.it##.share-cont-art
-tecmundo.com.br,freesoft-100.com###btn_share
 social-innovation.hitachi##.list-share-a
 muz-tv.ru##.branding-mobile
 bookmeter.com##div[data-share-tag]
@@ -21774,7 +21782,7 @@ navbharattimes.indiatimes.com##.wdt_social_share > ._icon:not(.comments)
 navbharattimes.indiatimes.com##.wdt_social_share > .social-cell:not(.comments)
 edh.tw##.line-friend
 edh.tw##.linefriend_article
-zmescience.com,univision.com,televisa.com,telehit.com,pod.link,deezer.com,dhakapost.com,lasestrellas.tv,tudn.com,play.google.com,linktr.ee,tunecore.co.jp,trybotics.com##button[aria-label="Share"]
+thepost.co.nz,zmescience.com,univision.com,televisa.com,telehit.com,pod.link,deezer.com,dhakapost.com,lasestrellas.tv,tudn.com,play.google.com,linktr.ee,tunecore.co.jp,trybotics.com##button[aria-label="Share"]
 maersk.com##.p-section__article__meta__share
 bt.com,tebernuskirecci.com.tr##.share-tags
 10web.io##.blog_share_bottom
@@ -21861,7 +21869,7 @@ fastcompany.com##.highlight-share-popover
 kochbar.de###footerActionbar
 mambiznes.pl##a[href^="http://www.wykop.pl/dodaj/link/?url="]
 blog.netwrix.com##.social-button-list
-doityourself.com,bigkyiv.com.ua,musixmatch.com##.share-row
+besoccer.com,doityourself.com,bigkyiv.com.ua,musixmatch.com##.share-row
 lvz.de,dnn.de##.pdb-share-container-item:not([data-js-share-item="font-size"])
 ostsee-zeitung.de,dnn.de##.pdb-share-block-overlay
 sn-online.de##.pdb-share-block
@@ -23338,7 +23346,7 @@ agar.io,agario-play.com###socialStats
 timesofindia.indiatimes.com##.shareblock
 idiva.com##.socail-icons > a[href="javascript:void();"]
 beautypageants.indiatimes.com##.photo_social
-app.com,rgj.com,usatoday.com##.gnt_ss
+hoopshype.com,app.com,rgj.com,usatoday.com##.gnt_ss
 t-online.de##.Tsocnetpinterest
 cleverfiles.com,businesstoday.in##.social-vertical
 m.businesstoday.in##.bt_socials
@@ -27731,6 +27739,8 @@ auto.ru#?#.Review__footer-col:has(> div.ReviewShare)
 ! Rambler
 !
 !+ NOT_OPTIMIZED
+tecmundo.com.br,freesoft-100.com###btn_share
+!+ NOT_OPTIMIZED
 sippo.asahi.com,tsn.ua##.c-share-sticky
 !+ NOT_OPTIMIZED
 vogue.co.jp,vogue.*##div[class^="SplitScreenContentHeaderNativeShareButton-"]
@@ -30060,9 +30070,8 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1779742574-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1779829690-14400.patch
 /Resources/twitter-$~xhr
-protothema.gr,videogamer.com##.footer-social
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
 archaeologymag.com##.widget_custom_html:contains(Follow us)
@@ -38252,7 +38261,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1779741523-3600.patch
+! Diff-Path: ../patches/4/4-s-1779815700-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -39847,6 +39856,7 @@ auto.ru##.Review__footer-col:has(> div.ReviewShare)
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
+!+ NOT_OPTIMIZED
 film.ru##body > div.block:has(> div.social-likes)
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -40505,7 +40515,8 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1779741523-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1779815700-3600.patch
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -40911,6 +40922,7 @@ rambler.ru##div[data-blocks="content_info"] + div[class^="container-"]
 rambler.ru#%#//scriptlet('remove-in-shadow-dom', 'div[data-blocks="content_info"] + div[class^="container-"]')
 !#endif
 !
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54803,5 +54815,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51580
-! Duplicates removed: 64454
+! Total unique rules: 51588
+! Duplicates removed: 64461
