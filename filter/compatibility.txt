@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 28 May 2026 01:37:11 UTC
+! Last modified: 29 May 2026 01:42:05 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779873516-3600.patch
+! Diff-Path: ../patches/11/11-s-1779967271-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2685,6 +2685,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+tgrthaber.com###sticky-container
 pornobueno.com##.adz
 puritanas.com##.mobile-content
 muhalif.com.tr##.detailside-inner-ad-cont
@@ -2726,8 +2727,7 @@ greatandhra.com##.mob-Ad
 meteo60.fr##.encart750x300
 meteo60.fr##.encart336SmartVertical
 m.soundcloud.com##div[class^="BannerAd"]
-pcgamesn.com##.entry-content > div[data-format="isvideo"]
-pcgamesn.com#?#div[class]:has(> div[id][class]:matches-css(before, content: /^Advertisement$/))
+pockettactics.com,pcgamesn.com##.entry-content > div[data-format="isvideo"]
 telepolis.de##div[class^="ad-mobile-"]
 fapnado.xxx##.top
 fapnado.xxx##a[href^="https://www.tckcandy.com/"]
@@ -9563,7 +9563,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779873550-3600.patch
+! Diff-Path: ../patches/11/11-s-1779967310-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -11043,6 +11043,7 @@ amazon.*#@#.sbv-ad-content-container
 amazon.*#@?#div[data-display-at]:has(> div[data-csa-c-painter="ad-topper-desktop-card"]:first-child + div[style="display: none !important;"]:last-child)
 amazon.*#@##desktop-dp-ilm_feature_div_01
 amazon.*#@#.s-main-slot > div.s-result-item:has(> .sg-col-inner:only-child > div[class*="widget=loom-"][class*="FEATURED"])
+amazon.*#@#div[id^="CardInstance"] > a > img
 !#if (adguard_app_android || adguard_app_ios || adguard_ext_android_cb)
 amazon.*#@##softlines-mobile-btf-discovery-zone-T3_feature_div
 amazon.*#@##softlines-btf-substitute-zone-container-3_feature_div
@@ -13418,12 +13419,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototyp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=bryantenunder.com,important
-bryantenunder.com##+js(nowoif)
-bryantenunder.com##+js(set, console.clear, undefined)
-bryantenunder.com##+js(acs, globalThis, break;case)
-bryantenunder.com##+js(acs, WebAssembly, atob)
-||bryantenunder.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=vickisaveworker.com,important
+vickisaveworker.com##+js(nowoif)
+vickisaveworker.com##+js(set, console.clear, undefined)
+vickisaveworker.com##+js(acs, globalThis, break;case)
+vickisaveworker.com##+js(acs, WebAssembly, atob)
+||vickisaveworker.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -13772,12 +13773,6 @@ gumtree.com#@#+js(trusted-set, experimentOverrides, json:"%5B%7B%20defaultValue%
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31664
 bus-location.1507t.xyz##+js(nostif, /^\s*\(\s*\)\s*=>\s*\{\s*[-$0-9A-Z_a-z]+\s*\(\s*[-$0-9A-Z_a-z]*\s*\)\s*\}\s*$/)
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/a8c70642589c4d0148f6f2ebfb165218cbce1eff
-/shogakukan-utility-script.js$badfilter
-
-! https://github.com/easylist/easylist/commit/15e67e6bb18789bd87db7e4bf6c69ceb03a70f0b
-@@||cxense.com/cx.js$domain=gizmodo.jp
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -17739,6 +17734,12 @@ variety.com##^html > head > link[rel="canonical"]:not([href*="/video/"]):upward(
 @@||connatix.com^$script,domain=deadline.com
 deadline.com#@#.cnx-player-wrapper
 
+! ex.co
+! https://github.com/uBlockOrigin/uAssets/issues/33077
+@@||ex.co/player/$script,domain=standard.co.uk
+@@||cdn.ex.co^$image,media,domain=standard.co.uk
+@@||cdn.ex.co/content/$xhr
+
 ! https://github.com/uBlockOrigin/uAssets/issues/17000
 mediaite.com#@#.adthrive-video-player
 mediaite.com##.adthrive-video-player:style(padding-bottom: 0 !important;)
@@ -19723,9 +19724,6 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/32955
 proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.googletagmanager.com/gtag/js?id="])
 
-! https://www.eventim.ro/event/alifantis-mirica-gemini-2-0-casa-de-cultura-a-sindicatelor-21322560/ - maps breakage
-@@||stay22.com/embed/$frame,domain=eventim.ro
-
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19931,5 +19929,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12916
+! Total unique rules: 12917
 ! Duplicates removed: 7678
