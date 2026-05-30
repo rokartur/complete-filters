@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 29 May 2026 01:42:05 UTC
+! Last modified: 30 May 2026 01:38:54 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779967271-3600.patch
+! Diff-Path: ../patches/11/11-s-1780067686-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2685,6 +2685,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+news.mynavi.jp###js-mnsp_inread
+arabalar.com.tr##div.elementor[data-elementor-post-type="page"] > section[data-settings]:has(div.elementor-widget ins.adsbygoogle)
+sportspyder.com##header > div[class^="_spacer_"]
 tgrthaber.com###sticky-container
 pornobueno.com##.adz
 puritanas.com##.mobile-content
@@ -8591,6 +8594,8 @@ rambler.ru#%#//scriptlet('remove-in-shadow-dom', 'div[class^="bannerContainer"]'
 rambler.ru#?#div[class^="container-"]:has(> amp-embed[data-container*="ScriptRoot"])
 rambler.ru##div[class^="bannerContainer"]
 rambler.ru##amp-iframe[src^="https://mg.lentainform.com/"]
+news.rambler.ru#?#div[data-news_media-mobile] > div.mobile-draft > div > div[class]:contains(/^Продолжение истории после рекламы$/i)
+news.rambler.ru##div[style^="min-height:"][style*="250px"]:has(> div[id^="capirs-"])
 nova.rambler.ru##section[class^="DirectMobile__direct__block--"]
 news.rambler.ru##._1ErId
 vp.rambler.ru##.eagleplayer-advertisement-remain-time
@@ -9563,7 +9568,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1779967310-3600.patch
+! Diff-Path: ../patches/11/11-s-1780067728-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13698,16 +13703,16 @@ embed.wcostream.com##+js(rmnt, script, /google_jobrunner|AdBlock|pubadx|embed\.h
 ! https://github.com/uBlockOrigin/uAssets/issues/18260
 !#if ext_ubol
 @@||cdn.snigelweb.com/adengine/falixnodes.net/loader.js$script,domain=client.falixnodes.net
-@@||amazon-adsystem.com/bao-csm/aps-comm/aps_csm.js$script,domain=client.falixnodes.net
 @@||adengine.snigelweb.com/falixnodes.net/$script,domain=client.falixnodes.net
+@@||c.amazon-adsystem.com/aax2/apstag.js$script,domain=client.falixnodes.net
+@@||c.amazon-adsystem.com/bao-csm/aps-comm/aps_csm.js$xhr,domain=client.falixnodes.net
 !#else
 client.falixnodes.net##+js(rpnt, script, /window\.googletag.*?enableServices\(\)\;/s)
 client.falixnodes.net##+js(rpnt, script, /googletag\.pubads\(\)\.addEventListener.*rewardedSlot\)\;\s+\}\);\s+\}/s)
-client.falixnodes.net##+js(rpnt, script, /window\.location\.href \= ('|")\/(please-disable|neptune|disableadblock|yeahblock|yupblock|verypleasedisable)('|")\;/)
-client.falixnodes.net##+js(aeld, error, function, elements, [src])
 client.falixnodes.net##+js(nosiif, /lovelylovely|veryveryplease|click\(\)|MouseEvent|dispatchEvent/)
 client.falixnodes.net##+js(nostif, /lovelylovely|veryveryplease|click\(\)|MouseEvent|dispatchEvent/)
-*$script,redirect-rule=none:5,domain=client.falixnodes.net
+client.falixnodes.net##+js(nostif, ]];if(typeof)
+client.falixnodes.net##+js(nostif, )}}\,5e3)}}}})
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23131
@@ -19929,5 +19934,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12917
-! Duplicates removed: 7678
+! Total unique rules: 12922
+! Duplicates removed: 7683

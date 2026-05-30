@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 29 May 2026 01:42:26 UTC
+! Last modified: 30 May 2026 01:39:17 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -13856,7 +13856,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1779989069-3600.patch
+! Diff-Path: ../patches/4/4-s-1780067702-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14465,6 +14465,10 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+promokodus.com##.coupon-share-but
+mequrimequru.jp##.c-shareParts
+mequrimequru.jp##.c-followShareBox
+serbestiyet.com##.single-post-share-btn
 etnowpolymers.com,femina.in,filmfare.com,goodhomes.co.in,grazia.co.in,themachinist.in##.social_detail
 fintechmagazine.com##div[class^="StickyArticleShare_"]
 pockettactics.com,pcgamesn.com,wargamer.com##.sidebar-social-widget
@@ -14640,7 +14644,6 @@ dev.ozon.ru##div[class^="_shareList_"] > ul[class^="_list_"]
 bankinform.ru##.bi-share-fill
 labottegadelnerd.com##.my_share_button
 mynet.com##.ep-shareButton
-makeuseof.com###sharingButtonPopup
 syg.ma##.postActions div[title="Share"]
 ruwiki.ru###Article-toolbar__button_share
 kinoreporter.ru##.post__social-links
@@ -15932,7 +15935,7 @@ microsoft.com##div[data-bi-an="social-share"]
 meetup.com##.flex:has(> ul > li > button > div#share-facebook-in-GroupHome)
 discogs.com##.side__gnpk > .wrapper_Ixres
 akomnews.com##.quick_menu > li:not(:has(> div > i.font_icon))
-collider.com,cbr.com,howtogeek.com,thegamer.com,hardcoregamer.com,gamerant.com,screenrant.com###sharingButtonPopup
+pocket-lint.com,androidpolice.com,makeuseof.com,collider.com,cbr.com,howtogeek.com,thegamer.com,hardcoregamer.com,gamerant.com,screenrant.com###sharingButtonPopup
 dota2.ru##a[href^="//t.me/share/"]
 championat.com,comments.rambler.ru##button[data-comments$="share_popup"]
 alive.com##.PostShare
@@ -20210,7 +20213,7 @@ suspilne.media##.c-article-info-share
 footboom.com##.news-afterwords__socials
 digiday.jp##.single-post-sharing
 travel.co.jp##div[class^="social-area--"]
-sm.news,kun.uz,defence-ua.com,war.ukraine.ua##.share-news
+firtka.if.ua,sm.news,kun.uz,defence-ua.com,war.ukraine.ua##.share-news
 air-nifty.com,cocolog-nifty.com,moe-nifty.com,tea-nifty.com,txt-nifty.com,way-nifty.com##.socialPlug
 okdiario.com###native-addthis
 f5haber.com##.col-md-5 .social-icons
@@ -22147,7 +22150,7 @@ sdelatotoplenie.ru##.vktitle
 grupormultimedio.com,slantmagazine.com,tarnow.ikc.pl##.single-component-share
 nba.com##.stats-share-button
 timgate.it##.cdi-social-container
-tygodniksiedlecki.com,dziennikelblaski.pl,gazetaolsztynska.pl,bokumachi-anime.com,kaiju-no8.net,mdzol.com,adrenaline.com.br##.news__share
+redactie24.be,tygodniksiedlecki.com,dziennikelblaski.pl,gazetaolsztynska.pl,bokumachi-anime.com,kaiju-no8.net,mdzol.com,adrenaline.com.br##.news__share
 mid-day.com##.social-sharing-post-txt ul.social-icons-inline
 e-kitap.site,ekitap.site##.kitap_paylas
 e-kitap.site,ekitap.site##.shareb
@@ -24080,7 +24083,7 @@ innpoland.pl,natemat.pl,mamadu.pl##.fb_share_button
 kayserigundem.com.tr,haberler33.com,gaziantephaber.com,cryptodaily.co.uk,elazighaber23.com,kayisihaber.com,wowkeren.com,gercekfethiye.com,gunisigigazetesi.net##.post-share-area
 ppt.ru###leftBar
 slidstvo.info,ppt.ru##.bottom-social
-185.145.131.204,185.63.253.247,bioskopkaca21.com,dewamovie.info,167.99.71.200,91.230.121.24##.idmuvi-social-share
+185.145.131.204,185.63.253.247,dewamovie.info,167.99.71.200,91.230.121.24##.idmuvi-social-share
 newsweek.pl##.articleSocials > h4
 newsweek.pl##.socialAreaArticle > li > a.socialButton:not(.com)
 thoughtcatalog.com##.tc-sharing-controls
@@ -30087,7 +30090,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1780003083-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1780089294-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38278,7 +38281,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1779989093-3600.patch
+! Diff-Path: ../patches/4/4-s-1780067728-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40534,7 +40537,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1779989093-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1780067728-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54834,5 +54837,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51607
-! Duplicates removed: 64484
+! Total unique rules: 51610
+! Duplicates removed: 64494
