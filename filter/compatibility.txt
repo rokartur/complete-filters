@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 30 May 2026 01:38:54 UTC
+! Last modified: 31 May 2026 01:44:57 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
@@ -13398,7 +13398,7 @@ www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', /g
 ! www.youtube.com##+js(trusted-replace-outbound-text, JSON.stringify, "params":", "params":"yAEB, condition, /("contentPlaybackContext":{".*\,"params":"|"params":".*"contentPlaybackContext":{")/)
 ! www.youtube.com##+js(trusted-replace-outbound-text, JSON.stringify, "contentCheckOk":false, "params":"yAEB"\,"contentCheckOk":false, condition, /^(?=.*"contentPlaybackContext":{")(?!.*"params":").*$/)
 ! https://github.com/uBlockOrigin/uBOL-home/discussions/153#discussioncomment-14056823
-/\.googlevideo\.com\/videoplayback\?expire=(?:[02-9]+|1[1-68-9]\d+|17[1-48-9]\d+)&/$xhr,3p,method=get,domain=www.youtube.com
+/\.googlevideo\.com\/videoplayback\?expire=(?:[02-9]\d+|1[1-68-9]\d+|17[1-7]\d+)&/$xhr,3p,method=get,domain=www.youtube.com
 ! https://github.com/uBlockOrigin/uAssets/issues/27415#issuecomment-3276882899
 ||youtube.com/api/stats/atr?ns=*&ver=2&cmt=1.*&fs=0&*&euri&lact=$xhr,method=post,badfilter
 
@@ -13411,7 +13411,7 @@ web.facebook.com,www.facebook.com##+js(json-edit, ..data.viewer..nodes.*[?.__typ
 web.facebook.com,www.facebook.com##+js(set, Env.nxghljssj, false)
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-3060431385
 web.facebook.com,www.facebook.com##div[role="complementary"] a[rel="nofollow noreferrer external"][attributionsrc^="/privacy_sandbox/comet/register/"][attributionsrc*="?eid="]
-web.facebook.com,www.facebook.com##div[role="complementary"] div[data-visualcompletion="ignore-dynamic"] a[aria-label][attributionsrc="_blank"][href*="utm_medium"][href*="utm_source"][href*="utm_id"][href*="utm_content"][href*="utm_term"][href*="utm_campaign"]
+web.facebook.com,www.facebook.com##div[role="complementary"] div[data-visualcompletion="ignore-dynamic"] a[href*="fbclid"][href*="utm_medium"][href*="utm_source"][href*="utm_id"][href*="utm_content"][href*="utm_term"][href*="utm_campaign"]
 web.facebook.com,www.facebook.com##div[role="complementary"] div[data-visualcompletion="ignore-dynamic"] a[rel="nofollow noreferrer tag"][aria-labelledby^="_R_"]
 web.facebook.com,www.facebook.com##div[role="complementary"] a[attributionsrc][href^="http"][target="_blank"][role="link"][rel*="noreferrer"]:has(img[src])
 web.facebook.com,www.facebook.com##div[role="complementary"] h3 span[style^="-webkit-box-orient:vertical"]:has-text(/^Sponsored$/)
@@ -13778,6 +13778,10 @@ gumtree.com#@#+js(trusted-set, experimentOverrides, json:"%5B%7B%20defaultValue%
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31664
 bus-location.1507t.xyz##+js(nostif, /^\s*\(\s*\)\s*=>\s*\{\s*[-$0-9A-Z_a-z]+\s*\(\s*[-$0-9A-Z_a-z]*\s*\)\s*\}\s*$/)
+
+! https://github.com/AdguardTeam/AdguardFilters/commit/ce1d4e31d1996113215f6a6b902c4fced233f1e3
+gamewith.jp##+js(set-cookie-reload, discarded-search-interstitial-cta-banner, true)
+gamewith.jp##.gdb-cta-banner-outer
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19934,5 +19938,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12922
+! Total unique rules: 12924
 ! Duplicates removed: 7683
