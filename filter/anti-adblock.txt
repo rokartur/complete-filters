@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 01 Jun 2026 01:49:18 UTC
+! Last modified: 02 Jun 2026 01:51:59 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -3144,6 +3144,9 @@ $subdocument,domain=urlbluemedia.shop
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/AdguardTeam/AdGuardSDNSFilter/master/Filters/exceptions.txt
+! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/2058
+! Blocked by CNAME data.adobedc.net
+@@||data.notify.macys.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/
 ! Blocked by CNAME omtrdc.net
 @@||om-ssl.consorsbank.de^|
@@ -10608,6 +10611,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#general
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
+peacocktv.com##div[role="alert"][data-testid="notification-PlaybackAdBlocker"]
 fuucdayo.com#$#.fuuc-adblock-overlay { display: none !important; }
 fuucdayo.com#$#.fuuc-adblock-overlay-open { overflow: auto !important; }
 !+ PLATFORM(ios, ext_android_cb, ext_safari)
@@ -11669,7 +11673,6 @@ pastedownload.com##.aadb-overlay
 pastedownload.com#%#//scriptlet('prevent-element-src-loading', 'script', 'adskeeper.com')
 ||pastedownload.com/template/nova/js/okagame.js
 pcinvasion.com##.execphpwidget > div[style="min-height: 250px;"]
-peacocktv.com##.playback-ad-blocker-notice
 birgun.net,free-reseau.fr,penize.cz,smartcockpit.com###adblocker
 petanikode.com##div[data-id="antiadblock"]
 petrimazepa.com##div[role="dialog"][style^="position: fixed; height: auto; width: 415px;"]
@@ -13668,5 +13671,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10390
+! Total unique rules: 10391
 ! Duplicates removed: 3037

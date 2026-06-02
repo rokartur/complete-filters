@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 01 Jun 2026 01:49:18 UTC
+! Last modified: 02 Jun 2026 01:51:59 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1780067686-3600.patch
+! Diff-Path: ../patches/11/11-s-1780326768-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2685,6 +2685,11 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+youjizz.com###englishMobPr
+tporn.xxx##.video__header
+dosgamesarchive.com###banner_mobile
+moskvichmag.ru##.article__inline-banner-divider
+moskvichmag.ru##.article__sidebar-sticky
 news.mynavi.jp###js-mnsp_inread
 arabalar.com.tr##div.elementor[data-elementor-post-type="page"] > section[data-settings]:has(div.elementor-widget ins.adsbygoogle)
 sportspyder.com##header > div[class^="_spacer_"]
@@ -9568,7 +9573,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1780067728-3600.patch
+! Diff-Path: ../patches/11/11-s-1780326810-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13189,7 +13194,6 @@ livejournal.com##+js(aopr, webpackJsonpSSPjs)
 ||nikkei.com/.resources/static/nad/
 ||reemo-ad.jp^$third-party
 ||orca-pass.net^$third-party
-||probo.biz^$third-party
 ||pitadtag.jp^$third-party
 ||itmedia.co.jp/spv/images/career_en_300x250.jpg
 ||itmedia.co.jp/spv/images/career_en_320x50.jpg
@@ -13784,6 +13788,9 @@ bus-location.1507t.xyz##+js(nostif, /^\s*\(\s*\)\s*=>\s*\{\s*[-$0-9A-Z_a-z]+\s*\
 ! https://github.com/AdguardTeam/AdguardFilters/commit/ce1d4e31d1996113215f6a6b902c4fced233f1e3
 gamewith.jp##+js(set-cookie-reload, discarded-search-interstitial-cta-banner, true)
 gamewith.jp##.gdb-cta-banner-outer
+
+! https://github.com/uBlockOrigin/uAssets/issues/33097
+||cloudfront.net/?$script,redirect=noopjs,domain=meuplayeronlinehd.com|multicanaistt.space
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19940,5 +19947,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12926
-! Duplicates removed: 7683
+! Total unique rules: 12931
+! Duplicates removed: 7690
