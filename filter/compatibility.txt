@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 02 Jun 2026 01:51:59 UTC
+! Last modified: 03 Jun 2026 01:56:40 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1780326768-3600.patch
+! Diff-Path: ../patches/11/11-s-1780406898-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2674,7 +2674,7 @@ handelsblatt.com,moyens.net,ign.com,gazeteduvar.com.tr,innpoland.pl,wired.com,sp
 ! ##.ads
 keisanki.me,kalporn.com,canalporno.com,serviporno.com,livechat-ero.net,kingautos.net,ranky-ranking.net,memo.onl.jp,daily-sun.com,home.kingsoft.jp,berkem.ru,pixiv.net,cartoonpornvideos.com,m.economictimes.com,m.mistrzowie.org,up.ymgt.xyz,google.de,www-bento-de.cdn.ampproject.org,m-economictimes-com.cdn.ampproject.org,winfuture.de##.ads
 ! ##.ad
-healthyplace.com,qlife.jp,wiki.yjsnpi.nu,opinion.cw.com.tw,aidoly.net,celeby-media.net,kyun2-girls.com,hapiee.com,2ch-c.net,4p.de,www-cbc-ca.cdn.ampproject.org,m.geboren.am,dictionary.com,transfermarkt.de,iyf.tv,macwelt.de,pcwelt.de,xataka.com.mx,shikiho.toyokeizai.net,newsee-media.com,rank1-media.com,m.proporn.com,sugoren.com,dailynewsonline.jp,yakuji.co.jp,asahi.com,m.winporn.com,slate.com,sankei.com,gameranbu.jp,seiga.nicovideo.jp,m.arukikata.co.jp,setn.com,hateblo.jp,hatenablog.com,hatenablog.jp,hatenadiary.com,hatenadiary.jp,hatenadiary.org,syosetu.org##.ad
+healthyplace.com,qlife.jp,wiki.yjsnpi.nu,opinion.cw.com.tw,aidoly.net,celeby-media.net,kyun2-girls.com,hapiee.com,2ch-c.net,4p.de,www-cbc-ca.cdn.ampproject.org,m.geboren.am,dictionary.com,transfermarkt.de,iyf.tv,macwelt.de,pcwelt.de,xataka.com.mx,shikiho.toyokeizai.net,newsee-media.com,rank1-media.com,m.proporn.com,sugoren.com,dailynewsonline.jp,yakuji.co.jp,asahi.com,m.winporn.com,slate.com,sankei.com,gameranbu.jp,seiga.nicovideo.jp,m.arukikata.co.jp,setn.com,hatenadiary.com,hatenadiary.jp,syosetu.org##.ad
 ! ##.Ad
 chip.de,gamesworld.de,fnn.jp##.Ad
 ! ##body .banner
@@ -2685,6 +2685,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+planetrugby.com##div[style="height: 300px;"]
+speedcafe.com###anchor-container
 youjizz.com###englishMobPr
 tporn.xxx##.video__header
 dosgamesarchive.com###banner_mobile
@@ -8720,6 +8722,8 @@ livejournal.com##div[id^="billboard_mobile_"]
 !
 !
 !+ NOT_OPTIMIZED
+hatenadiary.org,hatenablog.com,hatenablog.jp,hateblo.jp##.ad
+!+ NOT_OPTIMIZED
 itc.ua##.image-100
 !+ NOT_OPTIMIZED
 techxplore.com##.ads-container
@@ -9573,7 +9577,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1780326810-3600.patch
+! Diff-Path: ../patches/11/11-s-1780406941-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -10556,6 +10560,7 @@ tr.usbxh.life,xhamster44.desi,aawweb.beauty,colourxh.site,xhamster43.desi,fullxh
 ! END: Livejournal.com
 !
 !
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -11938,8 +11943,8 @@ igniteunmc.com##.preloader
 ! Twitter
 ||api.twitter.com^$third-party,domain=~tweetdeck.com|~twitter.com|~twitter.jp|~x.com
 ||platform.twitter.com^$third-party,domain=~tweetdeck.com|~twitter.com|~twitter.jp|~x.com
-||api.x.com^$third-party,domain=~tweetdeck.com|~twitter.com|~twitter.jp|~x.com
 ||platform.x.com^$third-party,domain=~tweetdeck.com|~twitter.com|~twitter.jp|~x.com
+||api.x.com^$third-party,domain=~tweetdeck.com|~twitter.com|~twitter.jp|~x.com
 !
 ! Note that options will be added to exclude these filters soon. They
 ! are added both as a blocking rule and as an exception rule so that
@@ -12729,6 +12734,7 @@ twinkietown.com,chicago.suntimes.com,theverge.com,vox.com,eater.com,polygon.com,
 ||reddit.com^$removeparam=rdt,doc,badfilter
 ! ghide
 @@||filmisub.cc^$ghide
+@@||play.tv3.lv^$ghide
 @@||compuhoy.com^$ghide
 @@||fluttercampus.com^$ghide
 @@||samuraiscan.org^$ghide
@@ -13791,6 +13797,11 @@ gamewith.jp##.gdb-cta-banner-outer
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33097
 ||cloudfront.net/?$script,redirect=noopjs,domain=meuplayeronlinehd.com|multicanaistt.space
+meuplayeronlinehd.com##+js(rmnt, script, _0x, excludes, /source|URLSearchParams/)
+meuplayeronlinehd.com###player:style(display: block !important;)
+
+! https://github.com/uBlockOrigin/uAssets/issues/33144
+@@/jsi18n/|$script,1p
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -17713,13 +17724,14 @@ dailypost.co.uk,dailystar.co.uk,mirror.co.uk##+js(nano-stb, (null), 5000, 0.001)
 ! https://github.com/uBlockOrigin/uAssets/issues/25116
 ! https://www.sport24.gr/football/olympiakos-panathinaikos-1-0-me-gkol-playstation-sto-94-o-moyzakitis-esteile-toys-erythroleykoys-sta-imitelika.10454103.html
 ! https://github.com/uBlockOrigin/uAssets/issues/32031
+! https://github.com/uBlockOrigin/uAssets/issues/33135
 ||connatix.com^$badfilter
 ||connatix.com^$3p
 ||connatix.com^$3p,removeparam=cid
 ||connatix.com^$3p,removeparam=pid
-app.kultivi.com,hollywoodreporter.com,huffpost.com,sacbee.com,sport-fm.gr,sport24.gr,sportal.gr,tvline.com,w3schools.com#@#.cnx-player-wrapper
-app.kultivi.com,hollywoodreporter.com,huffpost.com,sacbee.com,sport-fm.gr,sport24.gr,tvline.com,w3schools.com#@#[id^="jwplayer"]
-@@||connatix.com/*connatix.player.$3p,script,domain=accesousa.com|accuweather.com|adweek.com|app.kultivi.com|bellinghamherald.com|bnd.com|bradenton.com|centredaily.com|charlotteobserver.com|easternstandardtimes.com|elnuevoherald.com|flkeysnews.com|fresnobee.com|heraldonline.com|heraldsun.com|hollywoodreporter.com|huffpost.com|idahostatesman.com|indiewire.com|islandpacket.com|interestingengineering.com|kansas.com|kansascity.com|kentucky.com|ledger-enquirer.com|loot.tv|macon.com|mahoningmatters.com|mcclatchydc.com|mercedsunstar.com|miamiherald.com|modbee.com|myrtlebeachonline.com|newsobserver.com|reuters.com|sacbee.com|sanluisobispo.com|sport-fm.gr|sport24.gr|sportal.gr|star-telegram.com|sunherald.com|thenewstribune.com|theolympian.com|thestate.com|tri-cityherald.com|tvline.com|variety.com|w3schools.com
+app.kultivi.com,hollywoodreporter.com,huffpost.com,kultivi.com,sacbee.com,sport-fm.gr,sport24.gr,sportal.gr,tvline.com,w3schools.com#@#.cnx-player-wrapper
+app.kultivi.com,hollywoodreporter.com,huffpost.com,kultivi.com,sacbee.com,sport-fm.gr,sport24.gr,tvline.com,w3schools.com#@#[id^="jwplayer"]
+@@||connatix.com/*connatix.player.$3p,script,domain=accesousa.com|accuweather.com|adweek.com|app.kultivi.com|bellinghamherald.com|bnd.com|bradenton.com|centredaily.com|charlotteobserver.com|easternstandardtimes.com|elnuevoherald.com|flkeysnews.com|fresnobee.com|heraldonline.com|heraldsun.com|hollywoodreporter.com|huffpost.com|idahostatesman.com|indiewire.com|islandpacket.com|interestingengineering.com|kansas.com|kansascity.com|kentucky.com|kultivi.com|ledger-enquirer.com|loot.tv|macon.com|mahoningmatters.com|mcclatchydc.com|mercedsunstar.com|miamiherald.com|modbee.com|myrtlebeachonline.com|newsobserver.com|reuters.com|sacbee.com|sanluisobispo.com|sport-fm.gr|sport24.gr|sportal.gr|star-telegram.com|sunherald.com|thenewstribune.com|theolympian.com|thestate.com|tri-cityherald.com|tvline.com|variety.com|w3schools.com
 @@||connatix.com/*.css$3p,css
 @@||cds.connatix.com/*/elLoader.$3p,script
 @@||cds.connatix.com/*/player.renderer.$3p,script
@@ -19947,5 +19959,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12931
-! Duplicates removed: 7690
+! Total unique rules: 12938
+! Duplicates removed: 7694
