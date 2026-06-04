@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 03 Jun 2026 01:56:40 UTC
+! Last modified: 04 Jun 2026 01:55:39 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -123,6 +123,13 @@ rottentomatoes.com##+js(trusted-set-local-storage-item, RtAppManager, '{"nextOpe
 @@||127.0.0.1^$domain=driverhub.asus.com
 
 !!! END OF UBO EXCEPTIONS
+
+! AD-Shield fix
+||joviallysafely.com/script/
+||quietlythough.com/script/
+||noisilyinstantly.com/script/
+||annualrallybran.com/script/
+/alm73cDylLvk1rXd1brtznfe1baIUT5.js
 
 ! De-AMP rule that uses the De-AMP scriptlet
 google.*##+js(de-amp)
@@ -6169,6 +6176,12 @@ perfil.com##div[style*="max-height: 250px;"]
 perfil.com##div[style*="max-height: 280px;"]
 perfil.com##div[style*="min-height: 600px;"]
 dobleamarilla.com.ar,el-periodico.com.ar##tadevel-ad
+! .no
+vg.no##.advertory-vg-netboard-wrapper__front
+vg.no##.advertory-vg-topboard-wrapper__article
+vg.no##[data-placement-format="sponsorstripe"]
+vg.no##[data-advertory-ad-rendered]
+vg.no##section.top
 ! .br/.pt
 globo.com###ad-container-top-placeholder
 sapo.pt###ad-rm-top
@@ -6965,5 +6978,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5914
+! Total unique rules: 5924
 ! Duplicates removed: 8

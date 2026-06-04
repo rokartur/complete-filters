@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 03 Jun 2026 01:56:40 UTC
+! Last modified: 04 Jun 2026 01:55:39 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1780406898-3600.patch
+! Diff-Path: ../patches/11/11-s-1780508941-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -69,6 +69,9 @@
 ||banners-slb.mobile.yandex.net^
 ||banners.mobile.yandex.net^
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/117330
+! Line
+||a.line.me^
 ! https://github.com/AdguardTeam/AdguardFilters/issues/117115
 ! Yahoo
 ||app.ssp.yahoo.com^
@@ -2685,6 +2688,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+u.gg##.champion-recommended-build > .media-query
+bo3.gg##.c-banner-limited-offer
+bo3.gg##.c-baaanners-custom
 planetrugby.com##div[style="height: 300px;"]
 speedcafe.com###anchor-container
 youjizz.com###englishMobPr
@@ -9282,8 +9288,6 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_apps
 ! https://github.com/AdguardTeam/AdguardFilters/issues/117751
 ||xpig-dev.directservices.it^$app=com.make.it.fly|com.slingshot.basketball|com.slingshot.biker|com.slingshot.car|com.slingshot.train
 ||xpig.cdn.boombit.cloud^$app=com.make.it.fly|com.slingshot.basketball|com.slingshot.biker|com.slingshot.car|com.slingshot.train
-! https://github.com/AdguardTeam/AdguardFilters/issues/117330
-||a.line.me^$app=jp.naver.line.android
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116014
 ||hicloud.com^$app=free.tube.premium.advanced.tuber
 ! https://github.com/AdguardTeam/AdguardFilters/issues/115498
@@ -9577,7 +9581,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1780406941-3600.patch
+! Diff-Path: ../patches/11/11-s-1780508981-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -9615,6 +9619,8 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ! https://github.com/AdguardTeam/AdguardFilters/issues/3933
 ! Yandex apps
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/117330
+! Line
 ! https://github.com/AdguardTeam/AdguardFilters/issues/117115
 ! Yahoo
 ! https://github.com/AdguardTeam/AdguardFilters/issues/61793
@@ -10696,7 +10702,6 @@ adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_i
 ! https://github.com/AdguardTeam/AdguardFilters/issues/129011
 ! https://github.com/AdguardTeam/AdguardFilters/issues/121406
 ! https://github.com/AdguardTeam/AdguardFilters/issues/117751
-! https://github.com/AdguardTeam/AdguardFilters/issues/117330
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116014
 ! https://github.com/AdguardTeam/AdguardFilters/issues/115498
 ! https://github.com/AdguardTeam/AdguardFilters/issues/114506
@@ -13436,12 +13441,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototyp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=rebeccacostthousand.com,important
-rebeccacostthousand.com##+js(nowoif)
-rebeccacostthousand.com##+js(set, console.clear, undefined)
-rebeccacostthousand.com##+js(acs, globalThis, break;case)
-rebeccacostthousand.com##+js(acs, WebAssembly, atob)
-||rebeccacostthousand.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=lindalastattack.com,important
+lindalastattack.com##+js(nowoif)
+lindalastattack.com##+js(set, console.clear, undefined)
+lindalastattack.com##+js(acs, globalThis, break;case)
+lindalastattack.com##+js(acs, WebAssembly, atob)
+||lindalastattack.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -13802,6 +13807,13 @@ meuplayeronlinehd.com###player:style(display: block !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33144
 @@/jsi18n/|$script,1p
+
+! https://github.com/uBlockOrigin/uAssets/issues/22295#issuecomment-4603289429
+tek.no,e24.no,minmote.no,vg.no#@#div[id^="sp_message_container_"]
+cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no#@#+js(trusted-click-element, .message-row > button[title="Avvis alle"], , 2000)
+
+! https://github.com/uBlockOrigin/uAssets/issues/33157
+||zoom.us/*/telemetry$badfilter
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19754,6 +19766,9 @@ amboss.com##+js(set, ambossAnalytics.getUserAttribution, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/32955
 proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.googletagmanager.com/gtag/js?id="])
 
+! https://github.com/uBlockOrigin/uAssets/issues/33159
+||criteo.com^$xhr,redirect=noop.txt,from=makro.plazavea.com.pe
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19959,5 +19974,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12938
-! Duplicates removed: 7694
+! Total unique rules: 12945
+! Duplicates removed: 7698
