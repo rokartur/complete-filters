@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 05 Jun 2026 01:46:16 UTC
+! Last modified: 06 Jun 2026 01:41:13 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10159,7 +10159,7 @@ razlozhi.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.initTime')
 drive2.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.yaContextCb')
 drive2.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.AdChosen')
 drive2.ru##.js-page > div[class*=" "] > div[data-track]
-drive2.ru##.js-page > div[class*=" "] > div[itemscope] ~ div[class]:not([id], [data-role], :last-child):has(div:empty + script)
+! drive2.ru##.js-page > div[class*=" "] > div[itemscope] ~ div[class]:not([id], [data-role], :last-child):has(div:empty + script)
 drive2.ru#?#.js-page > div > div[class="x-box x-box--mh o-f"]:has(> script)
 ! cont.ws
 ||cont.ws/*?target-ref=
@@ -10615,7 +10615,9 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
 dumpert.nl#%#//scriptlet('set-cookie', 'adblock-modal-declined', 'true')
-peacocktv.com##div[role="alert"][data-testid="notification-PlaybackAdBlocker"]
+peacocktv.com#@#.adsbox
+peacocktv.com#%#//scriptlet('trusted-replace-argument', 'Promise', '0', 'noopPromiseResolve', '/\|\|0===.\.offsetHeight|freewheel\.tv\/static\/creatives\/fw-ad/')
+||vi.freewheel.tv/static/creatives/fw-ad-300x250.jpg$image,redirect=2x2-transparent.png,domain=peacocktv.com
 fuucdayo.com#$#.fuuc-adblock-overlay { display: none !important; }
 fuucdayo.com#$#.fuuc-adblock-overlay-open { overflow: auto !important; }
 !#if (adguard_ext_android_cb || adguard_app_ios || adguard_ext_safari)
@@ -12123,7 +12125,6 @@ zkillboard.com###adsensetop
 ||ura-inform.com/img/ludynaroky2018.gif
 ||venea.net/js/ab.js
 ||venea.net/web/ab_message
-||vi.freewheel.tv/static/creatives/fw-ad-300x250.jpg$image,redirect=1x1-transparent.gif,domain=peacocktv.com
 ||vili.io/img/adblock-banner.gif
 ||vsthouse.ru/adregain-anti.js
 ||web.cofp.ru/templates/webcofp_new/js/cookie_check.min.js
@@ -13384,6 +13385,7 @@ aol.com#$#.ad__tile { height: 10px!important; position: absolute!important; left
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
 !#safari_cb_affinity(general)
 !
+@@||vi.freewheel.tv/static/creatives/fw-ad-300x250.jpg$domain=peacocktv.com
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=dumpert.nl
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=dumpert.nl
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=d3f6gjnauy613m.cloudfront.net|studyflix.de
@@ -13677,5 +13679,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10394
+! Total unique rules: 10395
 ! Duplicates removed: 3037
