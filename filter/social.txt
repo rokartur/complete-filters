@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 06 Jun 2026 01:41:34 UTC
+! Last modified: 07 Jun 2026 01:47:00 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10406,8 +10406,8 @@ houstonpublicmedia.org,iclnoticias.com.br###article-share
 nascar.ca###article-social-icons
 scoop.co.nz###article-tools
 dailymail.co.uk###articleIconLinksContainer
-fastcompany.com###article_share_button
-fastcompany.com###article_share_google_icon
+fastcompany.com,inc.com###article_share_button
+fastcompany.com,inc.com###article_share_google_icon
 theepochtimes.com###article_top_right_share_btn
 news18.com###artshare
 attitude.co.uk###att-unique-wrapper-2026
@@ -10785,11 +10785,12 @@ libdems.org.uk##.bg-twitter
 military.com##.block--addtoanyadv
 csis.org##.block--social-sharing
 salisburyjournal.co.uk##.block-article-content__socialbar
-crash.net,ttnews.com##.block-better-social-sharing-buttons
+crash.net,nltimes.nl,ttnews.com##.block-better-social-sharing-buttons
 ubn.news##.block-follow
 tastesbetterfromscratch.com##.block-follow-me
 tastesbetterfromscratch.com##.block-follow-updates
 iowagirleats.com,simplifylivelove.com,therecipecritic.com##.block-pinterest-cta
+crash.net##.block-preferred-source
 vegrecipesofindia.com##.block-social-links
 studyfinds.org##.block-social-share
 carnewschina.com##.block_social_media__content
@@ -11847,6 +11848,7 @@ eatwell101.com##.socialsaveur
 traveltriangle.com##.socialshare_box
 labrujulaverde.com##.socialsvgul
 citizen.digital##.socilamedia-share-btns
+nltimes.nl##.sourcebutton
 mpost.io##.space-footer-top-soc
 spacebar.news##.spacebar-auto-notice
 nordest24.it,portalpuentealto.cl,upinthesky.nl,watchinamerica.com##.spc-social
@@ -11940,6 +11942,8 @@ carnewschina.com##.telegram-scrolling
 asiaone.com##.telegram-share-wrapper
 insidebitcoins.com##.telegrame_cta_content
 decrypt.co##.text-neutral-700
+streamzy.to##.tg-banner
+streamzy.to##.tg-popup
 bitcoinsensus.com,cnio.es,dailyveganmeal.com##.the_champ_sharing_container
 twitchy.com##.thm-sc
 chinadaily.com.cn##.three-right
@@ -13873,7 +13877,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1780678588-3600.patch
+! Diff-Path: ../patches/4/4-s-1780767227-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14200,8 +14204,6 @@ yaya0506.com#$#body { border-top: 0 !important; }
 ! fix share buttons in the header
 ! https://github.com/AdguardTeam/AdguardFilters/issues/169782
 tuasaude.com#$#.article-share { visibility: hidden !important; }
-! https://github.com/AdguardTeam/AdguardFilters/issues/144380
-magazine.aruhi-corp.co.jp#$##related-post { margin-top: 30px !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/144141
 thebell.co.kr#$#.viewHead > .optionIcon { width: 93px !important; }
 ! https://m.news.zum.com/articles/81348338?cm=news_home_politics&r=3&thumb=0
@@ -18276,7 +18278,6 @@ thesportsrush.com##.article-content > .sub-info > div
 player.smotrim.ru##.pl-vid__btn-wrap_share-btn
 wtools.io,camslib.com##button[data-target="#shareModal"]
 kyivpost.com##.soc-icons-block
-magazine.aruhi-corp.co.jp##.patial-sns
 seibii.co.jp##.release__sns-links
 haberlobi.com##.meta-author + div > div.dropdown
 shufu.co.jp##.sns-list-wrap
@@ -30147,7 +30148,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1780693548-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1780779183-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38339,7 +38340,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1780678610-3600.patch
+! Diff-Path: ../patches/4/4-s-1780767239-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -38441,8 +38442,6 @@ yaya0506.com##body:style(border-top: 0 !important;)
 ! fix share buttons in the header
 ! https://github.com/AdguardTeam/AdguardFilters/issues/169782
 tuasaude.com##.article-share:style(visibility: hidden !important;)
-! https://github.com/AdguardTeam/AdguardFilters/issues/144380
-magazine.aruhi-corp.co.jp###related-post:style(margin-top: 30px !important;)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/144141
 thebell.co.kr##.viewHead > .optionIcon:style(width: 93px !important;)
 ! https://m.news.zum.com/articles/81348338?cm=news_home_politics&r=3&thumb=0
@@ -40599,7 +40598,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1780678610-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1780767239-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -40773,7 +40772,6 @@ debate.com.mx#$#header { height: auto !important; }
 debate.com.mx#$#body { padding-top: 70px !important; }
 !#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/169782
-! https://github.com/AdguardTeam/AdguardFilters/issues/144380
 ! https://github.com/AdguardTeam/AdguardFilters/issues/144141
 ! https://m.news.zum.com/articles/81348338?cm=news_home_politics&r=3&thumb=0
 ! https://www.samsungsvc.co.kr/shop/product/0000080508
@@ -54928,5 +54926,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51699
-! Duplicates removed: 64749
+! Total unique rules: 51700
+! Duplicates removed: 64817

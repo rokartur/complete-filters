@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 06 Jun 2026 01:41:13 UTC
+! Last modified: 07 Jun 2026 01:46:38 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1780678576-3600.patch
+! Diff-Path: ../patches/11/11-s-1780730053-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2689,7 +2689,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 ! SECTION: Regular rules
 !
 haberler.com##.MHL_VIDEO
-clutchpoints.com##.not-prose > div.md\:hidden:has(> div.relative > div.flex > script[src^="https://subscribe-forms.beehiiv.com/"])
+clutchpoints.com##.not-prose > div.md\:hidden:has(script[src^="https://subscribe-forms.beehiiv.com/"])
 clutchpoints.com##div.flex.border:has(> div[class] > .ad-slot)
 gbnews.com##.ad-sticky-footer-mobile
 hochi.news##.sub__head:has(+ .job-list-wrap)
@@ -9595,7 +9595,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1780678610-3600.patch
+! Diff-Path: ../patches/11/11-s-1780730079-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13453,6 +13453,7 @@ web.facebook.com,www.facebook.com##div[role="complementary"] a[attributionsrc][h
 web.facebook.com,www.facebook.com##div[role="complementary"] h3 span[style^="-webkit-box-orient:vertical"]:has-text(/^Sponsored$/)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.serpResponse.results.edges.[-].rendering_strategy.view_model.story.sponsored_data.ad_id)
 web.facebook.com,www.facebook.com##+js(json-edit, ..node[?.*.__typename=="SponsoredData"])
+web.facebook.com,www.facebook.com##+js(json-edit, ..nodes.*[?.sponsored_data])
 web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, .data[?.category=="SPONSORED"].node, propsToMatch, /graphql)
 web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, ..node[?.*.__typename=="SponsoredData"], propsToMatch, /graphql)
 web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, .data.viewer.news_feed.edges.*[?.category=="SPONSORED"].node, propsToMatch, /graphql)
@@ -13596,25 +13597,12 @@ smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[framebord
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="height:    250px; width:    300px;"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="width:    160px; height:    600px; margin: 0px auto; min-width: 160px; min-height: 600px;"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="width:    300px; height:    250px;"]
-~bing.com,~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2502032353000"]
-~bing.com,~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2507172035000"]
-~bing.com,~dogdrip.net,~smsonline.cloud##html[class^="img_"][amp4ads=""][i-amphtml-layout=""][i-amphtml-no-boilerplate=""][amp-version="2509031727000"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##img[height="   250"][width="   300"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##img[height="   90"][width="   728"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##ins[style$="height:    90px; width:    728px;"]
-~bing.com,~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://content-loader.com/"]
-~bing.com,~dogdrip.net,~smsonline.cloud##*:not(body) > a[href^="https://html-load.com/"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[height="   120"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[width="   300"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##amp-img[width="   336"]
-~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style^="margin:0;padding:0;display:block;position:fixed;left:0;"]
-~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][data-google-query-id]
-~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="2147483647; justify-content: center;"]
-~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="display: block;"]
-~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="height: 90px;"]
-~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style$="max-height:100px;background-color:rgba(128, 128, 128, 0.4);"]
-~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"][style^="width: 100%;height: 90px;position: fixed;bottom: 0px;left: 0px;z-index:"]
-~bing.com,~dogdrip.net,~smsonline.cloud##div[id^="img_"] > button.gCloseButton
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[id][class][style^="display"][style*="hidden"][style*="width:   "]
 ~bing.com,~dogdrip.net,~smsonline.cloud##ins[id][style*="--gn-ov-ad-height"]
 content-loader.com,css-load.com,html-load.com,img-load.com##html:not(:has(> head > style:only-child:has-text(width:399px;height:411px))):style(filter: opacity(0) !important; pointer-events: none !important;)
@@ -19993,5 +19981,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12964
+! Total unique rules: 12952
 ! Duplicates removed: 7711
