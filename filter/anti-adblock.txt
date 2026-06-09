@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 08 Jun 2026 01:49:24 UTC
+! Last modified: 09 Jun 2026 01:39:16 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -9965,6 +9965,9 @@ https://www.eff.org/files/cookieblocklist.txt
 ! On many Yandex services
 meteum.ai,ya.ru,yandex.*#%#//scriptlet('abort-on-property-write', '__pcodeAllActiveTestIds')
 !
+! Main page
+yandex.kz##.main-home-banner
+yandex.kz##ul[data-id="content-feed-list"] > li[class^="feed__row"]:has(> div[class^="advert-card-"])
 ! Yandex.Images
 [$path=/images]ya.ru,yandex.*##div[style="max-width: 100%; max-height: 300px; height: 300px;"]
 [$path=/images]ya.ru,yandex.*#%#//scriptlet('json-prune', 'seatbid rtb direct')
@@ -10614,9 +10617,10 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+||seattletimes.com/wp-content/plugins/st-advertising/
 dumpert.nl#%#//scriptlet('set-cookie', 'adblock-modal-declined', 'true')
 peacocktv.com#@#.adsbox
-peacocktv.com#%#//scriptlet('trusted-replace-argument', 'Promise', '0', 'noopPromiseResolve', '/\|\|0===.\.offsetHeight|freewheel\.tv\/static\/creatives\/fw-ad/')
+peacocktv.com#%#//scriptlet('trusted-replace-argument', 'Promise', '0', 'noopPromiseResolve', '/\|\|0===.\.offsetHeight|freewheel\.tv\/static\/creatives\/fw-ad|document\.body\.appendChild\(.*?,setTimeout\(\(\)=>{.*?,document\.body\.contains.*?&&document\.body\.removeChild|naturalWidth<=1|adBlockDetection/')
 ||vi.freewheel.tv/static/creatives/fw-ad-300x250.jpg$image,redirect=2x2-transparent.png,domain=peacocktv.com
 fuucdayo.com#$#.fuuc-adblock-overlay { display: none !important; }
 fuucdayo.com#$#.fuuc-adblock-overlay-open { overflow: auto !important; }
@@ -13679,5 +13683,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10395
+! Total unique rules: 10398
 ! Duplicates removed: 3037
