@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 11 Jun 2026 01:52:45 UTC
+! Last modified: 12 Jun 2026 01:50:38 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10196,6 +10196,12 @@ dzen.ru##div[class^="dzen-desktop--news-right-desktop-"]:has(> div > div:empty)
 dzen.ru#%#//scriptlet('set-constant', 'Object.prototype.initAdvManager', 'undefined')
 dzen.ru##div[class^="dzen-layout--desktop-page-layout__root-"] > div > div[data-appid^="dzen-desktop@"] div + div > div[style*="padding-top:"][style*="position:"]
 dzen.ru##div[aria-label="Лента Дзена"] article:has(> div[data-ad-type="direct"])
+! articles
+[$path=/a]dzen.ru#%#//scriptlet('set-constant', 'Object.prototype.rtb', 'undefined')
+[$path=/a]dzen.ru##div[class*="bottomAdUnderComments-"]
+[$path=/a]dzen.ru##div[class*="ad-block__placeholder"]
+[$path=/a]dzen.ru##div[class*="articleLayout-"] > div[class*="Column-3P"] > div[class]:has(div:is([id*="-R-A-"][id*="-articleRight-"], [id^="default-"][id*="-articleRight-"]))
+[$path=/a]dzen.ru##div[class^="article-feed--redesign-feed"] div[class*="article-feed--base"] > div[id][class]:not(:has(> div[class^="article-feed-"][class*="_cardWrapper-"]))
 ! Ads in news
 dzen.ru##div[id^="ad-"][class*="__isStretched"]
 dzen.ru#?#div[data-microappname="ContentMicroApp"] div:matches-attr("/.*/"="/placeholder/")
@@ -13682,5 +13688,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10398
+! Total unique rules: 10403
 ! Duplicates removed: 3037

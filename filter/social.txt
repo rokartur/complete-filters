@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 11 Jun 2026 01:53:08 UTC
+! Last modified: 12 Jun 2026 01:51:01 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -13892,7 +13892,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1781104459-3600.patch
+! Diff-Path: ../patches/4/4-s-1781198615-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14434,7 +14434,7 @@ habr.com,chubbycable.com,adl.org,superhaber.com,baikal-journal.ru,syurui.co.jp,m
 ! ##.facebook
 caliber.az,dll-files.com,life.viet-jo.com,homes.co.jp,m.segye.com,weekly.chosun.com,topclass.chosun.com,ncsoft.jp,cashless.pl,hardreset.info,dramacool.so,vichy.com.tr,driving.ca,kwejk.pl,businessinsider.com,digitaltrends.com,elle.com.tr,gazetemanset.com,kickstarter.com,sabah.com.tr##.facebook
 ! ##.twitter
-homes.co.jp,m.segye.com,weekly.chosun.com,topclass.chosun.com,otonari-anime.com,ncsoft.jp,inuhiro-anime.com,seireigensouki.com,gigafree.net,promo.kadokawa.co.jp,teyvatsokuho.com,cashless.pl,dramacool.so,driving.ca,okezone.com,businessinsider.com,digitaltrends.com,elle.com.tr,gazetemanset.com,kickstarter.com,sabah.com.tr##.twitter
+transkarpatia.net,homes.co.jp,m.segye.com,weekly.chosun.com,topclass.chosun.com,otonari-anime.com,ncsoft.jp,inuhiro-anime.com,seireigensouki.com,gigafree.net,promo.kadokawa.co.jp,teyvatsokuho.com,cashless.pl,dramacool.so,driving.ca,okezone.com,businessinsider.com,digitaltrends.com,elle.com.tr,gazetemanset.com,kickstarter.com,sabah.com.tr##.twitter
 ! ##.socialarea
 notebookcheck-hu.com,notebookcheck-ru.com,notebookcheck-tr.com,notebookcheck.biz,notebookcheck.com,notebookcheck.info,notebookcheck.it,notebookcheck.net,notebookcheck.nl,notebookcheck.org,notebookcheck.se##.socialarea
 ! ##.socialbar
@@ -14499,6 +14499,18 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+ua.news##.tg-banner-link
+ua.news##.read-us-text
+ok.co.uk##div[class^="Article_inner-wrapper"] > section[class^="SocialFollowBar_wrapper"]
+uakino.best##.telegram-sub
+uakino.best##.sb-actions
+ukranews.com##.b-aside-socials
+||ukranews.com/dist/js/adsense-
+ukrlib.com.ua##.social-box-item1
+tvoemisto.tv##.flex > button:has(> svg > path[d^="M11.334"])
+tvoemisto.tv##.flex > div.flex-col:has(> div.items-center > div.flex > a[href="https://youtube.com/user/tvoyemistoTV"])
+forklog.com.ua##.share_blk
+tribuna.com##div[class^="_shared-socia-buttons"]
 supertaste.tvbs.com.tw##header > div.flex > div[class]:has(> div.flex > button[name="share-button"])
 supertaste.tvbs.com.tw##section + div.flex:has(> div[class] > button[name="share-button"])
 health.harvard.edu##article > div.mt-12:has(> div > div > a[href^="https://www.facebook.com/sharer/sharer.php"])
@@ -20024,7 +20036,7 @@ thecode.media##.pqp-social-button-container
 pc.co.il###navbarSharing
 pc.co.il##button[data-target^="#pc_sharing-"]
 transparency.org##.js-highlight-tooltip
-caliber.az,stopcor.org,ukrinform.*##.youtube
+transkarpatia.net,caliber.az,stopcor.org,ukrinform.*##.youtube
 tuttoandroid.net,media1.hu,rotaborsa.com,dnevno.hr,fintolk.pro,e-earphone.blog,koneta.nifty.com##.wp-embed-share
 sanabo.com,beauty.biglobe.ne.jp###sns_btn
 beauty.biglobe.ne.jp##.NewsSns
@@ -21963,7 +21975,6 @@ ndtv.com##.ss > a.ss-lk
 acm.org##.rlist > li[title="Share"]
 lifehacker.ru##div[class*="footer__share"]
 lifehacker.ru##.article-card-actions__share
-forklog.com##div[class$="share_blk"]
 538.nl##div[data-testid="socialShare"]
 gadgetsnow.com,timesofindia.indiatimes.com##div[data-socialshare]
 timesofindia.indiatimes.com##.ga-headlines + div[style^="top:"]
@@ -22765,7 +22776,7 @@ porn-monkey.com,sexvideos-hd.com,pornohirsch.net###fb_video_link
 sexvideos-hd.com,pornohirsch.net###sh_video_link
 abczdrowie.pl,money.pl,o2.pl,wp.pl,dobreprogramy.pl##.wp-player .social
 wetanz.com,allnations.com.br##.product-social-buttons
-trapz.io##.youtuber
+ukrlib.com.ua,trapz.io##.youtuber
 trapz.io###gameover > div.main-trapz__form-wrapper + div.main-trapz__download[style="margin-top: 43px;"]
 4shared.com##.jsFBsharingLink
 4shared.com##.fbsharing
@@ -29368,6 +29379,8 @@ bomb01.com#$#.modal-open { overflow: visible!important; }
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/233344
+act.hoyoverse.com#@#.btn-share
 ! https://github.com/AdguardTeam/AdguardFilters/issues/232825
 nytimes.com#@#.share-button
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230926
@@ -30181,7 +30194,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1781126564-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1781212811-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38373,7 +38386,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1781104477-3600.patch
+! Diff-Path: ../patches/4/4-s-1781198631-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40235,6 +40248,7 @@ bomb01.com##.modal-open:style(overflow: visible!important;)
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/233344
 ! https://github.com/AdguardTeam/AdguardFilters/issues/232825
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230926
 ! https://github.com/AdguardTeam/AdguardFilters/issues/228453
@@ -40631,7 +40645,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1781104477-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1781198631-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -41271,6 +41285,7 @@ unn.com.ua##body > div.fancybox-opened + div.fancybox-overlay
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/233344
 ! https://github.com/AdguardTeam/AdguardFilters/issues/232825
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230926
 ! https://github.com/AdguardTeam/AdguardFilters/issues/228453
@@ -54959,5 +54974,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51733
-! Duplicates removed: 64919
+! Total unique rules: 51745
+! Duplicates removed: 64977
