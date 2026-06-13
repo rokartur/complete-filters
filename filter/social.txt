@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 12 Jun 2026 01:51:01 UTC
+! Last modified: 13 Jun 2026 01:46:11 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -12484,6 +12484,7 @@ top-for-phone.fr###custom_html-6
 palais-de-la-voiture.com###socialmenu
 mo.be##.NavBar_SocialWrapper__J0Xoh
 lopinion.fr##.Page-actions
+l-eaualabouche.com##.Post-shares
 radiofrance.fr##.ShareManager
 francebleu.fr##.ShareNetwork
 mo.be##.Share_Share__8JkUX
@@ -13892,7 +13893,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1781198615-3600.patch
+! Diff-Path: ../patches/4/4-s-1781290205-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14499,6 +14500,8 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+varta1.com.ua##.ova-engine-share-buttons
+vidhuk.ua##a[onclick="Common.share(this)"]
 ua.news##.tg-banner-link
 ua.news##.read-us-text
 ok.co.uk##div[class^="Article_inner-wrapper"] > section[class^="SocialFollowBar_wrapper"]
@@ -14508,7 +14511,7 @@ ukranews.com##.b-aside-socials
 ||ukranews.com/dist/js/adsense-
 ukrlib.com.ua##.social-box-item1
 tvoemisto.tv##.flex > button:has(> svg > path[d^="M11.334"])
-tvoemisto.tv##.flex > div.flex-col:has(> div.items-center > div.flex > a[href="https://youtube.com/user/tvoyemistoTV"])
+tvoemisto.tv##.flex > div.flex-col:has(> div.items-center:only-child > div.flex.gap-4 > a[href="https://youtube.com/user/tvoyemistoTV"])
 forklog.com.ua##.share_blk
 tribuna.com##div[class^="_shared-socia-buttons"]
 supertaste.tvbs.com.tw##header > div.flex > div[class]:has(> div.flex > button[name="share-button"])
@@ -30194,7 +30197,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1781212811-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1781298579-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38386,7 +38389,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1781198631-3600.patch
+! Diff-Path: ../patches/4/4-s-1781290230-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40645,7 +40648,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1781198631-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1781290230-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -41183,6 +41186,7 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_apps
 !+ PLATFORM(ios) NOT_OPTIMIZED
 adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_ios { display: none !important; }
 !
+
 !-------------------------------------------------------------------------------!
 !-------------- General hiding rules -------------------------------------------!
 !-------------------------------------------------------------------------------!
@@ -54974,5 +54978,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51745
-! Duplicates removed: 64977
+! Total unique rules: 51748
+! Duplicates removed: 65025

@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 12 Jun 2026 01:50:38 UTC
+! Last modified: 13 Jun 2026 01:45:48 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10622,6 +10622,12 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+futureaudiophile.com#%#//scriptlet('prevent-eval-if', 'js_func_decode_base_64')
+futureaudiophile.com#@#.adslot_1
+futureaudiophile.com#@#.adslot
+futureaudiophile.com#@#.adunit
+futureaudiophile.com#@#.ad_unit
+futureaudiophile.com#@#.ad_slot
 ||seattletimes.com/wp-content/plugins/st-advertising/
 dumpert.nl#%#//scriptlet('set-cookie', 'adblock-modal-declined', 'true')
 peacocktv.com#@#.adsbox
@@ -11685,6 +11691,8 @@ pastedownload.com##.ad
 pastedownload.com##.hemmm
 pastedownload.com##.jegulo
 pastedownload.com##.aadb-overlay
+pastedownload.com###fc-main-dialog
+pastedownload.com#%#//scriptlet('prevent-setTimeout', 'this.run()')
 pastedownload.com#%#//scriptlet('prevent-element-src-loading', 'script', 'adskeeper.com')
 ||pastedownload.com/template/nova/js/okagame.js
 pcinvasion.com##.execphpwidget > div[style="min-height: 250px;"]
@@ -13688,5 +13696,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10403
+! Total unique rules: 10411
 ! Duplicates removed: 3037

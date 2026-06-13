@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 12 Jun 2026 01:50:38 UTC
+! Last modified: 13 Jun 2026 01:45:48 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1781118180-3600.patch
+! Diff-Path: ../patches/11/11-s-1781263493-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2695,6 +2695,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+sondakika.com##.MSK_VIDEO
 televisiononline.gratis##div.adsense_bajomenu
 digitalspy.com##section div[class^="css-"]:not([data-theme-key], [data-vars-cta]):has(> .ad-container)
 worldsoccer.com##.post-content-ad
@@ -3917,7 +3918,7 @@ uploady.io###dlnk1
 schizophonic9-2.com##body > a[href^="https://"][href*="linksynergy.com/"]
 schizophonic9-2.com##body > a[href="https://amzn.to/3UQkNZ0"]
 schizophonic9-2.com##body > div.ad_footer ~ br
-9news.com,wusa9.com,krem.com,kare11.com,wzzm13.com,king5.com##.universal-ad
+ktvb.com,9news.com,wusa9.com,krem.com,kare11.com,wzzm13.com,king5.com##.universal-ad
 pulzo.com##.connatix-spacer
 bloomberg.com##.adWrapper
 wired.com##.ad--footer
@@ -6382,7 +6383,7 @@ majikichi.com###article_bottom_v2 + aside#lite_link
 majikichi.com##.content > aside#lite_link
 pingpongmap.net###mobilefooter
 yoyaku-top10.jp##.p-floating_banner_box
-vipsister23.com,news4wide.net,chomagireko.blog.jp###lite_link
+genshin-soku.com,vipsister23.com,news4wide.net,chomagireko.blog.jp###lite_link
 rakyatku.com,jateng.inews.id##.ads_mobile_wrap
 jateng.inews.id###fragmentx
 dic.nicovideo.jp###ad01
@@ -9613,7 +9614,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1781118223-3600.patch
+! Diff-Path: ../patches/11/11-s-1781263533-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13847,6 +13848,9 @@ cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no#@#+js(trusted-click-element, .message
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/0a14a91f32b2b371c07fd72821044e562d66b5cd
 plus.fm-p.jp#@#.ad_overlay
+
+! https://github.com/AdguardTeam/AdguardFilters/commit/c73ba9cf9f50bfbc542cafae3dbbc02b80d04ebe
+news.mynavi.jp##+js(aeld, DOMContentLoaded, registration_guide_modal)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -20010,5 +20014,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12974
-! Duplicates removed: 7727
+! Total unique rules: 12976
+! Duplicates removed: 7728
