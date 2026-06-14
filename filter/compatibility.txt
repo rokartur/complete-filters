@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 13 Jun 2026 01:45:48 UTC
+! Last modified: 14 Jun 2026 01:50:23 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
@@ -13633,6 +13633,7 @@ smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[framebord
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[id][class][style^="display"][style*="hidden"][style*="width:   "]
 ~bing.com,~dogdrip.net,~smsonline.cloud##ins[id][style*="--gn-ov-ad-height"]
 content-loader.com,css-load.com,html-load.com,img-load.com##html:not(:has(> head > style:only-child:has-text(width:399px;height:411px))):style(filter: opacity(0) !important; pointer-events: none !important;)
+~bing.com,~dogdrip.net,~smsonline.cloud,*##iframe[id][height^="  "]:style(visibility: hidden !important;)
 /^https:\/\/(?:[a-z]{3,4}\.)?[0-9a-z-]{6,}\.(?:com|xyz)\/script\/(?:[-.0-9A-Za-z]+\.)?[-0-9A-Za-z]{2,30}\.js$/$script,3p,match-case,header=x-length
 ||html-load.com^$image,1p
 ||html-load.com/l/$xhr
@@ -13851,6 +13852,10 @@ plus.fm-p.jp#@#.ad_overlay
 
 ! https://github.com/AdguardTeam/AdguardFilters/commit/c73ba9cf9f50bfbc542cafae3dbbc02b80d04ebe
 news.mynavi.jp##+js(aeld, DOMContentLoaded, registration_guide_modal)
+
+! https://openchat-review.me/ anti-adb
+openchat-review.me##+js(set-local-storage-item, BLOCKED_FLAG_KEY, $remove$)
+openchat-review.me##+js(aost, document.querySelectorAll, security.js)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -20014,5 +20019,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12976
+! Total unique rules: 12979
 ! Duplicates removed: 7728
