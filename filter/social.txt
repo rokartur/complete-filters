@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 14 Jun 2026 01:50:46 UTC
+! Last modified: 15 Jun 2026 01:53:12 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10564,7 +10564,7 @@ baystatebanner.com###top-soc-icon-wrap
 hexus.net###topicons
 dansingerman.com,fark.com,radioguide.fm,rare.us,thetvaddict.com###twitter
 pcgamer.com,tomshardware.com###utility-bar
-windowscentral.com###utilitybar__button--share
+gamesradar.com,tomsguide.com,windowscentral.com###utilitybar__button--share
 videocardz.com###vc-index-google-follow
 mansionglobal.com###webui-save-and-share
 videocardz.com###welcome-modal
@@ -12101,6 +12101,7 @@ application-remuneratrice.com##.zd-social
 nypost.com##.zephrModal
 zmescience.com##.zme-google-follow-banners
 wdwmagic.com##.zocial
+securityweek.com##.zox-foot-soc
 securityweek.com##.zox-post-soc-list
 retbit.com##.zox-post-soc-scroll-out
 retbit.com##.zox-post-soc-stat
@@ -13893,7 +13894,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1781362298-3600.patch
+! Diff-Path: ../patches/4/4-s-1781441417-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14500,6 +14501,7 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+usine-digitale.fr##.b-share-bar__container
 sports.ru##.poll-widget__share
 varta1.com.ua##.ova-engine-share-buttons
 vidhuk.ua##a[onclick="Common.share(this)"]
@@ -30197,7 +30199,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1781384223-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1781470597-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38389,7 +38391,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1781362317-3600.patch
+! Diff-Path: ../patches/4/4-s-1781441437-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40648,7 +40650,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1781362317-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1781441437-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -40948,6 +40950,7 @@ m.timesofindia.com$$div[class="w100p fl text-center pdTop_2"]
 ! ##.shares
 ! ###share
 ! ##.sharing
+borisfx.com,habr.com,chubbycable.com,adl.org,superhaber.com,baikal-journal.ru,syurui.co.jp,miglink.ru,foodwatch.org,pnp.ru,frankmedia.ru,dualshockers.com,hardcoregamer.com,thecollector.com,theloadstar.com,howtogeek.com,ukdevilz.com,tyler-brown.com,actionviewphotography.com,howtogeek.com,rhg.com,hromadske.radio,pocket-lint.com,newslab.ru,thepointsguy.com,cbr.com,thegamer.com,expres.sk,hdgay.net,gamerant.com,minjust.gov.by,sanliurfaolay.com,screenrant.com,telerama.fr,exporntoons.net,mat6tube.com,incehesap.com,ayntec.com,sibtok.com,capiche.com,mannheimer-morgen.de,naointendo.com.br,texasobserver.org,bigleaguepolitics.com,zebra-tv.ru,numberempire.com,infobyip.com,pingvin.pro,currenttime.tv,webqc.org,noodlemagazine.com,mos.ru,sbs.com.au,xelent.ru,fussball.de,gamezebo.com,fr.de,sovsport.ru,oglobo.globo.com,ad.nl,life.ru,mopo.de,antenne.de,m.health.chosun.com,fnp.de,bbc.co.uk,blackberry.com,boostinspiration.com,celebritybabyscoop.com,cityam.com,core77.com,creatorrepublic.com,download.cnet.com,futurity.org,hackaday.com,investopedia.com,kg-portal.ru,metacritic.com,minimaxir.com,pgatour.com,pigeonsandplanes.com,thesun.co.uk,tmz.com##.sharing
 ! ##.facebook
 ! ##.twitter
 ! ##.socialarea
@@ -54977,5 +54980,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51748
-! Duplicates removed: 65032
+! Total unique rules: 51751
+! Duplicates removed: 65030

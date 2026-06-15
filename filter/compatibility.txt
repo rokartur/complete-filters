@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 14 Jun 2026 01:50:23 UTC
+! Last modified: 15 Jun 2026 01:52:49 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
@@ -13488,12 +13488,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototyp
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=jeanprofessorcentral.com,important
-jeanprofessorcentral.com##+js(nowoif)
-jeanprofessorcentral.com##+js(set, console.clear, undefined)
-jeanprofessorcentral.com##+js(acs, globalThis, break;case)
-jeanprofessorcentral.com##+js(acs, WebAssembly, atob)
-||jeanprofessorcentral.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=juliewomanwish.com,important
+juliewomanwish.com##+js(nowoif)
+juliewomanwish.com##+js(set, console.clear, undefined)
+juliewomanwish.com##+js(acs, globalThis, break;case)
+juliewomanwish.com##+js(acs, WebAssembly, atob)
+||juliewomanwish.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
