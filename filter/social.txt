@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 16 Jun 2026 01:57:00 UTC
+! Last modified: 17 Jun 2026 01:53:27 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -13882,7 +13882,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1781541894-3600.patch
+! Diff-Path: ../patches/4/4-s-1781635013-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14489,6 +14489,12 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+vikna.tv##.vikna-article-content > p:has(> a[href="https://www.youtube.com/@Vikna-novyny-STB"])
+portalmie.com##.pmShareHubBtn
+portalmie.com##.pmShareNativeBtn
+sunnylife.tw#?#.sunny-entity-placement > p > span[style]:contains(如果您喜歡商妮的分享，請給商妮一個讚或留言，更歡迎點下圖加入粉絲團、IG)
+sunnylife.tw##.sunny-entity-placement > p > span[style] ~ a:is([href="https://www.facebook.com/Sunny5738/"], [href="https://www.instagram.com/sunnylife.tw/"])
+economx.hu##button[aria-label="Cikk megosztása"]
 news.ru##.post-detail__share
 goral24.pl##.share__socials
 bsc.news#?#h1#bscn-post-title + div.flex > div.relative:contains(Share)
@@ -15245,7 +15251,7 @@ techdergi.net##.geo_mobile_share
 thepage.ua##.sidebar__item:has(> div.project-banner)
 heart-net.nhk.or.jp##.flex:has(> li[data-twitter-share-button])
 vision360.bo##.floatShareWhatsapp
-vision360.bo##.noticia-social-share
+elcordillerano.com.ar,vision360.bo##.noticia-social-share
 nordbayern.de###social_toolbar > a[target="_blank"]
 news.web.nhk#?#div[class*=" _"] > button[style$="auto"]:contains(シェアする)
 motor1.com##.isBottomShare
@@ -19936,7 +19942,7 @@ opindia.com##.tdb-author-box + div.td_block_separator
 boredpanda.com##.bottom-bar-share-button
 livejournal.com##.aentry-socials__holder--sharing
 monomax.jp##.frameArea01 > p.mt20.center > strong
-unian.ua,unian.net##.article__share-btn
+unian.info,unian.ua,unian.net##.article__share-btn
 ookla.com##.article-sidebar-panel-social
 myspace.com##.facebookBtn
 myspace.com##.twitterBtn
@@ -21124,7 +21130,7 @@ sourcecodester.com###block-connectonfacebook
 indiamart.com##.FM_Social
 quickdraw.withgoogle.com##.card-text > div#portfolio-text
 quickdraw.withgoogle.com##.card-text > div#portfolio-text + div
-unian.net##.article > div.oh
+unian.info,unian.ua,unian.net##.article > div.oh
 bola.net###kl-social-share
 nhk.or.jp###movieShare
 sueddeutsche.de##div[data-hydration-component-name="Share"]
@@ -21201,7 +21207,7 @@ mp3party.net###web-share
 moneycontrol.com##.social_icons_mobile_wrapper
 lifestyle.livemint.com##.wb-twitter
 europa.eu##.ecl-social-media-share
-europa.eu###share-page
+portalmie.com,europa.eu###share-page
 m.republicworld.com##div[style^="display: flex; justify-content: space-between;"] > div[onclick^="shareOn"]
 em.com.br##.hidden-print .share
 em.com.br##.share strong
@@ -23786,11 +23792,11 @@ nv.ua##.article__footer_share
 haberler.com##.videoSocialShare
 thesoccermomblog.com,realhousemoms.com,dailydishrecipes.com,travelfoodatlas.com##.dpsp-content-wrapper
 thesoccermomblog.com,dailydishrecipes.com,travelfoodatlas.com,instalki.pl##.dpsp-share-text
-unian.net,1plus1.video##.o-share-table-cell-right
+unian.info,unian.ua,unian.net,1plus1.video##.o-share-table-cell-right
 coandroid.ru##.list-soc
 thehindu.com##li[data-category="social-shares"]
-niopik.ru,klinikarassvet.ru,unian.net##.shares-block
-obemdito.com.br,fdpbt.de,unian.net##.share-mobile
+niopik.ru,klinikarassvet.ru,unian.info,unian.ua,unian.net##.shares-block
+obemdito.com.br,fdpbt.de,unian.info,unian.ua,unian.net##.share-mobile
 timesofindia.indiatimes.com##.socialwidget > div[class] > div[class] > div[class][data-ga^="share-"]
 freundin.de,mv.org.ua##.item-social
 free-software.com.ua##.soc_header
@@ -25186,7 +25192,7 @@ muyzorras.com##.sc[style="outline-width: 0px !important; user-select: text !impo
 spoonuniversity.com##.social > a[data-spoon-event="share"]:not(.email)
 pnp.de###whatsappShareLink
 plo.vn,tracker.network,destinytracker.com,halotracker.com,fortnitetracker.com,tracker.gg##.trn-share-button
-himeji-mitai.com,raiffeisen-media.ru,autodaily.ru,vogue.ua,vietnamplus.vn,codernet.ru,marketwatch.com,tracker.network,destinytracker.com,halotracker.com,fortnitetracker.com,tracker.gg,kapook.com,kanalukraina.tv,cbnews.jp,tsargrad.tv,sciencemag.org,amp.rbc.ru,12kotov.ru##.article__social
+himeji-mitai.com,raiffeisen-media.ru,autodaily.ru,vietnamplus.vn,codernet.ru,marketwatch.com,tracker.network,destinytracker.com,halotracker.com,fortnitetracker.com,tracker.gg,kapook.com,kanalukraina.tv,cbnews.jp,tsargrad.tv,sciencemag.org,amp.rbc.ru,12kotov.ru##.article__social
 boehms-dax-strategie.de##.sideblock.social
 potaru.com,online-convert.com,hostinger.com.ua,gazetaprawna.pl,myseldon.com,forsal.pl,tengrinews.kz,ellegirl.ru,dziennik.pl,auto-swiat.pl,komputerswiat.pl,onet.pl,plejada.pl,przegladsportowy.pl,countrylife.co.uk,rt.com,haber365.com,haber365.com.tr,donaukurier.de##.social-container
 sendvid.com##.video-controls > .ctrls > .unstyled.list-ctrls > li > a[onclick^="shareVideo"]:not([onclick^="shareVideo('email'"])
@@ -30196,7 +30202,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1781559281-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1781645606-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38388,7 +38394,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1781541919-3600.patch
+! Diff-Path: ../patches/4/4-s-1781635034-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -38731,6 +38737,7 @@ m.tf.co.kr##li.sBtn_reply:style(float: initial!important; display: inline-block!
 !
 ! NOTE: Specific rules
 !
+sunnylife.tw##.sunny-entity-placement > p > span[style]:contains(如果您喜歡商妮的分享，請給商妮一個讚或留言，更歡迎點下圖加入粉絲團、IG)
 bsc.news##h1#bscn-post-title + div.flex > div.relative:contains(Share)
 lectortmoo.com##.ztgi-modal:style(display: none !important;)
 lectortmoo.com##html:style(overflow: auto !important;)
@@ -40650,7 +40657,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1781541919-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1781635034-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -40987,6 +40994,7 @@ m.timesofindia.com$$div[class="w100p fl text-center pdTop_2"]
 !
 ! NOTE: Specific rules
 !
+tokyodisneyresort.jp,pokemonmasters-game.com,sungrove.co.jp##.c-sns-share
 !
 ! Sinclair, Inc
 !
@@ -41190,6 +41198,7 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_apps
 !+ PLATFORM(ios) NOT_OPTIMIZED
 adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_ios { display: none !important; }
 !
+
 !-------------------------------------------------------------------------------!
 !-------------- General hiding rules -------------------------------------------!
 !-------------------------------------------------------------------------------!
@@ -54981,5 +54990,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51746
-! Duplicates removed: 65051
+! Total unique rules: 51754
+! Duplicates removed: 65108
