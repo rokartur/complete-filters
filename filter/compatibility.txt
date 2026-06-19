@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 18 Jun 2026 01:53:36 UTC
+! Last modified: 19 Jun 2026 01:59:27 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1781683422-3600.patch
+! Diff-Path: ../patches/11/11-s-1781802780-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2697,7 +2697,11 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
-shingakunet.com##.js-targetPrArea
+porn-selection.net##div[style="line-height: 90pt;"]
+porn-selection.net##div[style="line-height: 55pt;"]
+porn-selection.net##div[style="line-height: 55pt;"] + div[align="center"]
+m.sabah.com.tr##.custom-250.promo
+uol.com.br##.jupiter-navbar-ads
 standard.co.uk##div[class^="sc-"]:has(> div div.section-mpu-container)
 thebiglead.com##.e-child > .elementor-element.e-con:has(> div.elementor-widget .code-block)
 bessarabiainform.com##.bi-bottom-ad
@@ -3740,7 +3744,7 @@ komaki2.jp###article-contents > center > script + a
 komaki2.jp#%#//scriptlet('abort-current-inline-script', 'jmp', 'Math')
 gulfnews.com##div[id^="top-component-section-page-row-ad"]
 gulfnews.com##div[style^="border-right:"] > div:has(> div[class] > div[class] > div[id^="top-component-section-page-native-ad"])
-m.sabah.com.tr##div:has(> div[data-mbzone-loaded]:only-child)
+m.sabah.com.tr#$#.promo > div[data-mbzone-loaded] { height: 50px !important; }
 therepublic.com#$#.tdc-row:has(img[title*="_digital_ad_mobile"]) { display: none !important; }
 ||therepublic.com/wp-content/uploads/*/KM_digital_ad_mobile_
 m.mobile01.com##div[class*="ad-prestitial-"]
@@ -7492,7 +7496,6 @@ swedroid.se##div[id$="_ad_mobile"]
 swedroid.se##div[id^="swedroid_mobil"] > iframe
 m.sabah.com.tr##div[data-mbzone="AltBant"]
 m.sabah.com.tr##div[data-mbzone-loaded="728x90"]
-m.sabah.com.tr#$#.promo { display: none !important; }
 m.sabah.com.tr#$#.infgaleritrend .frame > .modal-closing > .topDetail > .article-header { margin-top: 60px !important; }
 /:\/\/[A-Za-z0-9]+.ru\/[A-Za-z0-9]{20,25}.js/$domain=music-radio.ru
 dnpr.com.ua,dp.ua,dialog.ua##amp-iframe[src^="https://m.mixadvert.com/"]
@@ -9622,7 +9625,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1781683462-3600.patch
+! Diff-Path: ../patches/11/11-s-1781802821-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13832,18 +13835,12 @@ meuplayeronlinehd.com###player:style(display: block !important;)
 tek.no,e24.no,minmote.no,vg.no#@#div[id^="sp_message_container_"]
 cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no#@#+js(trusted-click-element, .message-row > button[title="Avvis alle"], , 2000)
 
-! https://github.com/uBlockOrigin/uAssets/issues/33157
-||zoom.us/*/telemetry$badfilter
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/0a14a91f32b2b371c07fd72821044e562d66b5cd
-plus.fm-p.jp#@#.ad_overlay
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/c73ba9cf9f50bfbc542cafae3dbbc02b80d04ebe
-news.mynavi.jp##+js(aeld, DOMContentLoaded, registration_guide_modal)
-
 ! https://openchat-review.me/ anti-adb
 openchat-review.me##+js(set-local-storage-item, BLOCKED_FLAG_KEY, $remove$)
 openchat-review.me##+js(aost, document.querySelectorAll, security.js)
+
+! https://github.com/AdguardTeam/AdguardFilters/commit/49959401f2553b5a0b7d0f20060091a443077473
+game8.jp#@#.track_mario
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -20007,5 +20004,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12963
-! Duplicates removed: 7735
+! Total unique rules: 12964
+! Duplicates removed: 7738
