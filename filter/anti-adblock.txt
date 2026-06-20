@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 19 Jun 2026 01:59:27 UTC
+! Last modified: 20 Jun 2026 01:44:36 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10058,7 +10058,7 @@ turbopages.org#%#//scriptlet('json-prune', '*.blockId')
 !
 ! Kinopoisk
 www.kinopoisk.ru#%#//scriptlet('set-constant', 'Object.prototype.renderToNode', 'undefined')
-www.kinopoisk.ru##div[class^="styles_fixed_"][class*="styles_"][data-tid]
+www.kinopoisk.ru##div[class^="styles_content_"][class*="styles_"][data-tid]
 www.kinopoisk.ru##div[class^="toaster-container"]
 hd.kinopoisk.ru##.ReactModalPortal > div[class*=" styles_fixed__"]:has(> div > a[href$="/yandex-in-adblock.html"])
 kinopoisk.ru##div[class*="_adBlockWarningRoot__"]
@@ -10622,6 +10622,8 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+vaughn.live#$#.wrapper_content ~ .vs_modal_v9 { opacity: 0 !important; }
+vaughn.live##.wrapper_content ~ .vs_modal_v9_background
 thestar.com.my##.widgettop
 sport-express.ru##.se-bn2-notice
 gsmarena.com#$#html > body { overflow: auto !important; }
@@ -13701,5 +13703,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10416
+! Total unique rules: 10418
 ! Duplicates removed: 3037

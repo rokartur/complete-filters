@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 19 Jun 2026 01:59:50 UTC
+! Last modified: 20 Jun 2026 01:45:00 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -13882,7 +13882,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1781802795-3600.patch
+! Diff-Path: ../patches/4/4-s-1781881806-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14489,6 +14489,15 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+ternopoliany.te.ua##.socialblock
+gizbot.com##.fb-footer-social-links-list
+texty.org.ua##.youtube-button-wrapper
+aspor.com.tr##.amp-social
+gadgets360.com##._sshr
+teluguone.com##.HomeMobileAnchor
+teluguone.com##.HomeDesktopAnchor
+bianet.org##.gps-banner
+oceanofpdf.com##.share-posts
 filmyfocus.com##.wa_mob
 sport-express.ru##[class^="sharing_matchcenter"]
 uol.com.br##.solar-social-media
@@ -30208,7 +30217,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1781817641-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1781902730-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38400,7 +38409,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1781802821-3600.patch
+! Diff-Path: ../patches/4/4-s-1781881830-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40663,7 +40672,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1781802821-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1781881830-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54995,5 +55004,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51759
-! Duplicates removed: 65163
+! Total unique rules: 51768
+! Duplicates removed: 65174

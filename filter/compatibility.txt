@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 19 Jun 2026 01:59:27 UTC
+! Last modified: 20 Jun 2026 01:44:36 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1781802780-3600.patch
+! Diff-Path: ../patches/11/11-s-1781862575-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2697,6 +2697,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+4shared.com##.mob-apps-section
 porn-selection.net##div[style="line-height: 90pt;"]
 porn-selection.net##div[style="line-height: 55pt;"]
 porn-selection.net##div[style="line-height: 55pt;"] + div[align="center"]
@@ -9625,7 +9626,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1781802821-3600.patch
+! Diff-Path: ../patches/11/11-s-1781862616-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -20004,5 +20005,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12964
-! Duplicates removed: 7738
+! Total unique rules: 12965
+! Duplicates removed: 7739
