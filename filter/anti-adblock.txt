@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 23 Jun 2026 01:41:59 UTC
+! Last modified: 24 Jun 2026 01:40:32 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10622,6 +10622,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+ricardocuisine.com#%#//scriptlet('set-cookie', 'adblock-modal.ads', '1')
 vaughn.live#$#.wrapper_content ~ .vs_modal_v9 { opacity: 0 !important; }
 vaughn.live##.wrapper_content ~ .vs_modal_v9_background
 thestar.com.my##.widgettop
@@ -13703,5 +13704,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10418
+! Total unique rules: 10419
 ! Duplicates removed: 3037
