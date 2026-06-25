@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 24 Jun 2026 01:40:32 UTC
+! Last modified: 25 Jun 2026 01:43:43 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1782240723-3600.patch
+! Diff-Path: ../patches/11/11-s-1782305723-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2697,6 +2697,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+planetf1.com##main > div > .bs_hint[style="height: 300px;"]
+vidhuk.ua###chart_banner > .c_b:has(> .ch_banner > ins.adsbygoogle)
 gordonua.com##.nnerba
 ddtrip.jp###in-content-ad
 sahibinden.com###mainpagebanner
@@ -3937,7 +3939,7 @@ uploady.io###dlnk1
 schizophonic9-2.com##body > a[href^="https://"][href*="linksynergy.com/"]
 schizophonic9-2.com##body > a[href="https://amzn.to/3UQkNZ0"]
 schizophonic9-2.com##body > div.ad_footer ~ br
-newscentermaine.com,ktvb.com,9news.com,wusa9.com,krem.com,kare11.com,wzzm13.com,king5.com##.universal-ad
+kvue.com,newscentermaine.com,ktvb.com,9news.com,wusa9.com,krem.com,kare11.com,wzzm13.com,king5.com##.universal-ad
 pulzo.com##.connatix-spacer
 bloomberg.com##.adWrapper
 wired.com##.ad--footer
@@ -9630,7 +9632,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1782240756-3600.patch
+! Diff-Path: ../patches/11/11-s-1782305763-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13835,7 +13837,7 @@ gumtree.com#@#+js(trusted-set, experimentOverrides, json:"%5B%7B%20defaultValue%
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31664
 bus-location.1507t.xyz#@#.ad-area:not(.text-ad)
-bus-location.1507t.xyz##div[class^="ad-"]:style(height: 1px !important; width 1px !important; position: fixed !important; z-index: 2147483647 !important;)
+bus-location.1507t.xyz##div[id]:has(> script[src^="https://adm.shinobi.jp"]):style(height: 1px !important; width 1px !important; position: fixed !important; z-index: 2147483647 !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33097
 ||cloudfront.net/?$script,redirect=noopjs,domain=meuplayeronlinehd.com|multicanaistt.space
@@ -13858,6 +13860,12 @@ game8.jp#@#.track_mario
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33398
 allporncomic.com#@#iframe
+
+! https://github.com/uBlockOrigin/uAssets/issues/33280
+streamcash.to##+js(trusted-replace-argument, document.getElementById, 0, "", condition, /^[a-z0-9]{6}$/)
+
+! https://github.com/uBlockOrigin/uAssets/issues/33449
+zpaste.net#@#+js(set-constant, Document.prototype.createElement.call, noopFunc)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -20021,5 +20029,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12975
-! Duplicates removed: 7743
+! Total unique rules: 12979
+! Duplicates removed: 7745
