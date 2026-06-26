@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 25 Jun 2026 01:44:06 UTC
+! Last modified: 26 Jun 2026 01:45:57 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10820,6 +10820,7 @@ essentiallysports.com##.brand-share-article-section_container__8e0V8
 businessinsider.com##.brands-social
 oilprice.com##.breakingNews__socialMedia
 coxautoinc.com##.breathe
+cgmagonline.com##.bricks-link-wrapper
 purewow.com##.btn--email
 insidethegames.biz##.btn-block.btn
 purewow.com##.btn-classic
@@ -11012,6 +11013,7 @@ blogto.com##.facebook-round-control
 news.stv.tv##.facebook-share
 moparinsiders.com##.facebook-widget
 thefastmode.com##.facebook_plugin
+fangoria.com##.fang-share
 channelnewsasia.com##.fast-card__share-button
 shepherd.com##.fav3-share
 thefreedictionary.com##.fb-share
@@ -11229,6 +11231,7 @@ israelnationalnews.com##.header-nav-addons-link
 archaeology.org##.header-share
 stamen.com##.header-social-media-links
 malaymail.com##.header-social-menu
+slantmagazine.com##.header-stack3-right
 artnews.com##.header-super-nav
 iranwire.com##.header-top
 cgtn.com,cri.cn##.header-v3-shareicon
@@ -13887,7 +13890,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1782299338-3600.patch
+! Diff-Path: ../patches/4/4-s-1782416541-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14494,6 +14497,8 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+iculture.nl##div[data-name^="share"]
+wishmaster.me##.blog-detail__share
 koha.net##li:has(> div.social_media)
 elpinguino.com##.encuesta-compartir
 elpinguino.com##.site3-compartir-diario
@@ -30239,7 +30244,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1782335232-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1782421725-14400.patch
 /Resources/twitter-$~xhr
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -38431,7 +38436,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1782299355-3600.patch
+! Diff-Path: ../patches/4/4-s-1782416562-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40695,7 +40700,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1782299355-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1782416562-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -55026,5 +55031,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 51790
-! Duplicates removed: 65300
+! Total unique rules: 51795
+! Duplicates removed: 65323
