@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 27 Jun 2026 01:41:01 UTC
+! Last modified: 28 Jun 2026 01:44:29 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1782495675-3600.patch
+! Diff-Path: ../patches/11/11-s-1782567566-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+m.sports.ru##.nav-left-banner
 sp.seiga.nicovideo.jp#$#.ad { display: none !important; }
 businesstoday.in##.ad_pg_btm
 setn.com##.news-area-ad
@@ -9638,7 +9639,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1782495693-3600.patch
+! Diff-Path: ../patches/11/11-s-1782567592-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13501,12 +13502,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.proto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=garylargeavailable.com,important
-garylargeavailable.com##+js(nowoif)
-garylargeavailable.com##+js(set, console.clear, undefined)
-garylargeavailable.com##+js(acs, globalThis, break;case)
-garylargeavailable.com##+js(acs, WebAssembly, atob)
-||garylargeavailable.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=jennifereconomicgive.com,important
+jennifereconomicgive.com##+js(nowoif)
+jennifereconomicgive.com##+js(set, console.clear, undefined)
+jennifereconomicgive.com##+js(acs, globalThis, break;case)
+jennifereconomicgive.com##+js(acs, WebAssembly, atob)
+||jennifereconomicgive.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -13863,12 +13864,6 @@ cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no#@#+js(trusted-click-element, .message
 openchat-review.me##+js(set-local-storage-item, BLOCKED_FLAG_KEY, $remove$)
 openchat-review.me##+js(aost, document.querySelectorAll, security.js)
 
-! https://github.com/AdguardTeam/AdguardFilters/commit/49959401f2553b5a0b7d0f20060091a443077473
-game8.jp#@#.track_mario
-
-! https://github.com/uBlockOrigin/uAssets/issues/33398
-allporncomic.com#@#iframe
-
 ! https://github.com/uBlockOrigin/uAssets/issues/33280
 streamcash.to##+js(trusted-replace-argument, document.querySelector, 0, '', condition, /^\[id\=\"[0-9a-z]{10}\"\]$/)
 streamcash.to##+js(aost, decodeURIComponent, /[a-z]{3}/)
@@ -13878,6 +13873,10 @@ akirabox.com,akirabox.to,bowfile.com,buzzheavier.com,bzzhr.co,bzzhr.to,datavault
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/234289
 weathernews.jp#@#article > section.block:has(> div[style] > div[id^="div-gpt-ad"])
+
+! https://github.com/uBlockOrigin/uAssets/issues/33477
+||kick.com/149e9513-01fa-4fb0-aad4-566afd725d1b/$badfilter
+||kick.com/ucggfnr2hnhlcwlf/$badfilter
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19836,6 +19835,12 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 ! https://github.com/uBlockOrigin/uAssets/issues/33218
 @@||stadt-zuerich.ch/etc/clientlibs/stzh/analytics/$script,1p
 
+! https://github.com/uBlockOrigin/uAssets/issues/33468
+||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=google-ima.js,domain=root.cz
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1ugk6yu/gocomics_site_update_comments_no_longer_visible/
+gocomics.com##+js(rpnt, script, document.querySelectorAll, `window.addEventListener("load",()=>{if(!document.querySelector("section[class^='ShowComicViewer-module-scss-module']")){return;}const script=document.createElement("script");script.src="https://cdn.viafoura.net/entry/index.js";document.head.appendChild(script)});document.querySelectorAll`)
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -20041,5 +20046,5 @@ proxyorb.com##+js(aeld, load, dataset.ready, elements, script[src^="https://www.
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12987
-! Duplicates removed: 7750
+! Total unique rules: 12990
+! Duplicates removed: 7751
