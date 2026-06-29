@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 28 Jun 2026 01:44:29 UTC
+! Last modified: 29 Jun 2026 01:46:11 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 15 / 15
@@ -13878,6 +13878,9 @@ weathernews.jp#@#article > section.block:has(> div[style] > div[id^="div-gpt-ad"
 ||kick.com/149e9513-01fa-4fb0-aad4-566afd725d1b/$badfilter
 ||kick.com/ucggfnr2hnhlcwlf/$badfilter
 
+! https://github.com/uBlockOrigin/uAssets/issues/33490
+zeilink.net#@#+js(remove-node-text, script, /"\\|\\[ux]|\+\[\]/)
+
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
 !
@@ -20046,5 +20049,5 @@ gocomics.com##+js(rpnt, script, document.querySelectorAll, `window.addEventListe
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12990
+! Total unique rules: 12991
 ! Duplicates removed: 7751
