@@ -1,10 +1,10 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 30 Jun 2026 01:44:00 UTC
+! Last modified: 01 Jul 2026 01:48:30 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 9 / 14
+! Source count: 9 / 9
 !
 ! ===== SOURCE: https://easylist-downloads.adblockplus.org/fanboy-social.txt
 !
@@ -13891,21 +13891,6 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||tldrify.com^$generichide
 @@||zeplin.io^$generichide
 
-! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! ✗ Failed to load: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
-
-! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
-! ✗ Failed to load: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
-
-! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/213_optimized.txt
-! ✗ Failed to load: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
-
-! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
-! ✗ Failed to load: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
-
-! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
-! ✗ Failed to load: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
-
 ! ===== SOURCE: https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_4_Social/filter.txt
 !
 !-------------------------------------------------------------------------------!
@@ -14551,12 +14536,15 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+myweekend.ru##.iconbox__item--share
+myweekend.ru##.lenta_network_share
+vaughn.live##div[id*="_nav_share"]
 football24.ua##app-news-share
 vidplay.to##button[aria-label="Share on Facebook"]
 vidplay.to##button[aria-label="Share on Telegram"]
 vidplay.to##button[aria-label="Share on Messenger"]
 vidplay.to##button[aria-label="Share on WhatsApp"]
-lessentiel.lu##div[type="authors"] div[class]:has(> button[data-testid="ButtonShare"])
+20min.ch,lessentiel.lu##div[type="authors"] div[class]:has(> button[data-testid="ButtonShare"])
 iculture.nl##div[data-name^="share"]
 wishmaster.me##.blog-detail__share
 koha.net##li:has(> div.social_media)
@@ -43698,6 +43686,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42199
+! Total unique rules: 42202
 ! Duplicates removed: 14354
-! Failed sources: 5

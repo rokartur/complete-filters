@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 30 Jun 2026 01:43:37 UTC
+! Last modified: 01 Jul 2026 01:48:08 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
-! Source count: 14 / 15
+! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1782746287-3600.patch
+! Diff-Path: ../patches/11/11-s-1782811058-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,12 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+gbnews.com##.mobile-banner
+tribuna.com#%#//scriptlet('hide-in-shadow-dom', 'center[style="height:300px"]')
+tribuna.com#%#//scriptlet('hide-in-shadow-dom', 'center[style="height:510px"]')
+tribuna.com#%#//scriptlet('hide-in-shadow-dom', 'amp-embed[type="idealmedia"]')
+tribuna.com##center[style="height:300px"]
+tribuna.com##center[style="height:510px"]
 01tube.com#%#//scriptlet('trusted-click-element', '.__bai-popup__btn')
 01tube.com##.__inst-container
 m.sports.ru##.nav-left-banner
@@ -9639,9 +9645,6 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||football.ua/hnd/Android/News.ashx$replace=/<item type=\"banner\">.{280\,400}.*<\/background><\/item>//
 !
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
-
-! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! ✗ Failed to load: The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()
 
 ! ===== SOURCE: https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_10_Useful/filter.txt
 !
@@ -18794,6 +18797,5 @@ gocomics.com##+js(rpnt, script, document.querySelectorAll, `window.addEventListe
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12939
+! Total unique rules: 12945
 ! Duplicates removed: 18
-! Failed sources: 1
