@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 01 Jul 2026 01:48:08 UTC
+! Last modified: 02 Jul 2026 01:43:11 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10625,6 +10625,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+ip.sb##.wwads_abp
 jetpunk.com#%#//scriptlet('prevent-setTimeout', 'isAdblocker')
 ricardocuisine.com#%#//scriptlet('set-cookie', 'adblock-modal.ads', '1')
 vaughn.live#%#//scriptlet('trusted-set-local-storage-item', 'vs_notice_last_shown2', '99999999999999')
@@ -13036,7 +13037,13 @@ chzzk.naver.com#@#.banner_ad_wrapper
 !#else
 chzzk.naver.com#%#//scriptlet('spoof-css', '.banner_ad_wrapper', 'display', 'block')
 chzzk.naver.com#%#//scriptlet('trusted-json-set-xhr-response', 'content.playerAdDisplayResponse', 'json:{"preRoll":false,"midRoll":false}', 'content.playerAdDisplayResponse.preRoll', '/ad/display-status')
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_cli || adguard_app_android)
+||nam.veta.naver.com/vas|$xmlhttprequest,domain=chzzk.naver.com,redirect=nooptext
+||nam.veta.naver.com/gfp$xmlhttprequest,domain=chzzk.naver.com,redirect=nooptext
+||nam.veta.naver.com/call|$xmlhttprequest,domain=chzzk.naver.com,redirect=nooptext
+!#else
 chzzk.naver.com#%#//scriptlet('prevent-xhr', '/(veta.naver.com\/vas|veta.naver.com\/gfp|veta.naver.com\/call)/ method:OPTIONS')
+!#endif
 !#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/185974
 grabify.link#%#//scriptlet('set-cookie', 'ckstp', '1')
@@ -13701,5 +13708,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10415
+! Total unique rules: 10419
 ! Duplicates removed: 3037
