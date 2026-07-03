@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 02 Jul 2026 01:43:35 UTC
+! Last modified: 03 Jul 2026 01:35:47 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -11285,6 +11285,7 @@ labiotech.eu##.inline-block.space-y-8
 mainichi.jp##.inline-list
 winnipegfreepress.com##.interactive
 bossip.com##.io-header__social-links
+thedriven.io##.is-whatsapp
 insideevs.com##.isBottomShare
 iphoneincanada.ca,teslanorth.com##.item--share
 flyercity.ca##.item_share_area
@@ -11521,6 +11522,7 @@ reason.com##.rcom-social-tools
 dermatologytimes.com,drive.com.au##.react-share__ShareButton
 newsukraine.rbc.ua##.read-in-google
 newsukraine.rbc.ua##.read-in-socials
+windowsreport.com##.reader-action-panel
 tasteofhome.com##.recipe-social-share
 fleischmannsyeast.com##.recipe__social
 outdoorlife.com,popsci.com,taskandpurpose.com,thedrive.com,twz.com##.recurrent-share
@@ -14537,6 +14539,9 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+gdebenz.ru##.rss-share
+aleagues.com.au##.keepup-sharing
+breitbart.com##.bnn-social-follow
 sikkom.nl##div[data-testid="article-social-shares"]
 ren.tv##div[class^="Wrapper_"]:has(> span.share-network)
 ren.tv##.video-player__sharing
@@ -23215,7 +23220,7 @@ sysadmin.ru##footer > noscript + nav.bg-light
 partnerkin.com,zutool.jp,jjan.kr,persol-tech-s.co.jp,ukranews.com##.article_social
 pensador.com,dicio.com.br,significados.com.br,dicionariodenomesproprios.com.br##.sg-social
 usnews.com##div[class*="SocialSharing"]
-itoolab.com,investing.com###share-btn
+gdebenz.ru,itoolab.com,investing.com###share-btn
 mylomza.pl,wio.waw.pl##.l-socials__wrapper
 tygodnik.polsatnews.pl##.article__share > .menu--share > ul.menu__list > li.menu__element:not(.menu__element--comments)
 redditery.com##h4 > .social[onclick]:not([onclick*="arguments"])
@@ -28721,7 +28726,7 @@ designboom.com,livescience.com,pbtech.co.nz,peoplesworld.org,space.com##.fa-face
 ##.share-bar-desktop
 ~upi.com##.share-block
 ~bilibili.com,~airbnb.com,~ge.tt##.share-box
-~out.com,~m.gsmarena.com,~bleacherreport.com,~thedodo.com##.share-buttons
+~gbnews.com,~out.com,~m.gsmarena.com,~bleacherreport.com,~thedodo.com##.share-buttons
 ##.share-cont
 ##.share-counter
 ##.share-general
@@ -29054,6 +29059,7 @@ designboom.com,livescience.com,pbtech.co.nz,peoplesworld.org,space.com##.fa-face
 ||mailget.net^$third-party
 ||my.hellobar.com^$third-party
 !
+gdebenz.ru###share-ask
 farmaciasdesimilares.com##div[class*="wrapper_whatsapp"]
 10haber.net##.sospaylas
 genbank.ru##div[data-popup="socials"]
@@ -43697,5 +43703,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42213
-! Duplicates removed: 14355
+! Total unique rules: 42219
+! Duplicates removed: 14357
