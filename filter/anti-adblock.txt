@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 03 Jul 2026 01:35:25 UTC
+! Last modified: 04 Jul 2026 01:36:01 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10030,6 +10030,7 @@ mail.yandex.*#%#//scriptlet('json-prune', 'seatbid rtb')
 !
 ! Yandex.Search
 ! Main page under the search bar
+ya.ru##.search3__wrapper ~ div[class^="body__"]:has(> div > div > div > a[target="_blank"])
 ya.ru##.search3__wrapper ~ div[class^="body__"]:has(> div > div > div > a[aria-labelledby="ad-mark__mark"])
 ya.ru##main[class="body__wrapper"] form ~ div[style^="--height-ratio:"]
 yandex.*##main[class="body__wrapper"] form ~ div > div[style^="--height-ratio:"]
@@ -10625,6 +10626,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+the-sun.com#%#//scriptlet('prevent-setTimeout', 'gu(gh)')
 ip.sb##.wwads_abp
 jetpunk.com#%#//scriptlet('prevent-setTimeout', 'isAdblocker')
 ricardocuisine.com#%#//scriptlet('set-cookie', 'adblock-modal.ads', '1')
@@ -13708,5 +13710,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10419
+! Total unique rules: 10421
 ! Duplicates removed: 3037

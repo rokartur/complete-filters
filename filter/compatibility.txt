@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 03 Jul 2026 01:35:25 UTC
+! Last modified: 04 Jul 2026 01:36:01 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1783003975-3600.patch
+! Diff-Path: ../patches/11/11-s-1783103758-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+hoopsrumors.com##.wptouch-custom-ad
+soccer.realgm.com##[src^="https://data.sports-widgets.com/"]
 readnovel.eu##.mt-ad-link
 gosexpod.com##.player > div[class*=" "][id]
 gosexpod.com#%#//scriptlet('abort-on-property-write', 'crLoad')
@@ -12576,7 +12578,10 @@ historicaerials.com##+js(trusted-create-html, #historicaerials_g_160x600_Right, 
 @@||historicaerials.com^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31585
-magma.com##+js(trusted-set, Object.prototype.adsStrategy, 'json:{"tag":"","phase":0,"permaProvider":0,"tempoProvider":0,"buckets":[],"comment":"no-user","rotationPaused":true}', as, function)
+magma.com##+js(set, Object.prototype.hasRightPartnership, falseFunc)
+magma.com##+js(set, Object.prototype.hasLeftPartnership, falseFunc)
+magma.com##+js(set, Object.prototype.hasTopPartnership, falseFunc)
+magma.com##+js(set, Object.prototype.hasBottomPartnership, falseFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31775
 embedtv.best##+js(rpnt, script, (popupLoaded), (true))
@@ -18802,5 +18807,5 @@ gocomics.com##+js(rpnt, script, document.querySelectorAll, `window.addEventListe
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12949
+! Total unique rules: 12954
 ! Duplicates removed: 18
