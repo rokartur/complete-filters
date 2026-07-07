@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 06 Jul 2026 01:36:24 UTC
+! Last modified: 07 Jul 2026 01:36:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1783193683-3600.patch
+! Diff-Path: ../patches/11/11-s-1783357681-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -1862,7 +1862,7 @@ zoomtventertainment.com$$amp-embed[type="taboola"]
 vokrug.tv,dni.ru$$amp-iframe[src="https://news.gnezdo.ru/"]
 cumhuriyet.com.tr,vokrug.tv$$amp-embed[type="engageya"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/17500
-motherless.com$$script[tag-content="awentw.com"][min-length="2000"][max-length="2500"]
+motherless.xxx$$script[tag-content="awentw.com"][min-length="2000"][max-length="2500"]
 !---------------------------------------------------------------------------!
 !-------------- General URL blocking rules ---------------------------------!
 !---------------------------------------------------------------------------!
@@ -2479,7 +2479,7 @@ seattletimes.com#@#.ad-fixed
 m.youtube.com#@#a[onclick*="\"ping_url\":\"http://www.google.com/aclk?"]
 m.youtube.com##a[onclick*='"ping_url":"http://www.google.com/aclk?']
 ! https://github.com/AdguardTeam/AdguardFilters/issues/17500
-@@||motherless.com/scripts/mobile^
+@@||motherless.xxx/scripts/mobile^
 @@||maxcdn.bootstrapcdn.com/font-awesome^
 ! https://github.com/AdguardTeam/AdguardFilters/issues/17832
 vip.de#@#.centered-ad
@@ -2699,6 +2699,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+fikfap.com#%#//scriptlet('trusted-replace-fetch-response', '"roles":[],"profileLinks":[]', '"roles":["PLAN_SILVER"],"profileLinks":[]', 'api.fikfap.com/init?')
+m.hqporner.com##.container-300x100
 sbnation.com###content > div[class]:has(> div[data-concert="mobile_leaderboard"] > div.m-ad)
 hoopsrumors.com##.wptouch-custom-ad
 realgm.com##[src^="https://data.sports-widgets.com/"]
@@ -2751,7 +2753,6 @@ haberler.com##.new3card:has(> .MHH_VIDEO)
 haberler.com##.mobile-reklam-card
 haberler.com##.MHL_VIDEO
 clutchpoints.com##.not-prose > div.md\:hidden:has(script[src^="https://subscribe-forms.beehiiv.com/"])
-clutchpoints.com##div.flex.border:has(> div[class] > .ad-slot)
 gbnews.com##.ad-sticky-footer-mobile
 hochi.news##.sub__head:has(+ .job-list-wrap)
 hochi.news##div[style="min-width:320px;min-height:160px;text-align:center;margin:20px 0 0 0;"]
@@ -6290,7 +6291,7 @@ vokrug.tv##div[style="width:250px;margin:0 auto;text-align: center;padding: 30px
 vokrug.tv###GPM_vokrugtv_M_300x250_Top
 sport.de###topbanner-mobile
 tabootube.xxx##.wrap-spot
-nanovids.com,xvideos.video,manga-dome.com,kimagurekizokunoadriatic.site,comichronicle.com,onlyporn.tube,watchporn.to,lifematome.blog,tora-kekkon.com,m.eprice.com.tw,dodoyo.jp,life-alright.com,bookwiz.me,yasasiikurasi.com,tabootube.xxx##.sponsor
+severeporn.com,nanovids.com,xvideos.video,manga-dome.com,kimagurekizokunoadriatic.site,comichronicle.com,onlyporn.tube,watchporn.to,lifematome.blog,tora-kekkon.com,m.eprice.com.tw,dodoyo.jp,life-alright.com,bookwiz.me,yasasiikurasi.com,tabootube.xxx##.sponsor
 profile.ru##div[data-typeitem="ad"]
 rbc.ua##.adsens-wrap
 app.famitsu.com##.ad-agency-area
@@ -8798,6 +8799,8 @@ livejournal.com##div[id^="billboard_mobile_"]
 !
 !
 !+ NOT_OPTIMIZED
+stackoverflow.com##.js-sidebar-zone
+!+ NOT_OPTIMIZED
 hatenadiary.org,hatenablog.com,hatenablog.jp,hateblo.jp##.ad
 !+ NOT_OPTIMIZED
 itc.ua##.image-100
@@ -9322,8 +9325,6 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_apps
 ||mradx.net^$app=org.aastudio.games.longnards
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154955
 ||yastatic.net^$app=com.drive2
-! https://github.com/AdguardTeam/AdguardFilters/issues/153135
-||bs.serving-sys.ru^$app=com.swiftsoft.anixartd
 ! https://play.google.com/store/apps/details?id=com.cashwalk.cashwalk
 ||adcenter-api.cashwalk.co^
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149253
@@ -18813,5 +18814,5 @@ account.bhvr.com##+js(set, Osano.cm.removeEventListener, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12958
+! Total unique rules: 12959
 ! Duplicates removed: 18
