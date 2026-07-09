@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 08 Jul 2026 01:35:31 UTC
+! Last modified: 09 Jul 2026 01:35:57 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -172,6 +172,9 @@ dev-pages.brave.software,dev-pages.bravesoftware.com##+js(set, window.BRAVE_TEST
 ! Fixing paywall scroll issue on scmp.com
 @@||c2.piano.io/xbuilder/experience/$xhr,domain=scmp.com
 @@||cdn.tinypass.com/api/tinypass.min.js$script,domain=scmp.com
+
+! Youtube sabr delay fix
+www.youtube.*##+js(brave-yt-sabr-fix)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-social.txt
@@ -7020,5 +7023,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5958
+! Total unique rules: 5959
 ! Duplicates removed: 8

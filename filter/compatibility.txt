@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 08 Jul 2026 01:35:31 UTC
+! Last modified: 09 Jul 2026 01:35:57 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1783429104-3600.patch
+! Diff-Path: ../patches/11/11-s-1783532230-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+givemesport.com##.no-badge.video:has(> div.w-adsninja-video-player)
 trf1.net###stories_html:has(> div#stories:empty)
 football-tribe.com##.c-single_post_inline_ad_box
 xheti.net###xheti-mobile-header-only
@@ -12635,18 +12636,14 @@ streamcash.to##div[id]:has(button[onclick*="location.reload()"])
 ! https://github.com/uBlockOrigin/uAssets/issues/33449
 akirabox.com,akirabox.to,bowfile.com,buzzheavier.com,bzzhr.co,bzzhr.to,datavaults.co,fuckingfast.*,multiup.io,rootz.so,usersdrive.com,vik1ngfile.site,zpaste.net#@#+js(set, Document.prototype.createElement.call, noopFunc)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/234289
-weathernews.jp#@#article > section.block:has(> div[style] > div[id^="div-gpt-ad"])
-
-! https://github.com/uBlockOrigin/uAssets/issues/33477
-||kick.com/149e9513-01fa-4fb0-aad4-566afd725d1b/$badfilter
-||kick.com/ucggfnr2hnhlcwlf/$badfilter
-
 ! https://github.com/uBlockOrigin/uAssets/issues/33490
 zeilink.net#@#+js(remove-node-text, script, /"\\|\\[ux]|\+\[\]/)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33549
 ||detour.padovia.it^$badfilter
+
+! https://github.com/AdguardTeam/AdguardFilters/commit/213cb423245bc6dc51ef0cd10b2b615d84ae8f75
+vk.sportsbull.jp##+js(rc, hidden-by-ima, #vid1_html5_api)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -18824,5 +18821,5 @@ account.bhvr.com##+js(set, Osano.cm.removeEventListener, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12966
+! Total unique rules: 12965
 ! Duplicates removed: 18
