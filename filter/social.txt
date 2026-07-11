@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 10 Jul 2026 01:36:53 UTC
+! Last modified: 11 Jul 2026 01:35:30 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -14542,6 +14542,9 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+0115765.com##article > div.has-text-centered:has(> button[onclick="share()"])
+wpastra.com##div[class^="astra-advanced-hook-"] > div.wp-block-uagb-container:has(> div.uagb-container-inner-blocks-wrap > div.wp-block-uagb-social-share)
+doniaweb.com##button[id^="elShareItem_"]
 7kanal.co.il##.stripe-social-webshare ~ div
 girlsvip-matome.com##.follow_btn
 zielonagospodarka.pl##.article_social_icons
@@ -14551,6 +14554,7 @@ football.london##div[class^="Article_inner-wrapper"] > section[class^="SocialFol
 goonernews.com##.c-feat-post__social
 pornoxo.com##li:has(> a[title="Share"])
 fanpage.it##.bnr
+bbc.com##div[class*="PostActions"]:has(> div[data-testid="share-tools-container"])
 flixeo.tv##.fixed.right-4
 sexplex.com##div[data-tooltip="Share"]
 anime-loads.org##.social-btn-group
@@ -14794,7 +14798,7 @@ defence-industry.eu##.ast-builder-layout-element[data-section="section-hb-social
 manoramamax.com##button[class*="tvshowDetails_share"]
 adecco.com##section.resource-body-sidebar > section:has(> .social-sharing)
 btv.bg##.next-news
-mtgphil.org##.ast-post-social-sharing
+troypoint.com,mtgphil.org##.ast-post-social-sharing
 wam.ae##.social-link-title
 wam.ae##.social-side
 rijnmond.nl##a[aria-label="Deel dit artikel"]
@@ -16712,7 +16716,6 @@ guidetoiceland.is###shareButtonsContainer
 gfinityesports.com##button[aria-label="article share"]
 worldsports.me##.worldcup-share
 aha-music.com##.self-center > div:has(> div >a[href^="https://twitter.com/intent/"])
-bbc.com##div[data-testid="share-tools-container"]
 idle-girl.com###mainEntity + aside:has(> .sns-msg:first-child + aside:last-child)
 prtimes.jp##a[href^="https://x.com/intent/"]
 prtimes.jp##.css-1phrblb
@@ -43720,5 +43723,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42235
+! Total unique rules: 42238
 ! Duplicates removed: 14360
