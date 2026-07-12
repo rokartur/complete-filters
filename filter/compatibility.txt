@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 11 Jul 2026 01:34:58 UTC
+! Last modified: 12 Jul 2026 01:35:03 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -12267,6 +12267,8 @@ web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, ..node[?.*.__typ
 web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, .data.viewer.news_feed.edges.*[?.category=="SPONSORED"].node, propsToMatch, /graphql)
 web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, JSON.parse)
 web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototype.appendChild, Function.prototype.toString)
+web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototype.insertBefore, JSON.parse)
+web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototype.insertBefore, Function.prototype.toString)
 web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.prototype.insertAdjacentElement, JSON.parse)
 web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.prototype.insertAdjacentElement, Function.prototype.toString)
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-4635090748
@@ -12662,6 +12664,16 @@ vk.sportsbull.jp##+js(rc, hidden-by-ima, #vid1_html5_api)
 ! https://github.com/AdguardTeam/AdguardFilters/commit/3f1ba60715da29502b0a686fed38c5bb72948677
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=sp.nicovideo.jp,important
 nicovideo.jp#@#a[href$="_tagrelatedbanner"]
+
+! https://github.com/uBlockOrigin/uAssets/issues/33651
+||roblox.com.$all,badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/33072#issuecomment-4945020836
+x.com#@#+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
+
+! https://github.com/easylist/easylist/commit/1ec982848559cd61d9a462a23af788223979315c
+||ads-twitter.com^$badfilter
+||static.ads-twitter.com^
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -18847,5 +18859,5 @@ israelnationalnews.com##+js(rmnt, script, loadTaboola)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12981
+! Total unique rules: 12987
 ! Duplicates removed: 18
