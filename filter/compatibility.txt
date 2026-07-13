@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 12 Jul 2026 01:35:03 UTC
+! Last modified: 13 Jul 2026 01:35:44 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -12276,12 +12276,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.proto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=pamelachangemission.com,important
-pamelachangemission.com##+js(nowoif)
-pamelachangemission.com##+js(set, console.clear, undefined)
-pamelachangemission.com##+js(acs, globalThis, break;case)
-pamelachangemission.com##+js(acs, WebAssembly, atob)
-||pamelachangemission.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=ellenpoliticalfollow.com,important
+ellenpoliticalfollow.com##+js(nowoif)
+ellenpoliticalfollow.com##+js(set, console.clear, undefined)
+ellenpoliticalfollow.com##+js(acs, globalThis, break;case)
+ellenpoliticalfollow.com##+js(acs, WebAssembly, atob)
+||ellenpoliticalfollow.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -18650,10 +18650,6 @@ account.bhvr.com##+js(set, Osano.cm, {})
 account.bhvr.com##+js(set, Osano.cm.addEventListener, noopFunc)
 account.bhvr.com##+js(set, Osano.cm.removeEventListener, noopFunc)
 
-! https://github.com/uBlockOrigin/uAssets/issues/33646
-||static.tblcontent.com/*/loader.privacy.js$redirect=noop.js,domain=israelnationalnews.com
-israelnationalnews.com##+js(rmnt, script, loadTaboola)
-
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -18859,5 +18855,5 @@ israelnationalnews.com##+js(rmnt, script, loadTaboola)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12987
+! Total unique rules: 12985
 ! Duplicates removed: 18
