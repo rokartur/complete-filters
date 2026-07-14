@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 13 Jul 2026 01:36:06 UTC
+! Last modified: 14 Jul 2026 01:35:27 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10,7 +10,7 @@
 ! Android host file - Adaway
 ! 
 ! Title: ABPVN Hosts
-! Updated: 09 Jul 2026 14:52 UTC+7
+! Updated: 13 Jul 2026 16:52 UTC+7
 ! License: ABPVN
 ! Please report any unblocked ads or problems by email or in our forums
 ! Email: support@abpvn.com
@@ -13315,6 +13315,18 @@
 ||abroad-sdk-push.dutils.com^
 ||m-adnet.dutils.com^
 ||sdk-push.dutils.com^
+! [vidcrunch.com]
+||vidcrunch.com^
+||cdn.vidcrunch.com^
+||play.vidcrunch.com^
+||serv.vidcrunch.com^
+||servt.vidcrunch.com^
+||tg1.vidcrunch.com^
+||www.vidcrunch.com^
+! [trackhup.com]
+||trackhup.com^
+||befjajh.trackhup.com^
+||dghecae.trackhup.com^
 ! --- GroupVN block ---
 ! [adtimaserver]
 ||log.adtimaserver.vn^
@@ -14817,6 +14829,7 @@
 ||ads.thitruongtaichinhtiente.vn^
 ||ads.thvli.vn^
 ||ads.tiki.vn^
+||ads.tvpl.vn^
 ||ads.vietbao.vn^
 ||ads.vishare.vn^
 ||ads.vlr.vn^
@@ -16360,6 +16373,7 @@
 ||bg4nxu2u5t.com^
 ||bharalhallahs.com^
 ||bhcumsc.com^
+||bicolourprepossessstrong.com^
 ||bid.glass^
 ||bidclickmedia.com^
 ||bidclix.com^
@@ -17456,6 +17470,7 @@
 ||heywire.com^
 ||hfc195b.com^
 ||hgads.com^
+||hh788.com^
 ||hhbypdoecp.com^
 ||hidden.gogoceleb.com^
 ||highcpmcreativeformat.com^
@@ -18002,6 +18017,7 @@
 ||misstrends.com^
 ||miva.com^
 ||mixedreading.com^
+||mjdvamevlrsxv.site^
 ||mkaragqzeov.com^
 ||mkejunomqar.com^
 ||mkkvprwskq.com^
@@ -18211,6 +18227,7 @@
 ||nui.media^
 ||nuseek.com^
 ||nuzoqxlu.in^
+||nv.fascparbate.com^
 ||nv.shunnerencinal.shop^
 ||nv3tosjqd.com^
 ||nwfnsitaes.com^
@@ -18963,6 +18980,7 @@
 ||shoppingads.com^
 ||shopzilla.com^
 ||shpee.eco^
+||si.hikerfaquirs.com^
 ||sibautomation.com^
 ||siccash.com^
 ||sicksmash.com^
@@ -19507,6 +19525,7 @@
 ||variousformatscontent.com^
 ||vast.vstserv.com^
 ||vaugroar.com^
+||vdkdxarnqiaedw.com^
 ||vebadu.com^
 ||vebo-vast.pages.dev^
 ||veille-referencement.com^
@@ -19602,6 +19621,7 @@
 ||wda.com^
 ||wdads.sx.atl.publicus.com^
 ||wdqhdqtlxu.com^
+||wearadmiration.com^
 ||wearemiq.com^
 ||weaveradrenaline.com^
 ||web-stat.com^
@@ -19796,6 +19816,7 @@
 ||xlx1.com^
 ||xm.geslingclime.shop^
 ||xmafrihkua.in^
+||xnhhzlkr.com^
 ||xnocffar.com^
 ||xo.gippedtutelo.cyou^
 ||xp.retinichawks.cyou^
@@ -19861,6 +19882,7 @@
 ||zazmunokpvzi.com^
 ||zazporn.com^
 ||zd.midbodyritz.shop^
+||zd.navigcutler.cyou^
 ||zeekaihu.net^
 ||zekiatagur.com^
 ||zeloru.com^
@@ -20012,6 +20034,7 @@
 ||bango.net^
 ||beacon.cdnma.com^
 ||beacon.errorception.com^
+||beacon.fusioncdn.com^
 ||beacon.gu-web.net^
 ||beacon.mlytics.com^
 ||beacon.riskified.com^
@@ -37900,6 +37923,9 @@ m.youtube.com##ytm-companion-slot[data-content-type] > ytm-companion-ad-renderer
 m.youtube.com##ytm-rich-item-renderer > ad-slot-renderer
 youtube.com##ytd-rich-item-renderer:has(> #content > ytd-ad-slot-renderer)
 youtube.com###shorts-inner-container > .ytd-shorts:has(> .ytd-reel-video-renderer > ytd-ad-slot-renderer)
+! https://community.brave.app/t/topic/655492/
+! https://github.com/AdguardTeam/AdguardFilters/commit/3f1ba60715da29502b0a686fed38c5bb72948677
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=sp.nicovideo.jp,important,badfilter
 ! naver.com search is broken  https://m.search.naver.com/search.naver?where=m_image&sm=mtb_jum&query=brave
 @@||ssl.pstatic.net^$domain=naver.com
 ! aniwave.to
@@ -40228,5 +40254,5 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 38156
+! Total unique rules: 38178
 ! Duplicates removed: 1679

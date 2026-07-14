@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 13 Jul 2026 01:35:44 UTC
+! Last modified: 14 Jul 2026 01:35:01 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1783695710-3600.patch
+! Diff-Path: ../patches/11/11-s-1783947464-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+accuradio.com##.hasInGridAd > div.rowGroupSpacer
+news.ksb.co.jp##div[style="padding:10px 0;"]
+news.ksb.co.jp##div[style="text-align:center; margin-top: 76px; margin-bottom: -56px; height: 100px;"]
 yesporn.vip##iframe[src^="https://a.adtng.com/"]
 merriam-webster.com##.vocab-builder-footer
 whoreshub.com##.wrapper > div[style="text-align: center;margin-bottom:50px;padding:5px"]
@@ -12554,6 +12557,9 @@ client.falixnodes.net##+js(nosiif, /lovelylovely|veryveryplease|click\(\)|MouseE
 client.falixnodes.net##+js(nostif, /lovelylovely|veryveryplease|click\(\)|MouseEvent|dispatchEvent/)
 client.falixnodes.net##+js(nostif, )}}}})
 client.falixnodes.net##+js(nostif, ]])!==)
+client.falixnodes.net##+js(nostif, ]/*)
+client.falixnodes.net##^script:has-text(=[].slice.call)
+client.falixnodes.net##+js(rmnt, script, =[].slice.call)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23131
@@ -18650,6 +18656,9 @@ account.bhvr.com##+js(set, Osano.cm, {})
 account.bhvr.com##+js(set, Osano.cm.addEventListener, noopFunc)
 account.bhvr.com##+js(set, Osano.cm.removeEventListener, noopFunc)
 
+! https://github.com/uBlockOrigin/uAssets/issues/33692
+progressionmbj.ca##.et-waypoint:not(.et_pb_counters):style(opacity: 1 !important;)
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -18855,5 +18864,5 @@ account.bhvr.com##+js(set, Osano.cm.removeEventListener, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12985
+! Total unique rules: 12992
 ! Duplicates removed: 18
