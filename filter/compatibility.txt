@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 14 Jul 2026 01:35:01 UTC
+! Last modified: 15 Jul 2026 01:35:12 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1783947464-3600.patch
+! Diff-Path: ../patches/11/11-s-1784028960-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+nintenduo.com##.ai-viewports
+newarab.com#$#.progress-bar-container + div.trending-news { margin-top: 56px !important; }
 accuradio.com##.hasInGridAd > div.rowGroupSpacer
 news.ksb.co.jp##div[style="padding:10px 0;"]
 news.ksb.co.jp##div[style="text-align:center; margin-top: 76px; margin-bottom: -56px; height: 100px;"]
@@ -9825,8 +9827,11 @@ search.ask.com#@##sponsoredTop
 ! ad in the tooltip when typing
 yandex.*#@#body:not([data-bem*="pogoda"]) .mini-suggest__popup-content > li[data-type="nav"]
 ! ads in the search results
+ya.ru,yandex.*#@#ul[id^="search-"] > li:has(> div.Organic > div.Organic-ContentWrapper ~ div[class*=" Organic"] > span[class$="-Text"])
+ya.ru,yandex.*#@#ul[id^="search-"] > li:has(> div.Organic > div.Organic-Subtitle > div.Organic-Path ~ div[class*=" Organic"] > span[class$="-Text"])
 ya.ru,yandex.*#@#ul[id^="search-"] > li[class*="Organic"]:has(> div.Root a[href*="_crpd"] > div.Organic-OfferThumbWrap)
-[$path=/search]ya.ru,yandex.*#@#.content__left li.serp-item:not(.serp-item__futuris-snippet):has(> div[class] div.AdvLabel)
+ya.ru,yandex.*#@#.RsyaOrganic
+ya.ru,yandex.*#@#.content__left li.serp-item:not(.serp-item__futuris-snippet):has(> div[class] div.AdvLabel)
 ya.ru,yandex.*#@##search-result > [class]:has(> div.Organic > div a[href*="_crpd"])
 yandex.*#@#.content__left > ul#search-result > li:has(> div.organic > div.OrganicTitle > a[href^="https://ya.ru/search/_crpd/"])
 ! Mobile
@@ -12558,8 +12563,9 @@ client.falixnodes.net##+js(nostif, /lovelylovely|veryveryplease|click\(\)|MouseE
 client.falixnodes.net##+js(nostif, )}}}})
 client.falixnodes.net##+js(nostif, ]])!==)
 client.falixnodes.net##+js(nostif, ]/*)
-client.falixnodes.net##^script:has-text(=[].slice.call)
-client.falixnodes.net##+js(rmnt, script, =[].slice.call)
+client.falixnodes.net##+js(nostif, }/*)
+client.falixnodes.net##^script:has-text(/\=arguments\;if\(typeof /)
+client.falixnodes.net##+js(rmnt, script, /\=arguments\;if\(typeof /)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/23131
@@ -12680,6 +12686,9 @@ x.com#@#+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 ! https://github.com/easylist/easylist/commit/1ec982848559cd61d9a462a23af788223979315c
 ||ads-twitter.com^$badfilter
 ||static.ads-twitter.com^
+
+! https://github.com/uBlockOrigin/uAssets/issues/17018#issuecomment-4964078451
+myanimelist.net#@#.js-scrollfix-bottom-rel.rightside > div[style]:has(.ad-sas)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -18561,7 +18570,7 @@ mdjonline.com###article-body > .subscriber-only:style(display: block !important;
 ||googletagmanager.com/gtm.js$script,domain=oxylabs.io,important
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/223378
-daily.co.jp##+js(trusted-rpnt, script, /(window\.AdObserverManager\.register\('ds[ps][cp]-bottomRecommend'\);)/, (()=>{window.addEventListener("load"\,(()=>{const t=document.querySelector("#openwebSection")\,e=document.querySelector("div[data-spot-id]");if(!e||!t)return;const d=e.getAttribute("data-spot-id");if(!d)return;var o;((t\,e\,d)=>{const o=document.createElement("div");o.setAttribute("data-spotim-module"\,"conversation")\,o.setAttribute("data-spot-id"\,t)\,o.setAttribute("data-post-id"\,e)\,d.appendChild(o)})(d\,Math.abs((o=document.title\,[...o].reduce(((t\,e)=>Math.imul(31\,t)+e.charCodeAt(0)|0)\,0)))\,t);const a=document.createElement("script");a.setAttribute("src"\,`https://launcher.spot.im/spot/${d}`)\,a.setAttribute("async"\,"")\,document.head.appendChild(a)}));})();$1, sedCount, 1)
+daily.co.jp##+js(trusted-rpnt, script, /(window\.AdObserverManager\.register\('ds[ps][cp]-footer_?r?'\);)/, (()=>{window.addEventListener("load"\,(()=>{const t=document.querySelector("#openwebSection")\,e=document.querySelector("div[data-spot-id]");if(!e||!t)return;const d=e.getAttribute("data-spot-id");if(!d)return;var o;((t\,e\,d)=>{const o=document.createElement("div");o.setAttribute("data-spotim-module"\,"conversation")\,o.setAttribute("data-spot-id"\,t)\,o.dataset.postId=e\,d.appendChild(o)})(d\,Math.abs((o=document.title\,[...o].reduce(((t\,e)=>Math.imul(31\,t)+e.charCodeAt(0)|0)\,0)))\,t);const a=document.createElement("script");a.setAttribute("src"\,`https://launcher.spot.im/spot/${d}`)\,a.setAttribute("async"\,"")\,document.head.appendChild(a)}));})();$1, sedCount, 1)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/31851
 @@||trafico.prensaiberica.es/adm/min/pb_wrapper/pbwrapper.js$script,domain=elperiodicodearagon.com
@@ -18864,5 +18873,5 @@ progressionmbj.ca##.et-waypoint:not(.et_pb_counters):style(opacity: 1 !important
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 12992
+! Total unique rules: 12999
 ! Duplicates removed: 18
