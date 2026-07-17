@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 16 Jul 2026 01:35:01 UTC
+! Last modified: 17 Jul 2026 01:35:39 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1784122673-3600.patch
+! Diff-Path: ../patches/11/11-s-1784201894-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+pixiv.net##div.relative > div.flex > div.w-full:has(a[href^="https://pixon.ads-pixiv.net/click"])
 news.livedoor.com##.header-billboard
 nintenduo.com##.ai-viewports
 newarab.com#$#.progress-bar-container + div.trending-news { margin-top: 56px !important; }
@@ -12667,15 +12668,9 @@ zeilink.net#@#+js(remove-node-text, script, /"\\|\\[ux]|\+\[\]/)
 ! https://github.com/uBlockOrigin/uAssets/issues/33549
 ||detour.padovia.it^$badfilter
 
-! https://github.com/AdguardTeam/AdguardFilters/commit/213cb423245bc6dc51ef0cd10b2b615d84ae8f75
-vk.sportsbull.jp##+js(rc, hidden-by-ima, #vid1_html5_api)
-
-! https://github.com/uBlockOrigin/uAssets/issues/33639
-@@||mail-ads.google.com/mail/*/adsfe/main_jspb?$xhr,from=mail.google.com,badfilter
-
 ! https://github.com/AdguardTeam/AdguardFilters/commit/1267121d79d376a23d06a78f306767573017c31a
 ! https://github.com/AdguardTeam/AdguardFilters/commit/3f1ba60715da29502b0a686fed38c5bb72948677
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=sp.nicovideo.jp,important
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=sp.nicovideo.jp
 nicovideo.jp#@#a[href$="_tagrelatedbanner"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33651
@@ -16637,14 +16632,19 @@ app.kultivi.com,hollywoodreporter.com,huffpost.com,kultivi.com,sacbee.com,sport-
 @@||vid.connatix.com^$3p,media,xhr
 @@||cds.connatix.com/p/*/elements.ui.$3p,script
 @@||cds.connatix.com/*/hls$script,3p
+@@||assets.connatix.com/Elements/*-player-$script
 ! https://www.reddit.com/r/uBlockOrigin/comments/1837a7a/video_not_playing_on_kansascom/
-@@||cds.connatix.com/p/*/cSyncRemoteEntry.js^$3p,script
+! @@||cds.connatix.com/p/*/cSyncRemoteEntry.js^$3p,script
 #@#.wps-player-wrap
 ! https://www.thestate.com/sports/college/university-of-south-carolina/usc-baseball/article276291411.html no need connatix
 bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,flkeysnews.com,fresnobee.com,heraldonline.com,heraldsun.com,idahostatesman.com,islandpacket.com,kansas.com,kansascity.com,kentucky.com,ledger-enquirer.com,macon.com,mahoningmatters.com,mcclatchydc.com,mercedsunstar.com,miamiherald.com,modbee.com,myrtlebeachonline.com,newsobserver.com,sacbee.com,sanluisobispo.com,star-telegram.com,sunherald.com##^html:not(:has(video)) > head > script:has-text(connatix.com)
 loot.tv##^html:not(:has(#connatixPlayerID)) > head > script[src*="connatix"]
 thestate.com##^html > head > script:has-text(connatix.id):upward(1) > script:has-text(window.cnx)
 variety.com##^html > head > link[rel="canonical"]:not([href*="/video/"]):upward(1) > script[src*="connatix"]
+! https://github.com/uBlockOrigin/uAssets/issues/33707
+@@||connatix.com/player.js$3p,script,domain=decider.com|nypost.com|pagesix.com
+@@||connatix.com/*connatix.player.$3p,script,domain=decider.com|nypost.com|pagesix.com
+decider.com,nypost.com,pagesix.com#@#.cnx-player-wrapper
 
 ! connatix.com recommended articles/videos
 ! https://github.com/uBlockOrigin/uAssets/issues/10867
@@ -18669,6 +18669,18 @@ account.bhvr.com##+js(set, Osano.cm.removeEventListener, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/33692
 progressionmbj.ca##.et-waypoint:not(.et_pb_counters):style(opacity: 1 !important;)
 
+! https://github.com/uBlockOrigin/uAssets/issues/10186
+!#if cap_html_filtering
+visualstudio.microsoft.com##^script:has-text(oneDS.ApplicationInsights)
+!#else
+@@||js.monitor.azure.com/scripts/c/ms.analytics-web-4.min.js$domain=visualstudio.microsoft.com
+!#endif
+
+! https://github.com/uBlockOrigin/uAssets/issues/33735
+hikvision.com##+js(set, pa, {})
+hikvision.com##+js(set, pa.getVisitorId, noopFunc)
+hikvision.com##+js(set, pa.sendEvent, noopFunc)
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -18874,5 +18886,5 @@ progressionmbj.ca##.et-waypoint:not(.et_pb_counters):style(opacity: 1 !important
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13000
+! Total unique rules: 13007
 ! Duplicates removed: 18

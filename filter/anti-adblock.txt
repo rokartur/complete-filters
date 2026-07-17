@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 16 Jul 2026 01:35:00 UTC
+! Last modified: 17 Jul 2026 01:35:39 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -12179,6 +12179,11 @@ socialblade.com##.socialblade-heartbeat
 socialblade.com##div[style^="width: px; height: 250px;"]
 creativeuncut.com###abox-s_i
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/235514
+nypost.com#%#//scriptlet('abort-current-inline-script', 'atob', 'parentNode.removeChild')
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=nypost.com
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167683
 ! https://github.com/AdguardTeam/AdguardFilters/issues/169924
 ! https://github.com/AdguardTeam/AdguardFilters/issues/226690
@@ -13714,5 +13719,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10425
+! Total unique rules: 10427
 ! Duplicates removed: 3039
