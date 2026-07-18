@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 17 Jul 2026 01:35:39 UTC
+! Last modified: 18 Jul 2026 01:34:31 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1784201894-3600.patch
+! Diff-Path: ../patches/11/11-s-1784288119-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+eonline.com##.photo-items__interstitial-ad-content
 pixiv.net##div.relative > div.flex > div.w-full:has(a[href^="https://pixon.ads-pixiv.net/click"])
 news.livedoor.com##.header-billboard
 nintenduo.com##.ai-viewports
@@ -12624,13 +12625,6 @@ embedtv.best##+js(rpnt, script, (popupLoaded), (true))
 myanimelist.net##a.ga-click[data-ga-click-type="hia"]
 myanimelist.net##div[id$="_NXU_wrap"], div[id$="_NXU_TITLE_wrap"]
 
-! https://github.com/uBlockOrigin/uAssets/issues/32452
-@@||getthispdf.com/about.html$ghide
-getthispdf.com##.content > #pageAdSlot
-getthispdf.com##+js(rmnt, script, document.styleSheets)
-getthispdf.com##+js(set, _adBlockState, undefined)
-getthispdf.com##+js(rmnt, script, /'onerror'|'offsetHe|'offsetWi/)
-
 ! https://github.com/uBlockOrigin/uAssets/issues/32865
 gumtree.com#@#+js(trusted-set, experimentOverrides, json:"%5B%7B%20defaultValue%3A%20%22OFF%22%7D%5D")
 
@@ -12677,14 +12671,21 @@ nicovideo.jp#@#a[href$="_tagrelatedbanner"]
 ||roblox.com.$all,badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33072#issuecomment-4945020836
-x.com#@#+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
+!||x.com/i/api/1.1/flow/viewer.json$badfilter
 
 ! https://github.com/easylist/easylist/commit/1ec982848559cd61d9a462a23af788223979315c
 ||ads-twitter.com^$badfilter
 ||static.ads-twitter.com^
 
-! https://github.com/uBlockOrigin/uAssets/issues/17018#issuecomment-4964078451
-myanimelist.net#@#.js-scrollfix-bottom-rel.rightside > div[style]:has(.ad-sas)
+! https://github.com/uBlockOrigin/uAssets/issues/24714
+decompiler.com##+js(set, OffscreenCanvas.prototype.getContext, undefined)
+decompiler.com##+js(nosiif, === false)
+decompiler.com##+js(trusted-replace-argument, Element.prototype.removeChild, 0, json:"adblockWarning", condition, /[a-z]{2}/)
+
+! https://github.com/uBlockOrigin/uBlock-discussions/discussions/986
+!#if env_firefox
+javmix.*#@#+js(acs, addEventListener, style.display)
+!#endif
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -17562,6 +17563,7 @@ socket.pearsoned.com##+js(set, initializeNewRelic, noopFunc)
 @@||jssdkcdns.mparticle.com/js/*/mparticle.js$script,domain=cwtv.com
 @@||googleadservices.com/pagead/conversion_async.js^$script,domain=cwtv.com
 @@||googletagmanager.com/gtm.js^$script,domain=cwtv.com
+||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=google-ima.js,domain=cwtv.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/22423
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=memurlar.net
@@ -18886,5 +18888,5 @@ hikvision.com##+js(set, pa.sendEvent, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13007
+! Total unique rules: 13006
 ! Duplicates removed: 18

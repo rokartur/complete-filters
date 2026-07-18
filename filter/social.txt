@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 17 Jul 2026 01:36:05 UTC
+! Last modified: 18 Jul 2026 01:35:03 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -14544,6 +14544,7 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+jetbrains.com##.whatsnew-key-updates-section__block-share
 usnews.com##button[data-tracking-id="social_share"]
 football.london###article-body > p[class^="Paragraph_"]:has(> strong a[href="https://www.facebook.com/AFCFootball.London#"])
 wikiloc.com###share-modal
@@ -29520,7 +29521,7 @@ com-magazin.de##w-div[role$="dialog"]
 movieshdwatch.to,watchseries.pe,watch32.sx,tinyzonetv.cc,moviesjoytv.to,solarmovies.win,moviesjoyz.lol,arc018.to,fmovieszz.lol,myflixtor.tv,vipstream.tv,fboxtv.com,attackertv.so,lookmovie.tube,flixhq.to,actvid.rs,zoechip.gg,seriesonline.sx,hurawatchz.to,cineb.gg,sflix2.to,cataz.to,yuppow.com,musichq.cc,hdtodayz.to,myflixer.is,theflixertv.to,putlocker.pe,moviesjoyhd.to,123movieshd.top,myflixerz.to,zoechip.cc,gomovies.*,himovies.bz,putlocker.gy,zoechip.com,pressplay.top,flixhd.cc,123moviestv.net,123-movies.vc,musichq.net,swatchseries.*,fmoviesto.*,cineb.rs,hdtoday.*,yesmovies.mn,divicast.com,freemoviesfull.com,dopebox.to,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,myflixertv.to,f2movies.*,moviesjoy.*,soap2day.*,sflix.*,hurawatch.cc#$#body { overflow: auto !important; padding-right: 0 !important; }
 movieshdwatch.to,watchseries.pe,watch32.sx,tinyzonetv.cc,moviesjoytv.to,solarmovies.win,moviesjoyz.lol,arc018.to,fmovieszz.lol,myflixtor.tv,vipstream.tv,fboxtv.com,attackertv.so,lookmovie.tube,flixhq.to,actvid.rs,zoechip.gg,seriesonline.sx,hurawatchz.to,cineb.gg,sflix2.to,cataz.to,yuppow.com,musichq.cc,hdtodayz.to,myflixer.is,theflixertv.to,putlocker.pe,moviesjoyhd.to,123movieshd.top,myflixerz.to,zoechip.cc,gomovies.*,himovies.bz,putlocker.gy,zoechip.com,pressplay.top,flixhd.cc,123moviestv.net,123-movies.vc,musichq.net,swatchseries.*,fmoviesto.*,cineb.rs,hdtoday.*,yesmovies.mn,divicast.com,freemoviesfull.com,dopebox.to,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,myflixertv.to,f2movies.*,moviesjoy.*,soap2day.*,sflix.*,hurawatch.cc#$#.modal-backdrop { display: none !important; }
 movieshdwatch.to,watchseries.pe,watch32.sx,tinyzonetv.cc,moviesjoytv.to,solarmovies.win,moviesjoyz.lol,arc018.to,fmovieszz.lol,myflixtor.tv,vipstream.tv,fboxtv.com,attackertv.so,lookmovie.tube,flixhq.to,actvid.rs,zoechip.gg,seriesonline.sx,hurawatchz.to,cineb.gg,sflix2.to,cataz.to,yuppow.com,musichq.cc,hdtodayz.to,myflixer.is,theflixertv.to,putlocker.pe,moviesjoyhd.to,123movieshd.top,myflixerz.to,zoechip.cc,gomovies.*,himovies.bz,putlocker.gy,zoechip.com,pressplay.top,flixhd.cc,123moviestv.net,123-movies.vc,musichq.net,swatchseries.*,fmoviesto.*,cineb.rs,hdtoday.*,yesmovies.mn,divicast.com,freemoviesfull.com,dopebox.to,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,myflixertv.to,f2movies.*,moviesjoy.*,soap2day.*,sflix.*,hurawatch.cc#$##modalshare { display: none !important; }
-vidbox.vc,vidbox.*##.fixed.inset-0
+cinehd.app,vidbox.vc,vidbox.*##.fixed.inset-0
 justanime.to##.share-popup-overlay
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/60788
@@ -43792,5 +43793,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42309
+! Total unique rules: 42310
 ! Duplicates removed: 14363
