@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Cookies
 ! Description: Combined filter list for the cookies category.
-! Last modified: 18 Jul 2026 01:34:31 UTC
+! Last modified: 19 Jul 2026 01:35:03 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 24 / 24
@@ -66,6 +66,27 @@ businessinsider.com##.related-posts
 /wrapperMessagingWithoutDetection.js$domain=autosport.com
 ! https://github.com/uBlockOrigin/uAssets/issues/32524#issuecomment-4712732765
 pinterest.com##+js(trusted-click-element, xpath://div[@id="__PWS_ROOT__"]/following-sibling::div[@style="z-index: 1000;"]//div[@name="trap-focus"]/div[@role="dialog"]//button[.//div[text()="Reject all"]])
+! https://github.com/uBlockOrigin/uAssets/issues/33734
+invoice4u.co.il###privacy_policy_popup
+yeshinvoice.co.il##.cookie
+kamaze.co.il##.privacy-consent
+4chef.co.il,kitchenware.co.il##.custom-cookie-outer
+alislamy.co.il,amrusi.co.il,am-oved.co.il,anglo-saxon.co.il,keter-books.co.il,kibutz-poalim.co.il,modan.co.il,nuni.co.il,ogenceramica.co.il,recycles.co.il###cookie-consent-banner
+ameat.co.il,focus.co.il,harishon-labinyan.co.il,house-design.shop,kerenby.co.il,korenelectric.co.il,locks.co.il,mosheparts.co.il,mozartbakery.co.il,peerlocks.com,soragit.co.il,spy.org.il,tudo.co.il###cookie-consent-popup
+18comp.co.il,an-cooling.com,autotire.co.il,dpirzul.com,dsfiga.co.il,gantim.com,gilcopharm.com,gordonsystem.co.il,matov.co.il,matrefa.com,mishely-art.com,peimot.com,sound-world.co.il,tiptop-tire.co.il,tireplus.co.il###sb_privacy_policy_notice
+cameracity.co.il,carmelpc.co.il,depot365.co.il,drummer.co.il,electro-buy.co.il,eline.co.il,freedio.co.il,haboosh.com,hotbuy.co.il,kafu.co.il,j-sale.co.il,lcdeal.co.il,mivnit.co.il,mugrabi.co.il,musicol-shop.co.il,musicworld.co.il,orpc.co.il,out-of-the-box.co.il,studioland.co.il,technoshlomo.co.il,video.org.il,voltstreet.co.il##[class^="cookiesPopup"]
+kitchensdesign.co.il,kiwi-kids.co.il,knesset.tv,lehamim.co.il,masgernet.co.il,milstone.co.il,vs-key.co.il##.cookie-consent
+hayeruka-ks.co.il,mashkar.co.il,millenniumac.co.il,simply-smart.com,yamitspark.co.il##.cookies13wrap
+flying.co.il##.cookie-consent-banner
+easygo.co.il##.cookieMessage
+123fresh.co.il###cookie-consent-wrapper
+maxstock.co.il###wpconsent-root
+kamada.com###cookieAlert
+albombom.co.il###bottomCookiesContentWrapper
+shop.hazi-hinam.co.il##app-cookie-consent
+delitlv.co.il###gdprCookieBar
+jfc.org.il###footer_cookies_message_wrap
+clalitsmile.co.il##.ccm-root
 
 !!! Trusted scriptlets------------------------------------------------------------
 
@@ -8046,7 +8067,7 @@ lexpress.eu,letelegramme.fr,24sata.hr,lalibre.be,index.hr,filmstarts.de,nrj-play
 24sata.hr,index.hr#%#//scriptlet('trusted-click-element', '#btn-toggle-save', '', '700')
 androidworld.nl,nieuwsblad.be,sydsvenskan.se,softonic.com#%#//scriptlet('trusted-click-element', '#didomi-notice-learn-more-button, #btn-toggle-disagree')
 ! ##.fixed.bottom-0
-theredtool.com,tefas.gov.tr,uni-motors.ru,fireani.me,emule-security.org,packsmc.com,myapelsin.ru,dajar.pl,zamantika.com,adahost.net,uvrvocalremover.com,esim.dog,pecom.ru,speedtest.skynet.ru,spletnik.ru,sahadan.com,wecoach.gg,forgemods.de,bdtickets.com,update.kia.com,ankahaber.net,minimax.io,citlekci.com.tr,playerswitch.com,enucuzsistem.com,ustabilir.com,tripon.app,newjeans.jp,unicosigorta.com.tr,foodista.com,preconsent.io,bishopfox.com,infoas.ro,faceiqlabs.com,chessarena.gg,superstep.ru,smartport.de,aa.com.tr,qmix.com.br,2gis.checkscan.ru,onefiit.com,dobrygabinet.com,allyouplay.com,smartport.com,hellorive.fun,oppaiman.com,tempemail.cc,erosmate.ai,accuratescribe.ai,tubewav.com,enhypen-jp.weverse.io,otb.net,trabzonspor.org.tr,tiklagelsin.com,arkm.com,gamehypes.com,changanauto.ru,subeasy.ai,cdek.shopping,avatr-motors.ru,meizu.com,chofu-culture-community.org,japan47go.travel,takehost.biz,findcar.pl,gfagames.com,dermatocare.com,npistanbul.com,riaj.or.jp,esng.one,ptsecurity.com,megav.app,pilkareczna.com,phocassoftware.com,are.waw.pl,gibir.net.tr,parsify.se,sanluca.cc,cloudstick.io,focus-entmt.com,fusocanter.com,georgian-airways.com,strinova.com,russia-tv.online,gloriajeans.com.tr,animalpolitico.com,help.openai.com,ntvspor.net,sakh.online,qr.nspk.ru,frontieresmedia.fr,70mai.com,frontage.jp,wallpaperlossless.com,sovcombank.ru,dinamikyatirim.com.tr,worksponsors.co.uk,tanstack.com,baomoi.com,newschecker.in,dicloak.com,obejrzyj.to,komdigi.go.id,home.id,metadefender.com,woltair.pl,vegasslotsonline.com,mod.gov.ua,newsbreak.com,pump.fun,onsk.no,penger.no,tina.io,regiojet.cz,csirt.gov.it,protipster.pl,institutoaocp.org.br,dashlane.com,versuni.com,sbertech.ru,appbazar.am,specialscomedy.com,rentingcarz.com,piknicelectronik.com,yubico.com,visualdesigncafe.com,terredeliens.org,phdays.com,parqet.com,opening-hours.today,bsbfashion.com,greenmatch.co.uk,unox.com,truecaller.com##.fixed.bottom-0
+procomic.pro,theredtool.com,tefas.gov.tr,uni-motors.ru,fireani.me,emule-security.org,packsmc.com,myapelsin.ru,dajar.pl,zamantika.com,adahost.net,uvrvocalremover.com,esim.dog,pecom.ru,speedtest.skynet.ru,spletnik.ru,sahadan.com,wecoach.gg,forgemods.de,bdtickets.com,update.kia.com,ankahaber.net,minimax.io,citlekci.com.tr,playerswitch.com,enucuzsistem.com,ustabilir.com,tripon.app,newjeans.jp,unicosigorta.com.tr,foodista.com,preconsent.io,bishopfox.com,infoas.ro,faceiqlabs.com,chessarena.gg,superstep.ru,smartport.de,aa.com.tr,qmix.com.br,2gis.checkscan.ru,onefiit.com,dobrygabinet.com,allyouplay.com,smartport.com,hellorive.fun,oppaiman.com,tempemail.cc,erosmate.ai,accuratescribe.ai,tubewav.com,enhypen-jp.weverse.io,otb.net,trabzonspor.org.tr,tiklagelsin.com,arkm.com,gamehypes.com,changanauto.ru,subeasy.ai,cdek.shopping,avatr-motors.ru,meizu.com,chofu-culture-community.org,japan47go.travel,takehost.biz,findcar.pl,gfagames.com,dermatocare.com,npistanbul.com,riaj.or.jp,esng.one,ptsecurity.com,megav.app,pilkareczna.com,phocassoftware.com,are.waw.pl,gibir.net.tr,parsify.se,sanluca.cc,cloudstick.io,focus-entmt.com,fusocanter.com,georgian-airways.com,strinova.com,russia-tv.online,gloriajeans.com.tr,animalpolitico.com,help.openai.com,ntvspor.net,sakh.online,qr.nspk.ru,frontieresmedia.fr,70mai.com,frontage.jp,wallpaperlossless.com,sovcombank.ru,dinamikyatirim.com.tr,worksponsors.co.uk,tanstack.com,baomoi.com,newschecker.in,dicloak.com,obejrzyj.to,komdigi.go.id,home.id,metadefender.com,woltair.pl,vegasslotsonline.com,mod.gov.ua,newsbreak.com,pump.fun,onsk.no,penger.no,tina.io,regiojet.cz,csirt.gov.it,protipster.pl,institutoaocp.org.br,dashlane.com,versuni.com,sbertech.ru,appbazar.am,specialscomedy.com,rentingcarz.com,piknicelectronik.com,yubico.com,visualdesigncafe.com,terredeliens.org,phdays.com,parqet.com,opening-hours.today,bsbfashion.com,greenmatch.co.uk,unox.com,truecaller.com##.fixed.bottom-0
 ! .mnd-cookie-modal
 motor-oel-guenstig.de,stratic.de,einrichten-design.de,vandenhoeck-ruprecht-verlage.com,feierstoff.de,rucksack.de,jns.de,arbrikadrex.de,businesshemden.com#$#.mnd-cookie-modal { display: none !important; }
 motor-oel-guenstig.de,stratic.de,einrichten-design.de,vandenhoeck-ruprecht-verlage.com,feierstoff.de,rucksack.de,jns.de,arbrikadrex.de,businesshemden.com#$#.mnd-cookie-modal ~ div.js--overlay { display: none !important; }
@@ -45449,6 +45470,7 @@ dehn.de#@#.cookie-layer
 ||cc.werk3.de/public/app.js
 ||cdn-cookieyes.com^$domain=hamat.co.il|lykke.com|meiro.io|miniso-us.com|planhub.ca|tarisio.com
 ||cdn.myanimelist.net/js/quantcast_choice.js
+||cdntranscend.eventbrite.com^
 ||channel4.com/consent/
 ||chrono24.com/lib/generated/js/responsive-size-cookie.$script
 ||cmp-static.nature.com^
@@ -48337,7 +48359,7 @@ developers.eyeo.com##div[data-testid="cookies-dialog"]
 ici.radio-canada.ca##div[data-testid="legalDisclaimer"]
 xero.com##div[data-xero-component="nav/cookie-notification"]
 deepdivedubai.com##div[fs-consent-element]
-companyweb.be,smythstoys.com##div[role="dialog"]
+companyweb.be,smythstoys.com,zencreator.pro##div[role="dialog"]
 reddit.com##div[style*="--Toaster-indicatorColor"]
 autodude.dk,autodude.fi,autodude.no,autodude.se,valostore.fi,valostore.no,valostore.se##div[style="background-color: rgb(240, 240, 240);"]
 globaltuners.com,psychomedia.qc.ca,speedtestcustom.com,zerochan.net##div[style^="position: fixed; bottom"]
@@ -95368,5 +95390,5 @@ zety.com##._cookiePopup_1fsd7_127
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 84928
-! Duplicates removed: 36493
+! Total unique rules: 84949
+! Duplicates removed: 36494

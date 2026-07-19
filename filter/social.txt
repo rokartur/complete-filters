@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 18 Jul 2026 01:35:03 UTC
+! Last modified: 19 Jul 2026 01:35:38 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -12147,6 +12147,8 @@ nytimes.com##[data-testid="social-group"]
 codecademy.com##[data-testid="social-share-dropdown"]
 dw.com##[data-tracking-name="footer-section-social-media"]
 dw.com##[data-tracking-name^="sharing-icons-"]
+axios.com##[data-vars-event-name="preferred_source_view"]
+axios.com##[data-vars-event-name="share_view"]
 news.yahoo.com##[data-ylk="elm:partnercta;itc:0;sec:google-pub;"]
 mothership.sg##[height="73"]
 eteknix.com##[href="https://bit.ly/39WhWFF"]
@@ -14544,6 +14546,11 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+tengrinews.kz##.social-wa
+tengrinews.kz##.social-tg
+tengrinews.kz##.social-fb
+tengrinews.kz##.social-vk
+tengrinews.kz##.social-x
 jetbrains.com##.whatsnew-key-updates-section__block-share
 usnews.com##button[data-tracking-id="social_share"]
 football.london###article-body > p[class^="Paragraph_"]:has(> strong a[href="https://www.facebook.com/AFCFootball.London#"])
@@ -43793,5 +43800,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42310
-! Duplicates removed: 14363
+! Total unique rules: 42317
+! Duplicates removed: 14365
