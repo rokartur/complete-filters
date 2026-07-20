@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 19 Jul 2026 01:35:03 UTC
+! Last modified: 20 Jul 2026 01:38:12 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1784288119-3600.patch
+! Diff-Path: ../patches/11/11-s-1784444422-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2699,6 +2699,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+ntv.co.jp###ntv_setAD_SP_300_250
+onejailbreak.com##div.post > div.mt-3:has(> ins.adsbygoogle)
 eonline.com##.photo-items__interstitial-ad-content
 pixiv.net##div.relative > div.flex > div.w-full:has(a[href^="https://pixon.ads-pixiv.net/click"])
 news.livedoor.com##.header-billboard
@@ -12282,17 +12284,19 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototyp
 web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Node.prototype.insertBefore, Function.prototype.toString)
 web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.prototype.insertAdjacentElement, JSON.parse)
 web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.prototype.insertAdjacentElement, Function.prototype.toString)
+web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.prototype.append, JSON.parse)
+web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.prototype.append, Function.prototype.toString)
 ! https://github.com/uBlockOrigin/uAssets/issues/3367#issuecomment-4635090748
 ||static.xx.fbcdn.net/rsrc.php/$script,domain=web.facebook.com|www.facebook.com,replace=/return r instanceof ArrayBuffer/return r.constructor.name==="ArrayBuffer"/
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=ellenpoliticalfollow.com,important
-ellenpoliticalfollow.com##+js(nowoif)
-ellenpoliticalfollow.com##+js(set, console.clear, undefined)
-ellenpoliticalfollow.com##+js(acs, globalThis, break;case)
-ellenpoliticalfollow.com##+js(acs, WebAssembly, atob)
-||ellenpoliticalfollow.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=caseyimpactstation.com,important
+caseyimpactstation.com##+js(nowoif)
+caseyimpactstation.com##+js(set, console.clear, undefined)
+caseyimpactstation.com##+js(acs, globalThis, break;case)
+caseyimpactstation.com##+js(acs, WebAssembly, atob)
+||caseyimpactstation.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -12671,7 +12675,7 @@ nicovideo.jp#@#a[href$="_tagrelatedbanner"]
 ||roblox.com.$all,badfilter
 
 ! https://github.com/uBlockOrigin/uAssets/issues/33072#issuecomment-4945020836
-!||x.com/i/api/1.1/flow/viewer.json$badfilter
+||x.com/i/api/1.1/flow/viewer.json$badfilter
 
 ! https://github.com/easylist/easylist/commit/1ec982848559cd61d9a462a23af788223979315c
 ||ads-twitter.com^$badfilter
@@ -18895,5 +18899,5 @@ trustnet.com##+js(set, googletag.setConfig, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13009
+! Total unique rules: 13014
 ! Duplicates removed: 18
