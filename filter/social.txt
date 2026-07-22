@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 21 Jul 2026 01:35:52 UTC
+! Last modified: 22 Jul 2026 01:36:09 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -14553,6 +14553,11 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+mechacomic.jp##a[href^="//x.com/intent/post"]
+gazeta.ua##div.pull-right:has(> div#w-i-socials-small)
+sporx.com##.youtube-bar
+yenisafak.com##button[class*="shareReaction"]
+newscientist.com##.social__links
 firtka.if.ua##.single-article ul.header-social-links
 socialxup.com##button[aria-label="Xでシェア"]
 schwaebische.de##.article-share-x
@@ -14617,7 +14622,7 @@ expert.ru##.view__content--social
 teknoblog.com##div[data-id="373566b"]
 donanimhaber.com##.sosyal-aglar
 mobileworldlive.com##.uppercase:has(> ul > li > a.mwl-facebook-share-button)
-nextbox.uno#%#//scriptlet('set-cookie', 'share_popup_seen', '1')
+next-box.su,nextbox.uno#%#//scriptlet('set-cookie', 'share_popup_seen', '1')
 myweekend.ru##.iconbox__item--share
 myweekend.ru##.lenta_network_share
 vaughn.live##div[id*="_nav_share"]
@@ -21847,7 +21852,7 @@ perito.media,realsound.jp,insight.co.kr##.fixed-share
 4travel.jp,symbolab.com##.shareIcon
 filmtipo.com,rutrailer.com,bestsimilar.com##.subscribe-c
 tse.jus.br###compartilhar-conteudo
-barandbench.com##.arr--share
+cinemaexpress.com,barandbench.com##.arr--share
 sensorstechforum.com##.apss-social-share
 mos.ru##.news-article-sharing
 oantagonista.com##a[onclick^="shareLink"]
@@ -28321,6 +28326,7 @@ adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_i
 ! generic cooking sites
 ##body[class*="adthrive-device-"] > .site-container .block-social-share
 !
+##a[href^="https://threads.com/intent/post?text="]
 ###utilitybar__button--share
 ~note.com##a[href^="https://note.com/intent/post?url="]
 ##iframe[src^="https://plugins.mixi.jp/favorite.pl?"]
@@ -29120,6 +29126,7 @@ designboom.com,livescience.com,pbtech.co.nz,peoplesworld.org,space.com##.fa-face
 ||mailget.net^$third-party
 ||my.hellobar.com^$third-party
 !
+chillflix.lol#%#//scriptlet('trusted-click-element', 'button', 'containsText:Not now')
 gdebenz.ru###share-ask
 farmaciasdesimilares.com##div[class*="wrapper_whatsapp"]
 10haber.net##.sospaylas
@@ -43810,5 +43817,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42327
+! Total unique rules: 42334
 ! Duplicates removed: 14373

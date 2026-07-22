@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 21 Jul 2026 01:35:18 UTC
+! Last modified: 22 Jul 2026 01:35:35 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10628,6 +10628,10 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+citynews.ca#$##master-leaderboard-wrapper { display: none !important; }
+citynews.ca#$#.sticky-top { top: 0 !important; }
+citynews.ca##div[data-slot-type="_AD_BIGBOX"]
+citynews.ca##div[data-current-ad-type="_AD_MULTIAD_HP_BB"]
 321movies.xyz##div[class^="bg-warning-50/10"]:has(> p.text-warning-300)
 stock-calculator.net###__nuxt > div.fixed.inset-0
 turbolab.it##.tli-handstop
@@ -13721,5 +13725,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10429
+! Total unique rules: 10433
 ! Duplicates removed: 3039
