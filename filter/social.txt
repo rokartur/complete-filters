@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 22 Jul 2026 01:36:09 UTC
+! Last modified: 23 Jul 2026 01:36:36 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -14553,6 +14553,9 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+dreamerscast.com###player_control_icon_share
+foreks.com##.share-cover
+gazetadopovo.com.br##li[class$="postMidiasShareItem"]:has(> button[title="Compartilhar matéria"])
 mechacomic.jp##a[href^="//x.com/intent/post"]
 gazeta.ua##div.pull-right:has(> div#w-i-socials-small)
 sporx.com##.youtube-bar
@@ -18303,7 +18306,7 @@ sportsseoul.com##.btn-share-open
 joynews24.com##nav.view > button[aria-label]
 cult.honeypot.io##ul[class^="footer-module--social-media"]
 vecernji.hr##.block--article-toolbar
-animego.online##.telega__full
+animego.online##.animego-online-telega__full
 apply.lufthansagroup.careers##.js-share-jobad
 video.sibnet.ru##.block1
 media.mts.ru##.article-block__share
@@ -18549,6 +18552,7 @@ ysklog.net##article .yarpp-related-website
 m.timesofindia.com##.floatingwhatsapp
 instamod.net##.gmr-share
 [$domain=/yavasgir\d+\.(com|live)/]##button[data-tab-id="video-share"]
+[$domain=/cimcime\d+\.(com|live)/]##button[data-tab-id="video-share"]
 fullxcinema1.com##button[data-tab-id="video-share"]
 windows101tricks.com##.elementor-widget-uael-social-share
 st-andrews.ac.uk##.article-header__meta-share
@@ -22766,7 +22770,7 @@ film.org.pl##.widget-post-share
 wpexplorer.com###fixed-social-share
 goodhouse.ru##.widget-test-sharing
 internalpointers.com##.ip-post__social-tools
-themoviebox.org,nvidianews.nvidia.com,koreaboo.com,vue.gov.ua,esports.net,voguegirl.jp,blog.logitech.com,kurashiru.com,getpocket.com##div[class$="-share"]
+moviebox.ph,movieboxapp.in,themoviebox.org,moviebox.pk,movieboxapp.in,123movienow.cc,nvidianews.nvidia.com,koreaboo.com,vue.gov.ua,esports.net,voguegirl.jp,blog.logitech.com,kurashiru.com,getpocket.com##div[class$="-share"]
 peoplesworld.org##.sub-header .social_icon
 steampowered.com##.discussionwidget_ShareBtn_22m-G > img[class^="partnereventshared_Button_"]
 portalimprensa.com.br##.clsTabsModTwitterFacebook
@@ -25367,7 +25371,7 @@ muyzorras.com##.sc[style="outline-width: 0px !important; user-select: text !impo
 spoonuniversity.com##.social > a[data-spoon-event="share"]:not(.email)
 pnp.de###whatsappShareLink
 plo.vn,tracker.network,destinytracker.com,halotracker.com,fortnitetracker.com,tracker.gg##.trn-share-button
-himeji-mitai.com,raiffeisen-media.ru,autodaily.ru,vietnamplus.vn,codernet.ru,marketwatch.com,tracker.network,destinytracker.com,halotracker.com,fortnitetracker.com,tracker.gg,kapook.com,kanalukraina.tv,cbnews.jp,tsargrad.tv,sciencemag.org,amp.rbc.ru,12kotov.ru##.article__social
+vogue.ua,himeji-mitai.com,raiffeisen-media.ru,autodaily.ru,vietnamplus.vn,codernet.ru,marketwatch.com,tracker.network,destinytracker.com,halotracker.com,fortnitetracker.com,tracker.gg,kapook.com,kanalukraina.tv,cbnews.jp,tsargrad.tv,sciencemag.org,amp.rbc.ru,12kotov.ru##.article__social
 boehms-dax-strategie.de##.sideblock.social
 potaru.com,online-convert.com,hostinger.com.ua,gazetaprawna.pl,myseldon.com,forsal.pl,tengrinews.kz,ellegirl.ru,dziennik.pl,auto-swiat.pl,komputerswiat.pl,onet.pl,plejada.pl,przegladsportowy.pl,countrylife.co.uk,rt.com,haber365.com,haber365.com.tr,donaukurier.de##.social-container
 sendvid.com##.video-controls > .ctrls > .unstyled.list-ctrls > li > a[onclick^="shareVideo"]:not([onclick^="shareVideo('email'"])
@@ -43817,5 +43821,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42334
+! Total unique rules: 42338
 ! Duplicates removed: 14373

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 22 Jul 2026 01:35:35 UTC
+! Last modified: 23 Jul 2026 01:36:03 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1784648389-3600.patch
+! Diff-Path: ../patches/11/11-s-1784741732-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2963,7 +2963,7 @@ onlytik.com#%#//scriptlet('set-constant', 'ads_every_x_videos', 'undefined')
 onlytik.com#%#//scriptlet('prevent-addEventListener', 'click', 'clkUnder')
 adultgamesworld.com###showinmob
 minuteinbox.com##.addBlock
-marieclaire.com.tr##div[style^="width:320px;"][style*="height:100px"]
+trendus.com,marieclaire.com.tr##div[style^="width:320px;"][style*="height:100px"]
 player4me.vip#%#//scriptlet('abort-on-property-write', 'cache_loader')
 dalealbo.cl#$#.top-sticky-wrapper { display: none !important; }
 dalealbo.cl#$#header { top: 0 !important; }
@@ -18684,6 +18684,9 @@ hikvision.com##+js(set, pa.sendEvent, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/33760
 trustnet.com##+js(set, googletag.setConfig, noopFunc)
 
+! https://github.com/uBlockOrigin/uAssets/issues/33793
+tmz.com##.ad-header-wrapper:remove()
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -18889,5 +18892,5 @@ trustnet.com##+js(set, googletag.setConfig, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13007
+! Total unique rules: 13008
 ! Duplicates removed: 16
