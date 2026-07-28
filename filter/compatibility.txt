@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 27 Jul 2026 01:36:03 UTC
+! Last modified: 28 Jul 2026 01:34:11 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1785086876-3600.patch
+! Diff-Path: ../patches/11/11-s-1785170954-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2706,6 +2706,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+automaton-media.com##.cd-bk
+zoomit.ir##.w-full[class*="hidden"][class*="empty"]
+zoomit.ir##div[class^="AdvertisingStickyMobile"]
 dic.pixiv.net##div[class="h-\[50px\]"]
 dic.pixiv.net##div.h-\[250px\]:has(> div[style^="display: block;"] > iframe[data-uid])
 pinterest.*###homefeed > div > div[data-test-id="max-width-container"] > div > div[role="list"] > div[role="listitem"]:has(> div[data-grid-item-idx] > div[data-pin-id] div[data-test-id="related-pins-name"])
@@ -3372,7 +3375,6 @@ motorcycle.com##.ads-fluid-wrap
 motorcycle.com##.ad-native-top-strip
 3sumxl.com,w1mp.com,pornfant.com,porno-cum.com,babexl.com,pumpjap.com,asianpornxl.com,bigassz.com##.related-spot-wrap-mobile
 3sumxl.com,w1mp.com,pornfant.com,porno-cum.com,babexl.com,pumpjap.com,asianpornxl.com,bigassz.com##.link-offer
-freepdfcomic.eu##.site-content div[class^="wrap"][style="overflow:auto;display:flex;gap:0px 2px;"]
 sporekrani.com#$##topBannerMobileDiv { display: none !important; }
 sporekrani.com#$#.header-container > .q-mb-sm { display: none !important; }
 sporekrani.com#$#header.header-helper { min-height: 84px !important; }
@@ -7741,7 +7743,7 @@ pnp.de###aufmacher > div[style*="color:#aaa"]
 m.onvista.de##.marketOverviewIntegration
 m.onvista.de##a[href^="https://track.adform.net"]
 m.onvista.de##.ANZEIGE
-hdtube.porn,pornid.*,sex3.com,rat.xxx,hdxnxx.xxx,zbporn.com,xbabe.com,hdpornfree.xxx,hellporno.net###fltd
+sexvid.xxx,hdtube.porn,pornid.*,sex3.com,rat.xxx,hdxnxx.xxx,zbporn.com,xbabe.com,hdpornfree.xxx,hellporno.net###fltd
 ||m.txxx.com/sizo^
 hotmovs.com##.topad
 wetter.com##div[id^="ad-fullbanner"]
@@ -18897,5 +18899,5 @@ tmz.com##.ad-header-wrapper:remove()
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13012
+! Total unique rules: 13014
 ! Duplicates removed: 17
