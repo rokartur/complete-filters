@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 28 Jul 2026 01:34:11 UTC
+! Last modified: 29 Jul 2026 01:34:57 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -9987,6 +9987,9 @@ ya.ru,yandex.*#$?#div[class^="ImagesViewer-"][style^="height:"] { remove: true; 
 !#endif
 !
 ! Yandex.Maps
+yandex.*##.map-container ~ div.app div.business-card-overview-tab-view__content ._type_middle > div:not(._hidden)
+yandex.*##.map-container ~ div.app div.business-card-overview-tab-view__shrink > div._type_bottom > div:not(._hidden)
+yandex.*##.map-container ~ div.app div.business-card-view__main-wrapper > div._type_upper > div:not(._hidden)
 ya.ru,yandex.*##.sidebar-container div[id*="R-I-"]
 [$path=/\/(maps|navi|web-maps)/]ya.ru,yandex.*#%#//scriptlet('set-constant', 'Object.prototype.isStickyAd', 'undefined')
 !
@@ -10628,22 +10631,10 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
-! archon.gg - site placeholder asking to disable AdBlock
+ledemondujeu.com##.avertissement
 archon.gg##span[class^="Article_stickyFooterAd"]
 archon.gg##div[class^="Advertisements"]
-! https://github.com/AdguardTeam/AdguardFilters/issues/236551
 mtgcardsmith.com#%#//scriptlet('prevent-setTimeout', 'show(')
-!#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
-@@||pagead2.googlesyndication.com/pagead/$domain=mtgcardsmith.com
-mtgcardsmith.com#@#ins.adsbygoogle[data-ad-slot]
-mtgcardsmith.com#@#ins.adsbygoogle[data-ad-client]
-mtgcardsmith.com#@#ins[data-adsbygoogle-status]
-mtgcardsmith.com#@#.adsbygoogle-noablate
-mtgcardsmith.com#@#.textAds
-mtgcardsmith.com#@#[id^="aswift_"]
-mtgcardsmith.com#@#.ads-box
-mtgcardsmith.com#@#.Textads
-!#endif
 citynews.ca#$##master-leaderboard-wrapper { display: none !important; }
 citynews.ca#$#.sticky-top { top: 0 !important; }
 citynews.ca##div[data-slot-type="_AD_BIGBOX"]
@@ -13448,6 +13439,15 @@ aol.com#$#.ad__tile { height: 10px!important; position: absolute!important; left
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
 !#safari_cb_affinity(general)
 !
+@@||pagead2.googlesyndication.com/pagead/$domain=mtgcardsmith.com
+mtgcardsmith.com#@#ins.adsbygoogle[data-ad-slot]
+mtgcardsmith.com#@#ins.adsbygoogle[data-ad-client]
+mtgcardsmith.com#@#ins[data-adsbygoogle-status]
+mtgcardsmith.com#@#.adsbygoogle-noablate
+mtgcardsmith.com#@#.textAds
+mtgcardsmith.com#@#[id^="aswift_"]
+mtgcardsmith.com#@#.ads-box
+mtgcardsmith.com#@#.Textads
 @@||vi.freewheel.tv/static/creatives/fw-ad-300x250.jpg$domain=peacocktv.com
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=dumpert.nl
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=dumpert.nl
@@ -13741,5 +13741,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10445
+! Total unique rules: 10449
 ! Duplicates removed: 3039
