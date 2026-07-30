@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 29 Jul 2026 01:35:30 UTC
+! Last modified: 30 Jul 2026 01:35:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10156,6 +10156,7 @@ _social_footer_
 ##a[href^="https://t.me/share/url?"]
 ##a[href^="https://telegram.me/share/url?"]
 ##a[href^="https://twitter.com/intent/tweet?"]
+##a[href^="https://twitter.com/intent/user?screen_name="]
 ##a[href^="https://wa.me/?text="]
 ##a[href^="https://www.facebook.com/dialog/feed?"]
 ##a[href^="https://www.facebook.com/dialog/send?"]
@@ -10288,6 +10289,7 @@ _social_footer_
 ||getbutton.io/widget-send-button/$third-party
 ||getsocial.io/widget/$third-party
 ||getsocial.io^*/gs_async.js$third-party
+||getsocialbar.com^$third-party
 ||google.com/_/+1/$third-party
 ||google.com^*/fastbutton?$third-party
 ||gotchosen.com^$third-party
@@ -11839,6 +11841,7 @@ tech.hindustantimes.com##.socialWidgets
 faithwire.com##.social__buttons
 agbi.com##.social__link
 jetphotos.com##.social__link--share
+newscientist.com##.social__links
 moroccoworldnews.com##.social__media
 eurovisionworld.com##.social_a
 salon.com,snopes.com##.social_comments_app_wrapper
@@ -12513,9 +12516,11 @@ universfreebox.com###banniere-6584-particle
 meteofrance.com###block-publicmenusocial
 top-for-phone.fr###custom_html-6
 palais-de-la-voiture.com###socialmenu
+laprovence.com##.ContentFooter_social-footer___2tiv
 mo.be##.NavBar_SocialWrapper__J0Xoh
 lopinion.fr##.Page-actions
 l-eaualabouche.com##.Post-shares
+laprovence.com##.ShareBar_btn__ZO5cC
 radiofrance.fr##.ShareManager
 francebleu.fr##.ShareNetwork
 mo.be##.Share_Share__8JkUX
@@ -14558,6 +14563,10 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+group.ntt##.c-sns-2
+leparisien.fr##.tooltip-share-article-container
+haberturk.com##li[onclick="HTJS.newsShare(this)"]
+itmedia.co.jp##.p-sns-box
 ovvah.com##.widget_social
 sexvid.xxx##div[href="#Share-moadl"]
 respawn.outlookindia.com##.items-center > button:has(> img[alt="share icon"])
@@ -14576,7 +14585,6 @@ mechacomic.jp##a[href^="//x.com/intent/post"]
 gazeta.ua##div.pull-right:has(> div#w-i-socials-small)
 sporx.com##.youtube-bar
 yenisafak.com##button[class*="shareReaction"]
-newscientist.com##.social__links
 firtka.if.ua##.single-article ul.header-social-links
 socialxup.com##button[aria-label="Xでシェア"]
 schwaebische.de##.article-share-x
@@ -22786,7 +22794,7 @@ film.org.pl##.widget-post-share
 wpexplorer.com###fixed-social-share
 goodhouse.ru##.widget-test-sharing
 internalpointers.com##.ip-post__social-tools
-moviebox.ph,movieboxapp.in,themoviebox.org,moviebox.pk,movieboxapp.in,123movienow.cc,nvidianews.nvidia.com,koreaboo.com,vue.gov.ua,esports.net,voguegirl.jp,blog.logitech.com,kurashiru.com,getpocket.com##div[class$="-share"]
+moviebox.ac,moviebox.ph,movieboxapp.in,themoviebox.org,moviebox.pk,movieboxapp.in,123movienow.cc,nvidianews.nvidia.com,koreaboo.com,vue.gov.ua,esports.net,voguegirl.jp,blog.logitech.com,kurashiru.com,getpocket.com##div[class$="-share"]
 peoplesworld.org##.sub-header .social_icon
 steampowered.com##.discussionwidget_ShareBtn_22m-G > img[class^="partnereventshared_Button_"]
 portalimprensa.com.br##.clsTabsModTwitterFacebook
@@ -28570,7 +28578,7 @@ href^="https://facebook.com/sharer?u=
 ~facebook.com##a[href^="http://www.facebook.com/dialog/feed?"]
 ~yandex.ru##a[href^="https://share.yandex.ru/go.xml?service="]
 ~pressdigital.es,~immersive-fox.com,~indiegogo.com##.share-icon
-~accounts.stella-it.com,~nikkansports.com,~la7.it,~bluedart.com,~thehackernews.com##.social-box
+~wargaming.net,~accounts.stella-it.com,~nikkansports.com,~la7.it,~bluedart.com,~thehackernews.com##.social-box
 ~pinterest.com##a[href^=" https://pinterest.com/pin/create/link/?"]
 ~ok.ru##a[href^="http://connect.ok.ru/offer?url="]
 ~ok.ru##a[href^="https://connect.ok.ru/offer?url="]
@@ -43838,5 +43846,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42354
-! Duplicates removed: 14379
+! Total unique rules: 42362
+! Duplicates removed: 14386
