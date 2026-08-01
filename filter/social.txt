@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 31 Jul 2026 01:36:09 UTC
+! Last modified: 01 Aug 2026 01:36:22 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -12889,6 +12889,7 @@ lespresso.it##.flex.justify-between.gap-x-2
 focus.it##.foc-footer-social
 virgilio.it##.foglia__social
 sportwebsicilia.it##.follow-title
+ansa.it##.fonti-preferite
 udinese.it##.foobar-social
 staseraincucina.it##.footer
 libreriascolastica.it,libreriauniversitaria.it##.footer-social-container
@@ -14564,6 +14565,9 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+slivki.tj##.social-media-share-block
+google.com##form[role="search"] + div > div[role="button"][data-sf][aria-label]
+shopandmall.ru##.news-content-footer__soc
 facebook.com###facebook div:has(> i ~ button[label="Share"])
 facebook.com##a[href^="/sharer/sharer.php?"]
 gogov.ru##.gg-share
@@ -26098,7 +26102,7 @@ rantlifestyle.com###share-below-desktop
 javtrailers.com,wired.com###share-card
 rantlifestyle.com###share-in-content
 dailylocal.com,delcotimes.com###shareBarWrapper
-nepu.to,youcine.plus,apkmirror.com###shareDropdown
+nepu.*,youcine.plus,apkmirror.com###shareDropdown
 allrecipes.com###shareRecipe
 emarketer.com###shareTxt
 pcmag.com,extremetech.com###share_container
@@ -27166,7 +27170,7 @@ bosnainfo.ba#?#footer > div.container:has(> div.container > div.fb__page)
 seekingalpha.com#?#div[data-test-id="left-rail"] > div > div:has(> div > button[aria-label="Share options"])
 hakimiyet.com,elazigonline.com,sha.com.tr#?#.items-center > span[class="hidden lg:block"]:contains(/^PAYLAŞ$/)
 zawazawa.jp#?#.aside-group > .twitter-widget-wrapper:upward(1)
-nepu.to,svetacdn.in###oframeplayer > pjsdiv:has(> pjsdiv > pjsdiv[style*="transform"] > svg > g > path[d^="M5.5662845,8.26248366"])
+nepu.*,svetacdn.in###oframeplayer > pjsdiv:has(> pjsdiv > pjsdiv[style*="transform"] > svg > g > path[d^="M5.5662845,8.26248366"])
 delivembed.cc#?#div[class^="top-right_"] > button[class^="button_"]:has(> span > span:contains(Поделиться ссылкой))
 moroccoworldnews.com#?#.social__media > ul > li:not(:has(> span[style]))
 technodom.kz#?#.product-actions__interactions-wrapper > button.product-actions__interaction:has(> p.product-actions__interaction-text:contains(Поделиться))
@@ -43853,5 +43857,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42370
-! Duplicates removed: 14387
+! Total unique rules: 42374
+! Duplicates removed: 14388
