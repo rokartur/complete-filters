@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 01 Aug 2026 01:35:46 UTC
+! Last modified: 02 Aug 2026 01:35:36 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1785509766-3600.patch
+! Diff-Path: ../patches/11/11-s-1785567498-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2706,6 +2706,12 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+idnes.cz##.ank0a1it0n
+idnes.cz###r-toucharticlenative
+idnes.cz###r-toucharticlenativedown
+idnes.cz###r-touchnativeadvertorial
+idnes.cz###r-touch300x250related
+idnes.cz###r-touch300x250selected
 wws-channel.com##.ad-geniee-rectangle
 wws-channel.com##.kyujin-box-article
 edmunds.com##.ad-unit-mmrect
@@ -12291,7 +12297,7 @@ web.facebook.com,www.facebook.com##div[role="complementary"] a[attributionsrc][h
 web.facebook.com,www.facebook.com##div[role="complementary"] h3 span[style^="-webkit-box-orient:vertical"]:has-text(/^Sponsored$/)
 ! web.facebook.com,www.facebook.com##+js(rpnt, script, "x3m9kf2n":true\,, , condition, compat_iframe_token)
 web.facebook.com,www.facebook.com##+js(json-prune, require.0.3.0.__bbox.require.[].3.1.__bbox.result.data.serpResponse.results.edges.[-].rendering_strategy.view_model.story.sponsored_data.ad_id)
-web.facebook.com,www.facebook.com##+js(json-edit, ..node[?.*.__typename=="SponsoredData"])
+web.facebook.com,www.facebook.com##+js(json-edit, .require..node[?.*.__typename=="SponsoredData"])
 web.facebook.com,www.facebook.com##+js(json-edit, ..nodes.*[?.sponsored_data])
 web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, .data[?.category=="SPONSORED"].node, propsToMatch, /graphql)
 web.facebook.com,www.facebook.com##+js(jsonl-edit-xhr-response, ..node[?.*.__typename=="SponsoredData"], propsToMatch, /graphql)
@@ -12315,12 +12321,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.proto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=matthewhotelscience.com,important
-matthewhotelscience.com##+js(nowoif)
-matthewhotelscience.com##+js(set, console.clear, undefined)
-matthewhotelscience.com##+js(acs, globalThis, break;case)
-matthewhotelscience.com##+js(acs, WebAssembly, atob)
-||matthewhotelscience.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=jessicachoosemake.com,important
+jessicachoosemake.com##+js(nowoif)
+jessicachoosemake.com##+js(set, console.clear, undefined)
+jessicachoosemake.com##+js(acs, globalThis, break;case)
+jessicachoosemake.com##+js(acs, WebAssembly, atob)
+||jessicachoosemake.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -18714,6 +18720,9 @@ trustnet.com##+js(set, googletag.setConfig, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/33793
 tmz.com##.ad-header-wrapper:remove()
 
+! https://github.com/uBlockOrigin/uAssets/issues/33915
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule,domain=calculla.com
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -18919,5 +18928,5 @@ tmz.com##.ad-header-wrapper:remove()
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13034
+! Total unique rules: 13041
 ! Duplicates removed: 17
