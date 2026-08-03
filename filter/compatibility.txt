@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 02 Aug 2026 01:35:36 UTC
+! Last modified: 03 Aug 2026 01:36:13 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -18723,6 +18723,11 @@ tmz.com##.ad-header-wrapper:remove()
 ! https://github.com/uBlockOrigin/uAssets/issues/33915
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule,domain=calculla.com
 
+! https://github.com/uBlockOrigin/uAssets/issues/33934
+book.trivago.com##+js(set, RISKX, {})
+book.trivago.com##+js(set, RISKX.go, noopFunc)
+book.trivago.com##+js(set, RISKX.setSid, noopFunc)
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -18928,5 +18933,5 @@ tmz.com##.ad-header-wrapper:remove()
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13041
+! Total unique rules: 13044
 ! Duplicates removed: 17
