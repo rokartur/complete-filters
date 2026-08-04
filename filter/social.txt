@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 03 Aug 2026 01:36:42 UTC
+! Last modified: 04 Aug 2026 01:36:10 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -13493,6 +13493,7 @@ clubdelsubscriptor.cat##.club-producte-social
 adnradio.cl,cadenaser.com,caracol.com.co,los40.com,wradio.com.co,wradio.com.mx##.cnt-interaccion
 df.cl##.col-xs-12.col-sm-12.col-md-12.text-right.pull-left.pad-none
 adslzone.net##.comments-social-share
+elsiglocoahuila.mx,elsiglodedurango.com.mx,elsiglodetorreon.com.mx##.comparte
 elmundofinanciero.com##.comparte_noticia
 ecologiaverde.com,el9nou.cat,elsaltodiario.com,infocatolica.com,lanacion.com.ar,laverdad.com,psicologia-online.com,qmusica.tv,revistafamilia.ec##.compartir
 elmostrador.cl##.compartir-noticia
@@ -13540,6 +13541,8 @@ diaridegirona.cat,diariocordoba.com,diariodeibiza.es,diariodemallorca.es,elcorre
 adnradio.cl##.gdisc-follow
 elmostrador.cl##.gnews-container
 noticiasrcn.com##.google-button
+elsiglodetorreon.com.mx##.google-buttons-container
+elsiglodetorreon.com.mx##.google-buttons-containertop
 ecuavisa.com##.google-news
 milenio.com##.google-news-follow
 metroecuador.com.ec##.googlenews-btn
@@ -13594,8 +13597,9 @@ beteve.cat##.post-share-sms
 biobiochile.cl##.post-social-container
 qhubomedellin.com##.qh-social-icons-articulo
 noticiasfides.com##.qshare
+zocalo.com.mx##.red-social
 biobiochile.cl##.redes-container
-diarioelargentino.com##.redes-footer
+diarioelargentino.com,elsiglodetorreon.com.mx##.redes-footer
 diariodecuyo.com.ar##.redes-left
 eleconomista.com.ar##.redes-share
 eldesmarque.com##.redesSociales
@@ -14581,6 +14585,8 @@ group.ntt##.c-sns-2
 leparisien.fr##.tooltip-share-article-container
 haberturk.com##li[onclick="HTJS.newsShare(this)"]
 itmedia.co.jp##.p-sns-box
+merrittherald.com##.et_social_pin_images_outer
+merrittherald.com#$#.post-footer { border-top: none !important; padding: 0 !important; }
 ovvah.com##.widget_social
 sexvid.xxx##div[href="#Share-moadl"]
 respawn.outlookindia.com##.items-center > button:has(> img[alt="share icon"])
@@ -19679,7 +19685,7 @@ markezine.jp##.c-article_popup_btn
 playvids.com##.btn-group > li.dropdown
 playvids.com###mediaPlayerShareBtn
 hightech.plus##article div[id^="instantViewSocial"]
-useapotion.com,androidphone.fr,eftm.com##.ed-social-share-icons
+merrittherald.com,useapotion.com,androidphone.fr,eftm.com##.ed-social-share-icons
 spooncast.net##button[title="シェア"]
 gofundme.com##a[data-element-id$="_share"]
 redbubble.com##div[class*=" ArtistHeader__shareButton--"]
@@ -26849,7 +26855,6 @@ yahoo.com##iframe[src^="https://www.facebook.com/plugins/likebox.php"]
 filehorse.com##iframe[title^="+Badge"]
 zvuki.ru##iframe[title^="fb:like"]
 ajans23.com,ekippolishaber.com##img[alt="facebook-paylas"]
-computerera.co.in##ism_wrap
 huffpost.com##li.pinterest
 huffpost.com,huffingtonpost.co.uk##li.facebook
 huffpost.com,huffingtonpost.co.uk##li.twitter
@@ -43055,7 +43060,6 @@ manutd.com##.home-content-panel__details-social__icons
 marketbeat.com###shareWidget
 marketwatch.com###share-bar, #share-tools-fixed, #site-share, #site-share-footer, #storytoolsplaceholder, .fyre-notifier-container, .sharrre.js-facebook, .sharrre.js-flipboard, .sharrre.js-linkedin, .sharrre.js-twitter
 marriott.com##.article-sidebar
-marshallbrain.com##.ztb-sb-widget-iframe
 marthastewart.com##.footer-sticky-social-container
 mashable.com##.article-shares-stub, .follow-channel, .microcontent-shares, .pull-right.follow-menu.submenu.follow, .video-shares
 massivesci.com##.ShareButtons
@@ -43858,5 +43862,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42375
-! Duplicates removed: 14388
+! Total unique rules: 42379
+! Duplicates removed: 14392
