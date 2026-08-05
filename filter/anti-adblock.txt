@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 04 Aug 2026 01:35:35 UTC
+! Last modified: 05 Aug 2026 01:34:32 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -3144,6 +3144,9 @@ $subdocument,domain=urlbluemedia.shop
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/AdguardTeam/AdGuardSDNSFilter/master/Filters/exceptions.txt
+! https://github.com/AdguardTeam/AdguardFilters/issues/237216
+! Blocked by CNAME nonstoppartner.net
+@@||partner.o2online.de^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/2058
 ! Blocked by CNAME data.adobedc.net
 @@||data.notify.macys.com^|
@@ -10042,6 +10045,8 @@ yandex.ru##.main__block-banner iframe[src]
 [$path=/search]ya.ru,yandex.*#%#//scriptlet('remove-node-text', 'script', '/^window\.Ya.*pcodeParams.*renderTo/')
 ! In the feed
 ya.ru##.feed > div > ul > li.feed__item:has(div[id*="R-I-"])
+! Video search
+ya.ru,yandex.*##div[id^="search-list-"][id*="-R-I-"]
 !
 ! Yandex.TV
 tv.yandex.*#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
@@ -13751,5 +13756,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10452
+! Total unique rules: 10454
 ! Duplicates removed: 3037
