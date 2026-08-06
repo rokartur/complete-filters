@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 05 Aug 2026 01:34:32 UTC
+! Last modified: 06 Aug 2026 01:34:47 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10015,6 +10015,9 @@ yandex.*##article[class^="AppMoney_wrap_"]
 [$path=/pogoda]yandex.*#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
 !
 ! Yandex.Video
+! In search
+ya.ru,yandex.*##.AdvSnippetFeature-Item
+ya.ru,yandex.*##div[id^="search-list-"][id*="-R-I-"]
 ! ads near the player
 ya.ru,yandex.*##div[id^="Video-"] div[class*="VideoListPageDirect"]
 ya.ru,yandex.*##div[class*="-DirectSkeleton"]
@@ -10045,8 +10048,6 @@ yandex.ru##.main__block-banner iframe[src]
 [$path=/search]ya.ru,yandex.*#%#//scriptlet('remove-node-text', 'script', '/^window\.Ya.*pcodeParams.*renderTo/')
 ! In the feed
 ya.ru##.feed > div > ul > li.feed__item:has(div[id*="R-I-"])
-! Video search
-ya.ru,yandex.*##div[id^="search-list-"][id*="-R-I-"]
 !
 ! Yandex.TV
 tv.yandex.*#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
@@ -13756,5 +13757,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10454
+! Total unique rules: 10455
 ! Duplicates removed: 3037
