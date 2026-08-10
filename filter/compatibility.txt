@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 09 Aug 2026 01:32:12 UTC
+! Last modified: 10 Aug 2026 01:32:42 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -12748,6 +12748,13 @@ fo76db.com##+js(trusted-rpnt, script, / ads\.map[\S\s\n]+?join\(''\)/)
 ! https://github.com/uBlockOrigin/uAssets/issues/33996
 flipkart.com#@#div[data-id][style]:has([width][height][fill])
 
+! https://github.com/uBlockOrigin/uAssets/issues/34009
+pdftoshokan.com##+js(aeld, /click|load/, /document\.location|pop\.|exo|cookie|\.php/)
+pdftoshokan.com##+js(nowoif, ok_)
+!#if cap_html_filtering
+pdftoshokan.com##^script:has-text(/ad.?Config|prepare.?Pop|\/popunder|ads_host/)
+!#endif
+
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
 !
@@ -18963,5 +18970,5 @@ book.trivago.com##+js(set, RISKX.setSid, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13069
+! Total unique rules: 13072
 ! Duplicates removed: 17
