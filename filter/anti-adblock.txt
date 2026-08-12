@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 11 Aug 2026 01:32:36 UTC
+! Last modified: 12 Aug 2026 01:33:15 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -3144,6 +3144,9 @@ $subdocument,domain=urlbluemedia.shop
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/AdguardTeam/AdGuardSDNSFilter/master/Filters/exceptions.txt
+! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/2081
+! Blocked by CNAME data.adobedc.net
+@@||data.promo.timhortons.ca^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/237216
 ! Blocked by CNAME nonstoppartner.net
 @@||partner.o2online.de^|
@@ -10642,6 +10645,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+openinbox.io##.inset-0.fixed
 velomarkt.*###helpUs
 civitai.com,civitai.red##main div.flex[style] > div[style*="contain-intrinsic-size"]:has(a[href="/pricing"] img)
 civitai.com,civitai.red##a[href="/pricing"]:has(img)
@@ -13764,5 +13768,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10461
+! Total unique rules: 10463
 ! Duplicates removed: 3037
