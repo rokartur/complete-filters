@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 12 Aug 2026 01:33:16 UTC
+! Last modified: 13 Aug 2026 01:33:31 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1786455311-3600.patch
+! Diff-Path: ../patches/11/11-s-1786520260-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2707,6 +2707,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+m.drtuber.desi,m.drtuber.com,m.drtuber.*##.rated_box ~ .container
+m.drtuber.desi,m.drtuber.com,m.drtuber.*##.vpn-under-player
+m.drtuber.desi,m.drtuber.com,m.drtuber.*##.nav_premium_link
 meteofor.com.ua##.section-rss
 yuga.ru##.mobile_fox
 ura.news##div[class^="publication-top-advertisement_publication-top-advertisement__"]
@@ -12727,23 +12730,9 @@ decompiler.com##+js(set, OffscreenCanvas.prototype.getContext, undefined)
 decompiler.com##+js(nosiif, === false)
 decompiler.com##+js(aost, Element.prototype.removeChild, /blocked|tick/)
 
-! https://github.com/uBlockOrigin/uBlock-discussions/discussions/986
-!#if env_firefox
-javmix.*#@#+js(acs, addEventListener, style.display)
-!#endif
-
 ! https://github.com/uBlockOrigin/uAssets/issues/5184
 twitch.tv##.stream-display-ad__wrapper + div > div[style^="position:"] > div[class^="Layout-sc-"]:has(video[src^="https://m.media-amazon.com"])
 twitch.tv##.chat-shell > div[class^="Layout-sc-"]  > div[style^="transition:"]:has(video[src^="https://m.media-amazon.com"])
-
-! https://github.com/uBlockOrigin/uAssets/issues/33817
-||vk.com/images/$third-party,badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/33873
-||yastatic.net^$badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/33905
-@@/uxab/ui-core-analytics-bundle.jsdbx$1p
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/233737
 fo76db.com#@#+js(aeld, DOMContentLoaded, /ads|AmazonCarousel/)
@@ -18979,5 +18968,5 @@ book.trivago.com##+js(set, RISKX.setSid, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13079
+! Total unique rules: 13078
 ! Duplicates removed: 17
