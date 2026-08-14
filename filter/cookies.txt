@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Cookies
 ! Description: Combined filter list for the cookies category.
-! Last modified: 13 Aug 2026 01:33:31 UTC
+! Last modified: 14 Aug 2026 01:33:25 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 24 / 24
@@ -8336,6 +8336,9 @@ sabancivakfi.org###ez-banner[role="banner"]
 !
 ! NOTE: Regular rules
 !
+afyonpostasi.com.tr##.cookie-consent-body
+||vercel.fides-cdn.ethyca.com/fides.js
+infrawire.net##.sm\:w-auto.sm\:p-4.z-\[99999\]
 falabella.com.pe##.overlay-popover
 spid.center##div[class^="_"]:has(> a[href="/privacy"])
 mining.sandvik##div[data-consent-banner]
@@ -8355,6 +8358,7 @@ bunkrsearch.com#%#//scriptlet('trusted-set-local-storage-item', 'app-age-verifie
 ludusengine.com#%#//scriptlet('set-cookie', 'cookieChoice', 'essential')
 motor-x.pl#%#//scriptlet('trusted-set-cookie', 'mx_cookie_consent', '%7B%22analytics%22%3Afalse%2C%22marketing%22%3Afalse%7D')
 store.playsum.live##astro-island > .bg-slate-100.dark\:bg-white.md\:items-center
+orevillestudios.com###root > footer + div:has(> div > div > p > a[href="/cookies"])
 perspektywy.pl#%#//scriptlet('trusted-set-local-storage-item', 'cookieConsent', '{"analytics":false,"functional":false,"marketing":false}')
 doz.pl#%#//scriptlet('trusted-click-element', 'cookie-wall .cookie-next_btn, cookie-wall .cookie-close_btn,save_btn', '!cookie:consent-granted')
 friedrichshafen.de#%#//scriptlet('set-cookie', 'cookieconsent_status', 'allow')
@@ -8408,7 +8412,7 @@ infopraca.pl#$#.cookie-modal-backdrop { display: none !important; }
 infopraca.pl#$#body[style^="overflow:"] { overflow: auto !important; padding-right: 0 !important; }
 kanopy.com##.gpc-banner
 xhamster46.desi##div[data-role="cookies-modal"]
-politikam.com,sonsoz.com.tr#?#.js-cookie-consent
+2eylul.com.tr,eskisehirhaberajansi.com,urfanatik.com,politikam.com,sonsoz.com.tr#?#.js-cookie-consent
 supply.amazon.com#%#//scriptlet('set-cookie', 'sc-ccv2', '1')
 advertising.amazon.com###ccb-exists
 sunandsnow.pl#$#html { overflow-y: auto !important; }
@@ -10363,7 +10367,7 @@ vitaexpress.ru##.info-processing-personal-data-container
 ku.de#%#//scriptlet('trusted-set-cookie', 'in2cookiemodal-selection', '[%22essential%22]')
 tsb.co.uk#%#//scriptlet('trusted-set-cookie', 'CONSENTMGR', 'consent:false%7Cts:1754870425809')
 tarnkappe.info#%#//scriptlet('trusted-click-element', 'div[data-embed-consent-provider] label, div[data-embed-consent-provider] button.is-link')
-||global.ketchcdn.com/web/v*/config/*/boot.js$domain=debrox.com|drinkag1.com|newsweek.com|loeb.com|boxingscene.com|tailscale.com|eodev.com|nosdevoirs.fr|vultr.com|tennis.com|13wham.com|wwmt.com|wutv29.com|wtwc40.com|wset.com|wpgh53.com|wgme.com|wfgxtv.com|weartv.com|wcti12.com|watchdaytime.com|wabm68.com|utv44.com|thenationaldesk.com|thecwtv.tv|thecwtc.com|thecw46.com|thecw38.com|telemundoaustin.com|star64.tv|southernoregoncw.com|seattlerefined.com|raleighcw.com|newschannel9.com|newschannel20.com|nevadasportsnet.com|nebraska.tv|mytvz.com|mytvwichita.com|mytvrichmond.com|mytvdayton.com|mytvcharleston.com|mytvbuffalo.com|mytvbaltimore.com|mytv30web.com|myrdctv.com|midmichigannow.com|local21news.com|kval.com|kunwtv.com|kunptv.com|ktxs.com|ktvo.com|ktvl.com|krcrtv.com|krcgtv.com|kpic.com|kocb.com|kmyu.tv|kimatv.com|khqa.com|kfdm.com|keprtv.com|kdsm17.com|kcby.com|katv.com|idahonews.com|foxrichmond.com|foxkansas.com|fox49.tv|fox47.com|fox38corpuschristi.com|cwtreasurevalley.com|cwlasvegas.com|cwcolumbus.com|cwcincinnati.com|cwcentralpa.com|cwbaltimore.com|cwalbany.com|cw9tv.com|cw35.com|cw34.com|cw23tv.com|cw18milwaukee.com|cwomaha.tv|cw14online.com|chattanoogacw.com|cbsaustin.com|cbs4local.com|cbs12.com|abcnews4.com|abc7amarillo.com|abc45.com|abc3340.com|22thepoint.com|ktul.com|bakersfieldnow.com|local12.com|katu.com|komonews.com|wjactv.com|upnorthlive.com|cnycentral.com|wpde.com|cbs6albany.com|kutv.com|wjla.com|news3lv.com|kmph.com|kfoxtv.com|fox17.com|foxbaltimore.com|foxchattanooga.com|foxillinois.com|foxnebraska.com|foxreno.com|foxrochester.com|foxsanantonio.com|nbcmontana.com|okcfox.com|siouxlandnews.com|wach.com|wchstv.com|wcyb.com|wfxl.com|wgxa.tv|wlos.com|wsbt.com|cbs2iowa.com|fox4beaumont.com|mycbs4.com|mynews4.com|news4sanantonio.com|abc6onyourside.com|wtov9.com|turnto10.com|fox11online.com|mynbc15.com|nbc16.com|fox23maine.com|nbc24.com|fox28savannah.com|myfox28columbus.com|fox42kptm.com|dayton247now.com|fox56.com|accuweather.com|mysanantonio.com|birdsandblooms.com|on3.com|wdsu.com|wbaltv.com|wcvb.com|wbal.com|4029tv.com|wesh.com|wlwt.com|wjcl.com|wisn.com|wgal.com|rumble.com|bissell.pl|elderscrollsonline.com|idsoftware.com|zenimaxonline.com|machinegames.com|arkane-studios.com|bethesdagamestudios.com|bethesda.net|vh1.com|history.com|bet.com|mtv.com|cc.com|petersenshunting.com|kinsta.com
+||global.ketchcdn.com/web/v*/config/*/boot.js$domain=debrox.com|drinkag1.com|newsweek.com|loeb.com|boxingscene.com|tailscale.com|eodev.com|nosdevoirs.fr|vultr.com|tennis.com|13wham.com|wwmt.com|wutv29.com|wtwc40.com|wset.com|wpgh53.com|wgme.com|wfgxtv.com|weartv.com|wcti12.com|watchdaytime.com|wabm68.com|utv44.com|thenationaldesk.com|thecwtv.tv|thecwtc.com|thecw46.com|thecw38.com|telemundoaustin.com|star64.tv|southernoregoncw.com|seattlerefined.com|raleighcw.com|newschannel9.com|newschannel20.com|nevadasportsnet.com|nebraska.tv|mytvz.com|mytvwichita.com|mytvrichmond.com|mytvdayton.com|mytvcharleston.com|mytvbuffalo.com|mytvbaltimore.com|mytv30web.com|myrdctv.com|midmichigannow.com|local21news.com|kval.com|kunwtv.com|kunptv.com|ktxs.com|ktvo.com|ktvl.com|krcrtv.com|krcgtv.com|kpic.com|kocb.com|kmyu.tv|kimatv.com|khqa.com|kfdm.com|keprtv.com|kdsm17.com|kcby.com|katv.com|idahonews.com|foxrichmond.com|foxkansas.com|fox49.tv|fox47.com|fox38corpuschristi.com|cwtreasurevalley.com|cwlasvegas.com|cwcolumbus.com|cwcincinnati.com|cwcentralpa.com|cwbaltimore.com|cwalbany.com|cw9tv.com|cw35.com|cw34.com|cw23tv.com|cw18milwaukee.com|cwomaha.tv|cw14online.com|chattanoogacw.com|cbsaustin.com|cbs4local.com|cbs12.com|abcnews4.com|abc7amarillo.com|abc45.com|abc3340.com|22thepoint.com|ktul.com|bakersfieldnow.com|local12.com|katu.com|komonews.com|wjactv.com|upnorthlive.com|cnycentral.com|wpde.com|cbs6albany.com|kutv.com|wjla.com|news3lv.com|kmph.com|kfoxtv.com|fox17.com|foxbaltimore.com|foxchattanooga.com|foxillinois.com|foxnebraska.com|foxreno.com|foxrochester.com|foxsanantonio.com|nbcmontana.com|okcfox.com|siouxlandnews.com|wach.com|wchstv.com|wcyb.com|wfxl.com|wgxa.tv|wlos.com|wsbt.com|cbs2iowa.com|fox4beaumont.com|mycbs4.com|mynews4.com|news4sanantonio.com|abc6onyourside.com|wtov9.com|turnto10.com|fox11online.com|mynbc15.com|nbc16.com|fox23maine.com|nbc24.com|fox28savannah.com|myfox28columbus.com|fox42kptm.com|dayton247now.com|fox56.com|accuweather.com|mysanantonio.com|birdsandblooms.com|on3.com|wdsu.com|wbaltv.com|wcvb.com|wbal.com|4029tv.com|wesh.com|wlwt.com|wjcl.com|wisn.com|wgal.com|rumble.com|bissell.pl|elderscrollsonline.com|idsoftware.com|zenimaxonline.com|machinegames.com|arkane-studios.com|bethesdagamestudios.com|bethesda.net|vh1.com|history.com|bet.com|mtv.com|cc.com|petersenshunting.com|kinsta.com|rd.com
 mega.ru#%#//scriptlet('set-cookie', 'consent_cookie_settings', 'true')
 support.digitalplayground.com#%#//scriptlet('trusted-set-cookie', 'acceptedCookies', '%7B%22essential%22%3Atrue%2C%22functional%22%3Afalse%7D')
 gazobezopasnost.gazprom.ru##.message-consent
@@ -11012,7 +11016,7 @@ remnote.com##div[cypress-id="consent-popup"]
 whereby.com#%#//scriptlet('trusted-set-cookie', 'cookie_consents', '{"strictlyNecessary":true,"preferences":false,"statistics":false,"marketing":false}')
 fairtrade-universities.de#%#//scriptlet('set-cookie', 'cookie_google_maps', '1')
 dropbox.com##.ccpa-iframe-portal
-obitsu.co.jp,xporndude.com,imafuji.earth,lenovo-shop.sk,vremyan.ru,knightpin.com,seikatsutech.com,tsm.ru,you-porn.com,parfum-klik.*,parfum-klick.*,perfume-click.*,parfem-klik.cz,parfume-klik.dk,perfume-clic.es,profumo-clic.it,perfum-klik.pl,parfyme-klikk.no,perfume-clique.pt,parfyymi-klikkaus.fi,parfym-klick.se##div[id^="cookie"]
+pressath.de,obitsu.co.jp,xporndude.com,imafuji.earth,lenovo-shop.sk,vremyan.ru,knightpin.com,seikatsutech.com,tsm.ru,you-porn.com,parfum-klik.*,parfum-klick.*,perfume-click.*,parfem-klik.cz,parfume-klik.dk,perfume-clic.es,profumo-clic.it,perfum-klik.pl,parfyme-klikk.no,perfume-clique.pt,parfyymi-klikkaus.fi,parfym-klick.se##div[id^="cookie"]
 swiss.com.pl###consent_wrapper
 kolba.pl##main > section.bottom-0:has(button#banner-accept-all-cookies-btn)
 limanowa.in###notificationsPopup
@@ -25150,6 +25154,10 @@ poznancongresscenter.pl,arenapoznan.pl,garden-city.pl,city-marketing.pl,ideaexpo
 ||geolocation.onetrust.com/cookieconsentpub/*/geo/location$xmlhttprequest,redirect-rule=noopjson
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/238214
+@@||cdn.cookielaw.org/consent/*.json$domain=healthline.com
+@@||cdn.cookielaw.org/scripttemplates/otSDKStub.js$domain=healthline.com
+@@||geolocation.onetrust.com/cookieconsentpub/*/geo/location$domain=healthline.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/237802
 @@||sdk.privacy-center.org/*/loader.js$domain=softonic.pl
 @@||sdk.privacy-center.org/sdk/$domain=softonic.pl
@@ -47126,7 +47134,7 @@ ruijie.com##.cke2022fr
 stayinwales.co.uk##.ckinfo-panel
 computercity.com##.cky-box-top-right
 anyclip.com,ignitedfitness.com##.cky-consent-bar
-adresowo.pl,becleverwithyourcash.com,betplay.com.co,click2pharmacy.co.uk,controlup.com,delfi.ee,edhardyoriginals.com,etfstream.com,extra.ie,johnryanbydesign.co.uk,kadencewp.com,newfoodmagazine.com,oiq.qc.ca,publitas.com,qcs.co.uk,rendeljkinait.hu,scuffers.com,staples.ca,vertaa.fi##.cky-consent-container
+adresowo.pl,becleverwithyourcash.com,betplay.com.co,click2pharmacy.co.uk,controlup.com,delfi.ee,edhardyoriginals.com,etfstream.com,extra.ie,johnryanbydesign.co.uk,kadencewp.com,newfoodmagazine.com,oiq.qc.ca,publitas.com,qcs.co.uk,rendeljkinait.hu,scuffers.com,staples.ca,techcentral.ie,vertaa.fi##.cky-consent-container
 adresowo.pl,becleverwithyourcash.com,betplay.com.co,bluebird.hu,bluebirdinternational.com,click2pharmacy.co.uk,controlup.com,delfi.ee,etfstream.com,extra.ie,johnryanbydesign.co.uk,kadencewp.com,newfoodmagazine.com,oiq.qc.ca,publitas.com,qcs.co.uk,rendeljkinait.hu,scuffers.com,staples.ca,vertaa.fi##.cky-overlay
 jackjones.com##.cky-overlay-custom
 clineva.com##.clineva-cookies-info
@@ -95673,5 +95681,5 @@ zety.com##._cookiePopup_1fsd7_127
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 85187
+! Total unique rules: 85194
 ! Duplicates removed: 36601

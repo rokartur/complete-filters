@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 13 Aug 2026 01:33:31 UTC
+! Last modified: 14 Aug 2026 01:33:24 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -2922,7 +2922,7 @@ kinoafisha.ua##.turn-off-add-block-text
 stalkerportaal.ru##.video_adsense
 bookskeeper.ru,e-xecutive.ru##.warning
 forum.bestflowers.ru##.xenOverlay
-/^https?:\/\/pikabu\.ru\/ajax\/+[A-Za-z0-9_.-]{7,}\?[A-Za-z0-9]+=[0-9a-z_-]+/$xmlhttprequest,domain=pikabu.ru
+/^https?:\/\/pikabu\.ru\/ajax\/+[A-Za-z0-9_-]+(\.[A-Za-z0-9]{1,2})?\?[A-Za-z0-9]+=[0-9a-z_-]+/$xmlhttprequest,domain=pikabu.ru
 /cookie_check.min.js$domain=acetv.me
 /gogl_detector$script,domain=meddaily.ru|newsru.com
 @@||anidub.com/ads.js|$script,domain=anidub.com
@@ -3007,6 +3007,7 @@ bigpuzzle.ru##td[valign="top"][width="240px"][height="600"]
 ||kontrolnaya-rabota.ru^*/toastr.$script,stylesheet
 ||mobzon.ru/adbp/adbp.js
 ||nnm-club.ws/forum/docs/requests.js
+||pikabu.ru/ajax//$xmlhttprequest
 ||pwnews.net/des/antiblock.js$script
 ||rockstargame.su/adb_script$script
 ||rusnext.ru/advar.js$script
@@ -13768,5 +13769,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10463
-! Duplicates removed: 3037
+! Total unique rules: 10464
+! Duplicates removed: 3038
