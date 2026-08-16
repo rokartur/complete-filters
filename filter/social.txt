@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 15 Aug 2026 01:32:12 UTC
+! Last modified: 16 Aug 2026 01:31:28 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -12252,6 +12252,8 @@ pubs.rsc.org##.fixpadb--xl.c--gap-xs.c:has(.btn--social)
 arrow.apache.org##.nav-item:has(> [href="https://bsky.app/profile/arrow.apache.org"])
 arrow.apache.org##.nav-item:has(> [href="https://www.linkedin.com/company/apache-arrow/"])
 ms.now##.wp-block-group p:has(Share this)
+rule34.xxx##li:has(> [href="https://x.com/slayerduckie"])
+diamondv.jp##main[id] > div.MuiBox-root:has(> ul > li > button.react-share__ShareButton)
 abc.net.au#?#.Button_root__UZ8td:has-text(Share)
 appleinsider.com#?#.col-xs-12 > div:has-text(Follow AppleInsider)
 archaeologymag.com#?#.widget_custom_html:has-text(Follow us)
@@ -12272,7 +12274,6 @@ heritagedaily.com#?#.tds-button:has-text(FOLLOW ON GOOGLE NEWS)
 houstonchronicle.com,nhregister.com,registercitizen.com,sfchronicle.com,sfgate.com,stamfordadvocate.com#?#.deep:has-text(Google)
 ign.com#?#.promo-card:has-text(Follow us!)
 jacobin.com#?#.po-fr__heading:has-text(Share this article)
-rule34.xxx##li:has(> [href="https://x.com/slayerduckie"])
 lifenews.com#?#.post_style_zk > p:has-text(Please subscribe)
 livpost.co.uk#?#.kg-align-center.kg-button-card:has-text(Share this story)
 min.io#?#.display-xs.alpha-white-70:has-text(Get in Touch)
@@ -42355,6 +42356,7 @@ visplantis.pl#@#div.footer-box:has(+ div .social-media):remove-class(/border/)
 ! fanboy_social_specific_block.txt
 ! fanboy_social_specific_hide.txt
 !! :has
+!! :has-text
 !! top-level domain wildcard
 !! .socialmedia
 !! .social-sharing
@@ -43951,5 +43953,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42468
-! Duplicates removed: 14414
+! Total unique rules: 42469
+! Duplicates removed: 14416
