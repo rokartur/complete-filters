@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 17 Aug 2026 01:31:35 UTC
+! Last modified: 18 Aug 2026 01:30:32 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -1222,6 +1222,8 @@ bloomberg.com##.unsupported-browser-notification-container
 ##a[href^="https://www.financeads.net/tc.php?"]
 ##a[href^="https://ad.doubleclick.net/"]
 ! overlays
+###vplayer ~ img[id][onclick]
+##.ad-unit:not(.adsbox, .text-ad, .textads):not([style^="width: 1px; height: 1px; position: absolute;"])
 ###adbd.overdiv
 ##div[style^="position:fixed;inset:0px;z-index:2147483647;background:black;opacity:0.01"]
 ##div[style^="position: fixed; inset: 0px; z-index: 2147483647; background: black; opacity: 0.01"]
@@ -7034,5 +7036,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5963
+! Total unique rules: 5965
 ! Duplicates removed: 8
