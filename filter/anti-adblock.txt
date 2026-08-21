@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 20 Aug 2026 01:30:41 UTC
+! Last modified: 21 Aug 2026 01:31:11 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -3145,6 +3145,9 @@ $subdocument,domain=urlbluemedia.shop
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/AdguardTeam/AdGuardSDNSFilter/master/Filters/exceptions.txt
+! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/2095
+! Blocked by CNAME d2gt2ux04o03l1.cloudfront.net
+@@||cmp.osano.com^|
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/2081
 ! Blocked by CNAME data.adobedc.net
 @@||data.promo.timhortons.ca^|
@@ -10646,6 +10649,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+adversator.com###anti-adblocker-message
 rf4-stat.ru##.yad
 reelsuites.tv##.rt-adblock-notice
 timesofkarachi.pk###adblock-notice
@@ -13093,6 +13097,7 @@ chzzk.naver.com#@#.banner_ad_wrapper
 @@||nam.veta.naver.com/gfp$xmlhttprequest,domain=chzzk.naver.com
 @@||nam.veta.naver.com/call|$xmlhttprequest,domain=chzzk.naver.com
 !#else
+chzzk.naver.com#%#//scriptlet('trusted-suppress-native-method', 'Function.prototype.call', ' |"setRequestHeader"', 'abort')
 chzzk.naver.com#%#//scriptlet('spoof-css', '.banner_ad_wrapper', 'display', 'block')
 chzzk.naver.com#%#//scriptlet('trusted-json-set-xhr-response', 'content.playerAdDisplayResponse', 'json:{"preRoll":false,"midRoll":false}', 'content.playerAdDisplayResponse.preRoll', '/ad/display-status')
 !#if (adguard_app_windows || adguard_app_mac || adguard_app_cli || adguard_app_android)
@@ -13775,5 +13780,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10470
+! Total unique rules: 10473
 ! Duplicates removed: 3038

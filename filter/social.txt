@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 20 Aug 2026 01:31:03 UTC
+! Last modified: 21 Aug 2026 01:31:33 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -6770,6 +6770,7 @@ _social_footer_
 ##.qw_social
 ##.r-footer--social
 ##.r-likes-wrapper
+##.r-toggle--share
 ##.r1-share
 ##.r7twitter-title
 ##.ra-share
@@ -9383,6 +9384,7 @@ _social_footer_
 ##.tgla7-share
 ##.th-sharecounts
 ##.tha__socialItem
+##.thb-share-product
 ##.thb-social-links-container
 ##.thb-social-top
 ##.the-social-links
@@ -10212,6 +10214,7 @@ _social_footer_
 ##img[alt="Connect with us on Facebook"]
 ##img[alt="Connect with us on LinkedIn"]
 ##img[alt="Connect with us on Twitter"]
+##r-btn--share
 ##share-action
 ##span[title="Condividi"]
 ##span[title="Share this article"]
@@ -11122,6 +11125,7 @@ min.io##.footer-social-wrapper
 popsci.com##.footer-socials-wrapper
 investmentexecutive.com##.footer-top
 harborsweets.com##.footer-top-bar
+jpost.com##.footer-top-container-social-icons-wrapper
 goingawesomeplaces.com##.footer-widgets
 argonauts.ca,cfl.ca##.footer1
 newsclick.in##.footerContainer
@@ -11523,6 +11527,7 @@ dailymail.co.uk##.prevNextWrapper-1Vg7e
 opiumpulses.com##.product-nav-tabs-social
 inspiredtaste.net##.profile-icons
 thetruthaboutcars.com##.project-actions-header
+realestate.jpost.com##.prop_social
 sports.ndtv.com##.pst_scl
 androidheadlines.com##.push-notification
 cbn.com##.py-4.flex-wrap.flex
@@ -12780,6 +12785,7 @@ tekniikkatalous.fi##.fmUFKd.sc-zxh5v-0
 forssanlehti.fi##.herald-single-sticky:has(.herald-share)
 mobiili.fi##.mobsome_icons
 apotti.fi##.post-footer:has(> .share)
+kuljetusnet.fi##.s2s_contenedor
 ampparit.com##.social-media-links > .sidebox-content
 ampparit.com##.social-media-links > h3[class="sidebox-header"]
 voice.fi##.social-navigation > .nav-item
@@ -12805,8 +12811,15 @@ rik.cy##.single-article__share-options
 !---------- Hebrew Site Specific Hiding Rules ----------
 !
 glz.co.il###shareIcon
+bizportal.co.il##.a_footer_social
+maariv.co.il##.article-google-button-container
+maariv.co.il##.article-media-links-container
+bhol.co.il##.article_soci_bar
 mekomit.co.il##.foo_t_n_r_icon
+bhol.co.il##.google_preferences
 mekomit.co.il##.single_bottom_discovers_p1_share
+bhol.co.il##.soci_ul
+bhol.co.il##.whatsapp_con
 !
 !---------- Hungarian Specific Media Elements ----------
 !
@@ -14598,6 +14611,13 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+pciconcursos.com.br##.sharelink-noticia
+bz-berlin.de##section[data-block-id="B.Z. folgen"]
+marketingturkiye.com.tr###thb_social_links_widget-4
+marketingturkiye.com.tr##.ci-ad
+drom.ru##div[data-app-root="review-single-body"] > div > div:has(> div > a[href^="https://vk.com/share.php"])
+soccerbox.me,soccerbox.*##.cat-soc-share
+thehealthy.com###pch-social-share-container
 fp1-siken.com,fp2-siken.com,fp3-siken.com,ap-siken.com,db-siken.com,fe-siken.com,itpassportsiken.com,nw-siken.com,pm-siken.com,sc-siken.com,sg-siken.com##.social-btn-list_mini
 webook.com##[id^="webook_social_"]
 anidl.org##button[title="Social links"]
@@ -19159,7 +19179,7 @@ photar.ru##aside[id="block-5"]
 ||photar.ru/wptelegram/widget/view/
 20minutes.fr##.socialbar > li:not([data-social="save"])
 radarbox.com##ul[class^="Share__"]
-freepressjournal.in##.native-share
+antalyahurses.com,freepressjournal.in##.native-share
 e.vnexpress.net##.fixed_neo
 e.vnexpress.net##.block_follow_social
 techcrunch.com##.article__social-vertical-share
@@ -43992,5 +44012,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42508
-! Duplicates removed: 14421
+! Total unique rules: 42528
+! Duplicates removed: 14434
