@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 25 Aug 2026 01:30:53 UTC
+! Last modified: 26 Aug 2026 01:31:08 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -13110,6 +13110,10 @@ chzzk.naver.com#%#//scriptlet('spoof-css', '.banner_ad_wrapper', 'display', 'blo
 chzzk.naver.com#%#//scriptlet('trusted-json-set-xhr-response', 'content.playerAdDisplayResponse', 'json:{"preRoll":false,"midRoll":false}', 'content.playerAdDisplayResponse.preRoll', '/ad/display-status')
 chzzk.naver.com#%#//scriptlet('prevent-xhr', '/(veta.naver.com\/vas|veta.naver.com\/gfp|veta.naver.com\/call)/ method:OPTIONS')
 !#endif
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_app_cli)
+||api.chzzk.naver.com/service/v1/client-config$domain=chzzk.naver.com,xmlhttprequest,replace=/\,"tr":[0-9]+\,/\,"tr":0\,/
+||ssl.pstatic.net/static/nng/glive/resource/p/static/js/vendor-*.js$domain=chzzk.naver.com,script,replace=/(?!async *function *[a-zA-Z0-9]+) *\( *{ *[a-zA-Z0-9]+ *: *[a-zA-Z0-9]+ *= *![0-9] *\, *[a-zA-Z0-9]+ *: *[a-zA-Z0-9]+ *= *![0-9] *\, *[a-zA-Z0-9]+ *: *[a-zA-Z0-9]+ *= *![0-9] *\, *[a-zA-Z0-9]+ *: *[a-zA-Z0-9]+ *= *![0-9] * *} *\) *{ *.+[a-zA-Z0-9]+ *\|\| *[a-zA-Z0-9]+ *\|\| *[a-zA-Z0-9]+\.some *\( *[a-zA-Z0-9]+ *=> *[a-zA-Z0-9]+ *\) *}/(){return false}/
+!#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/185974
 grabify.link#%#//scriptlet('set-cookie', 'ckstp', '1')
 grabify.link#@#.ad_container
@@ -13782,5 +13786,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10475
+! Total unique rules: 10477
 ! Duplicates removed: 3039

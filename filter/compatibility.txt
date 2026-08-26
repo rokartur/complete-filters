@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 25 Aug 2026 01:30:53 UTC
+! Last modified: 26 Aug 2026 01:31:08 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1787578014-3600.patch
+! Diff-Path: ../patches/11/11-s-1787656402-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2706,6 +2706,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+worldfn.net##.blogroll_ads
 kursiv.media##.section-header.widgets-title-mobile
 msn.com#%#//scriptlet('inject-css-in-shadow-dom', 'csm-feed-layout[data-template-id^="mobileviews"] { --card-base-gap: 0 !important; }')
 aspor.com.tr#$#html[data-smartbanner] body { padding-top: 0 !important; }
@@ -12739,6 +12740,20 @@ archpropertygroup.com,sugarcreekcommons.com#@#.privacy-controls-banner
 ! https://github.com/uBlockOrigin/uAssets/issues/34221
 oferty.praca.gov.pl#@#.cdk-overlay-container
 
+! https://github.com/uBlockOrigin/uAssets/issues/34187
+igorslab.de##.herald-main-content > .row > .herald-module:not([data-col]):has(> .herald-txt-module div[id*="-"][class] > div[id*="-"][class*="target"] a[href][rel="noopener"] img)
+igorslab.de##div.widget[class*="-widget"][id*="-widget-"]
+igorslab.de##a[aria-label*="Banner"]
+igorslab.de##.herald-sidebar-right > .widget:not([id*="widget"])
+igorslab.de###content ~ .herald-slide
+igorslab.de##.herald-sticky
+igorslab.de###extras > #single-sticky + div[class]:not([id]):has(a[href][target="_blank"] img)
+igorslab.de##.entry-content > #skio-article-bar ~ div[id][class]:not([class*="igorslab"]):has(a[href][target="_blank"] img)
+/^https:\/\/www\.igorslab\.de\/[a-z0-9]+\/[\/a-zA-Z0-9_-]+$/$image,1p,match-case,domain=igorslab.de
+
+! https://github.com/uBlockOrigin/uAssets/issues/34237
+/identity/token/verify?browser_id=$badfilter
+
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
 !
@@ -18967,5 +18982,5 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13068
+! Total unique rules: 13079
 ! Duplicates removed: 17
