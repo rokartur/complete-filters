@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 26 Aug 2026 01:31:08 UTC
+! Last modified: 27 Aug 2026 02:36:22 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1787656402-3600.patch
+! Diff-Path: ../patches/11/11-s-1787732445-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2706,6 +2706,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+weathernews.jp###yahoo_ad
 worldfn.net##.blogroll_ads
 kursiv.media##.section-header.widgets-title-mobile
 msn.com#%#//scriptlet('inject-css-in-shadow-dom', 'csm-feed-layout[data-template-id^="mobileviews"] { --card-base-gap: 0 !important; }')
@@ -18778,6 +18779,10 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/238706
 @@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,domain=airtelxstream.in
 
+! https://github.com/uBlockOrigin/uAssets/issues/34251
+@@||googletagmanager.com/gtag/js$script,redirect-rule,domain=alltron.ch
+
+
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
 ! Additional explicit blocking rules for endpoints tested by the tester tool.
@@ -18982,5 +18987,5 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13079
+! Total unique rules: 13081
 ! Duplicates removed: 17

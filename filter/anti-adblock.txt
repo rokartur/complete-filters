@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 26 Aug 2026 01:31:08 UTC
+! Last modified: 27 Aug 2026 02:36:22 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -11217,9 +11217,6 @@ reddit.com#$##adblocktest { display: block !important; }
 ||chromeready.com/wp-content/themes/soledad/js/detector.js
 savevideo.me##td.max_bl_right > div[style*="background-color:"][style*="13px;"]
 autosport.com#$#.ms-hapb { position: absolute!important; left: -3000px!important; }
-fulltime-predict.com#$#.modal { display: none !important; }
-fulltime-predict.com#$#.modal-backdrop { display: none !important; }
-fulltime-predict.com#$#body.modal-open { overflow: auto !important; }
 jojoy.io,moddroid.com###ad_block_reminder_dialog
 @@||ads.twitcasting.tv/js/env_test/ads.js
 timeanddate.com#%#//scriptlet('prevent-addEventListener', 'load', 'Dislike intrusive ads')
@@ -13786,5 +13783,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10477
+! Total unique rules: 10474
 ! Duplicates removed: 3039
