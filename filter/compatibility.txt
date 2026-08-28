@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 27 Aug 2026 02:36:22 UTC
+! Last modified: 28 Aug 2026 03:44:59 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1787732445-3600.patch
+! Diff-Path: ../patches/11/11-s-1787842128-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2706,6 +2706,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+deview.co.jp##.sp-break-ad-text
+deview.co.jp##.overlay_container
+automaton-media.com###main ~ div[data-block] .gspb_button_wrapper > a[href="#popup"]
 weathernews.jp###yahoo_ad
 worldfn.net##.blogroll_ads
 kursiv.media##.section-header.widgets-title-mobile
@@ -3650,7 +3653,7 @@ nuipogoda.ru#$#div[id][style^="left:"][style*="height:"] { height: auto !importa
 porndroids.com##.links-out__disclaimer
 porndroids.com##.wrapper > aside[class]:has(> header.aan__header)
 ap7am.com##.first-ad-adp
-hentailib.net##center > div[style^="width:300px;height:"]
+yaoilib.net,hentailib.*,ranobelib.me,mangalib.*,anilib.me##header + div[style] > div > div:has(script[data-ts-spot])
 vnexpress.net##section[class*="section_ads"]
 5wip-file.ru##a[target="_blank"][class="blue_btn"]
 babesource.tv#$#.block-player { padding-top: 0 !important; }
@@ -18987,5 +18990,5 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13081
+! Total unique rules: 13084
 ! Duplicates removed: 17

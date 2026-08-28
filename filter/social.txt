@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 27 Aug 2026 02:36:44 UTC
+! Last modified: 28 Aug 2026 03:45:18 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -14632,6 +14632,12 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+tob.news##.spc-social-follow-inline
+tob.news##.post-share-float
+tob.news##.post-share-bot
+translate.yandex.ru##button:has(> svg > path[d^="M17.75"])
+novayagazeta.eu##main > div.flex > div[class]:has(> div[class] > a[href^="https://t.me/share/"])
+tokyo-np.co.jp##.container > .wrp:has(> .js-sns)
 weathernews.jp##div[data-component="a-share"]
 seriesflixhd.win,seriesflixhd.*##.ShareList
 doshinsports.com##.sidebar__social-box
@@ -21210,7 +21216,7 @@ dospara.co.jp##.sns_btn_wrap
 vergleich.org##.share [data-type="facebook"]
 vergleich.org##.share [data-type="twitter"]
 suzume-tojimari-movie.jp,cnnbrasil.com.br##.top__share
-twiflix.jp,hozonv.com,jp.yna.co.kr,jvcmusic.co.jp,promax.co.jp##.sns-link
+deview.co.jp,twiflix.jp,hozonv.com,jp.yna.co.kr,jvcmusic.co.jp,promax.co.jp##.sns-link
 nishinippon.co.jp,mymo-ibank.com##.c-snsActions
 mag.japaaan.com###bottom_share
 kingcorso.com##.woodmart-instagram
@@ -21619,7 +21625,7 @@ udemy.com##.ud-component--course-landing-page-udlite--social-share-button
 zr.ru##.info__share
 square-enix-games.com##div[class^="socialSharing_NewsHeader"]
 channel.fancl.jp###follow_area
-xgp.pl,diariobasta.com,technofaq.org###custom_html-3
+tob.news,xgp.pl,diariobasta.com,technofaq.org###custom_html-3
 freechequewriter.com##plugin[name="fbar"] > div.fbar
 freechequewriter.com###itp-fshare
 japanese.engadget.com###post-bottom-social-share
@@ -44048,5 +44054,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42564
+! Total unique rules: 42570
 ! Duplicates removed: 14455
