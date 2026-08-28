@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { CopyFilterListButton } from '@/components/copy-filter-list-button'
 import { Button } from '@/components/ui/button'
 import { REPO_URL, SITE_COPY } from '@/lib/site-content'
-import { Github } from 'lucide-react'
+import { GitBranch } from 'lucide-react'
 
 export const SubscribeBanner = memo(function SubscribeBanner() {
     return (
@@ -35,7 +35,7 @@ export const SubscribeBanner = memo(function SubscribeBanner() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <Github className="h-3.5 w-3.5" />
+                                <GitBranch className="h-3.5 w-3.5" />
                                 {SITE_COPY.banner.githubButton}
                             </a>
                         </Button>

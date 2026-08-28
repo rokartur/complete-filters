@@ -3,7 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CopyFilterListButton } from '@/components/copy-filter-list-button'
 import { Button } from '@/components/ui/button'
 import { REPO_URL, SITE_COPY } from '@/lib/site-content'
-import { Github, ShieldCheck, Radar, TriangleAlert } from 'lucide-react'
+import { GitBranch, ShieldCheck, Radar, TriangleAlert } from 'lucide-react'
 
 const featureIcons = [ShieldCheck, Radar, TriangleAlert]
 
@@ -133,7 +133,7 @@ export const SeoContent = memo(function SeoContent() {
               />
               <Button variant="outline" asChild className="btn-press rounded-none font-mono uppercase tracking-widest text-xs px-8 py-6 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-200">
                 <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" />
+                  <GitBranch className="mr-2 h-4 w-4" />
                   {SITE_COPY.seo.ctaSecondary}
                 </a>
               </Button>
