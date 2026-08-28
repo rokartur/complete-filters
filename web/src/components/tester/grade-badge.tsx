@@ -1,3 +1,4 @@
+import { AnimatedNumber } from '@/components/animated-number'
 import type { GradeInfo } from '@/hooks/use-adblocker-tester'
 import { SITE_COPY } from '@/lib/site-content'
 
@@ -33,7 +34,7 @@ export function GradeBadge({ grade }: GradeBadgeProps) {
           <div className="text-left font-mono">
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{SITE_COPY.tester.finalScore}</div>
             <div className="text-2xl font-bold tabular-nums text-foreground tracking-tighter">
-              {grade.pct}%
+              <AnimatedNumber value={grade.pct} />%
             </div>
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{SITE_COPY.tester.blockingEffectiveness}</div>
           </div>
