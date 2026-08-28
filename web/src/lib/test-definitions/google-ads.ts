@@ -9,7 +9,6 @@ export const googleAds: TestCategory = {
     { name: 'DoubleClick GPT', url: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js' },
     { name: 'DoubleClick Ad', url: 'https://ad.doubleclick.net/ddm/activity/' },
     { name: 'Google Ad Manager', url: 'https://pubads.g.doubleclick.net/gampad/ads' },
-    { name: 'Google AdMob', url: 'https://admob-sdk.google.com/adunit' },
     { name: 'Google Partner Ads', url: 'https://www.google.com/adsense/search/async-ads.js' },
     { name: 'pagead2.googleadservices.com', url: 'https://pagead2.googleadservices.com/' },
     { name: 'stats.g.doubleclick.net', url: 'https://stats.g.doubleclick.net/' },

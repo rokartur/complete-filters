@@ -4,8 +4,6 @@ export const nativeTelemetry: TestCategory = {
   id: 'native-telemetry',
   name: 'Telemetria natywna (Smart TV, IoT)',
   tests: [
-    { name: 'Samsung Smart TV', url: 'https://samsungacr.com/log' },
-    { name: 'Samsung Ads', url: 'https://ad.samsungadhub.com/' },
     { name: 'samsungads.com', url: 'https://samsungads.com/' },
     { name: 'smetrics.samsung.com', url: 'https://smetrics.samsung.com/' },
     { name: 'nmetrics.samsung.com', url: 'https://nmetrics.samsung.com/' },
@@ -13,7 +11,6 @@ export const nativeTelemetry: TestCategory = {
     { name: 'analytics-api.samsunghealthcn.com', url: 'https://analytics-api.samsunghealthcn.com/' },
     { name: 'Fire TV', url: 'https://device-metrics-us-2.amazon.com/' },
     { name: 'Roku Ads', url: 'https://scribe.logs.roku.com/' },
-    { name: 'Vizio Inscape', url: 'https://dis.cstream.binding.samba.tv/' },
     { name: 'Sonos Tracking', url: 'https://analytics.sonos.com/' },
     { name: 'Realme iot-eu-logser', url: 'https://iot-eu-logser.realme.com/' },
     { name: 'Realme iot-logser', url: 'https://iot-logser.realme.com/' },
@@ -32,7 +29,5 @@ export const nativeTelemetry: TestCategory = {
     { name: 'Apple books-analytics', url: 'https://books-analytics-events.apple.com/' },
     { name: 'Apple weather-analytics', url: 'https://weather-analytics-events.apple.com/' },
     { name: 'Apple notes-analytics', url: 'https://notes-analytics-events.apple.com/' },
-    { name: 'LG Ad Solutions', url: 'https://ad.lgappstv.com/' },
-    { name: 'TCL Smart TV', url: 'https://data.rumba.tclclouds.com/' },
   ],
 }

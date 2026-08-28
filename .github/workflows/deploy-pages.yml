@@ -47,6 +47,9 @@ jobs:
       - name: Validate test definitions
         run: bun run validate-tests
 
+      - name: Unit tests
+        run: node --test "src/**/*.test.ts"
+
       - name: Build app
         run: bun run build
 

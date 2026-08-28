@@ -1,6 +1,7 @@
+import { AnimatedNumber } from '@/components/animated-number'
 import type { TestStats } from '@/hooks/use-adblocker-tester'
 import { SITE_COPY } from '@/lib/site-content'
-import { Clock3, ListChecks, ShieldCheck, ShieldX } from 'lucide-react'
+import { CircleDashed, Clock3, ListChecks, ShieldCheck, ShieldX } from 'lucide-react'
 
 interface StatsBarProps {
   stats: TestStats
@@ -34,6 +35,14 @@ export function StatsBar({ stats }: StatsBarProps) {
       icon: ShieldX,
     },
     {
+      key: 'inconclusive' as const,
+      label: SITE_COPY.tester.stats.inconclusive,
+      colorClass: 'text-zinc-400',
+      bgClass: 'from-zinc-500/10 to-zinc-500/5',
+      borderClass: 'border-zinc-500/10 hover:border-zinc-500/25',
+      icon: CircleDashed,
+    },
+    {
       key: 'pending' as const,
       label: SITE_COPY.tester.stats.pending,
       colorClass: 'text-amber-400',
@@ -44,13 +53,15 @@ export function StatsBar({ stats }: StatsBarProps) {
   ]
 
   return (
-    <div className="grid grid-cols-2 border-b border-border bg-card sm:grid-cols-2 xl:grid-cols-4">
-      {statItems.map((item, index) => {
+    // gap-px over a border-coloured background draws the dividers, so the
+    // layout stays correct for any number of stats and any column count.
+    <div className="grid grid-cols-2 gap-px border-b border-border bg-border xl:grid-cols-5">
+      {statItems.map((item) => {
         const Icon = item.icon
         return (
         <div
           key={item.key}
-          className={`relative group border-border p-3 sm:p-4 text-left hover:bg-muted ${index % 2 === 0 ? 'border-r' : ''} ${index < 2 ? 'border-b xl:border-b-0' : ''} xl:border-r`}
+          className="relative group bg-card p-3 sm:p-4 text-left hover:bg-muted"
         >
           <div className="mb-2 flex items-center gap-2">
             <Icon className={`h-3.5 w-3.5 ${item.colorClass}`} />
@@ -59,7 +70,7 @@ export function StatsBar({ stats }: StatsBarProps) {
             </div>
           </div>
           <div className={`stat-value text-2xl font-display font-bold tabular-nums tracking-tight sm:text-3xl ${item.colorClass}`}>
-            {stats[item.key]}
+            <AnimatedNumber value={stats[item.key]} />
           </div>
         </div>
       )})}

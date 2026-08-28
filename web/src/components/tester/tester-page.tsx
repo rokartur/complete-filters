@@ -1,3 +1,4 @@
+import { AnimatedNumber } from '@/components/animated-number'
 import { useAdBlockTester } from '@/hooks/use-adblocker-tester'
 import { StatsBar } from './stats-bar'
 import { GradeBadge } from './grade-badge'
@@ -6,6 +7,7 @@ import { TestCategoryList } from './test-category'
 import { Footer } from '@/components/footer'
 import { Progress } from '@/components/ui/progress'
 import { SITE_COPY } from '@/lib/site-content'
+import { EnvironmentNotice } from './environment-notice'
 
 export function TesterPage() {
   const tester = useAdBlockTester()
@@ -21,6 +23,12 @@ export function TesterPage() {
         </div>
       </div>
 
+      {/* Environment reliability — shown before the grade it qualifies */}
+      <EnvironmentNotice
+        environment={tester.environment}
+        inconclusive={tester.stats.inconclusive}
+      />
+
       {/* Grade */}
       {tester.grade && <GradeBadge grade={tester.grade} />}
 
@@ -31,7 +39,7 @@ export function TesterPage() {
       <div className="border-b border-border bg-card px-4 py-3 sm:px-6 md:px-8">
         <div className="mb-2 flex items-center justify-between text-[10px] font-mono font-medium uppercase tracking-wider text-muted-foreground">
           <span>{SITE_COPY.tester.progress}</span>
-          <span className="tabular-nums text-foreground">[{Math.round(tester.progress)}%]</span>
+          <span className="tabular-nums text-foreground">[<AnimatedNumber value={tester.progress} />%]</span>
         </div>
         <div>
           <Progress

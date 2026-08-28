@@ -6,7 +6,6 @@ export const cookieConsent: TestCategory = {
   tests: [
     { name: 'CookieBot', url: 'https://consent.cookiebot.com/uc.js' },
     { name: 'OneTrust', url: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js' },
-    { name: 'Quantcast Choice', url: 'https://quantcast.mgr.consensu.org/choice/0/0/choice.js' },
     { name: 'Didomi', url: 'https://sdk.privacy-center.org/loader.js' },
     { name: 'Osano', url: 'https://cmp.osano.com/0/osano.js' },
     { name: 'Usercentrics', url: 'https://app.usercentrics.eu/browser-ui/latest/loader.js' },
@@ -20,6 +19,5 @@ export const cookieConsent: TestCategory = {
     { name: 'Axeptio', url: 'https://static.axept.io/sdk.js' },
     { name: 'Cookie Script', url: 'https://cdn.cookie-script.com/s/0.js' },
     { name: 'CookieFirst', url: 'https://consent.cookiefirst.com/sites/0/consent.js' },
-    { name: 'Securiti', url: 'https://cdn.securiti.ai/consent/cookie-consent-sdk.js' },
   ],
 }

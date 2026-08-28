@@ -1,7 +1,7 @@
 import type { FilterType, TestPhase } from '@/hooks/use-adblocker-tester'
 import { Button } from '@/components/ui/button'
 import { SITE_COPY } from '@/lib/site-content'
-import { Play, RotateCcw, Loader2 } from 'lucide-react'
+import { Play, RotateCcw, LoaderCircle } from 'lucide-react'
 
 interface ControlPanelProps {
   isRunning: boolean
@@ -28,6 +28,7 @@ export function ControlPanel({
     { value: 'all', label: SITE_COPY.tester.filterAll },
     { value: 'blocked', label: SITE_COPY.tester.filterBlocked },
     { value: 'not-blocked', label: SITE_COPY.tester.filterNotBlocked },
+    { value: 'inconclusive', label: SITE_COPY.tester.filterInconclusive },
     { value: 'pending', label: SITE_COPY.tester.filterPending },
   ]
 
@@ -58,10 +59,12 @@ export function ControlPanel({
           >
             {isRunning ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                {phase === 'retrying'
-                  ? SITE_COPY.tester.verifying
-                  : `${SITE_COPY.tester.testing} (${testedCount}/${totalTests})`}
+                <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
+                {phase === 'checking'
+                  ? SITE_COPY.tester.checkingEnvironment
+                  : phase === 'retrying'
+                    ? SITE_COPY.tester.verifying
+                    : `${SITE_COPY.tester.testing} (${testedCount}/${totalTests})`}
               </>
             ) : (
               <>

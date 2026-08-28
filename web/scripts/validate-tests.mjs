@@ -1,13 +1,4 @@
-import fs from 'node:fs'
-import path from 'node:path'
-
-const definitionsDir = path.resolve(process.cwd(), 'src/lib/test-definitions')
-const files = fs
-  .readdirSync(definitionsDir)
-  .filter((file) => file.endsWith('.ts') && file !== 'index.ts')
-  .sort()
-
-const entryRegex = /\{\s*name:\s*'([^']+)'(?:,\s*url:\s*'([^']+)')?(?:,\s*baitClass:\s*'([^']+)')?(?:,\s*baitId:\s*'([^']+)')?\s*\}/g
+import { readTestEntries } from './read-test-entries.mjs'
 
 const disallowedUrlPatterns = [
   {
@@ -66,15 +57,7 @@ const nameDomainExpectations = [
   },
 ]
 
-const entries = []
-
-for (const file of files) {
-  const content = fs.readFileSync(path.join(definitionsDir, file), 'utf8')
-  for (const match of content.matchAll(entryRegex)) {
-    const [, name, url, baitClass, baitId] = match
-    entries.push({ file, name, url, baitClass, baitId })
-  }
-}
+const entries = readTestEntries()
 
 const duplicateUrls = new Map()
 for (const entry of entries) {

@@ -2,23 +2,12 @@ import { useState, useRef, useCallback } from 'react'
 import { TEST_CATEGORIES } from '@/lib/test-definitions'
 import { testBaitElement, testNetworkResource, clearPerfEntryBackup } from '@/lib/detection-engine'
 import { initReferenceEngine, initCompleteFiltersEngine, getFilterHint } from '@/lib/reference-engine'
+import { checkEnvironment, type EnvironmentCheck } from '@/lib/control-probes'
+import { computeGrade, computeStats, type TestStatus } from '@/lib/scoring'
 
-export type TestStatus = 'pending' | 'blocked' | 'not-blocked'
-export type FilterType = 'all' | 'blocked' | 'not-blocked' | 'pending'
-
-export interface TestStats {
-  total: number
-  blocked: number
-  notBlocked: number
-  pending: number
-}
-
-export interface GradeInfo {
-  grade: string
-  labelKey: 'excellent' | 'veryGood' | 'good' | 'average' | 'weak' | 'none'
-  pct: number
-  colorClass: string
-}
+export type { TestStatus, TestStats, GradeInfo } from '@/lib/scoring'
+export type { EnvironmentCheck } from '@/lib/control-probes'
+export type FilterType = 'all' | 'blocked' | 'not-blocked' | 'inconclusive' | 'pending'
 
 /**
  * Delay between batches — gives Performance API time to finalize entries
@@ -46,20 +35,6 @@ const RETRY_PASS_SETTLE_MS = 800
  */
 const RETRY_BATCH_SIZE = 4
 
-/**
- * Minimum blocking rate (0–1) required before trusting $domain= and $document
- * reference engine hints. If the user's adblocker blocks fewer than this
- * fraction of network tests, we don't trust domainRestricted / hasDocumentRule
- * hints — the user might not have the filter lists that contain those rules.
- *
- * At 30%, this correctly handles:
- * - No adblocker (0% blocked) → hints ignored → no false positives
- * - Basic adblocker (EasyList only, ~50% blocked) → hints trusted → correct
- * - Comprehensive adblocker (80%+ blocked) → hints trusted → correct
- * - Complete-filters subscribed (90%+ blocked) → hints trusted → correct
- */
-const DOMAIN_RULE_CONFIDENCE_THRESHOLD = 0.3
-
 const TOTAL_TESTS = TEST_CATEGORIES.reduce((sum, category) => sum + category.tests.length, 0)
 
 function createInitialResults(): Record<string, TestStatus> {
@@ -72,57 +47,18 @@ function createInitialResults(): Record<string, TestStatus> {
   return initial
 }
 
-function computeStats(results: Record<string, TestStatus>): TestStats {
-  const values = Object.values(results)
-  const blocked = values.filter((v) => v === 'blocked').length
-  const notBlocked = values.filter((v) => v === 'not-blocked').length
-  return {
-    total: TOTAL_TESTS,
-    blocked,
-    notBlocked,
-    pending: TOTAL_TESTS - blocked - notBlocked,
-  }
+/** Per-category tallies, the unit the grade is averaged over. */
+function categoryTallies(results: Record<string, TestStatus>) {
+  return TEST_CATEGORIES.map((category) => {
+    const statuses = category.tests.map((_, i) => results[`${category.id}-${i}`])
+    return {
+      blocked: statuses.filter((status) => status === 'blocked').length,
+      notBlocked: statuses.filter((status) => status === 'not-blocked').length,
+    }
+  })
 }
 
-function computeGrade(stats: TestStats): GradeInfo | null {
-  const tested = stats.blocked + stats.notBlocked
-  if (tested === 0) return null
-
-  const pct = Math.round((stats.blocked / tested) * 100)
-  let grade: string
-  let labelKey: GradeInfo['labelKey']
-  let colorClass: string
-
-  if (pct >= 95) {
-    grade = 'A+'
-    labelKey = 'excellent'
-    colorClass = 'grade-a'
-  } else if (pct >= 85) {
-    grade = 'A'
-    labelKey = 'veryGood'
-    colorClass = 'grade-a'
-  } else if (pct >= 70) {
-    grade = 'B'
-    labelKey = 'good'
-    colorClass = 'grade-b'
-  } else if (pct >= 50) {
-    grade = 'C'
-    labelKey = 'average'
-    colorClass = 'grade-c'
-  } else if (pct >= 30) {
-    grade = 'D'
-    labelKey = 'weak'
-    colorClass = 'grade-d'
-  } else {
-    grade = 'F'
-    labelKey = 'none'
-    colorClass = 'grade-f'
-  }
-
-  return { grade, labelKey, pct, colorClass }
-}
-
-export type TestPhase = 'idle' | 'testing' | 'retrying'
+export type TestPhase = 'idle' | 'checking' | 'testing' | 'retrying'
 
 export function useAdBlockTester() {
   const [results, setResults] = useState<Record<string, TestStatus>>(() => createInitialResults())
@@ -130,13 +66,17 @@ export function useAdBlockTester() {
   const [phase, setPhase] = useState<TestPhase>('idle')
   const [testedCount, setTestedCount] = useState(0)
   const [filter, setFilter] = useState<FilterType>('all')
+  const [environment, setEnvironment] = useState<EnvironmentCheck | null>(null)
   const resultsRef = useRef<Record<string, TestStatus>>(createInitialResults())
   const cancelledRef = useRef(false)
 
-  const stats = computeStats(results)
+  const stats = computeStats(Object.values(results), TOTAL_TESTS)
   const progress =
     stats.total > 0 ? ((stats.total - stats.pending) / stats.total) * 100 : 0
-  const grade = stats.pending === 0 && stats.total > 0 ? computeGrade(stats) : null
+  const grade =
+    stats.pending === 0 && stats.total > 0
+      ? computeGrade(categoryTallies(results))
+      : null
 
   const initResults = useCallback(() => {
     const initial = createInitialResults()
@@ -161,19 +101,10 @@ export function useAdBlockTester() {
 
   const getCategoryStats = useCallback(
     (categoryId: string) => {
-      let blocked = 0
-      let notBlocked = 0
-      let pending = 0
       const cat = TEST_CATEGORIES.find((c) => c.id === categoryId)
-      if (!cat) return { blocked, notBlocked, pending, total: 0 }
-      cat.tests.forEach((_, i) => {
-        const id = `${categoryId}-${i}`
-        const status = results[id]
-        if (status === 'blocked') blocked++
-        else if (status === 'not-blocked') notBlocked++
-        else pending++
-      })
-      return { blocked, notBlocked, pending, total: cat.tests.length }
+      if (!cat) return { blocked: 0, notBlocked: 0, inconclusive: 0, pending: 0, total: 0 }
+      const statuses = cat.tests.map((_, i) => results[`${categoryId}-${i}`])
+      return computeStats(statuses, cat.tests.length)
     },
     [results]
   )
@@ -181,11 +112,21 @@ export function useAdBlockTester() {
   const startTests = useCallback(async () => {
     cancelledRef.current = false
     setIsRunning(true)
-    setPhase('testing')
+    setPhase('checking')
     setTestedCount(0)
 
     try {
       initResults()
+
+      // Verify the environment before scoring anything. Offline, every probe
+      // fails and every failure reads as a block, which would hand out a
+      // perfect grade for a browser that cannot reach the internet.
+      const env = await checkEnvironment()
+      setEnvironment(env)
+      if (env.level === 'offline' || cancelledRef.current) return
+
+      setPhase('testing')
+
       // Load both reference engines in parallel:
       // 1. Prebuilt (EasyList + EasyPrivacy) — fast, provides baseline hints
       // 2. Complete-filters (all filter/*.txt) — provides full coverage
@@ -229,7 +170,9 @@ export function useAdBlockTester() {
               updateResult(id, blocked ? 'blocked' : 'not-blocked')
             }
           } catch {
-            if (!cancelledRef.current) updateResult(id, 'not-blocked')
+            // The probe itself failed — that is a fact about our code, not
+            // about the user's blocker.
+            if (!cancelledRef.current) updateResult(id, 'inconclusive')
           }
         })
       )
@@ -252,10 +195,10 @@ export function useAdBlockTester() {
                 const result = await testNetworkResource(test.url, hint)
                 if (!cancelledRef.current) updateResult(id, result)
               } else {
-                if (!cancelledRef.current) updateResult(id, 'not-blocked')
+                if (!cancelledRef.current) updateResult(id, 'inconclusive')
               }
             } catch {
-              if (!cancelledRef.current) updateResult(id, 'not-blocked')
+              if (!cancelledRef.current) updateResult(id, 'inconclusive')
             }
           })
         )
@@ -266,14 +209,15 @@ export function useAdBlockTester() {
         await new Promise((r) => setTimeout(r, BATCH_SETTLE_DELAY_MS))
       }
 
-      // --- Retry pass for unexpected "not-blocked" results ---
-      // After all batches complete, re-test ALL URLs that came back "not-blocked".
+      // --- Retry pass for undecided results ---
+      // Re-test every URL that came back "not-blocked" or "inconclusive".
       // The reference engine only covers EasyList/EasyPrivacy (~50K rules), but
-      // users may have millions of custom rules (e.g., 6M+) that the reference
-      // engine doesn't know about. Retrying all not-blocked URLs catches:
+      // users may have millions of custom rules that it doesn't know about.
+      // Retrying catches:
       // - $redirect rules unknown to the reference engine
       // - Race conditions where redirect detection didn't finish in time
       // - Intermittent Performance API buffer issues
+      // - One-off timeouts under the load of the first pass
       // Run in small parallel batches with a fresh Performance buffer.
       if (!cancelledRef.current) {
         setPhase('retrying')
@@ -284,7 +228,8 @@ export function useAdBlockTester() {
 
         const retryTargets = networkTests.filter(({ id, test }) => {
           if (!test.url) return false
-          return resultsRef.current[id] === 'not-blocked'
+          const status = resultsRef.current[id]
+          return status === 'not-blocked' || status === 'inconclusive'
         })
 
         for (let i = 0; i < retryTargets.length; i += RETRY_BATCH_SIZE) {
@@ -302,8 +247,13 @@ export function useAdBlockTester() {
               try {
                 const hint = getFilterHint(test.url)
                 const result = await testNetworkResource(test.url, hint)
-                if (!cancelledRef.current && result === 'blocked') {
-                  updateResult(id, 'blocked')
+                // A second inconclusive run adds nothing, but a decided one
+                // resolves a test the first pass could not.
+                const resolvesUndecided =
+                  result === 'not-blocked' &&
+                  resultsRef.current[id] === 'inconclusive'
+                if (!cancelledRef.current && (result === 'blocked' || resolvesUndecided)) {
+                  updateResult(id, result)
                 }
               } catch {
                 // Keep original result on error
@@ -313,39 +263,12 @@ export function useAdBlockTester() {
         }
       }
 
-      // --- Domain-restricted & document rule upgrade pass ---
-      // $domain= rules (e.g. ||tracker.com^$domain=kicker.de|onet.pl) and
-      // $document rules can't be detected by network-based methods from the
-      // tester's domain. The reference engine flags these, but we only trust
-      // them when the user's blocking rate proves they have an active ad blocker.
-      //
-      // This prevents false "blocked" results when:
-      // - User has NO adblocker at all (0% blocking rate)
-      // - User has a minimal blocker without these specific filter lists
-      // - User only has DNS-level blocking without browser extension rules
-      if (!cancelledRef.current) {
-        const networkBlockedCount = networkTests.filter(
-          ({ id }) => resultsRef.current[id] === 'blocked'
-        ).length
-        const blockingRate =
-          networkTests.length > 0
-            ? networkBlockedCount / networkTests.length
-            : 0
-
-        if (blockingRate >= DOMAIN_RULE_CONFIDENCE_THRESHOLD) {
-          // User has an active ad blocker — trust reference engine hints
-          // for $domain= and $document rules that can't be network-detected.
-          for (const { id, test } of networkTests) {
-            if (cancelledRef.current) break
-            if (resultsRef.current[id] !== 'not-blocked') continue
-            if (!test.url) continue
-            const hint = getFilterHint(test.url)
-            if (hint.domainRestricted || hint.hasDocumentRule) {
-              updateResult(id, 'blocked')
-            }
-          }
-        }
-      }
+      // NOTE: there is deliberately no "upgrade" pass here. Earlier versions
+      // marked $domain= and $document tests as blocked based on what this
+      // project's own filter lists would do, gated on the user's blocking rate.
+      // That scored the lists rather than the user's blocker and inflated every
+      // grade. Those rules cannot be exercised from a page, so the detection
+      // engine now reports them as inconclusive and they stay out of the score.
     } finally {
       // Final cleanup
       try { performance.clearResourceTimings() } catch { /* ignore */ }
@@ -363,6 +286,7 @@ export function useAdBlockTester() {
     setPhase('idle')
     setTestedCount(0)
     initResults()
+    setEnvironment(null)
     setFilter('all')
   }, [initResults])
 
@@ -372,6 +296,7 @@ export function useAdBlockTester() {
     stats,
     progress,
     grade,
+    environment,
     isRunning,
     phase,
     testedCount,

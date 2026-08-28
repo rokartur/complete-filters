@@ -1,7 +1,14 @@
 import type { MethodTag } from '@/lib/site-content'
 import type { FilterHint } from '@/lib/reference-engine'
 
-export type NetworkTestStatus = 'blocked' | 'not-blocked'
+/**
+ * `inconclusive` means the probe could not decide: timeouts, network stalls,
+ * CORS ambiguity, or rules that simply cannot be exercised from inside a page
+ * ($document, $domain= restricted). Inconclusive results are excluded from the
+ * score instead of being counted as blocked, which is what used to inflate
+ * grades for anyone testing offline or against a dead domain.
+ */
+export type NetworkTestStatus = 'blocked' | 'not-blocked' | 'inconclusive'
 
 /**
  * Ad Blocker Detection Engine v5
@@ -59,7 +66,8 @@ export type NetworkTestStatus = 'blocked' | 'not-blocked'
  *   reference engine hint suggests blocking, resolve immediately without
  *   waiting for remaining methods to time out.
  *
- * Priority when combining signals: BLOCKED > NOT BLOCKED
+ * Priority when combining signals: BLOCKED > NOT BLOCKED > INCONCLUSIVE.
+ * A probe that only ever timed out never counts as "blocked".
  */
 
 // Increase buffer for 400+ tests (each may generate 3-4 Performance entries)
@@ -80,12 +88,34 @@ try {
  * this map BEFORE the browser clears them. The redirect-detection code
  * checks this map as a fallback when live entries are missing.
  *
- * Key: URL → Value: { duration, responseEnd }
+ * Key: URL → Value: { duration, responseEnd, fromCache }
  */
 const perfEntryBackup = new Map<
   string,
-  { duration: number; responseEnd: number }
+  { duration: number; responseEnd: number; fromCache: boolean }
 >()
+
+/**
+ * True when the browser served this entry from its HTTP cache.
+ *
+ * Critical for redirect detection: a cache hit has a near-zero duration and is
+ * otherwise indistinguishable from an extension-local $redirect. Without this
+ * guard the retry pass re-requests every URL, hits the memory cache, and
+ * reports a redirect for resources that loaded perfectly fine.
+ * `deliveryType` is Chrome 109+/Safari 17+; older browsers fall back to the
+ * duration heuristic alone.
+ */
+function isFromCache(entry: PerformanceResourceTiming): boolean {
+  return 'deliveryType' in entry && entry.deliveryType === 'cache'
+}
+
+function isSameOrigin(url: string): boolean {
+  try {
+    return new URL(url, location.href).origin === location.origin
+  } catch {
+    return false
+  }
+}
 
 try {
   performance.addEventListener('resourcetimingbufferfull', () => {
@@ -98,6 +128,7 @@ try {
         perfEntryBackup.set(entry.name, {
           duration: entry.duration,
           responseEnd: entry.responseEnd,
+          fromCache: isFromCache(entry),
         })
       }
     }
@@ -114,6 +145,7 @@ export function clearPerfEntryBackup(): void {
   perfEntryBackup.clear()
 }
 
+const FETCH_TIMEOUT_MS = 8000
 const ELEMENT_ERROR_SETTLE_DELAY_MS = 200
 const ELEMENT_TIMEOUT_MS = 5000
 const FRAME_SETTLE_DELAY_MS = 300
@@ -159,8 +191,10 @@ const REDIRECT_RETRY_NO_HINT_MS = [80, 200]
  * the server IS reachable.
  *
  * We use a short timeout to avoid waiting too long for genuinely blocked URLs.
+ * A timeout is reported as `unknown`, never as "unreachable": a stalled server
+ * is not evidence of an ad blocker.
  */
-async function isReachableDespiteCors(url: string): Promise<boolean> {
+async function isReachableDespiteCors(url: string): Promise<Reachability> {
   try {
     const controller = new AbortController()
     const timeout = window.setTimeout(() => controller.abort(), 2000)
@@ -172,21 +206,30 @@ async function isReachableDespiteCors(url: string): Promise<boolean> {
     window.clearTimeout(timeout)
     // Got a response (even if blocked by CORS, status may be 0 for opaque)
     // If status > 0, server definitively reachable
-    return response.status > 0 || response.type === 'cors'
+    return response.status > 0 || response.type === 'cors' ? 'reachable' : 'unknown'
   } catch (err) {
-    // AbortError = our timeout → inconclusive (assume blocked)
-    if (err instanceof DOMException && err.name === 'AbortError') return false
+    // AbortError = our timeout → the server stalled, which tells us nothing.
+    if (err instanceof DOMException && err.name === 'AbortError') return 'unknown'
     // TypeError = network error — still ambiguous.
     // Try one more signal: a no-cors HEAD request (lighter than GET).
     try {
       const res = await fetch(url, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
       // If HEAD succeeds, the server is reachable (CORS was the issue)
       void res
-      return true
+      return 'reachable'
     } catch {
-      return false
+      return 'unreachable'
     }
   }
+}
+
+type Reachability = 'reachable' | 'unreachable' | 'unknown'
+
+/** Map a reachability probe onto a verdict; a stalled probe decides nothing. */
+function statusFromReachability(reachability: Reachability): NetworkTestStatus {
+  if (reachability === 'reachable') return 'not-blocked'
+  if (reachability === 'unreachable') return 'blocked'
+  return 'inconclusive'
 }
 
 /**
@@ -264,7 +307,7 @@ function checkPerformanceEntry(
     if (!entry) {
       // Fallback: check the backup map (survives Safari buffer overflow)
       const backup = urlVariants.reduce<
-        { duration: number; responseEnd: number } | undefined
+        { duration: number; responseEnd: number; fromCache: boolean } | undefined
       >((found, variant) => found ?? perfEntryBackup.get(variant), undefined)
 
       if (backup) {
@@ -313,8 +356,16 @@ function checkPerformanceEntry(
  * Normal cross-origin network requests ALWAYS take ≥20ms (DNS + TCP + TLS + HTTP
  * round-trip). Extension-local resources load in 0-3ms with zero network I/O.
  * A threshold of 10ms safely distinguishes redirects from real network responses.
+ *
+ * The one other way to get a near-zero duration is an HTTP cache hit, so entries
+ * the browser reports as cache-delivered are never treated as redirects.
  */
 function isLikelyRedirected(url: string): boolean {
+  // Same-origin resources routinely load in a few milliseconds with no network
+  // round-trip at all, so the duration heuristic cannot say anything about them.
+  // Every real test URL is third-party; this only guards the control probes.
+  if (isSameOrigin(url)) return false
+
   try {
     const entries = performance.getEntriesByType(
       'resource'
@@ -326,12 +377,16 @@ function isLikelyRedirected(url: string): boolean {
     if (matching.length === 0) {
       // No live entry — check the backup map (Safari buffer overflow)
       const backup = urlVariants.reduce<
-        { duration: number; responseEnd: number } | undefined
+        { duration: number; responseEnd: number; fromCache: boolean } | undefined
       >((found, variant) => found ?? perfEntryBackup.get(variant), undefined)
 
       if (backup) {
         // We have a backup entry — check its duration
-        return backup.duration >= 0 && backup.duration < REDIRECT_DURATION_THRESHOLD_MS
+        return (
+          !backup.fromCache &&
+          backup.duration >= 0 &&
+          backup.duration < REDIRECT_DURATION_THRESHOLD_MS
+        )
       }
 
       // No Performance entry for original URL — ad blocker redirected to
@@ -344,7 +399,10 @@ function isLikelyRedirected(url: string): boolean {
     // Extension-local redirects have duration 0-3ms; real network responses
     // take ≥20ms even with connection reuse (HTTP round-trip overhead).
     return matching.some(
-      (e) => e.duration >= 0 && e.duration < REDIRECT_DURATION_THRESHOLD_MS
+      (e) =>
+        !isFromCache(e) &&
+        e.duration >= 0 &&
+        e.duration < REDIRECT_DURATION_THRESHOLD_MS
     )
   } catch {
     return false // Can't determine — assume not redirected
@@ -373,14 +431,29 @@ async function detectViaFetch(
   url: string,
   signal?: AbortSignal
 ): Promise<NetworkTestStatus> {
-  if (signal?.aborted) return 'blocked'
+  if (signal?.aborted) return 'inconclusive'
+
+  // A blocked request fails instantly; a request that hangs for seconds is a
+  // stalled server or a dead network, so it must not be scored as blocked.
+  const timeout = new AbortController()
+  const timer = window.setTimeout(() => timeout.abort(), FETCH_TIMEOUT_MS)
+  const merged = AbortSignal.any(
+    signal ? [signal, timeout.signal] : [timeout.signal]
+  )
+
   try {
-    await fetch(url, { mode: 'no-cors', cache: 'no-store', signal })
+    await fetch(url, { mode: 'no-cors', cache: 'no-store', signal: merged })
     return 'not-blocked'
   } catch (err) {
-    // AbortError means the parent cancelled us (another method detected block)
-    if (err instanceof DOMException && err.name === 'AbortError') return 'blocked'
+    // Either the parent cancelled us (another method already decided) or we hit
+    // our own timeout. Neither is evidence about this URL.
+    if (err instanceof DOMException && err.name === 'AbortError') return 'inconclusive'
+    // TypeError: the request never reached the network. An extension block and
+    // a dead domain are indistinguishable here by design (DNS blockers work the
+    // same way), which is why scripts/check-test-urls.mjs prunes dead domains.
     return 'blocked'
+  } finally {
+    window.clearTimeout(timer)
   }
 }
 
@@ -397,7 +470,7 @@ function detectViaPreload(
   signal?: AbortSignal
 ): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
-    if (signal?.aborted) { resolve('blocked'); return }
+    if (signal?.aborted) { resolve('inconclusive'); return }
     const link = document.createElement('link')
     link.rel = 'preload'
     link.as = 'script'
@@ -424,7 +497,7 @@ function detectViaPreload(
     }
 
     // Listen for external abort (another method detected blocking first)
-    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
+    signal?.addEventListener('abort', () => settle('inconclusive'), { once: true })
 
     link.onload = () => {
       // Preload succeeded — but might be a neutered $redirect resource.
@@ -462,18 +535,17 @@ function detectViaPreload(
           // No entry + element error — usually ad blocker interception.
           // But could also be a CORS failure that prevented tracking.
           // Disambiguate with a secondary fetch check.
-          const reachable = await isReachableDespiteCors(url)
-          settle(reachable ? 'not-blocked' : 'blocked')
+          settle(statusFromReachability(await isReachableDespiteCors(url)))
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     document.head.appendChild(link)
 
-    // Timeout for preload — if nothing responds after extended wait,
-    // the request is likely being held/blocked by the ad blocker.
+    // Nothing responded in time. A held request looks exactly like a slow or
+    // unreachable server, so this decides nothing.
     timeoutId = window.setTimeout(() => {
-      settle('blocked')
+      settle('inconclusive')
     }, ELEMENT_TIMEOUT_MS)
   })
 }
@@ -522,7 +594,7 @@ function detectViaImage(
   signal?: AbortSignal
 ): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
-    if (signal?.aborted) { resolve('blocked'); return }
+    if (signal?.aborted) { resolve('inconclusive'); return }
     const img = new Image()
     let timeoutId: number | undefined
     let resolved = false
@@ -541,7 +613,7 @@ function detectViaImage(
     }
 
     // Listen for external abort (another method detected blocking first)
-    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
+    signal?.addEventListener('abort', () => settle('inconclusive'), { once: true })
 
     img.onload = () => {
       // Image loaded — but might be a neutered $redirect resource.
@@ -598,17 +670,15 @@ function detectViaImage(
           settle('blocked')
         } else {
           // No entry + element error — disambiguate CORS from ad blocker.
-          const reachable = await isReachableDespiteCors(url)
-          settle(reachable ? 'not-blocked' : 'blocked')
+          settle(statusFromReachability(await isReachableDespiteCors(url)))
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     img.src = url
 
-    // Timeout for image — if nothing responds after extended wait,
-    // the request is likely being held/blocked by the ad blocker.
-    timeoutId = window.setTimeout(() => settle('blocked'), ELEMENT_TIMEOUT_MS)
+    // Nothing responded in time — indistinguishable from a slow server.
+    timeoutId = window.setTimeout(() => settle('inconclusive'), ELEMENT_TIMEOUT_MS)
   })
 }
 
@@ -627,7 +697,7 @@ function detectViaImage(
  */
 function detectViaFrame(url: string, signal?: AbortSignal): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
-    if (signal?.aborted) { resolve('blocked'); return }
+    if (signal?.aborted) { resolve('inconclusive'); return }
     const frame = document.createElement('iframe')
     let timeoutId: number | undefined
     let resolved = false
@@ -673,7 +743,7 @@ function detectViaFrame(url: string, signal?: AbortSignal): Promise<NetworkTestS
     }
 
     // Listen for external abort (another method detected blocking first)
-    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
+    signal?.addEventListener('abort', () => settle('inconclusive'), { once: true })
 
     frame.onload = () => {
       setTimeout(() => {
@@ -738,7 +808,10 @@ function detectViaFrame(url: string, signal?: AbortSignal): Promise<NetworkTestS
         settle('blocked')
         return
       }
-      settle(isStillAboutBlank() ? 'blocked' : 'not-blocked')
+      // A frame that never left about:blank after a full timeout is just as
+      // likely to be an unreachable host as a blocked one — unlike the onload
+      // path, where staying blank right after a load event is real evidence.
+      settle('inconclusive')
     }, FRAME_TIMEOUT_MS)
   })
 }
@@ -764,7 +837,7 @@ function detectViaStylesheet(
   signal?: AbortSignal
 ): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
-    if (signal?.aborted) { resolve('blocked'); return }
+    if (signal?.aborted) { resolve('inconclusive'); return }
     const link = document.createElement('link')
     link.rel = 'stylesheet'
     link.href = url
@@ -792,7 +865,7 @@ function detectViaStylesheet(
     }
 
     // Listen for external abort (another method detected blocking first)
-    signal?.addEventListener('abort', () => settle('blocked'), { once: true })
+    signal?.addEventListener('abort', () => settle('inconclusive'), { once: true })
 
     link.onload = () => {
       // Stylesheet "loaded" — but might be a neutered $redirect resource.
@@ -816,18 +889,16 @@ function detectViaStylesheet(
           settle('blocked')
         } else {
           // No entry — disambiguate CORS from ad blocker interception.
-          const reachable = await isReachableDespiteCors(url)
-          settle(reachable ? 'not-blocked' : 'blocked')
+          settle(statusFromReachability(await isReachableDespiteCors(url)))
         }
       }, ELEMENT_ERROR_SETTLE_DELAY_MS)
     }
 
     document.head.appendChild(link)
 
-    // Timeout for stylesheet — if nothing responds after extended wait,
-    // the request is likely being held/blocked by the ad blocker.
+    // Nothing responded in time — indistinguishable from a slow server.
     timeoutId = window.setTimeout(() => {
-      settle('blocked')
+      settle('inconclusive')
     }, ELEMENT_TIMEOUT_MS)
   })
 }
@@ -1079,21 +1150,22 @@ async function isLikelyRedirectedWithRetry(
  *
  * Priority order for combining results:
  * 1. If ANY method clearly detects blocking → BLOCKED (immediate)
- * 2. Otherwise → NOT BLOCKED
+ * 2. Otherwise, if any method observed a real response → NOT BLOCKED
+ * 3. Otherwise → INCONCLUSIVE (every method timed out or was cancelled)
  *
- * There is no "inconclusive" state — if blocking cannot be proven,
- * the resource is reported as not-blocked.
+ * Inconclusive results are reported as such and excluded from the score.
+ * Silently folding them into either verdict is what made earlier versions
+ * award an A+ to a browser that was simply offline.
  *
  * When a FilterHint is provided (from @ghostery/adblocker reference engine):
  * - If hint.hasRedirect is true, redirect detection retries multiple times
  *   with longer delays to catch slow Performance API writes.
  * - If hint.shouldBlock is true but all methods say not-blocked, an extra
  *   redirect check is attempted as a final fallback.
- * - If hint.hasDocumentRule is true, the reference engine has matched a
- *   $document / main_frame rule which CANNOT be tested from within a page.
- *   In this case, the reference engine's verdict is used directly, because
- *   $document rules only block top-level navigation (not sub-resources),
- *   making them invisible to fetch/img/preload/iframe probes.
+ * - If hint.hasDocumentRule or hint.domainRestricted is true, the matching rule
+ *   CANNOT be exercised from inside a page ($document only blocks top-level
+ *   navigation; $domain= rules only apply on other origins). Those are reported
+ *   as INCONCLUSIVE rather than scored from the reference engine's own verdict.
  *
  * Example: adsbygoogle.js with $script,redirect=noopjs:
  * - fetch: succeeds (not a $script request) → 'not-blocked'
@@ -1122,8 +1194,8 @@ function detectViaSendBeacon(url: string): Promise<NetworkTestStatus> {
   return new Promise((resolve) => {
     try {
       if (!navigator.sendBeacon) {
-        // sendBeacon not available — can't determine
-        resolve('not-blocked')
+        // sendBeacon not available — this method has no opinion
+        resolve('inconclusive')
         return
       }
       // sendBeacon returns true if the browser successfully queued the beacon.
@@ -1161,23 +1233,14 @@ export function testNetworkResource(
   // $document / main_frame rules block this URL when navigated to directly,
   // but there is no reliable way to detect $document blocking from within a
   // page (fetch, img, preload all use sub-resource types that aren't affected).
-  // We DON'T auto-trust here — the hook's upgrade pass will apply the verdict
-  // only when the user's blocking rate proves they have an active ad blocker.
-  // This prevents false "blocked" for users without any blocker.
-  const hintHasDocumentRule = hint?.hasDocumentRule ?? false
-  if (hintHasDocumentRule) {
-    // Skip network detection entirely — it can't detect $document rules and
-    // would just waste 10+ seconds timing out. Return 'not-blocked' immediately
-    // and let the hook upgrade it based on blocking rate.
-    return Promise.resolve('not-blocked')
-  }
+  // Probing would just burn 10+ seconds and time out, so report it honestly as
+  // untestable instead of borrowing the reference engine's verdict.
+  if (hint?.hasDocumentRule) return Promise.resolve('inconclusive')
 
-  // Track whether the hint indicates this is a $domain= restricted rule.
-  // Network detection will still run (in case an unrestricted rule also exists).
-  // If all methods say "not-blocked", we return "not-blocked" here — the hook's
-  // upgrade pass will trust domainRestricted ONLY when the user's blocking rate
-  // proves they have an active ad blocker (prevents false positives for users
-  // without a blocker or with different filter lists).
+  // A $domain= restricted rule only applies on the origins named in the rule,
+  // never on the tester's own origin. Network detection still runs (an
+  // unrestricted rule may also exist), but "nothing blocked it here" says
+  // nothing about the sites where the rule does apply — so it ends inconclusive.
   const hintDomainRestricted = hint?.domainRestricted ?? false
 
   return new Promise((resolve) => {
@@ -1185,6 +1248,9 @@ export function testNetworkResource(
     let completed = 0
     let notBlockedCount = 0
     let redirectAwareNotBlockedCount = 0
+    // Nothing observed a response: every method timed out, errored, or was
+    // cancelled. Distinguishes "reachable" from "we never found out".
+    let sawResponse = false
     const hintHasRedirect = hint?.hasRedirect ?? false
     const hintShouldBlock = hint?.shouldBlock ?? false
 
@@ -1269,9 +1335,12 @@ export function testNetworkResource(
             return
           }
 
-          notBlockedCount += 1
-          if (redirectAware) {
-            redirectAwareNotBlockedCount += 1
+          if (result === 'not-blocked') {
+            sawResponse = true
+            notBlockedCount += 1
+            if (redirectAware) {
+              redirectAwareNotBlockedCount += 1
+            }
           }
 
           // --- Early "not-blocked" exit ---
@@ -1294,38 +1363,43 @@ export function testNetworkResource(
           }
 
           if (completed === totalDetections) {
-            // All methods returned not-blocked.
-            //
-            // NOTE: $domain= restricted rules (hintDomainRestricted) are NOT
-            // auto-trusted here. They're handled by the hook's upgrade pass
-            // which only trusts them when the user's overall blocking rate
-            // proves they have an active ad blocker. This prevents false
-            // "blocked" results when users visit the tester without a blocker
-            // or with different filter lists.
-            if (hintDomainRestricted || hintHasRedirect || hintShouldBlock) {
-              // Reference engine matched something — do one final aggressive
-              // redirect check. Some ad blockers may have redirected without
-              // standard signals being caught.
-              isLikelyRedirectedWithRetry(url, true).then((redirected) => {
-                finish(redirected ? 'blocked' : 'not-blocked')
-              })
-            } else {
-              finish('not-blocked')
-            }
+            finishWithoutBlockSignal()
           }
         })
         .catch(() => {
           if (settled) return
           completed += 1
           if (completed === totalDetections) {
-            finish('not-blocked')
+            finishWithoutBlockSignal()
           }
         })
     })
 
-    // Safety timeout — if nothing responds in time, assume not blocked.
+    // No method reported blocking. Decide between "reachable", "we never found
+    // out", and "the matching rule cannot be exercised from this origin".
+    function finishWithoutBlockSignal() {
+      const verdict: NetworkTestStatus = sawResponse ? 'not-blocked' : 'inconclusive'
+
+      if (hintDomainRestricted || hintHasRedirect || hintShouldBlock) {
+        // Reference engine matched something — do one final aggressive redirect
+        // check. Some ad blockers redirect without the standard signals.
+        isLikelyRedirectedWithRetry(url, true).then((redirected) => {
+          if (redirected) {
+            finish('blocked')
+          } else {
+            // A domain-restricted rule can't be confirmed or refuted from here.
+            finish(hintDomainRestricted ? 'inconclusive' : verdict)
+          }
+        })
+        return
+      }
+
+      finish(verdict)
+    }
+
+    // Safety timeout — nothing responded in time, so we learned nothing.
     window.setTimeout(() => {
-      finish('not-blocked')
+      finish('inconclusive')
     }, NETWORK_TEST_TIMEOUT_MS)
   })
 }

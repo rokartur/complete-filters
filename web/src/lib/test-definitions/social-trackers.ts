@@ -24,7 +24,6 @@ export const socialTrackers: TestCategory = {
     { name: 'Reddit Pixel', url: 'https://www.redditstatic.com/ads/pixel.js' },
     { name: 'YouTube Ads', url: 'https://ads.youtube.com/' },
     { name: 'ShareThis', url: 'https://platform-api.sharethis.com/js/sharethis.js' },
-    { name: 'AddThis', url: 'https://s7.addthis.com/js/300/addthis_widget.js' },
     { name: 'Instagram Embed', url: 'https://www.instagram.com/embed.js' },
     { name: 'Threads Embed', url: 'https://www.threads.net/embed.js' },
     { name: 'Telegram Widget', url: 'https://telegram.org/js/telegram-widget.js' },

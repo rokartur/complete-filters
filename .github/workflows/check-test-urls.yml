@@ -1,0 +1,29 @@
+name: Check tester URLs
+
+# A dead test URL is indistinguishable from a blocked one inside a browser, so
+# every host that stops resolving silently becomes a free "blocked" for every
+# visitor of the tester, including those with no ad blocker at all. CI has no
+# blocker installed, which makes it the only place this can be verified.
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-urls:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check that every test host is reachable
+        run: node ./scripts/check-test-urls.mjs

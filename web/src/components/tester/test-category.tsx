@@ -1,3 +1,4 @@
+import { AnimatedNumber } from '@/components/animated-number'
 import type { TestStatus, FilterType } from '@/hooks/use-adblocker-tester'
 import type { TestCategory } from '@/lib/test-definitions'
 import {
@@ -39,6 +40,7 @@ interface TestCategoryListProps {
   getCategoryStats: (categoryId: string) => {
     blocked: number
     notBlocked: number
+    inconclusive: number
     pending: number
     total: number
   }
@@ -114,7 +116,10 @@ export function TestCategoryList({
       {visibleCategories.map(({ category, visibleTests }) => {
         const catStats = getCategoryStats(category.id)
         const CategoryIcon = categoryIcons[category.id] ?? ChartColumn
-        const isCategoryFullyBlocked = catStats.total > 0 && catStats.blocked === catStats.total
+        // Inconclusive checks are not failures, so they must not withhold the
+        // "everything blocked" state from a category that had no misses.
+        const decided = catStats.blocked + catStats.notBlocked
+        const isCategoryFullyBlocked = decided > 0 && catStats.blocked === decided
 
         return (
           <AccordionItem
@@ -149,12 +154,18 @@ export function TestCategoryList({
                 <div className="mt-1 flex items-center gap-3 text-sm font-mono sm:mt-0 sm:justify-end">
                   <span className="flex items-center gap-1.5 font-bold text-[9px] tracking-[0.18em]">
                     <span className="inline-block h-1.5 w-1.5 bg-emerald-400" />
-                    <span className="text-emerald-400 tabular-nums">PASS:{catStats.blocked}</span>
+                    <span className="text-emerald-400 tabular-nums">PASS:<AnimatedNumber value={catStats.blocked} /></span>
                   </span>
                   <span className="flex items-center gap-1.5 font-bold text-[9px] tracking-[0.18em]">
                     <span className="inline-block h-1.5 w-1.5 bg-red-400" />
-                    <span className="text-red-400 tabular-nums">FAIL:{catStats.notBlocked}</span>
+                    <span className="text-red-400 tabular-nums">FAIL:<AnimatedNumber value={catStats.notBlocked} /></span>
                   </span>
+                  {catStats.inconclusive > 0 && (
+                    <span className="flex items-center gap-1.5 font-bold text-[9px] tracking-[0.18em]">
+                      <span className="inline-block h-1.5 w-1.5 bg-zinc-500" />
+                      <span className="text-zinc-400 tabular-nums">N/A:<AnimatedNumber value={catStats.inconclusive} /></span>
+                    </span>
+                  )}
                 </div>
               </div>
             </AccordionTrigger>

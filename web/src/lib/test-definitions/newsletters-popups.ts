@@ -6,7 +6,6 @@ export const newslettersPopups: TestCategory = {
   tests: [
     { name: 'Mailchimp Popup', url: 'https://chimpstatic.com/mcjs-connected/js/users/0/0.js' },
     { name: 'OptinMonster', url: 'https://a.optinmonster.com/app/js/api.min.js' },
-    { name: 'Sumo', url: 'https://load.sumo.com/' },
     { name: 'Hello Bar', url: 'https://my.hellobar.com/0.js' },
     { name: 'Privy', url: 'https://widget.privy.com/assets/widget.js' },
     { name: 'Sleeknote', url: 'https://sleeknotecustoms.sleeknote.com/0.js' },

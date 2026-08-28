@@ -4,7 +4,6 @@ export const cryptominers: TestCategory = {
   id: 'cryptominers',
   name: 'Kryptokoparki',
   tests: [
-    { name: 'WebMining', url: 'https://www.webmining.co/' },
     { name: 'MiningPoolHub', url: 'https://miningpoolhub.com/' },
     { name: 'CoinIMP', url: 'https://www.coinimp.com/' },
     { name: 'MoneroMiner', url: 'https://monerominer.rocks/' },

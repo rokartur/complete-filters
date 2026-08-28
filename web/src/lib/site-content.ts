@@ -80,10 +80,17 @@ interface SiteCopy {
     filterAll: string
     filterBlocked: string
     filterNotBlocked: string
+    filterInconclusive: string
     filterPending: string
     gradeTitle: string
     finalScore: string
     blockingEffectiveness: string
+    checkingEnvironment: string
+    offlineTitle: string
+    offlineDescription: string
+    degradedTitle: string
+    degradedDescription: string
+    inconclusiveNote: (count: number) => string
     noResultsTitle: string
     noResultsDescription: string
     testsLabel: string
@@ -91,11 +98,13 @@ interface SiteCopy {
       total: string
       blocked: string
       notBlocked: string
+      inconclusive: string
       pending: string
     }
     status: {
       blocked: string
       notBlocked: string
+      inconclusive: string
       pending: string
     }
     methodTags: Record<MethodTag, string>
@@ -174,10 +183,20 @@ export const SITE_COPY: SiteCopy = {
     filterAll: 'All',
     filterBlocked: 'Blocked',
     filterNotBlocked: 'Not blocked',
+    filterInconclusive: 'Inconclusive',
     filterPending: 'Pending',
     gradeTitle: 'Protection grade',
     finalScore: 'Final score',
     blockingEffectiveness: 'blocking effectiveness',
+    checkingEnvironment: 'Checking connection...',
+    offlineTitle: 'No connection',
+    offlineDescription:
+      'Every request fails without a network, and a failed request is indistinguishable from a blocked one. Reconnect and run the tests again.',
+    degradedTitle: 'Unreliable environment',
+    degradedDescription:
+      'Reference URLs that no filter list blocks did not load. Results below may overstate your protection.',
+    inconclusiveNote: (count) =>
+      `${count} checks could not be decided and are excluded from the score. Rules limited to other domains or to top-level navigation cannot be exercised from this page.`,
     noResultsTitle: 'No results for this filter',
     noResultsDescription: 'Change the filter or run the tests again to see matching items.',
     testsLabel: 'tests',
@@ -185,11 +204,13 @@ export const SITE_COPY: SiteCopy = {
       total: 'Tests',
       blocked: 'Blocked',
       notBlocked: 'Not blocked',
+      inconclusive: 'Inconclusive',
       pending: 'Pending',
     },
     status: {
       blocked: 'Blocked',
       notBlocked: 'Not blocked',
+      inconclusive: 'Inconclusive',
       pending: 'Pending',
     },
     methodTags: {
@@ -207,7 +228,7 @@ export const SITE_COPY: SiteCopy = {
       weak: 'Weak protection',
       none: 'No protection!',
     },
-    gradeSummary: (pct) => `Based on completed checks, your filter blocked ${pct}% of tested elements.`,
+    gradeSummary: (pct) => `Averaged across categories, your filter blocked ${pct}% of the checks that reached a verdict.`,
     testsCount: (count) => `${count} tests`,
   },
   footer: {

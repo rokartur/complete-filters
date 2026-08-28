@@ -2,15 +2,48 @@ import type { TestStatus } from '@/hooks/use-adblocker-tester'
 import { SITE_COPY, getMethodTagLabel, getTestLabel } from '@/lib/site-content'
 import type { TestDefinition } from '@/lib/test-definitions'
 import { getMethodTag } from '@/lib/detection-engine'
-import { Check, X, Loader2 } from 'lucide-react'
+import { Check, X, Minus, LoaderCircle } from 'lucide-react'
 
 interface TestItemProps {
   test: TestDefinition
   status: TestStatus
 }
 
+const STATUS_STYLES = {
+  blocked: {
+    icon: Check,
+    iconClass: 'h-3.5 w-3.5',
+    box: 'border-emerald-500 bg-emerald-500/10 text-emerald-400',
+    badge: 'border-emerald-500/30 bg-emerald-500/5 text-emerald-400',
+    label: SITE_COPY.tester.status.blocked,
+  },
+  'not-blocked': {
+    icon: X,
+    iconClass: 'h-3.5 w-3.5',
+    box: 'border-red-500 bg-red-500/10 text-red-400',
+    badge: 'border-red-500/30 bg-red-500/5 text-red-400',
+    label: SITE_COPY.tester.status.notBlocked,
+  },
+  inconclusive: {
+    icon: Minus,
+    iconClass: 'h-3.5 w-3.5',
+    box: 'border-zinc-600 bg-zinc-600/10 text-zinc-400',
+    badge: 'border-zinc-600/30 bg-zinc-600/5 text-zinc-400',
+    label: SITE_COPY.tester.status.inconclusive,
+  },
+  pending: {
+    icon: LoaderCircle,
+    iconClass: 'h-3 w-3 animate-spin',
+    box: 'border-amber-500 bg-amber-500/10 text-amber-400',
+    badge: 'border-amber-500/30 bg-amber-500/5 text-amber-400',
+    label: SITE_COPY.tester.status.pending,
+  },
+} as const satisfies Record<TestStatus, unknown>
+
 export function TestItem({ test, status }: TestItemProps) {
   const method = getMethodTag(test)
+  const style = STATUS_STYLES[status]
+  const StatusIcon = style.icon
   const displayUrl = test.url ?? (test.baitClass ? `.${test.baitClass}` : `#${test.baitId}`)
 
   return (
@@ -18,21 +51,9 @@ export function TestItem({ test, status }: TestItemProps) {
       <div className="flex w-full min-w-0 flex-1 gap-3 sm:items-center">
         {/* Status icon */}
         <div
-          className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border sm:mt-0 ${
-            status === 'blocked'
-              ? 'border-emerald-500 bg-emerald-500/10 text-emerald-400'
-              : status === 'not-blocked'
-                ? 'border-red-500 bg-red-500/10 text-red-400'
-                : 'border-amber-500 bg-amber-500/10 text-amber-400'
-          }`}
+          className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border sm:mt-0 ${style.box}`}
         >
-          {status === 'blocked' ? (
-            <Check className="h-3.5 w-3.5" />
-          ) : status === 'not-blocked' ? (
-            <X className="h-3.5 w-3.5" />
-          ) : (
-            <Loader2 className="h-3 w-3 animate-spin" />
-          )}
+          <StatusIcon className={style.iconClass} />
         </div>
 
         {/* Test info */}
@@ -53,19 +74,9 @@ export function TestItem({ test, status }: TestItemProps) {
 
       {/* Result badge */}
       <span
-        className={`self-start shrink-0 border px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] sm:self-center font-mono ${
-          status === 'blocked'
-            ? 'border-emerald-500/30 bg-emerald-500/5 text-emerald-400'
-            : status === 'not-blocked'
-              ? 'border-red-500/30 bg-red-500/5 text-red-400'
-              : 'border-amber-500/30 bg-amber-500/5 text-amber-400'
-        }`}
+        className={`self-start shrink-0 border px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] sm:self-center font-mono ${style.badge}`}
       >
-        {status === 'blocked'
-          ? SITE_COPY.tester.status.blocked
-          : status === 'not-blocked'
-            ? SITE_COPY.tester.status.notBlocked
-            : SITE_COPY.tester.status.pending}
+        {style.label}
       </span>
     </div>
   )

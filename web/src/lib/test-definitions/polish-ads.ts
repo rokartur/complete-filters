@@ -20,7 +20,6 @@ export const polishAds: TestCategory = {
     { name: 'SALESmanago', url: 'https://app2.salesmanago.pl/static/sm.js' },
     { name: 'edrone', url: 'https://d.edrone.me/api/init' },
     { name: 'user.com', url: 'https://widget.user.com/widget.js' },
-    { name: 'SAREhub', url: 'https://data.sarehub.com/' },
     { name: 'PushPushGo', url: 'https://pushpushgo.com/' },
     { name: 'CallPage', url: 'https://callpage.io/' },
     { name: 'QuarticON (global)', url: 'https://quarticon.com/' },
@@ -30,8 +29,5 @@ export const polishAds: TestCategory = {
     { name: 'Gemius (Polsat)', url: 'https://polsat.hit.gemius.pl/' },
     { name: 'Gemius (Gazeta)', url: 'https://gazeta.hit.gemius.pl/' },
     { name: 'Gemius (RMF)', url: 'https://rmf.hit.gemius.pl/' },
-    { name: 'adocean (Onet)', url: 'https://onet.adocean.pl/' },
-    { name: 'adocean (WP)', url: 'https://wp.adocean.pl/' },
-    { name: 'adocean (Interia)', url: 'https://interia.adocean.pl/' },
   ],
 }
