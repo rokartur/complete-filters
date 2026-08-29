@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 28 Aug 2026 03:44:59 UTC
+! Last modified: 29 Aug 2026 01:10:48 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -82,6 +82,7 @@ koolhydraatarmerecepten.info##body > [style^="z-index: 1000000; "]
 ||polygon.com/fetch/next/mural/
 ||rockradio.com^*/blockadblock-$script,domain=rockradio.com
 ||samfw.com/js/script.js
+||savefiles.com/js/noadblocker.js
 ||static.game-state.com/images/main/alert/replacement/
 ||tritoshi.com/libs/check.js
 ||tristoshink.online/libs/check.js
@@ -2441,6 +2442,7 @@ flightradar24.com###responsiveBottomPanel
 techonthenet.com###sabl
 outlook.live.com##.N3k7EN5vRGTrONWBPg250
 myanimelist.net##._unit
+firestream.to##.adblock-overlay
 photofilters.com##.adBlocked
 biggestplayer.me##.adblock + *
 nexusmods.com##.areplacer
@@ -10651,6 +10653,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+compact-online.de##.compact-adblock-notice
 /rainbow/master-js|$script,domain=nairahost.com.ng|topranktech.com|toolszu.com|roxbold.com|seomagnifier.com|coolseotools.com|helperseotools.com|seovaro.com|digitalvimal.com|proseo.com.br|seoyandira.com|wapmastazone.com|bitfitxalltools.com|njjfeducationcenter.com
 toolspivot.com##body.modal-open > div.modal.fade
 toolspivot.com##.modal-backdrop
@@ -13101,15 +13104,6 @@ chzzk.naver.com#@#.banner_ad_wrapper
 @@||nam.veta.naver.com/call|$xmlhttprequest,domain=chzzk.naver.com
 !#safari_cb_affinity
 !#endif
-!#if (!adguard_ext_android_cb && !adguard_ext_safari)
-chzzk.naver.com#%#//scriptlet('trusted-suppress-native-method', 'Function.prototype.call', ' |"setRequestHeader"', 'abort')
-chzzk.naver.com#%#//scriptlet('spoof-css', '.banner_ad_wrapper', 'display', 'block')
-chzzk.naver.com#%#//scriptlet('prevent-xhr', '/(veta.naver.com\/vas|veta.naver.com\/gfp|veta.naver.com\/call)/ method:OPTIONS')
-!#endif
-!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_app_cli)
-||api.chzzk.naver.com/service/v1/client-config$domain=chzzk.naver.com,xmlhttprequest,replace=/\,"tr":[0-9]+\,/\,"tr":0\,/
-||ssl.pstatic.net/static/nng/glive/resource/p/static/js/vendor-*.js$domain=chzzk.naver.com,script,replace=/(?!async *function *[a-zA-Z0-9]+) *\( *{ *[a-zA-Z0-9]+ *: *[a-zA-Z0-9]+ *= *![0-9] *\, *[a-zA-Z0-9]+ *: *[a-zA-Z0-9]+ *= *![0-9] *\, *[a-zA-Z0-9]+ *: *[a-zA-Z0-9]+ *= *![0-9] *\, *[a-zA-Z0-9]+ *: *[a-zA-Z0-9]+ *= *![0-9] * *} *\) *{ *.+[a-zA-Z0-9]+ *\|\| *[a-zA-Z0-9]+ *\|\| *[a-zA-Z0-9]+\.some *\( *[a-zA-Z0-9]+ *=> *[a-zA-Z0-9]+ *\) *}/(){return false}/
-!#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/185974
 grabify.link#%#//scriptlet('set-cookie', 'ckstp', '1')
 grabify.link#@#.ad_container
@@ -13782,5 +13776,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10473
+! Total unique rules: 10471
 ! Duplicates removed: 3039
