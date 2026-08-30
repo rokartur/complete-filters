@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 29 Aug 2026 01:10:48 UTC
+! Last modified: 30 Aug 2026 01:20:54 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1787918434-3600.patch
+! Diff-Path: ../patches/11/11-s-1788030823-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2706,6 +2706,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+estadao.com.br#$#header div.container-fixed { position: static !important; }
 figure-times.com##body > .mobile-only
 deview.co.jp##.sp-break-ad-text
 deview.co.jp##.overlay_container
@@ -18981,5 +18982,5 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13075
+! Total unique rules: 13076
 ! Duplicates removed: 16

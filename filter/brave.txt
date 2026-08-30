@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 29 Aug 2026 01:10:48 UTC
+! Last modified: 30 Aug 2026 01:20:54 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -2938,6 +2938,7 @@ bioinformant.com###text-15
 startuphub.ai##.relative.not-prose.my-8:has([aria-label*="Hide"])
 startuphub.ai##.duration-200.hover\:border-primary\/40.overflow-hidden:has-text(Part)
 startuphub.ai##div.rounded-lg.overflow-hidden.col-span-full:has([aria-label*="Hide"])
+startuphub.ai##[data-nosnippet="true"]:has([aria-label="Hide ad"])
 ! autoexpress.co.uk
 autoexpress.co.uk##.polaris__below-header-ad-wrapper
 autoexpress.co.uk,carbuyer.co.uk,evo.co.uk##.polaris__partnership-block
@@ -7050,5 +7051,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5978
+! Total unique rules: 5979
 ! Duplicates removed: 8

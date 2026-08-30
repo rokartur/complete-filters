@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Regional
 ! Description: Combined filter list for the regional category.
-! Last modified: 29 Aug 2026 01:11:08 UTC
+! Last modified: 30 Aug 2026 01:21:10 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 40 / 40
@@ -2629,6 +2629,7 @@ x.bidswitch.net
 ||app.posthog.com^
 ||app.vstats.me^
 ||app-sj06.marketo.com^
+||appconnect.isbank.com.tr^
 ||applets.ebxcdn.com^
 ||applog.uc.cn^
 ||appmetrica.yandex.com^
@@ -30143,6 +30144,7 @@ src="https://podhaleregion.pl/wp-content/uploads/2025/01/BANER-3-PODHALE-REGION-
 ||i0.wp.com/mobirank.pl/wp-content/uploads/2025/03/banner-20-proc-rabatu-nazwa-pl.webp?w=1110&ssl=1
 ||i0.wp.com/poscigi.pl/wp-content/uploads/2025/03/FORTHING_Ubezpieczenia_1071x156_stopka.png?resize=960%2C140&ssl=1
 ||i0.wp.com/poscigi.pl/wp-content/uploads/2025/04/remonty-reklama-leaderboard.png?resize=960%2C159&ssl=1
+||i0.wp.com/poscigi.pl/wp-content/uploads/2025/04/remonty-reklama-square.png?fit=1200%2C1200&ssl=1
 ||i0.wp.com/poscigi.pl/wp-content/uploads/2025/04/remonty-reklama-square.png?resize=1068%2C1068&ssl=1
 ||i0.wp.com/poscigi.pl/wp-content/uploads/2025/11/baner-legalny-wlamywacz.jpg?resize=960%2C144&ssl=1
 ||i0.wp.com/poscigi.pl/wp-content/uploads/2026/03/att.63e3mMvMZl25GczLounfhFNAjPWLvGKf2jRtuV8RmuU.jpg?resize=696%2C1443&ssl=1
@@ -30451,6 +30453,7 @@ src="https://podhaleregion.pl/wp-content/uploads/2025/01/BANER-3-PODHALE-REGION-
 ||poradnik-pacjenta.pl^*-rekl.
 ||portalgorski.pl/images/Nowa_Strona/Bannery/Reklamy_Nasze/bergans_ryszard_pawlowski.png
 ||portalmorski.pl^*^pmb^
+||postawnaswoim.pl/wp-content/uploads/2015/08/Pozyczkolog-pozyczki-bez-bik.jpg
 ||postimg.cc^$domain=pogonsportnet.pl
 ||powiatowy.pl^*^cam2.
 ||powiatowy.pl^*^zuwika.
@@ -42378,7 +42381,7 @@ triplx.dk##.aff-inner-col
 .nu/images/banners/
 .nu/prebid$script
 .php?annonsid=$image
-.php?p=$xmlhttprequest,domain=skogsforum.se
+.php?$xmlhttprequest,domain=skogsforum.se
 .se/AdPlugins/
 .se/Banners/
 .se/Media/Banners/
@@ -42454,12 +42457,13 @@ affarsstaden.se#?#*:-abp-has(> * > * > .uagb-heading-text:-abp-contains(Aditoria
 affarsstaden.se#?#:is(.uagb-ifb-content):has(a[href*=casino])
 affarsvarlden.se##article.article-list-item:has(a[href*="/native/"])
 affarsvarlden.se##.Modal, .article-list-item--native, .advert-notice-box, .native-popup, .takeover-wrap, .native-notice-box, .darwin--content
+aftonbladet.se##article .layout-component:has(span[class*=adLabel])
 aftonbladet.se##article[class^=article-wrapper] ~ div[class^=hyperion]:has(a[href*="/t?a="], a[href*="/click"], a[href^=http][nofollow], a[href^=http][rel*=nofollow], iframe[src*=pricerunner], iframe[src*="/ads/"])
 aftonbladet.se#?#article[class^=article-wrapper] *:-abp-has(> strong:-abp-contains(/annons/i))
 aftonbladet.se##aside > div[class^=_wrapper]:has(div[class^=_adLabel])
 aftonbladet.se##div[class^=stickylogin]
 aftonbladet.se##*:has(> div[class^=_adLabel])
-aftonbladet.se##div[data-edition-name^=ab-native-premium], div[class^=advertory-]:not(.advertory-header-anchor), a[href*="/brandstudio"], a[href*="/brand-studio"], a[href*="/casinoguide"]
+aftonbladet.se##div[data-edition-name^=ab-native-premium], a[href*="/brandstudio"], a[href*="/brand-studio"], a[href*="/casinoguide"], div[class*=panorama-wrapper], div[class*=insider-wrapper], #sps-bottombar-poster, astro-island[component-export^=AffiliateAd]
 aftonbladet.se##h2[data-test-tag=paragraph-header]:has(a[aria-label*=ANNONS])
 aftonbladet.se##section[class^=twocolumnlayout-main] > div[class^=usermsgtoast-root]:has(iframe)
 aftonbladet.se#?#:is(aside[class^=twocolumnlayout-aside], section[class^=twocolumnlayout-main]) a[data-test-tag=internal-link]:-abp-contains(/annonslänkar/i)
@@ -42469,7 +42473,7 @@ aikfotboll.se##div[class^=SponsorBlock], div[class^=PartnersBlock]
 aikfotboll.se,vaken.se,tidningen.djurskyddet.se,aktavara.org,kullaliv.se,blocket.se##.banners
 aikhockey.se,almtuna.com,bikkarlskoga.se,bjorkloven.com,brynas.se,difhockey.se,frolundahockey.com,farjestadbk.se,hockeyallsvenskan.se,hv71.se,ikoskarshamn.se,kalmarhockey.com,leksandsif.se,luleahockey.se,malmoredhawks.com,modohockey.se,moraik.se,nybrovikings.com,orebrohockey.se,roglebk.se,skellefteaaik.se,sodertaljesk.se,taif.nu,timraik.se,vaxjolakers.se,vik.se,ostersundik.com,fbclerum.se,shl.se##a[href*="svenskaspel.se"][target], .sponsor-img, .topheader-sponsor-img
 aikhockey.se,almtuna.com,bikkarlskoga.se,bjorkloven.com,brynas.se,difhockey.se,frolundahockey.com,farjestadbk.se,hockeyallsvenskan.se,hv71.se,ikoskarshamn.se,kalmarhockey.com,leksandsif.se,luleahockey.se,malmoredhawks.com,modohockey.se,moraik.se,nybrovikings.com,orebrohockey.se,roglebk.se,skellefteaaik.se,sodertaljesk.se,taif.nu,timraik.se,vaxjolakers.se,vik.se,ostersundik.com,fbclerum.se,shl.se##.linked-image-section:has(a[href*="svenskaspel.se"][target])
-aip.nu##[class*=feed-ad]
+aip.nu##[class*=feed-ad], .site-popup[data-popup-mode=logged_out]
 aktavara.org##.banner-start
 aktieskolan.se##.ast-container > .elementor > section.elementor-section:has(a[href*=betting])
 aktiespararna.se,alekuriren.se,tidningen.se,kurera.se,vinbanken.se,utsidan.se,offentligaaffarer.se##.native
@@ -42489,8 +42493,7 @@ allastudier.se##.am-container-side:has(.adunit)
 allastudier.se,utbildning.se,studentum.se##.wide-page_ads, .lcb-AdLcb
 allas.se,elle.se,femina.se,hant.se,mabra.com,residencemagazine.se,svenskdam.se,motherhood.se##article.grid:has(a[href="/creative-studio"])
 allas.se,elle.se,femina.se,hant.se,mabra.com,residencemagazine.se,svenskdam.se,motherhood.se#?#article.grid:-abp-contains(/annonssamarbete/i)
-allas.se,elle.se,femina.se,hant.se,mabra.com,residencemagazine.se,svenskdam.se,motherhood.se##article[data-type=native], .ag-product-wrapper, .product-carousel__container, .shop_carousel, .editorsPick, div[class^=strossle-widget-], .ad-min-height, a.cts-impression-item[data-cts-label*=banner], section[data-cts-label=affiliate-carousel], .ad-row-column, section[data-cts-object-category=promotion_banner], section[data-cts-object-category=affiliate_carousel]
-allas.se,elle.se,femina.se,hant.se,mabra.com,residencemagazine.se,svenskdam.se,motherhood.se#?#div.wings-gray-200:-abp-contains(Annons)
+allas.se,elle.se,femina.se,hant.se,mabra.com,residencemagazine.se,svenskdam.se,motherhood.se##.ad-row-column, [data-cts-object-category=affiliate_carousel]
 allatvkanaler.se##.gda, .iy.first
 allsvenskan.se##a[href*="track.adform"]
 allsvenskan.se,svenskafutsalligan.se,superettan.se##.footer-sponsors
@@ -42499,6 +42502,7 @@ alltomarbetsmiljo.se##.bg-native
 alltomburgare.se##.newscolumn:has(a[href$="/sponsrat/"])
 alltomelbil.se###zox-lead-top-wrap
 alltomelbil.se#?#:is(.p-list, div[class*=post-], .owl-item):has(a[href*="/annons"], a[href*="/kategori/ad/"])
+alltomforetagande.se##.csamt-root
 alltomjaktochvapen.se##.avada-footer-scripts, .sponsorer
 alltomkungligt.se##div[id*=banner-holder]
 alltommc.se##div[class*=dfp-ads-container]
@@ -42514,7 +42518,6 @@ annonsbanner$image,domain=kiacarclub.se|hyundaiforum.se
 annons$image,domain=kiacarclub.se|pvmagasinet.se
 arbetaren.se#?#.lg\:w-4\/12 > .widget:-abp-contains(Annons:)
 arbetet.se#?#.Container:not(.ContentItem-content):has([data-controller=ad])
-arbetsvarlden.se##.nl_popup
 arjeplognytt.se##.metaslider, img[alt*=Annons]
 arkitekten.se##div[data-native-ad-position]:has(.Ad)
 arkitekten.se##.ContentItemList-item:has(.Teaser--nativeAd)
@@ -42537,8 +42540,6 @@ avanza.se#@#a[title=LeoVegas]
 aventyrsresor.se##._form-wrapper
 axess.se##dialog:has(a[href*="order.flowy.se"])
 babyhjalp.se##.elementor-widget[data-settings*=sticky_], div[id^=babyhjalp_panorama], div[id^=babyhjalp_mobil], div[id^=stagi]
-bandyfeber.com##article:has(a[href*="/annons-"])
-bandyfeber.com##.widget_sp_image, a[title^=ANNONS], .inner_sidebar .widget_text, .entry-content a[href*=utm_campaign]
 banners$image,domain=travsport.se|gavletravet.se
 banner$image,domain=golfbladet.se|kiacarclub.se|hyundaiforum.se|schafertidningen.se
 barnistan.se,welma.se##.featured-teaser:has(a[onclick*=adClick])
@@ -42569,6 +42570,7 @@ birthday.se##.datax
 bjarenu.se#?#:is(.smalltopnyhed, .topnyhed):has(a[href^="/native/"])
 bjuvsweek.se##.carouselbanner-wrp
 blocket.se#@#div[data-ad-id]
+bluff.se###cc-banner
 bobattre.se##img[alt*=banner]
 bodennytt.se###secondary .widget:has(a[target=_blank], a[href*="track.ad"])
 bodennytt.se##.items-center:has(.holidAds)
@@ -42608,8 +42610,8 @@ bussmagasinet.se,byggteknikforlaget.se,dialasen.com,torbjornstips.se,backpacking
 butiksnytt.se##a[target=_blank]:not([href^="/"], [href*="butiksnytt.se"]), #tdi_57
 butikstrender.se##a[target=_blank] picture, div[data-settings*=sticky], div[id^=butik-]
 butikstrender.se#?#body > .elementor > .elementor-section:first-child:-abp-contains(Annons)
-byggahus.se##.block-ad, a[href^="/partner/"], .threadMatchedContent
-byggahus.se,expressen.se,filmtopp.se,destination.se,folkhalsasverige.se,foretagsverige.se,forskningsverige.se,motorbibeln.se,hallbarhetsverige.se,tillvaxtsverige.se,grillbibeln.se,kampenmotcancer.se,bolagsfakta.se,affarsvarlden.se,affarerinorr.se,dinordbok.se,motorbranschen.mrf.se,rakapuckar.com,ordspel.nu##.ad-container
+byggahus.se##.block-ad, a[href^="/partner/"], .threadMatchedContent, .relatedProductPanel
+byggahus.se,expressen.se,filmtopp.se,destination.se,folkhalsasverige.se,foretagsverige.se,forskningsverige.se,motorbibeln.se,hallbarhetsverige.se,tillvaxtsverige.se,grillbibeln.se,kampenmotcancer.se,bolagsfakta.se,affarsvarlden.se,affarerinorr.se,dinordbok.se,motorbranschen.mrf.se,rakapuckar.com,ordspel.nu,hockeysverige.se##.ad-container
 byggfaktadocu.se##.pop_box, .contact-supplier.show
 byggipedia.se#?#aside.widget_text:-abp-contains(/sponsr|samarbetspartners/i)
 byggipedia.se##.code-block:has(.adsbygoogle)
@@ -42631,6 +42633,7 @@ cannabis.se###block-8
 carup.se##div[id^=carup-]
 casinoguiden$image,domain=samnytt.se|samnytt.nu
 casino$domain=pirkt.se
+casino$xmlhttprequest,domain=res.se
 casino-utan-$image
 chefstidningen.se##[id^=block-views-ad], .modal-container
 chef.se##.Product-modal, .Offer-popup, .Toaster
@@ -42644,6 +42647,7 @@ citymark.today,hotellorestaurang.se,omtanke.today##.post--card:has(a[href*="/ann
 computersweden.se##.nativo
 computersweden.se##.latest-content__card-secondary:has(.nativo)
 coop.se#?#:is(a[href="/butiker-erbjudanden/"], a[href^="/handla"]):has(source[srcset*=annons], img[alt*=Annons])
+cora.se##div[class^=modal-cacsp]
 cyclistsbest.se##.Partners
 cyclistsbest.se##section.pos-relative:has(.FeaturedCard--spot)
 cykla.se##.featured-post--sponsored, .grid-item--sponsored, #advert-once-banner-fullskarm
@@ -42657,7 +42661,7 @@ dagensnamn.nu##div[id^=dagensnamn_], .dagensnamn_nu_billboard_middle, a[href*=ko
 dagensnamn.nu##.card:has(a[href*="adrecord.com"])
 dagensopinion.se##.post-block:has(a[href*="/annons/"])
 dagensps.se##.container:has(.dagensps_ad)
-dagensps.se,news55.se,realtid.se##a[href*="-partner/"], .ad-links-module, .dagensps_ad, a[href*="ut.dagensps.se"][target], .bottom_banner, .leftsidebanner, .c-external-notice, a[href*="/affiliate/"], a[href*="/native-article/"]
+dagensps.se,news55.se,realtid.se##a[href*="-partner/"], .ad-links-module, .dagensps_ad, a[href*="ut.dagensps.se"][target], .bottom_banner, .leftsidebanner, .c-external-notice, a[href*="/affiliate/"], a[href*="/native-article/"], .h-\[600px\]:empty
 dagensps.se,news55.se,realtid.se##div.justify-center:has(div[id*=_pano], div[id*=_tws], div[id*=_mobil])
 dagensps.se,news55.se,realtid.se##div[class^=bg-]:has(a[href="/ps-partner"])
 dagensps.se,news55.se,realtid.se#?#.infinite-scroll-component > .container:has(a[href*="/ut.dagensps.se/"], .grid:empty)
@@ -42684,7 +42688,6 @@ deliquate.se##[id^="ads300"], [id^=linkcat-]
 densistavilan.se##footer .x-bar:has(div[id^=densi-])
 densistavilan.se#?#*:-abp-has(> h3.h-custom-headline:-abp-contains(Advertorial))
 densistavilan.se###fancybox-wrap, div[id^=densi-]
-dental24.se##.post-box:has(.sponsored)
 digitalavykort.se#?#.rightdiv p:-abp-contains(/casino|kasino|lån|betting|odds|lotto/i)
 digitalfotoforalla.se,iform.se,pctidningen.se,varldenshistoria.se,illvet.se##.scroll-message, .gallery-banner, .horseshoe, [data-ad-type], .bcm-banner, .default-banner-size, .bp-ads, .banner-aside
 digitalfotoforalla.se,iform.se,pctidningen.se,varldenshistoria.se,illvet.se##.standard.mobile-rows:has(a[data-ad-domain])
@@ -42698,9 +42701,10 @@ discoveringtheplanet.com#?#.widget-title:-abp-contains(/annons/i) + .textwidget
 di.se##.di_panorama-wrapper, .site-header__panorama, .di_panorama__isAdLabel, .discount-box, .campaign-ad-box, .di_start__teaser-placeholder, .di_teaser-flak-planbokskoll, .di_teaser-flak-container--native, .native-box, .bandit-box__teaser--native, a[href*="/brandstudio"], .service-box, .brand-studio-box, .native-article, .listing-box-native
 di.se##.market-start-top + div:not(.market-container__wrapper)
 djungeltrumman.se##div[align=center] > *:has(> * > a[href*=casino])
-djungeltrumman.se###sponsored-posts, #right-banners, .banner-wrapper, .top-banner-label, .banner-label
+djungeltrumman.se###sponsored-posts, #right-banners, .banner-wrapper, .top-banner-label, .banner-label, article[data-section=sponsrat]
 djungeltrumman.se##.item:has(a[href*=casino])
 djungeltrumman.se##.post:has(.label-sponsored)
+djungeltrumman.se##.scroll-item:has(a[href*="/sponsrat/"])
 dn.se##.article--native, .teaser-card--native, .ds-teaser--native, #dnse-popup, .bad, .campaign-holder
 dn.se,di.se##.teaser-native
 dognews.se#?#.xoxo li.widget_media_image:has(a:not([href^="/"]:not([href*="dognews.se"])))
@@ -42711,6 +42715,7 @@ driva-eget.se#?#:is(.articles-swiper-item, .article-content, .articles-masonry-i
 drugnews.se##.ad-swiper-container
 drugnews.se#?#:is(#sidebarleft, #sidebarright) .widget:has(.ad-swiper-container)
 dykarna.nu###rightbanners
+dykarna.nu##.mobileShow:has(span[onclick])
 edgeflyfishing.com###g-header, #g-aside, #g-sidebar, a[href*=utm_campaign], a:not([href^="/"], [href*="edgeflyfishing.com"]) img
 edukatus.se###g-preloader
 ehandelstips.se##div[class*=block-wrap-ad-]
@@ -42727,7 +42732,6 @@ elektronikforumet.com##a[href*=bannerid]
 elektronikforumet.com##td > a[target=_blank] img
 elevspel.se##a[href*=medlem] > div, .ann-top, .ann-body, .rvk2gr
 elevspel.se#?#:is(div.Block, div[style^="display: table"], h1[itemprop=name] ~ div:not([style="display:none;"]):not([class^=content][class$=content])):has(a[href*=medlem], [onclick*=medlem], .adsbygoogle)
-elle.se##*:has(> * > section.c-native_banner)
 elprisetjustnu.se##.bg-sponsor
 elprisetjustnu.se##.power-card:has(.adsbygoogle)
 elprisetjustnu.se#?#:is(.container, .bg-light-yellow):has(.btn-sponsor)
@@ -42789,11 +42793,11 @@ filmparadiset.se##.widget_text:has(a[href*=casino])
 filmtipset.se##.outer.noprint
 filmtipset.se#?#.container > div[style="padding:10px"]:has(a[href*=casino])
 filmtopp.se##.cooperation-banner__container, .takeover-desktop, .takeover-mobile, #discover-banner
+finanstid.se##div[aria-label^="Ad "]
 findit.se##.banner-wrapper, .col-banner, .banner_middle
 firstclassmagazine.se###leader-wrap, #rpwe_widget-2, .side-widget .textwidget
 fisheco.se###page-section-2, #page-section-24, .g-single
 fiskesnack.com##.axd-widget, #widget_314
-flamman.se###scrollup, .adverter
 flashback.org###top-banner-container, #top-banner-wrapper
 flashscore.se##.boxOverContent--a, .otPlaceholder, .seoAdWrapper, .adsbackground-wrapper, .prematchOddsBonus__bonus, .prematchLink[target], .detailLeaderboardSkeleton, .ui-media__placeholder:empty
 flm.nu##.spons
@@ -42806,7 +42810,7 @@ folkofolk.se##div[class^=MuiDialog-root]
 foodfolder.se###myModal, .adImage
 foretagande.se##article:has(.sponsored-text)
 foretagande.se##div.article:has(a[href$=artiklar-i-samarbete])
-foretagande.se##div[id*=panorama], .panorama-pos, #premiumPopupWrapper, .modal-backdrop
+foretagande.se##div[id*=panorama], .panorama-pos, #premiumPopupWrapper, .modal-backdrop, .mobile-ad-wrapper
 foretagsverige.se,forskningsverige.se,motorbibeln.se,hallbarhetsverige.se,tillvaxtsverige.se,grillbibeln.se,kampenmotcancer.se,folkhalsasverige.se,dinlivsstil.nu##.client-logos
 foretagsverige.se,forskningsverige.se,motorbibeln.se,hallbarhetsverige.se,tillvaxtsverige.se,grillbibeln.se,kampenmotcancer.se,folkhalsasverige.se,dinlivsstil.nu#?#.whitebox-container:-abp-contains(/sponsra/i)
 forni.se##.section-sidebar-shop
@@ -42824,12 +42828,12 @@ fotbolldirekt.se##div[id$=_widget_desktop], div[id$=_widget_mobile], div[id$=sup
 fotbolldirekt.se,hockeysverige.se,innebandymagazinet.se,motivation.se,fiskejournalen.se,alba.nu,padeldirekt.se,formeldirekt.se,dagensopinion.se,golfing.se##.annons
 fotbollskanalen.se#?#a.pr-side:-abp-contains(/sponsra/i)
 fotbollskanalen.se##section.w-full-content:has(a[href*=europatipset])
+fotbollskanalen.se#?##main-content > div.w-full-content > div:not([class]):has(a[href*="/betmgm/"])
 fotbollskanalen.se##.brand, .desktop-ad-web, a[href*="telia.se/privat/tv/sport"] img, .mobile-ad-web, .fbk-ad-container, a[href^="https://www.atg.se/"][target], .fk-advertory-ad-wrapper
 fotbollskanalen.se#?#.news-list li:has(span[style="color:#6ab6ff"])
 fotbollskanalen.se##.notice:has(span[class$=sponsored])
 fotbollsresultat.com##.fusion-flex-container:has(a[href*=casino])
 fotbollsthlm.se##.fotbollsthlm-image-container:has(.fotbollsthlm-ad-link)
-fotbolltransfers.com#?#a article:-abp-contains(Annons)
 fotbolltransfers.com##div[class^=ad], a[href^="https://ads."], .header_sponsored, .fresnel-greaterThanOrEqual-panorama, .fresnel-lessThan-panorama
 fotbolltransfers.com##div[style^=min-height]:has(div[id^=fotbolltransfers_mpu], div[id^=fotbolltransfers_mobil])
 fotbolltransfers.com##*:has(> img[src*="/images/annonser/"])
@@ -42846,15 +42850,13 @@ fragbite.se##.messageHolder ~ div[id*=viralize][class*=brand-showheroes]
 fragbite.se##.module:has(a[href*=casino])
 fragbite.se##.tn, .zooKeeper, #scraper, .subHeadSponsors
 framtid.se###siteflash, #customer-link-container
-fraser.nu##div[aria-label=Annonser]
+fraser.nu##div[aria-label=Annonser], .ad-reserved
 freedomtravel.se##.startpage-post:has(.has-sp)
 freedomtravel.se##.takeover-container, .ad-placement-group
 freeride.se##img[src*="/sponsor/"] + br + .boxlogo, .sidebar-front .boxen
 freeride.se##.sidebar-front .widget_text.dark ~ p
 freeride.se#?#:is(.visible-xs, div[class^=sidebar] div[style]):has(a[href*=casino], a[target=_blank])
 freeride.se,gamereactor.se,happyride.se,hockeyettan.se##.sponsor
-fria.nu,stockholmsfria.se##*:has(> .holidAds)
-fria.nu,stockholmsfria.se##[class*=annonser], #cboxOverlay, #cboxWrapper, a[href*=banner][target]
 frihetsnytt.se##a[href^="https://frihetsnytt.se/annonsera"]
 frihetsnytt.se##.tdm_block_inline_image:has(a[target])
 frihetsnytt.se#?#*:-abp-has(> .td-block-title-wrap:-abp-contains(/annons/i))
@@ -42876,7 +42878,7 @@ gais.se##.landing-page-main-partners, .hero-banner
 gamereactor.se###eventad, [id^=sky], [id^=ad_lead], .external_div_bigVideoAd, #mpu, #leftToLogo, .itsanad, div[class^=ad_Bumper], div[style="min-height: 600px; margin-bottom: 20px;"], div[id^=ad_], div[class^=preAd_], div[class^=ad_smartphbig], .adMobileBig, div[class^=preMobileBig], .external_div_videoAd, .ad_mobilebigwrap, #mobileLeftMainLogo, a[href*="/app.youform.com"][title*=ads]
 gamereactor.se##.colHomePlayer:has([data-slotads=videoad])
 gamereactor.se##.rightbox:has(#grtvbelt_Sponsored)
-gamereactor.se,hitta.se,hundnytt.se,tvmatchen.nu##a[rel=sponsored]
+gamereactor.se,hitta.se,hundnytt.se##a[rel=sponsored]
 garaget.org##.gorgad, .gorgad-footer-wrap
 garaget.org##.gorg-content-side .mt-3:has(a[href*=casino])
 gasetten.se##.footer-widgets .widget_block li
@@ -42892,8 +42894,6 @@ golfing.se##.c-partners__item
 golflivet.se##a[href*="/annonssamarbete/"], .deals_block_wrapper, .ai-close-fit
 golf.se##astro-island[props*=mainPartners]
 goteborgfilmfestival.se#?#*:-abp-has(> .text-gray:-abp-contains(/Annons/i))
-goteborg.com##.overlay
-grandtech.se##aside#secondary:has(.adsbygoogle)
 gratis.se##.article-summary:has(a[href*=casino])
 gratis.se#?#.article-summary:-abp-contains(/spelmarknad|casino/i)
 grillbaronen.se##a[href*="/click."], #block-2, #block-4, #custom_html-3, #custom_html-8
@@ -42911,10 +42911,9 @@ hammarbyfotboll.se#?#*:-abp-has(> div[class*=module--banner]:-abp-contains(Annon
 hammarbyfotboll.se###seasonalTakeover, div[class*=sponsorBarContainer], div[class*=footerSponsors], .slick-slide a[target=_blank]
 handbollskanalen.se##div[id^=handbollskanalen-]
 handel.ax###topadmob, div[id^=hande-]:empty
-hant.se,svenskdam.se##div.text-center:has(div[ad-placement])
 happypancake.se##*:has(> a[href*=casino])
 happypancake.se###__next > div > div.bar:first-child
-happyride.se##.col-sm-4 > div[class]:has(a[href*=casino], a[target=_blank])
+happyride.se#?#:is(.col-sm-4 > div[class], .col-sm-4 > div[style^=padding-bottom]):has(a[href*=casino], a[target=_blank])
 happyride.se,freeride.se##.anm1-container, [class^=anp], [class^=ans], .box.evergreen, #a-midscroll
 hastnet.se##div[style*=--mobile-height]:has(div[id^=div-gpt])
 hastnet.se##.listings-search-ads, .right_panel, #pmg-widget-root, div[class*=adSlotPlaceholder]
@@ -42943,9 +42942,9 @@ hemnet.se###ad_unit_placeholder, div[class^=Panorama_panoramaAd], .listing__pano
 hemnet.se#?#:is(article, li):has([class*=SponsoredLabel], .article-card__sponsored-text)
 hemnet.se#?#:is(div[class^=Carousel], #top_listing):has(div[class^=PaidPlacementLabel])
 hemtrevligt.se##article[data-section=Partner]
-hifitorget.se##.billboard_container, .billboard-style, a[href*=utm_][target] img, .listing-ad-row
+hifitorget.se##div[data-sponsored-label], .ht-ad-divider, .anchor-ad-spacer, aside[aria-label=Annons]
 hifitorget.se#?#:is(.row div[style^=min-height], .row .h-100):has(.adsbygoogle, .billboard_container, div[id^=div-gpt-ad])
-hippson.se##.my-8:empty
+hippson.se##.my-8:empty, .ad-banner
 hippson.se#?#:is(.rounded-xl, .main-article-container):has(a[href="/sponsrad-artikel"])
 hitta.se##a[data-trackimp][target], .hitta-map .integration-txt, .section-details--alb, [class*=dummyAd], [class*=StyledAdSlot], [data-bind*=Ad], div[class^=GraphicAd_], [class*=adContainer], [id*=_panorama], [id*=_skyscraper], div[style="min-height: 250px;"], div[data-track=displayplacering-customer], a[data-test=boostAdLink], div[class^=style_bannerContainer], [data-track=click-promotion-banner], div[class*=adWrapper], div[class*=hittaAdContainer], div[class*=partnerBox], a[class*=promotion], div[class*=adsContainer]
 hitta.se##.pointer-events-auto.items-center:has(div[id*=panorama])
@@ -42978,13 +42977,12 @@ hrsvepet.se,cfosvepet.se,vdsvepet.se##.desktopbanner, .mobilbanner-section, #tak
 hrsvepet.se,cfosvepet.se,vdsvepet.se##.w-dyn-item:has(a[href="/katergori/employer-branding"])
 hrsvepet.se,cfosvepet.se,vdsvepet.se#?#:is(.recent-post-item, .w-dyn-item):has(a[href="#"]:not(.w-condition-invisible))
 husbilhusvagn.se,vibilagare.se##.article-native
-husbilskompisar.se##body > div + div:has(.mantine-Button-label)
-husbilskompisar.se#?#main > div:first-child:has(a[rel*=sponsored])
 husbilskompisar.se##.mantine-Modal-root, a[rel^=sponsored]
-husbilsplats.se##div[id^=husbi-]
+husbilskompisar.se#?#:is(main > div:first-child, div[style*="max-width: 300px"]):has(a[rel*=sponsored])
+husbilsplats.se##div[id^=husbi-], .mysticky-welcomebar-fixed
 husbilsskolan.se##:is(.elementor-image, .elementor-widget-image) a[target=_blank]
 husbil.se##.ui-top-adversite
-husbyggaren.se##div[id^=nordi-]
+husbyggaren.se##div[id^=nordi-], .c-native, .mobileoutsider
 husvagnochcamping.se##div[id^=husvagnochcamping-], .ast-below-header-bar, #hollistay
 huvudvarksforbundet.se###felix-ad-section, #felix-ad-button
 hyundaiforum.se##.sidebar-block:has(.adsbygoogle, a[title*=Annons])
@@ -43023,7 +43021,6 @@ jakto.se###sidebar-right .bs-widget:has(a[target=_blank])
 jakto.se#?##sidebar-right .bs-widget:-abp-contains(Annonsartiklar)
 jaktplay.se##.jaktplay-ad
 jaktsidan.se,edgeflyfishing.com###ipsLayout_mainArea > iframe, div[data-role=sidebarAd]
-jankare.se#?#:is(.janka-slider, .widget_media_image):has(a:not([href*="jankare.se"]))
 jobsinsweden.se###subscriptionPopup
 journalisten.se##.o-blockCarousel--placementAd, .o-blockArea__item--block-ad, .m-blockAd
 juligen.se##.juligen-ads-box-widget
@@ -43043,23 +43040,24 @@ kimura.se#?#.post:not([data-elementor-type=single-post]):has(div[class$=annonser
 kingmagazine.se##.card-partner, .partner
 kingmagazine.se##*:has(> .card-partner)
 kingsizemag.se##div#video-overlay, div.sidebar_frame, #affiliates, #affiliates + .text, #popup-interstitial-overlay, .cu_banner, #interstitial-overlay, .kingsize-native, .kingsize-native-article
-klart.se,hockeynews.se,fotbolltransfers.com,hitta.se##a[rel*=sponsored]
+klart.se,hockeynews.se,fotbolltransfers.com,hitta.se,sverigerunt.se,tvmatchen.nu,husbilskompisar.se##a[rel*=sponsored]
 klendr.se##*:has(> .adsbygoogle)
 klimatnytt.se##div[id^=builderwidget]:has(img[width="980"][height="120"])
 kobe.se###footer #block-7
 kobe.se##.post:has(a[href*=casino])
 kokaihop.se##.ads-wrapper-main, .InterstitialModal
 koket.se##div[class*=mosaic_item_wrapper]:has(div[class*=sponsorLabel])
-koket.se##[class*=list_item_sponsored], [class*=promotion_bottom_holder_wrapper], [class*=beverage-recommendation_wrapper], [class*=list_item_wide_sponsored], [class^=ad_position], div[class^=wave_ad]
+koket.se##[class*=list_item_sponsored], [class*=promotion_bottom_holder_wrapper], [class*=beverage-recommendation_wrapper], [class*=list_item_wide_sponsored], [class^=ad_position], div[class^=wave_ad], div[class*=promotion-module]
 kolla.tv##div[style^="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 999;"]
 kollega.se##.block--gamw
 kolozzeum.com##td[width="305"], br + a[href*="/casino"]
 kompanjoner.se##.site-loader
 konsten.net##div[id^=konst-]
+konstperspektiv.nu##a[target=_blank][rel]
 konsumentmagasinet.se##.pricerunner, #Conzent, .conzent-modal, .price-part
 korledare.myclub.se##.sponsors
 kristendate.se##div[id^=adv], #site-right-col-wrapper a[target] img
-kritiker.se##div.recad, div.adhor, div.stickyad
+kritiker.se##div.recad, div.adhor, div.stickyad, div[data-ad-slot-wrapper]
 krogguiden.se##.sp-article-container.small-image:has(a[target=_blank])
 kryssakuten.se##.ad-spacer
 kultmagasin.se##a[href*="/annonsering"]
@@ -43069,37 +43067,39 @@ kulturdelen.nu#?#:is(.vl-post-item, .vl-thumb):has(a[href*=casino], a[href*=bett
 kurera.se##.pc-das, [data-ad-type]
 kurera.se##.post-card:has(a[href*="ad=native"])
 kvalitetsmagasinet.se,miljo-utveckling.se,techtidningen.se,vdtidningen.se##[class*=nativeadwidget], .partnermedia, .annonswidget
-kwiss.me##.square-item:has(.qz-quiz-sponsored)
+kwiss.me##div[class^=qz-main-slider-item]:has(.qz-quiz-sponsored)
 kyrkpressen.fi###list_banners_right_top, #list_banners_top
 lajvo.se###panoramaTop
 lajvo.se#?#.postCard:-abp-contains(/bonusar|casino|betting|spelbranschen|spelupplevelse/i)
 lakartidningen.se##.screen-sm, .screen-md
-lakartidningen.se,canariajournalen.se,familjeliv.se,brollopstorget.se,rodeo.net,modette.se,loppi.se,devote.se##.advertisement
-landleyskok.se##.inpostbanner, .banner-leaderboard
+lakartidningen.se,canariajournalen.se,familjeliv.se,brollopstorget.se,rodeo.net,modette.se,loppi.se,devote.se,alltforforaldrar.se,vimedbarn.se##.advertisement
+landleyskok.se##.inpostbanner, .banner-leaderboard, .recipe-ad
 landleyskok.se##.widget_text:has(.banner)
 landskronadirekt.com###companies-slider, div[id^=ads-]
-langd.se##.single-entry__ads
+langd.se##.single-entry__ads, .paid_content
 lansposten.se,dalabygden.se,sormlandsbygden.se##.sgm-ad-articles-front-page-wrapper
 lantbruksnytt.se##article:has(.ads_text)
 lantbruksnytt.se##aside.enhanced-text-widget:has(div[class^=square_rotate])
 lantbruksnytt.se##aside.side-box:has(.adsbygoogle)
 lantbruksnytt.se###startpage-top-right, .ads_text + a, div[class*=square_rotate], a[target=_blank][rel=nofollow], #ouibounce-modal, iframe[src*=iframebanner], .widget_maskinstationer_widget, .ads_text + #articles-top
-laromedia.se##img[alt=Annons] + .img-flipper
+laromedia.se##img[alt=Annons] + .img-flipper, #banner-area
 lchfarkivet.se##.modal-wrapper, div#beskrivning[style="font-size: 10px; text-align: center; color: #8E8C8C; max-width: 700px;"], .recipe-ads
 lektionsbanken.se###partners_inside, #partners_right, #partners_top
 lesscarbs.se##article:has(a[href*="/annonssamarbete/"])
 lesscarbs.se##.elementor-widget-theme-post-content .wp-block-group:has(a[href*="/adtr.co"])
 lesscarbs.se#@#.category-annonssamarbete:not(body):not(html)
-leta.se###bookingcom-resor-wrapper, #aktuellaerbjudanden, #sky-left-wide, .topNavItem[href*=casino], .topNavItem[href*=betting], #bottom-splinks, #momondoBoxRightCol
+leta.se###bookingcom-resor-wrapper, #aktuellaerbjudanden, #sky-left-wide, .topNavItem[href*=casino], .topNavItem[href*=betting], #bottom-splinks, #momondoBoxRightCol, #mobile-banner-top
 lidingonyheter.se##.moban, #secondary .lidin-widget, #sidebar-secondary .widget_media_image
-lindasbakskola.se,jennysmatblogg.nu,filippoon.se,niiinis.se,zeinaskitchen.se##.content-wrap:has(.panorama-sticky)
-lindasbakskola.se,jennysmatblogg.nu,filippoon.se,niiinis.se,zeinaskitchen.se##.panorama-sticky, .sticky-wrapper, #ad-outofpage_dynamic, .proad-intext
+lindasbakskola.se,jennysmatblogg.nu,filippoon.se,zeinaskitchen.se##.content-wrap:has(.panorama-sticky)
+lindasbakskola.se,jennysmatblogg.nu,filippoon.se,zeinaskitchen.se##.panorama-sticky, .sticky-wrapper, #ad-outofpage_dynamic, .proad-intext
 lindasbakskola.se,skk.se,viivilla.se,ungdomsfotboll.se##a[href*="/bit.ly/"]
 linguee.se##div[class*=ad_container], div[class*=_ads_]
 linux.se#?#*:-abp-has(> h5[style^=text-transform]:-abp-contains(annons))
 linux.se##.post:has(a[href*="/annons"])
 lira.se,danstidningen.se,slangopedia.se,tidningen.se,frizon.se###ads
 listaroo.se##.ct-link[target=_blank], a[href*=casino], a[href*=spellicens]
+listor.se###header .ct-container-fluid:has(div[class$=-ad])
+listor.se##.category-spel-betting
 litteraturmagazinet.se###pageContainer > div:first-child:not([id]), #topContainer a:not([href="/"], a[href="/sitesearch"])
 livetochdiabetes.se###text-3
 livetsgoda.se##.penci-rlt-popup, a[href*="systembolaget.se"] img
@@ -43108,7 +43108,7 @@ livsmedelsnyheter.se,signprint.se##.jet-popup
 ljudochbild.se###MoreLink_fade-out-div
 ljudochbild.se#?#:is(div[class^=col-md][style*=border-radius], .maincol):has(a[href*="/advertorial"])
 ljungbysporten.se##section.widget_media_image, a[target=_blank]:not([href*="ljungbysporten.se"])
-ljuskultur.se,bettips.se,spelo.se,skogsaktuellt.se,entreprenadaktuellt.se,ja.se,husbilhusvagn.se,klassiker.nu,vibilagare.se,frillesasbandy.se,djungeltrumman.se,skik.se,omni.se,campingsverige.se,eniro.se,restaurangvarlden.se,naringslivetvgl.se,dalarnasaffarer.se,stockholmsaffarer.se,jamtlandsaffarer.se,hallandsnaringsliv.se,sjuharadsnaringsliv.se,nyheteridag.se,alekuriren.se,onkologiisverige.se,svenskalag.se,borasweekly.se,hitta.se,sporttv.nu,bostadspolitik.se,kropps.se,studentlund.se##.banner
+ljuskultur.se,bettips.se,spelo.se,skogsaktuellt.se,entreprenadaktuellt.se,ja.se,husbilhusvagn.se,klassiker.nu,vibilagare.se,frillesasbandy.se,djungeltrumman.se,skik.se,omni.se,campingsverige.se,eniro.se,restaurangvarlden.se,naringslivetvgl.se,dalarnasaffarer.se,stockholmsaffarer.se,jamtlandsaffarer.se,hallandsnaringsliv.se,sjuharadsnaringsliv.se,nyheteridag.se,alekuriren.se,onkologiisverige.se,svenskalag.se,borasweekly.se,hitta.se,sporttv.nu,bostadspolitik.se,kropps.se,studentlund.se,karriarlakare.se##.banner
 lokalfotboll.se###topbar, .really_simple_image_widget:empty
 lokalguiden.se##.applicant-match-container
 lokalguiden.se,speltips.se##.banner-item
@@ -43133,8 +43133,6 @@ magazin24.se##.ad-pad, .takeover_annons
 magazin24.se##.special_ad_video
 magazin24.se##.widget_custom_html:has(.ad-pad, a[href*=casino], a[href*="filmtopp.se"])
 magazin24.se##.widget_text:has(.dagens-lunch, .widg-ad)
-maipenrai.se##.cWidgetContainer > ul > li:first-child, div[style*="border: 1px solid"] a[target=_blank], div[data-role=sidebarAd], a[href*="&ad="]
-maipenrai.se#?#:is(li.ipsDataItem, .ipsSpacer_both):has(a > img)
 maklarvarlden.se##article:has(.sponsored-inlist)
 maklarvarlden.se##div[data-td-block-uid]:has(a[href*="/kategori/sponsra"])
 maklarvarlden.se##.hustle-popup, div[class$=-sponsrat]
@@ -43155,6 +43153,7 @@ medibok.se#?#style:-abp-contains(body * :not)
 medibok.se##.annonsmellandiv, .annonssidadiv
 megafonen.se##[data-article-sponsored=true], .content-main-adwrapper, .campaign-sidebar
 merinfo.se##article[data-customer], div[style="min-height: 240px;"]
+merinfo.se##div[style^=min-height]:has(div[id^=merinfo_mobil])
 metalcentral.net###tm-top-a
 metalcentral.net##.bannergroupno-padding
 metalcentral.net,rotter.se,ifboat.se,husbilskompisar.se,bobattre.se##.bannergroup
@@ -43164,7 +43163,8 @@ minhembio.com##div[style="height: 120px;"]:not([id]):not([class])
 missatsamtal.se##.nosnaj
 missatsamtal.se##.comment:has(.nosnaj)
 mitti.se##.profile-native
-mkse.com##.mcforms-wrapper, .textwidget a[href*="bit.ly"]
+mkse.com##.textwidget a[href*="bit.ly"]
+mkse.com,voov.nu##.mcforms-wrapper
 mmabetz.se##.desktop-homepage-ad, .desktop-main-ad, .latest-betting-campaigns, .best-casino-section, .top-casino
 mmanytt.se##.img-featured-posts-image:has(a[href$="/annons/"])
 mmanytt.se##.tablepress:has(a[href*=expekt])
@@ -43208,31 +43208,29 @@ naringsliv.ax,vdsvepet.se##.banner-block
 naturvetarna.se##.Advertisement
 netdoktor.se,netdoktorpro.se##.article-list__item:has(.bam-ad-slot, .article-list__item__box--sponsored, b-a-d)
 netdoktor.se,netdoktorpro.se##.article-list__item__link--sponsored, .ispanorama, #Popup, .ElementAdvertisement, #temporary-ad-take-over-container
-netflixguiden.se##div.lboard, div.instream-dynamic, #top-area-promo, div.sidebar div.sticky, .promo, .lboard-desktop, .lboard-mobile, #bottom-sticky-promo
+netflixguiden.se##div.lboard, div.instream-dynamic, #top-area-promo, div.sidebar div.sticky, .promo, .lboard-desktop, .lboard-mobile, #bottom-sticky-promo, .section.thanks
 news55.se##div.container:has(a[href="/author/news55-partner/"])
 newsner.com,humorbibeln.se,sportbibeln.se,ettgottskratt.se,djurbibeln.se,matbibeln.se,nojeslivet.se###wsfb-container, .ad-space, div[id^=ad-], div[id*=banner], div[id^=tower], div[id^=box_], div[id^=intext_]
 newsner.com,humorbibeln.se,sportbibeln.se,ettgottskratt.se,djurbibeln.se,matbibeln.se,nojeslivet.se##.ssp_divider:has(.sponsored-bar)
 newsvoice.se#?#aside.widget_text:-abp-contains(ANNONSER)
 newsvoice.se##.sponsrad, .sponsradcol1, .newsv-widget, article[class*=sponsored]
 nextconomy.se##.list-item:has(.news-spot-medium__ad-title)
-ng.se##*:has(> #nativendo-mainfeed)
-ng.se##.secondary-sidebar > .panel-pane:last-child
-ng.se##.views-row:has(.sponsored-article)
-ng.se##.view-partner-articles, [class*=sponsored-article], .tertiary-bottom, div[class*=nojesguidenads]
+ng.se##.source_sponsrat-frontpage
 nogg.se##td[width="200"] a img
 nogg.se#?#:is(td[rowspan="2"][align=left], table[width="640"][cellpadding="7"]):has(a[href*=casino])
 nordfront.se###campaign_area
 nordichardware.se##.pspy_info, [class^=prisjakt-]
 nordichardware.se#?#:is(.td-big-grid-post, .td_block_inner):has(a[href*="/sponsrat/"], a[href$="/sponsor/"])
 nordiskskog.se##.templateHelannonsBOX
-norrahalland.se##.bannercontent
+norrahalland.se,bjarenu.se##.bannercontent
 norrortssporten.se##.vc_column_container:has(.td-adspot-title)
-nouw.com#?#div[style^="text-align: center"]:has(div[id*=panorama], a:not([href*="nouw.com"], [href^="/"]))
 nouw.com##.post-grid-item:has(a[href*=poker], a[href*=betting], a[href*=casino], a[href*=spelplat])
+nouw.com#?#:is(.content-width, .content) div[style^="text-align: center"]:has(a[href$="ttps://nouw.com"], iframe[title=Ad], div[id*=panorama], div[id*=nouw_mobil])
 nyadagbladet.se##.third-col, article[class*=sponsrad], div[id^=nyd-], .below_header_front_page, div[data-aeon-news-trackbid="1"], .aeon-news-widget, div[id^=aeon-news]
 nyadagbladet.se#?#.widget_media_image:-abp-contains(/annons/i)
 nyadagbladet.se,ff.se,rocknytt.net,magasink.se,butikstrender.se,mykitchenstories.se,transportnytt.se,inpress.com,lalinda.se,travelmore.se##.elementor-popup-modal
 nyan.ax##a[onclick*=banner], .ad-follower, .own-ads, .own-ads-mobile
+nyan.ax##.interscroller-wrapper:has(.followad)
 nyatider.nu##section.dce-visibility-event:has(a[href*=casino])
 nyatider.nu##.elementor-popup-modal:has(a[href="/integritetspolicy"])
 nyatider.nu,autonytt.se##[href*=casino][target]
@@ -43240,14 +43238,14 @@ nyemissioner.se##div[id^=nyemi-]
 nyfiknainvesterare.se#?#article.post:-abp-contains(/annons från/i)
 nyheter24.se#?#*:-abp-has(> .uppercase:-abp-contains(/annons/i))
 nyheter24.se,alltforforaldrar.se,modette.se,devote.se,familjeliv.se,brollopstorget.se,blogg.se,rodeo.net,vimedbarn.se,loppi.se#?#article:-abp-contains(/annons:/i)
-nyheter24.se,alltforforaldrar.se,modette.se,devote.se,familjeliv.se,brollopstorget.se,blogg.se,rodeo.net,vimedbarn.se,loppi.se##div[class^=panorama], a[href^="/samarbete"], a[href*=annons], a[href*=casino], a[href*=kasino], a[href*=spel][href*=licens], a[href*=utan][href*=licens], a[href*=extrapengar], a[href*=matchfixning], a[href*=upplevelser], a[href*=-vegas], a[href*=buda][href*=auktion], a[href*=investera], a[href^="/artiklar/info/"], a[href*="/kampanj/"], a[href*=betting]
+nyheter24.se,alltforforaldrar.se,modette.se,devote.se,familjeliv.se,brollopstorget.se,blogg.se,rodeo.net,vimedbarn.se,loppi.se##div[class^=panorama], a[href^="/samarbete"], a[href*=annons], a[href*=casino], a[href*=kasino], a[href*=spel][href*=licens], a[href*=utan][href*=licens], a[href*=extrapengar], a[href*=matchfixning], a[href*=upplevelser], a[href*=-vegas], a[href*=buda][href*=auktion], a[href*=investera], a[href^="/artiklar/info/"], a[href*="/kampanj/"], a[href*=betting], .mobile-ad-container
 nyheteridag.se##.article-list li:has(a[href*=kasino], a[href*=casino], a[href*=-slot-])
 nyheteridag.se,ledarsidorna.se##.teaser:has(a[href*=casino])
 nyhetersto.se##.metaslider:has(a[href*="ica.se"], a[href*=IcaSupermarket])
-nyhetersto.se##.site-branding a ~ p, .wp-block-jetpack-slideshow, .metaslider_image_link[href*=IcaSupermarket], .widget_media_image a[target=_blank], .widget_custom_html a[target=_blank]
+nyhetersto.se##.site-branding a ~ p, .wp-block-jetpack-slideshow, .metaslider_image_link[href*=IcaSupermarket], .widget_media_image a[target=_blank], .widget_custom_html a[target=_blank], .nyhetersto-annons-box, .nyhetersto-annons-rullgardin
 nyhetersto.se,bussmagasinet.se,brollopsmagasinet.se,borattforum.se,globalpolitics.se,batliv.se,em-fotboll.se,elinor.se,fotbollsresultat.com,vm-fotboll.se,vildmarken.se,fisheco.se,nyhetsbyranjarva.se,it-finans.se,it-halsa.se,it-kanalen.se,it-pedagogen.se,it-retail.se,it-hallbarhet.se,battregolf.se,sporthalsa.se,revisionsvarlden.se##a.gofollow[data-track]
 nyheter.swebbtv.se#?#.recent-posts-widget-with-thumbnails:-abp-contains(/annonssamarbete|annons/i)
-nyheter.swebbtv.se##.wp-block-image a[target]:not([href*="nyheter.swebbtv.se"]), .mh-sidebar-2 .indexlink
+nyheter.swebbtv.se##.wp-block-image a[target]:not([href*="nyheter.swebbtv.se"]), .mh-sidebar-2 .indexlink, .mh-slider-widget
 nyhetsbyranjarva.se##div[style="display: flex; justify-content: center; flex-direction: column; align-items: center;"]
 nyhetsbyranjarva.se,nyan.ax,tv-kanal.se,golfguidenonline.se,rockbladet.se,vildmarken.se,nyhetersto.se,dagenslogistik.se,turismnytt.se,radiosol.se,cora.se,travelandtourworld.se,mallorcanyheter.com,it-finans.se,it-halsa.se,it-kanalen.se,it-pedagogen.se,it-retail.se,it-hallbarhet.se,fisheco.se,opusmagasin.se,samefolket.se##.g
 nyteknik.se,lag-avtal.se,arbetarskydd.se##article:has(a[href*="/sponsrad"])
@@ -43269,7 +43267,7 @@ ordklasser.se###coltre li:has(a[target])
 ordparken.se##div[style="text-align:center;padding:8px;margin:30px 0;min-height:340px"]
 orebronyheter.com###top-wrapper
 orkesterjournalen.se##div[id^=orkes-]
-oskarshamns-nytt.se##article.category-shoppingguide
+oskarshamns-nytt.se##article.category-shoppingguide, .tag-spelvinst, .category-shoppingguide
 oskarshamns-nytt.se##div[data-widget_type="loop-grid.post"]:has(a[href*="/annons"])
 oskarshamns-nytt.se#?#.elementor-widget-text-editor > *:-abp-has(> p:-abp-contains(ANNONS))
 oskarshamns-nytt.se##.elementor-widget-wrap > section[data-element_type=section]:has(a[href*=casino])
@@ -43289,31 +43287,30 @@ podtail.se##aside a[href*=utm_campaign], a[title*=casino]
 podtail.se#?#.item-list__item:-abp-contains(/annons från/i)
 pokerforum.nu#?#.ipsBox:has(div[onclick="changeSubTab(\"casino\")"])
 polistidningen.se##div[id^=polis-]
-pomu.se##[class^=Banner]
 poolforum.se##div.adfit, div[style^="width:100%;max-width: 728px;"] > div[align=center], div[style^="width:100%;max-width: 728px;"] > br
 popularastronomi.se##a.gofollow[data-track]:not([href*="www.popularastronomi.se"])
+powerbike.nu#?#*:-abp-has(> .uppercase:-abp-contains(Annons))
 praktisktbatagande.se##li.blurb:has(a[href*="/partner/"])
 pressbladet.se,svenskpress.se,foretagsbladet.se,gestrikemagasinet.se,cfanytt.se,lasarnas.se,hembostad.nu,nojesmagasinet.nu,halsasverige.se,mandarinmedia.se,svenskmusik.nu,reklamedia.se,motormagasinet.nu,konstmagasinet.nu,allpressen.se,seniorpressen.se##.isax
 pricerunner.se#?#div[class$=ProductList-grid] > div[class^=pr-]:has(a[href*="/gotostore"][target=_blank])
-prisjakt.nu##.pjra-relative, .outsider-ads, div[class^=AdPlacementWrapper], .pjra\:w-\[980px\].pjra\:h-\[240px\]
+prisjakt.nu##.pjra-relative, .outsider-ads, div[class^=AdPlacementWrapper], .pjra\:w-\[980px\].pjra\:h-\[240px\], .max-skyscraper-ads\:hidden
 proletaren.se##.brxe-div:empty, .brx-popup
 proshop.se##.site-background-banner
 psykoterapicentrum.se#?#span[style="background-color: *:-abp-has(> #FFFF00"]:-abp-contains(/annons/i))
 psykoterapicentrum.se#?##omtag p[style^=margin-top]:not([class]):has(a[target=_blank])
 psykoterapicentrum.se##.textmenyspalt:has(img[src^="bilder/annons"])
-qasa.se##div[data-state=open]:empty
 quizza.nu,elbilen.se,ingenjorsjobb.se###takeover
-qx.se##.qxa-container, .leaky-popup-banner, .qxasection, a[href^="https://www.qx.se/native/"]
+qx.se##.qxa-container, .leaky-popup-banner, .qxasection, a[href^="https://www.qx.se/native/"], .native-anons-widget
 racemagazine.se##article + div.bg-white:has(.ad-inner)
 racemagazine.se###sidebar > .h-full:has(#asideAD)
 racemagazine.se##.landing-ad
-radio-sveriges.se###original_taboola, #optimize_experiment
+radio-sveriges.se###original_taboola, #optimize_experiment, #appDownloadAd, .right-sidebar__ad, .radio-detail-mobile-mrec
 radio.se##div[data-testid=detail-player] .hidden:has(.transition-colors)
 radio.se#?#div[data-testid=page-holder] > section.content-visibility-auto:not([id]):has(.ad-container)
 radio.se###always-visible-banner-desktop-banner, #sticky-reklame-header
 radio.se#?#:is(.md\:min-h-\[90px\], .lg\:min-h-\[250px\], .h-\[250px\], .md\:h-\[250px\], .justify-between.md\:mx-10, .items-center):has(div[id^=RAD_D], div[id^=RAD_M], .super-reklame-header-holder)
 raggningsboken.se,minip.nu,snapsvisor.eu##div[style^=min-height]:has(.adsbygoogle)
-rakapuckar.com##.sidead_border
+rakapuckar.com##.sidead_border, .bm-random-ads-wrapper
 ratsit.se##.promo
 ravarumarknaden.se###header > div > div.last, #block-4, #mvp-leader-wrap
 recepten.se,foreca.se###topBanner
@@ -43325,16 +43322,17 @@ reseguiden.se##.adsbox-wrapper, .banner-xxl_panorama-container, .banner-top-cont
 resenaren.se##.dipi_preloader_wrapper_outer
 resesidan.se###media_image-6, #block-81, #media_image-7
 res.se##.res-display, .promotion
-rikatillsammans.se##div[class^=livewrapped-ad], .tag-reklam
-riktighockey.se###custom_html-2
+rikatillsammans.se##div[class^=livewrapped-ad], .tag-reklam, .rt-ad-section
+riktighockey.se##div[aria-labelledby=cmp-banner-title]
 rimlab.se##div[id^=azrhymes_com_between_content], .noads
 rivieraklubben.com##div[class*=home_ad]
 rockbladet.se#?#:is(body > aside:first-child, .mh-sidebar > .mh-widget, .mh-sidebar-2 > .mh-widget):has(.g)
 rocknytt.net#?#header > div:first-child:has(div[id^=advads])
 rocknytt.net##[data-widget_type*=bnnrwidgets], a[href*="/annons/"], div[data-widget_type="image.default"] a[target=_blank], div[data-pid^=ad]
+roninmedia.io##a[href*="tvmatchen.nu/go?link=casumo"]
 runnersworld.se##.content-wrapper > .container:has(.post-card-sponsored)
 runnersworld.se##.post-card-sponsored, .modal-plus, .modal-backdrop
-runnersworld.se,utsidan.se,driva-eget.se,foretagande.se,revisionsvarlden.se,travelnews.se,mittforetag.com##.sponsored
+runnersworld.se,utsidan.se,driva-eget.se,foretagande.se,revisionsvarlden.se,travelnews.se,mittforetag.com,dental24.se##.sponsored
 sailguide.com##*:has(> p.annons)
 sakochliv.se##.type-promo, .sector-annons, .sticky-footer
 saltvattensguiden.se##li a img
@@ -43349,6 +43347,8 @@ samnytt.se,samnytt.nu##.fixed.bottom-0:has(a[href$="/prenumerera"])
 samnytt.se,samnytt.nu#?#.min-h-\[300px\]:has(img[src*="/b/"])
 samnytt.se,samnytt.nu##.samnytt-card:has(a[href*=jackpot], a[href*=casino][href*=bonus])
 samnytt.se,samnytt.nu##.sticky > div:has(img[src^="/butik"])
+samtiden.nu#?#footer a:-abp-contains(/casino/i)
+samtiden.nu##.above-article-widget:has(.aeon-news-target)
 samtiden.nu##.grid-item:has(a[href*=produkt][href*=erbjud], a[href*=casino])
 samtiden.nu##.iscu_hometop_wrap, .iscu_homeside_wrap, .iscu_singletop_wrap
 sanghafte.se##.widget_cooperations, .dfrcs, .category-tips, .widget_linked_image_with_banner, #nav-below a[href*=casino]
@@ -43360,7 +43360,9 @@ schafertidningen.se##a[href*="addrevenue.io"]
 sdhl.se,ssl.se,storvretaibk.se##.rmss_module-block-linked_image, a[href*="svenskaspel.se"]
 sefnextgen.se##sponsor-block
 selectAdvertiserElement$domain=bebisvarlden.se
-senses.se##a[href*=spelsajt], a[href*=betting]
+senses.se#?#aside.widget_text:-abp-contains(Annonser:)
+senses.se##a[href*=spelsajt], a[href*=betting], .senses-feed-ad
+senses.se#?#li.grid-style:-abp-contains(/är en annons/i)
 senses.se##.footer-widget-wrapper aside:has(a[href*=casino])
 shoegazing.se###main-sidebar .widget_media_image, #post-sidebar .widget_media_image, #content > .code-block, img[alt*=banner]
 shoegazing.se##.widget_text:has(.adsbygoogle)
@@ -43381,6 +43383,7 @@ sjofart.ax##div[id^=sjofa-]:empty
 sjostadsbladet.se##a.td_single_image_bg, span.td_single_image_bg[data-img-url*=Annons]
 sjostadsbladet.se##.td-category-pos-:has(a[href*=casino])
 skaneplus.se#?#div[style="padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;flex-basis:50%"]:has(a:not([href*="skaneplus.se"]):not([href^="/"]) > img)
+skaneplus.se##.skaneplus-annonser-block
 skaneridsport.se##.sp-banner-block
 skanesport.se###black-studio-tinymce-3, .menu-item a[target=_blank], .footer-widgets
 skanesport.se,sportpanelen.se,inputmag.se##.stream-item
@@ -43395,11 +43398,10 @@ skillingaryd.nu##div[id$=banner-wrap], div[class*=premium-banners], .sidebar__ad
 skippo.se##a[href*="/sponsra"], div[data-post-url^="/sponsrat"]
 skogen.se##.jobslider.up
 skogsforum.se###hqModal
-skogsforum.se##.masthead, .col-right, a[href^="https://goo.gl/"], a[href*="//bit.ly/"], a[target=_blank][onclick], #ap1, .modal, .modal-backdrop, div[style^=height]:empty, .b1a, .col-left + div
+skogsforum.se##.masthead, .col-right, a[href^="https://goo.gl/"], a[href*="//bit.ly/"], a[target=_blank][onclick], #ap1, .modal, .modal-backdrop, div[style^=height]:empty, .b1a, .col-left + div, div[id][class]:empty, a[href*="=pslot"]
 skolporten.se##.advertMod
 skolporten.se##.article-short:has(a[href*="/sponsrat-innehall"])
 skrattnet.se##.region-sidebar-second
-skyltat.se##.sidebar
 skyscanner.se##div[data-testid=advert-card-gam]
 skyttesport.se##.main-partners, .cooperation-partners
 snowmobile.se,tobaksfakta.se,dagenslogistik.se,magasinetkonkret.se,a-traktorer.se##.pum-overlay
@@ -43414,7 +43416,6 @@ spanaren.se,horisontmagasin.se,shoegazing.se,ekonomifokus.se,surfzone.se##.textw
 spanienforum.se##a:not([href^="/"], [href*="spanienforum.se"]) img[src*="/media/"]
 spanienforum.se#?#.secondaryContent:has(a:not([href^="/"], [href*="spanienforum.se"]))
 spelagratis.se##.sidebar-right, .ad_header + p
-spelhubben.se###slideout, .PartnerLinker-ad-wrap
 spelochfilm.se##div.widget_text:has(a[href*=casino], a[href*=casivo])
 spelochfilm.se##li.mh-slider-item:has(a[href*=casino])
 spelochfilm.se##.mh-sidebar .textwidget
@@ -43461,14 +43462,14 @@ svenskafans.com##.puff__ad-heading, ad-skyscraper__wrapper, iframe[title*="Bet 3
 svenskafans.com#?#:is(.h-52, .h-40):has(iframe[srcdoc*=ad_div])
 svenskafans.com#?#:is(.min-h-80, .w-64.absolute):has(div[id^=svenskafans_])
 svenskafans.com#?#:is(.min-h-\[300px\], .w-\[300px\]):has([class*=Annons])
-svenskafans.com#?#:is(.min-h-\[400px\], .min-h-96, .hidden.min-h-60, .min-h-40):has(.ad-slot)
+svenskafans.com#?#:is(.min-h-\[400px\], .min-h-96, .hidden.min-h-60, .min-h-40, .min-h-80):has(.ad-slot)
 svenskalag.se,frillesasbandy.se,skik.se##.overlay:empty
 svenskanomader.se###ajax-loading-screen
 svenskelitfotboll.se##custom-ad, sponsors
 svenskelitfotboll.se##.image-block:has(a[class*=sponsor])
 svenskfotboll.se##.news-multi-link--sponsor
 svenskgolf.se##.card:has(a[href*="/partner/"])
-svenskgolf.se,praktisktbatagande.se,akaskidor.se,utemagasinet.se,sportfack.se##.partnerCard, .partnerContent, .entry-content figure.wp-block-image, .category-partner, .ams-playad-injected, .partner, .streamline-ads-inside-sticky-wrapper, .panorama-container, .panorama-mobile-wrapper, .singleAdsBottom, .blurb--partner
+svenskgolf.se,praktisktbatagande.se,akaskidor.se,utemagasinet.se,sportfack.se,vagabond.se,cafe.se,automotorsport.se,kingmagazine.se##.partnerCard, .partnerContent, .entry-content figure.wp-block-image, .category-partner, .ams-playad-injected, .partner, .streamline-ads-inside-sticky-wrapper, .panorama-container, .panorama-mobile-wrapper, .singleAdsBottom, .blurb--partner
 svenskhistoria.se##.et_pb_column:has(.module-etads, a[href*=tradedoubler])
 svenskhistoria.se##.widget_et_ads, .module-etads, #text-13, #block-4, a[target=_blank][rel="noopener noreferrer"], a > img[width="300"][height="250"], a > img[width="800"][height="175"], a[href*=casino], a[href*=poker], a[href*=kasino], a img[width="1000"][height="300"]
 svenskhistoria.se##.widget_text:has(a[href*=casino])
@@ -43479,6 +43480,7 @@ svenskverkstad.se##app-exposure-small
 svenskverkstad.se#?#block-3x3-news-widget:-abp-contains(Sponsrat innehåll)
 svenskverkstad.se##svv-short-news-widget:has(.native-news-link)
 svenskverkstad.se##svv-wide-news-widget:has(.annons)
+sverigerunt.se##div[aria-label=Annons]
 sverigespringer.se##.cd-desktop-banner, .cd-mobile-banner, .cd-header-banner-wrapper
 sv.bab.la##.promoBox
 sweatybusiness.se##.hcc-sponsors-horizontal, .hcc-sponsors-vertical
@@ -43495,7 +43497,7 @@ synonyma.se##.iy
 synonymer.se##.create-account-banner, .buy-premium-banner, div[class*=pb-] > div.text-center, div[data-ad-container]
 tabyallehanda.se##p[align=center]:has(.adsbygoogle)
 tabyallehanda.se##section[id^=Panorama]
-tandlakartidningen.se##[class^=ad-container], [class^=adbox-single], div[id^=takeover-], .top-bar-container
+tandlakartidningen.se##[class^=ad-container], [class^=adbox-single], div[id^=takeover-], .top-bar-container, .banner-ad
 tasteline.com##.article.related > a[href*="&utm"][target=_blank]
 tasteline.com,mytaste.se,matklubben.se,vivavinomat.se,ljudochbild.se##.popup-overlay
 tavlingsguiden.se##.couponis-avts
@@ -43506,7 +43508,7 @@ tekniknytt.se#?#:is(.article_widget_preview, .article_widget_listing):has(a[href
 tekniknytt.se#?#:is(.top-news, .big_article):has(img[src*=casino], img[src*=surfeo])
 tekniksmart.se#?#:is(.elementor-widget-container, .elementor-widget-html):has(a[href*=casino])
 teknikveckan.se##.no-ad
-teknikveckan.se,di.se,dn.se,tripadvisor.se,swedroid.se,bettingstugan.se,expressen.se,driva-eget.se,ifokus.se,sv.picmix.com,ifragasatt.se,sportbloggare.com,bovision.se,familjeliv.se,tidningenridsport.se,golflivet.se,vemringde.se,brollopstorget.se,fastighetsvarlden.se,borskollen.se,aktiespararna.se,receptfavoriter.se,tyda.se,mittforetag.com,lajvo.se,magazin24.se,aktuellsakerhet.se,itmag.se,affarerinorr.se,electronic.se,brukshunden.se,kopahund.se,ingenjoren.se,dietisten.net,styrelseguiden.se,maklarvarlden.se,vardfokus.se,hockeynews.se##.ad
+teknikveckan.se,di.se,dn.se,tripadvisor.se,swedroid.se,bettingstugan.se,expressen.se,driva-eget.se,ifokus.se,sv.picmix.com,ifragasatt.se,sportbloggare.com,bovision.se,familjeliv.se,tidningenridsport.se,golflivet.se,vemringde.se,brollopstorget.se,fastighetsvarlden.se,borskollen.se,aktiespararna.se,receptfavoriter.se,tyda.se,mittforetag.com,lajvo.se,magazin24.se,aktuellsakerhet.se,itmag.se,affarerinorr.se,electronic.se,brukshunden.se,kopahund.se,ingenjoren.se,dietisten.net,styrelseguiden.se,maklarvarlden.se,vardfokus.se,hockeynews.se,f1news.se,kimbino.se##.ad
 teknologiexperten.se##.item:has(img[src*=".se-www"])
 telgenytt.se##.tn-ad, .tn-ad-notice, #popup
 temaarkiv.se#?#.md\:mt-\[100px\]:has(script[data-adfscript])
@@ -43519,15 +43521,17 @@ thelocal.se##.ad-container-section, .article-sponsored, div[data-hasbanner=yes],
 thepattayanewsse.com##a.td_single_image_bg:not([href*="thepattayanewsse.com"]), #tnp-modal, .desktop-contents
 thepattayanewsse.com##:is(.widget_media_image, .wp-block-image) a:not([href*="thepattayanewsse.com"])
 tidningenattention.se##.left-ad-column-wrapper
-tidningenbalans.se##div[style*="z-index: 999; background-color: rgba(0, 0, 0, 0.5)"], .bg-grey.hideOnPrint, .bg-adYellow, article[data-is-ad=true]
+tidningenbalans.se##.bg-ad-dark-yellow
 tidningencurie.se##.sv-vr-popup
+tidningenglobal.se,tidningensyre.se##div[id^=tidni-]
 tidningenglobal.se,tidningensyre.se,landetsfria.nu,fempers.se##.revive-box, .paloma-ad
 tidningenmikroskop.se#?#:is(.widget_block, .code-block):has(a[href^="https://addrevenue.io"])
-tidningenproffs.se##div[id^=proff-]
-tidningenridsport.se##.type-native, #captive, div[class^=hldr_takeover], div[id^=ad-welcome]
+tidningenproffs.se##div[id^=proff-], div[class*=fullwidth-ad]
+tidningenridsport.se##.type-native, #captive, div[class^=hldr_takeover], div[id^=ad-welcome], .adhld
 tidningenskriva.se##section.widget_text:has(div[id^=ad-])
 tidningen.djurskyddet.se##.ai-track
 tidningen.se##.sidebar .widget_widget_code, .casino, .native-bg
+tidskriftenopera.se##div[id^=P_]
 tidskriftenopera.se##.master-slider-parent:has(.ad-track)
 tonyhatefnejad.se,lyckasmedbakning.nu,brl.se,naturnaraskogsbruk.se,folket.se,signalnoi.se,livet.se##.preloader
 totallyorebro.se,totallystockholm.se##div.tot-content-preview-container-small[style*="border-top:4px solid #ffb200;"], .content-overlay--black, a[href*=casino], a[href*="/sponsrat/"], a[href*="/sponsrat/"] + p.tot-content-preview--meta, .newaddiv, .tot-sidebar
@@ -43557,18 +43561,17 @@ trendenser.se##.featured-post:has(a[href*="/category/reklam"], a[href*=annons])
 trendenser.se##.post_feed_post:has(.sponsor-info)
 tripadvisor.se##[class$=banner_ad]
 turismnytt.se##.site-wrap > .row > .col-sm-3
-turistmal.se###col_right
 tv4play.se,tv4.se,fotbollskanalen.se,koket.se##.visit-advertiser-link
 tv4.se##div[class*=advertory-]
-tv4.se,skippo.se,koket.se,travnet.se##.maxetise
+tv4.se,skippo.se,koket.se,travnet.se,f1news.se##.maxetise
 tv24.se##li[id^=infeed], div.presented-by
 tvmatchen.nu##.bet365, .panorama-wrapper, .tvg-manager-box, .tv102945, .tv102987, #event_banner, .go-to-partner, .odds, #text-13, .left-skyscraper-wrapper, .right-skyscraper-wrapper, .sticky-top-wrapper, div[class*=-ads], a[href*="/oddsbonusar/"], a[target][href*="/go?link="], .rt-odds-wrapper
 tvmatchen.nu##.menu-item:has(a[href$="/betting/"])
 tvsporten.nu##div[class*=odds_container], .sidebar a[target], .fixture-ad-wrapper, #tower-1, div[class*=-ads]
-tv.nu##a[href*="adform.net"], .ad-fullscreenWallpaper__container
+tv.nu##a[href*="adform.net"], .ad-fullscreenWallpaper__container, div[data-advertory-ad-rendered]
 tv.nu###modal div[itemtype][itemscope] > div[class]:has(a[href*=doubleclick])
 tv.nu#?##tv-schedule section:-abp-contains(ANNONS)
-tyda.se##.frontpage_article:has(a[href*=casino], a[href*=kasino], a[href*=betting], img[data-cfsrc*=Sponsra])
+tyda.se,kwiss.me##.frontpage_article:has(a[href*=casino], a[href*=kasino], a[href*=betting], img[data-cfsrc*=Sponsra])
 typkanske.se##.adbar
 uex.se###jenkler_message_footer
 undervarttak.se##.middle-banner
@@ -43628,7 +43631,6 @@ vmj.se#?#.sidebox:-abp-contains(/Externa länkar|Artiklar/)
 vmj.se,danskaspraket.se,digitalavykort.se##.topdiv
 vm-fotboll.se##a[href*="/go/"][target], .category-kampanjer, div[id^=vm-fotboll_se]
 vm-fotboll.se#?#.fusion-text:-abp-contains(Online casino)
-voister.se##.ot-sdk-show-settings
 voodoofilm.org##.content-news:has(span[id*=Sponsored])
 voodoofilm.org##.page-panorama
 vovve.net#?#span.arialtext11[style^="float:left"]:-abp-contains(/^i samarbete *:has(> * > med/i))
@@ -43853,6 +43855,7 @@ zeromagazine.nu##div[id^=ads]
 ##img[alt="Spela på Betsson"]
 ##img[src*="/track.adtraction"]
 ##section.bgcolor-ad
+##section.panorama-ad
 ##td#reklam
 ##ul.adsmodern
 ###RightOuterBannerDiv
@@ -43953,12 +43956,13 @@ zeromagazine.nu##div[id^=ads]
 *$popup,domain=jobba-hemifran.com|mogenromantik.com|flirtmatch.se|distansarbete.com
 *$domain=rentia.se|rentler.se|bostad24.se|hyrio.se|rentify.se|bostadsportal.se|bostadslistan.se
 *$popup,domain=rentia.se|rentler.se|bostad24.se|hyrio.se|rentify.se|bostadsportal.se|bostadslistan.se
-*$domain=valentinosverige.com|longchampstockholm.com.se|alkemi.com.se|alphalete.com.se|rpofsweden.com|rpofsweden.se
-*$popup,domain=valentinosverige.com|longchampstockholm.com.se|alkemi.com.se|alphalete.com.se|rpofsweden.com|rpofsweden.se
+*$domain=valentinosverige.com|alkemi.com.se|alphalete.com.se|rpofsweden.com|rpofsweden.se
+*$popup,domain=valentinosverige.com|alkemi.com.se|alphalete.com.se|rpofsweden.com|rpofsweden.se
 *$domain=viagogo.se
 *$popup,domain=viagogo.se
-*$ping,domain=nordicinformer.com|fiskejournalen.se|fordonsteknik.net|byggteknik.org|forestindustry.org|autoteknik.net|entreprenoren.net|byggforum.net|feber.se|tjock.se
+*$ping,domain=nordicinformer.com|fiskejournalen.se|fordonsteknik.net|byggteknik.org|forestindustry.org|autoteknik.net|entreprenoren.net|byggforum.net|feber.se|tjock.se|guldkanalen.se|butikstrender.se
 *$script,~third-party,domain=hrsvepet.se|cfosvepet.se|vdsvepet.se
+*$xmlhttprequest,third-party,domain=skargarden.se
 -VideoAD$domain=alekuriren.se
 -samarbete$image,domain=hockeyettan.se
 /468adrotate.php
@@ -43966,7 +43970,6 @@ zeromagazine.nu##div[id^=ads]
 /ATrackingGA$domain=lidl.se
 /Advertisement$image,domain=sportbloggare.com
 /Ad/*$domain=hallbyhandboll.se|skiljebosk.nu
-/AffiliateHelper$domain=allas.se|elle.se|femina.se|hant.se|mabra.com|residencemagazine.se|svenskdam.se|motherhood.se
 /AnnoPics$domain=bobattre.se
 /AnnonsClickScript.js
 /Annonssystem$domain=laromedia.se
@@ -43999,7 +44002,6 @@ zeromagazine.nu##div[id^=ads]
 /ab_appnexus_ads
 /ab_stats_params$domain=aftonbladet.se
 /active_ads?select=
-/add-ads.js$domain=fria.nu|stockholmsfria.se
 /add-page-view$domain=cykla.se
 /adform.js$domain=bohuslaningen.se|stromstadstidning.se|markposten.se|harrydaposten.se|partilletidning.se|sttidningen.se|molndalsposten.se|kungalvsposten.se|kungsbackaposten.se|alingsastidning.se|ttela.se|gp.se|hallandsposten.se|hn.se|mellerudsnyheter.se
 /adimg$image,domain=poloniainfo.se
@@ -44007,14 +44009,14 @@ zeromagazine.nu##div[id^=ads]
 /adnuntius_top_scroll
 /adn/adn-setup.$script
 /adobe/se/target-main-at.js
-/adpage$domain=hotellorestaurang.se|byggfakta.today|citymark.today
+/adpage$domain=byggfakta.today
 /ads.article.js
 /adsCountdown$domain=tv.nu
 /adsWatcherListAndProductPage$domain=camping.se
 /adsaga.
 /adsense.index.js$domain=husbil.se
 /adsm.macro$script
-/ads$domain=allastudier.se|cirkulation.se|ordmedzcxy.se|rimlab.se|allaaktier.se|varldenom.com|kottchark.se|epochtimes.se|skippo.se|inblick.se
+/ads$domain=allastudier.se|cirkulation.se|ordmedzcxy.se|rimlab.se|allaaktier.se|varldenom.com|kottchark.se|epochtimes.se|skippo.se|inblick.se|magazin24.se|husbilskompisar.se|powerbike.nu
 /ads$xmlhttprequest,domain=stromsundsgratistidning.se
 /ads-countdown.js$domain=aftonbladet.se
 /ads-dm.js
@@ -44026,6 +44028,8 @@ zeromagazine.nu##div[id^=ads]
 /ads/load-dm.js
 /adtrax/imp?
 /advertisement-dfp$script
+/advertisement_impression$domain=lumirinav.se
+/advertising-podlet$domain=blocket.se
 /ad-render$domain=internetmedicin.se
 /ad-slider.js$domain=samtiden.nu
 /ad-takeover
@@ -44038,7 +44042,6 @@ zeromagazine.nu##div[id^=ads]
 /ad_acknowledgment$xmlhttprequest
 /ad_agency$domain=fastbikes.se
 /ad_in_article$script,domain=affarsvarlden.se
-/affiliategallery$domain=allas.se|elle.se|femina.se|hant.se|mabra.com|residencemagazine.se|svenskdam.se|motherhood.se
 /aftonbladet/crypt/?lpkey
 /aftonbladet/crypt/?lpkey$popup
 /agstatistics-$domain=mitti.se
@@ -44076,10 +44079,14 @@ zeromagazine.nu##div[id^=ads]
 /assets/site/modules/GTM_
 /assets/site/modules/ctm-
 /assets/yb_$domain=vackertvader.se
+/atmng.js$domain=telgenytt.se
 /atomic-blocks$script,domain=foretagsverige.se|forskningsverige.se|motorbibeln.se|hallbarhetsverige.se|tillvaxtsverige.se|grillbibeln.se|kampenmotcancer.se|folkhalsasverige.se|dinlivsstil.nu
 /atoms/images/*banner$domain=etc.se
+/at_banners$domain=alandstidningen.ax
 /a?callback=pfmod.saveadsettings
 /baibai$domain=teknikveckan.se
+/baibai-banners
+/baibai/external.jsp
 /bannerAd.js$domain=objektvision.se
 /bannersidor/*
 /banners$domain=magasinetparagraf.se|sporttv.nu|cykla.se|vatternrundan.se|dagenstv.com|sydkusten.es|pellesoft.se|dykarna.nu|varmepumpsforum.com|poolforum.se|classiccars.se|borsvarlden.com|nitroz.se|skargardenfinland.com|da.se|bobattre.se|thefork.se
@@ -44097,6 +44104,7 @@ zeromagazine.nu##div[id^=ads]
 /bilder/samarbeten$domain=hojen.nu
 /bilder/sponsorer
 /bilder/*annons$domain=sfft.se
+/bildvaxlaren$domain=laromedia.se
 /bitcsys/js/bit.js
 /blekinge.min.js$domain=rakapuckar.com
 /block/samarbetspartners$image
@@ -44128,7 +44136,6 @@ zeromagazine.nu##div[id^=ads]
 /collect?v$domain=thelocal.se
 /comscore$domain=expressen.se
 /com_adagency$domain=fastbikes.se
-/content_images/*casino$image,domain=ng.se
 /count?$xmlhttprequest,domain=feber.se|tjock.se
 /cpg_ads.$script
 /cs1pc.js$domain=kiaindex.se
@@ -44148,7 +44155,7 @@ zeromagazine.nu##div[id^=ads]
 /egmont-ads
 /egmont-streamlined-ads
 /emediate-responsive-wp-plugin
-/empty.html$subdocument,domain=hotellorestaurang.se|byggfakta.today|omtanke.today|citymark.today
+/empty.html$subdocument,domain=byggfakta.today|omtanke.today
 /engagebox.js$domain=grillbloggen.nu
 /engagement$xmlhttprequest,domain=poddtoppen.se
 /enklare-banners/enklare-torgetgruppen
@@ -44157,8 +44164,8 @@ zeromagazine.nu##div[id^=ads]
 /ess.eurovator.se/*
 /etc-group/index.html$subdocument,domain=etfmarknaden.se
 /events$domain=fastighetsvarlden.se
-/events.js$domain=forsvarstidningen.se|stromsundsgratistidning.se
-/event$ping,domain=lokalti.se
+/events.js$domain=forsvarstidningen.se|stromsundsgratistidning.se|sverigerunt.se|skargardsradion.se
+/event$ping,xmlhttprequest,domain=lokalti.se|skyscanner.se
 /event-odds-banner$domain=tvmatchen.nu
 /exposure$xmlhttprequest,domain=lokalguiden.se
 /expressen/crypt/?lpkey
@@ -44168,7 +44175,6 @@ zeromagazine.nu##div[id^=ads]
 /fb_pixel.js
 /featured/promotion$domain=borskollen.se
 /filarkiv/bilderbanner/*
-/files/annonser$domain=fria.nu|stockholmsfria.se
 /firehose/batch
 /flex-mag/js/dfp.js
 /footer/ad|
@@ -44186,6 +44192,8 @@ zeromagazine.nu##div[id^=ads]
 /ga-$script,domain=expressen.se
 /ga.js$domain=helgon.se|gamemonetize.com|sjf.se
 /getAdById.php?
+/getAdsConfig$domain=aftonbladet.se|svd.se
+/getRandomAd$domain=fotbollsthlm.se
 /getadd$domain=bovision.se
 /get.aspx?AdSlotID$script
 /glimr$script,domain=aftonbladet.se|blocket.se
@@ -44193,11 +44201,11 @@ zeromagazine.nu##div[id^=ads]
 /google-tag$domain=reseguiden.se
 /google-tag-manager$domain=hemnet.se
 /gpAnalytics$script
-/gplus.php$script,domain=fria.nu|stockholmsfria.se
 /gravito$script,domain=moviezine.se
 /gtagEventTracker.js
 /gtmmeasurement$domain=altinget.se
 /gtm$domain=lidl.se|global.morningstar.com
+/gtm-$domain=varden.se
 /gtm-*.appspot.com
 /gtm.*.js?id=GTM
 /gtm.*/g/collect?
@@ -44207,12 +44215,14 @@ zeromagazine.nu##div[id^=ads]
 /high-impact$domain=hemnet.se
 /holid.js$domain=statsskuld.se
 /hotjar/hotjar.script.js
+/html5_ads$domain=magazin24.se
 /iab/iab.js
 /identify/guest$domain=tv.nu
 /idle.min.js$domain=180.se
 /iframeadvloader.$script
 /illustrationer/annons_
 /images/BetLogos$domain=sporttv.nu
+/images/aff$domain=netflixguiden.se
 /images/annonser
 /images/banners$domain=alghundklubben.com|rivieraklubben.com
 /images/banner$domain=sporttv.nu
@@ -44228,6 +44238,7 @@ zeromagazine.nu##div[id^=ads]
 /impressions$xmlhttprequest,domain=homeq.se
 /impression$script,domain=affarsvarlden.se
 /imp?type(img)
+/init-rum-reporter$domain=dn.se
 /isbanner/ib.js
 /javascript_nbenhadverts/*
 /jnews/ad-insertion-between-posts
@@ -44269,7 +44280,7 @@ zeromagazine.nu##div[id^=ads]
 /mediehuset-gront/img/*annons
 /mediehuset-gront/img/*banner
 /mega.$domain=vk.se|folkbladet.nu|nordsverige.se|mellanbygden.nu|vasterbottningen.se|lokaltidningen.nu
-/min.t.$domain=aktieskolan.se
+/melt-lib$domain=nyteknik.se|lag-avtal.se|arbetarskydd.se
 /mod_carousel_banner$domain=bjuvsweek.se
 /monetization/ads-module/*
 /monetization/pixel-sdk/*
@@ -44282,11 +44293,12 @@ zeromagazine.nu##div[id^=ads]
 /native-ads$domain=atl.nu|land.se
 /native-article-campaigns$domain=allas.se|elle.se|femina.se|hant.se|mabra.com|residencemagazine.se|svenskdam.se|motherhood.se
 /native-video-campaigns$domain=allas.se|elle.se|femina.se|hant.se|mabra.com|residencemagazine.se|svenskdam.se|motherhood.se
-/native.html$domain=allas.se|elle.se|femina.se|hant.se|mabra.com|residencemagazine.se|svenskdam.se|motherhood.se
 /newsner-ad
 /newsner-stats
+/nexa.min.js$domain=hockeysverige.se
 /nivo-slider$script,domain=terrariedjur.se
-/noview.$script,domain=trafikradion.se|goteborg.media
+/nochain-sw.js$domain=skargarden.se
+/noview.$script,domain=trafikradion.se
 /nyheter/native.json$domain=epochtimes.se
 /nyhetsspalt_banner_js
 /offer?prod$popup
@@ -44294,6 +44306,7 @@ zeromagazine.nu##div[id^=ads]
 /one-signal$domain=swebbtv.se
 /pageView$xmlhttprequest,domain=altinget.se|ifokus.se
 /pagead$domain=vilaser.se|horoskoptid.se|eniro.se
+/pages/sponsrat$domain=dagensps.se|news55.se|realtid.se
 /pageviews$domain=vk.se|folkbladet.nu|nordsverige.se|mellanbygden.nu|vasterbottningen.se|lokaltidningen.nu
 /page-event$domain=motormagasinet.se|food-supply.se|dagenshandel.se|plastnet.se|habit.se|woodnet.se|foodnet.se|processnet.se|packnet.se|medtechmagazine.se|recyclingnet.se|rt-forum.se|lifesciencesweden.se|fri-kopenskap.se|cleannet.se|framtidensbygg.se|entreprenad.com|metal-supply.se
 /page_views$domain=kottchark.se
@@ -44311,12 +44324,13 @@ zeromagazine.nu##div[id^=ads]
 /plugins/adlounge
 /plugins/adsanity
 /plugins/adsense%20click%20proctect
-/plugins/advanced-ads$script,domain=newsner.com|humorbibeln.se|sportbibeln.se|matbibeln.se|ettgottskratt.se|djurbibeln.se|nojeslivet.se|vegomagasinet.se|inkopsradet.se|orkesterjournalen.se|hallbartbyggande.com|marketmate.se
+/plugins/advanced-ads$script,domain=newsner.com|humorbibeln.se|sportbibeln.se|matbibeln.se|ettgottskratt.se|djurbibeln.se|nojeslivet.se|vegomagasinet.se|inkopsradet.se|orkesterjournalen.se|hallbartbyggande.com|marketmate.se|villatidningen.se|upphandling24.se|freedomtravel.se|butikstrender.se
 /plugins/ad-ace
 /plugins/ai-for-seo
 /plugins/angwp
 /plugins/annonstorget$script
 /plugins/appbanners/*
+/plugins/ap-advertising$script
 /plugins/ap-plugin-scripteo
 /plugins/better-adsmanager/*$~stylesheet,~font
 /plugins/bfp-popup$script,domain=omtanke.today
@@ -44363,12 +44377,13 @@ zeromagazine.nu##div[id^=ads]
 /plugins/pixel-cat
 /plugins/pixel-review-partnerlinker-addon
 /plugins/popups/*$script,domain=svenskhistoria.se|bugburger.se
-/plugins/popup$domain=ordfrontmagasin.se|snowmobile.se|forvaltarforum.se|it-finans.se|it-halsa.se|it-kanalen.se|it-pedagogen.se|it-retail.se|jobsinsweden.se
+/plugins/popup$domain=ordfrontmagasin.se|snowmobile.se|forvaltarforum.se|it-finans.se|it-halsa.se|it-kanalen.se|it-pedagogen.se|it-retail.se|jobsinsweden.se|magasinetkonkret.se
 /plugins/pum-$script,domain=snowmobile.se|it-finans.se|it-halsa.se|it-kanalen.se|it-pedagogen.se|it-retail.se
 /plugins/qte-native-ads$script
 /plugins/quick-adsense
 /plugins/random-banner
 /plugins/sandviks-weblog$script,domain=bebisvarlden.se
+/plugins/sdep-annons$script
 /plugins/sea-short-stats
 /plugins/seo-automated-link-building
 /plugins/setupad/*
@@ -44404,7 +44419,7 @@ zeromagazine.nu##div[id^=ads]
 /pogoadkit.js$domain=nordic.ign.com
 /popup$domain=fiskejournalen.se
 /popup-overlay$script,domain=sistersinlaw.se
-/prebid*.$script,domain=gamereactor.se
+/prebid*.$script,domain=gamereactor.se|telgenytt.se
 /prebid_rtb_call
 /prisjakt$xmlhttprequest,domain=fz.se|mobil.se
 /prisjakt-ad-carousel$subdocument
@@ -44412,15 +44427,15 @@ zeromagazine.nu##div[id^=ads]
 /private-browsing.js$domain=thelocal.se
 /prod/adform
 /prod/collect$domain=mkse.com|dietisten.net|ergo.nu
-/profile$ping,domain=skippo.se|tasteline.com|marcusoscarsson.se|shl.se|hemhyra.se|qx.se|hockeynews.se|hockeyettan.se
+/profile$ping,domain=skippo.se|tasteline.com|marcusoscarsson.se|shl.se|hemhyra.se|qx.se|hockeynews.se|hockeyettan.se|tvsporten.nu|tvmatchen.nu
 /prylguiden-expressen
 /prylguiden-expressen$popup
-/pslot$domain=skogsforum.se
 /ps-partner$xmlhttprequest,domain=dagensps.se
 /public/t/*$domain=tvmatchen.nu
 /publisher/asjs?$domain=bredband.se
 /pub.php$domain=svenskadating.com
-/pum/*$domain=dagenslogistik.se|battrestadsdel.se|skaneplus.se|magasinetkonkret.se|tobaksfakta.se|a-traktorer.se
+/pulse-event-listener$domain=blocket.se
+/pum/*$domain=dagenslogistik.se|battrestadsdel.se|skaneplus.se|magasinetkonkret.se|tobaksfakta.se|a-traktorer.se|skanesfolkblad.se
 /p/js/pa-$domain=feber.se|tjock.se
 /p/rp$xmlhttprequest,domain=feber.se|tjock.se
 /qc_cmp$domain=reseguiden.se
@@ -44440,6 +44455,7 @@ zeromagazine.nu##div[id^=ads]
 /revive/www/images$image
 /rgstr?k$domain=hellofresh.se
 /rostesweha.$script,domain=tidningenskriva.se|offside.org
+/rt/poolbetting$domain=tvmatchen.nu
 /rubiconproject_prebid
 /scoop.js$domain=eniro.se
 /scripts/js3caf.js
@@ -44451,8 +44467,6 @@ zeromagazine.nu##div[id^=ads]
 /se-ads-microservice
 /se-calico/bundle.js
 /se-ocelot/bundle.js
-/se-recommendation-microservice$domain=allas.se|elle.se|femina.se|hant.se|mabra.com|residencemagazine.se|svenskdam.se|motherhood.se
-/sg_reklam$domain=svampguiden.com
 /showads.js$domain=familjehemsbanken.se
 /sidebar-ads
 /sifomedia.
@@ -44462,7 +44476,6 @@ zeromagazine.nu##div[id^=ads]
 /site_media/annons
 /skrattnetdotse/js-ck.js
 /skrattnetdotse/js-xdp.js
-/smartBanner.js$domain=hant.se|svenskdam.se
 /soledad/js/detector.js
 /sparkles$domain=juligen.se
 /spec/adsm.macro.
@@ -44475,6 +44488,7 @@ zeromagazine.nu##div[id^=ads]
 /sponsor$image,domain=matradion.se
 /sponsrade$xmlhttprequest,domain=hockeysverige.se
 /spotlight-ad_$image
+/sps-pulse-helpers$domain=aftonbladet.se|svd.se
 /static/js/loada.js
 /static/media/*casino$domain=dagenstv.com|kolla.tv
 /statistics$domain=visitskane.com
@@ -44497,7 +44511,6 @@ zeromagazine.nu##div[id^=ads]
 /svff/bannerblock/*
 /swg$script,domain=thelocal.se
 /synonymerse-adapter.js$domain=synonymer.se
-/t.hellofresh.se
 /tabs_hits_counter.php$image
 /takeover-ad.js$domain=ridsport.se
 /tarteaucitron.js$domain=sv.geneanet.org
@@ -44508,6 +44521,7 @@ zeromagazine.nu##div[id^=ads]
 /toppbanner.js$domain=sydnarkenytt.se
 /toppbanner_snippet_js
 /torgen/banner.stat
+/traceapi$domain=tandlakartidningen.se
 /trace$xmlhttprequest,domain=netflixguiden.se|radio.se
 /trackers/SessionCam-tag
 /trackolding$domain=skyscanner.se
@@ -44517,7 +44531,7 @@ zeromagazine.nu##div[id^=ads]
 /tv/annons$domain=expressen.se
 /tv/brand-studio$domain=expressen.se
 /tv/sponsrat$domain=expressen.se
-/twitter_count.php$domain=fria.nu|stockholmsfria.se
+/t-live.hellofresh.com
 /ub-ads/*$script
 /unica/html-banners
 /uploads/annonser
@@ -44525,7 +44539,6 @@ zeromagazine.nu##div[id^=ads]
 /uploads/bilder/Samarbetspartners
 /uploads/burst/js/burst.min.js
 /upload/puff$domain=bergsmannen.se|tidningenbyggmaterial.se|tidningendacksnack.se|taxiidag.se
-/users/2401/*$image,domain=ng.se
 /user_behaviour_data$domain=skyscanner.se
 /utag/aller-media
 /vast.js$domain=aftonbladet.se|svd.se|tv.nu
@@ -44535,7 +44548,7 @@ zeromagazine.nu##div[id^=ads]
 /videojs-preroll$domain=himlentv7.se
 /videojs.ima.$domain=staylive.tv
 /viewed$xmlhttprequest,domain=fotbolltransfers.com
-/view$xmlhttprequest,domain=atl.nu|land.se
+/view$xmlhttprequest,ping,domain=atl.nu|land.se|fraser.nu
 /view_count/view.php
 /view_count/view$domain=byggahus.se
 /visit/v.js
@@ -44557,15 +44570,15 @@ zeromagazine.nu##div[id^=ads]
 /wp-content/uploads/*Casinodealen$image
 /wp-content/uploads/*LeoVegas$image
 /wp-content/uploads/*annons$image,domain=~datahjelperne.no|~annonsere.gulesider.no|~annonsmarknan.se
-/wp-content/uploads/*banner$image,domain=marsta.nu|brollopsmagasinet.se|bussmagasinet.se|danstidningen.se|guldkanalen.se|ljuskultur.se|sportpanelen.se|turismnytt.se|opulens.se|tekniknytt.se|svensktidskrift.se|electronic.se|restaurangvarlden.se|naringslivetvgl.se|dalarnasaffarer.se|stockholmsaffarer.se|jamtlandsaffarer.se|hallandsnaringsliv.se|sjuharadsnaringsliv.se|battregolf.se|svenskhistoria.se|arjeplognytt.se|bioenergitidningen.se|fisheco.se|autonytt.se|zeromagazine.nu|improveme.se|alekuriren.se|golfguidenonline.se|esportnytt.se|resesidan.se|svenskamagasinet.nu|surveyors.se|faravelsforbundet.se|travelandtourworld.se|samfalligheterna.se|macken.xyz|veterinarmagazinet.se|samtiden.nu
+/wp-content/uploads/*banner$image,domain=marsta.nu|brollopsmagasinet.se|bussmagasinet.se|danstidningen.se|guldkanalen.se|ljuskultur.se|sportpanelen.se|turismnytt.se|opulens.se|tekniknytt.se|svensktidskrift.se|electronic.se|restaurangvarlden.se|naringslivetvgl.se|dalarnasaffarer.se|stockholmsaffarer.se|jamtlandsaffarer.se|hallandsnaringsliv.se|sjuharadsnaringsliv.se|battregolf.se|svenskhistoria.se|arjeplognytt.se|bioenergitidningen.se|fisheco.se|autonytt.se|zeromagazine.nu|improveme.se|alekuriren.se|golfguidenonline.se|esportnytt.se|resesidan.se|svenskamagasinet.nu|surveyors.se|faravelsforbundet.se|travelandtourworld.se|samfalligheterna.se|macken.xyz|veterinarmagazinet.se|samtiden.nu|dovastidning.se
 /wp-content/uploads/*betfair$image
 /wp-content/uploads/*bethard$image
 /wp-content/uploads/*betsson$image
 /wp-content/uploads/*bettingkollen$image
 /wp-content/uploads/*bettingstugan$image
-/wp-content/uploads/*betting$image,domain=nyadagbladet.se|kulturbloggen.com|hockeybladet.nu|newsvoice.se|spelochfilm.se|bandyfeber.com|battrestadsdel.se|sillyseason.se
+/wp-content/uploads/*betting$image,domain=nyadagbladet.se|kulturbloggen.com|hockeybladet.nu|newsvoice.se|spelochfilm.se|battrestadsdel.se|sillyseason.se
 /wp-content/uploads/*casinoutan$image
-/wp-content/uploads/*casino$image,domain=nyadagbladet.se|kulturbloggen.com|newsvoice.se|svenskhistoria.se|battrestadsdel.se|zeromagazine.nu|totallyorebro.se|totallystockholm.se|djungeltrumman.se|vaken.se|tekniknytt.se|kingsizemag.se|spelochfilm.se|macken.xyz|improveme.se|bandyfeber.com|stoppapressarna.se|sjostadsbladet.se|autonytt.se|hockeybladet.nu|tv-kanal.se|esportnytt.se|sillyseason.se|rakapuckar.com|norrortssporten.se|handbollskanalen.se|listor.se
+/wp-content/uploads/*casino$image,domain=nyadagbladet.se|kulturbloggen.com|newsvoice.se|svenskhistoria.se|battrestadsdel.se|zeromagazine.nu|totallyorebro.se|totallystockholm.se|djungeltrumman.se|vaken.se|tekniknytt.se|kingsizemag.se|spelochfilm.se|macken.xyz|improveme.se|stoppapressarna.se|sjostadsbladet.se|autonytt.se|hockeybladet.nu|tv-kanal.se|esportnytt.se|sillyseason.se|rakapuckar.com|norrortssporten.se|handbollskanalen.se|listor.se
 /wp-content/uploads/*casumo$image
 /wp-content/uploads/*kasino$image,domain=improveme.se|sjostadsbladet.se
 /wp-content/uploads/*mrgreen$image
@@ -44577,14 +44590,15 @@ zeromagazine.nu##div[id^=ads]
 /wp-content/uploads/*svenskacasinoonline$image
 /wp-content/uploads/*unibet$image
 /wp-content/uploads/*/public/assets/js/advanced.js$script
-/wp-content\/uploads\/[0-9]+/$script,domain=skanesport.se|tidningenproffs.se|densistavilan.se|universitetslararen.se|alekuriren.se|branschaktuellt.se|svenskamagasinet.nu
+/wp-content\/uploads\/[0-9]+/$script,domain=skanesport.se|tidningenproffs.se|densistavilan.se|universitetslararen.se|alekuriren.se|branschaktuellt.se|svenskamagasinet.nu|cannabisifokus.se
 /wp-json/wpstatistics
 /wp-json/wp-statistics
 /wp-native-ads.json
 /www.swedbank-*/telegram
 /www.swedbank-*/telegram$popup
-/www/delivery$xmlhttprequest,domain=hotellrevyn.se
+/www/delivery/asyncspc$xmlhttprequest
 /www/delivery/lg.php?bannerid
+/www/delivery/*.php?zoneid
 /www/images/*$domain=elektronikforumet.com
 /xhr-ads.min.js
 /xhr/b/s$domain=skyscanner.se
@@ -44611,6 +44625,7 @@ zeromagazine.nu##div[id^=ads]
 /_adsmodern/*$image
 /_astro/InitializeAdverts$domain=aftonbladet.se|svd.se
 /_astro/Sifo$domain=aftonbladet.se|svd.se
+/_astro/Takeover$domain=svd.se
 /_astro/glimr$domain=svd.se
 /_astro/initTracking$domain=aftonbladet.se|svd.se
 /_glimr$domain=tv.nu
@@ -44640,6 +44655,7 @@ zeromagazine.nu##div[id^=ads]
 @@||js.driftt.com^$domain=sanity.io
 @@||nuthymia-llc.kit.com/*/index.js$domain=nickwignall.com
 @@||pages.upsales.com^
+@@||payway-cdn-stage.adeprimo.se^
 @@||sonar.viously.com^$domain=stoppapressarna.se
 @@||v.fwmrm.net/ad/g/$xmlhttprequest,domain=tv4play.se|tv4.se|fotbollskanalen.se|koket.se|embed.viaplay.com
 _banner.php?$domain=tvmatchen.nu
@@ -44655,13 +44671,16 @@ _banner.php?$domain=tvmatchen.nu
 ||adonsales.com^$third-party
 ||adonstudio.com^$third-party
 ||ads.google.com^$third-party
+||ads.samnytt.se^
 ||advisa.se^$third-party
 ||advisible.com^$third-party
 ||ad.iplayer.org^$third-party
 ||affiliatable.io^$third-party
 ||affiliator.com^$third-party
 ||aftonbladet.se.*.
+||ahody.com/insight
 ||ajs-assets.ftstatic.com/ftUtils.js
+||aktieskolan.se/?*=1&ver=$script
 ||allastudier.se/TrackingSearch
 ||allastudier.se/search-sponsor
 ||annonser.snoap.no^$third-party
@@ -44677,6 +44696,8 @@ _banner.php?$domain=tvmatchen.nu
 ||api.netb11.com/b/$image
 ||api.staylive.tv/videos/engagement
 ||app-statistics.puzzel.com^
+||app.impact.com/display-ad
+||app.impact.com/display-logo-via-campaign
 ||app.nocodelytics.com^$third-party
 ||app.termly.io^$domain=soderkopingsposten.se|huvudvarksforbundet.se
 ||ascontentcloud.com^$third-party
@@ -44693,6 +44714,7 @@ _banner.php?$domain=tvmatchen.nu
 ||barnebys.sh/js/btag
 ||bettingstugan.se^$third-party
 ||bettingutansvensklicens.co^$third-party
+||bet-links.com^$third-party
 ||biddercore.io^$third-party
 ||bilweb.se^$third-party
 ||bjuvsweek.se/images/*annons
@@ -44729,7 +44751,9 @@ _banner.php?$domain=tvmatchen.nu
 ||cmp.setupcmp.com^$domain=dagensnamn.nu|rimlab.se
 ||cncptx.com^$third-party
 ||cncpt-central.com^$third-party
+||codedrink.com^$third-party
 ||collect.breakit.se^
+||commercial-cms-prod.aller.se^
 ||comms.omnichannelengagementhub.com/*&telemetry=true
 ||compado.com^$third-party
 ||compricer.se^$third-party
@@ -44824,7 +44848,6 @@ _banner.php?$domain=tvmatchen.nu
 ||gopeach.se^$third-party
 ||go.affiliationcloud.com^$third-party
 ||go.ezodn.com/hb/$domain=wernamaten.se|sanghafte.se|xn--gtboken-exa.se
-||go.qasa.se^$ping
 ||gravito.net^$domain=hitta.se|gp.se|bohuslaningen.se|stromstadstidning.se|markposten.se|harrydaposten.se|partilletidning.se|sttidningen.se|molndalsposten.se|kungalvsposten.se|kungsbackaposten.se|alingsastidning.se|ttela.se|hallandsposten.se|hn.se|mellerudsnyheter.se|moviezine.se
 ||growthbook.io^$domain=allas.se|elle.se|femina.se|hant.se|mabra.com|residencemagazine.se|svenskdam.se|motherhood.se|lokalguiden.se
 ||gstatic.com/partners/badge$subdocument
@@ -44841,28 +44864,28 @@ _banner.php?$domain=tvmatchen.nu
 ||holid.io^$third-party
 ||hq.volomedia.com^$domain=gratis.se
 ||humorbrevet.se/externa_bilder
-||hu-manity.co^$domain=densistavilan.se|naturochtradgard.se
+||hu-manity.co^$domain=naturochtradgard.se|tobaksfakta.se
 ||iconosquare.com^$third-party
 ||ifragasatt.se/stats/
 ||images-ads.aland.com^
 ||images.woo.a2d.tv/creative_assets$image,domain=tv4play.se|tv4.se|fotbollskanalen.se|koket.se
+||img.podcast24.org^$domain=podcasts.nu
 ||imp.laget.se^
 ||inboxads.com^$third-party
 ||indol.se^$third-party
-||inmobi.com^$domain=alltomelbil.se|travelnews.se|varldenshaftigaste.se|merinfo.se|foreca.se|laget.se|byrum.se|sportlovin.se|receptfavoriter.se|forni.se|cornucopia.se|tittapavideon.se|motormagasinet.se|food-supply.se|dagenshandel.se|plastnet.se|habit.se|woodnet.se|foodnet.se|processnet.se|packnet.se|medtechmagazine.se|recyclingnet.se|rt-forum.se|lifesciencesweden.se|fri-kopenskap.se|cleannet.se|metal-supply.se|fashionnet.se|framtidensbygg.se|entreprenad.com|mykitchenstories.se|cancelculture.se|findit.se|foretagande.se|affarsvarlden.se|branschaktuellt.se|nordic.ign.com|fragbite.se|lindasbakskola.se|jennysmatblogg.nu|filippoon.se|niiinis.se|eniro.se|vackertvader.se|klendr.se|zeinaskitchen.se|marketmate.se|svartgul.se|langd.se|babyhjalp.se|skyttesport.se|flashback.org|nyadagbladet.se|enkelteknik.se|alltomnorrtalje.se|sporttv.nu|nyteknik.se|lag-avtal.se|arbetarskydd.se|poddtoppen.se|antidoping.se|garaget.org|ordparken.se|undertian.com|samnytt.se|motivation.se|nouw.com|sweclockers.com|fz.se|villalivet.se|bjarenu.se|expo.se|temperatur.nu|rikatillsammans.se|mmanytt.se|thelocal.se|thatsup.se
+||inmobi.com^$domain=alltomelbil.se|travelnews.se|varldenshaftigaste.se|merinfo.se|foreca.se|laget.se|byrum.se|sportlovin.se|receptfavoriter.se|forni.se|cornucopia.se|tittapavideon.se|motormagasinet.se|food-supply.se|dagenshandel.se|plastnet.se|habit.se|woodnet.se|foodnet.se|processnet.se|packnet.se|medtechmagazine.se|recyclingnet.se|rt-forum.se|lifesciencesweden.se|fri-kopenskap.se|cleannet.se|metal-supply.se|fashionnet.se|framtidensbygg.se|entreprenad.com|mykitchenstories.se|cancelculture.se|findit.se|foretagande.se|affarsvarlden.se|branschaktuellt.se|nordic.ign.com|fragbite.se|lindasbakskola.se|jennysmatblogg.nu|filippoon.se|vackertvader.se|klendr.se|zeinaskitchen.se|marketmate.se|svartgul.se|langd.se|babyhjalp.se|skyttesport.se|flashback.org|nyadagbladet.se|enkelteknik.se|alltomnorrtalje.se|sporttv.nu|nyteknik.se|lag-avtal.se|arbetarskydd.se|poddtoppen.se|antidoping.se|garaget.org|ordparken.se|undertian.com|samnytt.se|motivation.se|nouw.com|sweclockers.com|fz.se|villalivet.se|bjarenu.se|expo.se|temperatur.nu|rikatillsammans.se|mmanytt.se|thelocal.se|thatsup.se
 ||insertcoin.se^$third-party
 ||insights.hemnet.se^
 ||insights.tv4.a2d.tv^
 ||insplanet.com^$third-party
 ||instaforex.com^$third-party
 ||instiengage.com^$domain=stoppapressarna.se
-||interlaced.in^$third-party
 ||iphonecasinon.com^$third-party
 ||i.posthog.com/*/?retry_count
 ||jajja.com^$third-party
+||jamforbesiktning.se^$third-party
 ||jenkler.se^$domain=uex.se
 ||jitsu.com/p.js
-||jobtip.se^$domain=shortcut.se
 ||jsc.native.azerion.com^$third-party
 ||jst.ai^$third-party
 ||js.adsaga.se^$third-party
@@ -44875,6 +44898,7 @@ _banner.php?$domain=tvmatchen.nu
 ||kingsizemag.se/kingrev.php
 ||kingsumo.com^$third-party
 ||kit.com^$third-party
+||klirly.io^$third-party
 ||kolozzeum.com/forum/kollos$script
 ||konzilo.com/mtc.js
 ||konzilo.net/mtc.js
@@ -44902,6 +44926,7 @@ _banner.php?$domain=tvmatchen.nu
 ||lok.se/pic/sponsor/
 ||lookaside.fbsbx.com/lookaside/crawler/
 ||lorempixel.com^$third-party
+||lupper.se^$third-party
 ||lystra.se^$third-party
 ||makeinfluence.com^$third-party
 ||manatee.dk^$third-party
@@ -44909,6 +44934,7 @@ _banner.php?$domain=tvmatchen.nu
 ||marfeelcache.com^$third-party
 ||matchads.net^$third-party
 ||matorama.se^$csp=img-src 'self' *.wordpress.com *.wp.com *.gravatar.com
+||mediaintelliview.com^$third-party
 ||mediakraft.se^$third-party
 ||media.arto.se/*annons$image,domain=natursidan.se
 ||media.dagensps.se/*banner$image
@@ -44921,6 +44947,7 @@ _banner.php?$domain=tvmatchen.nu
 ||missaffiliate.com^$third-party
 ||mis.se/count/
 ||momondo.se/*gtm/
+||monocular-agency.com^$third-party
 ||mraffiliate.com^$third-party
 ||mtpc.se^$third-party
 ||mtst.io/js/mtst.js
@@ -44931,7 +44958,6 @@ _banner.php?$domain=tvmatchen.nu
 ||neuwo.ai^$third-party
 ||newstag.com/t/e$xmlhttprequest
 ||newstats.blogg.se^
-||ng.se/nodecounter/
 ||nordiskemedier.dk/banner/
 ||nordiskemedier.dk/bnr/
 ||nordpar.com^$third-party
@@ -44961,8 +44987,6 @@ _banner.php?$domain=tvmatchen.nu
 ||pm.azerioncircle.com^
 ||podcasts.nu/adbg.svg
 ||poddtoppen.se/api/ad?
-||pomu.se/api/ads.json
-||pomu.se/games/visit/
 ||popupsmart.com^$third-party
 ||portalhc.com^$third-party
 ||pricerunner.com/publisher-widgets$third-party
@@ -45009,13 +45033,14 @@ _banner.php?$domain=tvmatchen.nu
 ||scout.data.funkedigital.de/liteblower.js
 ||script.e-space.se^$third-party
 ||script.unseald.com/antenna
-||sdkconfig.pulse.schibsted.io^$domain=aftonbladet.se|omni.se|svd.se|prisjakt.nu|bytbil.com|klart.se|tv4.se|koket.se
-||sdk.pulse.schibsted.com^$script,domain=aftonbladet.se|~tv.aftonbladet.se|omni.se|svd.se|prisjakt.nu|bytbil.com
+||sdkconfig.pulse.schibsted.io^$domain=aftonbladet.se|omni.se|svd.se|klart.se|tv4.se|koket.se
+||sdk.pulse.schibsted.com^$script,domain=aftonbladet.se|~tv.aftonbladet.se|omni.se|svd.se
 ||seenthis.co^$third-party
 ||seenthis.io^$third-party
 ||seenthis.se^$third-party
 ||sellingsimplified.net^$third-party
 ||se-affiliate-gallery.aws.aller.com^
+||se-recommendation-microservice.labrador.allermedia.io^
 ||signals.tt.se/collect
 ||sitegainer.com/jsinsert/*/sitegainer$third-party
 ||skogsforum.se^$csp=worker-src 'none'
@@ -45024,7 +45049,6 @@ _banner.php?$domain=tvmatchen.nu
 ||solidtango.com^*/player_statistics$image
 ||spcmp.woxikon.se^
 ||spelguiden.samnytt.se^
-||spelhubben.se/?_dnembed$script
 ||spelwidgets.se^$third-party
 ||sprida.se^$third-party
 ||sprinkletxt.com^$third-party
@@ -45075,7 +45099,6 @@ _banner.php?$domain=tvmatchen.nu
 ||treasuredata.com^$third-party
 ||tripadvisor.se/PVLog
 ||tripadvisor.se/data/*/rum
-||turistmal.se/js/popup-controller.js
 ||tvm-tv4-freewheel.akamaized.net^
 ||tv.aftonbladet.se/static/js/codigo
 ||tv.aftonbladet.se/static/js/mbl
@@ -45105,6 +45128,7 @@ _banner.php?$domain=tvmatchen.nu
 ||viralize.tv/t-bid
 ||viralize.tv^$domain=tyda.se|sportlovin.se
 ||visbymaklarna.se^$third-party
+||visitors.now^$third-party
 ||vk.com^$domain=ungdomar.se
 ||vovve.net/i/sponsorer
 ||wayke.se^$third-party,domain=siljannews.se
@@ -45164,7 +45188,7 @@ dn.se##.bad--insider-tall
 /mainokset.
 /mainokset/*
 /mainokset_
-/mainos.
+/mainos.$domain=~mainos.lol
 /mainos/*
 /mainos_
 /mainosbanneri.
@@ -45323,12 +45347,10 @@ arvokisat.com,eurheilu.org,herkkusuut.com,huuhkajat.com,laliiga.com,leijonat.com
 arvokisat.com,eurheilu.org,herkkusuut.com,huuhkajat.com,laliiga.com,leijonat.com,metropoli.net,nainen.com,nhlsuomi.com,sketsi.net,suomif1.com,suomifutis.com,suomikiekko.com,suomikoris.com,suomiurheilu.com,susijengi.com,tinderinparhaat.com,valioliiga.com,viikonloppu.com##.grid.p-b-16:has(> .container.top-content > .breaking-news:only-child) { display:none }
 arvokisat.com,eurheilu.org,herkkusuut.com,huuhkajat.com,laliiga.com,leijonat.com,metropoli.net,nainen.com,nhlsuomi.com,sketsi.net,suomif1.com,suomifutis.com,suomikiekko.com,suomikoris.com,suomiurheilu.com,susijengi.com,tinderinparhaat.com,valioliiga.com,viikonloppu.com##.nav-item:has(> [href*="nettikasinot/"])
 arvokisat.com,eurheilu.org,herkkusuut.com,huuhkajat.com,laliiga.com,leijonat.com,metropoli.net,nainen.com,nhlsuomi.com,sketsi.net,suomif1.com,suomifutis.com,suomikiekko.com,suomikoris.com,suomiurheilu.com,susijengi.com,tinderinparhaat.com,valioliiga.com,viikonloppu.com##.pnad-container
-arvopaperi.fi##.ads-parade-wrapper
-arvopaperi.fi##a[href^="https://www.arvopaperi.fi/kumppanisisallot/"][target="_self"]:not(section > a)
-arvopaperi.fi##div#skyscraper-height-div > aside > div:has(a[href^="https://www.arvopaperi.fi/kumppanisisallot/"])
-arvopaperi.fi,talouselama.fi,tivi.fi,uusisuomi.fi##div[class][width="300"]
-arvopaperi.fi,talouselama.fi,tivi.fi,uusisuomi.fi##div[class][width="980"]
-arvopaperi.fi##[width]:has(.lazyload-wrapper):not(aside)
+arvopaperi.fi,talouselama.fi,tekniikkatalous.fi,tivi.fi,uusisuomi.fi##div[class][width="300"]
+arvopaperi.fi,talouselama.fi,tekniikkatalous.fi,tivi.fi,uusisuomi.fi##div[class][width="980"]
+arvopaperi.fi,talouselama.fi,tekniikkatalous.fi,uusisuomi.fi##div[width="0"]:has([id|="almad-content"])
+arvopaperi.fi,talouselama.fi,tekniikkatalous.fi,uusisuomi.fi##div[width="0"]:has([id|="almad-content"]) + svg[role="separator"]
 assembly.org##div[class] + div[class] ~ div[class]:has(> .lazyload-wrapper [data-adfscript])
 assembly.org#?#section:not(section[id], section[class]):has-text(Mainos)
 asunnot.oikotie.fi##.building-campaign-element
@@ -45373,7 +45395,13 @@ como.fi,episodi.fi,inferno.fi,pelaaja.fi,rumba.fi,soundi.fi##.poppartners
 como.fi,episodi.fi,inferno.fi,rumba.fi,soundi.fi,tilt.fi##.border-bottom.row:has(.poppartners)
 como.fi,tilt.fi,rumba.fi##body:not(.post-type-archive-advertoriaali) .bg-white.p-3.mb-6:has(a[href*=".fi/advertoriaali/"])
 dailyfinland.fi##.wrepper.mx-auto > .row[style="margin-bottom:20px"]
+dawn.fi##.ad-generic { min-height: 0 !important; padding: 0 !important; margin: 0 !important; visibility: hidden !important; overflow: hidden !important; }
 dawn.fi##.adsbygoogle + script + p > br
+dawn.fi##.container.archive > .ad-generic { height: 30px !important; }
+dawn.fi##.container.archive > .mobile-top-ad { height: clamp(0px, calc(100vw - 725px), 30px) !important; }
+dawn.fi##.mobile-top-ad { min-height: 0 !important; padding: 0 !important; margin: 0 !important; visibility: hidden !important; overflow: hidden !important; }
+dawn.fi##main.container.index > .ad-generic { height: 60px !important; }
+dawn.fi##main.container.index > .mobile-top-ad { height: clamp(15px, calc(80vw - 545px), 55px) !important; }
 deitti.net##.ad-article
 demokraatti.fi##article + div div:has(> div.img > img[src*="Nettikansi"])
 demokraatti.fi##div[class]:has(> .ad)
@@ -45387,6 +45415,7 @@ edgeski.fi,foregolf.fi,rodeosnow.fi##.adv
 edgeski.fi,foregolf.fi,rodeosnow.fi##.adv_content
 edgeski.fi,foregolf.fi,rodeosnow.fi##.adv_side
 edgeski.fi,foregolf.fi,rodeosnow.fi##[id|=adni_widgets]
+edukas.fi###ad-top-banner-placeholder { min-height: 0px !important }
 edukas.fi##.compareGoogleCell
 ei-toimi.fi##div[style="min-height:300px;"]
 elmotv.com##.artikkeli_body > p:has(> em > strong > a[href])
@@ -45408,10 +45437,13 @@ etn.fi###V_ad1
 etn.fi###annonsspalt
 etn.fi###leaderboard
 etn.fi###marg5
+etn.fi###papperet { width: fit-content !important; max-width: 100% !important; }
 etn.fi###vspace0
 etn.fi##.annonspekare
+etn.fi##body.view-article #ETNfrontpage { margin-top:clamp(-56px, calc(1000px - 100vw), 0px) !important; }
+etn.fi##body.view-featured #ETNfrontpage { margin-top:clamp(-56px, calc(964px - 100vw), -36px) !important; }
 etuovi.com###spotlight-container-id
-etuovi.com,mikrobitti.fi,rantapallo.fi,talouselama.fi,vuokraovi.com##div[id|=almad]
+etuovi.com,mikrobitti.fi,rantapallo.fi,vuokraovi.com##div[id|=almad]
 etusuora.com##.pb30:has(.adsbygoogle)
 f1-forum.fi##.sponsoredrow
 facebook.com##a[aria-label="Mainostajan linkki"]
@@ -45476,9 +45508,9 @@ glu.fi#?#.box:has-text(Mainos:)
 golfpiste.com##.carousel-cell--native
 golfpiste.com##.intervention--ad
 golfpiste.com##.section--ad__mob
+golfpiste.com##.has-ad-right { width: 100% !important; }
 golfpiste.com##.section--ad__panorama
 golfpiste.com##.section--ad__rectangle
-golfpiste.com##.section-native-list
 golfpiste.com##div:has(> #gp-native-1)
 gti.fi#?#.wall-item__container:has-text(Mainos)
 haat.fi##.pad-small.col-md-4.col-sm-6.col-xs-12:has(.b2b-ad-list)
@@ -45532,11 +45564,13 @@ hymy.fi##.grid--dfp-slots
 hymy.fi##.sidebar-block a[href^="https://seura.fi/mainos/"]
 hymy.fi##.sidebar-block a[href^="https://tekniikanmaailma.fi/mainoslehti/"]
 hyvaterveys.fi##.pane-sbase-cts-native-native-front
+iijokiseutu.fi##.m-managedListing__column:has(.m-contentListItem__advertisement)
 iijokiseutu.fi,ilkkapohjalainen.fi,jarviseutu-lehti.fi,jurvansanomat.fi,kaleva.fi,koillissanomat.fi,komiat.fi,lapinkansa.fi,pohjoisenpolut.fi,pyhajokiseutu.fi,raahenseutu.fi,rantalakeus.fi,siikajokilaakso.fi,suupohjansanomat.fi,viiskunta.fi###paraati-ad-grid
-iijokiseutu.fi,ilkkapohjalainen.fi,jarviseutu-lehti.fi,jurvansanomat.fi,kaleva.fi,koillissanomat.fi,komiat.fi,lapinkansa.fi,pohjoisenpolut.fi,pyhajokiseutu.fi,raahenseutu.fi,rantalakeus.fi,siikajokilaakso.fi,suupohjansanomat.fi,viiskunta.fi##.m-contentListItemThumb.-ctx-frontpage-now:has(.-commercial)
-iijokiseutu.fi,ilkkapohjalainen.fi,jarviseutu-lehti.fi,jurvansanomat.fi,kaleva.fi,koillissanomat.fi,komiat.fi,lapinkansa.fi,pohjoisenpolut.fi,pyhajokiseutu.fi,raahenseutu.fi,rantalakeus.fi,siikajokilaakso.fi,suupohjansanomat.fi,viiskunta.fi##.m-managedListing__column.-ctx-index > .m-contentListItem.-ctx-index:has(.-commercial)
+iijokiseutu.fi,ilkkapohjalainen.fi,jarviseutu-lehti.fi,jurvansanomat.fi,kaleva.fi,koillissanomat.fi,komiat.fi,lapinkansa.fi,pohjoisenpolut.fi,pyhajokiseutu.fi,raahenseutu.fi,rantalakeus.fi,siikajokilaakso.fi,suupohjansanomat.fi,viiskunta.fi##.mdc-layout-grid__cell:has(+ .sidebar__column-container) { grid-column: 3 / span 8 !important }
 iijokiseutu.fi,ilkkapohjalainen.fi,jarviseutu-lehti.fi,jurvansanomat.fi,kaleva.fi,koillissanomat.fi,komiat.fi,lapinkansa.fi,pohjoisenpolut.fi,pyhajokiseutu.fi,raahenseutu.fi,rantalakeus.fi,siikajokilaakso.fi,suupohjansanomat.fi,viiskunta.fi##.sidebar__column-container:has(.-ad)
+iijokiseutu.fi,ilkkapohjalainen.fi,jarviseutu-lehti.fi,jurvansanomat.fi,kaleva.fi,koillissanomat.fi,komiat.fi,lapinkansa.fi,pohjoisenpolut.fi,pyhajokiseutu.fi,raahenseutu.fi,rantalakeus.fi,siikajokilaakso.fi,suupohjansanomat.fi,viiskunta.fi##[data-is-advertisment="true"]
 iijokiseutu.fi,ilkkapohjalainen.fi,jarviseutu-lehti.fi,jurvansanomat.fi,kaleva.fi,koillissanomat.fi,komiat.fi,lapinkansa.fi,pohjoisenpolut.fi,pyhajokiseutu.fi,raahenseutu.fi,rantalakeus.fi,siikajokilaakso.fi,suupohjansanomat.fi,viiskunta.fi##[data-placement-id]:has([data-ad-unit-id])
+iijokiseutu.fi,ilkkapohjalainen.fi,jarviseutu-lehti.fi,jurvansanomat.fi,kaleva.fi,koillissanomat.fi,komiat.fi,lapinkansa.fi,pohjoisenpolut.fi,pyhajokiseutu.fi,raahenseutu.fi,rantalakeus.fi,siikajokilaakso.fi,suupohjansanomat.fi,viiskunta.fi##a[rel="sponsored"]
 ilmastointilaitteet.com##.boxi
 iltalehti.fi##.card:has(.etua-widget-container)
 iltalehti.fi##.card:has(> .full-article .front-sponsored-heading)
@@ -45583,33 +45617,20 @@ juoksufoorumi.fi##[data-role="sidebarAd"] + br
 juoksufoorumi.fi#?#.ipsWidget:has-text((affiliatelinkki))
 juomaposti.fi##div[class*=advads_ad_widget]
 jvg.fi##[href$="ttps://www.nettikasinovertailu.info/"]
-kaaoszine.fi##.collab
-kaaoszine.fi##.collaboration
-kaaoszine.fi##.content-section > .g:has([id^="gpt-desktop-inside-article"])
-kaaoszine.fi##.emp-ad
+kaaoszine.fi##.adnm-html-topscroll-frame-wrapper
 kaaoszine.fi##.right-inner-section:has(#gpt-desktop-side)
 kaasujalka.fi##.widget-container:has([class^=ad_])
 kaasujalka.fi##[src^="https://kaasujalka.fi/assets/banners"]
 kaksplus.fi##.ad-mob_description
-kaksplus.fi##.frosmo_popup:has(.popup_advertiser)
 kaksplus.fi##.is-background-gray-light-3:has([id^=dfp__])
 kaksplus.fi##.placeholder
 kaksplus.fi##.wp-block-otavamedia-google-ad-slot
 kaksplus.fi##li.grid__item:has([id^=dfp__native-card])
-kaksplus.fi#?##huomiotekstiotsikko:has-text(Mainos)
 kaksplus.fi#?#.wp-block-otavamedia-section-management:has-text(Kaupallinen yhteistyö)
-kaksplus.fi,metsalehti.fi,uutisankka.com##.advertisement
 kalastus.com###mini-panel-autodoc_150x50
 kalastus.com##.gam-holder
 kalastuslehti.fi##._ning_outer
 kalastuslehti.fi#?#.widget_media_image:has-text(– Mainos –)
-kaleva.fi###puff-container
-kaleva.fi##.m-contentListItemThumb:has(> div > div > div[class^=m-contentListItemThumb__advertisement])
-kaleva.fi##.m-managedListing__column:has(> div > div > div > div[class^=m-contentListItem__advertisement])
-kaleva.fi##aside.sidebar__column-container:has(.-ad)
-kaleva.fi##div[class=lyta-lazy-load]
-kaleva.fi#?#.media-site__widget-container:has( * .media-widget__title:has-text(Kaupallinen yhteistyö))
-kaleva.fi,lapinkansa.fi###outstream-container
 kamera-lehti.fi###sidebar .simple-image > [href]:not([href^="https://kamera-lehti.fi"])
 kamera-lehti.fi###sidebar .widget[id|="custom_html"]
 kangasalansanomat.fi##.kaupallinen-general
@@ -45752,6 +45773,7 @@ metsalehti.fi##.section--native-left
 metsalehti.fi##.teaser--partner
 metsalehti.fi##.teaser-top-banner--partner
 metsalehti.fi##[data-set="main-ad"]
+metsalehti.fi,uutisankka.com##.advertisement
 metsastajaliitto.fi##.view-id-jahtimedia_latest .list-item:has([href^="https://jahtimedia.fi/mainokset/"])
 metsastysjakalastus.fi##.DfpAdSlot_dfp-ad-slot
 metsastysjakalastus.fi##.Index_native-ads
@@ -45792,6 +45814,7 @@ muropaketti.com##.widget_adwidget
 muropaketti.com##.widget_hintaopasbestprice
 muropaketti.com##SECTION[id*=hintaopaspopular]
 muropaketti.com##article.grid__item_1-2:has(> div.nativead)
+muropaketti.com##body.noImages .content img { display: inline-block !important }
 muropaketti.com#?#article.grid__item_md-1-5.grid__item_1:has-text(Mainos)
 mutsimedia.fi##.add-banner
 mvlehti.net###ads-sidebar-top
@@ -45823,11 +45846,7 @@ newsner.fi##[id^="ad-panorama_dynamic"]
 newsner.fi##[id^="ad-widescreen-article_dynamic_"]
 nopeustesti.com###offer
 nopeustesti.com###tulos-etu
-nyan.ax##.mobileads
 nyan.ax##.panorama
-nyan.ax##.videoad_container
-nyan.ax##.wpb_column.vc_column_container.td-pb-span8:has([src$="adsbygoogle.js"])
-nyan.ax##.wpb_column.vc_column_container.td-pb-span8:has(a[onclick*='banner'])
 nyan.ax##.wpb_content_element.wpb_text_column:has(div[class|="g g"])
 omalahio.fi##.mainos-top
 opensubtitles.org#?#fieldset:has-text(Poista mainos)
@@ -45885,6 +45904,8 @@ puheenvuoro.uusisuomi.fi##.side-list.commercial-blog-studio
 puheenvuoro.uusisuomi.fi##a[class*=commercial-blog-card]
 puheenvuoro.uusisuomi.fi#?##leaderboard-1-desktop {remove: true}
 puheenvuoro.uusisuomi.fi#?##leaderboard-1-mobile {remove: true}
+puhelinvertailu.com##.advertisements
+puhelinvertailu.com##.index-wrap { left: 0px !important }
 puhelinvertailu.com##br:has(+ br + ins[class=adsbygoogle])
 puhelinvertailu.com##br:has(+ ins[class=adsbygoogle])
 puskaradio.net##.all-adds
@@ -45977,7 +45998,6 @@ tehylehti.fi##.commercial_wrapper
 tehylehti.fi##.node-promoted.node-teaser
 tehylehti.fi##.paragraph--type-ad
 teknavi.fi##[class|=adform]
-tekniikkatalous.fi##div[class][width="980"]
 telsu.fi##.ch:has(em > a)
 telsu.fi##.dp
 telsu.fi##.pb
@@ -45998,8 +46018,9 @@ ticketmaster.fi##div[id^=ad-slot-]
 tiedonantaja.fi##[class*="block-boxes-ad-300x250"]
 tiendeo.fi###header-standard-container
 tiendeo.fi##[data-testid^="div-gpt-ad-"]
+tiketti.fi###front_big_event
 tiketti.fi###front_big_event > span
-tiketti.fi##.itemwide:has([href$="ttps://www.nextory.fi/partner-collaboration/tiketti/"])
+tiketti.fi###tik_fixed.with-ebanner { top: 0 !important }
 tilannehuone.fi###cnt_lista tr:has(.mainosinline) + tr:has(> .divid)
 tilannehuone.fi##.contentti:has(> .mainos-mob:only-child)
 tilannehuone.fi##.contentti:has(> .mainos_yla:only-child)
@@ -46104,10 +46125,12 @@ www.nettimoto.com##.grid-x.cell:has(> [id|="almad-content"])
 www.nettivene.com##.article-blocks__item:has(> .block-row > [id|="almad-post-content"])
 www.nettivene.com##.grid-x.cell:has(> #banner-container-HomePageBanner > [id|="almad-content"])
 www.suomi24.fi##.asp
+www.suomi24.fi##.box:has(.asd)
+www.suomi24.fi##[data-gtm-label="threadGridView"] > [class^="ThreadGridItemWrapper__CardCol"] > [class^="ThreadGridItemWrapper__CardWrapper"] { width: 100% !important; max-width: 100% !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; border-right: 0 !important; box-sizing: border-box !important }
+www.suomi24.fi##[data-gtm-label="threadGridView"] > [class^="ThreadGridItemWrapper__CardCol"] { width: 100% !important; flex-grow: 0 !important; flex-shrink: 0 !important; flex-basis: 100% !important; min-width: 0 !important; box-sizing: border-box !important }
+www.suomi24.fi##[data-gtm-label="threadGridView"] { row-gap: 16px !important }
 www.suomi24.fi##div[class^="HomePage__RightColItem"]:has(> div[class^="AdLivewrapped__AdWrapper"])
 www.suomi24.fi##div[class^="HomePage__RightColItem"]:has(> div[class^="Lainavertailu__Container"])
-www.suomi24.fi##div[class^=Vaalikone__HeaderAdWrapper]
-www.suomi24.fi##p:has(+ p + .asp)
 x2.fi##.mobile-top-ad
 xracing.fi##.adBanner
 yhteishyva.fi##.advertisement-slot
@@ -46262,6 +46285,7 @@ _300x300_*.mp4$media,domain=futisfani.com|kiekkofani.com|penkkiurheilu.com|uutis
 ||vauva.fi/modules/custom/vauva_cts/modules/vauva_cts_native/js/vauva_cts_native.js$script,domain=vauva.fi
 ||vertaa.fi^*/showads.js$script,domain=vertaa.fi
 ||vg.is.fi/autotie-is-*/$subdocument
+||visx.net^$third-party
 ||ykkoslohja.fi/wp-content/uploads/*/ksupermarket$image
 ||ykkoslohja.fi/wp-content/uploads/*/lainaaverkossa$image
 ! -----NETWORK FILTERS END-----
@@ -46276,6 +46300,7 @@ murha.info#@#.adsbygoogle
 @@||adserve.adcoin.com/display/ad_block/$xmlhttprequest,domain=verkkouutiset.fi
 @@||adform.net^$xmlhttprequest,domain=telsu.fi
 ||adform.net$xmlhttprequest,rewrite=abp-resource:blank-js,domain=telsu.fi
+@@||puhelinvertailu.com^$generichide
 ! Redirect resources
 ||freewheel-jitt.sanoma.fi^$media,rewrite=abp-resource:blank-mp3,domain=ruutu.fi
 ||nelonenmedia-pmd-ads-*.nm-stream.nelonenmedia.fi^$media,rewrite=abp-resource:blank-mp3,domain=ruutu.fi|supla.fi
@@ -46348,6 +46373,8 @@ srk.fi#@##CookielawBanner
 ! Fixes site issue, sometimes huge white area appears at the bottom page
 bittimittari.fi,kyberturvallisuuskeskus.fi,saavutettavuusvaatimukset.fi,traficom.fi##html { height:auto !important }
 bittimittari.fi,kyberturvallisuuskeskus.fi,saavutettavuusvaatimukset.fi,traficom.fi##body.layout-root { height:auto !important }
+! Site issue, layout shifting
+golfpiste.com##html { scrollbar-gutter: stable !important; scrollbar-width: thin !important; }
 ! -----UNBREAK END-----
 ! *** easylist.txt ***
 !
@@ -62542,6 +62569,7 @@ browsershots.org#@#.advert_area
 ||5f6dmzflgqso.com^
 ||5fb4d91deb.com^
 ||5fet4fni.de^
+||5fyyre6mb5u24c.rest^
 ||5gvci.com^
 ||5h3oyhv838.com^
 ||5icim50.de^
@@ -62652,6 +62680,7 @@ browsershots.org#@#.advert_area
 ||6e29abca70.com^
 ||6e76b83826.com^
 ||6e8f64dd63.com^
+||6eba825f3a.com^
 ||6ec764402d.com^
 ||6f0247be0c.com^
 ||6f218410f7.com^
@@ -63378,6 +63407,7 @@ browsershots.org#@#.advert_area
 ||acidnjdayblqz.com^
 ||acidoiddefraudfloody.qpon^
 ||acinicstrut.shop^
+||acinunijitney.qpon^
 ||acinusxs.shop^
 ||acisseora.cyou^
 ||ackdewsntmybn.online^
@@ -63438,6 +63468,7 @@ browsershots.org#@#.advert_area
 ||actpx.com^
 ||actressdoleful.com^
 ||actrkn.com^
+||actssombre.qpon^
 ||actstrialssuper.com^
 ||actuallyforeheadconsent.com^
 ||actuallyfrustration.com^
@@ -63860,6 +63891,7 @@ browsershots.org#@#.advert_area
 ||aelrjtmxchqlk.site^
 ||aelyjabjzxcrg.online^
 ||aembtielaekdf.online^
+||aemtjqdhnhixn.site^
 ||aentmpvxbzpo.com^
 ||aeoldjkiutpwj.site^
 ||aepnxvhkmqvfk.online^
@@ -63992,6 +64024,7 @@ browsershots.org#@#.advert_area
 ||agallopbohmite.cfd^
 ||agalmaexhedra.qpon^
 ||agamagcargoan.com^
+||agametesoally.shop^
 ||agapaicrittur.shop^
 ||agapetigeonoma.qpon^
 ||agat-tech.com^
@@ -64299,6 +64332,7 @@ browsershots.org#@#.advert_area
 ||alepclcudwfym.space^
 ||alephsheenlysarkine.cyou^
 ||alertedunbent.qpon^
+||aleshotiwa.cfd^
 ||alespeonor.com^
 ||alexabyte.site^
 ||alexisskipped.cfd^
@@ -64360,6 +64394,7 @@ browsershots.org#@#.advert_area
 ||allbqusgepzmf.store^
 ||alldatenow.com^
 ||allegemagnanimityensue.com^
+||allegeweekwammizen.qpon^
 ||allegianceenableselfish.com^
 ||alleletez.qpon^
 ||alleleunlatch.cyou^
@@ -64537,6 +64572,7 @@ browsershots.org#@#.advert_area
 ||amtrakcitee.com^
 ||amtropiusr.com^
 ||amtyaqona.cfd^
+||amuchcoenigma.cyou^
 ||amueqxezmlmht.site^
 ||amuletshaped.com^
 ||amuletsourcemadden.com^
@@ -64591,6 +64627,7 @@ browsershots.org#@#.advert_area
 ||ancykwplparfu.website^
 ||ancznewozw.com^
 ||andallthemise.org^
+||andamannautilitotten.cyou^
 ||andhrapanful.cfd^
 ||andorsowarswillier.cfd^
 ||androidduvetscribble.com^
@@ -64646,6 +64683,7 @@ browsershots.org#@#.advert_area
 ||anjvkuqelyc.com^
 ||ankolisiloam.com^
 ||ankwgvrgrjqdr.site^
+||anljkaxdevkxl.website^
 ||anlkjufvlkago.site^
 ||anlytics.co^
 ||anmdr.link^
@@ -64747,6 +64785,7 @@ browsershots.org#@#.advert_area
 ||aolfvjokwdkrw.online^
 ||aolqejkjfgxpr.website^
 ||aommvcuqktmls.site^
+||aopgfchybs.com^
 ||aopwtbxzenjva.online^
 ||aortaremisesobtend.cfd^
 ||aorvgrrzkjras.store^
@@ -64805,6 +64844,7 @@ browsershots.org#@#.advert_area
 ||apparatusvoyage.com^
 ||apparelimposter.com^
 ||appastpardi.cfd^
+||appaumepuffinmuskily.cfd^
 ||appayairmass.cyou^
 ||appaycanoes.qpon^
 ||appearedon.com^
@@ -64918,6 +64958,8 @@ browsershots.org#@#.advert_area
 ||archivefrom502.com^
 ||archivescane.com^
 ||archletsnobol.cyou^
+||archonsomital.shop^
+||archontsmacked.qpon^
 ||archseerepugns.cfd^
 ||archspyandi.cfd^
 ||arcidaemestees.cyou^
@@ -64976,6 +65018,7 @@ browsershots.org#@#.advert_area
 ||arllzfdoodulm.space^
 ||arlyinthespringas.com^
 ||armfhefszehro.site^
+||armfulszostera.com^
 ||armingberith.shop^
 ||armingsouther.qpon^
 ||arminius.io^
@@ -64992,6 +65035,7 @@ browsershots.org#@#.advert_area
 ||arneremian.cyou^
 ||arnimalconeer.com^
 ||arnxifgdubeqp.site^
+||arollagramma.cfd^
 ||aromaticdiscount.pro^
 ||arosedown.com^
 ||aroundcommoditysway.com^
@@ -65036,6 +65080,7 @@ browsershots.org#@#.advert_area
 ||arwdcrdpiwinc.site^
 ||arwhpetevielbj.com^
 ||arxoplagziavr.site^
+||arylbrainspaliest.qpon^
 ||arylssulphur.cfd^
 ||arylsynetic.cyou^
 ||asafesite.com^
@@ -65163,6 +65208,7 @@ browsershots.org#@#.advert_area
 ||astraor770.com^
 ||astreanmasseur.shop^
 ||astriertewart.qpon^
+||astrierunbusk.cyou^
 ||astrokompas.com^
 ||astrologybacklightsinless.com^
 ||astrologyflyabletruth.com^
@@ -65286,6 +65332,7 @@ browsershots.org#@#.advert_area
 ||aubhgnoealbnx.space^
 ||aubindratzonate.cfd^
 ||auburn9819.com^
+||aucaanucppxjn.space^
 ||auchoahy.net^
 ||audaciousedifice.com^
 ||audhwnmaanyqg.website^
@@ -65428,6 +65475,7 @@ browsershots.org#@#.advert_area
 ||avytybblrvweh.space^
 ||avzaqmaoryehd.website^
 ||avzmhurdchosj.space^
+||awaaalxhkqivc.site^
 ||awaitingcoordinatelassitude.com^
 ||awaitsrereel.qpon^
 ||awakecedesurplus.com^
@@ -65471,6 +65519,7 @@ browsershots.org#@#.advert_area
 ||awiikkjgstrym.online^
 ||awitewmdutflhj.com^
 ||awkbkkqkqmmva.top^
+||awkbkkqylmwrb.top^
 ||awkward-body.pro^
 ||awkward-clue.com^
 ||awkzelrfgaudx.space^
@@ -65886,6 +65935,7 @@ browsershots.org#@#.advert_area
 ||bassemeraldlizzie.com^
 ||bassiacoal.qpon^
 ||bassipogge.com^
+||bassireprune.shop^
 ||bastardnonethelessuseless.com^
 ||bastitemomme.shop^
 ||basylraias.cyou^
@@ -66089,6 +66139,7 @@ browsershots.org#@#.advert_area
 ||beelinehindu.com^
 ||beemanbacuryliaise.qpon^
 ||beencoriqvcep.site^
+||beennutforleseegret.cyou^
 ||beenover.com^
 ||beepergaily.com^
 ||beeroutetrail.com^
@@ -66187,6 +66238,7 @@ browsershots.org#@#.advert_area
 ||bemirenudges.cfd^
 ||bemixtilion.cfd^
 ||bemixunwwove.cfd^
+||bemlgunlaqxgv.site^
 ||bemobpath.com^
 ||bemocksmunched.com^
 ||bemoilgaffkya.cyou^
@@ -66359,6 +66411,7 @@ browsershots.org#@#.advert_area
 ||bfirpqcbyfd.com^
 ||bfjflpryolthp.online^
 ||bfmovugujnybt.online^
+||bfoymxqfypbdg.site^
 ||bfpartners.click^
 ||bfrjiwydcakxu.site^
 ||bfrrndnsbmiov.site^
@@ -66682,6 +66735,7 @@ browsershots.org#@#.advert_area
 ||blearyganevreveler.cfd^
 ||bleaterpolys.com^
 ||bleatstringinch.com^
+||bleepedwite.cfd^
 ||bleepgizmorecital.com^
 ||blehcourt.com^
 ||blekdkibtepdo.site^
@@ -66775,6 +66829,7 @@ browsershots.org#@#.advert_area
 ||blxjanwclsztb.space^
 ||blypiwszmimgv.site^
 ||blyqvidllwukv.website^
+||blyrqbfxlekgl.online^
 ||blzctuubmxcjo.site^
 ||bm5unauv.xyz^
 ||bmastxiarsrug.online^
@@ -66792,6 +66847,7 @@ browsershots.org#@#.advert_area
 ||bmcmdyktcgtdy.site^
 ||bmdeit3.site^
 ||bmdeit4.site^
+||bmdlexeunvdbt.site^
 ||bmfczkmrtnfzr.site^
 ||bmfnopvd.com^
 ||bmgzspzuahkgq.online^
@@ -66982,6 +67038,7 @@ browsershots.org#@#.advert_area
 ||boostlo.xyz^
 ||boostog.net^
 ||boostpsid.cyou^
+||booterymerch.cyou^
 ||bootfulfuel.qpon^
 ||boothmythevergreen.com^
 ||bootingunpickedusable.com^
@@ -67098,6 +67155,7 @@ browsershots.org#@#.advert_area
 ||boyerulans.com^
 ||boyguwsiukyag.space^
 ||boyunakylie.com^
+||bp491h5z7wvpgl367mtefgbmzrmvq3oh.cfd^
 ||bpahyyjwjwcd.com^
 ||bpauszxiaozwb.site^
 ||bpaybiplqddqb.website^
@@ -67500,6 +67558,7 @@ browsershots.org#@#.advert_area
 ||buniqlflpcppw.site^
 ||bunix5555.com^
 ||bunkingfuscin.shop^
+||bunkoedaraire.shop^
 ||bunksniff.com^
 ||bunningscapple.com^
 ||bunnyassetsworn.com^
@@ -67531,6 +67590,7 @@ browsershots.org#@#.advert_area
 ||burnetschurl.shop^
 ||burrelworky.qpon^
 ||bursateyouprance.qpon^
+||burseedphaedo.cfd^
 ||bursesinlands.cyou^
 ||burspiak.in^
 ||burstingsteed.com^
@@ -68116,6 +68176,7 @@ browsershots.org#@#.advert_area
 ||cbpttdpymofjx.online^
 ||cbqkiuokpxtti.space^
 ||cbro.win^
+||cbvngyngaulfa.space^
 ||cbvnzczrbcjoq.online^
 ||cbvyghlu.com^
 ||cbyisttpinnan.online^
@@ -68146,6 +68207,7 @@ browsershots.org#@#.advert_area
 ||ccrdcfkugujnl.space^
 ||ccshymxkbepsl.online^
 ||cctblmittniqn.space^
+||cctlgmrhqdnpk.com^
 ||cctpyneuuiuwn.site^
 ||ccwqjgycmojrg.site^
 ||cd2ef10dae.com^
@@ -68373,6 +68435,7 @@ browsershots.org#@#.advert_area
 ||chainads.io^
 ||chainconnectivity.com^
 ||chaindoorman.com^
+||chainerigs.cyou^
 ||chaingo.co.in^
 ||chainonjoy.qpon^
 ||chaintopdom.nl^
@@ -68706,10 +68769,12 @@ browsershots.org#@#.advert_area
 ||ckauyijrivige.site^
 ||ckbgvpjrjcwai.site^
 ||ckfaconxrhyen.website^
+||ckfkkwjvpcsbw.site^
 ||ckgbulrcgantw.space^
 ||ckhillulshshg.site^
 ||ckhtqypqrwuqv.online^
 ||ckiqxrqwnavqt.website^
+||ckjccfzszctly.space^
 ||ckjjxjpoxhebx.site^
 ||ckkoabgjgzzcl.website^
 ||cklbdlzezyets.site^
@@ -68988,6 +69053,7 @@ browsershots.org#@#.advert_area
 ||cnqatpzabwfzc.website^
 ||cnqfsqelcsech.website^
 ||cnqsmekgjmgrp.site^
+||cnrkjdrqikgfi.website^
 ||cnrsyxxkcjlor.online^
 ||cnsyczlxqxwbo.space^
 ||cntqatdtgsnsu.site^
@@ -69347,6 +69413,7 @@ browsershots.org#@#.advert_area
 ||contriveddisparage.com^
 ||controlslaverystuffing.com^
 ||conusesstare.cfd^
+||convellsofa.com^
 ||convenienceshooting.com^
 ||conveniencesloot.com^
 ||convenientlypoverty.com^
@@ -69385,6 +69452,7 @@ browsershots.org#@#.advert_area
 ||coolsnene.cfd^
 ||coolstreamsearch.com^
 ||coomjohnian.cfd^
+||cooniernoctis.qpon^
 ||coonierregian.qpon^
 ||coopeecraney.qpon^
 ||cooperatemarker.com^
@@ -69414,6 +69482,7 @@ browsershots.org#@#.advert_area
 ||coppedclaudia.cfd^
 ||coppingdabberspyrobi.cfd^
 ||copraswhist.cfd^
+||copsinggeniofennecs.cfd^
 ||copulaehooillipe.qpon^
 ||copyrightgenerateprotector.com^
 ||copyrighttruce.com^
@@ -69739,6 +69808,7 @@ browsershots.org#@#.advert_area
 ||cringezonearistocracy.com^
 ||cringlelotas.cfd^
 ||crinkhartall.cyou^
+||crinsibbinghaleru.cfd^
 ||cripestribune.qpon^
 ||crippletouret.com^
 ||crisisinanehalted.com^
@@ -69932,6 +70002,7 @@ browsershots.org#@#.advert_area
 ||ctzsryncxsdkg.site^
 ||ctzzirfslkvcv.website^
 ||cubbyskyful.qpon^
+||cubitsannaly.shop^
 ||cuchanbietle.shop^
 ||cuchiaarsleaquerne.cyou^
 ||cuckooretire.com^
@@ -70445,6 +70516,7 @@ browsershots.org#@#.advert_area
 ||dawonfjvwjcaj.online^
 ||dawpateshrew.cfd^
 ||dawsbumbleddefused.qpon^
+||daxtgseqgwbsn.space^
 ||daxtnnqlppovj.space^
 ||daybedamido.qpon^
 ||dayboygubbincoexert.cyou^
@@ -70536,6 +70608,7 @@ browsershots.org#@#.advert_area
 ||ddmctsbqysfgi.website^
 ||ddmkypkhddtsl.online^
 ||ddmsvcltbyjoc.store^
+||ddngkgnlirzsv.site^
 ||ddoqtrdsglql.com^
 ||ddrsemxv.com^
 ||ddxiejwiegzxa.website^
@@ -70658,6 +70731,7 @@ browsershots.org#@#.advert_area
 ||defensivearmpit.com^
 ||defensivegrand.com^
 ||defiantenrage.com^
+||deficitacknowledgedownward.com^
 ||defieddeglory.cyou^
 ||defilercostaealope.qpon^
 ||definiterise.pro^
@@ -70783,6 +70857,7 @@ browsershots.org#@#.advert_area
 ||denunciationparted.com^
 ||deodarahagein.cfd^
 ||deokxdgzwdyzm.website^
+||deorsumdaunts.qpon^
 ||departgross.com^
 ||departharpglove.com^
 ||departmentannounced.com^
@@ -71009,6 +71084,7 @@ browsershots.org#@#.advert_area
 ||diazidehematid.com^
 ||diazolekymnelweri.qpon^
 ||diceresembleshudder.com^
+||dichvoqksdnnz.website^
 ||dicierrebels.qpon^
 ||dicinggoosier.cyou^
 ||diclinyhoove.cyou^
@@ -71451,6 +71527,7 @@ browsershots.org#@#.advert_area
 ||dnzsyouiexcar.space^
 ||doaltariaer.com^
 ||doankhqxgwbui.site^
+||doariumunarray.cfd^
 ||dobbiehowfingsasin.cfd^
 ||dobbingsessed.cyou^
 ||dobbintomb.qpon^
@@ -71603,6 +71680,7 @@ browsershots.org#@#.advert_area
 ||dowietampoonjuglans.cfd^
 ||dowlasquasarsinface.cfd^
 ||dowlygars.cfd^
+||downbyrillowtobacco.qpon^
 ||downloadboutique.com^
 ||downloaddecidedly.com^
 ||downloadyt.com^
@@ -71653,11 +71731,14 @@ browsershots.org#@#.advert_area
 ||dpuxtqqajzwam.store^
 ||dpvowksnrdhxv.site^
 ||dpvztnqfkmlbs.store^
+||dpylesvzwtxpl.site^
 ||dpzxvnldnfx.com^
+||dqcciibtvbsqq.online^
 ||dqciuftqqizon.website^
 ||dqcnhcmiaosjv.online^
 ||dqdsnemauijvc.online^
 ||dqeozccymwpqw.online^
+||dqfpvzhybefeh.space^
 ||dqfzbnhbqeqox.space^
 ||dqgjkrsabhnqd.space^
 ||dqgzrpdkcjjv.com^
@@ -71686,6 +71767,7 @@ browsershots.org#@#.advert_area
 ||dragglyigdyr.qpon^
 ||dragonarmaturedisguise.com^
 ||dragonflyproblemsubway.com^
+||dragoonidism.cfd^
 ||drainalmost.com^
 ||drakerecitalpraised.com^
 ||drakpaihsdnbr.space^
@@ -71761,6 +71843,7 @@ browsershots.org#@#.advert_area
 ||drkness.net^
 ||drlsawggjsrqm.site^
 ||droghvadutsov.space^
+||drogueagreedcabling.qpon^
 ||droichandante.cfd^
 ||drollycoevals.qpon^
 ||dromickvetch.cfd^
@@ -71791,6 +71874,7 @@ browsershots.org#@#.advert_area
 ||drswiqpxdulnv.site^
 ||drtibnixidzrx.space^
 ||drtndnevastxa.website^
+||drubblewiggle.com^
 ||drudgeryarson.com^
 ||druej.com^
 ||drueryeartagfungose.cfd^
@@ -72002,6 +72086,7 @@ browsershots.org#@#.advert_area
 ||dsnucs.com^
 ||dsnyts.com^
 ||dsnyzy.com^
+||dsnzhsmybhnyl.website^
 ||dsofhw.com^
 ||dsogdr.com^
 ||dsohrd.com^
@@ -72167,6 +72252,7 @@ browsershots.org#@#.advert_area
 ||dtgwcj.com^
 ||dtibgbtfoitnv.store^
 ||dtmpub.com^
+||dtnrsrcxojliz.space^
 ||dtodayomegksc.site^
 ||dtpngkqmjyuff.store^
 ||dtprofit.com^
@@ -72268,6 +72354,7 @@ browsershots.org#@#.advert_area
 ||dupesupways.cfd^
 ||dupingnonsuit.cyou^
 ||dupionawald.cfd^
+||dupionignetums.qpon^
 ||duplexsisopolytheins.cfd^
 ||dupperknolly.shop^
 ||dupqiccmjruhb.online^
@@ -72287,6 +72374,7 @@ browsershots.org#@#.advert_area
 ||dust-0001.delorazahnow.workers.dev^
 ||dustmancarian.cyou^
 ||dustourrenewer.qpon^
+||dustpanchives.shop^
 ||dustyrender.com^
 ||dusurmmklwjx.com^
 ||dutchedkaildil.cyou^
@@ -72309,6 +72397,7 @@ browsershots.org#@#.advert_area
 ||dvkxhbcrrrrut.online^
 ||dvleaaamtruzl.site^
 ||dvnhgkrzyxlzd.site^
+||dvomnhxg.com^
 ||dvqldhfeowiyh.online^
 ||dvsyugrgliybb.site^
 ||dvtndeuthhggb.com^
@@ -72485,6 +72574,7 @@ browsershots.org#@#.advert_area
 ||eaaratte.net^
 ||eaauvspicaeq.com^
 ||each-task.com^
+||eactmionovl.com^
 ||eadhakmcmzslj.online^
 ||eadziukwqzeeb.space^
 ||eaeiacjiwsufg.site^
@@ -72571,6 +72661,7 @@ browsershots.org#@#.advert_area
 ||ebonizerebake.com^
 ||eboxgiwwapmri.online^
 ||eboxrcvjhxgcm.online^
+||ebphgcmwrbahz.online^
 ||ebrictycleric.cyou^
 ||ebrvjdndvkvek.space^
 ||ebtwanvamfwwi.space^
@@ -72708,6 +72799,7 @@ browsershots.org#@#.advert_area
 ||eelwgpubhnjxv.website^
 ||eemeresuovsbe.online^
 ||eenyxwxaeelzx.online^
+||eeozvqzsdsbej.online^
 ||eeptoabs.com^
 ||eeqjdgqbvpbjw.site^
 ||eeqkygeabndmo.online^
@@ -72754,6 +72846,7 @@ browsershots.org#@#.advert_area
 ||efrheeqcwgxsb.online^
 ||efrwdjavjkiqw.online^
 ||efryqqbee.com^
+||efsmeoapcmipq.space^
 ||efsuoodjpyxew.space^
 ||efthjcbyvbhci.space^
 ||eftsalexinetwitch.cyou^
@@ -72790,6 +72883,8 @@ browsershots.org#@#.advert_area
 ||egotisticexcavateplywood.com^
 ||egpdbp6e.de^
 ||egpealygnhgue.online^
+||egremqawoye.com^
+||egressthible.cyou^
 ||egrgvabmhxgqh.site^
 ||egutbisobtaga.online^
 ||egvlsbzuolczs.site^
@@ -72865,6 +72960,7 @@ browsershots.org#@#.advert_area
 ||ejfstrkmgwrql.site^
 ||ejgmkvprpjqww.site^
 ||ejihhtgvjeglq.online^
+||ejjhnqgrmrrlh.space^
 ||ejlqdcyrjsakh.site^
 ||ejmgiro1oyw225xq3ywl7v.rest^
 ||ejnhzgcgazhjl.site^
@@ -72905,6 +73001,7 @@ browsershots.org#@#.advert_area
 ||ekkekjnjdtwzc.site^
 ||ekklgpfmaviji.online^
 ||ekliewcnqmfsn.website^
+||ekljcqwkwdgtn.online^
 ||ekmas.com^
 ||ekocdokfmzwnz.site^
 ||ekogulzaxpito.site^
@@ -72965,6 +73062,7 @@ browsershots.org#@#.advert_area
 ||elegantsophene.shop^
 ||elegiseaftaba.com^
 ||elelasticalsdebat.org^
+||elemarleng.cfd^
 ||elemeagarics.cfd^
 ||elementarysinger.com^
 ||elementsacorncolossal.com^
@@ -73401,6 +73499,7 @@ browsershots.org#@#.advert_area
 ||epqcgcxkfymlj.site^
 ||epqqoygdlxiri.site^
 ||eprgsfzkoakpj.site^
+||eprqjmvpz2846c.cfd^
 ||eprqryhpwjmox.site^
 ||epthmgzgztzxt.online^
 ||eptrpomofmqtx.website^
@@ -73930,6 +74029,7 @@ browsershots.org#@#.advert_area
 ||eyqoqpqvxqfaq.space^
 ||eyqsrrwmvhavp.website^
 ||eyrewxoejzwer.website^
+||eyrmhukohppgf.online^
 ||eytrijnihxqnx.online^
 ||eytthwyiszpyd.site^
 ||eyuufdyvvbosk.website^
@@ -74094,6 +74194,7 @@ browsershots.org#@#.advert_area
 ||fangmoonlight.com^
 ||fanitbedim.qpon^
 ||fannersrhytinarandon.cyou^
+||fanonentea.cfd^
 ||fanonzuni.cfd^
 ||fantabro.com^
 ||fantastic-read.com^
@@ -74135,6 +74236,7 @@ browsershots.org#@#.advert_area
 ||fascjusltedhecco.qpon^
 ||fascparbate.com^
 ||fashionedstrengthen.com^
+||fashorthal.cfd^
 ||fasoptima.shop^
 ||fastblow.com^
 ||fastcdn.info^
@@ -74202,6 +74304,7 @@ browsershots.org#@#.advert_area
 ||fboirhttd.com^
 ||fbqhhioxipvfn.space^
 ||fbrojczjqlcxh.online^
+||fbrrykbaakuze.online^
 ||fbstzectxnbag.space^
 ||fbthiaiy.com^
 ||fbulmykkqnp.com^
@@ -74405,6 +74508,7 @@ browsershots.org#@#.advert_area
 ||fewdisplay.pro^
 ||fewergkit.com^
 ||fewinhaleewe.com^
+||fewmandrepot.shop^
 ||fewmgwoigzygn.space^
 ||fewmodel.pro^
 ||fexolxgvbnhvu.store^
@@ -74676,6 +74780,7 @@ browsershots.org#@#.advert_area
 ||fjpqxokekvgak.website^
 ||fjprxkjxvzagy.online^
 ||fjqfdwtdahpte.space^
+||fjqilzffqhflt.space^
 ||fjsmzymmzjyck.online^
 ||fjtunrifig.com^
 ||fjtvobmsspten.online^
@@ -74788,6 +74893,7 @@ browsershots.org#@#.advert_area
 ||flintarchedsignature.com^
 ||flipblobberblasty.qpon^
 ||flipeamen.cfd^
+||flipehardie.com^
 ||flipool.com^
 ||flippantdamnderived.com^
 ||flippantlunch.pro^
@@ -75109,6 +75215,7 @@ browsershots.org#@#.advert_area
 ||fossesfyttes.qpon^
 ||fossickmassig.cyou^
 ||fossulafl.shop^
+||fossulakokil.cyou^
 ||fostercraver.qpon^
 ||fostergurk.cyou^
 ||fotchedshtchee.cfd^
@@ -75117,6 +75224,7 @@ browsershots.org#@#.advert_area
 ||fotmmwhevz.com^
 ||fotwupmfmlace.space^
 ||fouettbrauna.com^
+||fouetteperfume.cfd^
 ||foulingrefiles.qpon^
 ||foundationhorny.com^
 ||founderyet.com^
@@ -75256,6 +75364,7 @@ browsershots.org#@#.advert_area
 ||freepopnews.skin^
 ||freesiaaristas.cfd^
 ||freestar.io^
+||freestlinget.com^
 ||freetrckr.com^
 ||freezesidiasm.shop^
 ||freezestumpsjo.cfd^
@@ -75359,12 +75468,14 @@ browsershots.org#@#.advert_area
 ||froxywphaelli.space^
 ||frozenbiopsyskate.com^
 ||frozenpayerpregnant.com^
+||frozryxu.in^
 ||frqekpjbgfnew.space^
 ||frrdcylhwdsuu.space^
 ||frrhcvblgskvz.site^
 ||frrkdiszpiclc.online^
 ||frrrnknuzff.com^
 ||frtihyvwigowg.online^
+||frtnoquwhksdm.space^
 ||frtya.com^
 ||frtyd.com^
 ||frtyl.com^
@@ -75428,6 +75539,7 @@ browsershots.org#@#.advert_area
 ||ftrbzcbufgrgt.website^
 ||ftrrhvgrgfaqx.site^
 ||ftsucithdgvle.online^
+||ftuzoomrapyjp.website^
 ||ftv-publicite.fr^
 ||ftwftsvmssggs.online^
 ||ftwfzcgtrpvek.space^
@@ -75594,6 +75706,7 @@ browsershots.org#@#.advert_area
 ||fwtrck.com^
 ||fwunymlwmsebu.site^
 ||fwvduofolpzzj.site^
+||fwvonuigotkft.space^
 ||fwyhwomzcudcj.site^
 ||fwzdclighc.com^
 ||fwzvgdqhtxsxc.store^
@@ -75620,6 +75733,7 @@ browsershots.org#@#.advert_area
 ||fxuuakhpzrcgx.space^
 ||fxuzrinlbacql.site^
 ||fxwlyddrjhupc.store^
+||fxxmwsxuuwvju.website^
 ||fxxogvmdpnwgw.online^
 ||fxyjzqckjnezs.website^
 ||fxzbgdweisumj.online^
@@ -75674,12 +75788,14 @@ browsershots.org#@#.advert_area
 ||g33ktr4ck.com^
 ||g33tr4c3r.com^
 ||g3437pprk8z2xlcui.cfd^
+||g41eqbtmlql7xuy.rest^
 ||g4oynkx46eex7trnq.cfd^
 ||g5kl83he.xyz^
 ||g6ghlogvlj3mmyb6.cfd^
 ||g7fkbtiwkim23q9e27q.cfd^
 ||g8tor.com^
 ||g9o63y6m.xyz^
+||g9ouhz5crtyqyo7.cfd^
 ||g9qnk89pd5ic.com^
 ||g9wfgbrkyekexrp4gg8wm2.cfd^
 ||gaaekexcvdkur.site^
@@ -75762,6 +75878,7 @@ browsershots.org#@#.advert_area
 ||gaoleddotycopra.cfd^
 ||gaonarnut.shop^
 ||gapcontroversialprodigal.com^
+||gappingungloss.com^
 ||gapyprisons.shop^
 ||gaqxkizfpyhpc.site^
 ||garbagefit.com^
@@ -75798,6 +75915,7 @@ browsershots.org#@#.advert_area
 ||garstonganefdwines.cfd^
 ||gartendoublip.qpon^
 ||gartersplouk.cyou^
+||gasconcraping.qpon^
 ||gasehoauzxzzt.store^
 ||gaseitycabbala.cyou^
 ||gaseous-stroke.pro^
@@ -75810,6 +75928,7 @@ browsershots.org#@#.advert_area
 ||gassingmollusk.shop^
 ||gassycupcake.qpon^
 ||gastfulabeles.com^
+||gastrincantiltissue.cyou^
 ||gate4learn.com^
 ||gateageneifs.shop^
 ||gateauburkes.qpon^
@@ -76443,6 +76562,7 @@ browsershots.org#@#.advert_area
 ||gmsizwxqspypi.space^
 ||gmvovcfhjgrvt.online^
 ||gmxes.com^
+||gmybbssioamin.space^
 ||gmyktplukjreb.space^
 ||gmzdaily.com^
 ||gmzybyparfece.space^
@@ -76497,6 +76617,7 @@ browsershots.org#@#.advert_area
 ||goalagejacanasighter.cyou^
 ||goalersoyer.cyou^
 ||goasrv.com^
+||goatpoxbeaume.cfd^
 ||goatsalmighty.com^
 ||goaveshoaxersjambool.qpon^
 ||gobacktothefuture.biz^
@@ -76823,6 +76944,7 @@ browsershots.org#@#.advert_area
 ||groleegni.net^
 ||grookilteepsou.net^
 ||grop.net^
+||grossooestrum.shop^
 ||groszytaxir.com^
 ||grotespace.com^
 ||grotesquefact.pro^
@@ -76870,6 +76992,7 @@ browsershots.org#@#.advert_area
 ||grumpkali.com^
 ||grumpyhopesucceeding.com^
 ||grundyjanner.cfd^
+||grunzieniseicoenoby.cfd^
 ||gruponn.com^
 ||gruttenkendos.qpon^
 ||grvayuaccatti.space^
@@ -76975,6 +77098,7 @@ browsershots.org#@#.advert_area
 ||guitarinterim.com^
 ||guitarmist.com^
 ||gujqjoqszgwkv.online^
+||gukogwaqmfik.in^
 ||gukzebkckkvxv.website^
 ||gulioamsivgik.site^
 ||gullahsedgingtwilt.cfd^
@@ -77045,8 +77169,10 @@ browsershots.org#@#.advert_area
 ||gvgrocew.com^
 ||gvintwtnastmd.space^
 ||gvjhwvhmvidfh.website^
+||gvmwjancrvduk.site^
 ||gvokwoqawlwym.space^
 ||gvooqtrsbfueb.site^
+||gvpxiznmcfdzg.space^
 ||gvqjpnmn.com^
 ||gvqsojuzvabok.site^
 ||gvqvrydru.com^
@@ -77110,6 +77236,7 @@ browsershots.org#@#.advert_area
 ||gykpevjdkqyys.online^
 ||gylavpnvbaacd.online^
 ||gylor.xyz^
+||gymnicsomler.cyou^
 ||gynecickorrel.cyou^
 ||gynecolspreathtwitten.qpon^
 ||gynietrooe.com^
@@ -77157,6 +77284,7 @@ browsershots.org#@#.advert_area
 ||gzvknriwrcwtt.website^
 ||gzynllfiy.com^
 ||gzyszatxeaxjv.com^
+||gzyvwgbntckek.website^
 ||gzzfcmflxfspx.store^
 ||h12-media.com^
 ||h1no26ftnb9ucf1fovk4p.cfd^
@@ -77220,6 +77348,7 @@ browsershots.org#@#.advert_area
 ||hainantopkickcootie.cfd^
 ||haircutambient.com^
 ||haircutcrypticunlikely.com^
+||hairdobeseems.cfd^
 ||hairdressercurriculum.com^
 ||hairdressergraduate.com^
 ||hairmisdiet.shop^
@@ -77252,6 +77381,7 @@ browsershots.org#@#.advert_area
 ||halterchildsabanut.cyou^
 ||haltesloppy.cfd^
 ||halvaglegmackled.qpon^
+||halvedwoolens.shop^
 ||halvemanslaughtergild.com^
 ||halvepassionglow.com^
 ||halvepollen.com^
@@ -77295,6 +77425,7 @@ browsershots.org#@#.advert_area
 ||hangieareola.cfd^
 ||hangingduro.com^
 ||hangoverknock.com^
+||hankategrin.com^
 ||hankcoinspeppermint.com^
 ||hankfixplace.com^
 ||hankleachuete.cfd^
@@ -77344,6 +77475,7 @@ browsershots.org#@#.advert_area
 ||hargzcacgltoe.site^
 ||harlottippier.com^
 ||harmelwigdompellock.qpon^
+||harmeracta.com^
 ||harmful-park.com^
 ||harmfulevery.com^
 ||harmless-prior.pro^
@@ -77496,6 +77628,7 @@ browsershots.org#@#.advert_area
 ||hctpsnubjwbxv.space^
 ||hcubjomholwda.online^
 ||hcvqpttiicilq.site^
+||hcvwuxvfbmmnd.space^
 ||hcvzztepbqday.space^
 ||hcxanquduwuag.site^
 ||hcxjxdmopkbft.space^
@@ -77630,6 +77763,7 @@ browsershots.org#@#.advert_area
 ||hentscreens.com^
 ||henyardwrister.cfd^
 ||henzxztnnwmhp.website^
+||hepaticburro.shop^
 ||hepburnpulsant.qpon^
 ||hepburnwiringsdoubler.cyou^
 ||heptenemaileplugs.qpon^
@@ -78123,11 +78257,13 @@ browsershots.org#@#.advert_area
 ||hoomigri.com^
 ||hoood.info^
 ||hoopersnonpoet.com^
+||hoopgoners.cfd^
 ||hoopoemisken.cfd^
 ||hooprustcandied.com^
 ||hoorayattract.com^
 ||hooterdime.com^
 ||hootpreceding.com^
+||hopbushuneven.shop^
 ||hopcleftirradiate.com^
 ||hopdream.com^
 ||hopefulrow.com^
@@ -78266,6 +78402,7 @@ browsershots.org#@#.advert_area
 ||hqmxgbzzoxsfp.website^
 ||hqnmuuwcsudqd.store^
 ||hqpass.com^
+||hqrwwabaicwpt.website^
 ||hqscene.com^
 ||hqstcsetsckmf.website^
 ||hqszwdormatma.com^
@@ -78444,6 +78581,7 @@ browsershots.org#@#.advert_area
 ||hunkhideliability.com^
 ||hunksoon.com^
 ||hunkvoluntaryanalogy.com^
+||hunnicurohyal.cyou^
 ||hunter-hub.com^
 ||hunterheroiccompassion.com^
 ||hunterlead.com^
@@ -78451,6 +78589,7 @@ browsershots.org#@#.advert_area
 ||hupysrriepvxy.online^
 ||huraxbaw.in^
 ||hurfrumpertomin.qpon^
+||hurkaruhorimpaha.cyou^
 ||hurkffysthbuk.space^
 ||hurleyssinksbehoney.qpon^
 ||hurlmedia.design^
@@ -78551,6 +78690,7 @@ browsershots.org#@#.advert_area
 ||hyfiwldsulvvb.website^
 ||hygckbylqhutq.website^
 ||hygienicpee.com^
+||hygrinsurged.cyou^
 ||hyhavaflmeguk.site^
 ||hyhsaqyiusioz.space^
 ||hyihyfouxfsjb.online^
@@ -78821,6 +78961,7 @@ browsershots.org#@#.advert_area
 ||iggfwsbqonyyw.online^
 ||iginimhtppjum.website^
 ||igkhupjtzyaaa.space^
+||igldquktgmqin.website^
 ||iglhinccp.com^
 ||iglinptrmtzff.site^
 ||igloohq.com^
@@ -79005,6 +79146,7 @@ browsershots.org#@#.advert_area
 ||ilshiletterismype.org^
 ||ilshoflnkdbmj.com^
 ||iltskegkybift.online^
+||ilupvlxoldmow.space^
 ||ilvnmoqblnvrp.site^
 ||ilvumysnmlrvr.space^
 ||ilvzxlpvprsff.online^
@@ -79147,6 +79289,7 @@ browsershots.org#@#.advert_area
 ||impulseunplied.qpon^
 ||impurepath.com^
 ||imputerpolecat.com^
+||impypetara.qpon^
 ||imqfthrikod.com^
 ||imslyokecyhar.site^
 ||imsonicgale.com^
@@ -79528,6 +79671,7 @@ browsershots.org#@#.advert_area
 ||intrustedzone.site^
 ||intuitionlastly.com^
 ||intwineblindsgrim.cfd^
+||inuadasonqefk.website^
 ||inurebolded.cfd^
 ||inurneddoggish.com^
 ||inutilecooeed.cyou^
@@ -79885,6 +80029,7 @@ browsershots.org#@#.advert_area
 ||iwdesqsrwxjwg.website^
 ||iwdnwghcijrff.space^
 ||iwdstbdbjevqp.online^
+||iwducjotpw.com^
 ||iwdzrtxkwu.com^
 ||iweehbtxpnna.com^
 ||iwewagkgjkrqq.site^
@@ -79980,6 +80125,7 @@ browsershots.org#@#.advert_area
 ||izitrckr.com^
 ||izjvndjendqdv.website^
 ||izkivydhiqfjx.store^
+||izngibxwtlvqg.site^
 ||izoga.xyz^
 ||izpvwgsjs.com^
 ||izrnvo.com^
@@ -80018,6 +80164,7 @@ browsershots.org#@#.advert_area
 ||jadehlbswdlqw.online^
 ||jadeinvitelawsuit.com^
 ||jadjkuofzwad.com^
+||jadkuwwtyp.in^
 ||jads.cc^
 ||jadwidal.com^
 ||jafgtpuvxajoj.site^
@@ -80029,6 +80176,7 @@ browsershots.org#@#.advert_area
 ||jahwgcaskcxdl.space^
 ||jaimeecartebung.qpon^
 ||jainapedicle.cyou^
+||jakbhzbwczsho.online^
 ||jakebizarreexclusively.com^
 ||jakeconventconcerned.com^
 ||jakedefy.com^
@@ -80091,6 +80239,7 @@ browsershots.org#@#.advert_area
 ||jaypietombic.com^
 ||jayqbgfkdypmw.website^
 ||jayveespolices.cyou^
+||jazeranamiably.shop^
 ||jazeyslovably.shop^
 ||jazuoujihigip.site^
 ||jazzistagallop.com^
@@ -80320,6 +80469,7 @@ browsershots.org#@#.advert_area
 ||jiegfigvhwish.online^
 ||jiehsiazrrkql.site^
 ||jifflebreasts.com^
+||jifflegyrates.cfd^
 ||jiggedfiring.cfd^
 ||jigmengutsier.cfd^
 ||jigsawharmony.com^
@@ -80340,6 +80490,7 @@ browsershots.org#@#.advert_area
 ||jimhloyoiczgn.space^
 ||jimjampatted.com^
 ||jimsonamabel.cfd^
+||jinasyces.cyou^
 ||jingobreaths.cfd^
 ||jinniespottagy.com^
 ||jinraoiahbrhg.online^
@@ -80415,6 +80566,7 @@ browsershots.org#@#.advert_area
 ||jkxihdymwxueh.space^
 ||jkxlzrxhtqrdr.online^
 ||jkyufkwlymqxo.space^
+||jkzakzaowyzkz.top^
 ||jkzakzazloavb.top^
 ||jkzakzazlojvz.top^
 ||jlawrkjcpahca.space^
@@ -80510,6 +80662,7 @@ browsershots.org#@#.advert_area
 ||joggingavenge.com^
 ||jogryvgycqjph.store^
 ||johncroche.qpon^
+||johnminum.cyou^
 ||johnsgait.qpon^
 ||johqbazqtbbnz.site^
 ||johuvhjrtqqwb.online^
@@ -80568,6 +80721,7 @@ browsershots.org#@#.advert_area
 ||journeylula.com^
 ||jousteevoofooge.net^
 ||jovialcadence.com^
+||jovialmobile.pro^
 ||jovypickeer.qpon^
 ||jowarfamish.shop^
 ||jowkhamal.cyou^
@@ -80833,6 +80987,7 @@ browsershots.org#@#.advert_area
 ||juponrerope.com^
 ||juqbheahnq.in^
 ||juqzuljruojt.com^
+||juratsjiao.cfd^
 ||jurishammy.cyou^
 ||jursp.com^
 ||juryolympicsspookily.com^
@@ -80849,6 +81004,7 @@ browsershots.org#@#.advert_area
 ||juswsuqwbegra.site^
 ||jut6i8iz3ozwejbztopqmbo2bih.rest^
 ||jutesunnetashling.cfd^
+||juttedsirra.shop^
 ||juttkxcxflkao.space^
 ||juttonight.com^
 ||juvenile-guest.pro^
@@ -80893,7 +81049,9 @@ browsershots.org#@#.advert_area
 ||jwintrqdddsdp.com^
 ||jwjcpzdprksgg.online^
 ||jwjtbna.com^
+||jwkexnqakskaj.online^
 ||jwkfdcxedstsud.com^
+||jwlklghdaowos.site^
 ||jwmmddyynowkt.website^
 ||jwoawrucjoerw.space^
 ||jwqatrgdttvdj.website^
@@ -81274,6 +81432,7 @@ browsershots.org#@#.advert_area
 ||kfvhovjgchgde.website^
 ||kfvtvbihzxkck.website^
 ||kfvv-defender.pro^
+||kfwyfnlamzeth.site^
 ||kgbfawlsumiyn.space^
 ||kgbgcuabndbjw.store^
 ||kgbsszkgjhqwa.online^
@@ -81475,6 +81634,7 @@ browsershots.org#@#.advert_area
 ||kksmcfbxivdnm.site^
 ||kktbjcdqpalow.space^
 ||kkurochwxfrwn.site^
+||kkvthwawdluir.site^
 ||kkzsewwbrnuhg.website^
 ||kl8f4kge3c3zfh5v1jziqefpbmcv4rzx.cfd^
 ||klaushydra.com^
@@ -81498,6 +81658,7 @@ browsershots.org#@#.advert_area
 ||klkxaxsudedng.online^
 ||kllastroad.com^
 ||kllpelaa.net^
+||klmjuvctcqfey.site^
 ||klmmnd.com^
 ||klnapyezsrfg.com^
 ||klneqjidyjolu.website^
@@ -81598,6 +81759,7 @@ browsershots.org#@#.advert_area
 ||knsoknmyvyhab.website^
 ||knucklemonthsedifice.com^
 ||knueqofkktzpk.site^
+||knurryrelated.cfd^
 ||knutecauma.cyou^
 ||knutenegros.pro^
 ||knuteval.shop^
@@ -81789,6 +81951,7 @@ browsershots.org#@#.advert_area
 ||kslfqcxumewry.store^
 ||ksnhwtjoaoeim.space^
 ||ksnvnkmvtvwkj.site^
+||ksouidsxjo.com^
 ||ksprjvv.com^
 ||kspyqwogczssl.website^
 ||ksuwsvhxfigruwi.com^
@@ -82005,6 +82168,7 @@ browsershots.org#@#.advert_area
 ||l2fmm7sp.xyz^
 ||l33xmeqmetu36p2.cfd^
 ||l3j593g9cmwhmwnbi6c.cfd^
+||l3vwrjeywr75zo9fnkkv6gl67frv2rugnzk9.rest^
 ||l47w66yln94t7xgl.cfd^
 ||l498wefllycyonfjqbf6xwqgmff.rest^
 ||l68hg9ppqbipnlhmpzmr69k.rest^
@@ -82062,6 +82226,7 @@ browsershots.org#@#.advert_area
 ||lairdinnerly.cfd^
 ||lairpurposelyremainder.com^
 ||laiserpeglet.com^
+||laiserrumorer.cfd^
 ||laitethmoid.cyou^
 ||laivue.com^
 ||lajiewpihlybh.site^
@@ -82074,6 +82239,7 @@ browsershots.org#@#.advert_area
 ||lallansboners.cyou^
 ||lalooyleepohe.store^
 ||lamaswatfiv.qpon^
+||lambdaschoraburners.cfd^
 ||lambliapratal.cyou^
 ||lambmotorabash.com^
 ||lamboyssprawls.cfd^
@@ -82280,6 +82446,7 @@ browsershots.org#@#.advert_area
 ||lclzbtmahreqx.online^
 ||lcovwhuamphgj.com^
 ||lcpavtrwvavnq.website^
+||lcrimedxoyhgy.space^
 ||lcsirlytsncmg.space^
 ||lcubwmhoowyqv.site^
 ||lcuijfiybks.com^
@@ -82434,6 +82601,7 @@ browsershots.org#@#.advert_area
 ||lenmit.com^
 ||lennowlepero.cfd^
 ||lentattire.com^
+||lentenfrija.shop^
 ||lentoscrocuta.shop^
 ||lentspeaking.com^
 ||lenvoycotised.cfd^
@@ -82441,6 +82609,7 @@ browsershots.org#@#.advert_area
 ||leonbetvouum.com^
 ||leonecowbanemaney.qpon^
 ||leoneseclaudia.cyou^
+||leonesuncinctsushi.qpon^
 ||leonnwztxcdcj.site^
 ||leopardfavorite.com^
 ||leoyard.com^
@@ -82592,6 +82761,7 @@ browsershots.org#@#.advert_area
 ||liaoptse.net^
 ||liasonmontero.shop^
 ||liawgtbqbeaeq.space^
+||lib4orji46xr854ug59fl2zyu3c.cfd^
 ||libbarddibbles.cfd^
 ||libellouschurchtommy.com^
 ||liberaldoubtedadulatory.com^
@@ -82664,6 +82834,7 @@ browsershots.org#@#.advert_area
 ||ligzuxotla.in^
 ||lihayne.shop^
 ||lihmnebydaizl.site^
+||liibefibliil.com^
 ||liizflvgesra.com^
 ||lijovrot.in^
 ||likableskill.pro^
@@ -82682,6 +82853,7 @@ browsershots.org#@#.advert_area
 ||lilkdtrwspxvk.website^
 ||lilxdostfpngv.space^
 ||lilxvvndclgcs.space^
+||limailaucan.qpon^
 ||limbycocking.cfd^
 ||limetreeloadherself.com^
 ||limitationluck.com^
@@ -82708,6 +82880,7 @@ browsershots.org#@#.advert_area
 ||lindychat.com^
 ||linear-policy.com^
 ||linearopening.com^
+||linedofficio.qpon^
 ||linen-static.online^
 ||linenvirginityclient.com^
 ||lineodtpdajrz.store^
@@ -83204,9 +83377,11 @@ browsershots.org#@#.advert_area
 ||lptrck.com^
 ||lpuobkahdp.in^
 ||lpvrblrtdgmke.space^
+||lpvycfrknsmog.website^
 ||lpwtbsfgamivm.space^
 ||lpyfevipheebj.website^
 ||lqbvjmkoozmry.top^
+||lqcldweyteatn.site^
 ||lqdimcpwev.com^
 ||lqfakbohpecho.online^
 ||lqhadymruqgwc.website^
@@ -83224,6 +83399,7 @@ browsershots.org#@#.advert_area
 ||lqvwbekhsnpfb.space^
 ||lqxtyqukwiy.com^
 ||lqzoyqvbjkzqm.top^
+||lqzoyqvwvkomm.top^
 ||lqzwpvmxyxfap.space^
 ||lrafahzbolzqk.space^
 ||lrcaxaztripcv.online^
@@ -83372,6 +83548,7 @@ browsershots.org#@#.advert_area
 ||lurgsmsapsago.qpon^
 ||lurods.cyou^
 ||lurriesachech.cyou^
+||lusbvzzcnfbeo.site^
 ||lusfnxbxlkyip.site^
 ||lushcrush.com^
 ||lushedfurlan.cyou^
@@ -83493,6 +83670,7 @@ browsershots.org#@#.advert_area
 ||lyingplungeshopping.com^
 ||lyk9ph4qil7gvr7j3qg26n.rest^
 ||lylufhuxqwi.com^
+||lynkhpfcgquwd.site^
 ||lyopieifcjaqb.site^
 ||lypchoanqfwqz.site^
 ||lypslljhdhveu.website^
@@ -83660,6 +83838,7 @@ browsershots.org#@#.advert_area
 ||majestic-oven.com^
 ||majestydisbeliefcalory.com^
 ||majeurecometic.shop^
+||majoonevernia.com^
 ||major-ads.net^
 ||majorad.net^
 ||majorads.site^
@@ -83707,6 +83886,7 @@ browsershots.org#@#.advert_area
 ||mammothmarch.pro^
 ||mammothshot.com^
 ||mammothsweetheart.com^
+||mamotyfattier.cyou^
 ||managementgrandpa.com^
 ||managesfungusy.cfd^
 ||manageshalfmoonaccess.com^
@@ -83921,6 +84101,7 @@ browsershots.org#@#.advert_area
 ||mayworthutlike.shop^
 ||mayzaent.com^
 ||mazardskokos.qpon^
+||mazdoorcondite.qpon^
 ||mazefoam.com^
 ||mazersshallon.cfd^
 ||mazingmimed.qpon^
@@ -83967,6 +84148,7 @@ browsershots.org#@#.advert_area
 ||mbvubhvcfcjju.space^
 ||mbytyeonamnqc.space^
 ||mcawertrghibh.online^
+||mcbfmtrtvjyia.website^
 ||mcbthdxjauruz.online^
 ||mccxupbdxfhu.com^
 ||mcegpoujeecux.online^
@@ -84206,6 +84388,7 @@ browsershots.org#@#.advert_area
 ||mfiomoaa.com^
 ||mfjhkyeptwiop.site^
 ||mfjoxsbmnxssq.online^
+||mfksoedbqfqnr.space^
 ||mfltgzltzqvni.online^
 ||mfngfbmubdawu.site^
 ||mfnywvolurpen.site^
@@ -84489,8 +84672,10 @@ browsershots.org#@#.advert_area
 ||mjmramjfgqmcr.online^
 ||mjramgmogoewx.site^
 ||mjriazemzybdg.online^
+||mjrqv8gmw3yxxov.rest^
 ||mjtpwtxclfnkt.site^
 ||mjtrkygeqmghm.store^
+||mjtuijeopjgfo.site^
 ||mjtzbkdmpbayx.online^
 ||mjvvklsjsdddh.space^
 ||mjwcsqcajfwhi.online^
@@ -85118,6 +85303,7 @@ browsershots.org#@#.advert_area
 ||muleterritorywitchcraft.com^
 ||mulismvorpal.cfd^
 ||mullencrisp.qpon^
+||mulleysruta.shop^
 ||mulmhitch.cfd^
 ||mulmsmallen.cfd^
 ||multipledrawers.com^
@@ -85129,6 +85315,7 @@ browsershots.org#@#.advert_area
 ||multiwall-ads.shop^
 ||multstorage.com^
 ||multurimfidge.cyou^
+||mumbleenzymic.qpon^
 ||mummickdogleghosta.cfd^
 ||mummieddruid.cyou^
 ||mummifiedpatienceunknowing.com^
@@ -85181,6 +85368,7 @@ browsershots.org#@#.advert_area
 ||musiciansinceredumpling.com^
 ||musicnote.info^
 ||muskedtrefah.qpon^
+||muskitsstealth.cfd^
 ||musoparhnhgye.space^
 ||musselmerchant.com^
 ||mussingsucrasetreron.cfd^
@@ -85197,6 +85385,7 @@ browsershots.org#@#.advert_area
 ||mutenessquiz.com^
 ||mutinedgunster.com^
 ||mutinousburyquestionable.com^
+||mutsjenote.cfd^
 ||mutswisheslazaret.cyou^
 ||muttenrussify.shop^
 ||mutterschokervivary.qpon^
@@ -85272,9 +85461,11 @@ browsershots.org#@#.advert_area
 ||mxhplnujqwmoj.website^
 ||mxhybnnilsini.site^
 ||mxizjfeqmnmzc.site^
+||mxjgymqihbbyr.site^
 ||mxjvsovvqnwew.online^
 ||mxjxinpidvsih.site^
 ||mxkjgvrog.com^
+||mxkmgxxt9921xp18qipi62lcb.cfd^
 ||mxkpvqlrmfmww.com^
 ||mxlqgplenjdrc.site^
 ||mxlun.com^
@@ -85338,6 +85529,7 @@ browsershots.org#@#.advert_area
 ||myowvxxsjkwvp.space^
 ||mypdcitiidimv.space^
 ||myperfect2give.com^
+||myphe3lconizbiojyyugyz.rest^
 ||mypopads.com^
 ||myppiq28w1tep2ph7t.cfd^
 ||myqcvnavmpqes.site^
@@ -85381,6 +85573,7 @@ browsershots.org#@#.advert_area
 ||mztecqbedrxpi.site^
 ||mztqypcygmeii.online^
 ||mzykitcgblmwl.online^
+||mzzxhfnqtjojh.online^
 ||mzzzpvllsjxpy.online^
 ||n0299.com^
 ||n0400.com^
@@ -85406,6 +85599,7 @@ browsershots.org#@#.advert_area
 ||nabuasbobiype.site^
 ||nachodusking.com^
 ||nachophobiaunengaged.com^
+||nacqigmtaxssr.online^
 ||nacredbedrift.cyou^
 ||nadese.xyz^
 ||nadryvqnouzm.com^
@@ -85514,6 +85708,7 @@ browsershots.org#@#.advert_area
 ||natqurshes.shop^
 ||natqzyaatmnga.store^
 ||natregs.com^
+||natrixcussed.cfd^
 ||natsdk.com^
 ||nattierdwale.qpon^
 ||nature-land1.site^
@@ -85736,6 +85931,7 @@ browsershots.org#@#.advert_area
 ||networks830.com^
 ||neurismregrate.cfd^
 ||neuroneabel.cyou^
+||neurulaphyma.qpon^
 ||neutralitywith103.com^
 ||never2never.com^
 ||neverforgettab.com^
@@ -85917,6 +86113,7 @@ browsershots.org#@#.advert_area
 ||niepadesmidscavate.qpon^
 ||niesdekares.cyou^
 ||nifepatroon.shop^
+||nificcravens.cfd^
 ||nifty-feature.com^
 ||nigbrjvnq.com^
 ||nighswearily.cyou^
@@ -85939,6 +86136,7 @@ browsershots.org#@#.advert_area
 ||nillsfaxes.cfd^
 ||nimble-bench.com^
 ||nimblecontest.com^
+||nimkni7r6lp8rlw2oyi.cfd^
 ||nimrodchelas.cyou^
 ||nimxbomdpgwms.site^
 ||ninefriends.shop^
@@ -86138,6 +86336,7 @@ browsershots.org#@#.advert_area
 ||nodallyaushar.cyou^
 ||noddlesmuvule.qpon^
 ||noddyhomed.com^
+||nodeddriven.shop^
 ||nodestrengthenrecorder.com^
 ||nodntchkyhhrg.website^
 ||noduledbaffs.cyou^
@@ -86562,6 +86761,7 @@ browsershots.org#@#.advert_area
 ||nxlqljuasi.com^
 ||nxmpmugazsghw.website^
 ||nxmsiuptjboqj.space^
+||nxplbrghmaajd.website^
 ||nxrgvgjizziry.site^
 ||nxszybhvuiblq.online^
 ||nxt-psh.com^
@@ -87257,6 +87457,7 @@ browsershots.org#@#.advert_area
 ||onclickpredictiv.com^
 ||onclickpulse.com^
 ||oncosisbedelve.qpon^
+||oncoticzonda.com^
 ||ondingfoute.com^
 ||oneclck.net^
 ||onedragon.win^
@@ -87371,6 +87572,7 @@ browsershots.org#@#.advert_area
 ||opdvzscgsotag.site^
 ||opdwwovuhiapk.online^
 ||opedlyc.shop^
+||opedyate.qpon^
 ||openerclassify.com^
 ||openercompetent.com^
 ||openingclutter.com^
@@ -87402,6 +87604,7 @@ browsershots.org#@#.advert_area
 ||oplarzxfsrvsj.space^
 ||oplmbxdyndadi.website^
 ||oplnuqah.com^
+||oplptyjwuka.in^
 ||oplronjeluagj.space^
 ||opnnrzrugtynl.website^
 ||opnobbohq.com^
@@ -87905,6 +88108,7 @@ browsershots.org#@#.advert_area
 ||oyawjfnkbyawy.website^
 ||oyazrojxnntsc.site^
 ||oybvbqopbbmpm.space^
+||oydpnlxwqftxd.website^
 ||oyecilgvdeazh.online^
 ||oyeonwxjqtzcm.website^
 ||oyfmthysfgebtmr.com^
@@ -87945,6 +88149,7 @@ browsershots.org#@#.advert_area
 ||ozbtkhflawdnt.online^
 ||ozcfpsxmyqx.com^
 ||ozfxwlyarvwzy.site^
+||ozgsonpbcbbnj.online^
 ||ozihlzpeabppp.online^
 ||ozikxjdxczhbg.online^
 ||ozkqakffarri.com^
@@ -87980,7 +88185,9 @@ browsershots.org#@#.advert_area
 ||p2yn.com^
 ||p3lj34e33yz6ug5z.rest^
 ||p6l8r47rb99gnw2.rest^
+||p6ljxzmn8jnrkfl.rest^
 ||p6n0g0ia.xyz^
+||p6w9tvcuo96p5zmr2hxt4k8m66vuhynmo1ggz9.cfd^
 ||p9pxgx91z15el4b32ecfxo1yvi.cfd^
 ||p9wxctem41wmbn3n3kuh.cfd^
 ||pa5ka.com^
@@ -88042,6 +88249,7 @@ browsershots.org#@#.advert_area
 ||pahtuo.tech^
 ||pahtwt.tech^
 ||pahtzh.tech^
+||pahvqfbuhofly.online^
 ||pahzvkxwkxtzm.website^
 ||paidcomparatively.com^
 ||paidizdubar.cfd^
@@ -88294,6 +88502,7 @@ browsershots.org#@#.advert_area
 ||pawgleamed.com^
 ||pawheatyous.com^
 ||pawinextricable.com^
+||pawingfilms.cyou^
 ||pawinggrazerssartain.cfd^
 ||pawkerylapbmarnix.cfd^
 ||pawntransgress.com^
@@ -88462,6 +88671,7 @@ browsershots.org#@#.advert_area
 ||peeksloather.cfd^
 ||peeksmiddle.com^
 ||peelwrinkle.com^
+||peenbrassessulpho.cfd^
 ||peepbesides.com^
 ||peepfunnel.com^
 ||peepholecockpit.com^
@@ -88474,6 +88684,7 @@ browsershots.org#@#.advert_area
 ||pefftzbjtapkv.online^
 ||pefpslbpjycno.space^
 ||peganumjarful.cfd^
+||pegmenagogic.qpon^
 ||pegtopsrhinos.shop^
 ||pehvwzyx.com^
 ||peiohvbzvtufg.online^
@@ -88532,6 +88743,7 @@ browsershots.org#@#.advert_area
 ||peppinisurus.cfd^
 ||pepscarn.com^
 ||peqfgslwvqndy.space^
+||pequotarbored.cfd^
 ||peqwbqnjexjdf.site^
 ||perackwutexkp.site^
 ||perbatman.cyou^
@@ -88784,6 +88996,7 @@ browsershots.org#@#.advert_area
 ||phrfushpadbco.website^
 ||phrymapyritic.com^
 ||phsism.com^
+||phtpzxfhdjoss.site^
 ||phts.io^
 ||phuakravmo.in^
 ||phudsumipakr.net^
@@ -88791,6 +89004,7 @@ browsershots.org#@#.advert_area
 ||phxbjgnhrqbuc.website^
 ||phxkohxxcjcoz.store^
 ||phyajhdifoqn.in^
+||phygtaabqusoq.site^
 ||phymatashut.cfd^
 ||phynefopsu.com^
 ||phypvucarjpoo.site^
@@ -88813,6 +89027,7 @@ browsershots.org#@#.advert_area
 ||piberiiqzcegb.site^
 ||pibikakrg.com^
 ||pic2host.icu^
+||picamarchatti.qpon^
 ||picarossuccubi.cfd^
 ||pichost24.club^
 ||pichost24.site^
@@ -88960,6 +89175,7 @@ browsershots.org#@#.advert_area
 ||pistnowness.qpon^
 ||pitangaenglersloking.cyou^
 ||pitawasdomine.cfd^
+||pitchedbestuck.cfd^
 ||pitchedfurs.com^
 ||pitdjtfxcamyx.site^
 ||piteousprinciple.com^
@@ -89132,6 +89348,7 @@ browsershots.org#@#.advert_area
 ||pliableunsnaky.qpon^
 ||pliantdummyexasperation.com^
 ||plicaecerates.cfd^
+||plierstallier.shop^
 ||plinksplanet.com^
 ||plinthsgrubby.shop^
 ||plissesfail.cfd^
@@ -89250,6 +89467,7 @@ browsershots.org#@#.advert_area
 ||pockknosp.com^
 ||podalrassles.shop^
 ||poddigegruis.com^
+||poddishdimaris.cyou^
 ||podialstates.cfd^
 ||poditessinian.cfd^
 ||podosupsurge.com^
@@ -89504,6 +89722,7 @@ browsershots.org#@#.advert_area
 ||pozkbycypzgty.site^
 ||ppaamxfm.com^
 ||ppbbhvizrkryo.website^
+||ppbqvwwhcsbaq.website^
 ||ppcmate.com^
 ||ppctraffic.co^
 ||ppduaejaozsch.website^
@@ -89603,6 +89822,7 @@ browsershots.org#@#.advert_area
 ||preciousnormal.pro^
 ||precipitationdisgracefulpeeks.com^
 ||precisionclick.com^
+||precisiondate.com^
 ||precmd.com^
 ||precoxobeish.com^
 ||precursortrimrequest.com^
@@ -89683,6 +89903,7 @@ browsershots.org#@#.advert_area
 ||pretrackings.com^
 ||pretryhispid.shop^
 ||pretryrewakesizzle.cfd^
+||pretryzachun.qpon^
 ||pretty-fly4.com^
 ||pretty-site.com^
 ||pretty-sluts-nearby.com^
@@ -90034,6 +90255,7 @@ browsershots.org#@#.advert_area
 ||pteekjynvrwtl.site^
 ||ptekuwiny.pro^
 ||ptelastaxo.com^
+||pteriangardant.com^
 ||pterionomagra.cfd^
 ||pterisjeffery.qpon^
 ||pteronenol.shop^
@@ -90161,6 +90383,7 @@ browsershots.org#@#.advert_area
 ||pungent-care.com^
 ||pungenttonight.com^
 ||pungledtuno.qpon^
+||pungplaice.com^
 ||punicinbumelia.com^
 ||punishgreater.com^
 ||punishutrubi.com^
@@ -90389,6 +90612,7 @@ browsershots.org#@#.advert_area
 ||pzqrhgqndswqn.store^
 ||pzsvltbfzoqwt.space^
 ||pztblvfedjxnd.site^
+||pztcwcqvvhwgu.online^
 ||pztpegrrlrurn.com^
 ||pzyoijuqnkyol.site^
 ||pzyqwiojtd.in^
@@ -90428,6 +90652,7 @@ browsershots.org#@#.advert_area
 ||qargdofuazoiz.site^
 ||qasdszuhgnhtl.space^
 ||qasqrxopujcoq.website^
+||qatspuntil.cyou^
 ||qatszonelet.cyou^
 ||qazvycpwppors.online^
 ||qbaarratalzyo.online^
@@ -90698,6 +90923,7 @@ browsershots.org#@#.advert_area
 ||qlvobmtnqrocw.online^
 ||qlymjkshghifu.space^
 ||qlyvinhfifdwv.site^
+||qlywjkwrxcrba.space^
 ||qmaixqtbcbapj.site^
 ||qmapdnf.com^
 ||qmaridfcwvu.com^
@@ -90717,6 +90943,7 @@ browsershots.org#@#.advert_area
 ||qmuxupabzgxlp.website^
 ||qmvwjbawxsese.site^
 ||qmwonwowmytqf.store^
+||qmyzawzblrvoj.top^
 ||qmyzawzrqryjj.top^
 ||qn-5.com^
 ||qnankopyneryv.space^
@@ -90725,6 +90952,7 @@ browsershots.org#@#.advert_area
 ||qneshqafreref.site^
 ||qnfhrgxttmget.site^
 ||qnfrhwzpqtpwzu.com^
+||qngknhrvjqrbb.space^
 ||qnigoujoppspc.site^
 ||qninldlbtihpt.space^
 ||qniqhfpbfotmz.space^
@@ -90782,6 +91010,7 @@ browsershots.org#@#.advert_area
 ||qpnhvgowrlfox.online^
 ||qpnippagdkadi.online^
 ||qpnnnvtyysd.com^
+||qpnyxtfyljsym.website^
 ||qporvffxegbbv.space^
 ||qppq166n.de^
 ||qpscgpmcrakpd.site^
@@ -91112,6 +91341,7 @@ browsershots.org#@#.advert_area
 ||qxpxrbettkskb.space^
 ||qxqjccxfiihvf.online^
 ||qxsgambwwkoib.site^
+||qxsiudir.com^
 ||qxuebkyiexuez.online^
 ||qxummanifgrjp.site^
 ||qxyvvfwjiqonx.online^
@@ -91331,6 +91561,7 @@ browsershots.org#@#.advert_area
 ||rarebitblusher.com^
 ||rarelywithinlull.com^
 ||rarerburundi.cyou^
+||rarercopa.qpon^
 ||rarespeech.pro^
 ||rarityboastful.com^
 ||raritystandforester.com^
@@ -91381,7 +91612,9 @@ browsershots.org#@#.advert_area
 ||rausougo.net^
 ||ravagesspeckyduller.cfd^
 ||raveigryeggfj.website^
+||ravelvellum.qpon^
 ||ravenerfeower.qpon^
+||ravenermommas.qpon^
 ||ravenousamuse.com^
 ||ravenouspetition.com^
 ||ravm.tv^
@@ -91545,6 +91778,7 @@ browsershots.org#@#.advert_area
 ||rebukedelinquent.com^
 ||rebukemusclesshark.com^
 ||rebuylengest.cfd^
+||rebwrcpzujwbs.website^
 ||recanedxylonic.cyou^
 ||recantkeynotecrane.com^
 ||recapscasino.cfd^
@@ -91684,6 +91918,7 @@ browsershots.org#@#.advert_area
 ||reetlesmirtle.shop^
 ||reevingcsc.cyou^
 ||refbanners.com^
+||refbyaumgmfxn.online^
 ||refectsdodgily.cyou^
 ||referenceslayerlens.com^
 ||referenceswarmerbread.com^
@@ -91752,6 +91987,7 @@ browsershots.org#@#.advert_area
 ||rekbudlhhzxps.website^
 ||relaamlrijdxq.site^
 ||relacestunca.cfd^
+||relaismetonym.qpon^
 ||relappro.com^
 ||relapsebandage.com^
 ||relatepermanentlyminimum.com^
@@ -92030,6 +92266,7 @@ browsershots.org#@#.advert_area
 ||reworksammer.shop^
 ||rewrapssmeary.com^
 ||rewritewitch.com^
+||rewwovecutest.qpon^
 ||rexadvert.xyz^
 ||rexargue.com^
 ||rexdaaohsoxkr.space^
@@ -92054,6 +92291,7 @@ browsershots.org#@#.advert_area
 ||rfpjoviqbmecn.online^
 ||rfpmudsnyeuhe.space^
 ||rfpunvguhctkq.online^
+||rfpvfauptyqvx.space^
 ||rfsllmogxqc.com^
 ||rfstemin.qpon^
 ||rftxmwcivenzn.space^
@@ -92276,6 +92514,7 @@ browsershots.org#@#.advert_area
 ||riveledbouge.com^
 ||rivinanuncius.cfd^
 ||rivne.space^
+||rivuletpirns.com^
 ||riyelenrtznxl.space^
 ||riylcrnuvdzyo.space^
 ||rizfvsmmsxgqp.website^
@@ -92433,6 +92672,7 @@ browsershots.org#@#.advert_area
 ||roasted-standard.pro^
 ||roasteddefraud.shop^
 ||roastengirt.cfd^
+||roastersodygat.cyou^
 ||roastrigidbitesize.com^
 ||roastwearwritten.com^
 ||robbdowtndoib.website^
@@ -92480,6 +92720,7 @@ browsershots.org#@#.advert_area
 ||roiapp.net^
 ||roibvvvvfmhyl.space^
 ||roiccwhoodrkb.space^
+||roijbym9fpf5g12g7.rest^
 ||roikingdom.com^
 ||roilierastheny.cyou^
 ||roilygrasser.shop^
@@ -92679,6 +92920,7 @@ browsershots.org#@#.advert_area
 ||rrpcjhtacwgki.space^
 ||rrpsjnegulocc.site^
 ||rrpuoifwzxgkh.site^
+||rrqwarwomrmbj.top^
 ||rrqwarwrewrlj.top^
 ||rrrucdrkmpqed.website^
 ||rrvllvxqfobil.site^
@@ -92773,6 +93015,7 @@ browsershots.org#@#.advert_area
 ||rubigodirdum.cfd^
 ||rubigosmorosis.qpon^
 ||rublisteapoy.qpon^
+||rubrailbolosacicula.cyou^
 ||rubricasandfly.qpon^
 ||rubrifyzingari.cyou^
 ||rubsangust.cfd^
@@ -93144,6 +93387,7 @@ browsershots.org#@#.advert_area
 ||sanctifycool.com^
 ||sanctifyracesleech.com^
 ||sandbincassiri.qpon^
+||sandboxbepill.qpon^
 ||sandelf.com^
 ||sandhowl.com^
 ||sandmakingsilver.info^
@@ -93366,6 +93610,7 @@ browsershots.org#@#.advert_area
 ||schemesamdt.shop^
 ||schizopetitor.cfd^
 ||schjmp.com^
+||schleppsanjak.qpon^
 ||schmalzflix.qpon^
 ||schmuckwetting.cfd^
 ||schnapsaliquid.cyou^
@@ -93378,6 +93623,7 @@ browsershots.org#@#.advert_area
 ||schorlkabyle.cfd^
 ||schorlyaxites.qpon^
 ||schouwloto.com^
+||schrankskirp.cfd^
 ||scientific-doubt.com^
 ||scientific-husband.com^
 ||scientificmortondisinherit.com^
@@ -93399,6 +93645,7 @@ browsershots.org#@#.advert_area
 ||scokestellio.cfd^
 ||scoldeclipseillusion.com^
 ||scoldselfemployedlong.com^
+||scolopsfalusunduly.cfd^
 ||sconcesviceroysenary.qpon^
 ||scoopedmalabarbhagat.cyou^
 ||scootawarebarber.com^
@@ -93476,6 +93723,7 @@ browsershots.org#@#.advert_area
 ||scurferaveradewdamp.cyou^
 ||scurra.space^
 ||scurrypaleron.click^
+||scuteslemurprovide.qpon^
 ||scutesneatest.com^
 ||scveilwglczse.online^
 ||scvzzypvcveio.online^
@@ -93614,6 +93862,7 @@ browsershots.org#@#.advert_area
 ||segreencolumn.com^
 ||sehklykanvscl.site^
 ||sehlicegxy.com^
+||seidmaraisdeluce.cyou^
 ||seinednattock.qpon^
 ||seitekdhgusym.website^
 ||seizoropiatic.cfd^
@@ -93645,6 +93894,7 @@ browsershots.org#@#.advert_area
 ||sellvisited.com^
 ||selsynssacope.shop^
 ||selwrite.com^
+||semballiao.com^
 ||semeiashesha.cyou^
 ||sementunpower.qpon^
 ||semestersets.com^
@@ -93724,6 +93974,7 @@ browsershots.org#@#.advert_area
 ||seresedenite.cfd^
 ||sergttaproot.cfd^
 ||sergurning.com^
+||seriburbushnitent.cfd^
 ||serinusnymphos.cfd^
 ||serinuspotions.com^
 ||serinuswelling.com^
@@ -93881,6 +94132,7 @@ browsershots.org#@#.advert_area
 ||sgllpsstmvgns.site^
 ||sgmikusac.com^
 ||sgpniarijjbzt.online^
+||sgqrrsziha.com^
 ||sgsojdpfjsk2.xyz^
 ||sgswwdtkm.com^
 ||sgtbbgdkovkhz.site^
@@ -94135,6 +94387,7 @@ browsershots.org#@#.advert_area
 ||siamangoximseased.cfd^
 ||siavtcwmgehxp.online^
 ||sibapothem.qpon^
+||siberianestsrubbisy.cfd^
 ||sibilantrespectablerelative.com^
 ||siblinggut.com^
 ||siblpnvryviqz.website^
@@ -94469,6 +94722,7 @@ browsershots.org#@#.advert_area
 ||sledxylan.com^
 ||sleeklyureases.qpon^
 ||sleekwinterpowers.com^
+||sleekygoose.qpon^
 ||sleepilled.cyou^
 ||sleepoverlimitprofound.com^
 ||sleepyjury.com^
@@ -94477,6 +94731,7 @@ browsershots.org#@#.advert_area
 ||slejyhnflrqje.space^
 ||slerbssivissp.site^
 ||slervwlteedfj.website^
+||sleuthocuby.cyou^
 ||slewthhotness.cfd^
 ||slfhtrkjbsnbh.space^
 ||slfpqqgcilxzh.space^
@@ -95062,6 +95317,7 @@ browsershots.org#@#.advert_area
 ||spicyram.com^
 ||spielsbeni.com^
 ||spiesdeigns.cfd^
+||spiestimaeus.qpon^
 ||spignutbrissesthereby.cyou^
 ||spigotspluton.cfd^
 ||spikcomarca.cyou^
@@ -95109,6 +95365,8 @@ browsershots.org#@#.advert_area
 ||splxrurfrajhs.site^
 ||spmqfymfgbfha.space^
 ||spmqkfodtwzit.site^
+||spnfvzpjcihlo.site^
+||spocdxbdtpbwy.online^
 ||spoedlyyhexxr.online^
 ||spoffymarctwier.cfd^
 ||spoilconsumerimmoral.com^
@@ -95148,6 +95406,7 @@ browsershots.org#@#.advert_area
 ||spotted-alternative.com^
 ||spottt.com^
 ||spotxcdn.com^
+||spousevenkata.shop^
 ||spoutable.com^
 ||spouterlaeti.shop^
 ||spovgxzkblbpq.website^
@@ -95320,6 +95579,7 @@ browsershots.org#@#.advert_area
 ||stackcoalitionmole.com^
 ||stackmultiple.com^
 ||stackrealreliant.com^
+||stacksdrill.qpon^
 ||stackupruckinglingier.qpon^
 ||stackwitotopolices.qpon^
 ||stactesder.shop^
@@ -95349,6 +95609,7 @@ browsershots.org#@#.advert_area
 ||standalone4instances.com^
 ||standardaccount.pro^
 ||standardmiddle.pro^
+||standeekorakan.cfd^
 ||standingargumentorder.com^
 ||standingbreederpitiful.com^
 ||standpointbluffybluffy.com^
@@ -95393,6 +95654,7 @@ browsershots.org#@#.advert_area
 ||static-fable.online^
 ||static-linen.click^
 ||static-north.lol^
+||static-orbit.shop^
 ||static-srv.com^
 ||staticgalaksion.com^
 ||stationinterfacehunter.com^
@@ -95460,6 +95722,7 @@ browsershots.org#@#.advert_area
 ||stewardconvenienceslisp.com^
 ||stewartkassu.qpon^
 ||stewportfoliomeaning.com^
+||stfhhdglvwmut.website^
 ||stgcdn.com^
 ||stgowan.com^
 ||sthhbqpjfdves.space^
@@ -95796,6 +96059,7 @@ browsershots.org#@#.advert_area
 ||suitedeatercrutch.com^
 ||suiteenvelopetyran.com^
 ||suiteneutral.qpon^
+||suivezrarer.com^
 ||sujgsrsppqoij.site^
 ||sukjdmsazsmuw.space^
 ||sukkahsmuzz.qpon^
@@ -96219,10 +96483,13 @@ browsershots.org#@#.advert_area
 ||tabloidincapable.com^
 ||tabogtirazessence.qpon^
 ||taboretscove.cfd^
+||taborkatiksedilia.cyou^
+||tabortalkiliac.cyou^
 ||tabretwicht.com^
 ||tackdisillusion.com^
 ||tackfreed.com^
 ||tacklingunsightlyventricle.com^
+||tacosunspent.shop^
 ||tacticalinsoluble.com^
 ||tacticalswindle.com^
 ||tactoidbatched.cfd^
@@ -96410,6 +96677,7 @@ browsershots.org#@#.advert_area
 ||tbmoxtvskajqz.space^
 ||tbpot.com^
 ||tbqmmivolbygsly.com^
+||tbrlymawhqlfh.website^
 ||tbsakweladkbq.website^
 ||tbslehgnmaets.space^
 ||tbtophs.cyou^
@@ -96428,6 +96696,7 @@ browsershots.org#@#.advert_area
 ||tcihfguqejvsf.online^
 ||tcjaslvajucmt.online^
 ||tcjvlnvuyjeb.com^
+||tckejzidujsjj.online^
 ||tckfq4qoqbmfx4.cfd^
 ||tckgiyfigpype.space^
 ||tcmcpbjvotuaa.space^
@@ -96636,6 +96905,7 @@ browsershots.org#@#.advert_area
 ||terrenedawning.qpon^
 ||terretharmer.com^
 ||terrhonkie.cfd^
+||terribleafternoon.pro^
 ||terribleroll.pro^
 ||terriblesource.com^
 ||terriblycompile.com^
@@ -96915,6 +97185,7 @@ browsershots.org#@#.advert_area
 ||tidy-idea.com^
 ||tidy-winter.pro^
 ||tidyingconfuseworm.com^
+||tidymail.pro^
 ||tiectkogarecs.space^
 ||tiedexceed.com^
 ||tiedhamadjoin.com^
@@ -96975,6 +97246,7 @@ browsershots.org#@#.advert_area
 ||tineidsreseeds.com^
 ||tineinenoltuc.qpon^
 ||tineinetarring.qpon^
+||tingerrespire.cyou^
 ||tingingsoakman.com^
 ||tinguyaus.com^
 ||tinifygzkncqu.website^
@@ -97007,6 +97279,7 @@ browsershots.org#@#.advert_area
 ||tircyqdomqupu.website^
 ||tiredamazingly.com^
 ||tiredelection.com^
+||tiredmeat.pro^
 ||tiresomesolemnly.com^
 ||tirlingtachiol.com^
 ||tishriembain.cyou^
@@ -97615,6 +97888,7 @@ browsershots.org#@#.advert_area
 ||trifling-profession.pro^
 ||triflinghandicapped.com^
 ||triflinghighway.pro^
+||trifolygeleem.cfd^
 ||trigami.com^
 ||triggersdelusion.com^
 ||triglidclep.qpon^
@@ -97767,6 +98041,7 @@ browsershots.org#@#.advert_area
 ||tsdmxbhvbznxq.online^
 ||tsednagncaata.site^
 ||tsepyk.com^
+||tsesmxqnhiihy.site^
 ||tsfidvbipwedg.site^
 ||tsgbxlgm.com^
 ||tsghvqmfcxzfn.space^
@@ -97929,6 +98204,7 @@ browsershots.org#@#.advert_area
 ||turkeychoice.com^
 ||turkmenbpi.cfd^
 ||turkstench.com^
+||turmanyniuapu.space^
 ||turmjpzcrovzn.online^
 ||turmutcoffles.cyou^
 ||turncapkevin.com^
@@ -98083,6 +98359,7 @@ browsershots.org#@#.advert_area
 ||txuqrrcpnnsye.online^
 ||txwkjktfojloy.online^
 ||txwonfqyncajg.site^
+||txxbwgmrqsfgz.website^
 ||txzaazmdhtw.com^
 ||txzbejxkynpvk.online^
 ||txzylleycallj.site^
@@ -98173,6 +98450,7 @@ browsershots.org#@#.advert_area
 ||uajgfkbpypbsa.site^
 ||uajzbrkidbvfb.online^
 ||uakbviletrmyf.site^
+||uakfqckvhwrtp.space^
 ||uaktjvdbrstrg.online^
 ||ualcwoyuwyvhz.site^
 ||uamnikjpfscxw.website^
@@ -98303,6 +98581,7 @@ browsershots.org#@#.advert_area
 ||ufupvxchjpore.site^
 ||ufviopklcewdn.space^
 ||ufvqholkzwehi.website^
+||ufvqoevqnkrnz.online^
 ||ufvwviscjkake.space^
 ||ufwsddjbezkny.website^
 ||ufyitneqhuqty.online^
@@ -98394,6 +98673,7 @@ browsershots.org#@#.advert_area
 ||ujdvvfrqujgfl.space^
 ||ujkemwsgdlsmy.space^
 ||ujkjhxeltkshw.online^
+||ujkjkqyfeinkza.com^
 ||ujlqgbvetzjmf.space^
 ||ujmlxnnzybfvh.online^
 ||ujnxyvtxtbpcc.site^
@@ -98536,6 +98816,7 @@ browsershots.org#@#.advert_area
 ||unbidwielare.cfd^
 ||unbluedprovene.shop^
 ||unboatkip.cyou^
+||unbogwhift.cyou^
 ||unbokeltelegn.qpon^
 ||unboltcoran.cfd^
 ||unboyrange.com^
@@ -98642,6 +98923,7 @@ browsershots.org#@#.advert_area
 ||unflagriffspoppas.cyou^
 ||unflamearna.qpon^
 ||unflametyning.shop^
+||unflownbeagle.cyou^
 ||unfolded-shift.pro^
 ||unfoldedclimate.com^
 ||unfortunatechampionship.com^
@@ -98878,6 +99160,7 @@ browsershots.org#@#.advert_area
 ||unwrittenheight.pro^
 ||unwrynarcein.com^
 ||uo1yblpu9gckyuj5og9hp3ff9xmo.cfd^
+||uo2moz29rmvhrlj5w62.rest^
 ||uoarghkmwxcvj.website^
 ||uobzwtbu.com^
 ||uofddaueodbeq.space^
@@ -99080,6 +99363,7 @@ browsershots.org#@#.advert_area
 ||ursidaehairif.cyou^
 ||urssjrxrosknm.website^
 ||urulwxikmmaer.space^
+||urvgmsrrkp.com^
 ||urwbsmyrspycn.online^
 ||urwqfecgnncli.space^
 ||urzdxiiugisad.site^
@@ -99307,6 +99591,7 @@ browsershots.org#@#.advert_area
 ||uzaronamazing.qpon^
 ||uzasjoeoqwruj.site^
 ||uzawebaho.sbs^
+||uzbcqefcfints.space^
 ||uzdpzjmscmlgz.website^
 ||uzfriodntbdip.online^
 ||uzgcdprqhjbak.space^
@@ -99371,6 +99656,7 @@ browsershots.org#@#.advert_area
 ||vainfulkmole.com^
 ||vairagineretaoyin.cyou^
 ||vaivodepolyvetrampot.cyou^
+||vajwbkkwrverl.top^
 ||vakbsnowixqns.com^
 ||vakesskiaxvho.online^
 ||valancekuvasz.cyou^
@@ -99468,6 +99754,7 @@ browsershots.org#@#.advert_area
 ||vbeeeleqvjelq.top^
 ||vbfssjmbsukaw.site^
 ||vbjibjsftqxkq.site^
+||vbjiikdjw.com^
 ||vbjuqguxmgrhk.site^
 ||vbkvubotujxh.com^
 ||vblaejlytzpwh.online^
@@ -99739,6 +100026,7 @@ browsershots.org#@#.advert_area
 ||vhdoxakztfwdp.website^
 ||vhewpprxfnprc.space^
 ||vhfwzzdxybakb.site^
+||vhhdyuycsakwp.space^
 ||vhiamqzkvqyhe.space^
 ||vhjjsemqjyvnq.space^
 ||vhk5b6b7n8vu79.cfd^
@@ -99770,6 +100058,7 @@ browsershots.org#@#.advert_area
 ||vicesus.com^
 ||viciouscelebration.pro^
 ||viciousguest.pro^
+||victalneurine.shop^
 ||victimfatalsentiments.com^
 ||victimmammatitanic.com^
 ||victimstealwrote.com^
@@ -99954,6 +100243,7 @@ browsershots.org#@#.advert_area
 ||vjuhfgajzlazi.website^
 ||vjwnqxbxvvcng.space^
 ||vjyljycvfcfrj.online^
+||vjzfmbmmfqafc.site^
 ||vjzlvloavqarr.space^
 ||vkaabtxifs.in^
 ||vkaszkwyibcwl.site^
@@ -100179,6 +100469,7 @@ browsershots.org#@#.advert_area
 ||vqooisjexmusf.space^
 ||vqoqlebqqakmq.top^
 ||vqoqlebzyzbyq.top^
+||vqpwnfnqsvxum.site^
 ||vqqaelqorzzry.top^
 ||vqqcqfrnugfqm.site^
 ||vqqjqbkzclwav.website^
@@ -100305,6 +100596,7 @@ browsershots.org#@#.advert_area
 ||vvfndxeumlfbn.com^
 ||vvjacrtsivivq.online^
 ||vvkholowfoeku.website^
+||vvladxqdlpihl.online^
 ||vvldgmgejrhja.online^
 ||vvltexsrdpmas.website^
 ||vvolnzdglprvf.store^
@@ -100336,6 +100628,7 @@ browsershots.org#@#.advert_area
 ||vwpgzsrphaocc.website^
 ||vwpttkoh.xyz^
 ||vwqiqamdjhxro.site^
+||vwqsdukjbaxky.online^
 ||vwrwbedwbynww.site^
 ||vwsezpkqtgaez.site^
 ||vwshvtlrdkdwl.site^
@@ -100369,6 +100662,7 @@ browsershots.org#@#.advert_area
 ||vxxjhaug.com^
 ||vxxpifqgqlvnh.store^
 ||vxxybwpygvjpc.online^
+||vxycagsqwetvx.website^
 ||vxyqwespdaadz.site^
 ||vxzmrvmaugiuf.online^
 ||vy9fwpl1.xyz^
@@ -100523,6 +100817,7 @@ browsershots.org#@#.advert_area
 ||wandatnighttimehe.org^
 ||wanderprickpath.com^
 ||wandersilicyl.shop^
+||wandgigful.cfd^
 ||wandgleaming.com^
 ||wandlbbeuwauj.store^
 ||wandookickup.qpon^
@@ -100841,6 +101136,7 @@ browsershots.org#@#.advert_area
 ||weeniesgieing.qpon^
 ||weeoffer.com^
 ||weephostessscissors.com^
+||weepingmosur.qpon^
 ||weepy-fail.pro^
 ||weepylack.com^
 ||weetext.pro^
@@ -101412,6 +101708,7 @@ browsershots.org#@#.advert_area
 ||wmedps.com^
 ||wmeoznybzmddz.space^
 ||wmeqoborqbkjw.top^
+||wmeqobovlbqvw.top^
 ||wmgtr.com^
 ||wmhq8tw8t5ju3y.rest^
 ||wmkyrnbejgyku.website^
@@ -101504,6 +101801,7 @@ browsershots.org#@#.advert_area
 ||wolve.pro^
 ||wolvesexambein.cyou^
 ||womangathering.com^
+||womayvpywcdiw.website^
 ||wombalayah.com^
 ||wombatsdiseuse.com^
 ||womenmoss.com^
@@ -101603,6 +101901,7 @@ browsershots.org#@#.advert_area
 ||worthytip.com^
 ||wortindely.com^
 ||wosceqztjpwmr.online^
+||wostungaro.cyou^
 ||wotelura.qpon^
 ||wotenvrlbybjm.website^
 ||wotrtejuucetk.space^
@@ -101943,6 +102242,7 @@ browsershots.org#@#.advert_area
 ||wzelipmfuva.com^
 ||wzemzootg.in^
 ||wzeocharram.com^
+||wzf4rj8r54kv6xip7q.cfd^
 ||wzfozsmbifzzq.space^
 ||wzjosexuyafjz.site^
 ||wzobwendrydoi.website^
@@ -102112,6 +102412,7 @@ browsershots.org#@#.advert_area
 ||xfbsnbrmgtpur.website^
 ||xfbvhjvstczah.site^
 ||xfdujdeybhizt.site^
+||xfeepcaxswatm.website^
 ||xfehectueumst.online^
 ||xfgmggfebwjtv.online^
 ||xfihllnrdxnvr.site^
@@ -102140,6 +102441,7 @@ browsershots.org#@#.advert_area
 ||xghklnjmyljlc.site^
 ||xghtpnuiekuuz.site^
 ||xgiiioziwwayu.store^
+||xgizfztcxgtuz.space^
 ||xgjhpuyigenen.website^
 ||xglenntvacecj.site^
 ||xglvldsblpkad.online^
@@ -102236,6 +102538,7 @@ browsershots.org#@#.advert_area
 ||xjssvmqlyreua.space^
 ||xjuoopnalaycv.site^
 ||xjurarsoqdinb.website^
+||xjvwt2vr.xyz^
 ||xjwkmuaaleotc.space^
 ||xjwtaasbbrhyv.site^
 ||xjxtwlgfaopkp.online^
@@ -102668,6 +102971,7 @@ browsershots.org#@#.advert_area
 ||xzsbqmrblpozc.website^
 ||xzshonsscrjzu.online^
 ||xzwiksdswxjvu.online^
+||xzwlvjkzjwgnuu.com^
 ||xzzgndpecxrwj.online^
 ||xzzoiprvfobyw.space^
 ||y1jxiqds7v.com^
@@ -102700,6 +103004,7 @@ browsershots.org#@#.advert_area
 ||yamscharnel.com^
 ||yanbkkbxjguvf.website^
 ||yandfartoomanyrel.com^
+||yanlbktsmhu.com^
 ||yanmysipmhlgg.space^
 ||yannqrnohpakv.space^
 ||yaoeoownhrjxe.space^
@@ -102833,6 +103138,7 @@ browsershots.org#@#.advert_area
 ||yectwxcyecvqb.site^
 ||yecytiqior.net^
 ||yedftrwashosh.space^
+||yefhhuanqlbky.site^
 ||yegtaizxtftpo.online^
 ||yegvjrkcasiwf.space^
 ||yeikszqbyeoej.site^
@@ -102871,6 +103177,7 @@ browsershots.org#@#.advert_area
 ||yewsgooney.com^
 ||yexhsrfcrukeg.online^
 ||yeyswxtehnave.site^
+||yezidifayal.cfd^
 ||yfbgacwpgteln.site^
 ||yfbjejhtaqtfx.site^
 ||yfcansfvjiwgc.website^
@@ -102956,6 +103263,7 @@ browsershots.org#@#.advert_area
 ||yieldtrk.com^
 ||yigrwlisuduca.website^
 ||yihknpvsjhstu.site^
+||yiipcpbdbyznp.online^
 ||yiizjiqqknoyp.site^
 ||yijorkvmvbpkq.online^
 ||yincemoriche.com^
@@ -103146,6 +103454,7 @@ browsershots.org#@#.advert_area
 ||yokemeros.shop^
 ||yokvqzoeh.com^
 ||yolkierarains.shop^
+||yolksjoy.cfd^
 ||yolvyzasxyojr.space^
 ||yominhymned.qpon^
 ||yonazurilla.com^
@@ -103315,6 +103624,7 @@ browsershots.org#@#.advert_area
 ||yuastejdigmex.site^
 ||yubziosgvkweu.online^
 ||yucalarvate.qpon^
+||yucatecsylvate.qpon^
 ||yuckelobongo.com^
 ||yucpihodztolh.space^
 ||yucvgdirvufyw.space^
@@ -103561,7 +103871,9 @@ browsershots.org#@#.advert_area
 ||zcorolydmbaha.space^
 ||zcpnzuwahtpxi.space^
 ||zcpplcvjzmlqj.site^
+||zcprcrjlzlcse.space^
 ||zcqmdkicka.com^
+||zcsdmhjiolhre.site^
 ||zcswet.com^
 ||zctbfsvisdlar.online^
 ||zctyxvnokstqs.website^
@@ -103622,6 +103934,7 @@ browsershots.org#@#.advert_area
 ||zeepartners.com^
 ||zeepoostey.net^
 ||zeguklgrjilli.space^
+||zeifuviuhhfid.website^
 ||zeinbarrat.shop^
 ||zekagaibrryns.space^
 ||zekneylmdrfud.space^
@@ -103751,6 +104064,7 @@ browsershots.org#@#.advert_area
 ||zicwghowpuhbj.website^
 ||zidaunsoud.net^
 ||ziddichqrttva.online^
+||zieifgajfzyvs.space^
 ||ziekvasufucub.website^
 ||ziffsthanked.shop^
 ||zifrppvunuhag.site^
@@ -103888,6 +104202,7 @@ browsershots.org#@#.advert_area
 ||zmiarjiioqzvm.site^
 ||zmixdvlsfruqc.website^
 ||zmkpximmigltq.website^
+||zmnhtaoilzrin.space^
 ||zmonei.com^
 ||zmoqbiz8ortbb82ngyxw.rest^
 ||zmufejpcotsv.com^
@@ -103926,6 +104241,7 @@ browsershots.org#@#.advert_area
 ||zoaisgughwyvm.space^
 ||zoanoowhooky.net^
 ||zoasmnxzyhzis.space^
+||zoaulspmuxrac.online^
 ||zoawufoy.net^
 ||zoaxnpworejgn.site^
 ||zocjfugbrnjsi.site^
@@ -104014,6 +104330,7 @@ browsershots.org#@#.advert_area
 ||zqfzcqtzrxgar.space^
 ||zqikotkyvpxrk.website^
 ||zqmblmvomvzab.top^
+||zqmblmvzkvwmb.top^
 ||zqmpenssnrzmc.site^
 ||zqrctmpxxagnb.website^
 ||zqswaomjynrud.online^
@@ -121097,6 +121414,7 @@ stockx.com##[data-component="product-tile"]:has([data-testid="sponsored-tag"])
 maisonsdumonde.com##[data-el="product-card-grid"] article:has([data-el="product-card__sponsored"])
 pixiv.net##[data-gtm-recommend-zone="index"] li:has(> div > iframe[name$="rectangle"])
 avxhm.se##[data-localize]:has(a[href^="https://canv.ai/"])
+outlook.live.com##[data-message-ad-id="MessageAdKeyOutlookUpSell0"]
 target.com##[data-module-type="GlobalRecommendedProducts"]:has(> [data-test*="sponsored_items"])
 etsy.com##[data-page-type="listing_page_similar_listings_grid"]:has([id^="ad-listing-title-"])
 etsy.com##[data-page-type="listing_page_similar_listings_row"]:has([id^="ad-listing-title-"])
@@ -121211,7 +121529,6 @@ birminghammail.co.uk,bristolpost.co.uk,dailyrecord.co.uk,irishstar.com,liverpool
 staples.com##div[class^="sku-configurator__banner"]:has([aria-label="Sponsored Products"])
 wikiwand.com##div[class^="wrapper_wrapper"]:has(> div[class^="wrapper_cta"])
 wikiwand.com##div[class^="wrapper_wrapper"]:has(> div[id^="ezoic-pub-ad"])
-outlook.live.com##div[data-app-section="MessageList"] div[class][id*="-"]:has(> div:not([class]) > div[class] > div[class] > div[class] > div[class] > div[class] > div[class] > div[class] + .ms-Button--hasMenu.ms-Button--icon)
 flipkart.com##div[data-id]:has(a > [data-tkid^="ADVIEW"])
 bjs.com##div[data-index]:has(.sponsored-badge)
 chatgpt.com##div[data-message-supplement]:has(aside[data-partial-island="assistant-ads"])
@@ -157126,7 +157443,8 @@ jilliandescribecompany.com#%#//scriptlet("prevent-window-open")
 sapo.pt,jn.pt,noticiasaominuto.com,noticiasaominuto.com.br##.pub-container
 sapo.pt###DetailContent > .article-pub
 play.mercadolibre.cl,play.mercadolivre.com.br,play.mercadolibre.com.ar#%#//scriptlet('set-constant', '__PRELOADED_STATE__.view.components.player.playbackContext.ads', 'undefined')
-play.mercadolibre.cl,play.mercadolivre.com.br,play.mercadolibre.com.ar#%#//scriptlet('json-prune', 'adn_placement components.player.playbackContext.ads')
+play.mercadolibre.cl,play.mercadolivre.com.br,play.mercadolibre.com.ar#%#//scriptlet('json-prune', 'adn_placement components.player.playbackContext.ads adnPlacement avails.* dashAvailabilityStartTime hlsAnchorMediaSequenceNumber nextToken nonLinearAvails')
+play.mercadolibre.cl,play.mercadolivre.com.br,play.mercadolibre.com.ar#%#//scriptlet('xml-prune', 'xpath(//*[name()="Period"][./*[name()="EventStream"][contains(@schemeIdUri, ":advertising-")]] | //*[name()="Period"]/@start)', '', '.mpd')
 expansion.com##.l-top-ads
 pkproject.net,musica.com##div[data-fuse]
 musica.com,teletexto.com###widgetPeoople:empty
@@ -166609,10 +166927,10 @@ turkzzersifsa3.blog,turkzzersifsa4.blog,turkzzersifsa5.blog,turkzzersifsa6.blog,
 [$domain=/^turkifsalife\d+\.blog$/]###block-2
 [$domain=/^turkifsalife\d+\.blog$/]#%#//scriptlet('prevent-addEventListener', 'click', 'tik_sayac')
 !#if (adguard_app_ios || adguard_ext_safari || adguard_ext_android_cb || ext_ublock)
-turkifsalife48.blog#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', 'app_advert')
-turkifsalife48.blog#%#//scriptlet('prevent-addEventListener', 'click', 'popUnder')
-turkifsalife48.blog###block-2
-turkifsalife48.blog#%#//scriptlet('prevent-addEventListener', 'click', 'tik_sayac')
+turkifsalife49.blog#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', 'app_advert')
+turkifsalife49.blog#%#//scriptlet('prevent-addEventListener', 'click', 'popUnder')
+turkifsalife49.blog###block-2
+turkifsalife49.blog#%#//scriptlet('prevent-addEventListener', 'click', 'tik_sayac')
 !#endif
 !
 ! Frequently changed domains: sotweturkifsa*.blog
@@ -166854,8 +167172,8 @@ yavasgir136.live#%#//scriptlet("prevent-addEventListener", "DOMContentLoaded", "
 [$domain=/cimcime\d+\.\w+$/]###ads-inside-main
 [$domain=/cimcime\d+\.\w+$/]#%#//scriptlet("prevent-addEventListener", "DOMContentLoaded", "openPopup")
 !#if (adguard_app_ios || adguard_ext_safari || adguard_ext_android_cb || ext_ublock)
-cimcime153.live###ads-inside-main
-cimcime153.live#%#//scriptlet("prevent-addEventListener", "DOMContentLoaded", "openPopup")
+cimcime154.live###ads-inside-main
+cimcime154.live#%#//scriptlet("prevent-addEventListener", "DOMContentLoaded", "openPopup")
 !#endif
 !
 ! Frequently changed domains: askimyavas*.com
@@ -191850,7 +192168,7 @@ fob.jp###sidebar > div.widget_custom_html:has(+ div#fix_sidebar)
 city.kamisu.ibaraki.jp###topsadbg
 saku-city.mamafre.jp###bottomBanner
 ||city.saku.nagano.jp/banner/
-jmanga.help##div[style^="max-width:700px"]
+jmanga.world##div[style^="max-width:700px"]
 gihyo.jp##.m-listitem--ad
 musicman.co.jp##.bannerBox
 ||tool2.nan-net.com/doujin/depression1.jpg
@@ -199075,7 +199393,6 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_japanese
 ! Detect Advanced Protection of AdGuard for iOS
 !+ PLATFORM(ios) NOT_OPTIMIZED
 !
-
 !---------------------------------------------------------------------------!
 !-------------- Fixing filtration errors (false-positive) ------------------!
 !---------------------------------------------------------------------------!
@@ -199662,6 +199979,8 @@ cotoro.net,favoriteslibrary-books.com,hakenreco.com,shellbys.com,tipstour.net#@#
 ! Bad: /banner.jpg (should be in general_url.txt)
 ! Bad: ||adssubdomain.legitwebsite.com^ (should be in adservers_firstparty.txt)
 !
+||ezze0ct.com^
+||hokkid5.com^
 ||meijxqop.com^
 ||wdziitkl.com^
 ||drlagqnl.com^
@@ -200995,6 +201314,7 @@ $script,xmlhttprequest,third-party,domain=00ksw.com|01zww.com|0biquge.com|114zw.
 !
 ! NOTE: Specific rules
 !
+||aiqu226.com/da/pftg*.js?ver=$script
 ||cdn.ping0.cc/images/ex/*.gif
 ||ue.17173cdn.com/a/www/index/*/js/seed.js
 17173.com##.webgame .pn-bd
@@ -205421,11 +205741,22 @@ newduba.cn###jq_youxi
 .z.dkt-ib.com
 ||cnzz.trafficmanager.net^
 ||cupfox.app^$third-party
+||lymxj.com^
+||convergent16.top^
+||36frocopxp.com^
+||8w76hjp1vd.com^
 ||divergent59.com^
 ||xbold171e.com^
 ||9yspkomgq.com^
 ||nkzpdrzccbpztg.com^
 ||bqmbcznkaz.icu^
+||3i22axdek.com^
+||w9cvyte89.com^
+||byjhazenf.com^
+||9h4lchgwh.com^
+||0u9w05cxo.com^
+||gcgcvbr52.com^
+||lzu1ocasf.com^
 ||jbsy20riz9.com^
 ||pututzdgwybrha.com^
 ||rqilioakof.icu^
@@ -240754,5 +241085,5 @@ greendex.hu#@#.heateor_sss_sharing_container
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 228090
+! Total unique rules: 228421
 ! Duplicates removed: 19013

@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 29 Aug 2026 01:11:08 UTC
+! Last modified: 30 Aug 2026 01:21:10 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -14632,6 +14632,7 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+pixhost.cc##aside[data-announcement-key="telegram-v1"]
 portmedia.info##div.port-container > div.before\:h-px:has(> p.text-medium + button)
 parallels.com###in-the-news > .social
 kpez.nude-moon.skin##a[href="https://t.me/nudemoonz"]
@@ -44062,5 +44063,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42577
+! Total unique rules: 42578
 ! Duplicates removed: 14455
