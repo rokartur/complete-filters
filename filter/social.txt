@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 30 Aug 2026 01:21:10 UTC
+! Last modified: 31 Aug 2026 01:25:07 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -12048,6 +12048,7 @@ bloomberglinea.com##.ts-share-bar-custom
 fintech.tv##.ts-social-list-item
 totalsportekx.is##.ts-telegram-alert-btn
 tweaktown.com##.tt-follow-news
+tweaktown.com##.tt-preferred-sources
 slashdot.org##.tw
 independent.co.uk##.tw-link
 bearingarms.com,hotair.com,redstate.com##.tw-social
@@ -13112,6 +13113,7 @@ qiita.com##[class^="style-"] > [class^="style-"] > div[class^="style-"]:has(> bu
 qiita.com##[href^="https://b.hatena.ne.jp/entry/"]
 qiita.com##div[id^="AdventCalendar"] hr ~ div[class^="style-"]:has(> button[class^="style-"][aria-label][title])
 ||imyfone.com/assets/js/media_share/
+||line-scdn.net/line_add_friends/edge/btn/
 ||taishurx.jp/js/web/sns_header.js
 !
 !---------- Japanese Site Specific Hiding Rules ----------
@@ -14125,6 +14127,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 ! Bad: .org/ads/$domain=example.org (for instance, should be in speficic.txt)
 !
 !
+||static.line-scdn.net/line_add_friends/edge/btn/
 ||biz.line.naver.jp/line_business/img/btn/addfriends_
 ||wp.com/biz.line.naver.jp/line_business/img/btn/addfriends_
 /wp-content/plugins/wp-tweet-button/*
@@ -44063,5 +44066,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42578
-! Duplicates removed: 14455
+! Total unique rules: 42581
+! Duplicates removed: 14457
