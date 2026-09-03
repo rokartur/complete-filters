@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 02 Sep 2026 01:20:07 UTC
+! Last modified: 03 Sep 2026 01:25:24 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -11319,6 +11319,7 @@ inews.co.uk##.inews__footer__menus__icons
 inews.co.uk##.inews__post-share
 labiotech.eu##.inline-block.space-y-8
 mainichi.jp##.inline-list
+motherjones.com##.instagram-promo
 winnipegfreepress.com##.interactive
 bossip.com##.io-header__social-links
 thedriven.io##.is-whatsapp
@@ -12184,11 +12185,13 @@ sfgate.com##[aria-label="Share from Email"]
 thejc.com##[aria-label="Share this article"]
 sfgate.com##[aria-label="Share to Twitter"]
 news.yahoo.com##[aria-label="Share"]
+wattpad.com##[aria-label="Social media links"]
 breakingnews.ie,nhentai.net##[aria-label="Twitter"]
 partiful.com##[class*="DisclosureBanner_root__"]
 cyprus-mail.com##[class^="_googleNewsContainer_"]
 indiewire.com##[class^="_socialMedia_"]
 techcommunity.microsoft.com##[class^="custom_widget_MicrosoftFooter_social-share_"]
+techcommunity.microsoft.com##[class^="custom_widget_SocialSharing_sharePage_"]
 motortrend.com##[data-c="social-share"]
 news.sky.com##[data-component-name="sdc-article-strapline"]
 theguardian.com##[data-component="preferred-source-button-prefer"]
@@ -12199,6 +12202,7 @@ cnet.com##[data-meta="footer-section-social"] + ul
 scmp.com##[data-qa="ArticleGoogleNewsButton-Container"]
 newstalkzb.co.nz##[data-test-ui="social-connect"]
 jetbrains.com##[data-test="social-list"]
+reuters.com##[data-testid="SharingSymbols"]
 sundayworld.com##[data-testid="article-share"]
 stuff.co.nz##[data-testid="body-cta"]
 pcgamer.com##[data-testid="buttons-social"]
@@ -14659,6 +14663,8 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+pembrokeobserver.com###sharing-tools-popover
+cnn.com##div[data-type="share-links"]
 sneakerbunko.jp##.p-books-media02__sns
 pornuse.com#?#div.video-underplayer__button:has(> span:contains(Share))
 expobank.ru##.b-article__include:has(> div.b-crossbnr)
@@ -14712,7 +14718,7 @@ haber365.com##.author-social > ul:has(> span.subscribe)
 masa.media##a[href^="/bannerclick/"]
 masa.media##.article-share-bot
 cine.su##.seatCta
-movieboxhd.net,movie-box.tv,moviebox.ac,officialmoviebox.com,movieboxapp.in,123movienow.cc##.h5-social-share
+m2box.org,movieboxhd.net,movie-box.tv,moviebox.ac,officialmoviebox.com,movieboxapp.in,123movienow.cc##.h5-social-share
 streamxtv.tech#%#//scriptlet('set-local-storage-item', 'streamx-socials-banner-dismissed', '1')
 apkaward.com##.addthis-tools
 kapital.kz##article > div[class]:has(> div > a[href="https://www.instagram.com/kapital.kz"])
@@ -14740,7 +14746,6 @@ sinemakolix.net,sinemadafilmizlet.org##[class^="share-"]
 openinbox.io##.oi-banner--telegram
 ufret.jp##.js-share-line
 netnaija.film##.justify-start.gap-2:has(path[d^="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99"])
-m2box.org##.pc-social-share
 tonkacine.xyz,tonkacine.watch###tc-join
 latribune.ca##div[class^="social-media-headerstyled"] > div[class^="sharing-optionsstyled"]
 metrocptm.com.br###floating-share-btn
@@ -17895,7 +17900,7 @@ duo.com##article .social-icons
 medias24.com##.round-share-links
 haberkibris.com###st-5
 ensondakika.com.tr,turgutluyanki.com##.fix-socials_btm
-techadvisor.com,infoworld.com,computerworld.com,csoonline.com##.social-share-sticky-menu
+macworld.com,techadvisor.com,infoworld.com,computerworld.com,csoonline.com##.social-share-sticky-menu
 indianautosblog.com##.menu-fb a
 indy100.com,lovemeow.com##.share-media-panel
 tbs.co.jp##.footer-share-block
@@ -22991,7 +22996,7 @@ film.org.pl##.widget-post-share
 wpexplorer.com###fixed-social-share
 goodhouse.ru##.widget-test-sharing
 internalpointers.com##.ip-post__social-tools
-movieboxhd.net,movie-box.tv,moviebox.ac,officialmoviebox.com,movieboxapp.in,123movienow.cc,nvidianews.nvidia.com,koreaboo.com,vue.gov.ua,esports.net,voguegirl.jp,blog.logitech.com,kurashiru.com,getpocket.com##div[class$="-share"]
+m2box.org,movieboxhd.net,movie-box.tv,moviebox.ac,officialmoviebox.com,movieboxapp.in,123movienow.cc,nvidianews.nvidia.com,koreaboo.com,vue.gov.ua,esports.net,voguegirl.jp,blog.logitech.com,kurashiru.com,getpocket.com##div[class$="-share"]
 peoplesworld.org##.sub-header .social_icon
 steampowered.com##.discussionwidget_ShareBtn_22m-G > img[class^="partnereventshared_Button_"]
 portalimprensa.com.br##.clsTabsModTwitterFacebook
@@ -23722,7 +23727,7 @@ merriam-webster.com,nanu-nana.de###social-links
 myshows.me,showjet.ru##.rmp-sharing-social
 yadi.sk##.ns-view-sliderShare
 otus.ru##.blog-post__footer-text_share
-sp.netkeiba.com,transparency.org,shibuya.tokyu-plaza.com,24smi.org,nur.kz,smartcitysweden.com,goodfon.com,sony.*,otus.ru,daily.afisha.ru,about.com,drive2.com,drive2.ru,surfingbird.ru##.js-share
+steamdb.info,sp.netkeiba.com,transparency.org,shibuya.tokyu-plaza.com,24smi.org,nur.kz,smartcitysweden.com,goodfon.com,sony.*,otus.ru,daily.afisha.ru,about.com,drive2.com,drive2.ru,surfingbird.ru##.js-share
 selbstaendig-im-netz.de##.ShariffSC
 connect.de##.pseudofooter.pseudofooter
 m.interia.pl##.article-social.is-bottom
@@ -25854,7 +25859,7 @@ donanimhaber.com##.twitterBTN
 prizyv.ru##.showing-shares
 kitguru.net##.widget_FacebookLikeBox
 shayhowe.com##.toc > .share
-infoworld.com,tutsplus.com##.social-share-menu
+macworld.com,infoworld.com,tutsplus.com##.social-share-menu
 ukraina.ru,ria.ru##.b-sharebar
 softonic.cn,softonic.com,softonic.pl,softonic.nl##.app-list-share
 tsk-net.com,avex.jp,softonic.cn,softonic.com,softonic.pl,softonic.nl##.list-share
@@ -44099,5 +44104,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42615
-! Duplicates removed: 14483
+! Total unique rules: 42620
+! Duplicates removed: 14487
