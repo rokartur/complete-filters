@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 04 Sep 2026 01:17:08 UTC
+! Last modified: 05 Sep 2026 01:17:20 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10654,6 +10654,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+xenvn.com#%#//scriptlet('prevent-setTimeout', 'i', '3000')
 getsubs.cc###captions > .alert:has(> button[onclick*="dismiss_ad"])
 compact-online.de##.compact-adblock-notice
 /rainbow/master-js|$script,domain=nairahost.com.ng|topranktech.com|toolszu.com|roxbold.com|seomagnifier.com|coolseotools.com|helperseotools.com|seovaro.com|digitalvimal.com|proseo.com.br|seoyandira.com|wapmastazone.com|bitfitxalltools.com|njjfeducationcenter.com
@@ -11130,7 +11131,6 @@ graphicget.com,udemy-downloader.com#$#.modal-backdrop { display: none !important
 graphicget.com,udemy-downloader.com#$#body { overflow: auto !important; padding-right: 0 !important; }
 graphicget.com,udemy-downloader.com#%#//scriptlet('prevent-fetch', 'google-analytics.com')
 suche.web.de###abp
-xenvn.com#%#//scriptlet('prevent-addEventListener', 'load', 'XV.ad_block')
 collegepolltracker.com##.noticeBarAdBlocker
 ||es.memedroid.com/js/ads*.js
 ||homebank.free.fr/inc/js-adblocker-old.js
@@ -13473,6 +13473,10 @@ aol.com#$#.ad__tile { height: 10px!important; position: absolute!important; left
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
 !#safari_cb_affinity(general)
 !
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=xenvn.com
+xenvn.com#@#ins.adsbygoogle[data-ad-slot]
+xenvn.com#@#ins.adsbygoogle[data-ad-client]
+xenvn.com#@#.ad_block
 @@||pagead2.googlesyndication.com/pagead/$domain=mtgcardsmith.com
 mtgcardsmith.com#@#ins.adsbygoogle[data-ad-slot]
 mtgcardsmith.com#@#ins.adsbygoogle[data-ad-client]
@@ -13775,5 +13779,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10470
+! Total unique rules: 10474
 ! Duplicates removed: 3041

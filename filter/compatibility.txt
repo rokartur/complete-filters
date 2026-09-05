@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 04 Sep 2026 01:17:08 UTC
+! Last modified: 05 Sep 2026 01:17:20 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1788427246-3600.patch
+! Diff-Path: ../patches/11/11-s-1788546019-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -174,6 +174,7 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+||ads-m.rustore.ru^
 ||appgw.inmobi.com^
 ||adhub.porcino-kinoko.workers.dev^
 ||uibjh29vqc.com^
@@ -12257,6 +12258,7 @@ aternos.org##.header-center:style(margin-top:-5000px !important;)
 aternos.org##.sidebar:style(width: 1.745px !important; padding: 1px !important)
 aternos.org##.ad-dfp:style(min-height: 0.1485mm !important; height: 0.1485mm !important;)
 aternos.org###placement-takeover
+aternos.org##+js(trusted-rpnt, script, /U1gLsd=rc8nRpC\[0x21\]/g, U1gLsd=!0x1, sedCount, 1)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1wl8df/
 !#if !env_mv3
@@ -19002,5 +19004,5 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13099
+! Total unique rules: 13101
 ! Duplicates removed: 16
