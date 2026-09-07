@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 06 Sep 2026 01:22:33 UTC
+! Last modified: 07 Sep 2026 01:23:45 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1788546019-3600.patch
+! Diff-Path: ../patches/11/11-s-1788689758-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2709,6 +2709,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+arknights.wikiru.jp###content > div[data-cptid]
+football-zone.net###c2_click_endofarticle_JFA_adidas_sp
+fineplay.me##.sp.banner_contents
 fullvideos.tv##.u-ad-mobile-top-banner
 topics.smt.docomo.ne.jp#$##ga-cp_more { border-bottom: none !important; }
 topics.smt.docomo.ne.jp#$##sports_topics_area { border-bottom: none !important; }
@@ -12771,6 +12774,9 @@ igorslab.de##.herald-above-footer
 ! https://github.com/AdguardTeam/AdguardFilters/commit/5c28205f2e1baccf177db23ee0df2fd15090238d
 sugoren.com#@#.widget
 
+! https://github.com/uBlockOrigin/uAssets/issues/34405
+||x.com/i/api/1.1/flow/timeline.json$badfilter
+
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
 !
@@ -18799,6 +18805,10 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/34251
 @@||googletagmanager.com/gtag/js$script,redirect-rule,domain=alltron.ch
 
+! https://github.com/uBlockOrigin/uAssets/issues/34371
+||cdn.shopify.com/extensions/*/ba_tracking.js$domain=ridge.com,important
+ridge.com##+js(set, baMet.register, noopFunc)
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19004,5 +19014,5 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13100
+! Total unique rules: 13106
 ! Duplicates removed: 16
