@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 09 Sep 2026 01:19:51 UTC
+! Last modified: 10 Sep 2026 01:18:56 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10655,6 +10655,11 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+uploadvr.com#$#body { position: initial !important; }
+uploadvr.com#$#div[id^="supportPrompt"] { display: none !important; }
+uploadvr.com#%#//scriptlet('prevent-setTimeout', 'displayAdPlaceholders')
+uploadvr.com#%#//scriptlet('set-constant', 'freestar.newAdSlots', 'noopFunc')
+uploadvr.com#%#//scriptlet('set-constant', 'freestar.initCallbackCalled', 'true')
 statlocker.gg##.profile-slot-frame
 statlocker.gg#%#//scriptlet('prevent-element-src-loading', 'script', 'cdn.intergient.com')
 vodafone.de###adbl
@@ -13783,5 +13788,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10478
+! Total unique rules: 10483
 ! Duplicates removed: 3042
