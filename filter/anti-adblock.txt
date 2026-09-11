@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 10 Sep 2026 01:18:56 UTC
+! Last modified: 11 Sep 2026 01:18:33 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -91,6 +91,7 @@ koolhydraatarmerecepten.info##body > [style^="z-index: 1000000; "]
 ||wheregoes.com/c/uploads/$script
 ||www.google.*/ajax/pi/phd?abd=0$xmlhttprequest
 ! Third-party servers
+||antiadblockcore.com^$third-party
 ||content-settings.com^$third-party
 ||site-config.com^$third-party
 ! Admiral antiadb
@@ -2497,6 +2498,7 @@ shadbase.com##img[alt="adblock"]
 @@||darkino.online^$generichide
 @@||docs.w3cub.com^$generichide
 @@||haxnode.net^$generichide
+@@||tpi.li^$generichide
 @@||www.ifon.ca^$generichide
 ! *** antiadblockfilters:antiadblockfilters/antiadblock_finnish.txt ***
 ! *** antiadblockfilters:antiadblockfilters/antiadblock_french.txt ***
@@ -3338,10 +3340,12 @@ $subdocument,domain=urlbluemedia.shop
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150038
 ! Blocked by CNAME getblueshift.com
 @@||clickattr.wayup.com^|
+! https://github.com/AdguardTeam/AdguardFilters/issues/240956
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231294
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213677
 ! https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1393
 ! Blocked by CNAME adperfect.com
+@@||used.ca^|
 @@||remembering.ca^|
 @@||obituaries.toacorn.com^|
 @@||obituaries.thestar.com^|
@@ -10020,8 +10024,17 @@ music.yandex.*##.notify > div.deco-tooltip_notify.notify_shown
 [$path=/pogoda]dzen.ru##.adv-ecom
 [$path=/pogoda|hava/]yandex.*#%#//scriptlet('prevent-eval-if', 'Id":"R-I')
 [$path=/pogoda|hava/]yandex.*#%#//scriptlet('json-prune', 'rtb')
-!+ PLATFORM(ios)
+!#if (adguard_app_ios || adguard_ext_safari)
+yandex.*##div[class^="MainPage_topBlockWithMoney_"]
+yandex.*##li[class^="AppForecastMoney_wrap_"]
 yandex.*##article[class^="AppMoney_wrap_"]
+yandex.*#%#//scriptlet('abort-on-property-write', 'ctxScript')
+dzen.ru###money-ecom
+dzen.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderData')
+dzen.ru##.adv-ecom
+yandex.*#%#//scriptlet('prevent-eval-if', 'Id":"R-I')
+yandex.*#%#//scriptlet('json-prune', 'rtb')
+!#endif
 ! TODO: remove after releasing new AdGuard 2.0 for Safari
 ! Breaks Yandex Mail in Safari due to a bug
 !+ NOT_PLATFORM(ext_safari)
@@ -10073,6 +10086,10 @@ ya.ru##.feed > div > ul > li.feed__item:has(div[id*="R-I-"])
 tv.yandex.*#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
 tv.yandex.*#%#//scriptlet('json-prune', 'rtb')
 !
+! Yandex.Translate
+!+ PLATFORM(ext_safari)
+translate.yandex.*##.page > div.side-block:has(> div[id] > div[class] div[id*="R-I-"][class])
+!
 ! Yandex.Realty
 realty.yandex.ru#%#//scriptlet('json-prune', 'rtb direct')
 !
@@ -10106,6 +10123,7 @@ auto.ru#%#//scriptlet('json-prune', 'ads')
 auto.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.RenderMarks')
 !
 ! shedevrum.ai
+shedevrum.ai#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
 shedevrum.ai#%#//scriptlet('set-constant', 'Object.prototype.isStickyAd', 'undefined')
 shedevrum.ai###app > div.z-\[12\].bg-white
 @@||shedevrum.ai^$generichide
@@ -10631,6 +10649,7 @@ scitechdaily.com,thewindowsclub.com#@#.ad-space
 !
 ! NOTE: Generic anti-adblock rules
 !#safari_cb_affinity(general)
+###delulu-overlay
 /wp-content/plugins/incognito_dectector/*/incognito-detector.
 /plugins/ad-blocking-advisor/*
 /wp-content/*/an-temp/*
@@ -10655,6 +10674,8 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+pagesix.com,nypost.com#%#//scriptlet('abort-current-inline-script', 'atob', 'parentNode.removeChild')
+clashfox.com#%#//scriptlet('prevent-setTimeout', 'offsetHeight')
 uploadvr.com#$#body { position: initial !important; }
 uploadvr.com#$#div[id^="supportPrompt"] { display: none !important; }
 uploadvr.com#%#//scriptlet('prevent-setTimeout', 'displayAdPlaceholders')
@@ -10716,12 +10737,6 @@ peacocktv.com#%#//scriptlet('trusted-replace-argument', 'Promise', '0', 'noopPro
 ||vi.freewheel.tv/static/creatives/fw-ad-300x250.jpg$image,redirect=2x2-transparent.png,domain=peacocktv.com
 fuucdayo.com#$#.fuuc-adblock-overlay { display: none !important; }
 fuucdayo.com#$#.fuuc-adblock-overlay-open { overflow: auto !important; }
-!#if (adguard_ext_android_cb || adguard_app_ios || adguard_ext_safari)
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub$domain=fuucdayo.com
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=fuucdayo.com
-fuucdayo.com#@#ins.adsbygoogle[data-ad-slot]
-fuucdayo.com#@#ins.adsbygoogle[data-ad-client]
-!#endif
 thesun.co.uk#%#//scriptlet('remove-node-text', 'script', 'ncuAb')
 crimsondesert.th.gl##.bg-card.shadow
 enternity.gr#%#//scriptlet('abort-current-inline-script', 'document.getElementById', '/adblock|Blocking Ads/')
@@ -12236,11 +12251,6 @@ toolskitpro.net#%#//scriptlet('prevent-setTimeout', 'ad_blocker')
 !+ PLATFORM(ios, ext_safari, ext_android_cb)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=toolskitpro.net
 !
-! https://github.com/AdguardTeam/AdguardFilters/issues/235514
-nypost.com#%#//scriptlet('abort-current-inline-script', 'atob', 'parentNode.removeChild')
-!+ PLATFORM(ios, ext_safari, ext_android_cb)
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=nypost.com
-!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167683
 ! https://github.com/AdguardTeam/AdguardFilters/issues/169924
 ! https://github.com/AdguardTeam/AdguardFilters/issues/226690
@@ -13308,7 +13318,9 @@ polzadom.ru#%#//scriptlet("abort-current-inline-script", "document.getElementByI
 !#safari_cb_affinity(general)
 @@||d2ujtyf7wfmq6y.cloudfront.net/ads/ads.html$domain=reisefrage.net|motorradfrage.net|autofrage.net|sportlerfrage.net|gesundheitsfrage.net|finanzfrage.net|computerfrage.net|gutefrage.net
 ! #@#.full_AD
-ka-news.de,insideevs.de,de.motor1.com,rlptoday.de,news.de,mainpost.de,aufderbuehne.de,trainingsworld.com,zaubertopf.de,maclife.de,kuechengoetter.de,survivethis.news,prad.de,infranken.de,nachrichten.at,moviejones.de,np-coburg.de,frankenpost.de,insuedthueringen.de,augsburger-allgemeine.de,4fansites.de,general-anzeiger-bonn.de,kurier.de,knuddels.de,fumsmagazin.de,reisefrage.net,motorradfrage.net,autofrage.net,sportlerfrage.net,gesundheitsfrage.net,finanzfrage.net,wer-weiss-was.de,spielfilm.de,jappy.com,serienjunkies.de,woxikon.de,wize.life,computerfrage.net,gutefrage.net,teckbote.de,ligainsider.de,woxikon.de,rp-online.de,frag-mutti.de,ksta.de,sol.de,noz.de,mopo.de,express.de,berliner-kurier.de,berliner-zeitung.de#@#.full_AD
+echo-online.de,ka-news.de,insideevs.de,de.motor1.com,rlptoday.de,news.de,mainpost.de,aufderbuehne.de,trainingsworld.com,zaubertopf.de,maclife.de,kuechengoetter.de,survivethis.news,prad.de,infranken.de,nachrichten.at,moviejones.de,np-coburg.de,frankenpost.de,insuedthueringen.de,augsburger-allgemeine.de,4fansites.de,general-anzeiger-bonn.de,kurier.de,knuddels.de,fumsmagazin.de,reisefrage.net,motorradfrage.net,autofrage.net,sportlerfrage.net,gesundheitsfrage.net,finanzfrage.net,wer-weiss-was.de,spielfilm.de,jappy.com,serienjunkies.de,woxikon.de,wize.life,computerfrage.net,gutefrage.net,teckbote.de,ligainsider.de,woxikon.de,rp-online.de,frag-mutti.de,ksta.de,sol.de,noz.de,mopo.de,express.de,berliner-kurier.de,berliner-zeitung.de#@#.full_AD
+! #@#.banner_ad_full
+echo-online.de#@#.banner_ad_full
 ! #@#.full_ad
 ! #@#.banner_ad
 !#safari_cb_affinity
@@ -13482,6 +13494,14 @@ aol.com#$#.ad__tile { height: 10px!important; position: absolute!important; left
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
 !#safari_cb_affinity(general)
 !
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=pagesix.com
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=pagesix.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=nypost.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub$domain=fuucdayo.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=fuucdayo.com
+fuucdayo.com#@#ins.adsbygoogle[data-ad-slot]
+fuucdayo.com#@#ins.adsbygoogle[data-ad-client]
+clashfox.com#@#.ad-unit:not(.textads)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=xenvn.com
 xenvn.com#@#ins.adsbygoogle[data-ad-slot]
 xenvn.com#@#ins.adsbygoogle[data-ad-client]
@@ -13788,5 +13808,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10483
-! Duplicates removed: 3042
+! Total unique rules: 10502
+! Duplicates removed: 3044
