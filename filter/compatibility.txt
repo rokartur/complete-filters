@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 13 Sep 2026 01:24:11 UTC
+! Last modified: 14 Sep 2026 01:25:33 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1789211668-3600.patch
+! Diff-Path: ../patches/11/11-s-1789287668-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2710,6 +2710,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+krone.at##div[data-boxname^="gpt-"]
 chatgpt.com#%#//scriptlet('trusted-replace-outbound-text', 'TextDecoder.prototype.decode', '/<template for="conversation-partial-control" data-web-mobile-dpu-apply="append"><span data-conversation-control="assistant-ads".+?<\/aside><\/template><\/span><\/template>/', '')
 radaronline.com##article > div:has(> div.lngtd-dynamic-inarticle)
 m.gsmarena.com###specs-list > div:has(> div[id^="mob-"])
@@ -12802,16 +12803,12 @@ igorslab.de##span[aria-label][role="img"][style*="data:image"]
 igorslab.de##span[style]:has(svg path)
 igorslab.de##span[aria-label][role="img"][style*="data:image"] + a
 igorslab.de##svg image[href^="data:image/"]
-igorslab.de##span[class][style]:has-text(/^\s*(Advertisement|Werbung|广告)\s*$/)
+igorslab.de##span[class]:has-text(/^\s*(Advertisement|Werbung|广告)\s*$/)
+igorslab.de##div[class]:matches-css-before(content: /^\s*\"(Advertise۞nt|Werbung|广告)\"\s*$/)
 igorslab.de##img:remove-attr(/data-.+/)
 igorslab.de/community/#@#img:remove-attr(/data-.+/)
+igorslab.de##+js(no-fetch-if, %22vt%22)
 ||igorslab.de/wp-content/plugins/igorslab-ads-suite/
-
-! https://github.com/AdguardTeam/AdguardFilters/commit/5c28205f2e1baccf177db23ee0df2fd15090238d
-sugoren.com#@#.widget
-
-! https://github.com/uBlockOrigin/uAssets/issues/34405
-||x.com/i/api/1.1/flow/timeline.json$badfilter
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -13189,6 +13186,9 @@ kotaku.com#@##dfp-ad-1
 
 ! https://forums.lanik.us/viewtopic.php?f=64&t=40826
 @@||d1xrtnyoeeet33.cloudfront.net/assets/js/lib/*$script,domain=calgaryherald.com|calgarysun.com|canoe.com|edmontonsun.com|financialpost.com|leaderpost.com|lfpress.com|montrealgazette.com|nationalpost.com|ottawacitizen.com|ottawasun.com|theprovince.com|thestarphoenix.com|torontosun.com|vancouversun.com|windsorstar.com|winnipegsun.com
+! https://github.com/uBlockOrigin/uAssets/issues/24654#issuecomment-5649876266
+calgaryherald.com,calgarysun.com,canada.com,canoe.com,driving.ca,edmontonjournal.com,edmontonsun.com,financialpost.com,leaderpost.com,lfpress.com,montrealgazette.com,nationalpost.com,ontariofarmer.com,ottawacitizen.com,ottawasun.com,thegrowthop.com,theprovince.com,thestarphoenix.com,tj.news,torontosun.com,vancouversun.com,windsorstar.com,winnipegsun.com##+js(set, Object.prototype.adService.initialize, noopFunc)
+@@||cdn.q0losid.com/prod/pni/loader.min.js$domain=calgaryherald.com|calgarysun.com|canada.com|canoe.com|driving.ca|edmontonjournal.com|edmontonsun.com|financialpost.com|intelligencer.ca|leaderpost.com|lfpress.com|montrealgazette.com|nationalpost.com|ontariofarmer.com|ottawacitizen.com|ottawasun.com|standard-freeholder.com|thegrowthop.com|theprovince.com|thestarphoenix.com|tj.news|torontosun.com|vancouversun.com|windsorstar.com|winnipegsun.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2353
 @@||cbsistatic.com/*/comscore.streaming.$script,domain=cbsnews.com
@@ -18841,6 +18841,12 @@ ds.163.com##+js(set, Sentry.configureScope, noopFunc)
 ||cdn.shopify.com/extensions/*/ba_tracking.js$domain=ridge.com,important
 ridge.com##+js(set, baMet.register, noopFunc)
 
+! https://github.com/uBlockOrigin/uAssets/issues/34471
+hktvmall.com##+js(set, Object.prototype.componentInScreen, noopFunc)
+
+! https://everythingmoe.com/post/anikotodomains.html
+@@||mapper.nekostream.site/api/mal/*/*/$xhr,strict3p
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19046,5 +19052,5 @@ ridge.com##+js(set, baMet.register, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13140
+! Total unique rules: 13145
 ! Duplicates removed: 16
