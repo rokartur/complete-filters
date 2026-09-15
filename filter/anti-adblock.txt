@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 14 Sep 2026 01:25:33 UTC
+! Last modified: 15 Sep 2026 01:22:29 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10673,6 +10673,10 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+cyberscore.live##.modal-partner-rb-wrapper
+cyberscore.live##.border:has(> img.partner-rb:first-child + div:last-child)
+cyberscore.live##.border:has(> .text-center[data-nosnippet]:only-child > .font-bold:only-child)
+drafter.lol##body > div[aria-labelledby="adblock-wall-title"]
 pagesix.com,nypost.com#%#//scriptlet('abort-current-inline-script', 'atob', 'parentNode.removeChild')
 clashfox.com#%#//scriptlet('prevent-setTimeout', 'offsetHeight')
 uploadvr.com#$#body { position: initial !important; }
@@ -12064,6 +12068,7 @@ zhangxinxu.com#?#body > *:not(div):not(script):matches-css(width:336px)
 metatft.com,zhihu.com##.AdblockBanner
 zinzinzibidi.com##.xl-rklm-container
 zkillboard.com###adsensetop
+[$domain=/r+[4-9]f[a-z]{4}rof\.com/]#$#div[id^="ad_"] { zoom: 4% !important; filter: blur(500px) !important; }
 ||abcya.com/client/main-*.js$script,replace=/\,n.src=s.ri.adDetect//
 ||absorbingprison.com^$third-party
 ||ad-ipd.sxp.smartclip.net^$redirect=nooptext,important,domain=chefkoch.de
@@ -13807,5 +13812,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10501
+! Total unique rules: 10506
 ! Duplicates removed: 3044
