@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 15 Sep 2026 01:22:29 UTC
+! Last modified: 16 Sep 2026 01:20:43 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1789399144-3600.patch
+! Diff-Path: ../patches/11/11-s-1789496332-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2710,6 +2710,14 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+abendzeitung-muenchen.de##.artikel-detail-mobile-ad
+phileweb.com###pw-amzrank-top
+moneycontrol.com##.ads-320-250
+pen-online.jp##.gam-sp-header-reserve
+eclat.hpplus.jp##.l-banner-top
+runnersworld.de##.commercial
+runnersworld.de##div[data-mps_adwrapper]
+mainichikirei.jp##div[style^="text-align:center; margin-top:"]
 finance.yahoo.co.jp##div[class^="styles-module"] > div._MMON_noh1b_1
 tokyoartbeat.com##.adHeightSmall
 sabah.com.tr##.promo
@@ -3260,7 +3268,6 @@ calciomercato.com##div[class^="mobile-sticky_"]
 jauns.lv##div[class*="min-h-[300px]"]
 the-ans.jp##.sp-overlay
 shufoo.net###headerad_banner
-m.gsmarena.com#$#body { margin-top: 0 !important; margin-bottom: 275px !important; }
 m.gsmarena.com##.adv-mid
 m.gsmarena.com##body::after
 m.gsmarena.com##body::before
@@ -6609,7 +6616,6 @@ automaton-media.com##.code-block.ai-viewport-3
 gadget2ch.com##.hgooglead
 gadget2ch.com###main > .posts-inner:first-child
 gadget2ch.com###page > center
-abendzeitung-muenchen.de##.artikel-detail-mobile-ad
 fpsjp.net,ryukyushimpo.jp###sp_top_header
 googirl.jp##.newentry_in > li.“cf”
 googirl.jp##.newentry_in > li:not([class])
@@ -12807,6 +12813,9 @@ igorslab.de##span[aria-label][role="img"][style*="data:image"] + a
 igorslab.de##svg image[href^="data:image/"]
 igorslab.de##[class]:has-text(/^\s*(Advertisement|Werbung|广告)\s*$/)
 igorslab.de##div[class]:matches-css-before(content: /^\s*\"(Advertise۞nt|Werbung|广告)\"\s*$/)
+igorslab.de##[aria-label="Advertisement" i]
+igorslab.de##[aria-label="Werbung" i]
+igorslab.de##[aria-label="广告"]
 igorslab.de##img:remove-attr(/data-.+/)
 igorslab.de/community/#@#img:remove-attr(/data-.+/)
 igorslab.de##+js(no-fetch-if, %22vt%22)
@@ -18850,6 +18859,12 @@ hktvmall.com##+js(set, Object.prototype.componentInScreen, noopFunc)
 ! https://everythingmoe.com/post/anikotodomains.html
 @@||mapper.nekostream.site/api/mal/*/*/$xhr,strict3p
 
+! https://github.com/uBlockOrigin/uAssets/issues/34493
+||fvrd.ca/*/AppMeasurement.js$redirect=noopjs
+
+! https://www.reddit.com/r/uBlockOrigin/comments/1wgsp17/kickcom_breakage/
+@@||pagead2.googlesyndication.com/tag/js/gpt.js$script,redirect-rule,domain=kick.com
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19055,5 +19070,5 @@ hktvmall.com##+js(set, Object.prototype.componentInScreen, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13148
-! Duplicates removed: 16
+! Total unique rules: 13159
+! Duplicates removed: 17
