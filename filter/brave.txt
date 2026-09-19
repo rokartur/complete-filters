@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 18 Sep 2026 01:20:49 UTC
+! Last modified: 19 Sep 2026 01:18:41 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -6838,6 +6838,11 @@ digi24.ro,digisport.ro,digitalfoundry.net,egx.net,eurogamer.it,gmx.*,mail.com,mc
 dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.pl,eurogamer.pt,gamesindustry.biz,jelly.deals,reedpop.com,rockpapershotgun.com,thepopverse.com,vg247.com,videogameschronicle.com##+js(trusted-click-element, button[title="Accept and continue"], , 2800)
 dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.pl,eurogamer.pt,gamesindustry.biz,jelly.deals,reedpop.com,rockpapershotgun.com,thepopverse.com,vg247.com,videogameschronicle.com##+js(trusted-click-element, button[title="Accept All Cookies"], , 2800)
 
+! experimental, time-limited investigation. https://github.com/brave/reviews/issues/2372
+oscaro.com,boulanger.com#@##didomi-host
+oscaro.com#@#+js(trusted-click-element, .didomi-continue-without-agreeing, , 1000)
+@@||sdk.privacy-center.org^$script,domain=oscaro.com|boulanger.com
+
 
 ! ===== SOURCE: https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-twitch.txt
 ! (all rules already included from earlier sources)
@@ -7053,5 +7058,5 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5980
+! Total unique rules: 5983
 ! Duplicates removed: 8

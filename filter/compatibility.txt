@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 18 Sep 2026 01:20:49 UTC
+! Last modified: 19 Sep 2026 01:18:41 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1789643765-3600.patch
+! Diff-Path: ../patches/11/11-s-1789751743-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2710,6 +2710,11 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+delishkitchen.tv##.indexes-ad-insert
+kyounoryouri.jp##.ad-top-border
+supertaste.tvbs.com.tw##div[id^="supertaste_m_"]
+||gamekillerapp.com/ad-top.html
+gamekillerapp.com##.banner-guanggao
 m.eprice.com.tw##div[class^="homenews__sponsor--"]
 aptoide.com##div[class^="sc-"][class*=" "]:has(> div[id^="gam-appview"])
 gori.me##.ad_SummaryBelow
@@ -8661,9 +8666,9 @@ contexto.me#$#.top-ad-padding { padding-top: 15px !important; }
 !
 ! TXXX network/tubecorp/Adultnext
 tporn.xxx##.video__header
-bdsmx.tube,manysex.com,manysex.tube,inporn.com##.video__wrapper > div.header__item
+mrgay.com,mrgay.tube,bdsmx.tube,manysex.com,manysex.tube,inporn.com##.video__wrapper > div.header__item
 txxxporn.tube,txxx.*##.video-conten > div[class] > div[class]:has(> div[class] > div[style="height: 100px;"])
-porn-latina.com,gfthai.com,lesbigo.com,boobse.com,ourgay.tube,xshemale.tube,pornl.tube,fuxxx.com,keporn.vip,keporn.com,peporn.com,teen21.com,pornuse.com,uanal.com##.content > [class$="wrapper"] > section
+01tube.com,porn-latina.com,gfthai.com,lesbigo.com,boobse.com,ourgay.tube,xshemale.tube,pornl.tube,fuxxx.com,keporn.vip,keporn.com,peporn.com,teen21.com,pornuse.com,uanal.com##.content > [class$="wrapper"] > section
 desi-porn.tube##.content > div > div[class]:has(> div[class] > div.da-container)
 voyeurhit.tube,voyeurhit.com##a[class^="tag"][target="_blank"]
 thegay.tube,shemalez.tube,shemalez.com,xjav.tube,hclips.com,hotmovs.tube,hotmovs.com,hdzog.tube,hdzog.com##div[class^="tag"] > a[href][target="_blank"]
@@ -12808,9 +12813,9 @@ igorslab.de##.entry-content > #skio-article-bar ~ div[id][class]:not([class*="ig
 igorslab.de##img[src^="blob:http"]
 igorslab.de##.herald-above-footer
 /^https:\/\/www\.igorslab\.de\/[0-9a-z]{7,}\/A[\/0-9A-Z_a-z-]{100,}$/$image,1p,match-case,redirect=2x2.png
-/^https:\/\/www\.igorslab\.de\/wp-content\/uploads\/202\d\/\d{2}\/(?=[a-z]*\d)(?=\d*[a-z])[0-9a-z]{7,15}\.(?:pn|jp)g(?:\?[0-9a-z-]{7,16}=[0-9a-z-]{7,16})?$/$image,1p,match-case,redirect=2x2.png
-igorslab.de##a[href^="https://www.igorslab.de/"][style][rel]:matches-attr(href="/^https:\/\/www\.igorslab\.de\/(?:[0-9a-z-]{7,32}\/)+$/")
+/^https:\/\/www\.igorslab\.de\/wp-content\/uploads\/202\d\/\d{2}\/(?=[a-z]*\d)(?=\d*[a-z])[0-9a-z]{7,15}\.(?:pn|jp)g(?:\?[0-9_a-z-]{7,}=[0-9_a-z-]{7,})?$/$image,1p,match-case,redirect=2x2.png
 igorslab.de##a[href^="/"][href$="/"][style][rel][target]
+igorslab.de##a[href^="/"][href*="#"][style][rel][target]
 igorslab.de##span[aria-label][role="img"][style*="data:image"]
 igorslab.de##span[style]:has(svg path)
 igorslab.de##span[aria-label][role="img"][style*="data:image"] + a
@@ -12829,7 +12834,11 @@ igorslab.de##+js(no-fetch-if, %22vt%22)
 ||igorslab.de/wp-content/plugins/igorslab-ads-suite/
 igorslab.de##.ilgha-scale-frame:has-text(/Similar products|Ähnliche Artikel|相似产品/)
 igorslab.de##div[style*="width:100%;max-width:980px"]
-igorslab.de##div[class]:matches-attr("/^data-[0-9a-z]{3,}-[0-9a-z]{3,}/"="/[0-9A-Za-z]{27}\.[0-9A-Za-z]{32}$/")
+igorslab.de##div[class]:matches-attr("/^[a-z]-[0-9a-z]+-[0-9a-z]+$/")
+
+! https://github.com/uBlockOrigin/uAssets/issues/27044#issuecomment-5723020527
+wolt.com#@#div:has(> div > div > div > div > div > div > p:has-text(Sponsored))
+wolt.com#@#div:has(> div > div > div > div > div > p:has-text(Sponsored))
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19082,5 +19091,5 @@ expatexplorer.hsbc.com##+js(trusted-set, HSBC, 'json:{"SITE":{},"DCS":{},"PAGE":
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13169
+! Total unique rules: 13176
 ! Duplicates removed: 17
