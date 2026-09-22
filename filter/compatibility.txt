@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 21 Sep 2026 01:25:48 UTC
+! Last modified: 22 Sep 2026 01:19:43 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1789751743-3600.patch
+! Diff-Path: ../patches/11/11-s-1790014860-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2710,6 +2710,11 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+telugutimes.net##.tt-sticky-footer-ad
+jikayosha.jp##.photo-ad__fv
+elle.com###gpt-ad-tmu
+benesse.ne.jp##.l-container > div.mb_xsmall
+benesse.ne.jp##.ad-empty
 delishkitchen.tv##.indexes-ad-insert
 kyounoryouri.jp##.ad-top-border
 supertaste.tvbs.com.tw##div[id^="supertaste_m_"]
@@ -3447,8 +3452,8 @@ eenadu.net##.ad-300-fblc
 m.economictimes.com##.hideAd
 mayoclinic.org##.cmp-advertisement-inline
 amindebi.ge,amindi.org##.cat-link
-techbook.de,myhomebook.de,petbook.de###banner_btf
-techbook.de,myhomebook.de,petbook.de##.my-3:has(> #banner_btf:only-child)
+myhomebook-magazine.com,techbook.de,myhomebook.de,petbook.de###banner_btf
+myhomebook-magazine.com,techbook.de,myhomebook.de,petbook.de##.my-3:has(> #banner_btf:only-child)
 genius.com##div[class^="sc-"] > div:has(> div[id^="div-gpt-"])
 genius.com##div[class^="LyricsFooter__Container-"] > div > div:has(> div[id^="div-gpt-"])
 genius.com##div[data-lyrics-container] > div[data-exclude-from-selection="true"][class^="sc-"]
@@ -6825,7 +6830,7 @@ news.livedoor.com##.ads-change-color
 news.livedoor.com##.ads-article
 news.livedoor.com##.ads-google300
 finanzen.net###mrec
-finanzen.net##div[id^="mrec_btf_"]
+myhomebook-magazine.com,finanzen.net##div[id^="mrec_btf_"]
 finanzen.net##.bs-wrapper--mobile
 m.bild.de##.ad-wrapper[id*="Wrapper"]
 m.bild.de##.gutschein-anzeigen-wrapper
@@ -12816,21 +12821,17 @@ igorslab.de##img[src^="blob:http"]
 igorslab.de##.herald-above-footer
 /^https:\/\/www\.igorslab\.de\/[0-9a-z]{7,}\/A[\/0-9A-Z_a-z-]{100,}$/$image,1p,match-case,redirect=2x2.png
 /^https:\/\/www\.igorslab\.de\/wp-content\/uploads\/202\d\/\d{2}\/(?=[a-z]*\d)(?=\d*[a-z])[0-9a-z]{7,15}\.(?:pn|jp)g(?:\?[0-9A-Z_a-z-]{7,}=[0-9A-Z_a-z-]{7,})?$/$image,1p,match-case,redirect=2x2.png
-igorslab.de##a[href^="/"][style][rel][target]
+igorslab.de##a[href^="/"][rel][target]
+igorslab.de/community/#@#a[href^="/"][rel][target]
 igorslab.de##span[aria-label][role="img"][style*="data:image"]
 igorslab.de##span[style]:has(svg path)
 igorslab.de##span[aria-label][role="img"][style*="data:image"] + a
-igorslab.de##svg image[href^="data:image/"]
+igorslab.de##svg
 igorslab.de##[class]:has-text(/^\s*(Advertisement|Werbung|广告)\s*$/)
 igorslab.de##div[class]:matches-css-before(content: /^\s*\"(Advertise۞nt|Werbung|广告)\"\s*$/)
 igorslab.de##[aria-label="Advertisement" i]
 igorslab.de##[aria-label="Werbung" i]
 igorslab.de##[aria-label="广告"]
-igorslab.de##[aria-label="Advertisement" i] + svg
-igorslab.de##[aria-label="Werbung" i] + svg
-igorslab.de##[aria-label="广告"] + svg
-igorslab.de##svg:has(~ [aria-label])
-igorslab.de##svg:has(~ * [aria-label])
 igorslab.de##img:remove-attr(/data-.+/)
 igorslab.de/community/#@#img:remove-attr(/data-.+/)
 igorslab.de##+js(no-fetch-if, %22vt%22)
@@ -12839,8 +12840,10 @@ igorslab.de##.ilgha-scale-frame:has-text(/Similar products|Ähnliche Artikel|相
 igorslab.de##div[style*="max-width:980px;"]
 igorslab.de##div[style^="display:block;position:relative;max-width:"]
 igorslab.de##div[class]:matches-attr("/^(?!data|aria)[0-9a-z]+[-_][0-9a-z]+$/")
+igorslab.de##div[class]:matches-attr("/^(?!data|aria).+$/"="/^[0-9A-Z_a-z]+_/")
 igorslab.de###extras, #ilab-consent-banner, #ilab-consent-reopen-wrap, .entry-header, .footer-bottom, .herald-entry-content, .herald-header-wraper, .herald-main-content, .herald-module, .widget:others()
 igorslab.de/community/#@##extras, #ilab-consent-banner, #ilab-consent-reopen-wrap, .entry-header, .footer-bottom, .herald-entry-content, .herald-header-wraper, .herald-main-content, .herald-module, .widget:others()
+igorslab.de##[style*="!important"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27044#issuecomment-5723020527
 wolt.com#@#div:has(> div > div > div > div > div > div > p:has-text(Sponsored))
@@ -19097,5 +19100,5 @@ expatexplorer.hsbc.com##+js(trusted-set, HSBC, 'json:{"SITE":{},"DCS":{},"PAGE":
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13182
+! Total unique rules: 13185
 ! Duplicates removed: 17
