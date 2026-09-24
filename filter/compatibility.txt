@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 23 Sep 2026 01:20:35 UTC
+! Last modified: 24 Sep 2026 01:21:10 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1790093397-3600.patch
+! Diff-Path: ../patches/11/11-s-1790186965-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2710,6 +2710,10 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+wallpapers.com##.cd-mobile-creator-ad
+wikiwiki.jp##.caption-flybox:has(> div[id*="ad-container"])
+bluebirdbanter.com##div[class]:has(> div[data-concert*="frontpage_hero_mobile"])
+alba.co.jp##li[class^="RelationPostItem_postItemStyle_"]:has(> div[id][style="height: 102px;"])
 wineverygame.com##.weg-mobile-campaign
 telugutimes.net##.tt-sticky-footer-ad
 jikayosha.jp##.photo-ad__fv
@@ -8671,7 +8675,7 @@ contexto.me#$#.top-ad-padding { padding-top: 15px !important; }
 ! !SECTION: Regular rules
 !
 ! TXXX network/tubecorp/Adultnext
-inporn.com##.video__wrapper > div[class]:not(.wrapper)
+in-porn.com,xmilf.com,blackporn.tube,inporn.com##.video__wrapper > div[class]:not(.wrapper)
 tporn.xxx##.video__header
 mrgay.com,mrgay.tube,bdsmx.tube,manysex.com,manysex.tube,inporn.com##.video__wrapper > div.header__item
 txxxporn.tube,txxx.*##.video-conten > div[class] > div[class]:has(> div[class] > div[style="height: 100px;"])
@@ -8943,6 +8947,8 @@ livejournal.com##div[id^="billboard_mobile_"]
 ! END: Livejournal.com
 !
 !
+!+ NOT_OPTIMIZED
+heise.de##.ad-mobile-group-3
 !+ NOT_OPTIMIZED
 stackoverflow.com##.js-sidebar-zone
 !+ NOT_OPTIMIZED
@@ -12803,7 +12809,7 @@ flipkart.com#@#div[data-id][style]:has([width][height][fill])
 ! https://github.com/uBlockOrigin/uAssets/issues/34009
 pdftoshokan.com##+js(aeld, /click|load/, /document\.location|pop\.|exo|cookie|\.php/)
 pdftoshokan.com##+js(nowoif, /ok_|pemsrv\.com/)
-pdftoshokan.com##+js(trusted-rpnt, script, if(now-last>c*1e3), if(0))
+pdftoshokan.com##+js(trusted-rpnt, script, /if\(n(ow)?-l(ast)?>c\*1e3\)/, if(0))
 pdftoshokan.com##+js(trusted-replace-outbound-text, atob, /^https:\/\/s\.pemsrv\.com.+/, 'window.location.href')
 !#if cap_html_filtering
 pdftoshokan.com##^script:has-text(/ad.?Config|prepare.?Pop|\/popunder|ads_host/)
@@ -12832,7 +12838,7 @@ igorslab.de##span[style]:has(svg path)
 igorslab.de##span[aria-label][role="img"][style*="data:image"] + a
 igorslab.de##svg
 igorslab.de##[class]:has-text(/^\s*(Advertisement|Werbung|广告)\s*$/)
-igorslab.de##div[class]:matches-css-before(content: /^\s*\"(Advertise۞nt|Werbung|广告)\"\s*$/)
+igorslab.de##div[class]:matches-css-before(content: /^\s*\"(Advertis.+|Werbung|广告)\"\s*$/)
 igorslab.de##[aria-label="Advertisement" i]
 igorslab.de##[aria-label="Werbung" i]
 igorslab.de##[aria-label="广告"]
@@ -12853,6 +12859,9 @@ igorslab.de##div[style*="blob:http"]:style(background: none !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/27044#issuecomment-5723020527
 wolt.com#@#div:has(> div > div > div > div > div > div > p:has-text(Sponsored))
 wolt.com#@#div:has(> div > div > div > div > div > p:has-text(Sponsored))
+
+! https://github.com/uBlockOrigin/uAssets/issues/34588
+sulpanaro.net#@#div[class^="sulpa-"]
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -18900,6 +18909,9 @@ hktvmall.com##+js(set, Object.prototype.componentInScreen, noopFunc)
 ! https://github.com/uBlockOrigin/uAssets/issues/34525
 expatexplorer.hsbc.com##+js(trusted-set, HSBC, 'json:{"SITE":{},"DCS":{},"PAGE":{}}')
 
+! https://github.com/uBlockOrigin/uAssets/issues/34562
+@@||homedepot.com.ssl.d2.sc.omtrdc.net^$xhr,domain=homedepot.com
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19105,5 +19117,5 @@ expatexplorer.hsbc.com##+js(trusted-set, HSBC, 'json:{"SITE":{},"DCS":{},"PAGE":
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13180
+! Total unique rules: 13187
 ! Duplicates removed: 17

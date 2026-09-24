@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 23 Sep 2026 01:20:48 UTC
+! Last modified: 24 Sep 2026 01:21:22 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10,7 +10,7 @@
 ! Android host file - Adaway
 ! 
 ! Title: ABPVN Hosts
-! Updated: 20 Sep 2026 23:41 UTC+7
+! Updated: 23 Sep 2026 11:05 UTC+7
 ! License: ABPVN
 ! Please report any unblocked ads or problems by email or in our forums
 ! Email: support@abpvn.com
@@ -1403,6 +1403,9 @@
 ||ads.amazon.dev^
 ||advertising.amazon.dev^
 ||api.imdb.eu-west-1.prod.paets.advertising.amazon.dev^
+! [bdtelemetry.amazon]
+||bdtelemetry.amazon^
+||api.mshop.bdtelemetry.amazon^
 ! [assoc-amazon.com]
 ||assoc-amazon.com^
 ||wms.assoc-amazon.com^
@@ -1523,6 +1526,10 @@
 ||analytics.s3.amazonaws.com^
 ||analyticsengine.s3.amazonaws.com^
 ||sprocket-ping.s3.amazonaws.com^
+! [ad-host-backup-*.s3.*.amazonaws.com]
+||ad-host-backup-america.s3.us-west-1.amazonaws.com^
+||ad-host-backup-asia.s3.ap-southeast-1.amazonaws.com^
+||ad-host-backup-europe.s3.eu-central-1.amazonaws.com^
 ! [prod.*.publishers.advertising.a2z.com]
 ||prod.cm.publishers.advertising.a2z.com^
 ||prod.tahoe-analytics.publishers.advertising.a2z.com^
@@ -1646,6 +1653,7 @@
 ||secure.rat.rakuten.co.jp^
 ! [facebook]
 ||an.facebook.com^
+||analytics.facebook.com^
 ||pixel.facebook.com^
 ! [update.fbsbx.com]
 ||o.update.fbsbx.com^
@@ -10621,14 +10629,27 @@
 ||tva-igame-global-ipa-0001.us-east-1.log.aliyuncs.com^
 ||videocloud-sgp.ap-southeast-1.log.aliyuncs.com^
 ||vod-newplayer-sg.ap-southeast-1.log.aliyuncs.com^
+||cn-hangzhou.log.aliyuncs.com^
+||cbu-offer.cn-shanghai.log.aliyuncs.com^
+||cbu-search-app.cn-shanghai.log.aliyuncs.com^
+||client-upload.cn-shanghai.log.aliyuncs.com^
+||wireless-app-log.cn-hangzhou.log.aliyuncs.com^
+! [log-global.aliyuncs.com]
+||log-global.aliyuncs.com^
+||adsplusadx-prod.log-global.aliyuncs.com^
+||crown-client.log-global.aliyuncs.com^
+||dcsz-gamelog-yyzdsy-kr.log-global.aliyuncs.com^
+||dida-function-log-hz.log-global.aliyuncs.com^
+||hishort-video.log-global.aliyuncs.com^
+||hoyodesk-app-log.log-global.aliyuncs.com^
+||india-service-log.log-global.aliyuncs.com^
+||oneconsole-blank-log.log-global.aliyuncs.com^
+||room-event.log-global.aliyuncs.com^
+||tva-satanpit-global-ipa-0001.log-global.aliyuncs.com^
 ! [ad-host-backup-*.*.aliyuncs.com]
 ||ad-host-backup-america.oss-us-west-1.aliyuncs.com^
 ||ad-host-backup-asia.oss-ap-southeast-1.aliyuncs.com^
 ||ad-host-backup-europe.oss-eu-central-1.aliyuncs.com^
-! [ad-host-backup-*.s3.*.aliyuncs.com]
-||ad-host-backup-america.s3.us-west-1.amazonaws.com^
-||ad-host-backup-asia.s3.ap-southeast-1.amazonaws.com^
-||ad-host-backup-europe.s3.eu-central-1.amazonaws.com^
 ! [userreport.com]
 ||analytics.userreport.com^
 ||bapi.userreport.com^
@@ -13427,6 +13448,9 @@
 ! [orion.bendingspoons.com]
 ||orion.bendingspoons.com^
 ||storage.orion.bendingspoons.com^
+! [openai.com]
+||bzr.openai.com^
+||bzrcdn.openai.com^
 ! --- GroupVN block ---
 ! [adtimaserver]
 ||log.adtimaserver.vn^
@@ -16150,6 +16174,7 @@
 ||afzotfwramzy.in^
 ||agacelebir.com^
 ||aggravatingoil.com^
+||agileskincareunrented.com^
 ||agle21xe2anfddirite.com^
 ||agorahtag.tech^
 ||agqoshfujku.com^
@@ -16483,6 +16508,7 @@
 ||bg4nxu2u5t.com^
 ||bharalhallahs.com^
 ||bhcumsc.com^
+||bhjkpnfsgejvo.com^
 ||bicolourprepossessstrong.com^
 ||bid.glass^
 ||bidclickmedia.com^
@@ -16587,6 +16613,7 @@
 ||broaddoor.com^
 ||broadensilkslush.com^
 ||broadlyjukeboxunrevised.com^
+||broadsidedaisysanta.com^
 ||bronzecedarleaf.com^
 ||browsecoherentunrefined.com^
 ||browser-update.org^
@@ -17168,6 +17195,7 @@
 ||drubpainch.com^
 ||drumcash.com^
 ||drydrum.com^
+||dryhachug.in^
 ||ds88pc0kw6cvc.cloudfront.net^
 ||dsp.wtf^
 ||dtv5loup63fac.cloudfront.net^
@@ -17421,6 +17449,7 @@
 ||frivolousdrinkloss.com^
 ||frs2c.com^
 ||fruhujma.in^
+||frykyuoqcto.com^
 ||fsavmklplmddsu.com^
 ||fsxmidyo.com^
 ||ft.budtawney.com^
@@ -17948,6 +17977,7 @@
 ||kw3y5otoeuniv7e9rsi.com^
 ||kx.upturnsidoist.cyou^
 ||kykay.com^
+||kypwvjoni.com^
 ||kzuocxorfo.com^
 ||laceassumestatic.com^
 ||lactolwant.com^
@@ -40544,5 +40574,5 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 38446
+! Total unique rules: 38473
 ! Duplicates removed: 1685
