@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 24 Sep 2026 01:21:09 UTC
+! Last modified: 25 Sep 2026 01:20:53 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -2929,7 +2929,7 @@ kinoafisha.ua##.turn-off-add-block-text
 stalkerportaal.ru##.video_adsense
 bookskeeper.ru,e-xecutive.ru##.warning
 forum.bestflowers.ru##.xenOverlay
-/^https?:\/\/pikabu\.ru\/ajax\/{1,2}[^?]+\?[A-Za-z0-9]+=[0-9a-f]{22,}_[0-9]+/$xmlhttprequest,domain=pikabu.ru
+/^https?:\/\/pikabu\.ru\/ajax\/{1,2}[^?]+\?[A-Za-z0-9]+=[0-9a-f]{22,}_[a-z0-9_]+/$xmlhttprequest,domain=pikabu.ru
 /cookie_check.min.js$domain=acetv.me
 /gogl_detector$script,domain=meddaily.ru|newsru.com
 @@||anidub.com/ads.js|$script,domain=anidub.com
@@ -10686,6 +10686,8 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+nexusmangas.com#%#//scriptlet('prevent-setTimeout', '/\(\)=>\{.{1,5}\.then\(.{1,5}=>\{.{1,5}\|\|.{1,5}\}\)\}/')
+nexusmangas.com#%#//scriptlet('trusted-set-local-storage-item', 'nexus.adblock-notice.dismissed-until', '9999999999999')
 footmercato.net#%#//scriptlet('set-session-storage-item', 'countPageSeen', '$remove$')
 vaughn.live#%#//scriptlet('trusted-set-local-storage-item', 'vs_notice_last_shown_8', '$now$')
 cyberscore.live##.modal-partner-rb-wrapper
@@ -12396,7 +12398,7 @@ fotpforums.com#@#ins.adsbygoogle[data-ad-client]
 @@||titulky.com/aclib.js
 on4t.com#@#.google-ad
 @@||s.nitropay.com/1.gif$domain=diablo.trade
-plantmaps.com#@#.ad-unit:not(.textads)
+nexusmangas.com,plantmaps.com#@#.ad-unit:not(.textads)
 vide-greniers.org#@#ins.adsbygoogle[data-ad-slot]
 vide-greniers.org#@#ins.adsbygoogle[data-ad-client]
 @@||iphoned.nl/wp-content/themes/bigspark/scripts/ads-frontend.min.js
@@ -13835,5 +13837,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10515
+! Total unique rules: 10517
 ! Duplicates removed: 3044
