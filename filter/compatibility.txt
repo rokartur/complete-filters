@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 25 Sep 2026 01:20:54 UTC
+! Last modified: 26 Sep 2026 01:19:31 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1790273383-3600.patch
+! Diff-Path: ../patches/11/11-s-1790356095-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -23,16 +23,6 @@
 !
 ! ||mobileapptracking.com^ - don't block this domain with all subdomains. https://forum.adguard.com/index.php?threads/23917/
 !
-! https://github.com/AdguardTeam/AdguardFilters/issues/229939
-||yodo1.com^
-! https://github.com/AdguardTeam/AdguardFilters/issues/222820
-||banner.bet365partners.com^
-! https://github.com/AdguardTeam/AdguardFilters/issues/221816
-||playwire.com^
-! https://github.com/AdguardTeam/AdguardFilters/issues/221563
-||fingerhi.net^
-! https://github.com/AdguardTeam/AdguardFilters/issues/212569
-||*.libaishuo.com^$third-party
 ! https://github.com/AdguardTeam/AdguardFilters/issues/171494
 ||adx-open-service.youku.com^
 ||ad.youku.com^
@@ -174,6 +164,15 @@
 ||startup.mobile.webvisor.com^
 ||startup-mobile.ap.yandex-net.ru^
 !
+!NOTE: Regular rules
+!
+||app.bxapi.de^
+||yodo1.com^
+||banner.bet365partners.com^
+||playwire.com^
+||fingerhi.net^
+||*.libaishuo.com^$third-party
+||palateonce.com^
 ||ad2.fivecdm.com^
 ||ads-m.rustore.ru^
 ||appgw.inmobi.com^
@@ -2712,6 +2711,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+relazo.net##.wider:has(> div[style]:only-child > .adPost)
+joshi-spa.jp##.banner_widget:has(> a:not([href*="joshi-spa.jp"]))
+powerwatch.jp##div[data-smarttag-spot]
 news.yahoo.co.jp###inf_mid a[data-cl-params]
 ladepeche.fr###pub_dfp_footer_sticky-mobile
 hotosena.com##div[class^="ats-"]
@@ -5107,7 +5109,6 @@ moviepilot.de##div[id^="dfp-mtf-"]
 deccanherald.com##.container > .hide-desktop
 bi-girl.net##.osusume_av_wrap_mobile
 olive-hitomawashi.com##div[style*="min-width: 300px"]
-weloma.art##.mCustomScrollbar center > iframe[src^="https://cresivetanach.com/"]
 tvi.iol.pt##.mrecWrapperMobile
 english.tupaki.com##body #inside_post_content_ad_1_before
 atelevisao.com##.custom-html.BelowTags
@@ -5121,7 +5122,6 @@ amazon.*##div[cel_widget_id="mobile-dp-sims_SPThematicBrand_Same"]
 amazon.*##section[class*="csm-placement-id"]:not([data-cel-widget^="sobe_d_"])
 m.efuxs.com##.inglestore
 financialexpress.com##.ad-bg-container
-nationalworld.com##body div[class^="Dailymotion__Wrapper-"]
 numan.tokyo##.sw-Overlay
 bigissue.com##body .-ad
 bolavip.com##.primis-placeholder-mobile
@@ -5602,7 +5602,6 @@ codecs.forumotion.net##main > div > div[style="min-height:105px"][class]
 kakakumag.com##.ad-bnr-box
 kakakumag.com##.special-cts-wrap
 ||dfu7.com/JiaYou/sogou
-miltonkeynes.co.uk##div[class^="BottomBanner__"]
 atelevisao.com,mundokodi.com,gamesisart.ru,laleggepertutti.it##.clAdPlacementAnchorWrapper
 laleggepertutti.it##.BelowTitle
 laleggepertutti.it##.BelowPost
@@ -7740,7 +7739,6 @@ anlink.top##iframe[src^="//ad.a-ads.com"]
 octoba.net##.sp-middle2-ads
 octoba.net##.contentbody > .post > div[style="height:100px;overflow:hidden;text-align:center;padding:1em 0 0 0;"]
 jiji.com##[amp] #recommend_list
-scotsman.com,sunderlandecho.com##.slab--bottommobilebanner
 afpbb.com##aside[style="text-align: center; min-height: 180px;"]
 afpbb.com##amp-iframe[src^="https://cdn.cxpublic.com/amp-recs-template.html"]
 ck101.com###mobileFloat
@@ -12538,10 +12536,6 @@ poophq.com,veev.to##style:has-text(veevad-):remove()
 @@*$ghide,xhr,domain=poophq.com|veev.to|doods.to
 veev.to#@#.avb-active
 
-! https://github.com/uBlockOrigin/uAssets/issues/2320
-panel.freemcserver.net#@#+js(rpnt, script, 'G-1B4LC0KT6C');, 'G-1B4LC0KT6C'); window.setTimeout(function(){blockPing()}\,200);)
-panel.freemcserver.net##+js(rpnt, script, 'G-1B4LC0KT6C');, 'G-1B4LC0KT6C'); localStorage.setItem("tuna"\, "dW5kZWZpbmVk"); localStorage.setItem("sausage"\, "ZmFsc2U="); window.setTimeout(function(){fuckYouUblockAndJobcenterTycoon(false)}\,200);)
-
 ! filemoon
 ! https://github.com/AdguardTeam/AdguardFilters/issues/190044
 ! https://www.reddit.com/r/uBlockOrigin/comments/1fuaaw5/asblock_detected_in_ask4porncc
@@ -12770,9 +12764,6 @@ myanimelist.net###headerSmall + div[class]:not([id]):has(a.ga-click img.ga-impre
 myanimelist.net##div[style="overflow: hidden; padding: 10px 0; border-bottom: solid #cdcdcd 1px"]:has([data-ad-target])
 myanimelist.net##div[style="padding:16px 0px 0px 0px;"]
 
-! https://github.com/uBlockOrigin/uAssets/issues/32865
-gumtree.com#@#+js(trusted-set, experimentOverrides, json:"%5B%7B%20defaultValue%3A%20%22OFF%22%7D%5D")
-
 ! https://github.com/uBlockOrigin/uAssets/issues/31664
 bus-location.1507t.xyz#@#.ad-area:not(.text-ad)
 bus-location.1507t.xyz##div[id]:empty:style(height: 1px !important; width 1px !important; position: fixed !important; z-index: 2147483647 !important;)
@@ -12783,10 +12774,6 @@ bus-location.1507t.xyz##div[id]:has(> script[src^="https://adm.shinobi.jp"]):sty
 ||cloudfront.net/?$script,redirect=noopjs,domain=meuplayeronlinehd.com|multicanaistt.space
 meuplayeronlinehd.com###player:style(display: block !important;)
 
-! https://github.com/uBlockOrigin/uAssets/issues/22295#issuecomment-4603289429
-tek.no,e24.no,minmote.no,vg.no#@#div[id^="sp_message_container_"]
-cmp.tek.no,cmp.e24.no,minmote.no,cmp.vg.no#@#+js(trusted-click-element, .message-row > button[title="Avvis alle"], , 2000)
-
 ! https://openchat-review.me/ anti-adb
 openchat-review.me##+js(set-local-storage-item, BLOCKED_FLAG_KEY, $remove$)
 openchat-review.me##+js(aost, document.querySelectorAll, security.js)
@@ -12794,9 +12781,6 @@ openchat-review.me##+js(aost, document.querySelectorAll, security.js)
 ! https://github.com/uBlockOrigin/uAssets/issues/33280
 streamcash.to##+js(rmnt, script, /\${''}|body:JSON\.stringify/)
 streamcash.to##div[id]:has(button[onclick*="location.reload()"])
-
-! https://github.com/uBlockOrigin/uAssets/issues/33449
-akirabox.com,akirabox.to,bowfile.com,buzzheavier.com,bzzhr.co,bzzhr.to,datavaults.co,fuckingfast.*,multiup.io,rootz.so,usersdrive.com,vik1ngfile.site,zpaste.net#@#+js(set, Document.prototype.createElement.call, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24714
 decompiler.com##+js(set, OffscreenCanvas.prototype.getContext, undefined)
@@ -12809,9 +12793,6 @@ twitch.tv##.chat-shell > div[class^="Layout-sc-"]  > div[style^="transition:"]:h
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/233737
 fo76db.com##+js(trusted-rpnt, script, / ads\.map[\S\s\n]+?join\(''\)/)
-
-! https://github.com/uBlockOrigin/uAssets/issues/33996
-flipkart.com#@#div[data-id][style]:has([width][height][fill])
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34009
 pdftoshokan.com##+js(aeld, /click|load/, /document\.location|pop\.|exo|cookie|\.php/)
@@ -12840,8 +12821,30 @@ igorslab.de##.herald-above-footer
 /^https:\/\/www\.igorslab\.de\/wp-content\/uploads\/202\d\/\d{2}\/(?=[a-z]*\d)(?=\d*[a-z])[0-9a-z]{7,15}\.(?:pn|jp)g(?:\?[0-9A-Z_a-z-]{7,}=[0-9A-Z_a-z-]{7,})?$/$image,1p,match-case
 *$script,xhr,3p,denyallow=google.com,domain=igorslab.de
 ||igorslab.de^$script,xhr,1p
+||igorslab.de/?$image
+||igorslab.de/wp-content/uploads/2020/03/980x120px_pure.jpg
+||igorslab.de/wp-content/uploads/2020/06/nv-rtx-pro-blackwell-display-300x300-1.jpg
+||igorslab.de/wp-content/uploads/2021/04/Optris_Final-2.jpg
+||igorslab.de/wp-content/uploads/2021/07/SHARKOON_Igors_Lab_SKILLER_SGK50_S2_301x251px.jpg
+||igorslab.de/wp-content/uploads/2021/07/SHARKOON_Igors_Lab_SKILLER_SGP30_D1-D6_301x501px.jpg
+||igorslab.de/wp-content/uploads/2021/11/Fractal-Sep-launch.jpg
+||igorslab.de/wp-content/uploads/2022/12/View-600-Teal-300x400-1.jpg
+||igorslab.de/wp-content/uploads/2023/04/980x100_DAMN_Fruehlingsdeals_ARCTIC_MINDFACTORY.jpg
+||igorslab.de/wp-content/uploads/2023/11/980x125-2.png
+||igorslab.de/wp-content/uploads/2024/09/Igors_Lab_980x125.jpg
+||igorslab.de/wp-content/uploads/2025/03/DP_H_DE.png
+||igorslab.de/wp-content/uploads/2025/08/HATOR-Skyfall_80_MAG_ULTIMA_8K_Wireless.jpg
+||igorslab.de/wp-content/uploads/2025/10/Terminator-Air_300-x-400-1.jpg
+||igorslab.de/wp-content/uploads/2025/12/Halnziye.jpg
+||igorslab.de/wp-content/uploads/2026/01/Cooler-Master.png
+||igorslab.de/wp-content/uploads/2026/03/AT-120-K-300%C3%97250.jpg
+||igorslab.de/wp-content/uploads/2026/07/Terminator-Air_980-x-125-1.jpg
+||igorslab.de/wp-content/uploads/2026/08/DP_V_DE.png
+||igorslab.de/wp-content/uploads/2026/08/HK5-2026.jpg
+||igorslab.de/wp-content/uploads/2026/08/Vertical.jpg
 @@/^https:\/\/www\.igorslab\.de\/wp-content\/themes\/igor\/js\/jquery-\d\.\d{1,2}\.\d{1,2}\.min\.js\?ver=/$script,1p,match-case
-@@||www.igorslab.de/community/$script,xhr,1p
+@@||www.igorslab.de/community/$script,xhr
+@@||www.igorslab.de/cdn-cgi/challenge-platform/$script,xhr
 @@||www.igorslab.de/cdn-cgi/scripts/*/cloudflare-static/rocket-loader.min.js
 @@||www.igorslab.de/wp-content/plugins/XFWP/assets/js/xfwp-admin.js
 @@||www.igorslab.de/wp-content/plugins/ba-plus-before-after-image-slider/assets/s201-bai.js
@@ -12858,11 +12861,10 @@ igorslab.de##.herald-above-footer
 @@||www.igorslab.de/wp-content/themes/herald/assets/js/min.js
 @@||www.igorslab.de/wp-includes/js/utils.min.js
 @@||www.igorslab.de/wp-includes/js/imagesloaded.min.js
-@@||www.igorslab.de/wp-admin/admin-ajax.php$xhr
+@@||www.igorslab.de/wp-admin/admin-ajax.php
 igorslab.de##a[href^="/"][rel][target]
 igorslab.de/community/#@#a[href^="/"][rel][target]
-igorslab.de##a[rel][target]:not([target$="blank"])
-igorslab.de##a[href^="https://www.igorslab.de"][href*="?"][rel]
+igorslab.de##a[rel][target]:not([target="blank"],[target="_blank"])
 igorslab.de##span[aria-label][role="img"][style*="data:image"]
 igorslab.de##span[style]:has(svg path)
 igorslab.de##span[aria-label][role="img"][style*="data:image"] + a
@@ -12882,11 +12884,14 @@ igorslab.de##div[style="height: 90 px; text-align: left;"]
 igorslab.de##div[style^="display:block;position:relative;max-width:"]
 !igorslab.de##div[class]:matches-attr("/^(?!data|aria)[0-9a-z]+[-_][0-9a-z]+$/")
 !igorslab.de##div[class]:matches-attr("/^(?!data|aria).+$/"="/^[0-9A-Z_a-z]+_/")
-igorslab.de##div[class]:matches-attr("/^(?!data|aria).+$/"="/^[0-9A-Z_a-z-]+~/")
-igorslab.de###extras, #ilab-consent-banner, #ilab-consent-reopen-wrap, .entry-header, .footer-bottom, .herald-entry-content, .herald-header-wraper, .herald-main-content, .herald-module, .xfwp-widget:others()
-igorslab.de/community/#@##extras, #ilab-consent-banner, #ilab-consent-reopen-wrap, .entry-header, .footer-bottom, .herald-entry-content, .herald-header-wraper, .herald-main-content, .herald-module, .xfwp-widget:others()
+igorslab.de##div[id]:matches-attr("/trackid$/")
+igorslab.de###extras, #ilab-consent-banner, #ilab-consent-reopen-wrap, .entry-header, .footer-bottom, .herald-entry-content, .herald-header-wraper, .herald-main-content, .herald-module, .widget-title, .xfwp-tabbed:first-of-type:others()
+igorslab.de/community/#@##extras, #ilab-consent-banner, #ilab-consent-reopen-wrap, .entry-header, .footer-bottom, .herald-entry-content, .herald-header-wraper, .herald-main-content, .herald-module, .widget-title, .xfwp-tabbed:first-of-type:others()
 igorslab.de##[style*="!important"]
 igorslab.de##[style*="aspect-ratio"]
+igorslab.de##[style*="/"]
+igorslab.de##[style*="background-image:url"]
+igorslab.de##[style*="min("]
 igorslab.de##div[style*="blob:http"]:style(background: none !important;)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/27044#issuecomment-5723020527
@@ -19150,5 +19155,5 @@ expatexplorer.hsbc.com##+js(trusted-set, HSBC, 'json:{"SITE":{},"DCS":{},"PAGE":
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13217
+! Total unique rules: 13235
 ! Duplicates removed: 17
