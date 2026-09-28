@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 27 Sep 2026 01:28:42 UTC
+! Last modified: 28 Sep 2026 01:30:44 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -17899,7 +17899,7 @@ jornalopcao.com.br#?#.content-left > h4:contains(/^COMPARTILHAR$/)
 jornalopcao.com.br#?#.template-part-component-share
 kurashiru.com##.RightPane-shareButtons
 exblog.jp##.sm_icon_mini
-madamefigaro.jp###fixedShare
+madamefigaro.jp##.-box-sns
 smartmag.jp#?#div[class] > p.center:has(> strong:contains(この記事をシェアする))
 musescore.com#?#section > button:has(> svg + span:contains(Share))
 allkpop.com##.external_social_share
@@ -28557,6 +28557,7 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_ext
 !+ PLATFORM(ios) NOT_OPTIMIZED
 adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_ios { display: none !important; }
 !
+
 !-------------------------------------------------------------------------------!
 !-------------- General hiding rules -------------------------------------------!
 !-------------------------------------------------------------------------------!
@@ -44289,4 +44290,4 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 
 
 ! Total unique rules: 42802
-! Duplicates removed: 14487
+! Duplicates removed: 14486
