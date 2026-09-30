@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 29 Sep 2026 01:25:53 UTC
+! Last modified: 30 Sep 2026 01:28:51 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10689,6 +10689,9 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+mgsm.pl#%#//scriptlet('prevent-setTimeout', 'AdBlock', '2000')
+colnect.com###pageContent > div[style^="position: fixed; left: 0px;"][style*="z-index: 12000;"]:has(> div[style] > a[href*="/help/collecting/premium_join"])
+meteoservice.ru###page-error-msg
 nexusmangas.com#%#//scriptlet('prevent-setTimeout', '/\(\)=>\{.{1,5}\.then\(.{1,5}=>\{.{1,5}\|\|.{1,5}\}\)\}/')
 nexusmangas.com#%#//scriptlet('trusted-set-local-storage-item', 'nexus.adblock-notice.dismissed-until', '9999999999999')
 footmercato.net#%#//scriptlet('set-session-storage-item', 'countPageSeen', '$remove$')
@@ -13526,6 +13529,12 @@ aol.com#$#.ad__tile { height: 10px!important; position: absolute!important; left
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
 !#safari_cb_affinity(general)
 !
+mgsm.pl#@#[class^="ad-"]
+mgsm.pl#@#div[id^="div-gpt-"]
+mgsm.pl#@#[class^="advertisement"]
+mgsm.pl#@#div[id^="div-gpt-"]
+mgsm.pl#@#[id^="div-gpt-ad"]
+mgsm.pl#@#.ad-placement
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=pagesix.com
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=pagesix.com
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=nypost.com
@@ -13840,5 +13849,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10518
-! Duplicates removed: 3043
+! Total unique rules: 10526
+! Duplicates removed: 3044
