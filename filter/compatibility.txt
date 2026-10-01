@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 30 Sep 2026 01:28:51 UTC
+! Last modified: 01 Oct 2026 01:36:09 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1790666213-3600.patch
+! Diff-Path: ../patches/11/11-s-1790781017-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2711,6 +2711,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+routinehub.co##.rh-ad-slot
+routinehub.co##.rh-anchor__close
+eboblack.com##div.un-card-list > div.min-w-0:has(> .un-card-ad)
 weather.com##.z-adOverlay
 love4porn.com##.sponsorsmall
 mamaslatinas.com##.dappier-ads-bottom
@@ -2778,7 +2781,7 @@ merkmal-biz.jp##div.box:has(> div[id^="yad_"])
 arknights.wikiru.jp###content > div[data-cptid]
 football-zone.net###c2_click_endofarticle_JFA_adidas_sp
 fineplay.me##.sp.banner_contents
-fullvideos.tv##.u-ad-mobile-top-banner
+eboblack.com,fullvideos.tv##.u-ad-mobile-top-banner
 topics.smt.docomo.ne.jp#$##ga-cp_more { border-bottom: none !important; }
 topics.smt.docomo.ne.jp#$##sports_topics_area { border-bottom: none !important; }
 topics.smt.docomo.ne.jp#$#.topicsTab-container.topics-news-block { border-bottom: none !important; }
@@ -5630,8 +5633,8 @@ blogterest.net###glkab
 the-sun.com##.amp-adv-wrapper
 bookmaker-ratings.ru##.branding-top-wrapper
 washingtonpost.com##.tableAd1
-wankzone.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,fistingplanet.com##.happy-related-videos-mobile
-wankzone.com,pornbuz.com,sxyland.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,familyxxxhd.com,erotic-hentai.com,villagesexvideos.com,xxxvideoindian2.com,fistingplanet.com##.happy-footer-mobile
+rahaporn.com,wankzone.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,fistingplanet.com##.happy-related-videos-mobile
+rahaporn.com,wankzone.com,pornbuz.com,sxyland.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,familyxxxhd.com,erotic-hentai.com,villagesexvideos.com,xxxvideoindian2.com,fistingplanet.com##.happy-footer-mobile
 mediacourant.nl,coinwarz.com##div[id^="ad"]
 pornpapa.com##.mobile-device
 maximum.ru,rusradio.ru,dfm.ru##.advertising-mobile-popup-overlay
@@ -19160,5 +19163,5 @@ expatexplorer.hsbc.com##+js(trusted-set, HSBC, 'json:{"SITE":{},"DCS":{},"PAGE":
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13236
+! Total unique rules: 13239
 ! Duplicates removed: 17

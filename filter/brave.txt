@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 30 Sep 2026 01:28:51 UTC
+! Last modified: 01 Oct 2026 01:36:09 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -6827,6 +6827,16 @@ dicebreaker.com,eurogamer.cz,eurogamer.es,eurogamer.net,eurogamer.nl,eurogamer.p
 oscaro.com,boulanger.com#@##didomi-host
 oscaro.com#@#+js(trusted-click-element, .didomi-continue-without-agreeing, , 1000)
 @@||sdk.privacy-center.org^$script,domain=oscaro.com|boulanger.com
+@@onetrust.com/consent/$domain=qatarairways.com
+@@onetrust.com/scripttemplates/$domain=qatarairways.com
+qatarairways.com#@##onetrust-consent-sdk
+qatarairways.com#@##onetrust-banner-sdk
+qatarairways.com#@#.onetrust-pc-dark-filter
+qatarairways.com#@#+js(set-cookie, accepted_functional, yes)
+qatarairways.com#@#+js(set-cookie, accepted_marketing, no)
+qatarairways.com#@#+js(set-cookie, cookie_visited, true)
+openbank.de#@#+js(trusted-click-element, button[onclick="onClickRefuseCookies(event)"], , 1000)
+@@||usercentrics.eu^$script,xhr,domain=openbank.de
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-twitch.txt
@@ -7043,5 +7053,5 @@ oscaro.com#@#+js(trusted-click-element, .didomi-continue-without-agreeing, , 100
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5972
+! Total unique rules: 5982
 ! Duplicates removed: 8
