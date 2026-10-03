@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 02 Oct 2026 01:26:29 UTC
+! Last modified: 03 Oct 2026 01:22:49 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1790867350-3600.patch
+! Diff-Path: ../patches/11/11-s-1790953762-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2712,6 +2712,11 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+moneydj.com##div.MDJCom-MDJADLoader
+mumsnet.com#$##mn-leaderboard-mobile-container { display: none !important; }
+mumsnet.com#$#.pt-\[120px\] { padding-top: 0 !important; }
+xfastest.com###xfmTop385
+tavovaikas.lt##.entry-content > div[style]:has(> div[id^="stpd-inarticle-mobile"])
 mamaslatinas.com##.gam-injector__ad-footer-wrapper
 routinehub.co##.rh-ad-slot
 routinehub.co##.rh-anchor__close
@@ -5636,7 +5641,7 @@ the-sun.com##.amp-adv-wrapper
 bookmaker-ratings.ru##.branding-top-wrapper
 washingtonpost.com##.tableAd1
 rahaporn.com,wankzone.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,fistingplanet.com##.happy-related-videos-mobile
-rahaporn.com,wankzone.com,pornbuz.com,sxyland.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,familyxxxhd.com,erotic-hentai.com,villagesexvideos.com,xxxvideoindian2.com,fistingplanet.com##.happy-footer-mobile
+hdporner.me,yespornhd.com,rahaporn.com,wankzone.com,pornbuz.com,sxyland.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,familyxxxhd.com,erotic-hentai.com,villagesexvideos.com,xxxvideoindian2.com,fistingplanet.com##.happy-footer-mobile
 mediacourant.nl,coinwarz.com##div[id^="ad"]
 pornpapa.com##.mobile-device
 maximum.ru,rusradio.ru,dfm.ru##.advertising-mobile-popup-overlay
@@ -19165,5 +19170,5 @@ expatexplorer.hsbc.com##+js(trusted-set, HSBC, 'json:{"SITE":{},"DCS":{},"PAGE":
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13240
+! Total unique rules: 13245
 ! Duplicates removed: 17

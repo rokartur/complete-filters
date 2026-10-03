@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 02 Oct 2026 01:26:48 UTC
+! Last modified: 03 Oct 2026 01:23:07 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -14667,6 +14667,11 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+oklivetv.com##.btn-web-share
+cnn.com##button[data-title="share options"]
+lupanda.tw###blogimoveSLIDE
+brasilnippou.com##ul[class^="Article_article__share__"]
+thetimes.com.au###gkSocialAPI
 nowezyciepabianic.pl##.voluto-sharing
 mamaslatinas.com##.wd-shared-counts
 nytimes.com##button[aria-label="Open share menu"]
@@ -15076,7 +15081,7 @@ change.org##div[data-testid="native-share-mobile"]
 pasqualepillitteri.it##div.inner-box > div.engage-block:has(.engage-share-buttons)
 racer.com##.MuiStack-root > div.MuiBox-root:has(> div.MuiBox-root > div[class^="mui-"] > div[id^="sharethis-"])
 vbr.ru##.social-btns-colorful
-ketv.com,gulfcoastnewsnow.com##.share-widget-content
+koat.com,wlky.com,ketv.com,gulfcoastnewsnow.com##.share-widget-content
 indiatimes.com##.socialShareArticalShowWrapper
 gentosha.co.jp##.p-book-share__sns
 slovoidilo.ua##.compare-banner
@@ -16694,7 +16699,7 @@ rbs.ta36.com##.widget_sns_follow_buttons
 figma.com##div[class^="meta_container--rightSide--"] > [class^="social_links--"]
 figma.com##div[class^="meta_container--rightSide--"] > hr:has(+ [class^="social_links--"])
 drive2.ru##div[itemscope] > div[class]:has(> div.o-group > button[data-action="share.share"])
-foxsports.com.mx,elfinanciero.com.mx,thedailybeast.com,ctvnews.ca##.b-share-bar
+sportsbusinessjournal.com,foxsports.com.mx,elfinanciero.com.mx,thedailybeast.com,ctvnews.ca##.b-share-bar
 r25.jp##.gap-3 > .gap-3.items-center:has(path[d*="5.82031H17.3224V7.30792H8.39678V17.7211H6.90918V7.30792C6.90918"])
 ghgprotocol.org##.addtoany-block
 ladepeche.fr##.article-full__share
@@ -25767,7 +25772,7 @@ m.fnp.de,m.taunus-zeitung.de##.fnp-socialbar
 haller-kreisblatt.de###modul-artikel-empfehlen > .headline
 haller-kreisblatt.de###modul-artikel-empfehlen > [class="clearfix"]
 haller-kreisblatt.de##footer > .article-detail-like
-ign.com,delo.ua##.sharer
+tavovaikas.lt,ign.com,delo.ua##.sharer
 ||graph.facebook.com/?ids=*&fields=*share_count
 m.volksstimme.de##ul.ph-sb > li.ph-sb-i:not([class="ph-sb-i"])
 bo.de##.share-inner-wrp > li:not(.print)
@@ -44315,5 +44320,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42828
+! Total unique rules: 42833
 ! Duplicates removed: 14491
