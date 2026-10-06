@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 05 Oct 2026 01:33:15 UTC
+! Last modified: 06 Oct 2026 01:26:26 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10250,12 +10250,14 @@ mail.ru#?#body > div > style + div:has(> div > div.description:contains(/До[б
 news.mail.ru#?#body > div:has(> div[id] > div > div.title:contains(блокировщика рекламы))
 ! dzen.ru
 ! Main page
+dzen.ru##article > div[data-allowed-click="true"][class^="dzen-desktop--"]
 dzen.ru#%#//scriptlet('abort-on-property-write', '__pcodeAllActiveTestIds')
 dzen.ru##div[class^="dzen-desktop--news-right-desktop-"]:has(> div > div:empty)
 dzen.ru#%#//scriptlet('set-constant', 'Object.prototype.initAdvManager', 'undefined')
 dzen.ru##div[class^="dzen-layout--desktop-page-layout__root-"] > div > div[data-appid^="dzen-desktop@"] div + div > div[style*="padding-top:"][style*="position:"]
 dzen.ru##div[aria-label="Лента Дзена"] article:has(> div[data-ad-type="direct"])
 ! articles
+dzen.ru##div[class*="content--article__isHorizontalOrientation-"] > div[class*="__wideContent-"] > div > div[class*="Placeholder-"]
 [$path=/a]dzen.ru#%#//scriptlet('set-constant', 'Object.prototype.rtb', 'undefined')
 [$path=/a]dzen.ru##div[class*="bottomAdUnderComments-"]
 [$path=/a]dzen.ru##div[class*="ad-block__placeholder"]
@@ -11805,7 +11807,10 @@ pastedownload.com##.hemmm
 pastedownload.com##.jegulo
 pastedownload.com##.aadb-overlay
 pastedownload.com###fc-main-dialog
+pastedownload.com###pdq-main-dialog
 pastedownload.com#%#//scriptlet('prevent-setTimeout', 'this.run()')
+pastedownload.com#%#//scriptlet('prevent-setInterval', 'ExoSupport')
+pastedownload.com#%#//scriptlet('set-constant', '__aadb_trigger', 'noopFunc')
 pastedownload.com#%#//scriptlet('prevent-element-src-loading', 'script', 'adskeeper.com')
 ||pastedownload.com/template/nova/js/okagame.js
 pcinvasion.com##.execphpwidget > div[style="min-height: 250px;"]
@@ -12564,7 +12569,6 @@ slate.com#@#.ad-container
 symbolab.com#@#.googleAdsense
 t-hsn.com#@#.ad-head
 t-hsn.com#@#.ad-top
-thecrimson.com,t3n.de#@##adsbox
 textstudio.co#@#.adsbyyahoo
 theglobeandmail.com#@#.c-ad
 vice.com#@#.ad-placement
@@ -13849,5 +13853,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10526
+! Total unique rules: 10530
 ! Duplicates removed: 3044

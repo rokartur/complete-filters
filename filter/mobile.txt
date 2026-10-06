@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 05 Oct 2026 01:33:28 UTC
+! Last modified: 06 Oct 2026 01:26:39 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10,7 +10,7 @@
 ! Android host file - Adaway
 ! 
 ! Title: ABPVN Hosts
-! Updated: 23 Sep 2026 11:05 UTC+7
+! Updated: 05 Oct 2026 14:57 UTC+7
 ! License: ABPVN
 ! Please report any unblocked ads or problems by email or in our forums
 ! Email: support@abpvn.com
@@ -3167,6 +3167,12 @@
 ||us-wf.taboola.com^
 ||vidanalytics.taboola.com^
 ||vidstat.taboola.com^
+! [taboola.com.cn]
+||cdn.taboola.com.cn^
+||images.taboola.com.cn^
+||popup.taboola.com.cn^
+||taboola.com.cn^
+||www.taboola.com.cn^
 ! [crwdcntrl.net]
 ||ad.crwdcntrl.net^
 ||bcp.crwdcntrl.net^
@@ -7160,6 +7166,7 @@
 ||www.trafficstars.com^
 ! [tsyndicate.com]
 ||cdn.tsyndicate.com^
+||pxl-eu.rtb.tsyndicate.com^
 ||pxl.tsyndicate.com^
 ||r-eu.tsyndicate.com^
 ||rtb.tsyndicate.com^
@@ -7974,23 +7981,12 @@
 ||secure.bidvertiser.com^
 ||www.bidvertiser.com^
 ! [connatix.com]
-||a.connatix.com^
-||capi.connatix.com^
-||cd.connatix.com^
-||cdn.connatix.com^
-||cdns.connatix.com^
-||cds.connatix.com^
+||assets.connatix.com^
 ||ck.connatix.com^
 ||cks.connatix.com^
-||connatix.com^
-||gitlab.connatix.com^
-||img.connatix.com^
-||l.connatix.com^
-||minio.connatix.com^
-||registry.connatix.com^
-||upload.connatix.com^
-||vid.connatix.com^
-||www.connatix.com^
+||ins.connatix.com^
+||lit.connatix.com^
+||pl.connatix.com^
 ! [myfastcdn.com]
 ||16x9.myfastcdn.com^
 ||1x1.myfastcdn.com^
@@ -9531,15 +9527,16 @@
 ||prd.jwpltx.com^
 ! [spot.im]
 ||ak-events-collector.spot.im^
-||api-2-0.spot.im^
+||bi-events-collector.spot.im^
 ||direct-events-collector.spot.im^
 ||event-stream.spot.im^
 ||events-collector.spot.im^
 ||metrics-logger.spot.im^
+||open-api.spot.im^
 ||pix.spot.im^
 ||publisher-assets.spot.im^
+||recirculation.spot.im^
 ||t.spot.im^
-||traffic.spot.im^
 ! [eoapxl.com]
 ||eoapxl.com^
 ||eoapxl1.eoapxl.com^
@@ -11723,11 +11720,13 @@
 ! [singular.net]
 ||i.singular.net^
 ||s2s.singular.net^
+||safetrack.singular.net^
+||safetrack-s2s.singular.net^
 ||sdk-api-v1.singular.net^
-||singular.net^
 ||skadnetwork.singular.net^
-||t.singular.net^
-||view-prod.ad.singular.net^
+||skan.singular.net^
+||skan-s2s.singular.net^
+||web-sdk-cdn.singular.net^
 ! [nimo.tv]
 ||metric.nimo.tv^
 ||statwup.nimo.tv^
@@ -13451,6 +13450,20 @@
 ! [openai.com]
 ||bzr.openai.com^
 ||bzrcdn.openai.com^
+! [pomxd.com]
+||pomxd.com^
+||srv.eu.pomxd.com^
+! [advlion.com]
+||advlion.com^
+||sg-td-v3-01-callback.advlion.com^
+||tk2.advlion.com^
+! [leiniao.com]
+||ads-api-o.api.leiniao.com^
+||ctv-ads.api.leiniao.com^
+||euads-o.api.leiniao.com^
+||file-hw-ads-o.api.leiniao.com^
+||ssai-ads.api.leiniao.com^
+||ssai2-ads.api.leiniao.com^
 ! --- GroupVN block ---
 ! [adtimaserver]
 ||log.adtimaserver.vn^
@@ -15450,6 +15463,7 @@
 ||79xmz3lmss.com^
 ||7ca78m3csgbrid7ge.com^
 ||864feb57ruary.com^
+||8m9.8xb3njrjigxhge9q9mp2.cfd^
 ||940functions.net^
 ||970vantage.net^
 ||999.money^
@@ -15468,6 +15482,7 @@
 ||aanqylta.com^
 ||abacho.net^
 ||abc-ads.com^
+||ablelaunchshorts.com^
 ||abmkupxixavk.in^
 ||aboardlevel.com^
 ||above.com^
@@ -16100,7 +16115,6 @@
 ||advisormedia.cz^
 ||adviva.com^
 ||adviva.net^
-||advlion.com^
 ||advmanager.techfun.pl^
 ||advnt.com^
 ||adw9.com^
@@ -16526,6 +16540,7 @@
 ||bizrate.com^
 ||bjads.bejbej.ca^
 ||bk8sports.com^
+||bl.rajeevrapido.cfd^
 ||blackbrake.com^
 ||bladelikefreightwhat.com^
 ||blahlivedsnowdrop.com^
@@ -16673,6 +16688,7 @@
 ||campaign.bharatmatrimony.com^
 ||campaigns.williamhill.com^
 ||campfirecroutondecorator.com^
+||camph.org^
 ||cams.gratis^
 ||can-get-so.me^
 ||canekilttantrum.com^
@@ -16681,6 +16697,7 @@
 ||captainbicycle.com^
 ||captify.co.uk^
 ||carambo.la^
+||cardiaccrystaleternity.com^
 ||caribedkurukh.com^
 ||carveddoublebogeyhigh.com^
 ||carvyre.com^
@@ -16898,6 +16915,7 @@
 ||content.bitsontherun.com^
 ||content.lemonpi.io^
 ||content.mql5.com^
+||contraltoflubmedical.com^
 ||convenebeice.com^
 ||conversionruler.com^
 ||convrse.media^
@@ -17922,6 +17940,7 @@
 ||justicejudo.com^
 ||justrelevant.com^
 ||justwebads.com^
+||jvntctypey.com^
 ||jwuoxhjuq.com^
 ||jz.thringsettos.cyou^
 ||k.iinfo.cz^
@@ -17995,6 +18014,7 @@
 ||lbn.ru^
 ||lby2kd27c.com^
 ||ldjsypolwypxy.space^
+||lduohrmhrme.com^
 ||leadclick.com^
 ||leadplace.fr^
 ||leadzupc.com^
@@ -18721,6 +18741,7 @@
 ||plusungratefulinstruction.com^
 ||pnhoppacwh.com^
 ||pnuhondppw.com^
+||po.zuhgg4cxt6noffj8.rest^
 ||poawooptugroo.com^
 ||pocitadlo.cz^
 ||podefr2.net^
@@ -18874,6 +18895,7 @@
 ||pw.oulapoat.qpon^
 ||pwieu.com^
 ||pwmctl.com^
+||pwyamrbild.in^
 ||pyicbcxvs.com^
 ||pyxiscablese.com^
 ||pz.mulchimbiber.com^
@@ -19095,6 +19117,7 @@
 ||rutseasickmunch.com^
 ||ruvsraaklrih.com^
 ||ruwjkygaxo.com^
+||rvjoiedxxq.com^
 ||rvrpushserv.com^
 ||rwulzuaqsafn.com^
 ||rxeosevsso.com^
@@ -19270,6 +19293,7 @@
 ||snuff-brownsprintcountry.com^
 ||snugglethesheep.com^
 ||so-gr3at3.com^
+||soamuylg.com^
 ||sobakenchmaphk.com^
 ||soccercadencefridge.com^
 ||socialspark.com^
@@ -19772,6 +19796,7 @@
 ||varietyofdisplayformats.com^
 ||variouscreativeformats.com^
 ||variousformatscontent.com^
+||vast.streamux.top^
 ||vast.vstserv.com^
 ||vaugroar.com^
 ||vc.colpwoofell.qpon^
@@ -19888,6 +19913,7 @@
 ||webcounter.cz^
 ||webcounter.goweb.de^
 ||webeyemob.com^
+||webls.net^
 ||webmasterplan.com^
 ||webmasterplan.de^
 ||weborama.com^
@@ -21954,7 +21980,6 @@ zdalnakontrola.pl
 ||adm.funshion.com^
 ||admobile.top^
 ||adreq.vivo.com.cn^
-||ads-api-o.api.leiniao.com^
 ||ads-img-al.xhscdn.com^
 ||ads-img-qc.xhscdn.com^
 ||ads-jp.tiktok.com^
@@ -40577,5 +40602,5 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 38476
-! Duplicates removed: 1685
+! Total unique rules: 38497
+! Duplicates removed: 1686
