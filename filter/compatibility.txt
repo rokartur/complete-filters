@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 06 Oct 2026 01:26:27 UTC
+! Last modified: 07 Oct 2026 01:30:34 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1791213014-3600.patch
+! Diff-Path: ../patches/11/11-s-1791299399-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2712,6 +2712,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+search.yahoo.co.jp##div[class^="TimelineYda_TimelineYda_"]
+nogizaka46link.blog.jp###lite_link:has(> ul > li > a[href^="https://manga-map.com/amazon-"])
 donanimhaber.com##.dh-header-sponsors
 donanimhaber.com##.intro-top-ad
 donanimhaber.com##.text-between-ad
@@ -2876,7 +2878,7 @@ context.reverso.net##.more-examples-message
 context.reverso.net##.rca-no-ads-mobile
 xmegadrive.com##iframe[src^="https://n2.clips4sale.com/a/"]
 elchorrillero.com##.card2:has(> .cardBody2 > a[href^="https://static.elchorrillero.com/clk/"] img)
-matomeantena.com##li.list-group-item:has(a[href^="https://adhub.porcino-kinoko.workers.dev/"])
+matomeantena.com##li:has(a[href^="https://adhub.porcino-kinoko.workers.dev/"])
 ntv.co.jp###ntv_setAD_SP_300_250
 onejailbreak.com##div.post > div.mt-3:has(> ins.adsbygoogle)
 eonline.com##.photo-items__interstitial-ad-content
@@ -8384,7 +8386,6 @@ express.co.uk#$?##taboola-mid-article-thumbnails-outstream { remove: true; }
 express.co.uk#$?#div[data-type="article-body"] .text-description > div { remove: true; }
 delish.com#?#section > div[class]:has(> div[id^="gpt-ad-"])
 m.cifraclub.com.br#?#pre > button[type]:contains(Remover anúncio)
-news.denfaminicogamer.jp#?#.articleList > li > div.amazon-ranking:upward(1)
 doucolle.net#?##entry:has(> div.entry_box > div.entry_body > a[href^="https://al.dmm.co.jp"]:only-child > img)
 pogomap.info#?##logobar:has(div#smallmapad)
 appbank.net#?#.entry-content > div.sp.fixed-height:has( > div[id^="div-gpt-ad"])
@@ -12821,10 +12822,11 @@ fo76db.com##+js(trusted-rpnt, script, / ads\.map[\S\s\n]+?join\(''\)/)
 ! https://github.com/uBlockOrigin/uAssets/issues/34009
 pdftoshokan.com##+js(aeld, /click|load/, /document\.location|pop\.|exo|cookie|\.php/)
 pdftoshokan.com##+js(nowoif, /ok_|pemsrv\.com/)
-pdftoshokan.com##+js(trusted-rpnt, script, /if\(n(ow)?-l(ast)?>c\*1e3\)/, if(0))
+pdftoshokan.com##+js(trusted-replace-argument, parseInt, 0, json:"1800000000000", condition, /^(179\d{10}|null)$/)
 pdftoshokan.com##+js(trusted-replace-outbound-text, atob, /^https:\/\/s\.pemsrv\.com.+/, 'window.location.href')
 !#if cap_html_filtering
 pdftoshokan.com##^script:has-text(/ad.?Config|prepare.?Pop|\/popunder|ads_host/)
+||pdftoshokan.com/single.js$replace=/if \(n(ow)? - l(ast)? > c \* 1e3\)/if(0)/
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34187
@@ -12846,6 +12848,7 @@ igorslab.de##img[src^="blob:http"]
 ||igorslab.de/wp-content/uploads/2021/07/SHARKOON_Igors_Lab_SKILLER_SGK50_S2_301x251px.jpg
 ||igorslab.de/wp-content/uploads/2021/07/SHARKOON_Igors_Lab_SKILLER_SGK50_S2_301x501px.jpg
 ||igorslab.de/wp-content/uploads/2021/07/SHARKOON_Igors_Lab_SKILLER_SGM50W_301x501px.jpg
+||igorslab.de/wp-content/uploads/2021/07/SHARKOON_Igors_Lab_SKILLER_SGM50W_1024x120px.jpg
 ||igorslab.de/wp-content/uploads/2021/07/SHARKOON_Igors_Lab_SKILLER_SGP30_D1-D6_301x251px.jpg
 ||igorslab.de/wp-content/uploads/2021/07/SHARKOON_Igors_Lab_SKILLER_SGP30_D1-D6_301x501px.jpg
 ||igorslab.de/wp-content/uploads/2021/11/Fractal-Sep-launch.jpg
@@ -12855,8 +12858,10 @@ igorslab.de##img[src^="blob:http"]
 ||igorslab.de/wp-content/uploads/2024/01/Palit_RTX50_300_250_en.jpg
 ||igorslab.de/wp-content/uploads/2024/09/Igors_Lab_980x125.jpg
 ||igorslab.de/wp-content/uploads/2025/03/DP_H_DE.png
+||igorslab.de/wp-content/uploads/2024/07/SHARKOON_Igors_Lab_SKILLER_SGM50W_301x251px.jpg
 ||igorslab.de/wp-content/uploads/2025/08/HATOR-Skyfall_80_MAG_ULTIMA_8K_Wireless.jpg
 ||igorslab.de/wp-content/uploads/2025/10/Terminator-Air_300-x-400-1.jpg
+||igorslab.de/wp-content/uploads/2025/11/V2-Banner_V4_1-2.jpg
 ||igorslab.de/wp-content/uploads/2025/12/Halnziye.jpg
 ||igorslab.de/wp-content/uploads/2026/01/Cooler-Master.png
 ||igorslab.de/wp-content/uploads/2026/03/AT-120-K-300%C3%97250.jpg
@@ -19188,5 +19193,5 @@ expatexplorer.hsbc.com##+js(trusted-set, HSBC, 'json:{"SITE":{},"DCS":{},"PAGE":
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13261
+! Total unique rules: 13266
 ! Duplicates removed: 17

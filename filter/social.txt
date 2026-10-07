@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 06 Oct 2026 01:26:45 UTC
+! Last modified: 07 Oct 2026 01:30:53 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -14668,6 +14668,10 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+dailymail.com##button[id^="mol-fe-social-bar-share-"]
+clovis.com.br##button[title="Compartilhar produto"]
+earth.jp##.product2-action--share
+v-1.co.il##div[class^="_sharebuttonsContent_"]
 feedzop.com##article button[aria-label]
 emmikochteinfach.de###content > section:has(> div.container a[title="Zum YouTube-Kanal"])
 emmikochteinfach.de##footer > div.footer-top:has(> div.container ul.social-menu)
@@ -21666,7 +21670,7 @@ sweethentai.com##a[data-target="#modalSocial"]
 newsweekjapan.jp###socialTool
 tdk.gov.tr,bayreuther-tagblatt.de##.av-social-sharing-box
 abc13.com,6abc.com##.StickyContainer
-ekattor.tv,dhakatribune.com,banglatribune.com##.social_share_holder
+ittefaq.com.bd,ekattor.tv,dhakatribune.com,banglatribune.com##.social_share_holder
 ||u.xgoo.jp/img/sns/button/
 indiatoday.in##.social-share-new
 sagligabiradim.com,ivona.ua##.widget-social
@@ -24392,7 +24396,7 @@ psm7.com##.soc_line
 tsn.ua##.js-share-extra
 tsn.ua##.c-share-extra
 staticmv.mediavitrina.ru##.eump-control-share-social
-turkuvazradyolar.com##.newsShare
+obozrevatel.com,turkuvazradyolar.com##.newsShare
 appledaily.com###RHSfacebook
 lisa.ru,proglaza.ru##.vk-widget
 kondicionery.od.ua##.footerbottom2
@@ -44328,5 +44332,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42841
+! Total unique rules: 42845
 ! Duplicates removed: 14492
