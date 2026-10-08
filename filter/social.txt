@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 07 Oct 2026 01:30:53 UTC
+! Last modified: 08 Oct 2026 01:30:20 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10961,6 +10961,7 @@ mississippitoday.org##.dst-google-news-source
 theverge.com,vox.com##.duet--article--share-buttons
 conservativewoman.co.uk##.dvk-social-sharing
 dailyboulder.com,echonewshub.com,jugomobile.com,thartribune.com,thedailyadda.com,thegamepost.com,townflex.com##.e-shared-sec
+androidauthority.com##.e_2c
 breakingdefense.com##.ea-share-count-wrap
 euractiv.com##.ea-social
 waterworld.com##.ebm-share-list
@@ -12261,6 +12262,7 @@ rumble.com##div[data-type="share"]
 land.nrw##div[data-type="social_feed"]
 askmefast.com##div[style="clear:both;position:absolute;top:20px;left:0px"]
 ea.com##ea-social-links
+fortune.com#?#.info-surface:has-text(Add Fortune on Google)
 gizmodo.jp,roomie.jp##fw-storyblock
 greatist.com,healthline.com,medicalnewstoday.com,psychcentral.com##hl-share-overlay
 icann.org##iti-share-icons
@@ -13120,8 +13122,14 @@ play.radionorba.it##share-view
 !
 nlab.itmedia.co.jp###my_social_top
 blog.esuteru.com##.article-button-simple
+taisy0.com##.c-iconList__item
+gazlog.jp,taisy0.com##.c-shareBtns__list
 bizgate.nikkei.com##.c-single-sns
 seikatsusha-ddm.com##.p-under-sns
+buzzap.jp##.sbmk_header
+buzzap.jp##.sbmk_left
+buzzap.jp##.sbmk_sidebar
+watchmono.com##.sns-list
 univ-journal.jp##.snsSpace
 anglers.jp##.socials
 news.yahoo.co.jp##[class^="ArticleShare"]
@@ -14668,6 +14676,10 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+marketwatch.com##div[data-id="utilitybar"] > div[class^="css-"]:has(> div[class^="css-"] > button[data-testid="share-button"])
+mel.fm##.floatbar__icons:has(> a[class^="share-button"])
+goldennews.blog.jp##.section-box > ul.article-button:has(> li.article-line)
+cfrcalatori.ro##.bshareGroup
 dailymail.com##button[id^="mol-fe-social-bar-share-"]
 clovis.com.br##button[title="Compartilhar produto"]
 earth.jp##.product2-action--share
@@ -17160,7 +17172,7 @@ dailymail.co.uk##ul:has(> li[class*="shareIcon-"])
 xmedia-recode.de##.div_block:has(> center > a[href^="https://www.facebook.com/sharer.php"])
 postnews.ru###section_wrapper > section[class^="styles_section_"] > div[class^="sc-"] div[class^="sc-"] ~ div[class^="sc-"] > div[class^="sc-"][class*="styles_animate_"]:has(> a[class^="sc-"] > div[class^="sc-"] > svg[viewBox="0 0 24 24"] > path[d^="M4 19.251h.5c0-5.206 1.822-8.449"])
 golfnetwork.co.jp##.module-sns
-nicovideo.jp##.gap_base > button[data-element-name="share"]
+nicovideo.jp##button[data-element-name="share"]
 takiedela.ru##.np-socials
 tsunagujapan.com##div[data-react-props*="Share"]
 dorama.land##.episode-comments > div.with-aside__aside > div.with-aside__sticky:has(> div.aside-episode-banner)
@@ -18099,7 +18111,8 @@ irishnews.com##.lancio-sharebar
 masiro.me##.like-share > span.thumbs-up + span.share-outer
 ||w.atwiki.jp/common/dist/js/socail_button.js
 ||ssl.pstatic.net/share/js/naver_sharebutton.js
-rtde.site##.ArticleView-shares
+actualidad-rt.com##.ArticleView-sharesInline
+actualidad-rt.com,rtde.site##.ArticleView-shares
 rtde.site##.ArticleView-bottomShares
 tn.nova.cz##.c-sharer-desktop
 superjob.ru##.sj_social[data-social]
@@ -18603,7 +18616,6 @@ iplt20.com##.card-social-link
 eltiempo.pe##ul[class^="DetalleNoticia_redes__"]
 turkiyegazetesi.com.tr##.js-sharing-buttons
 marieclaire.fr##.ArticleHeader > div.SocialNetwork
-buzzap.jp##.sbmk_left
 europarl.europa.eu##.ep_share
 bank-daiwa.co.jp##.m-action__sns-share
 flicks.com.au##.blog-meta__share
@@ -44332,5 +44344,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42845
-! Duplicates removed: 14492
+! Total unique rules: 42857
+! Duplicates removed: 14501

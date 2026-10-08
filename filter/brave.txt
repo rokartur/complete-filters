@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 07 Oct 2026 01:30:34 UTC
+! Last modified: 08 Oct 2026 01:30:02 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -288,17 +288,28 @@ baeldung.com##.aelzmn
 sonichits.com##+js(set-session-storage-item, fs.adb831.dis, 1)
 baeldung.com##+js(set-session-storage-item, fs.adb.dis, 1)
 newrepublic.com,smithsonianmag.com,thenation.com##+js(set-local-storage-item, fs.adb, 1)
+! Generic
+! Specific
+||acustomizedgift.com^$domain=masslive.com|silive.com
 ||autoblog.com/.api/admiral
 ||bikemag.com/.api/admiral
 ||bringmethenews.com/.api/admiral
+||dengarden.com/.api/admiral
+||gamedaily.com/.api/admiral
 ||mensjournal.com/.api/admiral
+||parade.com/.api/admiral
 ||paradehomeandgarden.com/.api/admiral
+||paradepets.com/.api/admiral
+||skateboarding.com/.api/admiral
+||succeedscene.com^$domain=theguardian.com
 ||surfer.com/.api/admiral
+||thespun.com/.api/admiral
 ! google popup
 google.com##.Ryrdad:has-text(Please help us improve)
 developer.android.com##.devsite-snackbar-snack:has-text(Please help us)
 www.google.com##[aria-describedby="promo_desc_id"]:has-text(/Time for a new laptop|Gemini, |Choose Chrome|built by Google|Search differently|Cherchez différemment|Search just got easier|Try more ways|Switch to Chrome/)
 chromewebstore.google.com##[aria-label="Info"]:has-text(Switch to Chrome)
+chromewebstore.google.com##div[jscontroller]:has-text(Install Chrome)
 www.google.com##[aria-describedby="promo_desc_id"]:has-text(Keep things dark)
 google.com##[jscontroller="HCSvae"]:has-text(Sign in to Google)
 chromewebstore.google.com##[role="dialog"][aria-labelledby="promo-header"]
@@ -7053,5 +7064,5 @@ openbank.de#@#+js(trusted-click-element, button[onclick="onClickRefuseCookies(ev
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 5982
-! Duplicates removed: 8
+! Total unique rules: 5991
+! Duplicates removed: 9
