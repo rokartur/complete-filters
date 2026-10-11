@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 10 Oct 2026 01:29:21 UTC
+! Last modified: 11 Oct 2026 01:33:50 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10694,6 +10694,9 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+prozed.com###xdBox
+prozed.com##.modal-backdrop
+bolognatoday.it#%#//scriptlet('prevent-setTimeout', 'adblock')
 komiku.org#$##ab-overlay { display: none !important; }
 komiku.org#$#body { overflow: auto !important; }
 kongregate.com##body > div[class][style]:has(> div[class][style] > img[src$="warning_amber_24dp.png"])
@@ -13541,6 +13544,18 @@ aol.com#$#.ad__tile { height: 10px!important; position: absolute!important; left
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
 !#safari_cb_affinity(general)
 !
+bolognatoday.it#@#.ad-unit:not(.textads)
+bolognatoday.it#@##ad_banner
+bolognatoday.it#@#div[id^="div-gpt-"]
+bolognatoday.it#@##ad-top
+bolognatoday.it#@#.ad-slot
+bolognatoday.it#@#.ad-placeholder:not(#filter_ads_by_classname):not(#detect_ad_empire):not(#detect):not(.adsbox)
+bolognatoday.it#@#.ad-leaderboard
+bolognatoday.it#@#.advertisement:not(html,body,:empty,[class~=ads])
+bolognatoday.it#@#.sponsored-ad
+bolognatoday.it#@#[id^="aswift_"]
+bolognatoday.it#@#[id^="google_ads_iframe_"]
+bolognatoday.it#@#[id^="div-gpt-ad"]
 mgsm.pl#@#[class^="ad-"]
 mgsm.pl#@#div[id^="div-gpt-"]
 mgsm.pl#@#[class^="advertisement"]
@@ -13861,5 +13876,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10536
+! Total unique rules: 10551
 ! Duplicates removed: 3046
