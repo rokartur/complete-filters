@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 12 Oct 2026 01:39:48 UTC
+! Last modified: 13 Oct 2026 01:34:09 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10,7 +10,7 @@
 ! Android host file - Adaway
 ! 
 ! Title: ABPVN Hosts
-! Updated: 05 Oct 2026 14:57 UTC+7
+! Updated: 12 Oct 2026 16:00 UTC+7
 ! License: ABPVN
 ! Please report any unblocked ads or problems by email or in our forums
 ! Email: support@abpvn.com
@@ -1297,6 +1297,8 @@
 ||www.adsensecustomsearchads.com^
 ! [app-ads-services.com]
 ||app-ads-services.com^
+||muf.app-ads-services.com^
+||odf.app-ads-services.com^
 ||odm.app-ads-services.com^
 ||www.app-ads-services.com^
 ! [microsoft.com]
@@ -3460,11 +3462,13 @@
 ! [branch.io]
 ||api.branch.io^
 ||api2.branch.io^
+||api3.branch.io^
 ||branch.io^
 ||cdn.branch.io^
+||dsp.branch.io^
 ||gdpr.branch.io^
 ||go.branch.io^
-||growth.branch.io^
+||protected-api.branch.io^
 ||start.branch.io^
 ||video.branch.io^
 ||vulcan.branch.io^
@@ -10285,6 +10289,7 @@
 ||app-shake.xml-eu.ak-is2.net^
 ||app-shake.xs.ak-is2.net^
 ||bappaads.xml.ak-is2.net^
+||branchdsp.rtb-ui.ak-is2.net^
 ||cachegorilla.xml.ak-is2.net^
 ||ctrtraffic.fs.ak-is2.net^
 ||danarimedia.xml.ak-is2.net^
@@ -12635,17 +12640,26 @@
 ||d1.ads.rmbl.ws^
 ||d2.ads.rmbl.ws^
 ||d4.ads.rmbl.ws^
-! [adjust]
-||analytics.adjust.cn^
+! [adjust.com]
 ||analytics.adjust.com^
-||analytics.adjust.io^
-||analytics.adjust.net.in^
-||analytics.adjust.world^
-||analytics.eu.adjust.com^
-||app.adjust.cn^
 ||app.adjust.com^
+||s2s.adjust.com^
+||view.adjust.com^
+! [analytics.*.adjust.com]
+||analytics.eu.adjust.com^
+||analytics.tr.adjust.com^
+||analytics.us.adjust.com^
+! [adjust.cn]
+||analytics.adjust.cn^
+||app.adjust.cn^
+! [adjust.io]
+||analytics.adjust.io^
 ||app.adjust.io^
+! [adjust.net.in]
+||analytics.adjust.net.in^
 ||app.adjust.net.in^
+! [adjust.world]
+||analytics.adjust.world^
 ||app.adjust.world^
 ! [bright]
 ||bright-sdk.com^
@@ -16618,6 +16632,7 @@
 ||bridesmaidspamimmortal.com^
 ||bridgetrack.com^
 ||brigadedelegatesandbox.com^
+||briggie.org^
 ||brightadnetwork.com^
 ||brightcriticism.com^
 ||brightinfo.com^
@@ -16662,6 +16677,7 @@
 ||bvmcdn.net^
 ||bvtpk.com^
 ||bwp.download.com^
+||bx.meayis.cfd^
 ||bytefrom2010.com^
 ||bzyfzusiqohk.com^
 ||c.bannerflow.net^
@@ -17044,6 +17060,7 @@
 ||d2j042cj1421wi.cloudfront.net^
 ||d2kk0o3fr7ed01.cloudfront.net^
 ||d2lahoz916es9g.cloudfront.net^
+||d2pf0ys5xus6n.cloudfront.net^
 ||d2qnx6y010m4rt.cloudfront.net^
 ||d2sbzwmcg5amr3.cloudfront.net^
 ||d2ty8gaf6rmowa.cloudfront.net^
@@ -17067,6 +17084,7 @@
 ||d3rjndf2qggsna.cloudfront.net^
 ||d3u598arehftfk.cloudfront.net^
 ||d3v3bqdndm4erx.cloudfront.net^
+||dadgah.org^
 ||dads.wedobest.com.cn^
 ||dadsimz.com^
 ||daejyre.com^
@@ -17096,6 +17114,7 @@
 ||dbxexsnxxzwwo.com^
 ||dc-storm.com^
 ||dcbbwymp1bhlf.cloudfront.net^
+||dd.gillyspencie.com^
 ||dd1xbevqx.com^
 ||ddzk5l3bd.com^
 ||dead-put.com^
@@ -17345,6 +17364,7 @@
 ||european-toplist.de^
 ||euroranking.de^
 ||eusta.de^
+||evasivewashoutsociety.com^
 ||evergage.com^
 ||evzhzppj5kel.com^
 ||eweconciliate.com^
@@ -17408,6 +17428,7 @@
 ||feuageepitoke.com^
 ||fhsmtrnsfnt.com^
 ||fhvfd.com^
+||fhyatbab.in^
 ||fibqukktuv.in^
 ||fiksu.com^
 ||filezoness.com^
@@ -17558,6 +17579,7 @@
 ||gmhyebojlimvqbc.com^
 ||gmxvmvptfm.com^
 ||gnenuelnn.com^
+||gnschdti.com^
 ||go-clicks.de^
 ||go-rank.de^
 ||go.bigbang.solutions^
@@ -18482,6 +18504,7 @@
 ||ocio.leadzu.com^
 ||oclasrv.com^
 ||od.stimefloccus.shop^
+||odloqsduxqha.in^
 ||odnvkuocmow.in^
 ||odqdkealzr.com^
 ||oewa.at^
@@ -18918,6 +18941,7 @@
 ||qn.unspedtaction.com^
 ||qnbeenbgsx.com^
 ||qnenxwwxzav.com^
+||qnfonjdhdpx.com^
 ||qnp16tstw.com^
 ||qnsr.com^
 ||qo.errorrespan.com^
@@ -18950,6 +18974,7 @@
 ||r.leadzu.com^
 ||r.trwl1.com^
 ||r0ckeet.com^
+||rabon.org^
 ||radiate.com^
 ||radiumone.com^
 ||radxabsah.com^
@@ -19776,6 +19801,7 @@
 ||uumkcycj.com^
 ||uvopoefe.com^
 ||uwoaptee.com^
+||ux.bagwigvendee.cfd^
 ||uz.louchefunnel.shop^
 ||v6rxv5coo5.com^
 ||vacationmonday.com^
@@ -40602,5 +40628,5 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 38497
+! Total unique rules: 38518
 ! Duplicates removed: 1686
