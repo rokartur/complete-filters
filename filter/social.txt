@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 15 Oct 2026 01:19:18 UTC
+! Last modified: 16 Oct 2026 01:18:00 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 8 / 8
@@ -14682,6 +14682,9 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+testomania.app##section[data-share-path]
+alba.co.kr##.quick-action--share
+ntv.com.tr##.inread-photo-area > div.w-full.flex:has(a.group[href="https://x.com/ntv"])
 mansionglobal.com##div[data-testid="articleShareTools"]
 khelnow.com##button[aria-label="share"]
 tvgreeklive.com###shareControls
@@ -15761,7 +15764,7 @@ noticiascaracol.com##ps-share-button
 technopat.net##.widget_jnews_social
 chocolatecoveredkatie.com##.top-hat--has-socials
 thekrazycouponlady.com##.share-rail-container
-security.apple.com,locipo.jp,cybersport.ru##div[class^="share_"]
+egw.news,security.apple.com,locipo.jp,cybersport.ru##div[class^="share_"]
 turkifsahub.com##article > section:has(> button > svg[data-icon="share-nodes"])
 news.blizzard.com#%#//scriptlet('hide-in-shadow-dom', 'blz-news-social-sharing')
 washingtontimes.com##.share-and-comments-wrap
@@ -16199,7 +16202,6 @@ blog.hatena.ne.jp##.edit-done-socialize-header
 blog.hatena.ne.jp##.js-refresh-socialize-box
 auto.ru##button[class*="CatalogActionButtons__shareBtn-"]
 isekaitube.com##.entry-meta-right
-gearjunkie.com,musicradar.com,mlive.com##button[aria-label="Share this article"]
 centralasia.media##.share-aki-btns
 sport24.gr##.single_article_social
 pap.pl##.youTube
@@ -28747,6 +28749,7 @@ adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_i
 ! generic cooking sites
 ##body[class*="adthrive-device-"] > .site-container .block-social-share
 !
+##button[aria-label="Share this article"]
 ##a[href^="https://threads.com/intent/post?text="]
 ###utilitybar__button--share
 ~note.com##a[href^="https://note.com/intent/post?url="]
@@ -44101,5 +44104,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42833
-! Duplicates removed: 636
+! Total unique rules: 42836
+! Duplicates removed: 637
