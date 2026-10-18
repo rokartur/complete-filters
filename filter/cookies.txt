@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Cookies
 ! Description: Combined filter list for the cookies category.
-! Last modified: 17 Oct 2026 01:18:27 UTC
+! Last modified: 18 Oct 2026 01:21:18 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 22 / 22
@@ -109,6 +109,8 @@ metro-cc.hr##body:style(overflow: auto !important;)
 ||ccm.merudata.app^
 ! https://github.com/uBlockOrigin/uAssets/issues/33342
 ||cdn.ing.com/ing-feat-cookie-preference/
+! https://github.com/uBlockOrigin/uAssets/issues/22663#issuecomment-6218657450
+/wrapperMessagingWithoutDetection.js$important,domain=tomsguide.com
 
 !!! Trusted scriptlets------------------------------------------------------------
 
@@ -8302,7 +8304,7 @@ win-10-forum.de,pedelecforum.de#$#body[style*="overflow: hidden;"] .p-pageWrappe
 ! #%#//scriptlet('prevent-setTimeout', 'f.parentNode.removeChild(f)', '100')
 ntv.com.tr,foromtb.com#%#//scriptlet('prevent-setTimeout', 'f.parentNode.removeChild(f)', '100')
 ! fundingchoicesmessages.google.com
-||fundingchoicesmessages.google.com^$domain=mobirank.pl|hotdeals.com|coderoad.ru|hardwaresfera.com|namba.keizai.biz|antik-war.lv|ipabox.net|nzherald.co.nz|nmac.to|smart-flash.jp|obserwatorgospodarczy.pl|schmidtisblog.de|androidfilehost.com|what-it.pl|showtv.com.tr|picmix.com|aeiou.pt|expansion.com|pik.poznan.pl|piklodz.pl|pik.warszawa.pl|pik.krakow.pl|pik.katowice.pl|pikgdansk.pl|piktorun.pl|pik.wroclaw.pl|piklublin.pl|techsvet.cz|crystal-launcher.pl|wpteq.org|guideoftheworld.com|gadgetversus.com|rtings.com|techzim.co.zw|tabiris.com|worksheetkids.com|temporary-phone-number.com|diena.lt|tvguru.cz|h-donghua.xyz|prospektangebote.de|funkykit.com|bielskiedrogi.pl|boardingarea.com|tychy.info|odigostoupoliti.eu|murciatoday.com|bestmvno.com|in.gr|audiocircuit.dk|wikiru.jp|trilltrill.jp|amanchourasia.in|0gichul.com|pokeflix.tv|megawypas.com|respublika.lt|smsnator.online|motoryzacyjnyblog.pl|ad4msan.com|tvmaze.com|muzotakt.pl|depesza.fm|styl.fm|edumail.su|423down.com|forex-nawigator.biz|dosgames.com|9to5toys.com|winteach.de|robtex.com|speedof.me|ntelemicro.com|xeud.it|waw4free.pl|gizchina.it|sikayetvar.com|hidencloud.com|forum-audi.com|aszdziennik.pl|dadhero.pl|innpoland.pl|mamadu.pl|9-gld.net|klubzwierzaki.pl|wybierz.tv|codicefiscaleonline.com|pearos.xyz|nintendonews.pl|infotbal.cz|tanielotykroluzloty.pl|niezalezna.pl|catalogueoffers.co.uk|promotions.ae|offertevolantini.it|ajanlatok.hu|reklambladerbjudanden.se|adspecials.us|ofertelecatalog.ro|folhetospromocionais.com|catalogosofertas.com.pe|kundeavisogtilbud.no|catalogosofertas.com.mx|catalogosofertas.com.co|flyerdeals.ca|folderz.nl|folletosofertas.es|promocatalogues.fr|catalogosofertas.com.ec|tilbudsaviseronline.dk|catalogosofertas.cl|catalogosofertas.com.br|promotiez.be|flugblattangebote.at|catalogueoffers.com.au|catalogosofertas.com.ar|cataloguespecials.co.za|invezz.com|mgsm.pl|wiemy.to|oswiecimonline.pl|pasqualepillitteri.it|telegram.hr|gostynin24.pl|freizeitmonster.de|roland-gazeta.pl|czecho.pl|tempmailg.com|infobel.com|natemat.pl|przegladsportowy.onet.pl|ewybory.eu|alipaczka.pl
+||fundingchoicesmessages.google.com^$domain=mobirank.pl|hotdeals.com|coderoad.ru|hardwaresfera.com|namba.keizai.biz|antik-war.lv|ipabox.net|nzherald.co.nz|nmac.to|smart-flash.jp|obserwatorgospodarczy.pl|schmidtisblog.de|androidfilehost.com|what-it.pl|showtv.com.tr|picmix.com|aeiou.pt|expansion.com|pik.poznan.pl|piklodz.pl|pik.warszawa.pl|pik.krakow.pl|pik.katowice.pl|pikgdansk.pl|piktorun.pl|pik.wroclaw.pl|piklublin.pl|techsvet.cz|crystal-launcher.pl|wpteq.org|guideoftheworld.com|gadgetversus.com|rtings.com|techzim.co.zw|tabiris.com|worksheetkids.com|temporary-phone-number.com|diena.lt|tvguru.cz|h-donghua.xyz|prospektangebote.de|funkykit.com|bielskiedrogi.pl|boardingarea.com|tychy.info|odigostoupoliti.eu|murciatoday.com|bestmvno.com|in.gr|audiocircuit.dk|wikiru.jp|trilltrill.jp|amanchourasia.in|0gichul.com|pokeflix.tv|megawypas.com|respublika.lt|smsnator.online|motoryzacyjnyblog.pl|ad4msan.com|tvmaze.com|muzotakt.pl|depesza.fm|styl.fm|edumail.su|423down.com|forex-nawigator.biz|dosgames.com|9to5toys.com|winteach.de|robtex.com|speedof.me|ntelemicro.com|xeud.it|waw4free.pl|gizchina.it|sikayetvar.com|hidencloud.com|forum-audi.com|aszdziennik.pl|dadhero.pl|innpoland.pl|mamadu.pl|9-gld.net|klubzwierzaki.pl|wybierz.tv|codicefiscaleonline.com|pearos.xyz|nintendonews.pl|infotbal.cz|tanielotykroluzloty.pl|niezalezna.pl|catalogueoffers.co.uk|promotions.ae|offertevolantini.it|ajanlatok.hu|reklambladerbjudanden.se|adspecials.us|ofertelecatalog.ro|folhetospromocionais.com|catalogosofertas.com.pe|kundeavisogtilbud.no|catalogosofertas.com.mx|catalogosofertas.com.co|flyerdeals.ca|folderz.nl|folletosofertas.es|promocatalogues.fr|catalogosofertas.com.ec|tilbudsaviseronline.dk|catalogosofertas.cl|catalogosofertas.com.br|promotiez.be|flugblattangebote.at|catalogueoffers.com.au|catalogosofertas.com.ar|cataloguespecials.co.za|invezz.com|mgsm.pl|wiemy.to|oswiecimonline.pl|pasqualepillitteri.it|telegram.hr|gostynin24.pl|freizeitmonster.de|roland-gazeta.pl|czecho.pl|tempmailg.com|infobel.com|natemat.pl|przegladsportowy.onet.pl|ewybory.eu|alipaczka.pl|icrewplay.com
 ! For apps
 ||fundingchoicesmessages.google.com^$app=com.accordion.pro.camera|ru.photostrana.mobile|com.photo.android.camera|com.finallevel.radiobox
 ! https://github.com/AdguardTeam/AdguardFilters/issues/176118
@@ -8443,6 +8445,9 @@ e-hortico.pl,sklep.doppelherz.pl,jestemwbajce.pl,greentouch.pl,4zywioly.pl,kanke
 !
 ! NOTE: Regular rules
 !
+russianemirates.com##.re-cookie-layer
+icrewplay.com###ft-floating-toolbar > .ft-reg-bubble
+textmatchcut.app##.tmc-consent
 lueneburger-heide.de#%#//scriptlet('trusted-set-cookie-reload', 'consent', '%7B%22essential%22%3A1%2C%22analytics%22%3A0%2C%22youtube%22%3A1%2C%22osm%22%3A1%2C%22google_maps%22%3A1%2C%22zendesk%22%3A0%7D')
 linx.ru##.popup__cookie
 company.rt.ru##.cookie-consent__banner
@@ -68761,7 +68766,7 @@ grandidizionari.it##div.alertcookie
 ! ===== SOURCE: https://raw.githubusercontent.com/the-advoid/ad-void/main/AdVoid.Core.txt
 !
 ! {@!}
-! Entries: 6543
+! Entries: 6579
 ! Author: Igor Dimitrijević (@igorskyflyer)
 ! GitHub issues: https://github.com/the-advoid/ad-void/issues
 ! GitHub pull requests: https://github.com/the-advoid/ad-void/pulls
@@ -68853,6 +68858,7 @@ grandidizionari.it##div.alertcookie
 ||addresseepaper.com^
 ||addresseetransportationsyndrome.com^
 ||addthis.com^
+||adeli-msh.com^
 ||adexchangeclear.com^
 ||adforcast.com^
 ||adform.net^
@@ -68864,6 +68870,7 @@ grandidizionari.it##div.alertcookie
 ||adgrid.io^$3p
 ||adhitzads.com^
 ||adinplay.com^$3p
+||aditms.me^$doc
 ||adlightning.com^
 ||admantx.com^
 ||admetricspro.com^
@@ -69017,6 +69024,7 @@ grandidizionari.it##div.alertcookie
 ||arwobaton.com^$popup,doc
 ||asacdn.com^
 ||asemskull.com^
+||asiafilm.org^$3p
 ||ask4fuk.com^
 ||aso1.net^
 ||asqpniwvxea.com^
@@ -69038,6 +69046,7 @@ grandidizionari.it##div.alertcookie
 ||ausoafab.net^
 ||authognu.com^$popup,doc
 ||autsikaboo.com^
+||auvauvixoazedro.net^
 ||avantlink.com^$3p
 ||avast.com^
 ||awbms.com^
@@ -69170,6 +69179,7 @@ grandidizionari.it##div.alertcookie
 ||brikmavim.com^
 ||brithungown.com^
 ||brittlesturdyunlovable.com^
+||broapp.online^
 ||browser-update.org^
 ||brutishlylifevoicing.com^
 ||btloader.com^
@@ -69282,6 +69292,7 @@ grandidizionari.it##div.alertcookie
 ||cleverwebserver.com^
 ||clickadilla.com^
 ||clickadu.com^$3p
+||clickadu.net^
 ||clickaine.com^
 ||clickdaly.com^
 ||clickfuse.com^
@@ -69289,6 +69300,7 @@ grandidizionari.it##div.alertcookie
 ||clickpathworks.com^
 ||clicksmnt.xyz^
 ||clmbtech.com^
+||cloubflare.net^
 ||cloudflareinsights.com^
 ||cloudfrale.com^
 ||cloudimagesb.com^
@@ -69451,6 +69463,7 @@ grandidizionari.it##div.alertcookie
 ||dimeromaean.com^
 ||dimessing-parker.com^
 ||dimfarlow.com^
+||dimpauckoarg.com^
 ||dimpawlam.com^
 ||dimpuxoh.net^
 ||dinclinx.com^
@@ -69540,6 +69553,7 @@ grandidizionari.it##div.alertcookie
 ||effectiveratecpm.com^
 ||effectslacybulb.com^
 ||effortstation.co^
+||egreedaicaipe.com^
 ||eizzih.com^
 ||ejcet5y9ag.com^
 ||ejoonsoo.net^
@@ -69722,6 +69736,7 @@ grandidizionari.it##div.alertcookie
 ||ggwifobvx.com^
 ||ghabovethec.info^
 ||gihehazfdm.com^
+||ginseftaub.com^
 ||giocdn.com^$3p
 ||gizokraijaw.net^
 ||gkpohvff.com^
@@ -69767,6 +69782,8 @@ grandidizionari.it##div.alertcookie
 ||grauglak.com^
 ||greedfortracker.com^$popup,doc
 ||greedseed.world^
+||greeghupoalrie.net^
+||gretsautaz.com^
 ||gridriwe.xyz^
 ||grooverend.com^
 ||grourgartixa.com^
@@ -69775,6 +69792,7 @@ grandidizionari.it##div.alertcookie
 ||gsjln04hd.com^
 ||guangzhuiyuan.com^
 ||guarantee-cdn.com^$3p
+||guardifypro.store^
 ||guestblackmail.com^
 ||gulsachpyrexia.uno^
 ||gumgum.com^$3p
@@ -69826,6 +69844,7 @@ grandidizionari.it##div.alertcookie
 ||hojagoak.com^
 ||hokejatv.com^
 ||homomqmfbomoy.com^
+||homsoocmouhoa.net^
 ||honeybadger.io^
 ||hookrelay.dev^
 ||hopefullyapricot.com^
@@ -69952,6 +69971,7 @@ grandidizionari.it##div.alertcookie
 ||ja2n2u30a6rgyd.com^
 ||jads.co^
 ||jambiyaputtied.digital^
+||jaupsetoume.net^
 ||jawconcealed.com^
 ||jawdfimcolk.com^
 ||jeckoort.com^
@@ -70053,6 +70073,7 @@ grandidizionari.it##div.alertcookie
 ||leadpages.io^$3p
 ||leafingcoitus.website^
 ||legalsofafalter.com^
+||lensoawhin.com^
 ||leojmp.com^
 ||lephaush.net^
 ||letmeads.com^$3p
@@ -70275,6 +70296,7 @@ grandidizionari.it##div.alertcookie
 ||nativemedia.rs^
 ||nativewpshep.com^
 ||naukegainok.net^$popup
+||naumezeephovy.net^
 ||nauseacomplimentary.com^
 ||nauseousonto.com^
 ||navigateembassy.com^
@@ -70326,6 +70348,7 @@ grandidizionari.it##div.alertcookie
 ||novemberassimilate.com^
 ||npttech.com^
 ||nr-data.net^
+||nresystems.com^$3p
 ||nslokxweviwqbg.com^
 ||nspiringtgandm.info^
 ||ntv.io^$3p,from=~teslarati.com
@@ -70391,6 +70414,7 @@ grandidizionari.it##div.alertcookie
 ||ontek.com.tr^
 ||onykp.com^
 ||oo-syringe.com^
+||oognauboalsifty.net^
 ||oowhestouptuft.com^
 ||opencan.net^
 ||openfpcdn.io^
@@ -70540,10 +70564,12 @@ grandidizionari.it##div.alertcookie
 ||possessionaddictedflight.com^
 ||postaffiliatepro.com^
 ||postrelease.com^
+||potassaseafolk.shop^
 ||potskolu.net^
 ||povezano.com^
 ||powerad.ai^
 ||powerppshtraf.digital^
+||ppezijkacga.com^
 ||pq8ithtdw.com^$popup,doc
 ||pratimojpaket.com^
 ||praystakeinstinct.com^
@@ -70583,6 +70609,7 @@ grandidizionari.it##div.alertcookie
 ||propu.sh^
 ||prostocleanlands.com^
 ||protagcdn.com^
+||protoolapp.online^
 ||prowsunawned.space^
 ||prplads.com^
 ||psairees.net^
@@ -70596,6 +70623,7 @@ grandidizionari.it##div.alertcookie
 ||ptaupsom.com^
 ||ptffvpjhhb.com^
 ||ptgncdn.com^
+||ptoomejaug.net^
 ||ptupsewo.net^$popup,doc
 ||ptxhzp.com^$popup,doc
 ||puabvo.com^
@@ -70696,6 +70724,7 @@ grandidizionari.it##div.alertcookie
 ||requestmetrics.com^$3p
 ||rereddit.com^
 ||researchnow.com^
+||retroanimesega.cfd^
 ||retrosshowily.com^
 ||revampcdn.com^
 ||revenuecat.com^$3p
@@ -70723,6 +70752,7 @@ grandidizionari.it##div.alertcookie
 ||roudoduor.com^
 ||rouhavenever.com^
 ||roumnfor.net^
+||rouzoophaur.com^
 ||roxot-panel.com^$3p
 ||royalchin.com^
 ||rpboostpro.club^
@@ -71070,12 +71100,14 @@ grandidizionari.it##div.alertcookie
 ||top-toones.com^
 ||topatowedels.com^
 ||topinstallsapplicationads.rest^
+||toplakehorizon.com^
 ||toplist.cz^
 ||topnewsfeeds.net^
 ||toprevenuegate.com^
 ||torioluor.com^
 ||toromclick.com^
 ||toshsheria.top^
+||toushophagrot.com^
 ||tpmn.co.kr^
 ||tpmn.io^$3p
 ||tr-bouncer.com^
@@ -71259,6 +71291,7 @@ grandidizionari.it##div.alertcookie
 ||vivaclix.com^$3p
 ||vivadys.com^
 ||viyuzi.xyz^
+||vizeeksiry.net^
 ||vlernujzri.com^
 ||vlitag.com^
 ||vlyweeipo.com^
@@ -71401,6 +71434,7 @@ grandidizionari.it##div.alertcookie
 ||yourwebbars.com^
 ||ypeoncukohce.com^
 ||yqmxfz.com^
+||yrdentraffic.cc^
 ||yunaga.xyz^
 ||yuriembark.com^
 ||yurivideo.com^
@@ -71979,6 +72013,7 @@ grandidizionari.it##div.alertcookie
 -platform-alisg.tiktokv.com^
 .logs.datadoghq.eu^
 ://backstory.ebay.
+://xml-eu-v4.*.com/click?$doc
 symplr-analytics-
 telemetry.officeapps.live.com^
 ||edgetrksvc.ebay.
@@ -72653,6 +72688,7 @@ _pagespeed_beacon?$xhr
 /submenu/*/&oaid=$popup,doc
 /sw.js?puid=$script
 /swfobject_*.js^$script
+/sxp/i/*$script,3p,from=~linkvertise.com
 /t.gif^$image
 /tacoma/*.js^$script
 /tag.js^$script
@@ -73004,6 +73040,7 @@ trekkie*.js^$script
 ?utm_source=propellerads$popup
 ?zoneid=*&cost=0.$doc
 ^s=*&z=*&svar=*&ssk=$doc
+^z=*&var=$removeparam=var
 _browser_id=
 ab=1
 ab_test=AdOpt
@@ -73277,6 +73314,7 @@ zoneid=
 ##.ad-desktop
 ##.ad-disclaimer
 ##.ad-ex
+##.ad-general
 ##.ad-halfpage
 ##.ad-header
 ##.ad-hm-slot
@@ -73286,6 +73324,7 @@ zoneid=
 ##.ad-label
 ##.ad-lb
 ##.ad-leader
+##.ad-leaderboard
 ##.ad-leaderboard-base
 ##.ad-mb
 ##.ad-medium-rectangle-base
@@ -75947,5 +75986,5 @@ zety.com##._cookiePopup_1fsd7_127
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 67162
-! Duplicates removed: 2719
+! Total unique rules: 67200
+! Duplicates removed: 2721
