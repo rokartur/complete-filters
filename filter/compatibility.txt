@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 19 Oct 2026 01:24:20 UTC
+! Last modified: 20 Oct 2026 01:20:16 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -12518,11 +12518,11 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.proto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=claireguessthousand.com,important
-claireguessthousand.com##+js(nowoif)
-claireguessthousand.com##+js(set, console.clear, undefined)
-claireguessthousand.com##+js(acs, globalThis, break;case)
-claireguessthousand.com##+js(acs, WebAssembly, atob)
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=derricknationtop.com,important
+derricknationtop.com##+js(nowoif)
+derricknationtop.com##+js(set, console.clear, undefined)
+derricknationtop.com##+js(acs, globalThis, break;case)
+derricknationtop.com##+js(acs, WebAssembly, atob)
 ||claireguessthousand.com^$badfilter
 
 ! next-episode .net
@@ -19125,6 +19125,10 @@ www.bankofamerica.com##+js(no-fetch-if, smetrics.bankofamerica.com)
 northeast.aaa.com##+js(set, _uxa, {})
 northeast.aaa.com##+js(set, _uxa.push, noopFunc)
 
+! https://github.com/uBlockOrigin/uAssets/issues/34937
+roaringapps.com##+js(set, Sentry, {})
+roaringapps.com##+js(set, Sentry.onLoad, noopFunc)
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19330,5 +19334,5 @@ northeast.aaa.com##+js(set, _uxa.push, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13386
+! Total unique rules: 13388
 ! Duplicates removed: 18
