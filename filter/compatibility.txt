@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 21 Oct 2026 01:21:38 UTC
+! Last modified: 22 Oct 2026 01:19:38 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1792473306-3600.patch
+! Diff-Path: ../patches/11/11-s-1792624400-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2622,7 +2622,6 @@ deviantart.com#@#.mobile-ad
 ! Fixing video and comments on cnet.com
 @@||cnet2.cbsistatic.com/fly/*/bundles/cnetmpxpdk/
 @@||imasdk.googleapis.com^$domain=cnet.com
-@@||livefyre.com/wjs/v1.0/javascripts/CommentCount.js$domain=mlb.com
 ! T-Mobile - fixing MMS
 @@||t-mobile.com/mms/$document
 ! https://play.google.com/store/apps/details?id=com.digidust.elokence.akinator.freemium - continuous attempt to download
@@ -2714,6 +2713,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+ksta.de##.fixed.bottom-0
 polandball.jp##div[class^="myadd"]
 kako-mon.com###ad-under-header
 psicoactiva.com##aside[style="position:sticky; position:-webkit-sticky; top:0px; min-height:250px;"]
@@ -3190,7 +3190,6 @@ entabe.jp##div[style="text-align:center;margin-top:20px;margin-bottom:20px;"] > 
 nlab.itmedia.co.jp#$#@media (max-width: 767px) { body > div[id^="div-gpt-ad-nl_"][id$="_article_HeaderOverlay"] ~ header:not(#style_important) { margin-top: 0 !important; } }
 usmagazine.com##.bbTag
 usmagazine.com##.sellwild-wrapper
-motherless.com###mobile_in_content_view
 prajavani.net###sticky-banner-id
 prajavani.net###mobile-story-card-1 + div[class]:has(.ad-text)
 prajavani.net##.secondSetStories-wrapper > div:not([id^=story-card]):has(.ad-text)
@@ -6817,7 +6816,6 @@ gumtree.com.au##.header-lite__leaderboard-ad
 news.1242.com###pickup_list
 news.1242.com##.box_infeed.gmossp
 news.1242.com##div[class^="area_ads"]
-motherless.com###advertisement-above-footer
 jprime.jp##.ad-relate
 jprime.jp##.ad-top-header
 jprime.jp##.ad-undertitle
@@ -7848,9 +7846,7 @@ m.plo.vn###Mobile_AdsArticleBodyMiddle
 amp-meduza-io.cdn.ampproject.org##.Adv--bordered
 dongtw.com##.adfixWp
 dongtw.com##.jeg_ad
-motherless.com###advertisement-below-menu
-||motherless.com/floater_iframe.php
-imgbox.com,collectionofbestporn.com,imagebam.com,motherless.com##._ln-floater
+imgbox.com,collectionofbestporn.com,imagebam.com##._ln-floater
 tubedupe.com,anyporn.com###mh-ad
 ||anyporn.com/xml^$media,redirect=noopmp4-1s
 blog.livedoor.com##.MdAdBox01
@@ -13063,8 +13059,8 @@ ligainsider.de##+js(nostif, /unknown|BLOCKED/i)
 ! https://github.com/uBlockOrigin/uAssets/issues/34741
 iplookup.flagfox.net##.adsbygoogle
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/244323
-nogizaka46-matome.jp#@##footerafficode
+! https://github.com/easylist/easylist/issues/26042
+||error-report.com^$badfilter
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -19336,5 +19332,5 @@ roaringapps.com##+js(set, Sentry.onLoad, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13392
+! Total unique rules: 13388
 ! Duplicates removed: 18

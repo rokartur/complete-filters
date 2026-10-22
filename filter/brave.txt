@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 21 Oct 2026 01:21:38 UTC
+! Last modified: 22 Oct 2026 01:19:38 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -6862,6 +6862,11 @@ qatarairways.com#@#+js(set-cookie, cookie_visited, true)
 openbank.de#@#+js(trusted-click-element, button[onclick="onClickRefuseCookies(event)"], , 1000)
 @@||usercentrics.eu^$script,xhr,domain=openbank.de
 
+! experimental, time-limited
+kaufland.cz,kaufland.pl,kaufland.fr#@##onetrust-banner-sdk
+kaufland.cz,kaufland.pl,kaufland.fr#@##onetrust-consent-sdk
+@@||cdn.cookielaw.org/scripttemplates/*/otBannerSdk.js$domain=kaufland.cz|kaufland.pl|kaufland.fr
+
 
 ! ===== SOURCE: https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-twitch.txt
 ! (all rules already included from earlier sources)
@@ -7077,5 +7082,5 @@ openbank.de#@#+js(trusted-click-element, button[onclick="onClickRefuseCookies(ev
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 6003
+! Total unique rules: 6006
 ! Duplicates removed: 9
