@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 22 Oct 2026 01:19:57 UTC
+! Last modified: 23 Oct 2026 01:22:50 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 8 / 8
@@ -10646,6 +10646,7 @@ consequence.net##.add-to-google
 usmagazine.com##.add-to-google-banner
 womansworld.com##.add-to-google-banner__wrapper___1PWZa
 citynews.ca##.add-trusted-source
+techspot.com##.add-us
 city-journal.org##.addthis-trigger
 lwlies.com##.addthis_toolbox
 planetizen.com##.addtoany_list
@@ -14687,6 +14688,7 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+respublika.lt##.p2_social
 sport.rbc.ua##.pub-share
 csmonitor.com##.dropdown-share
 speedof.me##.share-btn-group > foreignObject > div.result_icon_container > div.result_icon_group:is([aria-label^="Share"], [aria-label="Copy link"])
@@ -15998,7 +16000,7 @@ pay.mysbertips.ru##button[data-test-id="finish-page-share-btn"]
 ldplayer.net##div.inline-flex:has(> div.flex-center > svg > path[d^="M11.885"])
 sapo.pt##button[data-widget="share"]
 fatnya.com###custom_html-4
-news.cgtn.com##.news-share-wrapper
+promminer.ru,news.cgtn.com##.news-share-wrapper
 streamscharts.com##div.duration-200[class$="2sm-max:col-span-12"] > .bg-card.md-max\:hidden
 ppomppu.co.kr###buttonBox-sharing
 kayserianadoluhaber.com.tr#$#.lg\:px-4 > .lg\:rounded-t-md.bg-slate-100 { justify-content: flex-end !important; }
@@ -19450,7 +19452,7 @@ galaxystore.samsung.com##div[class^="SnsPlugin_share__"]
 economyup.it##.article_vertical_share
 zawazawa.jp##.info > div.aside-nav
 abiko-tsushin.com,misato-gurashi.com,kashiwa-tsushin.com,katsushika-tsushin.com,matsudo-tsushin.com,funabashi-tsushin.com,conan-mobile.jp###snsshare
-rakumachi.jp,conan-movie.jp##.snsBox
+books.bunshun.jp,rakumachi.jp,conan-movie.jp##.snsBox
 m.ibric.org###div_share_icon
 ibric.org##a[href^='/inc/snsmenu_count.php?']
 ibric.org##img[onclick^='window.open'][onclick*='/print.php?']
@@ -29685,7 +29687,6 @@ skillsyouneed.com##.syn-share-bar
 carolinacountry.com###ampz_flyin
 aajtak.in##.rhs-fixwhtsapp
 fiba.basketball###social-promo-flyin
-fmovies.app#$#body { overflow: visible!important; }
 fridaynightfunkin.fandom.com##.mw-notification-area
 bootcamp.analyticsvidhya.com,blackbelt.analyticsvidhya.com##.whatsapp-floating
 sks-auto.ru##.jllikeproSharesContayner
@@ -30102,6 +30103,8 @@ bomb01.com#$#.modal-open { overflow: visible!important; }
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/245066
+turbosmurfs.gg#@#.social-widget
 ! https://github.com/AdguardTeam/AdguardFilters/issues/244714
 vertexpilot.github.io#@#.social-row
 ! https://github.com/AdguardTeam/AdguardFilters/issues/237550#issuecomment-6084889517
@@ -44131,5 +44134,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42862
+! Total unique rules: 42864
 ! Duplicates removed: 638
