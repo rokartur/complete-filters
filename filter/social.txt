@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 23 Oct 2026 01:22:50 UTC
+! Last modified: 24 Oct 2026 01:20:59 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 8 / 8
@@ -14688,8 +14688,13 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+dizifilmizle.to##div.hidden.md\:flex > div.flex.items-center:has(> div.flex > button[title])
+altoonamirror.com##.share_icons
+hotspawn.com##.elementor-element-9e5c893
+beincrypto.com##div[class^="Socials-"]
 respublika.lt##.p2_social
 sport.rbc.ua##.pub-share
+j-cast.com###entry-content > .align-justify > .sticky-objects:has(> button.web-share-btn)
 csmonitor.com##.dropdown-share
 speedof.me##.share-btn-group > foreignObject > div.result_icon_container > div.result_icon_group:is([aria-label^="Share"], [aria-label="Copy link"])
 zlotowskie.pl##.share__socials > li[class="share__social"]:not(:has(> a[href^="https://news.google.com/publications/"]))
@@ -14804,7 +14809,6 @@ qz.com##a[href^="https://www.google.com/preferences/source?q="] ~ div.flex:has(>
 read.tsarea.tv,teletype.in##.article__section_button:has(svg[data-icon="share"])
 techora.ru##.order-last:has(> div.flex > button[title="Telegram"])
 xenospectrum.com##.xs-share-bar
-bluebirdbanter.com##.duet--article--share-buttons
 footmercato.net##.topBar__action--actionShare
 24zaglebie.pl,zabrzenews.pl,glivice.pl,24kato.pl,bytomski.pl,nowinytyskie.pl,ngs24.pl,rudzianin.pl,chorzowski.pl,slazag.pl##.stickySocialIcon
 finanzen.net##.social-buttons-toggle
@@ -16875,7 +16879,7 @@ zona.media,mediazonaby.com##.mz-social-share
 rsf.org##.wrapper-social-shared
 rskrf.ru#?#.news-bottom-info > span.simple-list__title:contains(/^Поделиться/)
 athome.co.jp##.quick-contact-unit > .bg-offwhite:has(> .label-sns)
-perplexity.ai,dzen.ru##button[data-testid="share-button"]
+barrons.com,perplexity.ai,dzen.ru##button[data-testid="share-button"]
 pewresearch.org##.wp-block-prc-block-social-share-sheet
 pewresearch.org##.entry-content > .wp-block-group > .wp-block-social-links
 aliexpress.com,aliexpress.us##div[class^="share-and-wish--share--"]
@@ -19824,7 +19828,6 @@ mart.gov.by##.dropdown > div.news-detail-share
 aptoide.com##div[class^="app-informations__ShareContainer"]
 standforukraine.com##button[class*="TopHeader__ShareButton"]
 tennisworldusa.org##.sharex
-vox.com,polygon.com,theverge.com##.duet--article--share-buttons
 theverge.com##.duet--article--lede-share-tools-separator
 tokyodisneyresort.jp##.socialBlog > h2.heading4
 hotping.jp##.snsLink
@@ -28392,7 +28395,7 @@ pgn21.ru,orodkirov.ru,navigator-kirov.ru,pg11.ru,pg12.ru,pg13.ru,pg21.ru,prochep
 ! cuty.io
 cuttlinks.com,cuttty.com,cuttyy.com,cutynow.com,exnion.com,cutyion.com,jixo.online,exe-urls.com,evernia.site,ijvam.com,mrgec.com,emxaw.com,cety.app,cutnet.net##.share-icons-container
 !
-! Hearst Television Inc
+! Hearst Television Inc / Hearst Properties Inc
 4029tv.com,98online.com,abc-7.com,hearst.com,kcci.com,kcra.com,ketv.com,kmbc.com,koat.com,koco.com,ksbw.com,mor-tv.com,mynbc5.com,nbc-2.com,wapt.com,wbal.com,wbaltv.com,wcvb.com,wdsu.com,wesh.com,wgal.com,wisn.com,wjcl.com,wlky.com,wlwt.com,wmtw.com,wmur.com,wpbf.com,wptz.com,wtae.com,wvtm13.com,wxii12.com,wyff4.com##.article-social
 !
 ! Minute Media
@@ -28677,6 +28680,7 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_ext
 !+ PLATFORM(ios) NOT_OPTIMIZED
 adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_ios { display: none !important; }
 !
+
 !-------------------------------------------------------------------------------!
 !-------------- General hiding rules -------------------------------------------!
 !-------------------------------------------------------------------------------!
@@ -28776,6 +28780,7 @@ adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_i
 ! generic cooking sites
 ##body[class*="adthrive-device-"] > .site-container .block-social-share
 !
+##.duet--article--share-buttons
 ##button[aria-label="Share this article"]
 ##a[href^="https://threads.com/intent/post?text="]
 ###utilitybar__button--share
@@ -44134,5 +44139,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42864
+! Total unique rules: 42868
 ! Duplicates removed: 638

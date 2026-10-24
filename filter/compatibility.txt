@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 23 Oct 2026 01:22:37 UTC
+! Last modified: 24 Oct 2026 01:20:40 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1792678520-3600.patch
+! Diff-Path: ../patches/11/11-s-1792764991-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2715,6 +2715,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+2dfan.com##.nexus-banner-ad
+jorudan.co.jp##a[id^="bnr_"]
+op.gg###pubg-m-leaderboard-top
 respublika.lt###onnetwork_container
 otakuma.net###otkm-anchor
 yahoo.com###mid-center-ad-1
@@ -12844,6 +12847,7 @@ streamcash.to##+js(set, Element.prototype.attachShadow, noopFunc)
 streamcash.to##a[rel*="sp0nsored"]:upward(1)
 streamcash.to##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click, a[target="_blank"])
 streamcash.to##div.video-js:style(z-index:2147483647 !important)
+streamcash.to##+js(prevent-innerHTML, div, 2147483647;)
 ||mjzeexubcswjka.com^
 ||uijarxbm.com^
 
@@ -19342,5 +19346,5 @@ roaringapps.com##+js(set, Sentry.onLoad, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13398
+! Total unique rules: 13402
 ! Duplicates removed: 18
