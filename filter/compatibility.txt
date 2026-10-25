@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 24 Oct 2026 01:20:40 UTC
+! Last modified: 25 Oct 2026 01:22:20 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -12523,11 +12523,11 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.proto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=derricknationtop.com,important
-derricknationtop.com##+js(nowoif)
-derricknationtop.com##+js(set, console.clear, undefined)
-derricknationtop.com##+js(acs, globalThis, break;case)
-derricknationtop.com##+js(acs, WebAssembly, atob)
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=jamespatterncamera.com,important
+jamespatterncamera.com##+js(nowoif)
+jamespatterncamera.com##+js(set, console.clear, undefined)
+jamespatterncamera.com##+js(acs, globalThis, break;case)
+jamespatterncamera.com##+js(acs, WebAssembly, atob)
 ||claireguessthousand.com^$badfilter
 
 ! next-episode .net
@@ -19141,6 +19141,13 @@ northeast.aaa.com##+js(set, _uxa.push, noopFunc)
 roaringapps.com##+js(set, Sentry, {})
 roaringapps.com##+js(set, Sentry.onLoad, noopFunc)
 
+! https://github.com/uBlockOrigin/uAssets/issues/34997
+funradio.fr##+js(trusted-replace-outbound-text, String.prototype.trim, /^STOP_GTM_WARNING$/, IMA_ADS)
+funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, as, function)
+
+! https://github.com/uBlockOrigin/uAssets/issues/34996
+@@||speedcubeshop.com/cdn/shopifycloud/consent-tracking-api/v*/consent-tracking-api.js$1p
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19346,5 +19353,5 @@ roaringapps.com##+js(set, Sentry.onLoad, noopFunc)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13402
+! Total unique rules: 13405
 ! Duplicates removed: 18

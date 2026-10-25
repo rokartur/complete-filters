@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 24 Oct 2026 01:20:53 UTC
+! Last modified: 25 Oct 2026 01:22:30 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 9 / 9
@@ -10,7 +10,7 @@
 ! Android host file - Adaway
 ! 
 ! Title: ABPVN Hosts
-! Updated: 13 Oct 2026 16:19 UTC+7
+! Updated: 24 Oct 2026 22:48 UTC+7
 ! License: ABPVN
 ! Please report any unblocked ads or problems by email or in our forums
 ! Email: support@abpvn.com
@@ -3583,10 +3583,14 @@
 ||wpengine.taplytics.com^
 ||www.taplytics.com^
 ! [amplitude.com]
+||amplitude.com^
 ||api.eu.amplitude.com^
 ||api.lab.amplitude.com^
+||api.lab.eu.amplitude.com^
 ||api2.amplitude.com^
 ||cdn.amplitude.com^
+||sr-client-cfg.amplitude.com^
+||sr-client-cfg.eu.amplitude.com^
 ! [voicefive]
 ||ar.voicefive.com^
 ||b.voicefive.com^
@@ -4473,12 +4477,20 @@
 ! [360in.com]
 ||360in.com^
 ||ad.360in.com^
+||camera360-api.360in.com^
 ||challenge.360in.com^
+||common-api.360in.com^
 ||dispatcher.360in.com^
 ||exp.360in.com^
 ||hotpot.360in.com^
 ||i.360in.com^
 ||member.360in.com^
+||phototask-api.360in.com^
+! [camera360.com]
+||applog.camera360.com^
+||collect.camera360.com^
+||dispatcher.camera360.com^
+||pushmsg.camera360.com^
 ! [reklamstore]
 ||ad.reklamstore.com^
 ||adserver.reklamstore.com^
@@ -8113,13 +8125,20 @@
 ||h-adashx4ae.ut.taobao.com^
 ! [alibaba.com]
 ||abtest.alibaba.com^
+||aplus.alibaba.com^
 ||dmtracking.alibaba.com^
 ||dmtracking2.alibaba.com^
 ||fourier.alibaba.com^
 ||stat.alibaba.com^
+||tdum.alibaba.com^
+||umlazada.alibaba.com^
 ! [ut.alibaba.com]
 ||adashx.ut.alibaba.com^
 ||h-adashx.ut.alibaba.com^
+! [alibabachengdun]
+||acs-mum.alibabachengdun.com^
+||mum.alibabachengdun.com^
+||mum.alibabachengdun.net^
 ! [aliexpress.com]
 ||adservice.aliexpress.com^
 ||fourier.aliexpress.com^
@@ -10632,10 +10651,14 @@
 ||videocloud-sgp.ap-southeast-1.log.aliyuncs.com^
 ||vod-newplayer-sg.ap-southeast-1.log.aliyuncs.com^
 ||cn-hangzhou.log.aliyuncs.com^
+||alivc-aio.cn-hangzhou.log.aliyuncs.com^
 ||cbu-offer.cn-shanghai.log.aliyuncs.com^
 ||cbu-search-app.cn-shanghai.log.aliyuncs.com^
 ||client-upload.cn-shanghai.log.aliyuncs.com^
+||videocloud.cn-hangzhou.log.aliyuncs.com^
 ||wireless-app-log.cn-hangzhou.log.aliyuncs.com^
+||ali-ctf.cn-hangzhou.dualstack.log.aliyuncs.com^
+||ali-ctf-req.cn-hangzhou.dualstack.log.aliyuncs.com^
 ! [log-global.aliyuncs.com]
 ||log-global.aliyuncs.com^
 ||adsplusadx-prod.log-global.aliyuncs.com^
@@ -13478,6 +13501,33 @@
 ||file-hw-ads-o.api.leiniao.com^
 ||ssai-ads.api.leiniao.com^
 ||ssai2-ads.api.leiniao.com^
+! [zhangyuyidong.cn]
+||zhangyuyidong.cn^
+||sdk.zhangyuyidong.cn^
+! [beizi.biz]
+||beizi.biz^
+||sdk.beizi.biz^
+! [volces.com]
+||apmplus.ap-southeast-1.volces.com^
+||apmplus.volces.com^
+||gator.volces.com^
+||mssdk.volces.com^
+||tab.volces.com^
+! [pangolin-dsp-toutiao.com]
+||pangolin-dsp-toutiao.com^
+! [pangolin-sdk-toutiao-b.com]
+||pangolin-sdk-toutiao-b.com^
+! [pangolin-sdk-toutiao.com]
+||pangolin-sdk-toutiao.com^
+||api-access.pangolin-sdk-toutiao.com^
+||gromore.pangolin-sdk-toutiao.com^
+||log-api.pangolin-sdk-toutiao.com^
+! [pangolin-sdk-toutiao1.com]
+||pangolin-sdk-toutiao1.com^
+||api-access.pangolin-sdk-toutiao1.com^
+! [pglstatp-toutiao.com]
+||pglstatp-toutiao.com^
+||sf3-fe-tos.pglstatp-toutiao.com^
 ! --- GroupVN block ---
 ! [adtimaserver]
 ||log.adtimaserver.vn^
@@ -16327,6 +16377,7 @@
 ||appular.com^
 ||aps.hearstnp.com^
 ||apture.com^
+||apzptquixoyr.com^
 ||aq7ua5ma85rddeinve.com^
 ||aqauikfd.com^
 ||aquaticowl.com^
@@ -16396,6 +16447,7 @@
 ||aweprt.com^
 ||awhilediplomagloss.com^
 ||awjojjrimaf.in^
+||awqmgvpbarmhyw.com^
 ||awzbijw.com^
 ||axdsz.pro^
 ||axillovely.com^
@@ -17801,6 +17853,7 @@
 ||ij.cobolgammed.com^
 ||ik.hatcheskoeri.shop^
 ||ikahnruntx.com^
+||il.coiffesreal.qpon^
 ||ilead.itrack.it^
 ||ileeckut.com^
 ||illustriousoatmeal.com^
@@ -18039,6 +18092,7 @@
 ||late-bloomingwalluphospital.com^
 ||laughcloth.com^
 ||launchbit.com^
+||lavnkios.in^
 ||laxativestuckunclog.com^
 ||layer-ad.de^
 ||layer-ads.de^
@@ -18154,6 +18208,7 @@
 ||malware-scan.com^
 ||mandateowl.com^
 ||manpowerspiritualunrented.com^
+||maobtqwrqrzxm.com^
 ||mapbasin.com^
 ||marasgumpus.com^
 ||marazma.com^
@@ -18178,6 +18233,7 @@
 ||matomy.com^
 ||matrimonyfeudboss.com^
 ||mattockpackall.com^
+||mauve-pinkgetawhifftime.com^
 ||mawlaybob.com^
 ||mawptuaz.com^
 ||max.i12.de^
@@ -19061,6 +19117,7 @@
 ||reluctancefleck.com^
 ||remotepwn.com^
 ||remox.com^
+||renamereptiliantrance.com^
 ||renderstreamshuttleanalytics.net^
 ||repeatsweater.com^
 ||republika.onet.pl^
@@ -19713,6 +19770,7 @@
 ||trustlearningclearly.com^
 ||tsiwqtng8huauw30n.com^
 ||ttgmjfgldgv9ed10.com^
+||tu.bawrelcuttail.com^
 ||tubecorp.com^
 ||tubecup.net^
 ||tubemogul.com^
@@ -19795,6 +19853,7 @@
 ||urgerrebasis.com^
 ||urimnugocfr.com^
 ||urlcash.net^
+||urrfkabrkhxjat.com^
 ||us.claroadsxml.com^
 ||uselnk.com^
 ||usemax.de^
@@ -20356,9 +20415,6 @@
 ||apolloprogram.io^
 ||app-analytics-services-att.com^
 ||app-analytics-services.com^
-||applog.camera360.com^
-||appres.camera360.com^
-||arc.io^
 ||asadcdn.com^
 ||asdkd.tutuapp.com^
 ||astat.nikkei.com^
@@ -22118,8 +22174,6 @@ zdalnakontrola.pl
 ||apd-pcdnwxlogin.teg.tencent-cloud.net^
 ||apd-pcdnwxnat.teg.tencent-cloud.net^
 ||apd-pcdnwxstat.teg.tencent-cloud.net^
-||api-access.pangolin-sdk-toutiao.com^
-||api-access.pangolin-sdk-toutiao1.com^
 ||api-access.pangolin-sdk-toutiao2.com^
 ||api-access.pangolin-sdk-toutiao3.com^
 ||api-access.pangolin-sdk-toutiao4.com^
@@ -22149,7 +22203,6 @@ zdalnakontrola.pl
 ||bdad.123pan.cn^
 ||bdcdncnc.inter.71edge.com^
 ||beaconcdn.qq.com^
-||beizi.biz^
 ||bes-mtj.baidu.com^
 ||bgg.baidu.com^
 ||bianxian.com^
@@ -22230,7 +22283,6 @@ zdalnakontrola.pl
 ||ggx01.miguvideo.com^
 ||ggx03.miguvideo.com^
 ||gorgon.youdao.com^
-||gromore.pangolin-sdk-toutiao.com^
 ||grs.dbankcloud.com^
 ||grs.hicloud.com^
 ||gslb.hpplay.cn^
@@ -22313,7 +22365,6 @@ zdalnakontrola.pl
 ||loading-cmp.hismarttv.com^
 ||log-api-mn.huxiu.com^
 ||log-api.huxiu.com^
-||log-api.pangolin-sdk-toutiao.com^
 ||log-report.com^
 ||log-sdk.gifshow.com^
 ||log-sdk.ksapisrv.com^
@@ -22368,7 +22419,6 @@ zdalnakontrola.pl
 ||mpcfg.fancydsp.com^
 ||msdk.voiceads.cn^
 ||msg-cmp.hismarttv.com^
-||mssdk.volces.com^
 ||mssdk.zijieapi.com^
 ||nadvideo2.baidu.com^
 ||newvoice.chiq5.smart-tv.cn^
@@ -22397,7 +22447,6 @@ zdalnakontrola.pl
 ||p3-lm.adkwai.com^
 ||p3-tt.byteimg.com^
 ||p66-ad.adkwai.com^
-||pangolin-sdk-toutiao-b.com^
 ||paster-cmp.hismarttv.com^
 ||pay.sboot.cn^
 ||pcdn.xmcdn.com^
@@ -22405,7 +22454,6 @@ zdalnakontrola.pl
 ||pcm-img.zhls.qq.com^
 ||pgdt.gtimg.cn^
 ||pgdt.ugdtimg.com^
-||pglstatp-toutiao.com^
 ||pica-a-display.diwodiwo.xyz^
 ||pica-ad-api.diwodiwo.xyz^
 ||pig.pupuapi.com^
@@ -22628,7 +22676,6 @@ zdalnakontrola.pl
 ||ubixioe.com^
 ||vlion.cn^
 ||yfanads.com^
-||zhangyuyidong.cn^
 *-ad.sm.cn*
 *-ad.video.yximgs.com*
 *-ad.wtzw.com*
@@ -40649,5 +40696,5 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 38539
-! Duplicates removed: 1687
+! Total unique rules: 38576
+! Duplicates removed: 1696

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Privacy
 ! Description: Combined filter list for the privacy category.
-! Last modified: 24 Oct 2026 01:20:53 UTC
+! Last modified: 25 Oct 2026 01:22:30 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 28 / 28
 !
 ! ===== SOURCE: https://easylist.to/easylist/easyprivacy.txt
-! Commit: 4bf8715a7af87cef550e015f8a7b79f75db66a6a
+! Commit: 97b63b23722dc0fb8b07ebaaadcb26408912d943
 ! *** easylist:template_header.txt ***
 !
 ! Please report any unblocked adverts or problems
@@ -322,6 +322,7 @@
 /analytics/track_event/*
 /analytics/tracker.js
 /analytics/trackers?
+/analytics/trackImpressions
 /analytics/visit.jsp
 /analytics/visit.php
 /analytics/visit?
@@ -8344,6 +8345,7 @@ omni.soundestlink.com$image
 ||pigmentpaper.com^
 ||pinchsquirrel.com^
 ||pincourse.com^
+||pingprove.com^
 ||pingsurvey.com^
 ||pinsearcher.com^
 ||pipadvance.com^
@@ -10846,6 +10848,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||api.transtore.app/api/v2/storefront/tracking
 ||api.usestoryteller.com/api/app/activity/recordActivity?
 ||api.useunloq.com/event_management/
+||api.vaile.ai/api/track
 ||api.visitorapi.com^$third-party
 ||api.wipmania.com^
 ||apibaza.com/pixel/
@@ -12538,6 +12541,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||pixel.nudgify.com^
 ||pixel.propublica.org^
 ||pixel.pub.lilyai.net^
+||pixel.quantserve.com^
 ||pixel.redgifs.com^
 ||pixel.roymorgan.com^
 ||pixel.s3xified.com^
@@ -16340,6 +16344,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||lc-event.pixiv.net^
 ||leadconnectorhq.com/stats/event
 ||lego.com/api/dl-event-ingest
+||lego.com/api/uec/v1/events
 ||lendingtree.com/analytics/
 ||lendingtree.com/pixel/
 ||lenovo.com/gemets/
@@ -57363,7 +57368,7 @@ aol.com#@#.ad-overlay
 ||www.google.*/images/phd/px.gif$domain=www.google.ac|www.google.ad|www.google.ae|www.google.al|www.google.am|www.google.as|www.google.at|www.google.az|www.google.ba|www.google.be|www.google.bf|www.google.bg|www.google.bi|www.google.bj|www.google.bs|www.google.bt|www.google.by|www.google.ca|www.google.cat|www.google.cd|www.google.cf|www.google.cg|www.google.ch|www.google.ci|www.google.cl|www.google.cm|www.google.co.ao|www.google.co.bw|www.google.co.ck|www.google.co.cr|www.google.co.id|www.google.co.il|www.google.co.in|www.google.co.jp|www.google.co.ke|www.google.co.kr|www.google.co.ls|www.google.co.ma|www.google.co.mz|www.google.co.nz|www.google.co.th|www.google.co.tz|www.google.co.ug|www.google.co.uk|www.google.co.uz|www.google.co.ve|www.google.co.vi|www.google.co.za|www.google.co.zm|www.google.co.zw|www.google.com|www.google.com.af|www.google.com.ag|www.google.com.ai|www.google.com.ar|www.google.com.au|www.google.com.bd|www.google.com.bh|www.google.com.bn|www.google.com.bo|www.google.com.br|www.google.com.by|www.google.com.bz|www.google.com.cn|www.google.com.co|www.google.com.cu|www.google.com.cy|www.google.com.do|www.google.com.ec|www.google.com.eg|www.google.com.et|www.google.com.fj|www.google.com.gh|www.google.com.gi|www.google.com.gt|www.google.com.hk|www.google.com.jm|www.google.com.jo|www.google.com.kh|www.google.com.kw|www.google.com.lb|www.google.com.ly|www.google.com.mm|www.google.com.mt|www.google.com.mx|www.google.com.my|www.google.com.na|www.google.com.ng|www.google.com.ni|www.google.com.np|www.google.com.om|www.google.com.pa|www.google.com.pe|www.google.com.pg|www.google.com.ph|www.google.com.pk|www.google.com.pr|www.google.com.py|www.google.com.qa|www.google.com.ru|www.google.com.sa|www.google.com.sb|www.google.com.sg|www.google.com.sl|www.google.com.sv|www.google.com.tj|www.google.com.tn|www.google.com.tr|www.google.com.tw|www.google.com.ua|www.google.com.uy|www.google.com.vc|www.google.com.ve|www.google.com.vn|www.google.cv|www.google.cz|www.google.de|www.google.dj|www.google.dk|www.google.dm|www.google.dz|www.google.ee|www.google.es|www.google.fi|www.google.fm|www.google.fr|www.google.ga|www.google.ge|www.google.gg|www.google.gl|www.google.gm|www.google.gp|www.google.gr|www.google.gy|www.google.hk|www.google.hn|www.google.hr|www.google.ht|www.google.hu|www.google.ie|www.google.im|www.google.iq|www.google.is|www.google.it|www.google.it.ao|www.google.je|www.google.jo|www.google.jp|www.google.kg|www.google.ki|www.google.kz|www.google.la|www.google.li|www.google.lk|www.google.lt|www.google.lu|www.google.lv|www.google.md|www.google.me|www.google.mg|www.google.mk|www.google.ml|www.google.mn|www.google.ms|www.google.mu|www.google.mv|www.google.mw|www.google.ne|www.google.ne.jp|www.google.ng|www.google.nl|www.google.no|www.google.nr|www.google.nu|www.google.pl|www.google.pn|www.google.ps|www.google.pt|www.google.ro|www.google.rs|www.google.ru|www.google.rw|www.google.sc|www.google.se|www.google.sh|www.google.si|www.google.sk|www.google.sm|www.google.sn|www.google.so|www.google.sr|www.google.st|www.google.td|www.google.tg|www.google.tl|www.google.tm|www.google.tn|www.google.to|www.google.tt|www.google.us|www.google.vg|www.google.vu|www.google.ws
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/3.txt
-! Diff-Path: ../patches/3/3-s-1792775609-3600.patch
+! Diff-Path: ../patches/3/3-s-1792854814-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -140966,7 +140971,6 @@ prd.api.bleacherreport.com^
 ||pixel.nur.kz^
 ||pixel.pcworld.com^
 ||pixel.playbuzz.com^
-||pixel.quantserve.com^
 ||pixel.reddit.com^
 ||pixel.sojern.com^
 ||pixel.staging.tree.com^
@@ -819534,6 +819538,9 @@ oklivetv.com##+js(no-fetch-if, method:POST body:tracker)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34905
 ||emudesk.com/api/analytics/
+
+! https://github.com/uBlockOrigin/uAssets/issues/35002
+||go.portail-assurance.ca^
 
 ! Merge in resource-abuse.txt
 
@@ -1862752,5 +1862759,5 @@ x.com##+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 1847752
-! Duplicates removed: 388542
+! Total unique rules: 1847757
+! Duplicates removed: 388554
