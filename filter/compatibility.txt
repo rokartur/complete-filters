@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 25 Oct 2026 01:22:20 UTC
+! Last modified: 26 Oct 2026 01:24:42 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1792764991-3600.patch
+! Diff-Path: ../patches/11/11-s-1792948393-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2715,6 +2715,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+erogamescape.dyndns.org##div[id^="mobile_ad_"]
 2dfan.com##.nexus-banner-ad
 jorudan.co.jp##a[id^="bnr_"]
 op.gg###pubg-m-leaderboard-top
@@ -5810,7 +5811,6 @@ bqprime.com##div[class^="ad-with-placeholder"]
 e-konomista.pt##.r-top-publicity-wrapper
 paroles2chansons.lemonde.fr##div[style="min-height:320px;"]
 siamblockchain.com###inarticle-banner-mobile
-uraaka-joshi.com##.grid-cell-non-hover
 healthshots.com##.footerstickyad
 svethuawei.eu###mobile-pop-up-ad
 pornone.com##div[class^="flex-initial"]
@@ -12373,11 +12373,11 @@ api.taboola.com
 
 ! aternos anti adb
 @@||hb.vntsm.com/v4/live/vms/sites/aternos.org/index.js$script,domain=aternos.org
+@@||cdn.snigelweb.com/adengine/aternos.org/loader.js$script,domain=aternos.org
 aternos.org##.header-center:style(margin-top:-5000px !important;)
 aternos.org##.sidebar:style(width: 1.745px !important; padding: 1px !important)
 aternos.org##.ad-dfp:style(min-height: 0.1485mm !important; height: 0.1485mm !important;)
 aternos.org###placement-takeover
-aternos.org##+js(trusted-rpnt, script, /U1gLsd=rc8nRpC\[0x21\]/g, U1gLsd=!0x1, sedCount, 1)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/16lmeri/youtube_antiadblock_and_ads_september_18_2023/k1wl8df/
 !#if !env_mv3
