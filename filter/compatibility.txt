@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 26 Oct 2026 01:24:42 UTC
+! Last modified: 27 Oct 2026 01:25:20 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1792948393-3600.patch
+! Diff-Path: ../patches/11/11-s-1793034877-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2297,6 +2297,8 @@ motherless.xxx$$script:contains(awentw.com):contains(/^(?=.{2000,2500}$).*/s)
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/245100
+sector.sk#@$##frs { margin-top: 100px !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/242033
 @@||anymind360.com/js/*/ats.js$domain=hotosena.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/236078
@@ -2715,6 +2717,10 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+russiatoday.ru##.sparrow-banner
+dengekionline.com##div[class$="_headerBannerForSp"]
+dengekionline.com##div[class$="_pickUpBannerForSp"]
+memo.wiki##div[style="width:300px; height:250px; "]
 erogamescape.dyndns.org##div[id^="mobile_ad_"]
 2dfan.com##.nexus-banner-ad
 jorudan.co.jp##a[id^="bnr_"]
@@ -12523,12 +12529,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.proto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=jamespatterncamera.com,important
-jamespatterncamera.com##+js(nowoif)
-jamespatterncamera.com##+js(set, console.clear, undefined)
-jamespatterncamera.com##+js(acs, globalThis, break;case)
-jamespatterncamera.com##+js(acs, WebAssembly, atob)
-||claireguessthousand.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=ashleyhardat.com,important
+ashleyhardat.com##+js(nowoif)
+ashleyhardat.com##+js(set, console.clear, undefined)
+ashleyhardat.com##+js(acs, globalThis, break;case)
+ashleyhardat.com##+js(acs, WebAssembly, atob)
+||ashleyhardat.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -12682,7 +12688,7 @@ gledaitv.*##+js(set, scriptBlocked, false)
 gledaitv.*##+js(set, blocked, false)
 gledaitv.*##+js(set, testUrls, [])
 gledaitv.*##+js(nostif, adblock)
-bg-gledai.video###gledai-access-notice
+bg-gledai.video,gledaitv.*###gledai-access-notice
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=bg-gledai.video,redirect=google-ima.js
 ||viads.com^$script,domain=bg-gledai.video,redirect=noopjs
 
@@ -19148,6 +19154,10 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 ! https://github.com/uBlockOrigin/uAssets/issues/34996
 @@||speedcubeshop.com/cdn/shopifycloud/consent-tracking-api/v*/consent-tracking-api.js$1p
 
+! https://github.com/AdguardTeam/AdguardFilters/issues/80265#issuecomment-818787175
+||log.nordot.jp^$badfilter
+||log.nordot.jp/pageview
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19353,5 +19363,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13405
+! Total unique rules: 13412
 ! Duplicates removed: 18

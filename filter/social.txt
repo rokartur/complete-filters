@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 26 Oct 2026 01:24:58 UTC
+! Last modified: 27 Oct 2026 01:25:37 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 8 / 8
@@ -14690,6 +14690,10 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+catster.com##header > div.mt-4 > div.flex:has(> div[class] > a[href^="https://twitter.com/intent/tweet?"])
+kptv.com##.action-bar > .col-md-auto.d-flex.justify-content-start:has(.fa-share-from-square)
+cityam.com##.social--is-share
+essentiallysports.com##div[class^="head_es-share-container_"]
 dizifilmizle.to##div.hidden.md\:flex > div.flex.items-center:has(> div.flex > button[title])
 altoonamirror.com##.share_icons
 hotspawn.com##.elementor-element-9e5c893
@@ -17532,7 +17536,7 @@ hokench.com##.single-sidebar_share
 boredpanda.com##.share-social-icons-block
 boredpanda.com##.web-share-button
 select.mamastar.jp##.c_area > div.renew-style:has(> div.articleSns)
-odysee.com##button[aria-label="Share this content"]
+business-standard.com,odysee.com##button[aria-label="Share this content"]
 hashicorp.com##ul[class^="style_blogPostSocialShare"]
 istories.media##.Material-module--ShareTagsPartnersContainer--jdDSR
 n-tv.de##.article__share-main
@@ -44139,5 +44143,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42869
-! Duplicates removed: 637
+! Total unique rules: 42873
+! Duplicates removed: 638
