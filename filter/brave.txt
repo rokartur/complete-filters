@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 29 Oct 2026 01:07:32 UTC
+! Last modified: 30 Oct 2026 01:08:46 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -688,6 +688,7 @@ bloomberg.com##.unsupported-browser-notification-container
 ##.adComponent
 ##.adContent
 ##.adElement
+##.adHeader
 ##.adHeight280
 ##.adHolder
 ##.adHolderStory
@@ -2633,6 +2634,8 @@ boundingintocomics.com,themix.net##.banner-spacer-top
 boundingintocomics.com,themix.net##.header:style(top: 0px !important;)
 boundingintocomics.com,themix.net##h1:style(margin-top:20px !important;)
 boundingintocomics.com,themix.net##main[role="main"]:style(margin-top:30px !important;)
+! avforums.com
+avforums.com##.m2n-unit
 ! foodnetwork.com
 foodnetwork.com###leaderboard-wrap
 ! greencarreports.com
@@ -7082,5 +7085,5 @@ kaufland.cz,kaufland.pl,kaufland.fr#@##onetrust-consent-sdk
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 6006
+! Total unique rules: 6008
 ! Duplicates removed: 9
