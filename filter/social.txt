@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 30 Oct 2026 01:09:05 UTC
+! Last modified: 31 Oct 2026 01:07:12 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 8 / 8
@@ -11221,6 +11221,7 @@ japan.go.jp##.gov_sns
 ethanzuckerman.com##.group-1
 gadgets360.com##.gsocialbar
 atlanticcouncil.org##.gta-hover-share-container
+united24media.com##.gtm-bottom-popup-article
 publicradiotulsa.org,stlpr.org##.gtm_share
 theprint.in##.gw-follow-button
 verdictum.in##.h-anchor
@@ -11310,6 +11311,7 @@ businessday.ng##.join-whatsapp
 moneycontrol.com##.join_follow
 euronews.com##.js-c-article-partage-commentaire-share
 buzzfeed.com##.js-inline-share-bar
+lrt.lt##.js-modal-share
 guide.michelin.com##.js-share-sticky
 myanimelist.net##.js-sns-icon-container
 aap.com.au##.js-sticky-top
@@ -11790,7 +11792,7 @@ reuters.com##.social-links-module__wrap-links__Zxr2b
 complex.com##.social-links-top
 bidfood.nl,businesspost.ie##.social-links-wrapper
 denofgeek.com##.social-links__anchor--sharing
-adn.com,casino.org##.social-list
+adn.com,casino.org,lrt.lt##.social-list
 newsroom.ucla.edu##.social-list-links
 wionews.com##.social-logo-section
 gastrojournal.ch##.social-media-blocks
@@ -12304,6 +12306,8 @@ microsoft.com##.section-master:has(.socialfollow)
 siliconera.com##.site-footer__section:has(.social-list)
 stackify.com##.widget:has(> .social-links)
 ms.now##.wp-block-group p:has(Share this)
+nytimes.com##[data-testid="floating-button"]:has([aria-label="More sharing options ..."])
+nytimes.com##[data-testid="share-tools-list"] > li:has([aria-label="More sharing options ..."])
 bloomberg.com##div:has(> [class*="PreferUs_preferUsTextButton__"])
 rule34.xxx##li:has(> [href="https://x.com/slayerduckie"])
 diamondv.jp##main[id] > div.MuiBox-root:has(> ul > li > button.react-share__ShareButton)
@@ -14692,6 +14696,11 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+ogolosha.ua##.socialAbuse-box
+thetravel.com###sharingButtonPopup
+maritime-executive.com##.custom_social_setting
+weather.com##div[data-testid="share-container"]
+e-kolo.pl##div.bg-primary.text-center:has(> a[href^="https://www.facebook.com/sharer.php?"])
 dnepr.info##.share-trigger
 ultimatesolver.com###share_side
 thuisarts.nl##.block-social-sharing
@@ -23575,7 +23584,7 @@ hoff.ru,quriostore.com,ggsel.net,shopier.com,dvdplanetstore.pk,newegg.com,ggsel.
 fetchtube.com##.sv-download-ads
 fetchtube.com##.sv-predownload-button > span[style="color:green;text-align:center"]
 fetchtube.com##.sv-predownload-button > span[style="color:green;text-align:center"] + div[style="align:center"]
-thenewslens.com,neggly.org,tw.nextapple.com,zdg.md,shopnz.ru,stirileprotv.ro,webcg.net,landofgames.ru,lifter.com.ua##.social-btns
+thenewslens.com,neggly.org,news.nextapple.com,zdg.md,shopnz.ru,stirileprotv.ro,webcg.net,landofgames.ru,lifter.com.ua##.social-btns
 miejscawewroclawiu.pl,forums.flyer.co.uk##.widget_facebook
 forums.flyer.co.uk##.widget.text-2
 ppe.pl##.socialMegaBar
@@ -24315,7 +24324,7 @@ kulturologia.ru,novate.ru##.postLikesBox
 chosun.com##.news_left_aside_sns > li > a[class^="share_"]
 chosun.com##.news_left_aside_sns > div#news_left_aside_sns_more_id
 tomiks33.ru##.index-follow
-tengrinews.kz,tw.nextapple.com,prtimes.jp,thepatriotjournal.com,techbang.com##.side-share
+tengrinews.kz,news.nextapple.com,prtimes.jp,thepatriotjournal.com,techbang.com##.side-share
 techbang.com##.total-share
 ringtv.com,t24.com.tr,tproger.ru##.share-story
 apkpure.*##.addthis-menu
@@ -27062,7 +27071,7 @@ gamingtrend.com,groovypost.com,cicicee.com,opentv.media,informator.ua,mobiflip.d
 interia.pl##.social-socialButtons
 domik.ua##.social-subscribe-banner
 tvigle.ru##.social-wide
-meta.ua,sat1.de,kabeleins.de,prosieben.de,sixx.de##.social-wrapper
+ogolosha.ua,meta.ua,sat1.de,kabeleins.de,prosieben.de,sixx.de##.social-wrapper
 dunyavegercekler.com##.social-wrapper > :not([class="font-size"])
 podrobnosti.ua##.social.hide-for-mobile
 pcmag.com##.social300
@@ -44159,5 +44168,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42889
+! Total unique rules: 42898
 ! Duplicates removed: 638
