@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 31 Oct 2026 01:06:53 UTC
+! Last modified: 01 Nov 2026 01:05:50 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1793376793-3600.patch
+! Diff-Path: ../patches/11/11-s-1793441519-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2719,6 +2719,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+search.yahoo.co.jp##.infeedAds
 goal.com##.fco-sticky-wrapper__space-placeholder
 goal.com##.fco-gameday-with-ad-container__ads
 kako.5ch.io##.h-\[100px\]
@@ -12657,6 +12658,7 @@ $frame,3p,domain=8rm3l0i9.fun|iqksisgw.xyz|u6lyxl0w.skin|l1afav.net,replace='/^/
 dogdrip.net##html[lang="ko"] [id^="img_"][style]:has(iframe[frameborder="0"][style]):style(clip-path: circle(0) !important;)
 smsonline.cloud##html[data-theme][lang] [id^="img_"][style]:has(iframe[frameborder="0"][style]):style(clip-path: circle(0) !important;)
 ! https://github.com/uBlockOrigin/uAssets/issues/32413
+~bing.com,~dogdrip.net,~smsonline.cloud##.impfy-player
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="height:    250px; width:    300px;"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="width:    160px; height:    600px; margin: 0px auto; min-width: 160px; min-height: 600px;"]
 ~bing.com,~dogdrip.net,~smsonline.cloud##div[style^="width:    300px; height:    250px;"]
@@ -12712,10 +12714,15 @@ gledaitv.*##+js(set, scriptBlocked, false)
 gledaitv.*##+js(set, blocked, false)
 gledaitv.*##+js(set, testUrls, [])
 gledaitv.*##+js(nostif, adblock)
+bg-gledai.video,gledaitv.*,cdn.gledaitv.*##+js(aopr, Handlers)
+bg-gledai.video,gledaitv.*,cdn.gledaitv.*##+js(aopr, idiotHelper)
 bg-gledai.video,gledaitv.*,cdn.gledaitv.*##+js(aopr, idiotHandlers)
-bg-gledai.video,gledaitv.*,cdn.gledaitv.*##+js(acs, document.createElement, ad-detection-bait)
+bg-gledai.video,gledaitv.*,cdn.gledaitv.*##+js(acs, document.createElement, detection-bait)
 bg-gledai.video,gledaitv.*,cdn.gledaitv.*##:is([id*="access"],[id*="warning"],[id*="gledai"],[class*="access"],[class*="warning"],[class*="gledai"])
 bg-gledai.video,gledaitv.*,cdn.gledaitv.*##[id="noob-detection-bait"]:style(display:block!important;height:1px!important;width:1px!important;visibility:visible!important)
+bg-gledai.video,gledaitv.*,cdn.gledaitv.*###stop-drundrun:remove()
+bg-gledai.video,gledaitv.*,cdn.gledaitv.*##.stop-drundrun:remove()
+||cdn.adapex.io/hb/aaw.gledaifan.js$script,redirect=noop.js,domain=cdn.gledaitv.fan
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=bg-gledai.video,redirect=google-ima.js
 ||viads.com^$script,domain=bg-gledai.video,redirect=noopjs
 
@@ -19186,6 +19193,9 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 ||log.nordot.jp^$badfilter
 ||log.nordot.jp/pageview
 
+! https://github.com/uBlockOrigin/uAssets/issues/35085
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect-rule=googletagservices_gpt.js:5,domain=theglobeandmail.com
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19391,5 +19401,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13436
+! Total unique rules: 13444
 ! Duplicates removed: 18

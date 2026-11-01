@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Cookies
 ! Description: Combined filter list for the cookies category.
-! Last modified: 31 Oct 2026 01:06:53 UTC
+! Last modified: 01 Nov 2026 01:05:50 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 21 / 21
@@ -111,6 +111,9 @@ metro-cc.hr##body:style(overflow: auto !important;)
 ||cdn.ing.com/ing-feat-cookie-preference/
 ! https://github.com/uBlockOrigin/uAssets/issues/22663#issuecomment-6218657450
 /wrapperMessagingWithoutDetection.js$important,domain=tomsguide.com
+! https://github.com/uBlockOrigin/uAssets/pull/35108
+home-appliances.philips##vers-anonymous-consent-management-banner
+home-appliances.philips##body.modal-open:style(overflow: auto !important;)
 
 !!! Trusted scriptlets------------------------------------------------------------
 
@@ -16776,7 +16779,7 @@ xpadder.com###cookieOkDiv
 tedbaker.com#$##__tealiumGDPRecModal { display: none !important; }
 tedbaker.com#%#//scriptlet('remove-class', 'fixedPage', '#__next')
 ilvescovado.it##.glatCookieBar
-telset.ee##.accept-cookie-wrap
+yoshimura-jp.com,telset.ee##.accept-cookie-wrap
 xn--90aivcdt6dxbc.xn--p1ai##.l-modal-cookie
 holiday.by###pop-up-policy
 you-ladies.de,leierkasten.sexy##.cookie-notice-dsvgo
@@ -53564,5 +53567,5 @@ zety.com##._cookiePopup_1fsd7_127
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 44724
+! Total unique rules: 44726
 ! Duplicates removed: 1322
