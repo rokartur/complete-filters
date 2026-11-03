@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 02 Nov 2026 01:07:03 UTC
+! Last modified: 03 Nov 2026 01:06:18 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1793441519-3600.patch
+! Diff-Path: ../patches/11/11-s-1793646675-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2719,6 +2719,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+goal.com##div[class^="overview_top-mpu-mpbile"]:has(> div[class^="ad-slot"])
+109cinemas.net##.ad-banner-sp
 search.yahoo.co.jp##.infeedAds
 goal.com##.fco-sticky-wrapper__space-placeholder
 goal.com##.fco-gameday-with-ad-container__ads
@@ -2731,7 +2733,7 @@ tvtoday.de##mobile-sticky-ad
 gamingbible.com##div[class^="advert-placeholder"]
 rakkokeyword.com##.rakko-sp-wrapper
 twidouga.net##.max-w-screen-xl > div[style*="margin"]:has(> div[id^="bnc_ad_"])
-skyblock.jp,kze.network,oyasai.io,sokuhou.wiki,chronicle.wiki,game-info.wiki,playing.wiki,seesaawiki.jp##div[style="width:300px; height:250px; "]
+manmamiya.work,teamfruit.net,memo.wiki,cloudremix.net,playerrealms.com,girasaba.net,ds2.uk,noracat.info,kanamc.f5.si,tamaserver.com,softwarepark.f5.si,mikage.click,skyblock.jp,kze.network,oyasai.io,sokuhou.wiki,chronicle.wiki,game-info.wiki,playing.wiki,seesaawiki.jp##div[style="width:300px; height:250px; "]
 m.iceporn.net#%#//scriptlet('set-cookie', 'pop_show', '3')
 m.iceporn.net#%#//scriptlet('set-cookie-reload', 'no_postitial_video', '1')
 m.iceporn.net#%#//scriptlet('set-constant', 'use_second_popunder', 'false')
@@ -5718,7 +5720,7 @@ bookmaker-ratings.ru##.branding-top-wrapper
 washingtonpost.com##.tableAd1
 hdporner.me,rahaporn.com,wankzone.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,fistingplanet.com##.happy-related-videos-mobile
 hdporner.me,yespornhd.com,rahaporn.com,wankzone.com,pornbuz.com,sxyland.com,pornmk.com,myhentai.us,taboovideosx.com,fxpornhd.com,thevoyeurmania.com,pornolatinox.com,familyxxxhd.com,erotic-hentai.com,villagesexvideos.com,xxxvideoindian2.com,fistingplanet.com##.happy-footer-mobile
-kze.network,mediacourant.nl,coinwarz.com##div[id^="ad"]
+manmamiya.work,teamfruit.net,memo.wiki,cloudremix.net,playerrealms.com,girasaba.net,ds2.uk,noracat.info,kanamc.f5.si,tamaserver.com,softwarepark.f5.si,mikage.click,kze.network,mediacourant.nl,coinwarz.com##div[id^="ad"]
 pornpapa.com##.mobile-device
 maximum.ru,rusradio.ru,dfm.ru##.advertising-mobile-popup-overlay
 vesti-ua.net##amp-iframe[width="280"][height="852"]
@@ -7045,7 +7047,7 @@ m.haberturk.com###s300x200Sticky
 eporner.com###admobilemiddle
 jbbs.shitaraba.net##.header_news
 jbbs.shitaraba.net##.ad-320_50
-skyblock.jp,kze.network,oyasai.io,jbbs.shitaraba.net,chronicle.wiki,game-info.wiki,memo.wiki,playing.wiki,seesaawiki.jp,sokuhou.wiki,sougouwiki.com##.ad-300_250
+manmamiya.work,teamfruit.net,memo.wiki,cloudremix.net,playerrealms.com,girasaba.net,ds2.uk,noracat.info,kanamc.f5.si,tamaserver.com,softwarepark.f5.si,mikage.click,skyblock.jp,kze.network,oyasai.io,jbbs.shitaraba.net,chronicle.wiki,game-info.wiki,memo.wiki,playing.wiki,seesaawiki.jp,sokuhou.wiki,sougouwiki.com##.ad-300_250
 m.vz.ru,chronicle.wiki,game-info.wiki,memo.wiki,playing.wiki,seesaawiki.jp,sokuhou.wiki,sougouwiki.com##.header-banner
 sammobile.com##.g-29
 virtualbrest.ru##body > div.rounded + div[style^="width:"] > a[target="_blank"] > img
@@ -12415,14 +12417,14 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 !#endif
 !#endif
 !#endif
-www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\)|^if \(window\.ytcsi)/, (()=>{if("YOUTUBE_PREMIUM_LOGO"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||"YOUTUBE_PREMIUM_LOGO"===document.getElementById("masthead")?.attributes?.["logo-type"]?.value||location.href.startsWith("https://www.youtube.com/tv#/"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent\,t=["channel"\,"lactmilli"\,"inline"\,"yahi"];let r=!1\,o=t;const n=t=>{if(t){let r=e?.match?.(/Mozilla\/5\.0 \([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r\,r+"; "+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e}\,a=()=>{let e=document.getElementById("movie_player");return{player:e\,response:e?.getPlayerResponse?.()\,stats:e?.getStatsForNerds?.()\,progress:e?.getProgressState?.()\,buffer:e?.getPlayerStateObject?.()?.isBuffering}}\,l=(e\,t\,r)=>e&&"0.00 s"===t?.buffer_health_seconds&&"0x0"===t?.resolution&&r.length>0\,s=()=>{let{player:e\,response:t\,stats:n\,buffer:s}=a();e&&l(s\,n\,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.("reloadxhr")&&(o=o.slice(1))\,r=!0)};document.addEventListener("DOMContentLoaded"\,(function(){const e=()=>{let e\,s\,{player:i\,response:d\,stats:c\,progress:p\,buffer:y}=a();if(i&&(window.location.href.includes("/watch?")||window.location.href.includes("/embed/"))){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(c&&!c?.debug_info?.startsWith?.("SSAP\, AD")){const t=new URLSearchParams(window.location.search)\,a=d.videoDetails?.videoId\,u=d.playerConfig?.playbackStartConfig?.startSeconds||parseInt(t.get("t")\,10)||0\,g=d.playabilityStatus?.errorScreen\,w=JSON.stringify(g?.playerErrorMessageRenderer?.subreason?.runs||g?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void("UNPLAYABLE"===d?.playabilityStatus?.status&&!g?.playerErrorMessageRenderer?.playerCaptchaViewModel&&w?.includes?.("WEB_PAGE_TYPE_UNKNOWN")&&w?.includes?.("https://support.google.com/youtube/answer/3037019")?(o=o.slice(1)\,o.length>0?n(o[0]):n("")\,r=!1\,i.loadVideoById(a\,u)):0===o.length?(r=!1\,n("")):l(y\,c\,o)&&r?(n(o[0])\,r=!1\,i.loadVideoById(a\,u)):!r&&p.current-u>.1&&p.current-u<5&&location.href.includes("&list=")&&null===i.getPlaylistId?.()&&(e=document.querySelector("yt-playlist-manager")\,s=e?.getPlaylistData?.()\,s&&(e.setPlaylistData?.(s)\,e.setPlayerPlaybackControlData?.({playlistPanelRenderer:s}))))}c&&p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e()\,new MutationObserver((()=>{e()})).observe(document\,{childList:!0\,subtree:!0})}))\,window.Map.prototype.has=new Proxy(window.Map.prototype.has\,{apply:(e\,t\,o)=>("onSnackbarMessage"!==o?.[0]||r||s()\,Reflect.apply(e\,t\,o))})\,window.Array.prototype.push=new Proxy(window.Array.prototype.push\,{apply:(e\,t\,r)=>{let o=r?.[0];return!o||"object"!=typeof o||"Uint8Array"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||(console.log(o)\,s())\,Reflect.apply(e\,t\,r)}});const i={apply:(e\,t\,r)=>{const o=r[0];return"function"==typeof o&&o.toString().includes("onAbnormalityDetected")&&(r[0]=function(){})\,Reflect.apply(e\,t\,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then\,i)})();$1, sedCount, 1, excludes, MutationObserver, condition, /serverContract|js_ld/)
+www.youtube.com##+js(rpnt, script, /(\(function serverContract\(\)|^if \(window\.ytcsi)/, (()=>{if("YOUTUBE_PREMIUM_LOGO"===window.ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType||"YOUTUBE_PREMIUM_LOGO"===document.getElementById("masthead")?.attributes?.["logo-type"]?.value||location.href.startsWith("https://www.youtube.com/tv#/"))return;const e=window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent\,t=["channel"\,"lactmilli"\,"yahi"\,"inline"];let r=!1\,o=t;const n=t=>{if(t){let r=e?.match?.(/Mozilla\/5\.0 \([^)]+/)?.[0];window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=r?e.replace?.(r\,r+"; "+t):e}else window.ytcfg.data_.INNERTUBE_CONTEXT.client.userAgent=e}\,a=()=>{let e=document.getElementById("movie_player");return{player:e\,response:e?.getPlayerResponse?.()\,stats:e?.getStatsForNerds?.()\,progress:e?.getProgressState?.()\,buffer:e?.getPlayerStateObject?.()?.isBuffering}}\,l=(e\,t\,r)=>e&&"0.00 s"===t?.buffer_health_seconds&&"0x0"===t?.resolution&&r.length>0\,s=()=>{let{player:e\,response:t\,stats:n\,buffer:s}=a();e&&l(s\,n\,o)&&(t?.playbackTracking?.videostatsPlaybackUrl?.baseUrl?.includes?.("reloadxhr")&&(o=o.slice(1))\,r=!0)};document.addEventListener("DOMContentLoaded"\,(function(){const e=()=>{let e\,s\,{player:i\,response:d\,stats:c\,progress:p\,buffer:y}=a();if(i&&(window.location.href.includes("/watch?")||window.location.href.includes("/embed/"))){if(p&&p.duration>0&&(p.loaded<p.duration||p.duration-p.current>1)||d?.videoDetails?.isLive){if(c&&!c?.debug_info?.startsWith?.("SSAP\, AD")){const t=new URLSearchParams(window.location.search)\,a=d.videoDetails?.videoId\,u=d.playerConfig?.playbackStartConfig?.startSeconds||parseInt(t.get("t")\,10)||0\,g=d.playabilityStatus?.errorScreen\,w=JSON.stringify(g?.playerErrorMessageRenderer?.subreason?.runs||g?.playerInterstitialRenderer?.content?.interstitialViewModel?.description?.commandRuns);return void("UNPLAYABLE"===d?.playabilityStatus?.status&&!g?.playerErrorMessageRenderer?.playerCaptchaViewModel&&w?.includes?.("WEB_PAGE_TYPE_UNKNOWN")&&w?.includes?.("https://support.google.com/youtube/answer/3037019")?(o=o.slice(1)\,o.length>0?n(o[0]):n("")\,r=!1\,i.loadVideoById(a\,u)):0===o.length?(r=!1\,n("")):l(y\,c\,o)&&r?(n(o[0])\,r=!1\,i.loadVideoById(a\,u)):!r&&p.current-u>.1&&p.current-u<5&&location.href.includes("&list=")&&null===i.getPlaylistId?.()&&(e=document.querySelector("yt-playlist-manager")\,s=e?.getPlaylistData?.()\,s&&(e.setPlaylistData?.(s)\,e.setPlayerPlaybackControlData?.({playlistPanelRenderer:s}))))}c&&p.duration>0&&i.seekTo?.(p.duration)}}else o=t};e()\,new MutationObserver((()=>{e()})).observe(document\,{childList:!0\,subtree:!0})}))\,window.Map.prototype.has=new Proxy(window.Map.prototype.has\,{apply:(e\,t\,o)=>("onSnackbarMessage"!==o?.[0]||r||s()\,Reflect.apply(e\,t\,o))})\,window.Array.prototype.push=new Proxy(window.Array.prototype.push\,{apply:(e\,t\,r)=>{let o=r?.[0];return!o||"object"!=typeof o||"Uint8Array"!==o.constructor.name||o.buffer?.byteLength!==o.length||105!==o.length&&104!==o.length||(console.log(o)\,s())\,Reflect.apply(e\,t\,r)}});const i={apply:(e\,t\,r)=>{const o=r[0];return"function"==typeof o&&o.toString().includes("onAbnormalityDetected")&&(r[0]=function(){})\,Reflect.apply(e\,t\,r)}};window.Promise.prototype.then=new Proxy(window.Promise.prototype.then\,i)})();$1, sedCount, 1, excludes, MutationObserver, condition, /serverContract|js_ld/)
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="channel"].context.client[?.clientName=="WEB"]+={"clientScreen":"CHANNEL"})
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="lactmilli"]+={"params":"8AUB"})
 www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="yahi"]+={"params":"YAHI"})
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="instream"].playbackContext[?.contentPlaybackContext]+={"adPlaybackContext":{"adType":"AD_TYPE_INSTREAM"}})
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/channel|lactmilli|instream/].playbackContext.contentPlaybackContext.lactMilliseconds="${now}")
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/adunit|channel|lactmilli|instream|inline|yahi|eafg/].playbackContext.contentPlaybackContext.referer=repl({"regex":"(?:#reloadxhr)?$"\,"replacement":"#reloadxhr"}))
-www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.createCommentParams].context.client.userAgent=repl({"regex":"/; (adunit|channel|lactmilli|instream|inline|yahi|eafg)\b/"\,"replacement":""}))
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent*="inline"].playbackContext.contentPlaybackContext+={"isInlinePlaybackNoAd":true})
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/channel|lactmilli|inline/].playbackContext.contentPlaybackContext.lactMilliseconds="${now}")
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.attestationRequest][?.context.client.userAgent=/adunit|channel|lactmilli|inline|yahi|eafg|yaf4/].playbackContext.contentPlaybackContext.referer=repl({"regex":"(?:#reloadxhr)?$"\,"replacement":"#reloadxhr"}))
+www.youtube.com##+js(trusted-edit-inbound-object, JSON.stringify, 0, [?.createCommentParams].context.client.userAgent=repl({"regex":"/; (adunit|channel|lactmilli|inline|yahi|eafg|yaf4)\b/"\,"replacement":""}))
 ! https://github.com/uBlockOrigin/uAssets/issues/30157#issuecomment-5206026055
 ! www.youtube.com##+js(set, ytcfg.data_.EXPERIMENT_FLAGS.all_web_enable_network_machine, false)
 ! www.youtube.com##+js(set, ytcfg.data_.EXPERIMENT_FLAGS.all_web_network_machine_raw_request, false)
@@ -12554,12 +12556,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.proto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=shanelocaldog.com,important
-shanelocaldog.com##+js(nowoif)
-shanelocaldog.com##+js(set, console.clear, undefined)
-shanelocaldog.com##+js(acs, globalThis, break;case)
-shanelocaldog.com##+js(acs, WebAssembly, atob)
-||shanelocaldog.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=shannoncoldalready.com,important
+shannoncoldalready.com##+js(nowoif)
+shannoncoldalready.com##+js(set, console.clear, undefined)
+shannoncoldalready.com##+js(acs, globalThis, break;case)
+shannoncoldalready.com##+js(acs, WebAssembly, atob)
+||shannoncoldalready.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -13034,78 +13036,6 @@ elektroda.pl##.ad-resize.container:style(padding:0 !important)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/233289
 /?yaab_go=$doc,uritransform=/\?yaab_go=.+//,domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
 /?catalog_visit=$doc,uritransform=/\?catalog_visit=.+//,domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com###yaab-overlay
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a:not(.yrss-list__a):matches-attr("href"="/^.{100,}/")
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a:matches-attr("/^data-/")
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a:matches-attr("href"="/=[0-9a-f]{32}$/")
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a[rel*="sponsored"]:not(.aedr-form__purchase[href="https://amzn.to/4g4yOhg"])
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##a:has(img[src^="https://m.media-amazon.com" i])
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##[href*="aHR0"]
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##[class*="pdx-"]
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##[id*="-sale"]
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##.catalog-content
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(json-prune, html)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(prevent-innerHTML)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(trusted-suppress-native-method, DOMParser.prototype.parseFromString, '"/<[Aa]/"')
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(no-fetch-if, method:POST)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##+js(rmnt, script, /adsby|console|data-ad|modal|requestAnimationFrame|srcdoc|tagName|text\/html|userAgent|visibility|zucks|^[\S\s]{3200\,}$|\\u00|ブロッカ/)
-genshin-soku.com,monhan-soku.com,xn--gckdevd5myivf.site,xn--o9j0bk1l6d1bnv1as45bb2j.com,yamiisoku.com##^script[id]:not([src], :empty, #wp-emoji-settings)
-@@||genshin-soku.com/wp-content/plugins/amazon-egift-donation/assets/front.js
-@@||genshin-soku.com/wp-content/plugins/yamiisoku-bbs-comments/assets/comments.js
-@@||genshin-soku.com/wp-content/plugins/yamiisoku-popular-posts/assets/script.js
-@@||genshin-soku.com/wp-content/themes/monhan-soku-theme/assets/js/comment-more.js
-@@||genshin-soku.com/wp-includes/js/wp-emoji-release.min.js
-@@||monhan-soku.com/wp-content/plugins/yamiisoku-bbs-comments/assets/comments.js
-@@||monhan-soku.com/wp-content/plugins/yamiisoku-popular-posts/assets/script.js
-@@||monhan-soku.com/wp-content/themes/monhan-soku-theme/assets/js/comment-more.js
-@@||monhan-soku.com/wp-includes/js/jquery/jquery-migrate.min.js
-@@||monhan-soku.com/wp-includes/js/jquery/jquery.min.js
-@@||monhan-soku.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js
-@@||monhan-soku.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js
-@@||monhan-soku.com/wp-includes/js/mediaelement/renderers/vimeo.min.js
-@@||monhan-soku.com/wp-includes/js/mediaelement/wp-mediaelement.min.js
-@@||monhan-soku.com/wp-includes/js/wp-emoji-release.min.js
-@@||xn--gckdevd5myivf.site/wp-content/plugins/yamiisoku-popular-posts/assets/script.js
-@@||xn--gckdevd5myivf.site/wp-content/plugins/yamiisoku-bbs-comments/assets/comments.js
-@@||xn--gckdevd5myivf.site/wp-includes/js/comment-reply.min.js
-@@||xn--gckdevd5myivf.site/wp-includes/js/jquery/jquery-migrate.min.js
-@@||xn--gckdevd5myivf.site/wp-includes/js/jquery/jquery.min.js
-@@||xn--gckdevd5myivf.site/wp-content/themes/cocoon-child-master/javascript.js
-@@||xn--gckdevd5myivf.site/wp-content/themes/cocoon-master/javascript.js
-@@||xn--gckdevd5myivf.site/wp-content/themes/cocoon-master/js/group-link.js
-@@||xn--gckdevd5myivf.site/wp-content/themes/cocoon-master/plugins/baguettebox/dist/baguetteBox.min.js
-@@||xn--gckdevd5myivf.site/wp-content/themes/cocoon-master/plugins/lozad.js-master/dist/lozad.min.js
-@@||xn--gckdevd5myivf.site/wp-content/themes/cocoon-master/skins/skin-colors-blue/javascript.js
-@@||xn--o9j0bk1l6d1bnv1as45bb2j.com/wp-content/plugins/yamiisoku-bbs-comments/assets/comments.js
-@@||xn--o9j0bk1l6d1bnv1as45bb2j.com/wp-content/plugins/yamiisoku-popular-posts/assets/script.js
-@@||xn--o9j0bk1l6d1bnv1as45bb2j.com/wp-content/themes/yamiisoku-matome-theme/assets/js/comment-more.js
-@@||xn--o9j0bk1l6d1bnv1as45bb2j.com/wp-includes/js/wp-emoji-release.min.js
-@@||yamiisoku.com/wp-content/plugins/yamiisoku-popular-posts/assets/script.js
-@@||yamiisoku.com/wp-content/themes/yamiisoku-matome-theme/assets/js/comment-more.js
-@@||yamiisoku.com/wp-content/plugins/yamiisoku-bbs-comments/assets/comments.js
-@@||yamiisoku.com/wp-includes/js/jquery/jquery-migrate.min.js
-@@||yamiisoku.com/wp-includes/js/jquery/jquery.min.js
-@@||yamiisoku.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js
-@@||yamiisoku.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js
-@@||yamiisoku.com/wp-includes/js/mediaelement/renderers/vimeo.min.js
-@@||yamiisoku.com/wp-includes/js/mediaelement/wp-mediaelement.min.js
-@@||yamiisoku.com/wp-includes/js/wp-emoji-release.min.js
-@@||ajax.googleapis.com/ajax/libs/jquery/*/jquery.min.js$domain=yamiisoku.com
-@@||cdnjs.cloudflare.com/ajax/libs/jquery-migrate/*/jquery-migrate.min.js$domain=yamiisoku.com
-@@||platform.twitter.com/widgets.js$domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
-@@||platform.x.com/widgets.js$domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
-@@||platform.twitter.com/js/tweet.$script,domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
-! subsites
-@@||yamiisoku.com/wp-content/plugins/antenna-portal/assets/portal.js
-@@||yamiisoku.com/wp-content/plugins/antenna-timeline/assets/timeline.js
-@@||yamiisoku.com/wp-content/themes/cocoon-child-master/javascript.js
-@@||yamiisoku.com/wp-content/themes/cocoon-master/javascript.js
-@@||yamiisoku.com/wp-content/themes/cocoon-master/js/group-link.js
-@@||yamiisoku.com/wp-content/themes/cocoon-master/plugins/baguettebox/dist/baguetteBox.min.js
-@@||yamiisoku.com/wp-content/themes/cocoon-master/plugins/lozad.js-master/dist/lozad.min.js
-@@||yamiisoku.com/wp-content/themes/cocoon-master/plugins/stickyfill/dist/stickyfill.min.js
-@@||yamiisoku.com/wp-includes/js/comment-reply.min.js
-*$script,xhr,domain=genshin-soku.com|monhan-soku.com|xn--gckdevd5myivf.site|xn--o9j0bk1l6d1bnv1as45bb2j.com|yamiisoku.com
 
 ! https://github.com/uBlockOrigin/uAssets/pull/34750
 ligainsider.de##+js(trusted-replace-argument, document.getElementById, 0, '', condition, /^wall-backdrop$/)
@@ -13114,8 +13044,10 @@ ligainsider.de##+js(nostif, /unknown|BLOCKED/i)
 ! https://github.com/uBlockOrigin/uAssets/issues/34741
 iplookup.flagfox.net##.adsbygoogle
 
-! https://github.com/easylist/easylist/issues/26042
-||error-report.com^$badfilter
+! https://github.com/AdguardTeam/AdguardFilters/issues/245961
+wakuraw.com,klmanga.cloud,trogiupnhanh.com,mangaruu.com,rawfree.top,soraraw.*##+js(no-fetch-if, /\?abg=|adsbygoogle|tpc\.googlesyndication\.com|doubleclick\.net|googleadservices\.com/)
+||connect.facebook.net/*/fbevents.js$script,redirect=noop.js,domain=soraraw.net|soraraw.site|rawfree.top|mangaruu.com|trogiupnhanh.com|wakuraw.com|klmanga.cloud
+||googleadservices.com/pagead/conversion.js$script,redirect=noop.js,domain=soraraw.net|soraraw.site|rawfree.top|mangaruu.com|trogiupnhanh.com|wakuraw.com|klmanga.cloud
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -14283,7 +14215,6 @@ ebay.com#@#li.s-item:has(span:has-text(SPONSORED))
 
 ! To counter the adswizz filter in Peter Lowe's list
 ||adswizz.com^$badfilter
-||adswizz.com^$3p
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/d6zbqv/login_popup_for_disqus_being_blocked/
 @@||disqus.com/next/login/$popup
@@ -17326,7 +17257,6 @@ delta.com#@#.adv-container
 ! To counter `statcounter.com` in Peter Lowe's
 ! https://github.com/uBlockOrigin/uAssets/commit/1142bef68ee287d27f6191c433ff8491570b6612
 ||statcounter.com^$badfilter
-||statcounter.com^$3p
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/142003
 vindobona.org#@#.ads_footer
@@ -19402,5 +19332,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13445
+! Total unique rules: 13376
 ! Duplicates removed: 18

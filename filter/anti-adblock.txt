@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 02 Nov 2026 01:07:02 UTC
+! Last modified: 03 Nov 2026 01:06:17 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10696,6 +10696,9 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+palermotoday.it,padovaoggi.it#$#div[data-unfair] { display: none !important; }
+palermotoday.it,padovaoggi.it#$#html, body { overflow: auto !important; }
+themezon.net##.main > div[class*="adblock"]
 lycantoons.com#%#//scriptlet('prevent-setTimeout', 'blocked&&')
 lycantoons.com###toast-group\:top ~ div[class^="css-"]:has(> div > button[aria-label="Fechar"])
 lycantoons.com###toast-group\:top ~ div[class^="css-"]:has(+ div[class^="css-"] > div > button[aria-label="Fechar"]):empty
@@ -13897,5 +13900,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 10568
+! Total unique rules: 10571
 ! Duplicates removed: 3045
