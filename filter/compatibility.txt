@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 03 Nov 2026 01:06:18 UTC
+! Last modified: 04 Nov 2026 01:05:49 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1793646675-3600.patch
+! Diff-Path: ../patches/11/11-s-1793733066-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -166,6 +166,7 @@
 !
 !NOTE: Regular rules
 !
+||asttoxa.ru^
 ||inapps.af-sdk.com^
 ||cdn-settings.af-sdk.com^
 ||da.flvcdn.net^
@@ -2719,6 +2720,12 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+official.ameba.jp##.bxud9W_slot
+j-town.net##.video_ad_area
+quoka.de##.mobile-anz-container
+quoka.de##.searchresult > div.row:has(> div[style^="width: 100%;"] > div#QUO_M_Search_Footer > div[id^="div-gpt-ad-"])
+lastwordonsports.com#$##page { margin-top: 0px !important; }
+lastwordonsports.com##.ar82zL-partner-container
 goal.com##div[class^="overview_top-mpu-mpbile"]:has(> div[class^="ad-slot"])
 109cinemas.net##.ad-banner-sp
 search.yahoo.co.jp##.infeedAds
@@ -13049,6 +13056,9 @@ wakuraw.com,klmanga.cloud,trogiupnhanh.com,mangaruu.com,rawfree.top,soraraw.*##+
 ||connect.facebook.net/*/fbevents.js$script,redirect=noop.js,domain=soraraw.net|soraraw.site|rawfree.top|mangaruu.com|trogiupnhanh.com|wakuraw.com|klmanga.cloud
 ||googleadservices.com/pagead/conversion.js$script,redirect=noop.js,domain=soraraw.net|soraraw.site|rawfree.top|mangaruu.com|trogiupnhanh.com|wakuraw.com|klmanga.cloud
 
+! https://github.com/AdguardTeam/AdguardFilters/commit/7520124db2eaae69b2d0de4eb8111bc15fbd4193
+||city.yubari.lg.jp/uploaded/banner/$badfilter
+
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
 !
@@ -19332,5 +19342,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13376
+! Total unique rules: 13384
 ! Duplicates removed: 18
