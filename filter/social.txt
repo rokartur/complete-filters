@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 05 Nov 2026 01:07:45 UTC
+! Last modified: 06 Nov 2026 01:07:01 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 8 / 8
@@ -11064,6 +11064,7 @@ grubstreet.com##.follow-list
 simplejoy.com##.follow-me-foot
 windowsreport.com##.follow-more-news
 opendemocracy.net##.follow-od
+techpartner.news##.follow-on-whatsapp__container
 amoledo.com##.follow-please
 metro.co.uk##.follow-promo
 gptoday.net##.follow-section
@@ -11222,6 +11223,7 @@ wrestletalk.com##.google_source_badge
 auto.hindustantimes.com##.googlenewfollowidget
 indiatoday.in##.googprefer
 japan.go.jp##.gov_sns
+techpartner.news##.gps-block
 ethanzuckerman.com##.group-1
 gadgets360.com##.gsocialbar
 atlanticcouncil.org##.gta-hover-share-container
@@ -11820,7 +11822,7 @@ northpennnow.com##.social-media-vertical
 mg.co.za##.social-meks
 aciafrica.org,aciafrique.org,acidigital.com,acimena.com,aciprensa.com,acistampa.com,blackamericaweb.com,browserstack.com,cassiuslife.com,catholicnewsagency.com,gosunoob.com,joblo.com,mycleo.tv,radioblog.eu,tvone.tv,ultiworld.com##.social-menu
 birdsandblooms.com,familyhandyman.com,rd.com,tasteofhome.com,thehealthy.com##.social-menu-desktop
-churchpop.com,dersonntag.at,toofab.com##.social-nav
+99percentinvisible.org,churchpop.com,dersonntag.at,toofab.com##.social-nav
 eltecolote.org,melmagazine.com,mississippifreepress.org,orlandoweekly.com,prismreports.org,sacurrent.com,thefrisc.com,worldcrunch.com##.social-navigation
 steveharveyfm.com##.social-network-icons
 adrenaline.com.br,bonsfluidos.com.br,bossip.com,brasil.perfil.com,glamurama.com.br,insidehpc.com,maisnovela.com.br,manequim.com.br,marciapiovesan.com.br,mundoconectado.com.br,sportsbusinessjournal.com,vivasaudedigital.com.br##.social-networks
@@ -14705,6 +14707,10 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+reporteri.net##.article-body + div.grid
+waszregion.pl##button[onclick^="shareArticle"]
+fp1-siken.com,fp2-siken.com,fp3-siken.com,ap-siken.com,db-siken.com,fe-siken.com,itpassportsiken.com,nw-siken.com,pm-siken.com,sc-siken.com,sg-siken.com,takken-siken.com##.social-btn-list_mini
+united24media.com##footer > div.c-post__props:has(> ul > li > button[data-share-button])
 biggo.com.tw#?#div[class^="InteractionButtons_actionButtons"] > button:contains(分享)
 qiita.com##nav[aria-label="Breadcrumb trail"] ~ div:has(> div > button[aria-label="Share on Facebook"])
 inyourarea.co.uk##.hero-card .flex > .items-center > button
@@ -19760,7 +19766,7 @@ m.segye.com,weekly.chosun.com,topclass.chosun.com##.kakao
 francoischarron.com,jp.topcarweb.com,idaegu.com,etoday.co.kr,suruga-ya.jp##.share_icon
 appmedia.jp##.new_share
 tvguide.or.jp##.p--archives-singleSns-share
-pub.towardsai.net,blog.webf.zone,python.plainenglish.io,levelup.gitconnected.com,fadamakis.com,tech.storyly.io,itnext.io,booking.design,blog.stackademic.com,blog.neufund.org,uxdesign.cc,javascript.plainenglish.io,medium.com##div[aria-describedby="postFooterSocialMenu"]
+mikepuchol.com,pub.towardsai.net,blog.webf.zone,python.plainenglish.io,levelup.gitconnected.com,fadamakis.com,tech.storyly.io,itnext.io,booking.design,blog.stackademic.com,blog.neufund.org,uxdesign.cc,javascript.plainenglish.io,medium.com##div[aria-describedby="postFooterSocialMenu"]
 medium.com##header.pw-post-byline-header > div[class] + div[class] > div[class] > div > [aria-describedby]
 saisoncard.co.jp##.sec-social
 netmall.hardoff.co.jp##.product-detail-share
@@ -44204,5 +44210,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42934
+! Total unique rules: 42940
 ! Duplicates removed: 640
