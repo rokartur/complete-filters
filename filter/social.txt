@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 06 Nov 2026 01:07:01 UTC
+! Last modified: 07 Nov 2026 01:06:01 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 8 / 8
@@ -11458,7 +11458,7 @@ nationaltoday.com##.nt-share
 nowtoronto.com##.nt-sidebar-social
 nowtoronto.com##.nt-social
 foodnetwork.com##.o-SocialShare
-deadline.com,goldderby.com,rollingstone.com##.o-google-preferred-button
+artnews.com,deadline.com,goldderby.com,hollywoodreporter.com,robbreport.com,rollingstone.com,sheknows.com,sportico.com,vibe.com,wwd.com##.o-google-preferred-button
 getty.edu##.o-hero__social
 newstalkzb.co.nz##.o-share-list
 sheknows.com,spy.com##.o-social-list__item
@@ -14707,6 +14707,9 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+dbsullca.com##.post-block:has(> .sharethis-inline-reaction-buttons)
+biggo.jp##button[aria-label="共有"]
+prothomalo.com##.fb-twitter
 reporteri.net##.article-body + div.grid
 waszregion.pl##button[onclick^="shareArticle"]
 fp1-siken.com,fp2-siken.com,fp3-siken.com,ap-siken.com,db-siken.com,fe-siken.com,itpassportsiken.com,nw-siken.com,pm-siken.com,sc-siken.com,sg-siken.com,takken-siken.com##.social-btn-list_mini
@@ -15323,7 +15326,7 @@ vesty.co.il##.articleShareButtons
 vesty.co.il#$#.topBtns { visibility: hidden !important; }
 dev.ua##.article__container > figure.incut:has(> div.card_media > div.card__info > div.card__body > a[href^="https://t.me/devukraine"])
 express.co.uk##div.text-description:has(> p > a[href^="https://www.facebook.com/DailyExpressSport#"])
-on3.com,maltadaily.mt##button[aria-label="Share article"]
+thedailybeast.com,on3.com,maltadaily.mt##button[aria-label="Share article"]
 atn.ua##.penci-social-media
 devonlive.com,dailyrecord.co.uk##div[class^="ShareBar_sharebar-wrapper_"] > div[class^="ShareBar_"]
 nypost.com##.google-preferred-sources
@@ -17731,7 +17734,7 @@ irishtimes.com##.social_share_expand_menu_btn
 theguardian.com##gu-island[name="ShareButton"]
 screendaily.com##.pageOptions > ul:not(.pageOptions_right)
 current.ndl.go.jp##.widget_ca_sns
-wiki3.jp##.share_button_wrapper
+news.ladytopi.jp,wiki3.jp##.share_button_wrapper
 wiki3.jp#?#.uk-margin-large-top:contains(シェアボタン： このページをSNSに投稿するのに便利です。)
 retail.ru##.articles-share
 dospara.co.jp##.snsButtonElement
@@ -44210,5 +44213,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 42940
+! Total unique rules: 42943
 ! Duplicates removed: 640

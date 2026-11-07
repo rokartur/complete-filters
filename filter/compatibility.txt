@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 06 Nov 2026 01:06:44 UTC
+! Last modified: 07 Nov 2026 01:05:45 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1793859323-3600.patch
+! Diff-Path: ../patches/11/11-s-1793970740-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2720,6 +2720,9 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+winfuture.de###ab_google_336x280_35_35
+po-kaki-to.com###supplementary
+po-kaki-to.com###tertiary
 kitco.com###in-content-1
 kitco.com###in-content-2
 famitsu.com##div[class^="ArticleDetailMiddleRectangle-"]
@@ -2733,7 +2736,7 @@ quoka.de##.mobile-anz-container
 quoka.de##.searchresult > div.row:has(> div[style^="width: 100%;"] > div#QUO_M_Search_Footer > div[id^="div-gpt-ad-"])
 lastwordonsports.com#$##page { margin-top: 0px !important; }
 lastwordonsports.com##.ar82zL-partner-container
-goal.com##div[class^="overview_top-mpu-mpbile"]:has(> div[class^="ad-slot"])
+goal.com##div[class^="overview_top-mpu-mobile"]:has(> div[class^="ad-slot"])
 109cinemas.net##.ad-banner-sp
 search.yahoo.co.jp##.infeedAds
 goal.com##.fco-sticky-wrapper__space-placeholder
@@ -10869,6 +10872,7 @@ dzen.ru#@#:matches-path(/articles) div:has(> article > div > [class*="image"]:em
 .cyou/g/
 .cyou/gd/
 .cyou/s/
+.cyou/sbx/
 .net/wrr?
 .qpon/cuid/
 .qpon/gd/
@@ -19144,6 +19148,9 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 ! https://github.com/uBlockOrigin/uAssets/issues/35085
 @@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect-rule=googletagservices_gpt.js:5,domain=theglobeandmail.com
 
+! https://github.com/uBlockOrigin/uAssets/issues/35181
+@@||h-visa2.online-metrix.net^$frame,domain=src.visa.com
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -19349,5 +19356,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13391
+! Total unique rules: 13396
 ! Duplicates removed: 18
