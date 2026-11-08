@@ -85,7 +85,6 @@
 ||uponit.com/front.js
 ||asset.pagefair.com/measures.js
 ||cdn.blockadblock.com/blockadblock.js
-! NOTE: $important needed — our own @@||cdnjs.cloudflare.com^ compatibility allowlist would otherwise let this anti-adblock script through
 ||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$important
 ||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$script,important
 ||detectadblock.com^$important
@@ -111,24 +110,17 @@
 ||app.termly.io/embed-policy.min.js$script,important
 ||cdn.consentmanager.net/delivery/autoblocking/
 !
-! Explicit overrides against our own broad compatibility allowlists
-! NOTE: $important needed — our own @@||microsoft.com^ compatibility allowlist would otherwise let this ad host through
+! Ad and telemetry hosts on otherwise allowed first-party domains
 ||ads.microsoft.com^$important
-! NOTE: $important needed — our own @@||allegro.pl^ compatibility allowlist would otherwise let this tracking host through
 ||analytics.allegro.pl^$important
-! NOTE: $important needed — our own @@||wp.pl^ compatibility allowlist would otherwise let this ad host through
 ||reklama.wp.pl^$important
-! NOTE: $important needed — our own @@||static.cloudflareinsights.com^ compatibility allowlist would otherwise let this analytics script through
 ||static.cloudflareinsights.com/beacon.min.js$important
-! NOTE: $important needed — our own @@||*.tiktok.com^$all,important allowlist would otherwise let this ad host through
 ||ads.tiktok.com^$important
-! NOTE: $important needed — our own @@||*.apple.com^ compatibility allowlist would otherwise let these telemetry hosts through
 ||api-adservices.apple.com^$important
 ||books-analytics-events.apple.com^$important
 ||weather-analytics-events.apple.com^$important
 ||xp.apple.com^$important
 ||notes-analytics-events.apple.com^$important
-! NOTE: $important needed — our own @@||*.icloud.com^ compatibility allowlist would otherwise let this telemetry host through
 ||metrics.icloud.com^$important
 !
 ! Retargeting / Affiliate Tracking
@@ -154,7 +146,6 @@
 ||gfe.nvidia.com/telemetry
 ||steamcommunity.com/actions/LogFriendActivityUpvote
 ||dis.cstream.binding.samba.tv^
-! NOTE: $important needed — our own @@||*.musical.ly^$all,important in allowlist negates the block
 ||mon.musical.ly/monitor/collect/$important
 !
 ! Ad / Monetization / Video / Widgets
@@ -184,7 +175,6 @@
 ! Error Tracking / Telemetry Ingestion
 ! NOTE: $important needed — upstream @@||*ingest.sentry.io* in anti-adblock filter negates the block
 ||o0.ingest.sentry.io^$important
-! NOTE: $important needed — our own @@||cdnjs.cloudflare.com^ compatibility allowlist would otherwise let this error tracker through
 ||cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.26.0/rollbar.min.js$important
 ||cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.26.0/rollbar.min.js$script,important
 !
