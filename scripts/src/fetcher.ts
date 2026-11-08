@@ -108,7 +108,8 @@ export async function fetchAll(urls: string[], concurrency: number): Promise<Fet
 	let done = 0
 
 	const results = await pooled(urls, concurrency, async (url) => {
-		const result = await fetchContent(url)
+		let result = await fetchContent(url)
+		if (result.error) result = await fetchContent(url)
 		done++
 		if (result.error) {
 			logError(`[${done}/${total}] ✗ ${url} — ${result.error}`)
