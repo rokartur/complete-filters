@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Cookies
 ! Description: Combined filter list for the cookies category.
-! Last modified: 07 Nov 2026 01:05:45 UTC
+! Last modified: 08 Nov 2026 00:17:13 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 21 / 21
@@ -46147,7 +46147,7 @@ grandidizionari.it##div.alertcookie
 ! ===== SOURCE: https://raw.githubusercontent.com/the-advoid/ad-void/main/AdVoid.Core.txt
 !
 ! {@!}
-! Entries: 6898
+! Entries: 6917
 ! Author: Igor Dimitrijević (@igorskyflyer)
 ! GitHub issues: https://github.com/the-advoid/ad-void/issues
 ! GitHub pull requests: https://github.com/the-advoid/ad-void/pulls
@@ -46400,6 +46400,7 @@ grandidizionari.it##div.alertcookie
 ||anym8.com^
 ||apathylahuli.website^
 ||apfbumnzymas.com^
+||apitiny.net^
 ||aplidhree.com^
 ||app-measurement.com^
 ||appartement-feigl.de^
@@ -46411,6 +46412,7 @@ grandidizionari.it##div.alertcookie
 ||appnexus.com^$3p
 ||appsflyer.com^
 ||apshexvazqhh.com^
+||aqle3.com^
 ||aqua-adserver.com^
 ||aralego.com^
 ||areekwiney.com^
@@ -46583,7 +46585,6 @@ grandidizionari.it##div.alertcookie
 ||brithungown.com^
 ||brittlesturdyunlovable.com^
 ||broapp.online^
-||browser-update.org^
 ||brutishlylifevoicing.com^
 ||btloader.com^
 ||btmessage.com^
@@ -46977,6 +46978,7 @@ grandidizionari.it##div.alertcookie
 ||elkdomshute.com^
 ||elonreptiloid.com^
 ||emergedmassacre.com^
+||emofe.com^
 ||emxdgt.com^
 ||enginsquawks.cam^
 ||enheir.com^
@@ -47970,6 +47972,7 @@ grandidizionari.it##div.alertcookie
 ||pisism.com^
 ||piwhecyfo.pro^
 ||pixelsee.app^
+||pla3.com^
 ||placingsolemnlyinexpedient.com^
 ||planningunavoidablenull.com^
 ||plausible.io^
@@ -48547,6 +48550,8 @@ grandidizionari.it##div.alertcookie
 ||tierbignews.com^
 ||tigerlysoam.top^
 ||tignuget.net^
+||tinyadz.com^$3p
+||tinydevz.com^$3p
 ||tinypass.com^
 ||tipcatscarola.com^
 ||tipico.com^
@@ -49227,6 +49232,7 @@ grandidizionari.it##div.alertcookie
 ||cdn.debugbear.com^$3p
 ||cdn.krxd.net^
 ||cdn.segment.com^
+||cdn.usefathom.com^
 ||cdnads.geeksforgeeks.org^
 ||click.googleanalytics.com^
 ||click.oneplus.cn^
@@ -49743,6 +49749,7 @@ ads-manager/ads/*/track-view
 ||ummn.nu/a^$popup,doc
 ||videosection.com/adv-agent.php^
 ||vidzstore.com/popembed.php^
+||vimeo.com/add/
 ||vimeocdn.com/add/player-stats^
 ||wikihow.com/x/zscsucgm^
 ||wired.com/user-context^
@@ -49910,7 +49917,6 @@ _pagespeed_beacon?$xhr
 ||paypal.com/platform/tealeaftarget$xhr
 ||pexels.com^*/sponsored-media/$xhr
 ||pingback.issuu.com^$xhr
-||player.stats.live-video.net^$xhr
 ||quora.com/ajax/receive_POST$xhr
 ||rebuyengine.com/api/*/analytics/event/$xhr
 ||revolut.com/api/t/errors^$xhr
@@ -49942,10 +49948,12 @@ _pagespeed_beacon?$xhr
 ||youtube.com/api/stats/qoe?*page&ns=yt&fexp=v1%*&event=streamingstats&$xhr
 
 ! {@11} AJAX paths - restore (site)
+@@/cdn-cgi/trace$xhr,domain=myair.resmed.com|one.one.one.one
 @@||doc.moplay.org/cdn-cgi/trace^$xhr
 
 ! {@12} Ping
 *$ping,3p
+/api/events|$ping,1p
 /api/front/v2/observability$ping
 ||i.posthog.com/*/?retry_count$ping
 ||i.posthog.com/i/$ping
@@ -50494,12 +50502,14 @@ trekkie*.js^$script
 ||s3.us-east-2.amazonaws.com/telemetry.bydata/$script
 ||sammobile.com^*/newrelic.js^$script
 ||sascdn.com/diff/$script,redirect-rule=noop.js,from=imgur.com
+||scorecardresearch.com/beacon.js^$script,redirect-rule=scorecardresearch.com/beacon.js:5
 ||securepubads.g.doubleclick.net/tag/js/gpt.js^$script,redirect-rule=googletagservices_gpt.js:5
 ||shopify.com/shopifycloud/consent-tracking-api/
 ||soap2dayx.to/assets/_bnx/$image
 ||soap2dayx2.to/assets/_bnx/$image
 ||squarespace.com/universal/scripts-compressed/performance-$script,3p
 ||src.ebay-us.com/*=usllpic$script,from=ebay.com
+||static.ads-twitter.com/uwt.js^$script,redirect-rule=noop.js
 ||static.rottentomatoes.com/static/js/lib/s_code_rottentomatoes.js^$script
 ||svc.dynamics.com/t/v/$3p,image
 ||tags.news.com.au^$script
@@ -50659,6 +50669,7 @@ trekkie*.js^$script
 ?utm_source=propellerads$popup
 ?z=*&ymid=$doc
 ?zoneid=*&cost=0.$doc
+^s=*&ssk=*&svar=*&z=$doc
 ^s=*&z=*&svar=*&ssk=$doc
 ^svar=*&ssk=*&s=*&z=$doc
 _browser_id=
@@ -50762,6 +50773,7 @@ zoneid=
 ###ad_topslot
 ###adbd.overdiv
 ###adBlock
+###adblock-modal
 ###adBottom
 ###adbox2
 ###adBranding
@@ -52062,6 +52074,7 @@ nanoreview.net##.sewisinad_only_mobile
 next-episode.net##table #afh
 nintendolife.com##.for-desktop
 noodlemagazine.com##[style="max-width:450px;margin:0 auto;padding:15px 10px 0"]
+onlinerecnik.com##div#abc-div
 opensubtitles.org##.msg > div[itemscope] > fieldset:has(> legend > a[href="/support#vip"])
 opensubtitles.org##a[target="_blank"][href^="https://www.amazon.com/gp/search"]
 percentagecalculator.net###incontent1
@@ -52169,6 +52182,7 @@ tureng.com##div[data-nokta-zone]
 tvbalkanuzivo.com##.sidebar-yayin
 twitch.tv##.stream-display-ad__wrapper
 twitch.tv##[data-test-selector="sda-wrapper"]
+twitch.tv##button[aria-label="Learn more about this ad"]
 twpornstars.com##.mobile.block-inline
 txxx.*##.sugggestion
 txxx.*##.video-content > div + div:last-child
@@ -52369,6 +52383,7 @@ braflix.*##+js(set-constant, console.table, trueFunc)
 britannica.com##+js(abort-current-script, document.createElement, '/admiral|String\.fromCharCode\(97,( )*?100,( )*?109,( )*?105,( )*?114,( )*?97,( )*?108\)|a%64%6d%69%72%61%6c|adm%69%72%61l|%61%64m%69r%61l|-engaged[\s\S]*?googletag[\s\S]*?decodeURI|ad%6dr%6c%4c%6fa%64%65%64|succeedscene\.com/')
 britannica.com##+js(abort-current-script, document.createElement, admiral)
 britannica.com##body:style(overflow: visible !important;)
+browser.lol##+js(prevent-setTimeout, window.getComputedStyle)
 buffstreams.*##+js(abort-current-script, document.documentElement, break;case $.)
 buffstreams.*##+js(abort-current-script, navigator, FingerprintJS)
 buffstreams.*##+js(abort-current-script, setTimeout, admc)
@@ -52951,6 +52966,7 @@ vidsrc.*##+js(nowoif)
 vidsrc.*##+js(set-constant, console.clear, trueFunc)
 vidsrc.*##^script:has-text(FingerprintJS)
 vimeo.com##+js(set-constant, navigator.globalPrivacyControl, false)
+vimeo.com##+js(set-constant, Navigator.prototype.globalPrivacyControl, false)
 vipserije.com##+js(abort-current-script, WebAssembly, atob)
 vk.com##+js(abort-on-stack-trace, Object.prototype.dispatcher, /feed|set/)
 vk.com##+js(href-sanitizer, a[href*="/away.php?"], ?to)
@@ -53002,6 +53018,7 @@ www.google.com##div[role="dialog"] span:has-text(/^See results closer to you\?$/
 www.google.com##html:style(overflow: visible !important)
 www.primevideo.com##+js(json-prune, cuepointPlaylist vodPlaybackUrls.result.playbackUrls.cuepoints)
 www.primevideo.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[@value="Ad"]] | //*[name()="Period"]/@start), [value="Ad"], .mpd)
+www.twitch.tv##+js(nowoif, /amazon-adsystem|example\.com/)
 www.youtube.com##+js(adjust-setTimeout, [native code], 17000, 0.001)
 www.youtube.com##+js(json-prune, contents.twoColumnBrowseResultsRenderer.tabs.[].tabRenderer.content.richGridRenderer.contents.[-].richItemRenderer.content.adSlotRenderer)
 www.youtube.com##+js(json-prune, entries.[-].command.reelWatchEndpoint.adClientParams.isAd)
@@ -53049,6 +53066,7 @@ xhamster2.*##+js(set-cookie, ts_popunder, true, , reload, 1)
 xhamster2.*##+js(trusted-replace-node-text, script, popunder, , condition, popunder, stay, 1)
 xhamster2.*##.video-page .player-container:style(margin-right: 0 !important;)
 xvideos.com##+js(nowoif)
+y2down.*##+js(nowoif)
 y2mate.*##+js(abort-on-property-read, mm)
 y2mate.*##+js(abort-on-property-write, afStorage)
 y2mate.*##+js(nowoif)
@@ -53067,6 +53085,7 @@ ytmp3.*##+js(nowoif)
 ytmp3.cc##+js(nowoif, !/ytmp3|dropbox/)
 z3.fm##+js(nowoif)
 zavalise.com##+js(no-window-open)
+zerogpt.com##+js(abort-current-script, document.createElement, abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=)
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Anti-%27Custom%20cursors%27%20List.txt
@@ -53735,5 +53754,5 @@ zety.com##._cookiePopup_1fsd7_127
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 44874
+! Total unique rules: 44893
 ! Duplicates removed: 1325
