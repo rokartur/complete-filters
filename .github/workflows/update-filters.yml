@@ -63,7 +63,7 @@ jobs:
 
       - name: Commit & push built filters
         run: |
-          git add filter/*.txt not-found.txt
+          git add filter/*.txt
           if git diff --cached --quiet; then
             echo "No filter changes to commit"
           else

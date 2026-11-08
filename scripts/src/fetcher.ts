@@ -5,7 +5,7 @@ import {
 	HOSTS_RE,
 	HOSTS_SKIP,
 } from "./constants.ts"
-import { pooled, log, logError, appendToNotFound, normalizeUrl } from "./utils.ts"
+import { pooled, log, logError, normalizeUrl } from "./utils.ts"
 
 // ── Hosts format detection ─────────────────────────────────────────────────
 
@@ -101,23 +101,17 @@ export async function fetchHead(url: string, maxBytes: number): Promise<FetchRes
 	}
 }
 
-// ── Concurrent fetch all with not-found tracking ──────────────────────────
+// ── Concurrent fetch all ──────────────────────────────────────────────────
 
-export async function fetchAll(
-	urls: string[],
-	concurrency: number,
-	notFoundPath?: string,
-): Promise<FetchResult[]> {
+export async function fetchAll(urls: string[], concurrency: number): Promise<FetchResult[]> {
 	const total = urls.length
 	let done = 0
-	const failedUrls: string[] = []
 
 	const results = await pooled(urls, concurrency, async (url) => {
 		const result = await fetchContent(url)
 		done++
 		if (result.error) {
 			logError(`[${done}/${total}] ✗ ${url} — ${result.error}`)
-			failedUrls.push(url)
 		} else {
 			const tag = result.isHosts ? " (hosts)" : ""
 			const lines = result.content?.split("\n").length ?? 0
@@ -125,11 +119,6 @@ export async function fetchAll(
 		}
 		return result
 	})
-
-	// Append failures to not-found.txt
-	if (notFoundPath && failedUrls.length > 0) {
-		await appendToNotFound(failedUrls, notFoundPath)
-	}
 
 	return results
 }
@@ -140,27 +129,20 @@ export async function fetchAllMetadata(
 	urls: string[],
 	concurrency: number,
 	maxBytes: number,
-	notFoundPath?: string,
 ): Promise<FetchResult[]> {
 	const total = urls.length
 	let done = 0
-	const failedUrls: string[] = []
 
 	const results = await pooled(urls, concurrency, async (url) => {
 		const result = await fetchHead(url, maxBytes)
 		done++
 		if (result.error) {
 			logError(`[${done}/${total}] ✗ ${url} — ${result.error}`)
-			failedUrls.push(url)
 		} else {
 			log(`[${done}/${total}] ✓ ${url}`)
 		}
 		return result
 	})
-
-	if (notFoundPath && failedUrls.length > 0) {
-		await appendToNotFound(failedUrls, notFoundPath)
-	}
 
 	return results
 }

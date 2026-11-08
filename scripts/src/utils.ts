@@ -1,5 +1,4 @@
 import { existsSync } from "node:fs"
-import { NOT_FOUND_TXT } from "./constants.ts"
 
 // ── URL helpers ────────────────────────────────────────────────────────────
 
@@ -63,38 +62,6 @@ export async function loadUrls(path: string): Promise<string[]> {
 		.split("\n")
 		.map((l) => l.trim())
 		.filter((l) => l && !l.startsWith("#")))
-}
-
-export async function loadNotFound(path: string = NOT_FOUND_TXT): Promise<Set<string>> {
-	const file = Bun.file(path)
-	if (!(await file.exists())) return new Set()
-	const text = await file.text()
-	const urls = text
-		.split("\n")
-		.map((l) => normalizeUrl(l))
-		.filter(Boolean)
-	return new Set(urls)
-}
-
-export async function appendToNotFound(urls: string[], path: string = NOT_FOUND_TXT): Promise<void> {
-	if (urls.length === 0) return
-
-	// Load existing, merge, dedupe, write back
-	const existing = await loadNotFound(path)
-	const normalizedUrls = dedupePreserveOrder(urls)
-	const newUrls = normalizedUrls.filter((u) => !existing.has(u))
-	if (newUrls.length === 0) return
-
-	const file = Bun.file(path)
-	let content = ""
-	if (await file.exists()) {
-		content = await file.text()
-		if (content.length > 0 && !content.endsWith("\n")) {
-			content += "\n"
-		}
-	}
-	content += newUrls.join("\n") + "\n"
-	await Bun.write(path, content)
 }
 
 // ── Concurrency pool ──────────────────────────────────────────────────────

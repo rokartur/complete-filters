@@ -4,9 +4,8 @@ import {
 	DEFAULT_JOBS,
 	FILTER_DIR,
 	MANUAL_RULES,
-	NOT_FOUND_TXT,
 } from "./constants.ts"
-import { loadUrls, loadNotFound, log, logWarning } from "./utils.ts"
+import { loadUrls, log, logWarning } from "./utils.ts"
 import { fetchAll } from "./fetcher.ts"
 import { runBuild } from "./builder.ts"
 import { readdir, mkdir, unlink } from "node:fs/promises"
@@ -54,17 +53,13 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 		}
 	}
 
-	// ── Load not-found exclusions ──────────────────────────────────────────
-	const notFoundSet = await loadNotFound(NOT_FOUND_TXT)
-
 	// ── Collect all unique URLs across ALL categories for a global fetch ──
 	const allCategoryUrls = new Map<string, string[]>() // category → urls
 	const globalUrlSet = new Set<string>()
 
 	for (const manifest of manifests) {
 		const category = manifest.replace(/\.txt$/, "")
-		const rawUrls = await loadUrls(`${CATEGORIES_DIR}/${manifest}`)
-		const urls = rawUrls.filter((u) => !notFoundSet.has(u))
+		const urls = await loadUrls(`${CATEGORIES_DIR}/${manifest}`)
 		allCategoryUrls.set(category, urls)
 		for (const u of urls) globalUrlSet.add(u)
 	}
@@ -75,7 +70,7 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 	// ── Global fetch: download everything once ─────────────────────────────
 	log(`\nFetching all ${globalUrlList.length} URLs with ${jobs} workers ...`)
 	const t0 = performance.now()
-	const allResults = await fetchAll(globalUrlList, jobs, NOT_FOUND_TXT)
+	const allResults = await fetchAll(globalUrlList, jobs)
 	const elapsed = ((performance.now() - t0) / 1000).toFixed(1)
 	log(`Global fetch done in ${elapsed}s`)
 

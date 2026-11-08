@@ -9,8 +9,8 @@ import {
 	extractCandidateUrls,
 	mergeUrls,
 } from "./api.ts"
-import { DEFAULT_JOBS, FILTERS_TXT, NOT_FOUND_TXT } from "./constants.ts"
-import { loadUrls, loadNotFound, dedupePreserveOrder, log, logVerbose } from "./utils.ts"
+import { DEFAULT_JOBS, FILTERS_TXT } from "./constants.ts"
+import { loadUrls, dedupePreserveOrder, log, logVerbose } from "./utils.ts"
 
 export interface FetchFilterListsOptions {
 	jobs?: number
@@ -43,12 +43,8 @@ export async function runFetchFilterLists(opts: FetchFilterListsOptions = {}): P
 	const { urls: candidateUrls, stats: discoveryStats } = extractCandidateUrls(details)
 	const discoveredUrls = dedupePreserveOrder(candidateUrls)
 
-	// Load not-found URLs and filter them out
-	const notFoundSet = await loadNotFound(NOT_FOUND_TXT)
-	const filteredUrls = discoveredUrls.filter((u) => !notFoundSet.has(u))
-
 	const existingUrls = await loadUrls(FILTERS_TXT)
-	const { merged, newUrls } = mergeUrls(existingUrls, filteredUrls)
+	const { merged, newUrls } = mergeUrls(existingUrls, discoveredUrls)
 
 	// ── Summary ──────────────────────────────────────────────────────────
 	log("")
@@ -64,7 +60,6 @@ export async function runFetchFilterLists(opts: FetchFilterListsOptions = {}): P
 	log(`Lists without usable viewUrls:     ${discoveryStats.withoutUrls}`)
 	log(`Accepted detail URLs before dedup: ${discoveryStats.acceptedUrls}`)
 	log(`Discovered URLs after dedup:       ${discoveredUrls.length}`)
-	log(`Excluded (not-found):              ${discoveredUrls.length - filteredUrls.length}`)
 	log(`Existing URLs:                     ${dedupePreserveOrder(existingUrls).length}`)
 	log(`New URLs:                          ${newUrls.length}`)
 	log(`Merged URLs:                       ${merged.length}`)

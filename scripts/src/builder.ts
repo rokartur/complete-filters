@@ -1,9 +1,5 @@
 import type { FetchResult, BuildMetadata, Stats } from "./types.ts"
-import {
-	DEFAULT_JOBS,
-	MANUAL_RULES,
-	NOT_FOUND_TXT,
-} from "./constants.ts"
+import { DEFAULT_JOBS, MANUAL_RULES } from "./constants.ts"
 import { log, logWarning } from "./utils.ts"
 import { fetchAll } from "./fetcher.ts"
 import { assemble, validateOutput, loadLocalRulesets } from "./assembler.ts"
@@ -50,7 +46,7 @@ export async function runBuild(
 
 		if (uncachedUrls.length > 0) {
 			log(`  ${urls.length - uncachedUrls.length} cached, fetching ${uncachedUrls.length} remaining ...`)
-			const freshResults = await fetchAll(uncachedUrls, jobs, NOT_FOUND_TXT)
+			const freshResults = await fetchAll(uncachedUrls, jobs)
 			for (let j = 0; j < uncachedIndices.length; j++) {
 				results[uncachedIndices[j]!] = freshResults[j]!
 				// Add to cache for future use
@@ -60,7 +56,7 @@ export async function runBuild(
 			log(`  All ${urls.length} URLs served from cache`)
 		}
 	} else {
-		results = await fetchAll(urls, jobs, NOT_FOUND_TXT)
+		results = await fetchAll(urls, jobs)
 	}
 
 	const elapsed = ((performance.now() - t0) / 1000).toFixed(1)

@@ -5,7 +5,6 @@ import {
 	EXACT_OVERRIDES,
 	FORMAT_HEADER_RE,
 	META_FETCH_BYTES,
-	NOT_FOUND_TXT,
 	REGIONAL_PREFIX_RE,
 	TITLE_RE,
 } from "./constants.ts"
@@ -213,9 +212,8 @@ export function classifySource(
 export async function classifyAll(
 	urls: string[],
 	concurrency: number,
-	notFoundPath?: string,
 ): Promise<SourceMeta[]> {
-	const results = await fetchAllMetadata(urls, concurrency, META_FETCH_BYTES, notFoundPath)
+	const results = await fetchAllMetadata(urls, concurrency, META_FETCH_BYTES)
 	const metas: SourceMeta[] = []
 
 	for (const result of results) {

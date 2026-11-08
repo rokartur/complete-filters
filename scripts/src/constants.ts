@@ -11,7 +11,6 @@ export const SCRIPT_DIR = resolve(__dirname, "..")
 export const ROOT = resolve(SCRIPT_DIR, "..")
 
 export const FILTERS_TXT = resolve(ROOT, "filters.txt")
-export const NOT_FOUND_TXT = resolve(ROOT, "not-found.txt")
 export const CATEGORIES_DIR = resolve(ROOT, "categories")
 export const FILTER_DIR = resolve(ROOT, "filter")
 export const MANUAL_RULES = [
