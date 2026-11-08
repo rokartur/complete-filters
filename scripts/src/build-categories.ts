@@ -4,9 +4,10 @@ import {
 	DEFAULT_JOBS,
 	FILTER_DIR,
 	MANUAL_RULES,
+	UBO_BADLISTS_URL,
 } from "./constants.ts"
-import { loadUrls, log, logWarning } from "./utils.ts"
-import { fetchAll } from "./fetcher.ts"
+import { loadUrls, log, logWarning, normalizeUrl } from "./utils.ts"
+import { fetchAll, fetchContent } from "./fetcher.ts"
 import { runBuild } from "./builder.ts"
 import { readdir, mkdir, unlink } from "node:fs/promises"
 
@@ -67,6 +68,15 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 	const globalUrlList = [...globalUrlSet]
 	log(`Global URL pool: ${globalUrlList.length} unique URLs across all categories`)
 
+	const badlists = await fetchContent(UBO_BADLISTS_URL)
+	if (badlists.content === null) {
+		throw new Error(`Cannot check sources against uBO badlists: ${badlists.error}`)
+	}
+	const badlisted = findBadlistedUrls(globalUrlList, badlists.content)
+	if (badlisted.length > 0) {
+		throw new Error(`Sources listed in uBO badlists.txt, remove them from categories/:\n${badlisted.join("\n")}`)
+	}
+
 	// ── Global fetch: download everything once ─────────────────────────────
 	log(`\nFetching all ${globalUrlList.length} URLs with ${jobs} workers ...`)
 	const t0 = performance.now()
@@ -123,4 +133,14 @@ export async function runBuildCategories(opts: BuildCategoriesOptions = {}): Pro
 	if (failures) {
 		logWarning(`\n${failures} category build(s) had partial source failures or validation warnings.`)
 	}
+}
+
+export function findBadlistedUrls(urls: string[], badlistsText: string): string[] {
+	const badlisted = new Set<string>()
+	for (const line of badlistsText.split("\n")) {
+		// Entries are "<url>" or "<url> remove"; other lines are comments.
+		const url = line.trim().split(/\s+/)[0]!
+		if (url.startsWith("http")) badlisted.add(normalizeUrl(url))
+	}
+	return urls.filter((url) => badlisted.has(normalizeUrl(url)))
 }

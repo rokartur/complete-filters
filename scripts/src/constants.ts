@@ -21,6 +21,7 @@ export const MANUAL_RULES = [
 // ── API ────────────────────────────────────────────────────────────────────
 
 export const API_BASE = "https://api.filterlists.com"
+export const UBO_BADLISTS_URL = "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badlists.txt"
 export const USER_AGENT = "Mozilla/5.0 (compatible; PolishCompleteFilters/2.0)"
 
 // ── Concurrency & Timeouts ─────────────────────────────────────────────────
