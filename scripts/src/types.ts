@@ -1,39 +1,3 @@
-// ── FilterLists API response types ──────────────────────────────────────────
-
-export interface SoftwareEntry {
-	id: number
-	name: string | null
-	syntaxIds: number[] | null
-}
-
-export interface SyntaxEntry {
-	id: number
-	name: string | null
-	softwareIds?: number[] | null
-	filterListIds?: number[] | null
-}
-
-export interface FilterListSummary {
-	id: number
-	name: string | null
-	description: string | null
-	syntaxIds: number[] | null
-}
-
-export interface ViewUrl {
-	segmentNumber: number | null
-	primariness: number | null
-	url: string | null
-}
-
-export interface FilterListDetail {
-	id: number
-	name: string | null
-	description: string | null
-	syntaxIds: number[] | null
-	viewUrls: ViewUrl[] | null
-}
-
 // ── Fetch & Build types ────────────────────────────────────────────────────
 
 export interface FetchResult {
@@ -66,34 +30,6 @@ export interface Stats {
 	sourcesOk: number
 	sourcesFailed: number
 	emptyBlocksRemoved: number
-}
-
-export type Category =
-	| "ads"
-	| "annoyances"
-	| "anti-adblock"
-    | "brave"
-	| "compatibility"
-	| "cookies"
-	| "hagezi"
-	| "malware"
-	| "mobile"
-    | "polish"
-	| "mixed"
-	| "privacy"
-	| "regional"
-	| "social"
-	| "video"
-
-export interface SourceMeta {
-	url: string
-	category: Category | string
-	reason: string
-	title: string
-	description: string
-	homepage: string
-	comments: string[]
-	error: string | null
 }
 
 export interface BuildResult {

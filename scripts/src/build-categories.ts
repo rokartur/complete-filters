@@ -14,7 +14,6 @@ import { readdir, mkdir, unlink } from "node:fs/promises"
 export interface BuildCategoriesOptions {
 	jobs?: number
 	dryRun?: boolean
-	verbose?: boolean
 }
 
 function categoryTitle(category: string): string {

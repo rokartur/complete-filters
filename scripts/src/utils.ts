@@ -29,17 +29,6 @@ export function normalizeUrl(url: string): string {
 	}
 }
 
-export function isValidHttpUrl(value: string): boolean {
-	const trimmed = value.trim()
-	if (!trimmed) return false
-	try {
-		const u = new URL(trimmed)
-		return u.protocol === "http:" || u.protocol === "https:"
-	} catch {
-		return false
-	}
-}
-
 export function dedupePreserveOrder(urls: string[]): string[] {
 	const seen = new Set<string>()
 	const output: string[] = []
@@ -89,22 +78,8 @@ export async function pooled<T, R>(
 
 // ── Logging ────────────────────────────────────────────────────────────────
 
-let verboseEnabled = false
-
-export function setVerbose(v: boolean): void {
-	verboseEnabled = v
-}
-
-export function isVerbose(): boolean {
-	return verboseEnabled
-}
-
 export function log(msg: string, ...args: unknown[]): void {
 	console.log(msg, ...args)
-}
-
-export function logVerbose(msg: string, ...args: unknown[]): void {
-	if (verboseEnabled) console.log(msg, ...args)
 }
 
 export function logError(msg: string, ...args: unknown[]): void {

@@ -32,7 +32,7 @@ export function convertHostsLine(line: string): string | null {
 	return `||${domain}^`
 }
 
-// ── Single URL content fetch (1 attempt, no retries) ──────────────────────
+// ── Single URL content fetch ─────────────────────────────────────────────
 
 export async function fetchContent(url: string): Promise<FetchResult> {
 	const normalizedUrl = normalizeUrl(url)
@@ -47,54 +47,6 @@ export async function fetchContent(url: string): Promise<FetchResult> {
 		}
 		const text = await response.text()
 		return { url: normalizedUrl, content: text, error: null, isHosts: isHostsFormat(text) }
-	} catch (err) {
-		const msg = err instanceof Error ? err.message : String(err)
-		return { url: normalizedUrl, content: null, error: msg, isHosts: false }
-	}
-}
-
-// ── Fetch first N bytes of a URL (for metadata extraction) ─────────────
-
-export async function fetchHead(url: string, maxBytes: number): Promise<FetchResult> {
-	const normalizedUrl = normalizeUrl(url)
-	try {
-		const response = await fetch(normalizedUrl, {
-			headers: { "User-Agent": USER_AGENT },
-			signal: AbortSignal.timeout(FETCH_TIMEOUT),
-			redirect: "follow",
-		})
-		if (!response.ok) {
-			return { url: normalizedUrl, content: null, error: `HTTP ${response.status}`, isHosts: false }
-		}
-		// Read only the first chunk
-		const reader = response.body?.getReader()
-		if (!reader) {
-			return { url: normalizedUrl, content: null, error: "No response body", isHosts: false }
-		}
-
-		const chunks: Uint8Array[] = []
-		let totalBytes = 0
-		const decoder = new TextDecoder("utf-8", { fatal: false })
-
-		while (totalBytes < maxBytes) {
-			const { done, value } = await reader.read()
-			if (done || !value) break
-			chunks.push(value)
-			totalBytes += value.byteLength
-		}
-
-		// Cancel the rest of the body
-		reader.cancel().catch(() => {})
-
-		const combined = new Uint8Array(totalBytes)
-		let offset = 0
-		for (const chunk of chunks) {
-			combined.set(chunk, offset)
-			offset += chunk.byteLength
-		}
-
-		const text = decoder.decode(combined)
-		return { url: normalizedUrl, content: text, error: null, isHosts: false }
 	} catch (err) {
 		const msg = err instanceof Error ? err.message : String(err)
 		return { url: normalizedUrl, content: null, error: msg, isHosts: false }
@@ -117,30 +69,6 @@ export async function fetchAll(urls: string[], concurrency: number): Promise<Fet
 			const tag = result.isHosts ? " (hosts)" : ""
 			const lines = result.content?.split("\n").length ?? 0
 			log(`[${done}/${total}] ✓ ${url}${tag} (${lines} lines)`)
-		}
-		return result
-	})
-
-	return results
-}
-
-// ── Concurrent metadata-only fetch ────────────────────────────────────────
-
-export async function fetchAllMetadata(
-	urls: string[],
-	concurrency: number,
-	maxBytes: number,
-): Promise<FetchResult[]> {
-	const total = urls.length
-	let done = 0
-
-	const results = await pooled(urls, concurrency, async (url) => {
-		const result = await fetchHead(url, maxBytes)
-		done++
-		if (result.error) {
-			logError(`[${done}/${total}] ✗ ${url} — ${result.error}`)
-		} else {
-			log(`[${done}/${total}] ✓ ${url}`)
 		}
 		return result
 	})
