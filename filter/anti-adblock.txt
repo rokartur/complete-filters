@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 10 Nov 2026 01:06:02 UTC
+! Last modified: 11 Nov 2026 01:06:08 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 11 / 11
@@ -3184,6 +3184,7 @@ $subdocument,domain=urlbluemedia.shop
 ! Blocked by CNAME omtrdc.net
 @@||om-ssl.consorsbank.de^|
 ! taboolanews.com
+@@|api.taboola.com^|
 @@|cdn.taboola.com^|
 ! https://github.com/AdguardTeam/AdguardFilters/issues/230786
 @@||unsubscribe.lhinsights.com^|
@@ -9979,5 +9980,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 8570
+! Total unique rules: 8571
 ! Duplicates removed: 3015

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 10 Nov 2026 01:06:02 UTC
+! Last modified: 11 Nov 2026 01:06:08 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1794229960-3600.patch
+! Diff-Path: ../patches/11/11-s-1794327197-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -1068,6 +1068,8 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! filmymeet.cc antiadblock
+filmymeet.cc###mobileAdblockModal
 ! https://github.com/AdguardTeam/AdguardFilters/issues/233611
 pornhex.com#%#//scriptlet('prevent-setTimeout', '/AdBlock/i')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/231354
@@ -2720,6 +2722,12 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+biz.nv.ua##.main-wrapper > .container:has(> div.row > a[target="_blank"] picture)
+biz.nv.ua##section[data-type="advertising"]
+linkvertise.com##lv-ad-sense
+jprime.jp#$#body > .l-main { margin-top: -160px !important; }
+jprime.jp#$#body > .l-header { margin-top: -160px !important; }
+jprime.jp#$#body { padding-bottom: 0px !important; }
 remontka.pro##article > div[id^="rem_"]
 allsoft.ru##.main-mobile-banner
 winfuture.de###ab_google_336x280_35_35
@@ -9058,6 +9066,8 @@ livejournal.com##div[id^="billboard_mobile_"]
 !
 !
 !+ NOT_OPTIMIZED
+dot.asahi.com##.article-inarticle-guide
+!+ NOT_OPTIMIZED
 heise.de##.ad-mobile-group-3
 !+ NOT_OPTIMIZED
 stackoverflow.com##.js-sidebar-zone
@@ -9919,7 +9929,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1794230018-3600.patch
+! Diff-Path: ../patches/11/11-s-1794327266-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -10011,6 +10021,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! filmymeet.cc antiadblock
 ! https://github.com/AdguardTeam/AdguardFilters/issues/233611
 !+ PLATFORM(ios, ext_android_cb, ext_safari)
 pornhex.com#@#.ad-unit:not(.textads)
@@ -10916,6 +10927,7 @@ xhamster46.desi,tr.usbxh.life,xhamster44.desi,aawweb.beauty,colourxh.site,xhamst
 ! END: Livejournal.com
 !
 !
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -14255,8 +14267,9 @@ tonuriaz.info,wakuraw.com,klmanga.cloud,trogiupnhanh.com,mangaruu.com,rawfree.to
 ||city.yubari.lg.jp/uploaded/banner/$badfilter
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245421
-socialxup.com##+js(aeld, click, [native code])
-socialxup.com##:not(a):matches-css(cursor:pointer):xpath(div[not(ancestor::a)])
+socialxup.com##+js(aeld, click, /\[native code\]|^\s*e\s*=>\s*.+\(\s*e\s*\)\s*$/)
+socialxup.com##:not(a):matches-css(cursor:pointer):upward(1):xpath(div[not(ancestor::a)])
+socialxup.com##span:matches-css(cursor:pointer):empty
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -20534,5 +20547,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13393
-! Duplicates removed: 8017
+! Total unique rules: 13402
+! Duplicates removed: 8025
