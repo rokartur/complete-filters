@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 11 Nov 2026 01:06:08 UTC
+! Last modified: 12 Nov 2026 01:06:34 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -6872,6 +6872,11 @@ kaufland.cz,kaufland.pl,kaufland.fr#@##onetrust-banner-sdk
 kaufland.cz,kaufland.pl,kaufland.fr#@##onetrust-consent-sdk
 @@||cdn.cookielaw.org/scripttemplates/*/otBannerSdk.js$domain=kaufland.cz|kaufland.pl|kaufland.fr
 
+! experimental, time-limited
+@@||cdn.cookielaw.org/scripttemplates/202403.2.0/otBannerSdk.js$script,domain=verti.de
+verti.de#@##onetrust-banner-sdk
+verti.de#@##onetrust-consent-sdk
+
 
 ! ===== SOURCE: https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-twitch.txt
 ! (all rules already included from earlier sources)
@@ -7077,5 +7082,5 @@ kaufland.cz,kaufland.pl,kaufland.fr#@##onetrust-consent-sdk
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 6009
+! Total unique rules: 6012
 ! Duplicates removed: 9
