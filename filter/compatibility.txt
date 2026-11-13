@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 12 Nov 2026 01:06:34 UTC
+! Last modified: 13 Nov 2026 01:06:24 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1794427910-3600.patch
+! Diff-Path: ../patches/11/11-s-1794503520-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -1869,7 +1869,6 @@ timesnownews.com$$div[id="flyCarpet"]
 timesnownews.com$$div[id="taboolaAds"]
 timesnownews.com,zoomtventertainment.com$$div[class="adv-blocker"]
 zoomtventertainment.com$$div[class="Layout-atfAd-VBh-h"]
-foxsports.com.au,kp.ru$$amp-fx-flying-carpet
 amp.scmp.com$$div[class="inline-advert"]
 amp.scmp.com$$div[class="ad-header-container"]
 amp.scmp.com$$div[class="advert-fly-carpet-container"]
@@ -2723,6 +2722,10 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+cat-press.com##.widget_custom_html:has(> div.textwidget > div > ins.adsbygoogle)
+cars.tvbs.com.tw##.h-\[250px\].w-\[970px\]
+cars.tvbs.com.tw##.h-\[100px\].w-\[320px\]
+cars.tvbs.com.tw##.max-h-\[280px\].min-h-\[250px\]
 ||luxuretv.com/includes/pop-mobile/
 full-porn.com##div[class^="ad-container"]
 full-porn.com##.come-gauge-gent
@@ -9935,7 +9938,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1794427958-3600.patch
+! Diff-Path: ../patches/11/11-s-1794503566-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -14109,6 +14112,7 @@ streamcash.to##a[rel*="sp0nsored"]:upward(1)
 streamcash.to##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click, a[target="_blank"])
 streamcash.to##div.video-js:style(z-index:2147483647 !important)
 streamcash.to##style:has-text(2147483647):remove()
+streamcash.to##+js(ra, style, div[class][style*="2147483647"], asap, quitAfter, 10)
 ||mjzeexubcswjka.com^
 ||uijarxbm.com^
 
@@ -14274,7 +14278,10 @@ tonuriaz.info,wakuraw.com,klmanga.cloud,trogiupnhanh.com,mangaruu.com,rawfree.to
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245421
 socialxup.com##+js(aeld, click, /\[native code\]|^\s*e\s*=>\s*.+\(\s*e\s*\)\s*$/)
-socialxup.com##a[target][href^="/"]
+socialxup.com##a[target][href^="https://socialxup.com/"]
+
+! https://github.com/uBlockOrigin/uAssets/issues/25273#issuecomment-6821014851
+||api.community.fox.com/*/metrics$badfilter
 
 
 ! ===== SOURCE: https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt
@@ -20552,5 +20559,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13407
-! Duplicates removed: 8031
+! Total unique rules: 13412
+! Duplicates removed: 8035

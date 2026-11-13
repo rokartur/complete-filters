@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 12 Nov 2026 01:06:34 UTC
+! Last modified: 13 Nov 2026 01:06:24 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 11 / 11
@@ -6532,7 +6532,6 @@ neowin.net#$#body > div[class^="sp_"] { display: none!important; }
 !#if (adguard_app_ios || adguard_ext_android_cb)
 !#safari_cb_affinity(general)
 @@||livescience.com^$generichide
-@@||lapresse.ca^$generichide
 @@||neowin.net^$generichide
 @@||cyclingnews.com^$generichide
 @@||bikeperfect.com^$generichide
@@ -9983,5 +9982,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 8572
+! Total unique rules: 8571
 ! Duplicates removed: 3015
