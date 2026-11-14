@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 13 Nov 2026 01:06:52 UTC
+! Last modified: 14 Nov 2026 01:06:26 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -14071,7 +14071,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1794489120-3600.patch
+! Diff-Path: ../patches/4/4-s-1794589907-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14677,6 +14677,10 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+businesstimes.com.sg##div[data-testid="article-social-sharing-component"]
+businesstimes.com.sg##button[data-testid="share-button-component"]
+viciados.net###block-36
+thedailybeast.com##section[class^="MenuBody_"] > button:not([data-testid="link"])
 lapresse.ca##.sharing-widget-root
 allpornstream.com##button[aria-label="Share this video"]
 stream24.ilsole24ore.com##a.ltool-action[aria-label="condividi"]
@@ -25740,7 +25744,7 @@ intouch.wunderweib.de##header.sticky > .brand + .metaNavi
 forum.miuiturkiye.net##.sidebar > .WidgetFramework_WidgetRenderer_ShareThisPage
 incrussia.ru##.incshare
 defacto.com.tr##.dfShare
-uscoutfor.com,mgviagrtoomuch.com,melidonium.com,mahsunsports51.xyz,filmyfocus.com,maketecheasier.com,thehealthsite.com,india.com,nnchaber.com,cricxtasy.com,sonichits.com,broadwayworld.com,m.brigitte.de,mahsunsports81.xyz,mahsunsports82.xyz,mahsunsports80.xyz,mahsunsports52.xyz,mahsunsports53.xyz,mahsunsports54.xyz,mahsunsports55.xyz,mahsunsports56.xyz,mahsunsports57.xyz,mahsunsports58.xyz,mahsunsports59.xyz##.social-icon
+uscoutfor.com,mgviagrtoomuch.com,melidonium.com,mahsunsports51.xyz,filmyfocus.com,maketecheasier.com,thehealthsite.com,india.com,nnchaber.com,cricxtasy.com,sonichits.com,broadwayworld.com,m.brigitte.de,mahsunsports81.xyz,mahsunsports82.xyz,mahsunsports80.xyz,mahsunsports52.xyz,mahsunsports53.xyz,mahsunsports54.xyz,mahsunsports55.xyz,mahsunsports56.xyz,mahsunsports57.xyz,mahsunsports58.xyz,mahsunsports59.xyz,mahsunsports60.xyz##.social-icon
 schweizer-illustrierte.ch##.floating_social
 pz-news.de###sebox_213_0
 blick.ch,blickamabend.ch##div[onclick^="shareWith"]
@@ -26711,7 +26715,7 @@ sibnet.ru,svoy.ru##.b-social-widget
 dom.lenta.ru##.b-topic__socials
 novayagazeta.ru##.b-twee-news
 uptodown.com##.b_like
-favorit-motors.ru,sefon.pro,khl.ru,uptodown.com##.b_share
+news.sbs.co.kr,favorit-motors.ru,sefon.pro,khl.ru,uptodown.com##.b_share
 ua-football.com##.b_soc
 ua-football.com##.b_soc_bottom
 rtl.nl##.b_socialbar
@@ -27768,7 +27772,6 @@ mobile-review.com#?#p:has(> strong:contains(Поделиться))
 yodobashi.com#?#.pDetailCaption:has(> div.pDetailSNS)
 mix.tokyo#?#section.m-detailSection:has(> h4:contains(このアイテムをシェアする))
 loveran.shop#?#form > section.itemSection:has(> ul.snsBtn)
-mangaraw.org#?#.postbody > div.bixbox:has(> span.social)
 timgate.it#?#.col-span-10 > div.pl-2:has(> div.flex span > img[alt^="facebook"])
 log-lio.com,ziimania.com,shabulism.com,obutsumania.com,dopyulism.net,lesbianmania.net,kokikokidouga.com,shikolism.net,chiralism.net,shiwalism.net,pafulism.com,pacolism.net,appli-me.com,manchome.com,gansyamania.net,moeism.net,pashalism.com#?##footer_sticky_menu td.footermenu_col:has(> i.fa-share-alt)
 74.ru#?#button + div:has(> div > div > ul > li > button[data-test="btn-share-vk"])
@@ -29576,8 +29579,8 @@ news.feedspot.com#$#.modal-backdrop { display: none !important; }
 strmfree.st,streamfree.top###mirror-modal-overlay
 7reels.cc#%#//scriptlet('trusted-click-element', '.inset-0.fixed > button > span.sr-only')
 ernax.pro##body > #root ~ div.fixed.inset-0
-mahsunsports51.xyz,mahsunsports52.xyz,mahsunsports59.xyz##.floating-x
-mahsunsports51.xyz,mahsunsports52.xyz,mahsunsports59.xyz##.floating-telegram
+mahsunsports51.xyz,mahsunsports52.xyz,mahsunsports60.xyz##.floating-x
+mahsunsports51.xyz,mahsunsports52.xyz,mahsunsports60.xyz##.floating-telegram
 chillflix.lol#%#//scriptlet('trusted-click-element', 'button', 'containsText:Not now')
 gdebenz.ru,gdebenz.org###share-ask
 farmaciasdesimilares.com##div[class*="wrapper_whatsapp"]
@@ -30923,9 +30926,8 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1794515883-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1794602310-14400.patch
 /Resources/twitter-$~xhr
-conservativebrief.com,jerseyvindicator.org,karanpc.com,parlamentario.com,sexypedia.it##.ns-buttons
 fortune.com##.info-surface:contains(Add Fortune on Google)
 abc.net.au##.Button_root__UZ8td:contains(Share)
 appleinsider.com##.col-xs-12 > div:contains(Follow AppleInsider)
@@ -39132,7 +39134,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1794489145-3600.patch
+! Diff-Path: ../patches/4/4-s-1794589931-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40039,7 +40041,6 @@ mobile-review.com##p:has(> strong:contains(Поделиться))
 yodobashi.com##.pDetailCaption:has(> div.pDetailSNS)
 mix.tokyo##section.m-detailSection:has(> h4:contains(このアイテムをシェアする))
 loveran.shop##form > section.itemSection:has(> ul.snsBtn)
-mangaraw.org##.postbody > div.bixbox:has(> span.social)
 timgate.it##.col-span-10 > div.pl-2:has(> div.flex span > img[alt^="facebook"])
 log-lio.com,ziimania.com,shabulism.com,obutsumania.com,dopyulism.net,lesbianmania.net,kokikokidouga.com,shikolism.net,chiralism.net,shiwalism.net,pafulism.com,pacolism.net,appli-me.com,manchome.com,gansyamania.net,moeism.net,pashalism.com###footer_sticky_menu td.footermenu_col:has(> i.fa-share-alt)
 74.ru##button + div:has(> div > div > ul > li > button[data-test="btn-share-vk"])
@@ -41418,7 +41419,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1794489145-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1794589931-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -55880,5 +55881,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 52626
-! Duplicates removed: 66267
+! Total unique rules: 52627
+! Duplicates removed: 66295

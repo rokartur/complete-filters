@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Privacy
 ! Description: Combined filter list for the privacy category.
-! Last modified: 13 Nov 2026 01:06:44 UTC
+! Last modified: 14 Nov 2026 01:06:18 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 32 / 32
 !
 ! ===== SOURCE: https://easylist.to/easylist/easyprivacy.txt
-! Commit: abc9ad784893d97a72dcffb51cdf05c2882c62f6
+! Commit: 4ac299d1049dce11d3f322464ca5ad8b5bdfd1f1
 ! *** easylist:template_header.txt ***
 !
 ! Please report any unblocked adverts or problems
@@ -8712,6 +8712,7 @@ omni.soundestlink.com$image
 ||rockagainst.com^
 ||rockcarving.com^
 ||rocketmonitor.com^
+||rocketserver.net^
 ||rockspreading.com^
 ||rockstarwriter.com^
 ||roguephilosopher.com^
@@ -8917,6 +8918,7 @@ omni.soundestlink.com$image
 ||skylightdata.com^
 ||slackpod.com^
 ||slaysweater.com^
+||sleepfrankly.com^
 ||slickcontent.com^
 ||slimesupplies.net^
 ||slimsense.net^
@@ -8990,6 +8992,7 @@ omni.soundestlink.com$image
 ||spareapp.com^
 ||sparkgoal.com^
 ||sparklingshelf.com^
+||spasmgame.com^
 ||specialreview.net^
 ||specialscissors.com^
 ||specialtypin.com^
@@ -9180,6 +9183,7 @@ omni.soundestlink.com$image
 ||tastesnake.com^
 ||tawdryson.com^
 ||taxisubsea.com^
+||taxiwear.com^
 ||tealjewel.com^
 ||teamstatus.net^
 ||tearfulglass.com^
@@ -9198,6 +9202,7 @@ omni.soundestlink.com$image
 ||teeshining.com^
 ||telephoneapparatus.com^
 ||tempertrick.com^
+||tempowraps.com^
 ||temptteam.com^
 ||tendertest.com^
 ||tenhourweek.com^
@@ -9504,6 +9509,7 @@ omni.soundestlink.com$image
 ||wtaccesscontrol.com^
 ||yachtloft.com^
 ||yellowscissors.com^
+||yetiminis.com^
 ||yieldingwoman.com^
 ||youcandrawanything.com^
 ||yourgiftedbaby.com^
@@ -12166,6 +12172,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||jobvite.com/analytics.js
 ||jotform.io/getReferrer/$third-party
 ||js.cdn.applicationinsights.io/scripts/b/ai.3.gbl.min.js
+||js.ciphera.net/script.js
 ||js.dashfi.net/dashfinet-analytics.js
 ||js.eruptr.io/epd.js
 ||js.go2sdk.com/v2/tune.js
@@ -57362,7 +57369,7 @@ search.rakuten.co.jp##+js(aeld, mouseup, sendClickEvent)
 
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/3.txt
-! Diff-Path: ../patches/3/3-s-1794517920-3600.patch
+! Diff-Path: ../patches/3/3-s-1794600708-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -57917,6 +57924,7 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 !
 ! NOTE: Regular rules
 !
+||viewanalitycs.org^
 ||stats.raiansar.com^
 ||actone.app^
 ||anakhoki168.com^
@@ -144201,7 +144209,6 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 ||s2.gameanswers.net^
 ||server-side-tagging-ycy2jyrtma-uc.a.run.app^
 ||serverside.myticket.de^
-||sgimage.netmarble.com^
 ||sgtm.arezki.cloud^
 ||sgtm.ebikecenter.fi^
 ||sgtm.rhenus-office.pl^
@@ -457834,6 +457841,9 @@ naver.com#%#//scriptlet('trusted-json-set', 'JSON.stringify', '$.env.br_sr', '38
 !
 ! NOTE: Specific rules
 !
+||api.plus.kinopoisk.ru/graphql?operationName=registerSimpleActionWithPixel
+||yandex.ru/static-mon/event
+||zkrainynba.com/wp-content/themes/zkrainynba/assets/js/events-ga*.min.js
 ||avbase.app/api/vitals?
 ||static.revechat.com/widget/scripts/analytics/
 ||memorial.com.tr/cxgt/
@@ -470777,7 +470787,7 @@ search.rakuten.co.jp#%#//scriptlet('ubo-aeld', 'mouseup', 'sendClickEvent')
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/3.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/3/3-s-1794517951-3600.patch
+! Diff-Path: ../patches/3/3-s-1794600733-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -475192,7 +475202,7 @@ usatoday.com##+js(set, gnt.x.adm, )
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/17.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/17/17-s-1794496403-3600.patch
+! Diff-Path: ../patches/17/17-s-1794568361-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- General tracking parameters list  --------------------------!
@@ -475798,8 +475808,6 @@ $removeparam=fb_source
 ||oita-press.co.jp^$removeparam=yh
 ! https://github.com/AdguardTeam/AdguardFilters/issues/241759
 ||eiga.com^$removeparam=cid
-! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18457419
-||instagram.com^$removeparam=click_source
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18440787
 ||yahoo.com^$removeparam=src
 ! https://github.com/AdguardTeam/AdguardFilters/issues/241634
@@ -477284,8 +477292,12 @@ $removeparam=from,domain=doujinnomori.com|shinshi-manga.net|echiman.com|dojin-na
 ||slickdeals.net/*&sdtrk=$removeparam=sdtrk
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167158
 ||beacon-recommend.tower.jp^$removeparam=tracking_id
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/246147
+||kinopoisk.ru^$removeparam=socialAlias
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166502
 ||kinopoisk.ru^$removeparam=from_block
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166917
 ||bizhint.jp^$removeparam=trcd
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166582
@@ -478501,10 +478513,25 @@ $removeparam=a_aid,domain=expressvpn.com|vpnarea.com|wook.pt|affiliate.privatevp
 ! kohls.com - counter
 ||kohls.com^$removeparam=CID
 ! instagram.com - share tracking
+||instagram.com^$removeparam=igsi
+||instagram.com^$removeparam=ndid
+||instagram.com^$removeparam=dlrf
+||instagram.com^$removeparam=psln
+||instagram.com^$removeparam=cplk
+||instagram.com^$removeparam=rpxt
+||instagram.com^$removeparam=srtk
+||instagram.com^$removeparam=obrf
+||instagram.com^$removeparam=xtok
+||instagram.com^$removeparam=mdxt
+||instagram.com^$removeparam=exln
+||instagram.com^$removeparam=vrfl
 ||instagram.com^$removeparam=stkn
 ||instagram.com^$removeparam=ig_rid
 ||instagram.com^$removeparam=igsh
 $removeparam=igshid,domain=instagram.com|threads.com|threads.net
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18457419
+||instagram.com^$removeparam=click_source
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/89768
 ||mediamarkt.com.tr^$removeparam=rbtc
 ! https://github.com/AdguardTeam/AdguardFilters/issues/90055
@@ -808857,7 +808884,6 @@ $removeparam=tduid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/241783
 ! https://github.com/AdguardTeam/AdguardFilters/issues/241757
 ! https://github.com/AdguardTeam/AdguardFilters/issues/241759
-! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18457419
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18440787
 ! https://github.com/AdguardTeam/AdguardFilters/issues/241634
 ! https://github.com/AdguardTeam/AdguardFilters/issues/241633
@@ -809347,7 +809373,10 @@ $removeparam=tduid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167273
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167051
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167158
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/246147
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166502
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166917
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166582
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166698
@@ -809742,6 +809771,8 @@ $removeparam=tduid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/91233
 ! kohls.com - counter
 ! instagram.com - share tracking
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18457419
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/89768
 ! https://github.com/AdguardTeam/AdguardFilters/issues/90055
 ! https://github.com/AdguardTeam/AdguardFilters/issues/89556
@@ -1012577,11 +1012608,50 @@ $removeparam=tduid
 ||ad.intl.xiaomi.com.ksyna.net^
 ||mistat.intl.xiaomi.com.ksyna.net^
 ||mistat.rus.xiaomi.com.ksyna.net^
+||ad.intl.xiaomi.com.mgslb.com^
 ||video.kts.g.mi.com^
 ||d.g.mi.com^
 ||migc.g.mi.com^
 ||mis.g.mi.com^
+||at.tv.global.mi.com^
+||au.tv.global.mi.com^
+||be.tv.global.mi.com^
+||br.tv.global.mi.com^
+||by.tv.global.mi.com^
+||ca.tv.global.mi.com^
+||ch.tv.global.mi.com^
+||cl.tv.global.mi.com^
+||cr.tv.global.mi.com^
+||de.tv.global.mi.com^
+||eg.tv.global.mi.com^
+||es.tv.global.mi.com^
+||fr.tv.global.mi.com^
+||gb.tv.global.mi.com^
+||gr.tv.global.mi.com^
+||hk.tv.global.mi.com^
+||hr.tv.global.mi.com^
+||hu.tv.global.mi.com^
+||id.tv.global.mi.com^
 ||in.tv.global.mi.com^
+||iq.tv.global.mi.com^
+||it.tv.global.mi.com^
+||mm.tv.global.mi.com^
+||mx.tv.global.mi.com^
+||my.tv.global.mi.com^
+||nl.tv.global.mi.com^
+||pk.tv.global.mi.com^
+||pl.tv.global.mi.com^
+||pt.tv.global.mi.com^
+||ru.tv.global.mi.com^
+||sa.tv.global.mi.com^
+||se.tv.global.mi.com^
+||sk.tv.global.mi.com^
+||th.tv.global.mi.com^
+||tr.tv.global.mi.com^
+||ua.tv.global.mi.com^
+||us.tv.global.mi.com^
+||vn.tv.global.mi.com^
+||za.tv.global.mi.com^
 ||a.hl.mi.com^
 ||idm.iot.mi.com^
 ||api.jr.mi.com^
@@ -1012589,6 +1012659,7 @@ $removeparam=tduid
 ||h5.tv.mi.com^
 ||a.union.mi.com^
 ||ad.mi.com^
+||ads.mi.com^
 ||e.mi.com^
 ||pandora.mi.com^
 ||api.bbs.miui.com^
@@ -1012632,10 +1012703,12 @@ $removeparam=tduid
 ||ip-info.ff.avast.sec.miui.com^
 ||streamback.ff.avast.sec.miui.com^
 ||cse.avlyun.sec.miui.com^
+||log-abroad.avlyun.sec.miui.com^
 ||update.avlyun.sec.miui.com^
 ||protect.dev.sec.miui.com^
 ||srv.greenguard.sec.miui.com^
 ||app.greengurad.sec.miui.com^
+||info.analysis.kp.sec.miui.com^
 ||r.sg.sec.miui.com^
 ||cdna.sec.miui.com^
 ||child.sec.miui.com^
@@ -1012667,6 +1012740,7 @@ $removeparam=tduid
 ||browser.miui.com^
 ||events.miui.com^
 ||feedback.miui.com^
+||huangye.miui.com^
 ||hybrid.miui.com^
 ||india.miui.com^
 ||mcc.miui.com^
@@ -1012678,11 +1012752,13 @@ $removeparam=tduid
 ||testit.miui.com^
 ||h4g3z1-native-xiaomi.web.app^
 ||api.ads.xiaomi.com^
+||monitor.pt.ai.xiaomi.com^
 ||tracker-preview.ai.xiaomi.com^
 ||bigdata-lbs-pri-c3.alb.xiaomi.com^
 ||global-ad-extranet-pri-azams.alb.xiaomi.com^
 ||global-ad-extranet-pri-azpn.alb.xiaomi.com^
 ||global-ad-intl-pri-alisgp.alb.xiaomi.com^
+||global-ad-pri-alisgp.alb.xiaomi.com^
 ||awssgp0-files.fds.api.xiaomi.com^
 ||cdn.fds.api.xiaomi.com^
 ||awsusor0-cdn.fds-ssl.api.xiaomi.com^
@@ -1012702,20 +1012778,22 @@ $removeparam=tduid
 ||extranet.ap-southeast-1.miui-l7-feedback.d6ocem01vo.elb.xiaomi.com^
 ||intranet.c3.bigdata-l7-trackservice.eup4xvxeqr.elb.xiaomi.com^
 ||extranet.eu-east-1.miui-l7-feedback.fvlyh0lisv.elb.xiaomi.com^
+||extranet.ap-south-1.miui-l7-feedback.gualne84bg.elb.xiaomi.com^
 ||extranet.c4.miui-l7-feedback.izsagsovue.elb.xiaomi.com^
 ||extranet.c3.bigdata-l7-trackservice.nbnpzmfyom.elb.xiaomi.com^
 ||extranet.c4.miui-l7-feedback.q2fo3bs76f.elb.xiaomi.com^
 ||extranet.ap-southeast-1.miui-l7-feedback.qkou0akepj.elb.xiaomi.com^
 ||extranet.ap-southeast-1.miui-l7-feedback.s3hawgekth.elb.xiaomi.com^
 ||extranet.c3.bigdata-l7-dp-lan.x0x8wmy6im.elb.xiaomi.com^
+||extranet.ap-south-1.miui-l7-feedback.y5qvxdjy6g.elb.xiaomi.com^
 ||ad.eu.xiaomi.com^
 ||sdkconfig.eu.xiaomi.com^
 ||cdn.exp.xiaomi.com^
 ||lxcdn.dl.files.xiaomi.net^
-||wl.voip.game.xiaomi.com^
 ||data.game.xiaomi.com^
 ||notice.game.xiaomi.com^
 ||static.game.xiaomi.com^
+||voip.game.xiaomi.com^
 ||wap.game.xiaomi.com^
 ||idmb.app.chat.global.xiaomi.net^
 ||resolver.msg.global.xiaomi.net^
@@ -1012744,14 +1012822,23 @@ $removeparam=tduid
 ||api.installer.xiaomi.com^
 ||globalvideo.cdn.pandora.intl.xiaomi.com^
 ||ruvideo.cdn.pandora.intl.xiaomi.com^
+||br-miuilog.sms.intl.xiaomi.com^
+||id-miuilog.sms.intl.xiaomi.com^
 ||in-miuilog.sms.intl.xiaomi.com^
+||mm-miuilog.sms.intl.xiaomi.com^
+||mx-miuilog.sms.intl.xiaomi.com^
+||my-miuilog.sms.intl.xiaomi.com^
+||ph-miuilog.sms.intl.xiaomi.com^
+||ru-miuilog.sms.intl.xiaomi.com^
+||th-miuilog.sms.intl.xiaomi.com^
+||tr-miuilog.sms.intl.xiaomi.com^
+||vn-miuilog.sms.intl.xiaomi.com^
 ||sec-cdn.static.intl.xiaomi.net^
-||h5-ru.video.intl.xiaomi.com^
-||ru.video.intl.xiaomi.com^
 ||ad.intl.xiaomi.com^
 ||mistat.intl.xiaomi.com^
 ||sdkconfig.intl.xiaomi.com^
 ||sys.intl.xiaomi.com^
+||video.intl.xiaomi.com^
 ||secure.report.iss.xiaomi.com^
 ||xadx.file.market.xiaomi.com^
 ||a.market.xiaomi.com^
@@ -1012778,8 +1012865,11 @@ $removeparam=tduid
 ||image.cdn.mvideo.xiaomi.com^
 ||staging.appapi.n.xiaomi.com^
 ||dev.staging.api.developer.n.xiaomi.com^
+||dev.market.n.xiaomi.com^
+||staging.market.n.xiaomi.com^
 ||api.account.preview.n.xiaomi.net^
 ||micloudevents.preview.n.xiaomi.com^
+||dev.api.zhuti.n.xiaomi.com^
 ||staging.api.zhuti.n.xiaomi.com^
 ||logs.n.xiaomi.com^
 ||mon.n.xiaomi.com^
@@ -1012787,7 +1012877,6 @@ $removeparam=tduid
 ||11-c3.bigdata.ctc.neo.xiaomi.com^
 ||5-c3.bigdata.ctc.neo.xiaomi.com^
 ||tj1.staging.nfcpay.xiaomi.com^
-||ad.cdn.pandora.xiaomi.com^
 ||appstore.cdn.pandora.xiaomi.com^
 ||gallery.cdn.pandora.xiaomi.com^
 ||image.cdn.pandora.xiaomi.com^
@@ -1012798,6 +1012887,7 @@ $removeparam=tduid
 ||ptmi.gitv.pandora.xiaomi.com^
 ||live.miphone.pandora.xiaomi.com^
 ||pull.mitv.pandora.xiaomi.com^
+||dvb.pre.pandora.xiaomi.com^
 ||media.pre.pandora.xiaomi.com^
 ||bsp.sasdc.pandora.xiaomi.com^
 ||3rdupgrade.pandora.xiaomi.com^
@@ -1012839,10 +1012929,12 @@ $removeparam=tduid
 ||monitor.scf.pt.xiaomi.com^
 ||tj1.scf.pt.xiaomi.com^
 ||tj1-new.scf.pt.xiaomi.com^
+||mibi.stat.pt.xiaomi.com^
 ||staging.stat.pt.xiaomi.com^
 ||bugreport.pt.xiaomi.com^
 ||cdn-exp-sg-recommend.pt.xiaomi.com^
 ||log.pt.xiaomi.com^
+||sentry.pt.xiaomi.com^
 ||staging-analyze.pt.xiaomi.com^
 ||sec.resource.xiaomi.net^
 ||ad.rus.xiaomi.com^
@@ -1012984,9 +1013076,9 @@ $removeparam=tduid
 ||analytics-dev-api.test.samsunghealth.com^
 ||shealth-analytics-stg-api.samsunghealth.com^
 ||invitation.samsungiotcloud.com^
-||api-analytics.samsungknox.com^
 ||api-analytics-qa.samsungknox.com^
 ||b2banalytics.samsungknox.com^
+||gld.samsungosp.com^
 ||osb.samsungqbe.com^
 ||osb-krsvc.samsungqbe.com^
 ||test.samsungrm.net^
@@ -1013073,11 +1013165,11 @@ $removeparam=tduid
 ||raka.bing.com^
 ||c.bingapis.com^
 ||measure.office.net.edgesuite.net^
-||collector.azure.eaglex.ic.gov^
 ||auc-visio-telemetry.officeapps.live.com^
 ||brc-visio-telemetry.officeapps.live.com^
 ||cac-visio-telemetry.officeapps.live.com^
 ||dec-visio-telemetry.officeapps.live.com^
+||esc-visio-telemetry.officeapps.live.com^
 ||euc-excel-telemetry.officeapps.live.com^
 ||euc-onenote-telemetry.officeapps.live.com^
 ||euc-powerpoint-telemetry.officeapps.live.com^
@@ -1013090,12 +1013182,12 @@ $removeparam=tduid
 ||excel-telemetry.officeapps.live.com^
 ||ffc-excel-telemetry.officeapps.live.com^
 ||ffc-word-telemetry.officeapps.live.com^
-||fgteu1-word-telemetry-vip.officeapps.live.com^
 ||frc-visio-telemetry.officeapps.live.com^
 ||inc-visio-telemetry.officeapps.live.com^
 ||nexus.officeapps.live.com^
 ||nexusrules.officeapps.live.com^
 ||noc-visio-telemetry.officeapps.live.com^
+||pgtbr1-excel-telemetry-vip.officeapps.live.com^
 ||pgtbr2-excel-telemetry-vip.officeapps.live.com^
 ||pgteu1-excel-telemetry-vip.officeapps.live.com^
 ||pgteu1-powerpoint-telemetry-vip.officeapps.live.com^
@@ -1013108,7 +1013200,10 @@ $removeparam=tduid
 ||pgteu3-word-telemetry-vip.officeapps.live.com^
 ||pgteu4-excel-telemetry-vip.officeapps.live.com^
 ||pgteu4-powerpoint-telemetry-vip.officeapps.live.com^
+||pgteu4-word-telemetry-vip.officeapps.live.com^
+||pgteu5-excel-telemetry-vip.officeapps.live.com^
 ||pgteu5-powerpoint-telemetry-vip.officeapps.live.com^
+||pgteu5-word-telemetry-vip.officeapps.live.com^
 ||pgtus1-excel-telemetry-vip.officeapps.live.com^
 ||pgtus1-powerpoint-telemetry-vip.officeapps.live.com^
 ||pgtus1-word-telemetry-vip.officeapps.live.com^
@@ -1013140,6 +1013235,12 @@ $removeparam=tduid
 ||tgtus1-word-telemetry-vip.officeapps.live.com^
 ||ukc-onenote-telemetry.officeapps.live.com^
 ||ukc-visio-telemetry.officeapps.live.com^
+||us1-excel-telemetry.officeapps.live.com^
+||us1-powerpoint-telemetry.officeapps.live.com^
+||us1-word-telemetry.officeapps.live.com^
+||us4-excel-telemetry.officeapps.live.com^
+||us5-word-telemetry.officeapps.live.com^
+||us6-excel-telemetry.officeapps.live.com^
 ||usc-onenote-telemetry.officeapps.live.com^
 ||usc-visio-telemetry.officeapps.live.com^
 ||visio-telemetry.officeapps.live.com^
@@ -1013164,6 +1013265,7 @@ $removeparam=tduid
 ||track.mp.microsoft.com^
 ||inputsuggestions.msdxcdn.microsoft.com^
 ||watson.officeint.microsoft.com^
+||analytics.pstnhub.microsoft.com^
 ||feedback.search.microsoft.com^
 ||telem-edge.smartscreen.microsoft.com^
 ||i1.services.social.microsoft.com^
@@ -1013171,6 +1013273,24 @@ $removeparam=tduid
 ||telemetry.visualstudio.microsoft.com^
 ||statsfe1.ws.microsoft.com^
 ||statsfe2.ws.microsoft.com^
+||rddiagnostics-g-apac-r1.wvd.microsoft.com^
+||rddiagnostics-g-au-r1.wvd.microsoft.com^
+||rddiagnostics-g-br-r1.wvd.microsoft.com^
+||rddiagnostics-g-ca-r1.wvd.microsoft.com^
+||rddiagnostics-g-ch-r1.wvd.microsoft.com^
+||rddiagnostics-g-de-r1.wvd.microsoft.com^
+||rddiagnostics-g-es-r1.wvd.microsoft.com^
+||rddiagnostics-g-eu-r1.wvd.microsoft.com^
+||rddiagnostics-g-fr-r1.wvd.microsoft.com^
+||rddiagnostics-g-gb-r1.wvd.microsoft.com^
+||rddiagnostics-g-il-r1.wvd.microsoft.com^
+||rddiagnostics-g-in-r1.wvd.microsoft.com^
+||rddiagnostics-g-jp-r1.wvd.microsoft.com^
+||rddiagnostics-g-kr-r1.wvd.microsoft.com^
+||rddiagnostics-g-mx-r1.wvd.microsoft.com^
+||rddiagnostics-g-no-r1.wvd.microsoft.com^
+||rddiagnostics-g-sa-r1.wvd.microsoft.com^
+||rddiagnostics-g-us-r0.wvd.microsoft.com^
 ||ads.microsoft.com^
 ||adsdk.microsoft.com^
 ||advertising.microsoft.com^
@@ -1013250,7 +1013370,6 @@ $removeparam=tduid
 ||c.ph.msn.com^
 ||c.prodigy.msn.com^
 ||c.pt.msn.com^
-||bat.r.msn.com^
 ||c.ru.msn.com^
 ||c.se.msn.com^
 ||c.sg.msn.com^
@@ -1013260,19 +1013379,23 @@ $removeparam=tduid
 ||c.uk.msn.com^
 ||c.za.msn.com^
 ||ac2.msn.com^
+||ac3.msn.com^
 ||ad.msn.com^
 ||adevents.msn.com^
 ||ads.msn.com^
 ||ads1.msn.com^
+||ads2.msn.com^
+||adsyndication.msn.com^
+||analytics.msn.com^
 ||arc.msn.com^
 ||arc-emea.msn.com^
 ||arc1.msn.com^
 ||arc2.msn.com^
 ||arc3.msn.com^
 ||arc9.msn.com^
-||arctb53wmig1gagbqjqgolj2ig.msn.com^
 ||flex.msn.com^
 ||g00.msn.com^
+||h.msn.com^
 ||h1.msn.com^
 ||h2.msn.com^
 ||h6.msn.com^
@@ -1013285,6 +1013408,7 @@ $removeparam=tduid
 ||sam.msn.com^
 ||stjjp.msn.com^
 ||toolbar.msn.com^
+||adsyndication.msn.com.nsatc.net^
 ||diagnostics.office.com^
 ||diagnostics-eudb.office.com^
 ||measure.office.com^
@@ -1013322,6 +1013446,7 @@ $removeparam=tduid
 ||ir-tracking.trafficmanager.net^
 ||irreverselookuptm.trafficmanager.net^
 ||ism-telemetry.trafficmanager.net^
+||keyniusprod-events.trafficmanager.net^
 ||legacywatson.trafficmanager.net^
 ||office-events-data.trafficmanager.net^
 ||oms-analytics.trafficmanager.net^
@@ -1013334,6 +1013459,7 @@ $removeparam=tduid
 ||telemetry-lcp.trafficmanager.net^
 ||tm-analytics-pr.trafficmanager.net^
 ||tm-enrollment-telemetry-datacore.trafficmanager.net^
+||us-mesh-events-data-leafs.trafficmanager.net^
 ||vstelemetry.trafficmanager.net^
 ||watsoncab.trafficmanager.net^
 ||win-global-asimov-leafs-events-data.trafficmanager.net^
@@ -1013349,7 +1013475,6 @@ $removeparam=tduid
 ||analytics-dev-lleap-events.servicebus.windows.net^
 ||analytics-dev-simpad-events.servicebus.windows.net^
 ||analyticsiot-prod-mobileapps-ehn.servicebus.windows.net^
-||audiobible-production-analytics-eh.servicebus.windows.net^
 ||citrixanalyticseh.servicebus.windows.net^
 ||citrixanalyticseh-alias.servicebus.windows.net^
 ||citrixanalyticseh2.servicebus.windows.net^
@@ -1013364,8 +1013489,6 @@ $removeparam=tduid
 ||citrixtelemetryeh-alias.servicebus.windows.net^
 ||citrixtelemetryeheu.servicebus.windows.net^
 ||citrixtelemetryeheu-alias.servicebus.windows.net^
-||ehtelemetrystaging.servicebus.windows.net^
-||hme-live-loganalytics-namespace.servicebus.windows.net^
 ||hme-uat-loganalytics-namespace.servicebus.windows.net^
 ||kg-legacy-analytics.servicebus.windows.net^
 ||licensingtelemetry-prod.servicebus.windows.net^
@@ -1013406,6 +1013529,7 @@ $removeparam=tduid
 ||ads-api.vivo.com^
 ||err.up.vivoglobal.com^
 ||alliance-adreq-asia.vivoglobal.com^
+||alliance-adreq-in.vivoglobal.com^
 ||asia-abeacdataonrt-stsdk.vivoglobal.com^
 ||asia-abeacdataort-stsdk.vivoglobal.com^
 ||asia-ad-mkt-vivofs.vivoglobal.com^
@@ -1013413,6 +1013537,7 @@ $removeparam=tduid
 ||asia-adsjssdk.vivoglobal.com^
 ||asia-album-api.vivoglobal.com^
 ||asia-analyzer-appstore.vivoglobal.com^
+||asia-api-stsdk.vivoglobal.com^
 ||asia-commonitor-stsdk.vivoglobal.com^
 ||asia-comonrt-stsdk.vivoglobal.com^
 ||asia-comort-stsdk.vivoglobal.com^
@@ -1013424,6 +1013549,7 @@ $removeparam=tduid
 ||asia-exstsdk.vivoglobal.com^
 ||asia-monitor-stsdk.vivoglobal.com^
 ||asia-news-abroad-backstage-interface.vivoglobal.com^
+||asia-nrt-stsdk.vivoglobal.com^
 ||asia-onrt-stsdk.vivoglobal.com^
 ||asia-ort-stsdk.vivoglobal.com^
 ||asia-os-config-appstore.vivoglobal.com^
@@ -1013431,6 +1013557,7 @@ $removeparam=tduid
 ||asia-pnrt-stsdk.vivoglobal.com^
 ||asia-prt-stsdk.vivoglobal.com^
 ||asia-romsp-unifyconfig.vivoglobal.com^
+||asia-rt-stsdk.vivoglobal.com^
 ||asia-st-exappupgrade.vivoglobal.com^
 ||asia-st-sl.vivoglobal.com^
 ||asia-stsdk.vivoglobal.com^
@@ -1013441,7 +1013568,22 @@ $removeparam=tduid
 ||asia-vcode-or.vivoglobal.com^
 ||asia-vpushonrt-stsdk.vivoglobal.com^
 ||asia-vpushort-stsdk.vivoglobal.com^
+||au-analyzer-appstore.vivoglobal.com^
+||au-err-up.vivoglobal.com^
+||au-nrt-stsdk.vivoglobal.com^
+||au-ort-stsdk.vivoglobal.com^
+||au-pnrt-stsdk.vivoglobal.com^
 ||br-p.vivoglobal.com^
+||cl-api-stsdk.vivoglobal.com^
+||cl-err-up.vivoglobal.com^
+||cl-monitor-stsdk.vivoglobal.com^
+||cl-nrt-stsdk.vivoglobal.com^
+||cl-onrt-stsdk.vivoglobal.com^
+||cl-ort-stsdk.vivoglobal.com^
+||cl-pnrt-stsdk.vivoglobal.com^
+||cl-prt-stsdk.vivoglobal.com^
+||cl-st-sl.vivoglobal.com^
+||cl-stsdk.vivoglobal.com^
 ||cl-vcode-api.vivoglobal.com^
 ||cname-ali-asia-stsdk.vivoglobal.com^
 ||cname-asia-comonrt-stsdk.vivoglobal.com^
@@ -1013454,11 +1013596,15 @@ $removeparam=tduid
 ||cname-in-ctdbonrt-stsdk.vivoglobal.com^
 ||cname-sin01-stsdk09.vivoglobal.com^
 ||co-album-api.vivoglobal.com^
+||co-api-stsdk.vivoglobal.com^
 ||co-cota.vivoglobal.com^
 ||co-domaincfg.vivoglobal.com^
+||co-monitor-stsdk.vivoglobal.com^
+||co-nrt-stsdk.vivoglobal.com^
 ||co-onrt-stsdk.vivoglobal.com^
 ||co-ort-stsdk.vivoglobal.com^
 ||co-pnrt-stsdk.vivoglobal.com^
+||co-prt-stsdk.vivoglobal.com^
 ||co-romsp-unifyconfig.vivoglobal.com^
 ||co-st-sl.vivoglobal.com^
 ||co-stsdk.vivoglobal.com^
@@ -1013471,12 +1013617,15 @@ $removeparam=tduid
 ||err-up.vivoglobal.com^
 ||eu-album-api.vivoglobal.com^
 ||eu-api-stsdk.vivoglobal.com^
+||eu-cfg-stsdk.vivoglobal.com^
 ||eu-cota.vivoglobal.com^
 ||eu-domaincfg.vivoglobal.com^
 ||eu-errup.vivoglobal.com^
+||eu-monitor-stsdk.vivoglobal.com^
 ||eu-nrt-stsdk.vivoglobal.com^
 ||eu-p.vivoglobal.com^
 ||eu-pnrt-stsdk.vivoglobal.com^
+||eu-prt-stsdk.vivoglobal.com^
 ||eu-romsp-unifyconfig.vivoglobal.com^
 ||eu-st-sl.vivoglobal.com^
 ||eu-timesync.vivoglobal.com^
@@ -1013487,10 +1013636,16 @@ $removeparam=tduid
 ||ex-romsp-unifyconfig.vivoglobal.com^
 ||id-analyzer-appstore.vivoglobal.com^
 ||id-third-appstore.vivoglobal.com^
+||il-api-stsdk.vivoglobal.com^
+||il-onrt-stsdk.vivoglobal.com^
+||il-pnrt-stsdk.vivoglobal.com^
+||il-prt-stsdk.vivoglobal.com^
+||il-st-sl.vivoglobal.com^
 ||in-ad-mkt-vivofs.vivoglobal.com^
 ||in-adlog.vivoglobal.com^
 ||in-adreq.vivoglobal.com^
 ||in-adsjssdk.vivoglobal.com^
+||in-analyzer-appstore.vivoglobal.com^
 ||in-api-stsdk.vivoglobal.com^
 ||in-apponrt-stsdk.vivoglobal.com^
 ||in-apport-stsdk.vivoglobal.com^
@@ -1013520,6 +1013675,8 @@ $removeparam=tduid
 ||in-vcode-or.vivoglobal.com^
 ||in-vpushonrt-stsdk.vivoglobal.com^
 ||in-vpushort-stsdk.vivoglobal.com^
+||kz-analyzer-appstore.vivoglobal.com^
+||kz-api-stsdk.vivoglobal.com^
 ||kz-cname-sin01-bigdata.vivoglobal.com^
 ||kz-cota.vivoglobal.com^
 ||kz-err-up.vivoglobal.com^
@@ -1013540,9 +1013697,11 @@ $removeparam=tduid
 ||kz-vcode-or.vivoglobal.com^
 ||monitor-stsdk.vivoglobal.com^
 ||mx-album-api.vivoglobal.com^
+||mx-api-stsdk.vivoglobal.com^
 ||mx-cota.vivoglobal.com^
 ||mx-domaincfg.vivoglobal.com^
 ||mx-err-up.vivoglobal.com^
+||mx-nrt-stsdk.vivoglobal.com^
 ||mx-onrt-stsdk.vivoglobal.com^
 ||mx-ort-stsdk.vivoglobal.com^
 ||mx-p.vivoglobal.com^
@@ -1013556,20 +1013715,38 @@ $removeparam=tduid
 ||mx-vcode-or.vivoglobal.com^
 ||onrt-stsdk.vivoglobal.com^
 ||ort-stsdk.vivoglobal.com^
+||pe-api-stsdk.vivoglobal.com^
+||pe-err-up.vivoglobal.com^
+||pe-monitor-stsdk.vivoglobal.com^
+||pe-nrt-stsdk.vivoglobal.com^
+||pe-onrt-stsdk.vivoglobal.com^
+||pe-pnrt-stsdk.vivoglobal.com^
+||pe-prt-stsdk.vivoglobal.com^
+||pe-st-sl.vivoglobal.com^
+||pe-stsdk.vivoglobal.com^
 ||pnrt-stsdk.vivoglobal.com^
 ||prt-stsdk.vivoglobal.com^
 ||ro-up.vivoglobal.com^
 ||ru-album-api.vivoglobal.com^
 ||ru-analyzer-appstore.vivoglobal.com^
+||ru-api-stsdk.vivoglobal.com^
+||ru-apponrt-stsdk.vivoglobal.com^
+||ru-apport-stsdk.vivoglobal.com^
+||ru-apppnrt-stsdk.vivoglobal.com^
 ||ru-commonitor-stsdk.vivoglobal.com^
 ||ru-comonrt-stsdk.vivoglobal.com^
 ||ru-comort-stsdk.vivoglobal.com^
 ||ru-compnrt-stsdk.vivoglobal.com^
 ||ru-comprt-stsdk.vivoglobal.com^
 ||ru-cota.vivoglobal.com^
+||ru-ctdbonrt-stsdk.vivoglobal.com^
+||ru-ctdbort-stsdk.vivoglobal.com^
+||ru-ctdbpnrt-stsdk.vivoglobal.com^
+||ru-ctdbprt-stsdk.vivoglobal.com^
 ||ru-err-up.vivoglobal.com^
 ||ru-exstsdk.vivoglobal.com^
 ||ru-monitor-stsdk.vivoglobal.com^
+||ru-nrt-stsdk.vivoglobal.com^
 ||ru-onrt-stsdk.vivoglobal.com^
 ||ru-ort-stsdk.vivoglobal.com^
 ||ru-os-config-appstore.vivoglobal.com^
@@ -1013586,12 +1013763,15 @@ $removeparam=tduid
 ||ru-vcode-od.vivoglobal.com^
 ||ru-vcode-or.vivoglobal.com^
 ||sg-cfg-stsdk.vivoglobal.com^
+||st-sl.vivoglobal.com^
 ||stsdk.vivoglobal.com^
 ||tr-album-api.vivoglobal.com^
+||tr-api-stsdk.vivoglobal.com^
 ||tr-cota.vivoglobal.com^
 ||tr-domaincfg.vivoglobal.com^
 ||tr-err-up.vivoglobal.com^
 ||tr-gdpr-vgc-datacenter.vivoglobal.com^
+||tr-monitor-stsdk.vivoglobal.com^
 ||tr-onrt-stsdk.vivoglobal.com^
 ||tr-ort-stsdk.vivoglobal.com^
 ||tr-p.vivoglobal.com^
@@ -1013607,6 +1013787,9 @@ $removeparam=tduid
 ||tr-vcode-od.vivoglobal.com^
 ||tr-vcode-or.vivoglobal.com^
 ||tr-weather.vivoglobal.com^
+||uk-monitor-stsdk.vivoglobal.com^
+||uk-nrt-stsdk.vivoglobal.com^
+||uk-prt-stsdk.vivoglobal.com^
 ||uk-timesync.vivoglobal.com^
 ||xn-ex-adreq-asa-c5b.vivoglobal.com^
 ||za-p.vivoglobal.com^
@@ -1013656,6 +1013839,7 @@ $removeparam=tduid
 ||crypto-dsf-sg.allawnos.com^
 ||crypto-dsf-us.allawnos.com^
 ||eap-log-in.allawnos.com^
+||eap-log-ru.allawnos.com^
 ||eap-log-sg.allawnos.com^
 ||featureinfo-service-sg.allawnos.com^
 ||fourier-videoclip-eu.allawnos.com^
@@ -1013719,12 +1013903,13 @@ $removeparam=tduid
 ||conn-service-gl-01.allawntech.com^
 ||smartcardf.apps.coloros.com^
 ||smartcardf-eu.apps.coloros.com^
+||ota.foreign.coloros.com^
+||rus.foreign.coloros.com^
 ||conn1.coloros.com^
 ||conn2.coloros.com^
 ||conn3.coloros.com^
 ||conn4.coloros.com^
 ||conn5.coloros.com^
-||foreign.coloros.com^
 ||guif.coloros.com^
 ||guif-eu.coloros.com^
 ||icota-eu.coloros.com^
@@ -1013742,6 +1013927,20 @@ $removeparam=tduid
 ||storedl3f.nearme.com.cn^
 ||storedl4f.nearme.com.cn^
 ||storedl5f.nearme.com.cn^
+||br.ekatox.com^
+||g-api-eu.ekatox.com^
+||g-api-in.ekatox.com^
+||g-api-ru.ekatox.com^
+||hg-br.ekatox.com^
+||hg-eu.ekatox.com^
+||hg-id.ekatox.com^
+||hg-sa.ekatox.com^
+||hg-sg.ekatox.com^
+||hg-us.ekatox.com^
+||id.ekatox.com^
+||ru.ekatox.com^
+||sg.ekatox.com^
+||us.ekatox.com^
 ||i-insurance.finzfin.com^
 ||appconf-ocs-eu.heytapdl.com^
 ||appconf-ocs-in.heytapdl.com^
@@ -1013916,6 +1014115,8 @@ $removeparam=tduid
 ||adx-op-fr-heytapmobilea-a7bbf.fr-w01.cngw.heytapmobile.com^
 ||adx-u-in-heytapmobile-a-9ae47.in-s01.cngw.heytapmobile.com^
 ||u-id.cpc.heytapmobile.com^
+||u-th.cpc.heytapmobile.com^
+||u-vn.cpc.heytapmobile.com^
 ||api-id.game.heytapmobile.com^
 ||api-id.play.heytapmobile.com^
 ||api-id.theme.heytapmobile.com^
@@ -1013938,12 +1014139,15 @@ $removeparam=tduid
 ||adx-u-ru.heytapmobile.com^
 ||adx-u-sg.heytapmobile.com^
 ||adx-union-sg.heytapmobile.com^
+||adx-union-us.heytapmobile.com^
 ||adxh3-op-sg.heytapmobile.com^
 ||adxu-bigo-sg.heytapmobile.com^
+||bdapi-ads-in.heytapmobile.com^
 ||bdapi-ads-sg.heytapmobile.com^
 ||browser-api-br.heytapmobile.com^
 ||browser-api-fr.heytapmobile.com^
 ||browser-api-gl.heytapmobile.com^
+||browser-api-gl-01.heytapmobile.com^
 ||browser-api-id.heytapmobile.com^
 ||browser-api-in.heytapmobile.com^
 ||browser-api-my.heytapmobile.com^
@@ -1013957,6 +1014161,7 @@ $removeparam=tduid
 ||browser-sdk-in.heytapmobile.com^
 ||browser-sdk-ru.heytapmobile.com^
 ||bsp-di-in.heytapmobile.com^
+||bsp-di-us.heytapmobile.com^
 ||cdo.heytapmobile.com^
 ||cldata-ads-fr.heytapmobile.com^
 ||cldata-ads-ru.heytapmobile.com^
@@ -1014057,18 +1014262,23 @@ $removeparam=tduid
 ||conf-in-dc.heytapmobile.com^
 ||dc.heytapmobile.com^
 ||dc-dragate-sg.heytapmobile.com^
+||dc-stat-eu.heytapmobile.com^
 ||dc-stat-in.heytapmobile.com^
+||jscatch-in-frontend.heytapmobile.com^
 ||jscatch-sg-frontend.heytapmobile.com^
 ||mdp-usertrace-in.heytapmobile.com^
 ||mdp-usertrace-sg.heytapmobile.com^
 ||obus-conf-fr.heytapmobile.com^
 ||obus-conf-in.heytapmobile.com^
+||obus-conf-ru.heytapmobile.com^
 ||obus-conf-sg.heytapmobile.com^
 ||obus-conf-us.heytapmobile.com^
 ||obus-config-in.heytapmobile.com^
 ||obus-config-sg.heytapmobile.com^
 ||obus-dc-eu.heytapmobile.com^
+||obus-dc-in.heytapmobile.com^
 ||obus-dc-ru.heytapmobile.com^
+||obus-dc-sg.heytapmobile.com^
 ||obus-dc-us.heytapmobile.com^
 ||obus-dc121100-sg.heytapmobile.com^
 ||obus-dc2-in.heytapmobile.com^
@@ -1014078,6 +1014288,7 @@ $removeparam=tduid
 ||obus-dc20142-sg.heytapmobile.com^
 ||obus-dc20305-in.heytapmobile.com^
 ||obus-dc20305-sg.heytapmobile.com^
+||obus-dctech-fr.heytapmobile.com^
 ||obus-dctech-in.heytapmobile.com^
 ||obus-dctech-sg.heytapmobile.com^
 ||obus-dcyitai-sg.heytapmobile.com^
@@ -1014085,6 +1014296,7 @@ $removeparam=tduid
 ||obus-hid-sg.heytapmobile.com^
 ||obus-jssdk-fr.heytapmobile.com^
 ||obus-jssdk-in.heytapmobile.com^
+||obus-jssdk-ru.heytapmobile.com^
 ||obus-jssdk-sg.heytapmobile.com^
 ||obus-jssdk-us.heytapmobile.com^
 ||opay.heytapmobile.com^
@@ -1014100,6 +1014312,7 @@ $removeparam=tduid
 ||video-api-gl.heytapmobile.com^
 ||video-api-in.heytapmobile.com^
 ||video-api-ru.heytapmobile.com^
+||uc-track-ru.oneplus.com^
 ||dragate-br.dc.oppomobile.com^
 ||dragate-sg.dc.oppomobile.com^
 ||predragate.dc.oppomobile.com^
@@ -1014110,6 +1014323,9 @@ $removeparam=tduid
 ||dhfs-th.oppomobile.com^
 ||dhfs-vn.oppomobile.com^
 ||dhfsf.oppomobile.com^
+||adx-ads.realmemobile.com^
+||adx-in-ads.realmemobile.com^
+||data-ads.realmemobile.com^
 ||sea-log-rcv.vansound.com^
 ||h4g3z1-native-oppo-realme.web.app^
 ||finosfin.com^
@@ -1017279,6 +1017495,8 @@ $uritransform=/#Echobox=[\d]{10}$//,to=iltalehti.fi|hs.fi
 ! https://github.com/uBlockOrigin/uAssets/issues/32911
 ||index.hr/tracking-beacon
 ||index.hr/api/Stats/
+||index.hr/api/homepage/seen
+||index.hr/setabcookie
 
 ! https://github.com/uBlockOrigin/uAssets/issues/34145
 ||sms24.me/numbers/pixel
@@ -1020954,6 +1021172,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||ad-x.co.uk^
 ||ad.12dt.com^
 ||ad.71i.de^
+||ad.cdn.pandora.xiaomi.com^
 ||ad.danawa.com^
 ||ad.dmm.com^
 ||ad.doubleclick.net^
@@ -1021353,7 +1021572,6 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||ads.us.criteo.com^
 ||ads.viber.com^
 ||ads.yahoo.com^
-||ads2.msn.com^
 ||ads4apps.net^
 ||ads4pubs.com^
 ||ads5-adnow.com^
@@ -1028856,7 +1029074,6 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||analytics.msk-sicherheitstechnik.de^
 ||analytics.msks-pflegeteam.de^
 ||analytics.msman.com^
-||analytics.msn.com^
 ||analytics.msoficeworks.com^
 ||analytics.msow.be^
 ||analytics.mstack.net^
@@ -1033342,6 +1033559,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||api-analytics.pelikan.cz^
 ||api-analytics.pelikan.hu^
 ||api-analytics.postovabanka.sk^
+||api-analytics.samsungknox.com^
 ||api-analytics.saxana.sk^
 ||api-analytics.sazka.cz^
 ||api-analytics.t-mobile.cz^
@@ -1034726,6 +1034944,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||basspronews1.com^
 ||bastidi.com^
 ||bat.millepondo.net^
+||bat.r.msn.com^
 ||batbuilding.com^
 ||batch.ba^
 ||batchgeo.com^
@@ -1038228,6 +1038447,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||collector.articerrahi.com^
 ||collector.assetxh.world^
 ||collector.auxmoney.com^
+||collector.azure.eaglex.ic.gov^
 ||collector.bleulibellule.com^
 ||collector.capexh.world^
 ||collector.capturly.com^
@@ -1046338,7 +1046558,6 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||glassboxdigital.com^
 ||glassboxdigital.io^
 ||glclk.about.com^
-||gld.samsungosp.com^
 ||gldsta-02-or.com^
 ||gle.gleevec.com^
 ||gleam.io^
@@ -1048472,6 +1048691,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||h4g3z1-native.winoffice.web.app^
 ||h4g3z1-native.xiaomi.web.app^
 ||h4usj4d.com^
+||h5-ru.video.intl.xiaomi.com^
 ||h5t2wtrk.com^
 ||h67reftrk.com^
 ||h78xb.pw^
@@ -1048848,6 +1049068,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||hm01.anct.gouv.fr^
 ||hm20trk.com^
 ||hmageo.com^
+||hme-live-loganalytics-namespace.servicebus.windows.net^
 ||hmkdj32sj.com^
 ||hmptk-2.com^
 ||hmtracking.site^
@@ -1053002,7 +1053223,6 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||log-3.samsungacr.com^
 ||log-720ad60f.afirme.com^
 ||log-96951fce.comerica.com^
-||log-abroad.avlyun.sec.miui.com^
 ||log-bf672d0f.kabbage.com^
 ||log-biocatch-app.bancoppel.com^
 ||log-brofront.kraftonde.com^
@@ -1089093,6 +1089313,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||ru.api.xmpush.global.xiaomi.com^
 ||ru.lgsmartad.com^
 ||ru.register.xmpush.global.xiaomi.com^
+||ru.video.intl.xiaomi.com^
 ||ru3s4trk.com^
 ||ru4.com^
 ||rubel.adunikkrishi.com^
@@ -1112090,7 +1112311,6 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||us-east4.dev.ads.gcp.roku.com^
 ||us-fp.apitd.net^
 ||us-library.klarnaservices.com^
-||us-mesh-events-data-leafs.trafficmanager.net^
 ||us-mesh.events.data.microsoft.com^
 ||us-mobile.events.data.microsoft.com^
 ||us-plz-as19750.anchors.atlas.ripe.net^
@@ -1113819,6 +1114039,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||wkp20trk.com^
 ||wkxppshj-qx.global.ssl.fastly.net^
 ||wl.spotify.com^
+||wl.voip.game.xiaomi.com^
 ||wlpiwik01.werfen.com^
 ||wlssl.jd.com^
 ||wm-memail-837.top^
@@ -1135220,7 +1135441,6 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||adsy.mail.bg^
 ||adsymbol.com^
 ||adsymptotic.net^
-||adsyndication.msn.com^
 ||adsynergy.com^
 ||adsys.insert.bg^
 ||adsys.townnews.com^
@@ -1947386,8 +1947606,8 @@ api.leanplum.com
 #
 #    File: Tracking
 #    Info: Analytics, Diagnostics, Metrics, Public IP, Location
-# Domains: 142,609
-# Updated: 11/12/2026  00:46 (12:46 AM CST)
+# Domains: 142,623
+# Updated: 11/13/2026  08:42 (8:42 AM CST)
 #     RAW: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Tracking
 #     Git: https://github.com/ShadowWhisperer/BlockLists.git
 
@@ -1950814,6 +1951034,7 @@ a.esmark.info
 a.espncricinfo.com
 ae.stanleyblackanddecker.com
 aests.aesthency.com
+aether-bi.polycasino.com
 a.etherip.net
 aetion.com
 a.et.nytimes.com
@@ -1969251,6 +1969472,7 @@ balneario.cursodetti.com.br
 balthazar.diedm.fr
 baltimoresunreports.com
 baludok.com
+bamawrestling.com
 bambinoads.net
 bamboo.hetbevallingsjurkje.nl
 bamfd.hellobatch.com
@@ -1973981,6 +1974203,7 @@ cognos.com
 cog-tr0.com
 cog-tr1.com
 cog-tr2.com
+cog-tr3.com
 cohbjtqd.parfium.bg
 cohesionapps.com
 cohesion.bankrate.com
@@ -1977177,6 +1977400,7 @@ d2dpiwfhf3tz0r.cloudfront.net
 d2dq2ahtl5zl1z.cloudfront.net
 d2dvy74lyjayxz.cloudfront.net
 d2e48ltfsb5exy.cloudfront.net
+d2ezz24t9nm0vu.cloudfront.net
 d2fb88mlwivul3.cloudfront.net
 d2ft3xf0i1jq1c.cloudfront.net
 d2fuc4clr7gvcn.cloudfront.net
@@ -1982046,6 +1982270,7 @@ ddxhj.pacsun.com
 dd.zocdoc.com
 de33watrk.com
 de9c635aa0404558bd527220ef4e6b4b.betway.ca
+deadbro.com
 deadpangate.com
 deadpanmarble.com
 deafeningdock.com
@@ -1985458,6 +1985683,7 @@ ermes.bredapannelli.it
 ermes.fsm-udine.com
 ermes.midj.com
 ernga.alexnalexrealty.com
+eroelog.xsrv.jp
 erozp.mateina.ca
 erp.velpa.pl
 err.123cards.com
@@ -1985813,6 +1986039,7 @@ ev.atuin.sh
 evdni.littlesleepies.com
 e.vector.com
 eveish.eveish.com
+event.airbridge.io
 eventapi.afreecatv.com
 event.api.drift.com
 event-api-production.trustengine.com
@@ -1997846,6 +1998073,7 @@ istat24.com.ua
 istats.haj.systems
 istats.haj.tech
 istats.nl
+isticle.com
 ist.istitutogiglio.it
 istrack.com
 ist-track.com
@@ -1999030,6 +1999258,7 @@ knrwvhvd.naturtreu.de
 kntxy.com
 knv.konovo.rs
 knvrjf.potpourrigift.com
+kny2r1ej.com
 knzs7fvtrk.com
 ko6b7nsc.com
 koala.getslopes.com
@@ -2013895,6 +2014124,7 @@ maze.co
 mb1-cdn.com
 mb1.macquarie.com.au
 mb6bcl7trk.com
+m.babechat.ai
 mbainfo.ust.hk
 mbc-stats.fr
 mb-edge.marmerbutik.com
@@ -2037674,6 +2037904,7 @@ sa.byteleap.co
 sa.cache.horse
 sa.camperdays.com
 sa.candland.net
+sa.casino.org
 sac.barrons.com
 s.acceleratedagency.com
 saccess.hikaritv.net
@@ -2075176,6 +2075407,7 @@ svhil.landsend.com
 svibeacon.onezapp.com
 s.victoriassecret.com
 s-vic.vitaincampagna.it
+s.viieecqj.com
 sv.indesignoo.com
 s.vinoscout.de
 sv.in-shape.co
@@ -2083680,6 +2083912,7 @@ umami.oc-digital.de
 umami.odcrawler.xyz
 umami.odeva.app
 umami.oiste.ro
+umami-one-tau.vercel.app
 umami.ongres.com
 umami.onirion.dev
 umami.ont2p.com
@@ -2088778,7 +2089011,6 @@ poczta.interia.pl,film.interia.pl#@#[href*=".hit.gemius.pl"]
 ! Vietnamese
 !-----------------Individual tracking systems-----------------!
 ! *** easylist:easyprivacy/easyprivacy_specific.txt ***
-||api.community.fox.com/*/metrics
 !||youtube.com/api/stats/atr?ns=*&ver=2&cmt=1.*&fs=0&*&euri&lact=
 ! ||youtube.com/youtubei/v1/log_event?
 ! Email trackers(for long urls, 9000+ chars not being filtered)
@@ -2088832,7 +2089064,7 @@ bolighub.dk##+js(acs, document.getElementsByTagName, gtm.js)
 ! Admiral
 iphoneincanada.ca##+js(acs, document.createElement, __apNoHold)
 247sports.com,al.com,arstechnica.com,bringmethenews.com,cattime.com,cbr.com,cheatsheet.com,collider.com,comingsoon.net,crooksandliars.com,cwtv.com,dogtime.com,esportstales.com,forums.hfboards.com,freep.com,fresnobee.com,gamerant.com,gbatemp.net,golfdigest.com,grabify.link,hancinema.net,hemmings.com,howtogeek.com,ijr.com,informazionefiscale.it,inquirer.net,insider-gaming.com,knowyourmeme.com,magesypro.pro,makeuseof.com,mlive.com,money.it,motorbiscuit.com,movieweb.com,nationalreview.com,nbcnews.com,neopets.com,nofilmschool.com,nypost.com,omg.blog,order-order.com,oregonlive.com,pcwelt.de,pennlive.com,playstationlifestyle.net,pwinsider.com,savvytime.com,screenrant.com,siliconera.com,simpleflying.com,sporcle.com,stealthoptional.com,techlicious.com,technicpack.net,thedraftnetwork.com,thefashionspot.com,thegamer.com,thelayoff.com,thenerdstash.com,theprovince.com,titantv.com,topspeed.com,twinfinite.net,videogamer.com,webmail.wiki,wnd.com,worldpopulationreview.com,wral.com,wrestlezone.com,wrestlinginc.com,xda-developers.com##+js(acs, document.createElement, admiral)
-10tv.com,11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,al.com,aol.com,apnews.com,artforum.com,artnews.com,bellinghamherald.com,billboard.com,birdsandblooms.com,calgaryherald.com,calgarysun.com,cbs19.tv,cbs8.com,chattanoogacw.com,cleveland.com,crooksandliars.com,cwtv.com,deadline.com,dpreview.com,driving.ca,edmontonjournal.com,edmontonsun.com,familyhandyman.com,financialpost.com,firstcoastnews.com,fox43.com,fox61.com,futbin.com,goldderby.com,golfdigest.com,gulflive.com,hollywoodreporter.com,indiewire.com,kare11.com,kcentv.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,komonews.com,krem.com,ktvb.com,kvue.com,lehighvalleylive.com,lfpress.com,localmemphis.com,masslive.com,mlive.com,motor1.com,myfoxzone.com,nationalpost.com,nbcsports.com,news.com.au,newscentermaine.com,newswest9.com,nj.com,nydailynews.com,oregonlive.com,ottawacitizen.com,ottawasun.com,pcworld.com,pennlive.com,rd.com,robbreport.com,rollingstone.com,sherdog.com,sidereel.com,silive.com,sportico.com,superherohype.com,syracuse.com,tasteofhome.com,techcrunch.com,thehealthy.com,thv11.com,tj.news,torontosun.com,twinfinite.net,vancouversun.com,variety.com,vibe.com,wbir.com,wcnc.com,weareiowa.com,weather.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,windsorstar.com,wkyc.com,wltx.com,wnep.com,wqad.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com##+js(acs, document.getElementsByTagName, .pubads)
+10tv.com,11alive.com,12news.com,12newsnow.com,13newsnow.com,13wmaz.com,5newsonline.com,9news.com,abc10.com,al.com,aol.com,apnews.com,artforum.com,artnews.com,bellinghamherald.com,billboard.com,birdsandblooms.com,calgaryherald.com,calgarysun.com,cbs19.tv,cbs8.com,chattanoogacw.com,cleveland.com,crooksandliars.com,cwtv.com,deadline.com,dpreview.com,driving.ca,edmontonjournal.com,edmontonsun.com,familyhandyman.com,financialpost.com,firstcoastnews.com,fox43.com,fox61.com,futbin.com,goldderby.com,golfdigest.com,gulflive.com,hollywoodreporter.com,indiewire.com,kare11.com,kcentv.com,kens5.com,kgw.com,khou.com,kiiitv.com,king5.com,komonews.com,krem.com,ktvb.com,kvue.com,lehighvalleylive.com,lfpress.com,localmemphis.com,masslive.com,mlive.com,motor1.com,myfoxzone.com,nationalpost.com,nbcsports.com,news.com.au,newscentermaine.com,newswest9.com,nj.com,nydailynews.com,oregonlive.com,ottawacitizen.com,ottawasun.com,pcworld.com,pennlive.com,rd.com,robbreport.com,rollingstone.com,sherdog.com,sidereel.com,silive.com,sportico.com,superherohype.com,syracuse.com,tasteofhome.com,techcrunch.com,thehealthy.com,thv11.com,tj.news,torontosun.com,twinfinite.net,vancouversun.com,variety.com,vibe.com,wbir.com,wcnc.com,weareiowa.com,weather.com,wfaa.com,wfmynews2.com,wgrz.com,whas11.com,windsorstar.com,wkyc.com,wltx.com,wnep.com,wowhead.com,wqad.com,wthr.com,wtol.com,wtsp.com,wusa9.com,wwd.com,wwltv.com,wzzm13.com##+js(acs, document.getElementsByTagName, .pubads)
 ranker.com##+js(aost, HTMLElement.prototype.insertBefore, /[A-Z] .+chunks\/\d{4}\./)
 cleveland.com,fox11online.com,oregonlive.com,reuters.com,weartv.com##+js(aost, admiral, .js?)
 al.com,attackofthefanboy.com,beavertonvalleytimes.com,destructoid.com,gamepur.com,gamerjournalist.com,gameskinny.com,lehighvalleylive.com,lehighvalleylivecom,lgbtqnation.com,macwelt.de,masslive.com,mlive.com,news8000.com,oregonlive.com,pcwelt.de,pennlive.com,portlandtribune.com,primagames.com,progameguides.com,queerty.com,siliconera.com,silive.com,sporcle.com,techcrunch.com,thebeenews.com,themarysue.com,theoutlookonline.com,touchtapplay.com,wegotthiscovered.com##+js(aost, decodeURI, /(?=^(?!.*\.js))/)
@@ -2089262,5 +2089494,5 @@ x.com##+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 2070411
-! Duplicates removed: 844734
+! Total unique rules: 2070635
+! Duplicates removed: 844784

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 13 Nov 2026 01:06:24 UTC
+! Last modified: 14 Nov 2026 01:05:58 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1794503520-3600.patch
+! Diff-Path: ../patches/11/11-s-1794579129-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2857,7 +2857,7 @@ pinterest.*##div[role="listitem"]:has(div[data-test-id="related-pins-name"] > di
 japanmetal.com##.sp-kohwa-banner
 wallpapers.com##.cd-mobile-creator-ad
 wikiwiki.jp##.caption-flybox:has(> div[id*="ad-container"])
-bluebirdbanter.com##div[class]:has(> div[data-concert*="frontpage_hero_mobile"])
+prideofdetroit.com,silverandblackpride.com,bigblueview.com,boltsfromtheblue.com,turfshowtimes.com,acmepackingcompany.com,fieldgulls.com,bluebirdbanter.com##div[class]:has(> div[data-concert*="frontpage_hero_mobile"])
 alba.co.jp##li[class^="RelationPostItem_postItemStyle_"]:has(> div[id][style="height: 102px;"])
 wineverygame.com##.weg-mobile-campaign
 telugutimes.net##.tt-sticky-footer-ad
@@ -9938,7 +9938,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1794503566-3600.patch
+! Diff-Path: ../patches/11/11-s-1794579160-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -14112,7 +14112,8 @@ streamcash.to##a[rel*="sp0nsored"]:upward(1)
 streamcash.to##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click, a[target="_blank"])
 streamcash.to##div.video-js:style(z-index:2147483647 !important)
 streamcash.to##style:has-text(2147483647):remove()
-streamcash.to##+js(ra, style, div[class][style*="2147483647"], asap, quitAfter, 10)
+streamcash.to##+js(ra, style, div[class][style*="2147483647"], asap, quitAfter, 1000)
+streamcash.to##+js(set, document.adoptedStyleSheets, undefined)
 ||mjzeexubcswjka.com^
 ||uijarxbm.com^
 
@@ -14277,8 +14278,8 @@ tonuriaz.info,wakuraw.com,klmanga.cloud,trogiupnhanh.com,mangaruu.com,rawfree.to
 ||city.yubari.lg.jp/uploaded/banner/$badfilter
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245421
-socialxup.com##+js(aeld, click, /\[native code\]|^\s*e\s*=>\s*.+\(\s*e\s*\)\s*$/)
-socialxup.com##a[target][href^="https://socialxup.com/"]
+socialxup.com##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click, a[target="_blank"])
+socialxup.com##a[href^="/"]:matches-attr("href"="/^\/[0-9A-Z_a-z]+-[0-9A-Z_a-z]+$/")
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25273#issuecomment-6821014851
 ||api.community.fox.com/*/metrics$badfilter
@@ -20559,5 +20560,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13412
+! Total unique rules: 13413
 ! Duplicates removed: 8035
