@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Privacy
 ! Description: Combined filter list for the privacy category.
-! Last modified: 14 Nov 2026 01:06:18 UTC
+! Last modified: 15 Nov 2026 01:06:47 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 32 / 32
 !
 ! ===== SOURCE: https://easylist.to/easylist/easyprivacy.txt
-! Commit: 4ac299d1049dce11d3f322464ca5ad8b5bdfd1f1
+! Commit: 658be22b8e124b8b0ffa6e5e42df20bf34236718
 ! *** easylist:template_header.txt ***
 !
 ! Please report any unblocked adverts or problems
@@ -2313,6 +2313,7 @@
 /statcounter.asp
 /statcounter.js
 /statcountex/count.asp?
+/statify/v1/track|
 /statistic/pixel?
 /statistiche/stat.php$xmlhttprequest
 /statistics.js?$third-party
@@ -3543,6 +3544,7 @@ omni.soundestlink.com$image
 ||admediasales.com^
 ||admetrics.events^
 ||adnext.co^
+||adnz.co^
 ||adrsbl.io^
 ||adrtx.net^
 ||adscore.com^
@@ -8884,6 +8886,7 @@ omni.soundestlink.com$image
 ||silentsingle.com^
 ||siliconslow.com^
 ||siliconuser.com^
+||silkyslumber.com^
 ||sillyscrew.com^
 ||simplenaming.com^
 ||simplesafari.com^
@@ -9171,6 +9174,7 @@ omni.soundestlink.com$image
 ||tableleaders.com^
 ||tackytrains.com^
 ||tacojournal.com^
+||tagloyalty.com^
 ||tailoredcopy.com^
 ||talltouch.com^
 ||tangibleteam.com^
@@ -9275,6 +9279,7 @@ omni.soundestlink.com$image
 ||topratedwaterfilter.com^
 ||topsecretapp.net^
 ||topthrowbacks.com^
+||torhosting.net^
 ||tortoisepage.com^
 ||toweringanswer.com^
 ||toysbasics.com^
@@ -9284,6 +9289,7 @@ omni.soundestlink.com$image
 ||traderbyte.com^
 ||tradetooth.com^
 ||trainingreality.com^
+||trainyourlab.com^
 ||tranquilcan.com^
 ||tranquilplume.com^
 ||tranquilveil.com^
@@ -10800,6 +10806,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||analytics.agoda.com^
 ||analytics.aimtell.com^
 ||analytics.algolia.com^
+||analytics.alvarezrosa.com^
 ||analytics.amakings.com^
 ||analytics.api.justeattakeaway.com^
 ||analytics.apnewsregistry.com^
@@ -10812,6 +10819,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||analytics.bhaskarsaikia.in^
 ||analytics.bitrix.info^
 ||analytics.bomiv.com^
+||analytics.bucks.helixo.co^
 ||analytics.carambo.la^
 ||analytics.carbaselive.com^
 ||analytics.chegg.com^
@@ -10975,6 +10983,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||api.config-security.com/first
 ||api.country.is^$third-party
 ||api.croct.io^
+||api.firecrown.com/v1/events
 ||api.gist.ai/v1/analytics/track
 ||api.gleap.io/sessions/ping
 ||api.helloextend.com/mintsight
@@ -11296,6 +11305,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||cdn.tds.bid/bid.js
 ||cdn.tolt.io/tolt.js
 ||cdn.usefathom.com^
+||cdn.visits.dqapis.com^
 ||cdn.zeroclick.io/scripts/badge.js
 ||cdn.zg-api.com/a/z/js/v1/analytics.js
 ||cdnjs.work/metrics.js
@@ -11575,6 +11585,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||d2gt2ux04o03l1.cloudfront.net^
 ||dadi.technology^$third-party
 ||dash.getsitecontrol.com^
+||dash.kryon.one^
 ||dashboard.nowdialogue.com/api/events/
 ||data.circulate.com^
 ||data.debugbear.com^$third-party
@@ -11684,6 +11695,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||edge.adobedc.net/ee/v1/collect?
 ||edge.bredg.com^$third-party
 ||edge.venatusmedia.com^
+||edge.wingify.net^
 ||edrone.me/trace?
 ||edw.edmunds.com/edw/edw1x1.gif
 ||eel.transistor.fm^
@@ -11692,6 +11704,8 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||emarketeer.com/tracker/
 ||emrld.cc^$script
 ||emrld.ltd/collect
+||emrldco.com/collect
+||emrldtp.cc/collect
 ||enc-90128738.b-cdn.net^
 ||endorsal.io/check/
 ||engagelab.com/ma-report/
@@ -12513,6 +12527,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||newsletters.nationalgeographic.com^$image,third-party
 ||newton.pm/events/track_bulk
 ||nexstardigital.net/segment.js
+||nexus.firecrown.com^
 ||nfcube.com/assets/img/pixel.gif
 ||ngpvan.com/v1/Track/
 ||nice264.com/data?$third-party
@@ -12944,6 +12959,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||run.app/metrics/
 ||run.app/track.js
 ||rw.marchex.io^
+||rybbit-analytics.livecounts.io^
 ||rybbit.sg-app.com^
 ||s-microsoft.com/mscc/$~stylesheet
 ||s.autopilotapp.com^
@@ -12993,6 +13009,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||sdk.appsflyer.com^
 ||sdk.getlimy.ai/p/limy-analytics.min.js
 ||sdk.mrf.io/statics/marfeel-sdk.js
+||sdk.stackup-ai.com/collect
 ||sdrive.skoda-auto.com^
 ||sdtagging.azureedge.net^
 ||searchcompletion.com/BannerHandler.ashx
@@ -13310,6 +13327,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||tag.atom.gamedistribution.com^
 ||tag.aumago.com^
 ||tag.brandcdn.com^
+||tag.decentriq.com^
 ||tag.digops.sincro.io^
 ||tag.elevaate.io^
 ||tag.flagship.io^
@@ -15823,6 +15841,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||cbc.ca/g/stats/
 ||cc.cc/visit_log_ajax/visit_log_save_ajax.php?
 ||cdapi.collegedunia.com^
+||cdid.trip.com^
 ||cdn.eaec.fpfis.tech.ec.europa.eu^
 ||cdn.gov.cfigroup.com/webmon/s/source/webmon/$domain=weather.gov
 ||cdn.jsdelivr.net/gh/bmhtech07/adTorch/js/collect.min.js$script,domain=propanefitness.com
@@ -16248,6 +16267,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||fp.uncensored.com^
 ||fpa-cdn.adweek.com^
 ||fpa-cdn.arstechnica.com^
+||fpa-events.theintercept.com^
 ||fpc.fingerprint.com^
 ||fpt.microsoft.com^
 ||freedownloadmanager.org/ajax/th_hit.php
@@ -16816,6 +16836,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||optimizely.techtarget.com^
 ||oracle.com/visitorinfo/
 ||oracleimg.com/us/assets/metrics/ora_docs.js
+||otel-gw.booking.com^
 ||otel-mobile.doordash.com^
 ||outbound.io/v2/identify
 ||outbound.io/v2/track
@@ -17038,6 +17059,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||rgshows.me/js/statistics.js
 ||ring.staticmoly.me^
 ||risextube.com/t/
+||riskpoc.trip.com^
 ||rivcash.com/*/event/page_visit
 ||rivcash.com/ajax/log_js_error.php
 ||roas-service.store-services-prod.remarkable.com^
@@ -17138,6 +17160,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||siemens.com/c2_analytics.js
 ||silvergames.com/div/g.php?
 ||simplelogin.io/p/api/event
+||sink.gw.booking.com^
 ||siriusxmstore.com/api/collect
 ||sjc.cloud.optable.co^
 ||slack-edge.com/bv1-10/slack_beacon.
@@ -17302,6 +17325,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||strtapewithadblock.xyz/stat/
 ||strtpe.link/stat/
 ||stubhub.com/a/icph
+||stuff.co.nz/otel/
 ||stytch.com/sdk/v1/events
 ||suaurl.com/adblock/js/smarttag.js
 ||substrate.office.com/search/api/v1/events
@@ -17529,9 +17553,8 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||treatment.grammarly.com^
 ||tredir.go.com^
 ||trends.privacywall.org^
-||trip.com/bee/collect
-||trip.com/bf.gif?
 ||tripcdn.com/bee/collect$domain=trip.com
+||tripcdn.com/bf.gif
 ||trivago.com/tracking/
 ||trk.decido.io^
 ||trk.tirto.id^
@@ -57369,7 +57392,7 @@ search.rakuten.co.jp##+js(aeld, mouseup, sendClickEvent)
 
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/3.txt
-! Diff-Path: ../patches/3/3-s-1794600708-3600.patch
+! Diff-Path: ../patches/3/3-s-1794690630-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -87405,7 +87428,6 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 ||fpa-events.texasmonthly.com^
 ||fpa-events.thebeat.travel^
 ||fpa-events.thedailybeast.com^
-||fpa-events.theintercept.com^
 ||fpa-events.themarshallproject.org^
 ||fpa-events.thetrace.org^
 ||fpa-events.thinkglobalhealth.org^
@@ -146092,7 +146114,6 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 ||tdum.alibaba.com^
 ||analytics.simpler.so^
 ||api-ktm.kkday.com^
-||riskpoc.trip.com^
 ||ubt-sgp.trip.com^
 ||events.asurion.com^
 ||collector.moderntv.eu^
@@ -458407,7 +458428,6 @@ kbb.com#%#//scriptlet('set-local-storage-item', '/^optimizely/', '$remove$')
 ||caido.io/stats/
 ||bubilet.com.tr/metrics/
 ||pandaproxy.production.cafemedia.com/topics/clickstream-event
-||api.firecrown.com/v1/events
 ||autoguide.com/api/posts/*/impressions
 ||global.one.yomiuri.co.jp/ssc-ym-client.v*.js
 ||247wallst.com/b66d/|$script
@@ -459215,6 +459235,7 @@ saiganak.com#%#//scriptlet('prevent-element-src-loading', 'script', 'clarity.ms'
 ||amazon.com/1/action-impressions/
 ://a.klaviyo.com^
 misterworker.com##.custom_text_home:has(> #mw-clerk-sliderhp)
+||trip.com/bee/collect
 ||ssl.pstatic.net/static.news/mnews/resources/*/js/generated/statistics_jquery.js
 ||donga.com/proc/ad_history
 ||bazu.cc/api/baidu_tui.php
@@ -470787,7 +470808,7 @@ search.rakuten.co.jp#%#//scriptlet('ubo-aeld', 'mouseup', 'sendClickEvent')
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/3.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/3/3-s-1794600733-3600.patch
+! Diff-Path: ../patches/3/3-s-1794690656-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -1014067,10 +1014088,12 @@ $removeparam=tduid
 ||api-id.game.heytapmobi.com^
 ||album-cn01a.ocloud.heytapmobi.com^
 ||album-sg01a.ocloud.heytapmobi.com^
+||httpdns.ocloud.heytapmobi.com^
 ||i-cn01a.ocloud.heytapmobi.com^
 ||i-sg01a.ocloud.heytapmobi.com^
 ||dcintl.push.heytapmobi.com^
 ||device-ups.push.heytapmobi.com^
+||httpdns.push.heytapmobi.com^
 ||id.push.heytapmobi.com^
 ||userprofile.push.heytapmobi.com^
 ||api-id.theme.heytapmobi.com^
@@ -1014264,6 +1014287,10 @@ $removeparam=tduid
 ||dc-dragate-sg.heytapmobile.com^
 ||dc-stat-eu.heytapmobile.com^
 ||dc-stat-in.heytapmobile.com^
+||htms.heytapmobile.com^
+||httpdns-euex-push.heytapmobile.com^
+||httpdns-ocloud.heytapmobile.com^
+||httpdns-push.heytapmobile.com^
 ||jscatch-in-frontend.heytapmobile.com^
 ||jscatch-sg-frontend.heytapmobile.com^
 ||mdp-usertrace-in.heytapmobile.com^
@@ -1014299,6 +1014326,7 @@ $removeparam=tduid
 ||obus-jssdk-ru.heytapmobile.com^
 ||obus-jssdk-sg.heytapmobile.com^
 ||obus-jssdk-us.heytapmobile.com^
+||oop-installer-gl.heytapmobile.com^
 ||opay.heytapmobile.com^
 ||push.heytapmobile.com^
 ||push-dc-us.heytapmobile.com^
@@ -1014312,6 +1014340,7 @@ $removeparam=tduid
 ||video-api-gl.heytapmobile.com^
 ||video-api-in.heytapmobile.com^
 ||video-api-ru.heytapmobile.com^
+||virusinfo-cloudscan-in.heytapmobile.com^
 ||uc-track-ru.oneplus.com^
 ||dragate-br.dc.oppomobile.com^
 ||dragate-sg.dc.oppomobile.com^
@@ -1017817,6 +1017846,12 @@ $to=~tradedoubler.com,removeparam=tduid
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/246953
+! zhihu.com
+! check24.de searching for article
+! https://github.com/AdguardTeam/AdguardFilters/issues/246385
+! https://github.com/AdguardTeam/AdguardFilters/issues/246067
+! https://github.com/AdguardTeam/AdguardFilters/issues/246011
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245728
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18913186
 ! https://github.com/AdguardTeam/AdguardFilters/issues/243890
@@ -1018346,7 +1018381,10 @@ $removeparam=from,to=doujinnomori.com|shinshi-manga.net|echiman.com|dojin-navi.c
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167273
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167051
 ! https://github.com/AdguardTeam/AdguardFilters/issues/167158
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/246147
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166502
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166917
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166582
 ! https://github.com/AdguardTeam/AdguardFilters/issues/166698
@@ -1018629,6 +1018667,7 @@ $removeparam=stm_source,to=shopee.ph|shopee.co.th|shopee.co.id
 ! https://github.com/AdguardTeam/AdguardFilters/issues/128206
 ! https://github.com/AdguardTeam/AdguardFilters/issues/227598
 ! https://github.com/AdguardTeam/AdguardFilters/issues/128339
+*$to=fic.fan|fanfictionero.com|ficmania.com|ficbook.net,removeparam=premiumVisit
 ! stripchat.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/128061
 ! https://github.com/AdguardTeam/AdguardFilters/issues/127953
@@ -1018785,6 +1018824,9 @@ $removeparam=n_cid,to=nikkei.com|nikkei.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/91233
 ! kohls.com - counter
 ! instagram.com - share tracking
+$removeparam=igshid,to=instagram.com|threads.com|threads.net
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-18457419
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/89768
 ! https://github.com/AdguardTeam/AdguardFilters/issues/90055
 ! https://github.com/AdguardTeam/AdguardFilters/issues/89556
@@ -1947606,8 +1947648,8 @@ api.leanplum.com
 #
 #    File: Tracking
 #    Info: Analytics, Diagnostics, Metrics, Public IP, Location
-# Domains: 142,623
-# Updated: 11/13/2026  08:42 (8:42 AM CST)
+# Domains: 142,639
+# Updated: 11/14/2026  12:35 (12:35 PM CST)
 #     RAW: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Tracking
 #     Git: https://github.com/ShadowWhisperer/BlockLists.git
 
@@ -1951392,6 +1951434,7 @@ aianalytics.ie
 aianalytics.uk
 aia.rheefsa.com
 aiasst.allinadventures.com
+aibeacon.jp
 ai.butysportowe.pl
 aicap.tech
 aichmatomo.cyon.site
@@ -1962938,6 +1962981,7 @@ analytics.robocosmic.online
 analytics.robomx.com
 analytics.roboyo.cloud
 analytics.robpatton.com
+analytics.rob-run.kefir.games
 analytics.robshaw.co.za
 analytics.robsontenorio.com
 analytics.robvandentweel.nl
@@ -1974218,6 +1974262,7 @@ coleta-autoridade.cursosdoportal.com.br
 coleta.curcura.com.br
 coleta.suplementosgolfeto.com.br
 colibri-js.akamaized.net
+collabinsights.teams.cloud.microsoft
 collagen.renewskinco.com
 collateralanalytics.com
 collatr.pressflex.com
@@ -1974701,6 +1974746,7 @@ commissiongains.com
 commissionmonster.com
 commonalmanac.com
 common-info.wondershare.com
+common-logger.cdn.web.vanguard.com
 common.ludusapps.com
 commons-analytics.fly.dev
 commons.dw.com
@@ -1986268,6 +1986314,7 @@ event.syndigo.cloud
 events.yumeku.com
 eventtracker.com
 eventtracking-log.services.video.ibm.com
+eventtracking-na2.hubapi.com
 event-tracking-services.global.commerce-connector.com
 event.trimmer-agent.jp
 event.vetagent.jp
@@ -1991512,6 +1991559,7 @@ gtm.everdrinks.at
 gtm.everlend.es
 gtm.everlend.no
 gtm.everlend.se
+gtm.everydayhealth.com
 gtm.everyshot.com.au
 gtm.evolcan.com
 gtm.evolisinstitute.com
@@ -2006601,6 +2006649,7 @@ load.sst.tmi.nl
 load.sst.tokyoblush.com
 load.sst.toxtool.eu
 load.sst.transportlogistic.de
+load.sst.trans-siberian.com
 load.sst.travel4med.at
 load.sst.travel4med.com
 load.sst.travel4med.de
@@ -2017751,6 +2017800,7 @@ metrics.urbandaddy.com
 metrics.usana.com
 metrics-us.cometchat.io
 metrics.us.dockers.com
+metrics.us-east-1.iris.apx.amazon.dev
 metrics.userguiding.com
 metrics.uso.org
 metrics.ussearch.com
@@ -2022888,6 +2022938,7 @@ monitoring.clients6.google.com
 monitoring.elixir-greece.org
 monitoring.medizinbedarf.eu
 monitoring.paw-wow.de
+monitoringplatform.teams.microsoft.com
 monitoring.rottne.com
 monitoring.sumup.net
 monitoring.vavyskov.cz
@@ -2034579,10 +2034630,13 @@ prod-analytics.pillpack.com
 prod-analytics.royal.drmgms.com
 prod-clientlogs-n.northeurope.cloudapp.azure.com
 prod-dfm-proxy-connext.azurewebsites.net
+prod-edgecenter-analytics-http-proxy-0.rob-run.kefir.games
 prodege.com
 prodegemr.com
 prod-foxkit.kts.fox
 prod-frontier.chaperone.lumindigitalhosting.com
+prod-gcore-amsterdam-1-analytics-http-proxy-0.rob-run.kefir.games
+prod-gcore-luxembourg-2-analytics-http-proxy-0.rob-run.kefir.games
 prod.geo.gluops.com
 prod.geoservice.gluops.com
 proditor.sparda.de
@@ -2047636,6 +2047690,7 @@ sitecats.uacollegesavings.com
 sitecat.troweprice.com
 sitecheck.opera.com
 site.ckeditor.com
+sitecorecloud.io
 sitecore.com
 sitectlyst.saksfifthavenue.com
 site.dashboarddesignlab.com
@@ -2077367,6 +2077422,7 @@ tealium.co.jp
 tealium.com
 tealium-f.squarecdn.com
 tealiumiq.com
+tealium-tags.cuidadodesalud.gov
 tealium-tags.healthcare.gov
 tealm-c.crocs.com
 tealm-c.crocs.co.uk
@@ -2081255,6 +2081311,7 @@ track.myvoice-surveys.com
 track-na2.hubspot.com
 track.naccas.org
 track.nandaintimus.com.br
+track.nativebrik.com
 track.naturalacneclinic.com
 track.naturesmace.com
 track.naxa.ws
@@ -2085743,6 +2085800,7 @@ wa.ker-sun.de
 wa.ker-sun.se
 wake.tvn.pl
 wa.lds.online
+walkietalkiereport.teams.microsoft.com
 walkinginthemoon.com
 walkmeapps.com
 walkme.com
@@ -2089494,5 +2089552,5 @@ x.com##+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 2070635
-! Duplicates removed: 844784
+! Total unique rules: 2070682
+! Duplicates removed: 844850

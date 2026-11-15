@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 14 Nov 2026 01:06:26 UTC
+! Last modified: 15 Nov 2026 01:06:52 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10452,7 +10452,6 @@ digitaltrends.com###menu-2021-social
 lifezette.com,revolver.news###menu-social-buttons-header
 truthdig.com###menu-social-navigation-1
 notalwaysright.com###meta_share
-timesnownews.com###native-share
 thefader.com###new_socials_bottom
 novinite.com###news_share
 dezeen.com###newsletter-form
@@ -10617,6 +10616,7 @@ cbssports.com##.SocialIconsBar
 suntimes.com,tageblatt.de##.SocialLink
 complex.com##.SocialLinks__SocialButtonsContainer-sc-vif6xs-0
 itprotoday.com##.SocialShare
+timesnownews.com##.SocialShare_followrow__SHotd
 worldathletics.org##.SocialShare_root__3h83X
 sf.gazetteer.co,streetsblog.org##.SocialSharing_socialSharingItems__wdJu8
 aleteia.org##.Socials_social_links__T3MJv
@@ -10625,6 +10625,7 @@ indiatoday.in##.Story_prefergogl__Nw2MQ
 indiatoday.in##.Story_whatsapp_channel__6xdtB
 iranintl.com##.URLShareDialog-module-scss-module__vBXZPq__share
 gulfnews.com##.Ub-Cr
+carexpert.co.nz##._19v7sel2
 toptal.com##._1oxEOBHC
 grammarly.com##._3fq8S-container
 pixivision.net##._floated-bottom-bar
@@ -14071,7 +14072,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1794589907-3600.patch
+! Diff-Path: ../patches/4/4-s-1794665521-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -18613,7 +18614,7 @@ fizkult-nn.ru##.social-buttons-default-block
 goodlooker.ru##.socials-after_post-right
 oe24.at##body .articleShareBox
 sravni.ru##div[class^="article-footer_wrapper"] button[name="Поделиться"]
-vsquare.org,patasdacasa.com.br,maxnet.ua,nsenergybusiness.com##.social-media
+sharemods.com,vsquare.org,patasdacasa.com.br,maxnet.ua,nsenergybusiness.com##.social-media
 barchart.com##.modal-share-group
 barchart.com##.bc-twittertimeline-wrapper
 rosbalt.ru,tagilcity.ru,newia.ru,udm-info.ru,oilcapital.ru,newizv.ru,inkazan.ru,vostokmedia.com##button[class^="LeftcolSocials"]
@@ -30926,7 +30927,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1794602310-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1794688742-14400.patch
 /Resources/twitter-$~xhr
 fortune.com##.info-surface:contains(Add Fortune on Google)
 abc.net.au##.Button_root__UZ8td:contains(Share)
@@ -39134,7 +39135,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1794589931-3600.patch
+! Diff-Path: ../patches/4/4-s-1794665542-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -41419,7 +41420,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1794589931-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1794665542-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -55881,5 +55882,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 52627
-! Duplicates removed: 66295
+! Total unique rules: 52628
+! Duplicates removed: 66304
