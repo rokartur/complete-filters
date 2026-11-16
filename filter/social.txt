@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 15 Nov 2026 01:06:52 UTC
+! Last modified: 16 Nov 2026 01:08:38 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -14072,7 +14072,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1794665521-3600.patch
+! Diff-Path: ../patches/4/4-s-1794741006-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14678,6 +14678,7 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+pregatips.com##.critSocialHorizontal
 businesstimes.com.sg##div[data-testid="article-social-sharing-component"]
 businesstimes.com.sg##button[data-testid="share-button-component"]
 viciados.net###block-36
@@ -15728,7 +15729,6 @@ ngnovoros.ru##div[class^="article-social"]
 hispanidad.com##.article-social
 supertaste.tvbs.com.tw##div[class^="community_box"]
 pagina7.cl##.main-single__socials
-samayam.com##.share_whatsapp
 auto.ru##button[class*="LogbookCardActions__share"]
 auto.ru##div[class^="LogbookCardActions__item"]:has(> .ShareButton__popup)
 realty.yandex.ru##button[data-test="OfferCardContentOpenShareModal"]
@@ -22443,7 +22443,7 @@ filmizleson.com,prestijfilm.com##a[title="Paylaş"]
 andhrafriends.com##li[data-blocktitle="Tell a friend"]
 ministop.co.jp##.syohinSnsList
 gamebomb.ru###wrrpper3 > div > div[style="margin: 10px auto; width: 970px"]
-samayam.com,maharashtratimes.com##.wdt_social_share
+vijaykarnataka.com,iamgujarat.com,maharashtratimes.com,samayam.com,indiatimes.com##.wdt_social_share > ._icon:not(.comments)
 maharashtratimes.com##.btn-subscribe
 scmp.com##.share-widget__share
 scmp.com##.youtube-video-container__share
@@ -22606,8 +22606,7 @@ mz.de##.fp-article-block__social-media
 vpncentral.com,windowsreport.com##.article-sharebox
 downdetector.com,speedtest.net##a[href^="http://wwww.facebook.com/sharer.php?"]
 fishki.net,mapsofworld.com##.social_icon
-navbharattimes.indiatimes.com##.wdt_social_share > ._icon:not(.comments)
-navbharattimes.indiatimes.com##.wdt_social_share > .social-cell:not(.comments)
+economictimes.com,indiatimes.com##.wdt_social_share > .social-cell:not(.comments)
 edh.tw##.line-friend
 edh.tw##.linefriend_article
 mckinsey.com,morningsentinel.com,bbc.com,thepost.co.nz,zmescience.com,univision.com,televisa.com,telehit.com,pod.link,deezer.com,dhakapost.com,lasestrellas.tv,tudn.com,play.google.com,linktr.ee,tunecore.co.jp,trybotics.com##button[aria-label="Share"]
@@ -28559,6 +28558,8 @@ auto.ru#?#.Review__footer-col:has(> div.ReviewShare)
 ! Rambler
 !
 !+ NOT_OPTIMIZED
+iamgujarat.com,indiatimes.com,vijaykarnataka.com,maharashtratimes.com,samayam.com##.share_whatsapp
+!+ NOT_OPTIMIZED
 jisin.jp##.shade-post
 !+ NOT_OPTIMIZED
 tecmundo.com.br,freesoft-100.com###btn_share
@@ -30927,7 +30928,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1794688742-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1794775050-14400.patch
 /Resources/twitter-$~xhr
 fortune.com##.info-surface:contains(Add Fortune on Google)
 abc.net.au##.Button_root__UZ8td:contains(Share)
@@ -39135,7 +39136,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1794665542-3600.patch
+! Diff-Path: ../patches/4/4-s-1794741022-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40750,6 +40751,7 @@ auto.ru##.Review__footer-col:has(> div.ReviewShare)
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
+!+ NOT_OPTIMIZED
 film.ru##body > div.block:has(> div.social-likes)
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -41420,7 +41422,8 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1794665542-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1794741022-3600.patch
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -41830,6 +41833,7 @@ rambler.ru##div[data-blocks="content_info"] + div[class^="container-"]
 rambler.ru#%#//scriptlet('remove-in-shadow-dom', 'div[data-blocks="content_info"] + div[class^="container-"]')
 !#endif
 !
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -55883,4 +55887,4 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 
 
 ! Total unique rules: 52628
-! Duplicates removed: 66304
+! Duplicates removed: 66321

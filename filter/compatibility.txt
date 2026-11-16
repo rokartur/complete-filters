@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 15 Nov 2026 01:06:32 UTC
+! Last modified: 16 Nov 2026 01:08:10 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1794579129-3600.patch
+! Diff-Path: ../patches/11/11-s-1794740994-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2722,6 +2722,10 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+iamgujarat.com,indiatimes.com,samayam.com,vijaykarnataka.com##div[class^="mrec"]
+iamgujarat.com,indiatimes.com,vijaykarnataka.com,maharashtratimes.com##.carousalad
+iamgujarat.com,indiatimes.com,samayam.com,maharashtratimes.com##.mid-taboola
+iamgujarat.com,indiatimes.com,samayam.com,maharashtratimes.com##.mid-home-new-personalisation-taboola
 cat-press.com##.widget_custom_html:has(> div.textwidget > div > ins.adsbygoogle)
 cars.tvbs.com.tw##.h-\[250px\].w-\[970px\]
 cars.tvbs.com.tw##.h-\[100px\].w-\[320px\]
@@ -3819,7 +3823,6 @@ s.resemom.jp##div[style^="z-index:9999999;position:-webkit-sticky;position:fixed
 tennisbear.net##.float-banner
 nikkan-gendai.com#$#footer > div.copy { padding-bottom: 40px !important; }
 vuzopedia.ru##.underhRecl
-navbharattimes.indiatimes.com,telugu.samayam.com##.fbnad
 medicalnewstoday.com##aside[data-testid="mobile-leaderboard"]
 hk.news.yahoo.com###sda-anchored-btm-sticky-iframe
 livehindustan.com##div[class^="StoryPage_mstheadAdMob"]
@@ -9075,6 +9078,8 @@ livejournal.com##div[id^="billboard_mobile_"]
 !
 !
 !+ NOT_OPTIMIZED
+iamgujarat.com,vijaykarnataka.com,maharashtratimes.com,indiatimes.com,samayam.com##.fbnad
+!+ NOT_OPTIMIZED
 dot.asahi.com##.article-inarticle-guide
 !+ NOT_OPTIMIZED
 heise.de##.ad-mobile-group-3
@@ -9938,7 +9943,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1794579160-3600.patch
+! Diff-Path: ../patches/11/11-s-1794741022-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -10936,6 +10941,7 @@ xhamster46.desi,tr.usbxh.life,xhamster44.desi,aawweb.beauty,colourxh.site,xhamst
 ! END: Livejournal.com
 !
 !
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -13776,12 +13782,12 @@ web.facebook.com,www.facebook.com##+js(trusted-prevent-dom-bypass, Element.proto
 
 ! https://github.com/uBlockOrigin/uAssets/issues/24745 - https://voe.sx/e/2z9smej3tebe
 ! VOE sites
-||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=shannoncoldalready.com,important
-shannoncoldalready.com##+js(nowoif)
-shannoncoldalready.com##+js(set, console.clear, undefined)
-shannoncoldalready.com##+js(acs, globalThis, break;case)
-shannoncoldalready.com##+js(acs, WebAssembly, atob)
-||shannoncoldalready.com^$badfilter
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,redirect=google-ima.js,domain=arianathankspecial.com,important
+arianathankspecial.com##+js(nowoif)
+arianathankspecial.com##+js(set, console.clear, undefined)
+arianathankspecial.com##+js(acs, globalThis, break;case)
+arianathankspecial.com##+js(acs, WebAssembly, atob)
+||arianathankspecial.com^$badfilter
 
 ! next-episode .net
 !next-episode.net##+js(rmnt, script, '/[\s\S]{0,}head[\s\S]{1900,}/')
@@ -14279,7 +14285,7 @@ tonuriaz.info,wakuraw.com,klmanga.cloud,trogiupnhanh.com,mangaruu.com,rawfree.to
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245421
 socialxup.com##+js(trusted-override-element-method, HTMLAnchorElement.prototype.click, a[target="_blank"])
-socialxup.com##a[href^="/"]:matches-attr("href"="/^\/[0-9A-Z_a-z]+-[0-9A-Z_a-z]+$/")
+socialxup.com##a[href^="/"]:matches-attr("href"="/^\/(?=[0-9A-Z_a-z]*[A-Z])[0-9A-Z_a-z]+$/")
 
 ! https://github.com/uBlockOrigin/uAssets/issues/25273#issuecomment-6821014851
 ||api.community.fox.com/*/metrics$badfilter
@@ -20570,5 +20576,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13418
-! Duplicates removed: 8035
+! Total unique rules: 13422
+! Duplicates removed: 8039
