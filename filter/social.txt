@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 16 Nov 2026 01:08:38 UTC
+! Last modified: 17 Nov 2026 01:07:31 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10134,6 +10134,7 @@ _social_footer_
 ##a[href^="https://www.pinterest.com/pin/create/link/"]
 ##a[href^="https://www.reddit.com/submit?"]
 ##a[href^="https://x.com/intent/follow?screen_name="]
+##a[href^="https://x.com/intent/tweet?"]
 ##a[href^="https://x.com/share?"]
 ##a[href^="whatsapp://send?text="]
 ##a[rel="share-on-facebook"]
@@ -14072,7 +14073,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1794741006-3600.patch
+! Diff-Path: ../patches/4/4-s-1794841873-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14637,7 +14638,7 @@ kobe-journal.com,promo-campaign.yahoo.co.jp,footballchannel.jp,a-502.com,aichi-s
 ! ##.sns_area
 shinken-ad.co.jp,kurashinista.jp,zf-web.com,kimirano.jp,ei-navi.jp,smbc-card.com,sirogohan.com,itempage3.auction.co.kr,ymobile.jp,xportsnews.com,web.gekisaka.jp,y-aoyama.jp,booklive.jp,gakumado.mynavi.jp,shop-list.com,smbc-card.com,japanese.joins.com,sedaily.com,canshop.jp,koreatimes.co.kr,m.chosun.com,sports.donga.com##.sns_area
 ! ##.share-bar
-24horas.cl,elconciso.es,forbes.com,teyit.org,gcup.spb.ru,amomeupet.org,rpgfan.com,techrepublic.com,9gag.com,aviasales.ru,huffingtonpost.jp,foxsports.com.mx,elfinanciero.com.mx,kursiv.media,talk.tw,designboom.com,elle.fr,mangacross.jp,manga-meets.jp,peopletalk.ru,foodallergy.org,sharecuts.cn,wtop.com,thegrammarexchange.infopop.cc,open.online,m.tecmundo.com.br,redbull.com,coindesk.com,playbuzz.com,huffingtonpost.co.uk,m.huffpost.com,digital-photography-school.com,tomshardware.com##.share-bar
+clipboardai.app,24horas.cl,elconciso.es,forbes.com,teyit.org,gcup.spb.ru,amomeupet.org,rpgfan.com,techrepublic.com,9gag.com,aviasales.ru,huffingtonpost.jp,foxsports.com.mx,elfinanciero.com.mx,kursiv.media,talk.tw,designboom.com,elle.fr,mangacross.jp,manga-meets.jp,peopletalk.ru,foodallergy.org,sharecuts.cn,wtop.com,thegrammarexchange.infopop.cc,open.online,m.tecmundo.com.br,redbull.com,coindesk.com,playbuzz.com,huffingtonpost.co.uk,m.huffpost.com,digital-photography-school.com,tomshardware.com##.share-bar
 ! ##.sns-buttons
 next.rikunabi.com,toranet.jp,miraitranslate.com,ssnp.co.jp,green.adam.ne.jp,tap-biz.jp,jj-jj.net,vip-jikkyo.net,kobayangame.xyz,vrc.wiki,4g63evo.net,win-tab.net,otakaranet.com,pokemongo-get.com,genda-yousuke.com,naoki440.info,pasokatu.com,toolmania.info,gamegaz.com,nobitaka.com,mutyun.com,9ketsuki.info##.sns-buttons
 ! ##.fab-btn
@@ -14678,6 +14679,15 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+thestandard.com.hk##.article-detail__share-icons
+tricitiesdispatch.com##.social-icons:has(> a[href^="https://www.facebook.com/sharer/"])
+foxsports.com###article-content > div.flex-col-left:has(> div.story-social-group)
+foxsports.com###article-content > div.flex-col:has(> div.fh-reactions-container)
+gamespot.com##.social-post-share
+treccani.it##button[aria-label="Condividi"]
+rtl.de##div[class^="share_socialButtons"]
+91cg1.com##.post-quick-action[data-action="share"]
+91cg1.com#?#.flash:contains(点击分享给色友)
 pregatips.com##.critSocialHorizontal
 businesstimes.com.sg##div[data-testid="article-social-sharing-component"]
 businesstimes.com.sg##button[data-testid="share-button-component"]
@@ -14703,6 +14713,7 @@ autonomic.care##.bl-rail-share
 dzen.ru##button[aria-label="Поделиться"]
 ldplayer.net##.inline-flex:has(> button[aria-label="Поделиться"])
 eventsify.ai##.focus-visible\:outline-none.focus-visible\:ring-2.gap-2:has(> svg[viewBox="0 0 24 24"] > line[y1="13.51"])
+news.jtbc.co.kr##div[data-sentry-component="ArticleUtility"]
 dbsullca.com##.post-block:has(> .sharethis-inline-reaction-buttons)
 biggo.jp##button[aria-label="共有"]
 prothomalo.com##.fb-twitter
@@ -16734,7 +16745,7 @@ tftips.app##aside > div.flex:has(> button[aria-label="Share on X"])
 gov.uk##.gem-c-share-links
 rikujyokyogi.co.jp##div[class^="link_share"]
 5589.jp,jimdofree.com##.j-sharebuttons
-verdict.co.uk##.gdm-article-share
+sportcal.com,verdict.co.uk##.gdm-article-share
 pcgamer.com,androidauthority.com,newsweek.com##.vf-share-menu
 economist.com##.css-z11z87 > div:has(svg[data-testid="share-solid"])
 thesun.co.uk##.article-teaser-share-button
@@ -20532,7 +20543,7 @@ advice.co.th##.chat_shop
 kdnuggets.com##.addthis_native_toolbox
 g-witch.net##.footer__sub__share
 lepoint.fr##.NavbarShareLinks
-3710920.com,blog.hamayanhamayan.com,in.gr,himajin-block30.com,hatenastaff.com,megamouth.info,digimobil.it,qafqazinfo.az,konoe.studio,tomatazos.com,ural-meridian.ru,opencritic.com,mundodaeletrica.com.br,levelup.com,hateblo.jp,hatena.ne.jp,hatenablog.com,hatenablog.jp,hatenadiary.com,hatenadiary.jp,hatenadiary.org,open.online,androidiani.com,leomolenaar.nl,habervakti.com,obzorposudy.ru,onewatch.by,mitanyan98.hatenablog.com,goope.jp,rai.it,homesha.co.jp,mblx.ru,newspicks.com,otdelka-remont.ru,zan.kz,kanalmaras.com,lanacion.com.co,cars.com,gaitame.com,lr21.com.uy,edehaber.com.tr,pervasiz.com.tr,gazeteyenigun.com.tr,number.bunshun.jp,tv5.com.tr,miuirom.org,conterfrag.ru,pay-day.ru,altarena.ru,pocket.shonenmagazine.com,haberts.com,cookpad.com,finans7.com,aforismo.ru,studyhacker.net,portableapps.com,click-or-die.ru,graniru.org,maxedtech.com,rockpapershotgun.com,souspark.ru,nakamorikzs.net,kitanoiwashi.com,blog.electricsea.io,zigsow.jp##.social-buttons
+bioerrorlog.work,3710920.com,blog.hamayanhamayan.com,in.gr,himajin-block30.com,hatenastaff.com,megamouth.info,digimobil.it,qafqazinfo.az,konoe.studio,tomatazos.com,ural-meridian.ru,opencritic.com,mundodaeletrica.com.br,levelup.com,hateblo.jp,hatena.ne.jp,hatenablog.com,hatenablog.jp,hatenadiary.com,hatenadiary.jp,hatenadiary.org,open.online,androidiani.com,leomolenaar.nl,habervakti.com,obzorposudy.ru,onewatch.by,mitanyan98.hatenablog.com,goope.jp,rai.it,homesha.co.jp,mblx.ru,newspicks.com,otdelka-remont.ru,zan.kz,kanalmaras.com,lanacion.com.co,cars.com,gaitame.com,lr21.com.uy,edehaber.com.tr,pervasiz.com.tr,gazeteyenigun.com.tr,number.bunshun.jp,tv5.com.tr,miuirom.org,conterfrag.ru,pay-day.ru,altarena.ru,pocket.shonenmagazine.com,haberts.com,cookpad.com,finans7.com,aforismo.ru,studyhacker.net,portableapps.com,click-or-die.ru,graniru.org,maxedtech.com,rockpapershotgun.com,souspark.ru,nakamorikzs.net,kitanoiwashi.com,blog.electricsea.io,zigsow.jp##.social-buttons
 abff.by##.news_single-meta-share
 tv.bluelock-pr.com,ragnarok-official.com##.foot--share
 koko.by##.ak-post-share
@@ -21795,7 +21806,7 @@ liveagent.com##.BlogPost__share
 gadgets360.com##.reddit-icon
 dallasnews.com##div[class^="app_share-bar_shareBar"]
 3dzip.org,animekayo.com,sketchup.cgtips.org##.widget_bs-likebox
-miraimedia.asahi.com##.p-single-share
+m-78.jp,miraimedia.asahi.com##.p-single-share
 freepng.ru##.pdt-share
 andreadekker.com##.social-rocket-evernote
 andreadekker.com##.social-rocket-facebook
@@ -28741,7 +28752,6 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_ext
 ##a[href^="https://x.com/intent/post?"]
 ##button[aria-label="Share this article on X"]
 ##a[href^="https://twitter.com/share"]
-##a[href^="https://x.com/intent/tweet?"]
 ##body .twitter-share-button
 ##a[href^="https://twitter.com.com/share"]
 ##a[href^="https://x.com/intent/tweet/?"]
@@ -30096,6 +30106,9 @@ bomb01.com#$#.modal-open { overflow: visible!important; }
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247311
+audacy.com#@#.share-facebook
+audacy.com#@#.share-twitter
 ! https://github.com/AdguardTeam/AdguardFilters/issues/246859
 paste1c.ru#@#.share-panel
 paste1c.ru#@#.share-tools
@@ -30928,7 +30941,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1794775050-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1794861458-14400.patch
 /Resources/twitter-$~xhr
 fortune.com##.info-surface:contains(Add Fortune on Google)
 abc.net.au##.Button_root__UZ8td:contains(Share)
@@ -39136,7 +39149,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1794741022-3600.patch
+! Diff-Path: ../patches/4/4-s-1794841904-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -39477,6 +39490,7 @@ m.tf.co.kr##li.sBtn_reply:style(float: initial!important; display: inline-block!
 !
 ! NOTE: Specific rules
 !
+91cg1.com##.flash:contains(点击分享给色友)
 biggo.com.tw##div[class^="InteractionButtons_actionButtons"] > button:contains(分享)
 defence-network.com##.post_content ~ .wpb_text_column:contains(Beitrag teilen)
 whytryai.com##button:has(> div[class="label"]:only-child:contains(Share))
@@ -41017,6 +41031,7 @@ bomb01.com##.modal-open:style(overflow: visible!important;)
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247311
 ! https://github.com/AdguardTeam/AdguardFilters/issues/246859
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245066
 ! https://github.com/AdguardTeam/AdguardFilters/issues/244714
@@ -41422,7 +41437,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1794741022-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1794841904-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -41967,6 +41982,7 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_apps
 !+ PLATFORM(ios) NOT_OPTIMIZED
 adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_ios { display: none !important; }
 !
+
 !-------------------------------------------------------------------------------!
 !-------------- General hiding rules -------------------------------------------!
 !-------------------------------------------------------------------------------!
@@ -42068,6 +42084,7 @@ unn.com.ua##body > div.fancybox-opened + div.fancybox-overlay
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247311
 ! https://github.com/AdguardTeam/AdguardFilters/issues/246859
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245066
 ! https://github.com/AdguardTeam/AdguardFilters/issues/244714
@@ -55886,5 +55903,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 52628
-! Duplicates removed: 66321
+! Total unique rules: 52641
+! Duplicates removed: 66341
