@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Anti Adblock
 ! Description: Combined filter list for the anti-adblock category.
-! Last modified: 17 Nov 2026 01:07:03 UTC
+! Last modified: 18 Nov 2026 01:07:06 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 11 / 11
@@ -6773,6 +6773,7 @@ armidaleexpress.com.au,bendigoadvertiser.com.au,canberratimes.com.au,centralwest
 ! The rules for content blockers only:
 ! LINK: AnnoyancesFilter/Popups/sections/antiadblock.txt#content_blockers
 !
+stadt-bremerhaven.de###ab-hinweis
 shinden.pl##.ep-ads-note
 shinden.pl##.player-online > #ep-komunikat:has(> .message_list > .warning > a[href="/shop"])
 ecosia.org##div[data-test-id^="ad-block-notice"]
@@ -8518,6 +8519,7 @@ goduke.com,uwaterloo.ca##div[aria-label="Ad Blocker Detected"]
 ! SECTION[id=general]: Anti-adblock - Common '!#safari_cb_affinity(general)' directive
 !#safari_cb_affinity(general)
 !
+@@||apkcube.com^$generichide
 play.mercadolivre.com.br#@#.google-ad
 jetpunk.com#@#.ad-unit-2
 @@||ss.sport-express.ru/ads/system/context.js
@@ -9986,5 +9988,5 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 8575
+! Total unique rules: 8577
 ! Duplicates removed: 3015

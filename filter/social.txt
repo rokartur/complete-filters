@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 17 Nov 2026 01:07:31 UTC
+! Last modified: 18 Nov 2026 01:07:38 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -14073,7 +14073,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1794841873-3600.patch
+! Diff-Path: ../patches/4/4-s-1794931891-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14679,6 +14679,14 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+oggi.it##main > div.gridRow:has(> div.gridRow__item > div.gridRow__block > div.tsb)
+80.lv##div[data-share-button]
+worldsoccertalk.com##button[aria-label="Share"]
+thehockeynews.com##div[data-testid="share-button-container"]
+thehockeynews.com##.relative > .transition.cursor-pointer:has(> svg[aria-label="icon-share"])
+kayseriolay.com##.relative > div.items-center:has(> a[href^="https://www.youtube.com/channel/"])
+kayseriolay.com##.w-full > div.items-center:has(> ul > li > a[title*="Paylaş"])
+sportbusiness.com##div[class^="sb-article-info__social"]
 thestandard.com.hk##.article-detail__share-icons
 tricitiesdispatch.com##.social-icons:has(> a[href^="https://www.facebook.com/sharer/"])
 foxsports.com###article-content > div.flex-col-left:has(> div.story-social-group)
@@ -20663,7 +20671,6 @@ opindia.com##.tdb-author-box + div.td_block_separator
 boredpanda.com##.bottom-bar-share-button
 livejournal.com##.aentry-socials__holder--sharing
 monomax.jp##.frameArea01 > p.mt20.center > strong
-unian.info,unian.ua,unian.net##.article__share-btn
 ookla.com##.article-sidebar-panel-social
 myspace.com##.facebookBtn
 myspace.com##.twitterBtn
@@ -21184,7 +21191,7 @@ vlast.kz##.form-subscribe
 ||yimg.jp/images/news-web/all/images/sns_$domain=news.yahoo.co.jp
 girlstyle.com,thecatcity.com,urbanlifehk.com##.desktop-sidebar__block--fb
 dlsite.com##.link_share
-m1xdrop.*,mdy48tn97.com,mixdrop.*##.s-wrapper
+mxdrop.*,m1xdrop.*,mdy48tn97.com,mixdrop.*##.s-wrapper
 asahi.com##.following-sns
 video.sports.ru,2gis.ru,tass.ru,shot-news.ru,klerk.ru,wink.ru##button[aria-label="Поделиться"]
 livejapan.com##.--color-sociel
@@ -27044,7 +27051,7 @@ nesine.com##.share-video
 slashdot.org##.share.tappable
 rachidscience.com,gazetevatan.com##.share2
 mtv.com##.shareActions
-style.president.jp,manabi.benesse.ne.jp,lalafo.az,mangaplaza.com,9111.ru,hmv.co.jp,dmarket.docomo.ne.jp,tabiyomi.yomiuri-ryokou.co.jp,znak.com,askmen.com##.shareBlock
+oggi.it,style.president.jp,manabi.benesse.ne.jp,lalafo.az,mangaplaza.com,9111.ru,hmv.co.jp,dmarket.docomo.ne.jp,tabiyomi.yomiuri-ryokou.co.jp,znak.com,askmen.com##.shareBlock
 photobucket.com##.shareExternal
 ng.ru##.shareFix
 ahaber.com.tr##.shareFrame
@@ -28568,6 +28575,8 @@ auto.ru#?#.Review__footer-col:has(> div.ReviewShare)
 !
 ! Rambler
 !
+!+ NOT_OPTIMIZED
+unian.info,unian.ua,unian.net##.article__share-btn
 !+ NOT_OPTIMIZED
 iamgujarat.com,indiatimes.com,vijaykarnataka.com,maharashtratimes.com,samayam.com##.share_whatsapp
 !+ NOT_OPTIMIZED
@@ -30941,7 +30950,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1794861458-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1794947923-14400.patch
 /Resources/twitter-$~xhr
 fortune.com##.info-surface:contains(Add Fortune on Google)
 abc.net.au##.Button_root__UZ8td:contains(Share)
@@ -39149,7 +39158,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1794841904-3600.patch
+! Diff-Path: ../patches/4/4-s-1794931917-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -40766,6 +40775,7 @@ auto.ru##.Review__footer-col:has(> div.ReviewShare)
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
+!+ NOT_OPTIMIZED
 film.ru##body > div.block:has(> div.social-likes)
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -41437,7 +41447,8 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1794841904-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1794931918-3600.patch
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -41848,6 +41859,7 @@ rambler.ru##div[data-blocks="content_info"] + div[class^="container-"]
 rambler.ru#%#//scriptlet('remove-in-shadow-dom', 'div[data-blocks="content_info"] + div[class^="container-"]')
 !#endif
 !
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -55903,5 +55915,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 52641
-! Duplicates removed: 66341
+! Total unique rules: 52649
+! Duplicates removed: 66354

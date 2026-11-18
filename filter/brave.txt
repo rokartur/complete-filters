@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 17 Nov 2026 01:07:03 UTC
+! Last modified: 18 Nov 2026 01:07:06 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -71,6 +71,9 @@ search.brave.com###search-ad
 /push/i?clk
 /script/ut.js
 /suurl5.php?
+
+! https://github.com/brave/adblock-resources/pull/355
+||optimizely.com/js/$script,redirect=optimizely.js
 
 ! linkedin mobile app recommendations
 linkedin.com##+js(trusted-set-session-storage-item, blocking-upsell, '"DISMISSED"')
@@ -7084,5 +7087,5 @@ verti.de#@##onetrust-consent-sdk
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 6013
+! Total unique rules: 6014
 ! Duplicates removed: 9
