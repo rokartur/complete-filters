@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 20 Nov 2026 01:06:30 UTC
+! Last modified: 21 Nov 2026 01:06:53 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
@@ -10469,7 +10469,7 @@ jacobin.com###post-header-share
 mediaite.com###post-social
 news.keckmedicine.org###ppmodule_shareus
 news.keckmedicine.org###ppmodule_socialmedia
-chippewa.com,columbustelegram.com,journalstar.com,qctimes.com,siouxcityjournal.com###preferredSource
+bismarcktribune.com,chippewa.com,columbustelegram.com,journalstar.com,pantagraph.com,qctimes.com,siouxcityjournal.com,wcfcourier.com###preferredSource
 wikihow.com###preferred_source_btn
 digit.in###prefsource-button
 auburnpub.com,azdailysun.com,beatricedailysun.com,billingsgazette.com,bismarcktribune.com,chippewa.com,columbustelegram.com,cumberlink.com,dailyjournalonline.com,democratherald.com,elkodaily.com,fremonttribune.com,gazettetimes.com,globegazette.com,hanfordsentinel.com,helenair.com,herald-review.com,jg-tc.com,journalstar.com,journaltimes.com,lacrossetribune.com,lompocrecord.com,magicvalley.com,missoulanews.com,missoulian.com,mtstandard.com,muscatinejournal.com,napavalleyregister.com,nwitimes.com,pantagraph.com,poststar.com,qconline.com,qctimes.com,rapidcityjournal.com,ravallirepublic.com,santamariatimes.com,siouxcityjournal.com,stltoday.com,tdn.com,thesouthern.com,thetandd.com,theworldlink.com,trib.com,tucson.com,wcfcourier.com,winonadailynews.com,wiscnews.com###reaction-wrap
@@ -10765,6 +10765,7 @@ irishtimes.com##.b-it-social-share-block
 bnnbloomberg.ca,cp24.com,ctvnews.ca,irishnews.com,thedailybeast.com,tsn.ca##.b-share-bar
 protos.com##.b-sharers
 spokesman.com##.ba
+techpartner.news##.badge-light
 dutchnews.nl##.badge-social
 dezeen.com##.badges
 butwhytho.net##.bam-topbar-social
@@ -12190,6 +12191,7 @@ firstpost.com##.yt-ch
 blog.youtube##.yt-social__list
 application-remuneratrice.com##.zd-social
 nypost.com##.zephrModal
+ecohustler.com##.zine-share-sidebar
 zmescience.com##.zme-google-follow-banners
 wdwmagic.com##.zocial
 securityweek.com##.zox-foot-soc
@@ -14087,7 +14089,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1795115404-3600.patch
+! Diff-Path: ../patches/4/4-s-1795169478-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14668,7 +14670,7 @@ my-favorite-giants.net,oppai.stream,prdesse.com,torano-maki.net,daijisen.jp,html
 ! ##.social__share
 ukranews.com,everydayhealth.com,grid.id,motorplus-online.com,gridoto.com,bolasport.com,news.rambler.ru##.social__share
 ! ##.share-icons
-tanjug.rs,iflscience.com,croxyproxy.app,natgeomedia.com,akhbarelyom.com,blogs.opera.com,hugogloss.uol.com.br,lsm.lv,paradergi.com.tr,czasfinansow.pl,attacomsian.com,meme-arsenal.com,merriam-webster.com,embed.ustudio.com,marketwatch.com,blog.1password.com##.share-icons
+ccn.com,tanjug.rs,iflscience.com,croxyproxy.app,natgeomedia.com,akhbarelyom.com,blogs.opera.com,hugogloss.uol.com.br,lsm.lv,paradergi.com.tr,czasfinansow.pl,attacomsian.com,meme-arsenal.com,merriam-webster.com,embed.ustudio.com,marketwatch.com,blog.1password.com##.share-icons
 ! ##.social-button
 job.career-tasu.jp,twitch.tv,full-count.jp,yasemin.com,karzusp.net,blog.karzusp.net,domesoccer.jp,the-ans.jp,trafficnews.jp,magmix.jp,basketballking.jp,ch-review.net,kuruma-news.jp,alba.co.jp,mskagency.ru,pr.goo.ne.jp,point.md,bike-news.jp,haber7.com,w.atwiki.jp,badische-zeitung.de##.social-button
 ! ##.socialList
@@ -14693,6 +14695,9 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+gamingonlinux.com##.gol-right-article-meta
+symbaloo.com##div[aria-label="Webmix Details"] button:not([id]):has(> span > i.mdi-share-variant)
+menards.com###pdpSharing
 money.it##.m26-condividi
 ntv.com.tr##.inread-content-area > div.w-full > div.py-6:has(> .w-full a.group[href="https://x.com/ntv"])
 daily.dev##main > div.flex:has(> div.items-center > button[aria-label^="Share on"])
@@ -26044,7 +26049,7 @@ noizz.hu,noizz.de##.contentShareButtons
 noizz.hu,noizz.de##.floatingShareButtonContainer
 np-coburg.de##.artikelFooter-social > [data-fcms-target="whatsApp"]
 ||mangafox.la/fb.html
-media-polesye.com,samsungsvc.co.kr,eclipse.imperialsaga.jp,dogatch.jp,myfxbook.com,videacesky.cz###shareBtn
+livecombs.com,media-polesye.com,samsungsvc.co.kr,eclipse.imperialsaga.jp,dogatch.jp,myfxbook.com,videacesky.cz###shareBtn
 store.steampowered.com#?##shareBtn
 dni.ru##.sotial
 autoblog.com###global-share-right
@@ -30979,7 +30984,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1795120714-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1795207038-14400.patch
 /Resources/twitter-$~xhr
 fortune.com##.info-surface:contains(Add Fortune on Google)
 abc.net.au##.Button_root__UZ8td:contains(Share)
@@ -39187,7 +39192,7 @@ reddit.com#@#img[alt="submit to reddit"]
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1795115434-3600.patch
+! Diff-Path: ../patches/4/4-s-1795169511-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -41478,7 +41483,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1795115434-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1795169511-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -54363,7 +54368,6 @@ visplantis.pl#@#div.footer-box:has(+ div .social-media):remove-class(/border/)
 ! fanboy_social_thirdparty.txt
 ! fanboy_social_specific_block.txt
 ! fanboy_social_specific_hide.txt
-bismarcktribune.com,chippewa.com,columbustelegram.com,journalstar.com,pantagraph.com,qctimes.com,siouxcityjournal.com,wcfcourier.com###preferredSource
 !! :has
 !! :has-text
 !! top-level domain wildcard
@@ -55950,5 +55954,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 52677
-! Duplicates removed: 66447
+! Total unique rules: 52681
+! Duplicates removed: 66477

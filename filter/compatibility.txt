@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 20 Nov 2026 01:06:06 UTC
+! Last modified: 21 Nov 2026 01:06:33 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 14 / 14
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1795028962-3600.patch
+! Diff-Path: ../patches/11/11-s-1795194632-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2722,6 +2722,8 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+ncaa.com##.mobile-persistent-bottom
+ncaa.com##.footer-ad
 esquire.com##div[data-gpt-wrapper="true"]
 u.gg##div.media-query_MOBILE_SMALL__MOBILE_LARGE:has(> div.flex > a[href="/plus?utm_source=uggbuilds"])
 chouseisan.com##.ad-header-div
@@ -9953,7 +9955,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1795028991-3600.patch
+! Diff-Path: ../patches/11/11-s-1795194699-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -13710,7 +13712,7 @@ www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"
 www.youtube.com##+js(trusted-rpfr, '"adPlacements"', '"no_ads"', player?)
 www.youtube.com##+js(trusted-rpfr, '"adSlots"', '"no_ads"', player?)
 www.youtube.com##+js(trusted-rpfr, '"adSlots"', '"no_ads"', /^\W+$/)
-www.youtube.com##+js(rmnt, script, window\,"fetch")
+www.youtube.com##+js(rmnt, script, 'window,"fetch"')
 !#else
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"adPlacements"/"no_ads"/
 ||www.youtube.com/playlist?list=$xhr,1p,replace=/"adSlots"/"no_ads"/
@@ -14303,11 +14305,7 @@ tonuriaz.info,wakuraw.com,klmanga.cloud,trogiupnhanh.com,mangaruu.com,rawfree.to
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/245421
 socialxup.com##^responseheader(location)
-socialxup.com##a.bg-yellow-300
-socialxup.com##a.border-indigo-300
-socialxup.com##aside *:has(> a:not([href*="/tools/"], [href*="/genre/"], [data-track^="sidebar_"]))
-socialxup.com##a[data-track="home_popular_tweet_profile_click"]:not( .bg-gray-100, .text-gray-500, [data-track-context="user_page_related"])
-socialxup.com##a[href^="/"]:not(.truncate, .text-blue-600, [data-track-context], :has(> img[src^="/"]), td > a):matches-attr("href"="/^\/(?=[A-Z_a-z]*[0-9])[0-9A-Z_a-z]+$/"):not(:contains(/注目|達成|凍結|増加|減少|フォロワー|\d人/))
+socialxup.com##a[data-track="related_click"]:not(:has-text(フォロワー))
 socialxup.com#@#a[href^="/"]:not([data-track], :has(> img[src^="/avatar/"])):matches-attr("href"="/^\/(?=[A-Z_a-z]*[0-9])[0-9A-Z_a-z]+$/"):not(:contains(/注目|達成|凍結|増加|減少|フォロワー/))
 socialxup.com#@#+js(aeld, click, /\[native code\]|^\s*e\s*=>\s*.+\(\s*e\s*\)\s*$/)
 
@@ -20373,6 +20371,11 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||google-analytics.com/plugins/ua/linkid.js$domain=masstransitmag.com
 !#endif
 
+! https://github.com/AdguardTeam/AdguardFilters/issues/247648
+||sy.ameblo.jp^$badfilter
+||sy.ameba.jp^$badfilter
+||sy.amebame.com^$badfilter
+
 
 ! ===== SOURCE: local:manual-blocklist.txt
 ! Manual blocklist
@@ -20568,5 +20571,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 13433
-! Duplicates removed: 8048
+! Total unique rules: 13434
+! Duplicates removed: 8050

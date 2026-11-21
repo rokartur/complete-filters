@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Privacy
 ! Description: Combined filter list for the privacy category.
-! Last modified: 20 Nov 2026 01:06:24 UTC
+! Last modified: 21 Nov 2026 01:06:48 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 32 / 32
 !
 ! ===== SOURCE: https://easylist.to/easylist/easyprivacy.txt
-! Commit: a97b2d1dfc0c8ccae02a7028992e1c3aeaee49cf
+! Commit: f41bc80d2fb9a058cbd95121b05de1593867fdb9
 ! *** easylist:template_header.txt ***
 !
 ! Please report any unblocked adverts or problems
@@ -3627,7 +3627,12 @@ omni.soundestlink.com$image
 ||cbdatatracker.com^
 ||cdjbf8trk.com^
 ||cdn-vitals.com^
+||cdn.a9f3k7z2m1.com^
+||cdn.m2z7r9k4p1.com^
+||cdn.q4x8n6b2t5.com^
 ||cdn.sy-d.io^
+||cdn.t2037ulzqct5.com^
+||cdn.x7k9m2q4z8r1.com^
 ||cdnhst.xyz^
 ||cdnlogs.org^
 ||cdnwidget.com^
@@ -3648,6 +3653,7 @@ omni.soundestlink.com$image
 ||cnna.io^
 ||cntxtfl.com^
 ||confiant-integrations.net^
+||connext-fd-gnbrate4fjhjb3f7.z01.azurefd.net^
 ||convead.io^
 ||convertlink.com^
 ||coolretargeting.com^
@@ -3747,6 +3753,7 @@ omni.soundestlink.com$image
 ||g1782759016.co^
 ||g1980843350.co^
 ||g2575096355.co^
+||g2insights-fd-a0gpgwa4fycxd9d4.z01.azurefd.net^
 ||g594253006.co^
 ||g792337340.co^
 ||g792337341.co^
@@ -7260,6 +7267,7 @@ omni.soundestlink.com$image
 ||coldcrucible.com^
 ||coloradoserves.com^
 ||colorandnoise.com^
+||colorfilter.net^
 ||colorfulneon.com^
 ||colorfulpet.com^
 ||coloroptimizer.com^
@@ -8193,6 +8201,7 @@ omni.soundestlink.com$image
 ||marsnextdoor.com^
 ||mascguys.com^
 ||maskedadmin.com^
+||masondown.com^
 ||masseurexpress.com^
 ||massivemark.com^
 ||masterenter.com^
@@ -8340,6 +8349,7 @@ omni.soundestlink.com$image
 ||nimbleplot.com^
 ||nimbuswatersystem.com^
 ||ninjatravels.com^
+||nitrojiveband.com^
 ||noblecables.com^
 ||noblefellow.com^
 ||nodenotify.com^
@@ -8411,6 +8421,7 @@ omni.soundestlink.com$image
 ||orangebirdie.com^
 ||orchidgenius.com^
 ||orderjumper.com^
+||ordinalzero.com^
 ||orgbackups.com^
 ||orientedargument.com^
 ||originblocks.com^
@@ -8645,6 +8656,7 @@ omni.soundestlink.com$image
 ||rangeplayground.com^
 ||rangergustav.com^
 ||rankaddict.com^
+||rapidscraper.com^
 ||rarelyfans.com^
 ||raresummer.com^
 ||razzweb.com^
@@ -11331,7 +11343,6 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||cdn-js.xyz/code?
 ||cdn-staging.delivr.ai/pixels/
 ||cdn.9gtb.com^
-||cdn.a9f3k7z2m1.com^
 ||cdn.app.cfigroup.com/webmon/$script
 ||cdn.clkmc.com/cmc.js
 ||cdn.cuty.io/fps.js
@@ -11908,6 +11919,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||feedblitz.com/imp?$third-party
 ||feedblitz.com^*.gif?$third-party
 ||feedify.net/thirdparty/json/track/
+||feliz.data.tm-awx.com/netro-web/batch
 ||feliz.data.tm-awx.com/smile-web-v2/batch
 ||fem.gprod.postmedia.digital/*/IIQUniversalID.js
 ||fgip.rosehosting.com^
@@ -15473,7 +15485,8 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||tracking.univtec.com^
 ||trsbf.com/static/fbs.min.js
 ||unpkg.com/@topsort/analytics.js
-||view.publitas.com^
+||view.publitas.com/ecommTracker.js
+||view.publitas.com/javascripts/vendors/publitas-stats.js
 ||webpixel.smartmeapp.com^
 ! Swedish
 ||aftonbladet.se/blogportal/view/statistics?$third-party
@@ -16116,6 +16129,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||dd.auspost.com.au^
 ||dd.g2.com^
 ||dd.nytimes.com^
+||dd.reuters.com^
 ||dd.viator.com^
 ||ddome-tag.blablacar.com^
 ||dealdash.com/tracker-json
@@ -55956,9 +55970,6 @@ search.rakuten.co.jp##+js(aeld, mouseup, sendClickEvent)
 ||ssai.api.streaks.jp/*/ad_info?
 ||stat.i3.dmm.com/plus/tracking.js
 ||stats.nhk.or.jp^
-||sy.ameba.jp^
-||sy.amebame.com^
-||sy.ameblo.jp^
 ||t.rentio.jp^
 ||t.syosetu.org^
 ||tanweb.net/wordpress/?rest_route=/sng/v1/page-count
@@ -57494,7 +57505,7 @@ search.rakuten.co.jp##+js(aeld, mouseup, sendClickEvent)
 
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/3.txt
-! Diff-Path: ../patches/3/3-s-1795122648-3600.patch
+! Diff-Path: ../patches/3/3-s-1795216191-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -58297,7 +58308,7 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 ||repo.rakanto.com^
 ||api.eventbus.me^
 ||gm.mmstat.com^
-||yazio-analytics.com^
+||event-ingestion.yazio-analytics.com^
 ||rtbuniverse.com^
 ||imp_track.zmaticoo.com^
 ||gw-usa-tracker.zmaticoo.com^
@@ -143450,6 +143461,7 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 ||a.famorigins.com^
 ||a.gigl.ist^
 ||a.meloja.com.br^
+||a.menards.com^
 ||a.setup.moe^
 ||a3.mtindex.top^
 ||anal.ytics.de^
@@ -146367,7 +146379,6 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 ||agent-server.sc-api.seaart.ai^
 ||reqstat.api.mega.co.nz^
 ||tracker.projektn.sk^
-||dd.reuters.com^
 ||nexus.uniten.io^
 ||rusty-heartbeat.services.ps.axelspringer.de^
 ||uac.mk.co.kr^
@@ -457966,6 +457977,11 @@ naver.com#%#//scriptlet('trusted-json-set', 'JSON.stringify', '$.env.br_sr', '38
 !
 ! NOTE: Specific rules
 !
+||seznam.cz/*/hit|
+||seznam.cz/*/imp?k=
+||fls-eu.amazon.de/*batch/*uedata*Gateway
+||ev.chitchat.tv/e/
+||ev.chitchat.tv/i/*/e/
 ||strike.fox.com/static/fnc/video/Prebidbidder.js
 ||strike.fox.com/static/fnc/video/Amazonbidder.js
 ||static.foxnews.com/static/isa/app/lib/VisitorAPI.orig.js
@@ -464520,6 +464536,7 @@ mcp.directory#%#//scriptlet('remove-cookie', 'dotcom_user')
 ||amazon.com^$cookie=aws-target-session-id
 ||amazon.com^$cookie=aws-target-visitor-id
 ||amazon.com^$cookie=aws-vid
+! amazon.*
 ! yellowpages.com
 ||yellowpages.com^$cookie=vrid
 ! spooncast.net
@@ -466650,6 +466667,9 @@ d4?appid*type*
 !@@||mc.yandex.ru/metrika/watch.js$domain=
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247621
+kick.com#%#//scriptlet('prevent-fetch', 'litix.io')
+kick.com#%#//scriptlet('prevent-setTimeout', 'startBeaconSending')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/247468
 ||googletagmanager.com/gtag/js$redirect=noopjs,domain=propertyguru.com.my
 ! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1618326670/321
@@ -470941,7 +470961,7 @@ search.rakuten.co.jp#%#//scriptlet('ubo-aeld', 'mouseup', 'sendClickEvent')
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/3.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/3/3-s-1795122674-3600.patch
+! Diff-Path: ../patches/3/3-s-1795216215-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -472839,6 +472859,7 @@ mcp.directory##+js(remove-cookie, dotcom_user)
 ! momondo.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/220298
 ! aws.amazon.com
+! amazon.*
 ! yellowpages.com
 ! spooncast.net
 ! emart.ssg.com
@@ -473229,6 +473250,9 @@ mcp.directory##+js(remove-cookie, dotcom_user)
 !@@||mc.yandex.ru/metrika/watch.js$domain=
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247621
+kick.com##+js(prevent-fetch, litix.io)
+kick.com##+js(no-setTimeout-if, startBeaconSending)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/247468
 ||googletagmanager.com/gtag/js$redirect=noop.js,domain=propertyguru.com.my,script
 ! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1618326670/321
@@ -805606,6 +805630,7 @@ $cookie=sailthru_content
 ! momondo.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/220298
 ! aws.amazon.com
+! amazon.*
 ! yellowpages.com
 ! spooncast.net
 ! emart.ssg.com
@@ -806068,6 +806093,7 @@ $app=com.miui.analytics
 !@@||mc.yandex.ru/metrika/watch.js$domain=
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247621
 ! https://github.com/AdguardTeam/AdguardFilters/issues/247468
 ! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1618326670/321
 ! https://github.com/AdguardTeam/AdguardFilters/issues/244949
@@ -1012777,6 +1012803,7 @@ $removeparam=tduid
 ||mistat.intl.xiaomi.com.ksyna.net^
 ||mistat.rus.xiaomi.com.ksyna.net^
 ||ad.intl.xiaomi.com.mgslb.com^
+||mistat.xiaomi.com.mgslb.com^
 ||video.kts.g.mi.com^
 ||d.g.mi.com^
 ||migc.g.mi.com^
@@ -1013357,6 +1013384,7 @@ $removeparam=tduid
 ||noc-visio-telemetry.officeapps.live.com^
 ||pgtbr1-excel-telemetry-vip.officeapps.live.com^
 ||pgtbr2-excel-telemetry-vip.officeapps.live.com^
+||pgtca1-powerpoint-telemetry-vip.officeapps.live.com^
 ||pgteu1-excel-telemetry-vip.officeapps.live.com^
 ||pgteu1-powerpoint-telemetry-vip.officeapps.live.com^
 ||pgteu1-word-telemetry-vip.officeapps.live.com^
@@ -1013370,8 +1013398,8 @@ $removeparam=tduid
 ||pgteu4-powerpoint-telemetry-vip.officeapps.live.com^
 ||pgteu4-word-telemetry-vip.officeapps.live.com^
 ||pgteu5-excel-telemetry-vip.officeapps.live.com^
-||pgteu5-powerpoint-telemetry-vip.officeapps.live.com^
 ||pgteu5-word-telemetry-vip.officeapps.live.com^
+||pgtmx1-excel-telemetry-vip.officeapps.live.com^
 ||pgtus1-excel-telemetry-vip.officeapps.live.com^
 ||pgtus1-powerpoint-telemetry-vip.officeapps.live.com^
 ||pgtus1-word-telemetry-vip.officeapps.live.com^
@@ -1013498,11 +1013526,9 @@ $removeparam=tduid
 ||s-ring-fallback.msedge.net^
 ||t-ring.msedge.net^
 ||t-ring-fallback.msedge.net^
-||t-ring-fallback-s2.msedge.net^
 ||t-ring-fallbacks1.msedge.net^
 ||t-ring-s2.msedge.net^
 ||t-ring-trafficshield.msedge.net^
-||t-s2-ring.msedge.net^
 ||win10-trt.msedge.net^
 ||metric.appex-rf.msn.com^
 ||c.ar.msn.com^
@@ -1013513,6 +1013539,7 @@ $removeparam=tduid
 ||c.cl.msn.com^
 ||events.data.msn.cn^
 ||events.data.msn.com^
+||events-sandbox.data.msn.cn^
 ||c.de.msn.com^
 ||c.dk.msn.com^
 ||c.es.msn.com^
@@ -1013575,11 +1013602,11 @@ $removeparam=tduid
 ||sam.msn.com^
 ||stjjp.msn.com^
 ||toolbar.msn.com^
-||adsyndication.msn.com.nsatc.net^
 ||diagnostics.office.com^
 ||diagnostics-eudb.office.com^
 ||measure.office.com^
 ||measure.office.net^
+||identity.nel.measure.office.net.intern.schreinereistumpf.de^
 ||prod.editor.ads.trafficmanager.net^
 ||tracker.flightview.com.trafficmanager.net^
 ||events.data.trafficmanager.net^
@@ -1013608,7 +1013635,6 @@ $removeparam=tduid
 ||eventservice.trafficmanager.net^
 ||glance-analytics.trafficmanager.net^
 ||hk-tracker.trafficmanager.net^
-||icmskillevents.trafficmanager.net^
 ||inference-location-livenet.trafficmanager.net^
 ||ir-tracking.trafficmanager.net^
 ||irreverselookuptm.trafficmanager.net^
@@ -1013626,7 +1013652,6 @@ $removeparam=tduid
 ||telemetry-lcp.trafficmanager.net^
 ||tm-analytics-pr.trafficmanager.net^
 ||tm-enrollment-telemetry-datacore.trafficmanager.net^
-||us-mesh-events-data-leafs.trafficmanager.net^
 ||vstelemetry.trafficmanager.net^
 ||watsoncab.trafficmanager.net^
 ||win-global-asimov-leafs-events-data.trafficmanager.net^
@@ -1013641,7 +1013666,6 @@ $removeparam=tduid
 ||cache.datamart.windows.com^
 ||analytics-dev-lleap-events.servicebus.windows.net^
 ||analytics-dev-simpad-events.servicebus.windows.net^
-||analyticsiot-prod-mobileapps-ehn.servicebus.windows.net^
 ||citrixanalyticseh.servicebus.windows.net^
 ||citrixanalyticseh-alias.servicebus.windows.net^
 ||citrixanalyticseh2.servicebus.windows.net^
@@ -1013780,7 +1013804,6 @@ $removeparam=tduid
 ||co-vcode-od.vivoglobal.com^
 ||co-vcode-or.vivoglobal.com^
 ||de-gdpr-err-up.vivoglobal.com^
-||de-gdpr-vcode-api.vivoglobal.com^
 ||err-up.vivoglobal.com^
 ||eu-album-api.vivoglobal.com^
 ||eu-api-stsdk.vivoglobal.com^
@@ -1013789,7 +1013812,6 @@ $removeparam=tduid
 ||eu-domaincfg.vivoglobal.com^
 ||eu-errup.vivoglobal.com^
 ||eu-monitor-stsdk.vivoglobal.com^
-||eu-nrt-stsdk.vivoglobal.com^
 ||eu-p.vivoglobal.com^
 ||eu-pnrt-stsdk.vivoglobal.com^
 ||eu-prt-stsdk.vivoglobal.com^
@@ -1013835,6 +1013857,7 @@ $removeparam=tduid
 ||in-os-config-appstore.vivoglobal.com^
 ||in-pnrt-stsdk.vivoglobal.com^
 ||in-prt-stsdk.vivoglobal.com^
+||in-rt-stsdk.vivoglobal.com^
 ||in-third-appstore.vivoglobal.com^
 ||in-timesync.vivoglobal.com^
 ||in-vcode-api.vivoglobal.com^
@@ -1013981,6 +1014004,7 @@ $removeparam=tduid
 !
 ! Compiled by @adguard/hostlist-compiler v3.0.0
 !
+||opex-service-eu-allawna-e3dde.fr-w01.cngw.allawnos.com^
 ||classify-app-eu.allawnos.com^
 ||classify-app-in.allawnos.com^
 ||classify-app-sg.allawnos.com^
@@ -1014313,6 +1014337,7 @@ $removeparam=tduid
 ||adxu-bigo-sg.heytapmobile.com^
 ||bdapi-ads-in.heytapmobile.com^
 ||bdapi-ads-sg.heytapmobile.com^
+||browser-api-au.heytapmobile.com^
 ||browser-api-br.heytapmobile.com^
 ||browser-api-fr.heytapmobile.com^
 ||browser-api-gl.heytapmobile.com^
@@ -1014522,6 +1014547,7 @@ $removeparam=tduid
 ||prod-event-relay-sports-api.v.aaplimg.com^
 ||prod-event-relay-stocks-api.v.aaplimg.com^
 ||prod-event-relay-weather-api.v.aaplimg.com^
+||prod-event-relay-web-api.v.aaplimg.com^
 ||prod-iwork-events.v.aaplimg.com^
 ||prod-news-notification-events.v.aaplimg.com^
 ||securemetrics.v.aaplimg.com^
@@ -1107450,6 +1107476,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||sxzpqm8trk.com^
 ||sy-ad-lgsmartad-com.aws-prd.net^
 ||sy.ad.lgsmartad.com^
+||sy.ameba.jp^
 ||sy.lgsmartad.com^
 ||sydjyy.com^
 ||syftanalytics.com^
@@ -1107511,10 +1107538,12 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||t-locasun-it.eulerian.net^
 ||t-locasun-nl.eulerian.net^
 ||t-med.es^
+||t-ring-fallback-s2.msedge.net^
 ||t-ring-fallbacks2.msedge.net^
 ||t-ring-fdv2.msedge.net^
 ||t-ring-s.msedge.net^
 ||t-s1-ring.msedge.net^
+||t-s2-ring.msedge.net^
 ||t-systems01.webtrekk.net^
 ||t.0-dte.com^
 ||t.2600.network^
@@ -1112498,6 +1112527,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||us-east4.dev.ads.gcp.roku.com^
 ||us-fp.apitd.net^
 ||us-library.klarnaservices.com^
+||us-mesh-events-data-leafs.trafficmanager.net^
 ||us-mesh.events.data.microsoft.com^
 ||us-mobile.events.data.microsoft.com^
 ||us-plz-as19750.anchors.atlas.ripe.net^
@@ -1115074,6 +1115104,7 @@ $removeparam=pp,domain=youtube.com|youtu.be
 ||yaolushe.com^
 ||yarpp.org^
 ||yatco-boss-analytics-lb-1402728550.us-east-1.elb.amazonaws.com^
+||yazio-analytics.com^
 ||yb8a4trk.com^
 ||ybsitecenter.com^
 ||ybskbpp84.alphonso.tv^
@@ -2090503,5 +2090534,5 @@ x.com##+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 @@||*.protondb.pages.dev^
 
 
-! Total unique rules: 2071624
-! Duplicates removed: 853825
+! Total unique rules: 2071649
+! Duplicates removed: 853860
