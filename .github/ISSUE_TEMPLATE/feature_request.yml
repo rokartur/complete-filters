@@ -1,82 +1,82 @@
-name: Propozycja funkcji
-description: Zaproponuj nowe źródło, regułę, wyjątek lub inne ulepszenie projektu
+name: Feature request
+description: Propose a new source, rule, exception or another project improvement
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        Dzięki za propozycję.
+        Thanks for the proposal.
 
-        Możesz tutaj zgłosić między innymi:
-        - nowe źródła filtrów do agregacji,
-        - propozycje wyjątków kompatybilności,
-        - brakujące reguły blokujące reklamy lub tracking,
-        - ulepszenia generatora lub strony projektu.
+        You can propose here, among other things:
+        - new filter sources to aggregate,
+        - compatibility exceptions,
+        - missing rules that block ads or tracking,
+        - improvements to the build scripts or the project website.
   - type: checkboxes
     id: confirmations
     attributes:
-      label: Potwierdzenie
+      label: Confirmation
       options:
-        - label: Sprawdziłem/am, że podobna propozycja nie została już zgłoszona.
+        - label: I checked that a similar proposal has not been submitted yet.
           required: true
   - type: input
     id: summary
     attributes:
-      label: Krótkie podsumowanie
-      description: Jednozdaniowy opis propozycji.
-      placeholder: Dodanie wyjątku dla błędnie blokowanego widgetu logowania
+      label: Short summary
+      description: A one-sentence description of the proposal.
+      placeholder: Add an exception for a login widget that is blocked by mistake
     validations:
       required: true
   - type: dropdown
     id: category
     attributes:
-      label: Kategoria propozycji
+      label: Proposal category
       options:
-        - Nowa reguła lub wyjątek
-        - Nowe źródło filtrów
-        - Ulepszenie generatora / build.py
-        - Ulepszenie strony WWW projektu
-        - Dokumentacja / UX
-        - Inne
+        - New rule or exception
+        - New filter source
+        - Build scripts improvement
+        - Project website improvement
+        - Documentation / UX
+        - Other
       default: 0
     validations:
       required: true
   - type: textarea
     id: motivation
     attributes:
-      label: Co chcesz osiągnąć i dlaczego?
-      description: Opisz problem, potrzebę i korzyść z proponowanej zmiany.
-      placeholder: Obecnie strona X ma element, który nie jest blokowany / jest blokowany zbyt agresywnie, co powoduje...
+      label: What do you want to achieve and why?
+      description: Describe the problem, the need and the benefit of the proposed change.
+      placeholder: Site X has an element that is not blocked / is blocked too aggressively, which causes...
     validations:
       required: true
   - type: textarea
     id: proposed_solution
     attributes:
-      label: Proponowane rozwiązanie
-      description: Opisz, jak Twoim zdaniem mogłoby to działać.
-      placeholder: Można dodać wyjątek kosmetyczny / nową regułę / nowe źródło filtrów, które obejmuje ten przypadek.
+      label: Proposed solution
+      description: Describe how you think it could work.
+      placeholder: Add a cosmetic exception / a new rule / a new filter source that covers this case.
   - type: input
     id: related_url
     attributes:
-      label: Powiązany adres strony / źródło / repozytorium
-      description: Jeśli dotyczy, wklej URL strony, listy filtrów, repo lub dokumentacji.
-      placeholder: https://example.com/ lub https://github.com/owner/repo
+      label: Related page address / source / repository
+      description: If relevant, paste the URL of the page, filter list, repo or documentation.
+      placeholder: https://example.com/ or https://github.com/owner/repo
   - type: textarea
     id: examples
     attributes:
-      label: Przykłady, mockupy lub proponowane reguły
-      description: Możesz wkleić przykładowe reguły, screenshoty albo opisać edge case'y.
+      label: Examples, mockups or proposed rules
+      description: You can paste example rules, screenshots or describe edge cases.
       placeholder: |
-        Przykładowa reguła:
+        Example rule:
         example.com##.annoying-banner
 
-        Albo link do źródła, które warto rozważyć.
+        Or a link to a source worth considering.
   - type: textarea
     id: additional_notes
     attributes:
-      label: Dodatkowe uwagi
-      placeholder: Inny kontekst, alternatywy, powiązane issue/PR, ograniczenia, skutki uboczne itp.
+      label: Additional notes
+      placeholder: Other context, alternatives, related issues/PRs, limitations, side effects, etc.
   - type: markdown
     attributes:
       value: |
-        Dzięki za sugestię — konkretne przykłady i uzasadnienie bardzo pomagają w ocenie priorytetu zmiany.
+        Thanks for the suggestion. Concrete examples and reasons help a lot when we rate the priority of a change.

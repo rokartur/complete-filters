@@ -25,20 +25,20 @@ jobs:
             const body = (issue.body || '').replace(/\r\n/g, '\n');
 
             const featureCategoryLabels = new Map([
-              ['Nowa reguła lub wyjątek', 'kategoria: nowa reguła / wyjątek'],
-              ['Nowe źródło filtrów', 'kategoria: nowe źródło filtrów'],
-              ['Ulepszenie generatora / build.py', 'kategoria: generator / build.py'],
-              ['Ulepszenie strony WWW projektu', 'kategoria: strona WWW'],
-              ['Dokumentacja / UX', 'kategoria: dokumentacja / UX'],
-              ['Inne', 'kategoria: inne'],
+              ['New rule or exception', 'category: new rule / exception'],
+              ['New filter source', 'category: new filter source'],
+              ['Build scripts improvement', 'category: build scripts'],
+              ['Project website improvement', 'category: website'],
+              ['Documentation / UX', 'category: documentation / UX'],
+              ['Other', 'category: other'],
             ]);
 
             const bugTypeLabels = new Map([
-              ['Fałszywa blokada / strona przestaje działać', 'typ problemu: fałszywa blokada'],
-              ['Reklama lub tracker nie są blokowane', 'typ problemu: nieblokowana reklama / tracker'],
-              ['Problem z regułą kosmetyczną', 'typ problemu: reguła kosmetyczna'],
-              ['Problem z kompatybilnością', 'typ problemu: kompatybilność'],
-              ['Inny problem', 'typ problemu: inny'],
+              ['False positive / site stops working', 'issue type: false positive'],
+              ['Ad or tracker not blocked', 'issue type: missed ad / tracker'],
+              ['Cosmetic rule problem', 'issue type: cosmetic rule'],
+              ['Compatibility problem', 'issue type: compatibility'],
+              ['Other problem', 'issue type: other'],
             ]);
 
             const blockerLabels = new Map([
@@ -47,77 +47,77 @@ jobs:
               ['AdBlock', 'adblocker: AdBlock'],
               ['Adblock Plus', 'adblocker: Adblock Plus'],
               ['Brave Shields', 'adblocker: Brave Shields'],
-              ['Inny', 'adblocker: inny'],
+              ['Other', 'adblocker: other'],
             ]);
 
             const labelMetadata = {
-              'kategoria: nowa reguła / wyjątek': {
+              'category: new rule / exception': {
                 color: '0E8A16',
-                description: 'Propozycja dotyczy nowej reguły lub wyjątku.',
+                description: 'Proposal for a new rule or exception.',
               },
-              'kategoria: nowe źródło filtrów': {
+              'category: new filter source': {
                 color: '0E8A16',
-                description: 'Propozycja dotyczy dodania nowego źródła filtrów.',
+                description: 'Proposal to add a new filter source.',
               },
-              'kategoria: generator / build.py': {
+              'category: build scripts': {
                 color: '0E8A16',
-                description: 'Propozycja dotyczy generatora lub skryptu build.py.',
+                description: 'Proposal for the build scripts.',
               },
-              'kategoria: strona WWW': {
+              'category: website': {
                 color: '0E8A16',
-                description: 'Propozycja dotyczy strony WWW projektu.',
+                description: 'Proposal for the project website.',
               },
-              'kategoria: dokumentacja / UX': {
+              'category: documentation / UX': {
                 color: '0E8A16',
-                description: 'Propozycja dotyczy dokumentacji lub UX.',
+                description: 'Proposal for documentation or UX.',
               },
-              'kategoria: inne': {
+              'category: other': {
                 color: '0E8A16',
-                description: 'Inna kategoria propozycji.',
+                description: 'Other proposal category.',
               },
-              'typ problemu: fałszywa blokada': {
+              'issue type: false positive': {
                 color: 'D73A4A',
-                description: 'Błąd powoduje fałszywą blokadę lub psuje działanie strony.',
+                description: 'A rule blocks something it should not or breaks a site.',
               },
-              'typ problemu: nieblokowana reklama / tracker': {
+              'issue type: missed ad / tracker': {
                 color: 'D73A4A',
-                description: 'Błąd dotyczy reklamy lub trackera, które nie są blokowane.',
+                description: 'An ad or tracker is not blocked.',
               },
-              'typ problemu: reguła kosmetyczna': {
+              'issue type: cosmetic rule': {
                 color: 'D73A4A',
-                description: 'Błąd dotyczy reguły kosmetycznej.',
+                description: 'Problem with a cosmetic rule.',
               },
-              'typ problemu: kompatybilność': {
+              'issue type: compatibility': {
                 color: 'D73A4A',
-                description: 'Błąd dotyczy problemu z kompatybilnością.',
+                description: 'Compatibility problem.',
               },
-              'typ problemu: inny': {
+              'issue type: other': {
                 color: 'D73A4A',
-                description: 'Inny typ problemu.',
+                description: 'Other problem type.',
               },
               'adblocker: uBlock Origin': {
                 color: '1D76DB',
-                description: 'Zgłoszenie dotyczy uBlock Origin.',
+                description: 'Reported with uBlock Origin.',
               },
               'adblocker: AdGuard': {
                 color: '1D76DB',
-                description: 'Zgłoszenie dotyczy AdGuard.',
+                description: 'Reported with AdGuard.',
               },
               'adblocker: AdBlock': {
                 color: '1D76DB',
-                description: 'Zgłoszenie dotyczy AdBlock.',
+                description: 'Reported with AdBlock.',
               },
               'adblocker: Adblock Plus': {
                 color: '1D76DB',
-                description: 'Zgłoszenie dotyczy Adblock Plus.',
+                description: 'Reported with Adblock Plus.',
               },
               'adblocker: Brave Shields': {
                 color: '1D76DB',
-                description: 'Zgłoszenie dotyczy Brave Shields.',
+                description: 'Reported with Brave Shields.',
               },
-              'adblocker: inny': {
+              'adblocker: other': {
                 color: '1D76DB',
-                description: 'Zgłoszenie dotyczy innego adblockera.',
+                description: 'Reported with another adblocker.',
               },
             };
 
@@ -196,31 +196,31 @@ jobs:
             const desiredLabels = new Set();
             const managedForThisIssue = new Set();
 
-            const featureCategory = extractFieldValue(sections['Kategoria propozycji']);
+            const featureCategory = extractFieldValue(sections['Proposal category']);
             if (featureCategoryLabels.has(featureCategory)) {
               desiredLabels.add(featureCategoryLabels.get(featureCategory));
             }
-            if (sections['Kategoria propozycji'] !== undefined) {
+            if (sections['Proposal category'] !== undefined) {
               for (const labelName of featureCategoryLabels.values()) {
                 managedForThisIssue.add(labelName);
               }
             }
 
-            const issueType = extractFieldValue(sections['Typ problemu']);
+            const issueType = extractFieldValue(sections['Issue type']);
             if (bugTypeLabels.has(issueType)) {
               desiredLabels.add(bugTypeLabels.get(issueType));
             }
-            if (sections['Typ problemu'] !== undefined) {
+            if (sections['Issue type'] !== undefined) {
               for (const labelName of bugTypeLabels.values()) {
                 managedForThisIssue.add(labelName);
               }
             }
 
-            const blocker = extractFieldValue(sections['Używany adblocker']);
+            const blocker = extractFieldValue(sections['Adblocker used']);
             if (blockerLabels.has(blocker)) {
               desiredLabels.add(blockerLabels.get(blocker));
             }
-            if (sections['Używany adblocker'] !== undefined) {
+            if (sections['Adblocker used'] !== undefined) {
               for (const labelName of blockerLabels.values()) {
                 managedForThisIssue.add(labelName);
               }
