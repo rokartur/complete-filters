@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Mobile
 ! Description: Combined filter list for the mobile category.
-! Last modified: 21 Nov 2026 22:09:52 UTC
+! Last modified: 21 Nov 2026 22:19:55 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 7 / 7
@@ -25452,6 +25452,9 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 !
 ! Social Media Tracking
 ||connect.facebook.net/en_US/fbevents.js$important
+!
+! trybox.app players: ad popups the upstream lists miss.
+*$popup,domain=vidcore.org
 
 
 ! ===== SOURCE: local:manual-allowlist.txt
@@ -25461,7 +25464,15 @@ howtogeek.com,247sports.com,cbsnews.com,cbssports.com,indiewire.com,masslive.com
 ! core functionality is preserved even when aggressive upstream lists are enabled.
 !
 @@||*.protondb.pages.dev^
+!
+! trybox.app third-party players. Ad scripts and popups inside them stay blocked.
+! VidFast (default source) is on scam lists: allow it only as trybox's player frame.
+@@||vidfast.pro^$subdocument,domain=trybox.app
+! vidzee ships its player in the Ads-<hash>.js chunk, which /ads-*.js^$script blocks.
+@@||player.vidzee.wtf/assets/Ads-$script,domain=player.vidzee.wtf
+! Streams come from hosts under TLD-wide blocks (||*.site^$third-party, ||*.bid^) or HaGeZi TIF.
+@@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 23350
+! Total unique rules: 23354
 ! Duplicates removed: 1671

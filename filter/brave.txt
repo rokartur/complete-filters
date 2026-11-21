@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 21 Nov 2026 22:09:45 UTC
+! Last modified: 21 Nov 2026 22:19:49 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -7078,6 +7078,9 @@ verti.de#@##onetrust-consent-sdk
 !
 ! Social Media Tracking
 ||connect.facebook.net/en_US/fbevents.js$important
+!
+! trybox.app players: ad popups the upstream lists miss.
+*$popup,domain=vidcore.org
 
 
 ! ===== SOURCE: local:manual-allowlist.txt
@@ -7087,7 +7090,15 @@ verti.de#@##onetrust-consent-sdk
 ! core functionality is preserved even when aggressive upstream lists are enabled.
 !
 @@||*.protondb.pages.dev^
+!
+! trybox.app third-party players. Ad scripts and popups inside them stay blocked.
+! VidFast (default source) is on scam lists: allow it only as trybox's player frame.
+@@||vidfast.pro^$subdocument,domain=trybox.app
+! vidzee ships its player in the Ads-<hash>.js chunk, which /ads-*.js^$script blocks.
+@@||player.vidzee.wtf/assets/Ads-$script,domain=player.vidzee.wtf
+! Streams come from hosts under TLD-wide blocks (||*.site^$third-party, ||*.bid^) or HaGeZi TIF.
+@@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 6016
+! Total unique rules: 6020
 ! Duplicates removed: 9

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Ads
 ! Description: Combined filter list for the ads category.
-! Last modified: 21 Nov 2026 22:09:43 UTC
+! Last modified: 21 Nov 2026 22:19:47 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 40 / 40
 !
 ! ===== SOURCE: https://easylist.to/easylist/easylist.txt
-! Commit: 64bf52140543c80d785602ed7141f6e6d734ab61
+! Commit: b94e0f5298aa4b01a7201099aac71816e8b68950
 ! *** easylist:template_header.txt ***
 !
 ! Please report any unblocked adverts or problems
@@ -27044,6 +27044,7 @@ browsershots.org#@#.advert_area
 ||eqpuvcjjipmjn.space^
 ||eqqijviondcls.site^
 ||eqqppcwtwvsmh.site^
+||eqqpwtxhbatra.site^
 ||eqrqlmjqwictz.website^
 ||eqtcbuwkycgqq.online^
 ||eqtkbdzdzexmk.site^
@@ -49232,6 +49233,7 @@ browsershots.org#@#.advert_area
 ||stoledleeway.com^
 ||stoletellsgets.com^
 ||stomachmallow.com^
+||stonenleprid.click^
 ||stonierteddy.com^
 ||stonkstime.com^
 ||stonysuingtartness.com^
@@ -54525,6 +54527,7 @@ browsershots.org#@#.advert_area
 ||welcomingwaterfall.com^
 ||welfarewore.com^
 ||weligillysies.com^
+||welirhussecy.cfd^
 ||wellhello.com^
 ||welliesratany.com^
 ||welllitratio.com^
@@ -56687,6 +56690,7 @@ browsershots.org#@#.advert_area
 ||yfafhmnvpdhtb.site^
 ||yfbgacwpgteln.site^
 ||yfbjejhtaqtfx.site^
+||yfczyarvhkfbw.website^
 ||yfdnza.com^
 ||yfdnzf.com^
 ||yfdnzfa.com^
@@ -372634,6 +372638,9 @@ zycrypto.com##.clickout-banner-regular_native_box
 !
 ! Social Media Tracking
 ||connect.facebook.net/en_US/fbevents.js$important
+!
+! trybox.app players: ad popups the upstream lists miss.
+*$popup,domain=vidcore.org
 
 
 ! ===== SOURCE: local:manual-allowlist.txt
@@ -372643,7 +372650,15 @@ zycrypto.com##.clickout-banner-regular_native_box
 ! core functionality is preserved even when aggressive upstream lists are enabled.
 !
 @@||*.protondb.pages.dev^
+!
+! trybox.app third-party players. Ad scripts and popups inside them stay blocked.
+! VidFast (default source) is on scam lists: allow it only as trybox's player frame.
+@@||vidfast.pro^$subdocument,domain=trybox.app
+! vidzee ships its player in the Ads-<hash>.js chunk, which /ads-*.js^$script blocks.
+@@||player.vidzee.wtf/assets/Ads-$script,domain=player.vidzee.wtf
+! Streams come from hosts under TLD-wide blocks (||*.site^$third-party, ||*.bid^) or HaGeZi TIF.
+@@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 280834
-! Duplicates removed: 399272
+! Total unique rules: 280842
+! Duplicates removed: 399288

@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Privacy
 ! Description: Combined filter list for the privacy category.
-! Last modified: 21 Nov 2026 22:09:53 UTC
+! Last modified: 21 Nov 2026 22:19:56 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 25 / 25
 !
 ! ===== SOURCE: https://easylist.to/easylist/easyprivacy.txt
-! Commit: 64bf52140543c80d785602ed7141f6e6d734ab61
+! Commit: b94e0f5298aa4b01a7201099aac71816e8b68950
 ! *** easylist:template_header.txt ***
 !
 ! Please report any unblocked adverts or problems
@@ -1047170,6 +1047170,9 @@ x.com##+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 !
 ! Social Media Tracking
 ||connect.facebook.net/en_US/fbevents.js$important
+!
+! trybox.app players: ad popups the upstream lists miss.
+*$popup,domain=vidcore.org
 
 
 ! ===== SOURCE: local:manual-allowlist.txt
@@ -1047179,7 +1047182,15 @@ x.com##+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 ! core functionality is preserved even when aggressive upstream lists are enabled.
 !
 @@||*.protondb.pages.dev^
+!
+! trybox.app third-party players. Ad scripts and popups inside them stay blocked.
+! VidFast (default source) is on scam lists: allow it only as trybox's player frame.
+@@||vidfast.pro^$subdocument,domain=trybox.app
+! vidzee ships its player in the Ads-<hash>.js chunk, which /ads-*.js^$script blocks.
+@@||player.vidzee.wtf/assets/Ads-$script,domain=player.vidzee.wtf
+! Streams come from hosts under TLD-wide blocks (||*.site^$third-party, ||*.bid^) or HaGeZi TIF.
+@@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 1028534
-! Duplicates removed: 753427
+! Total unique rules: 1028538
+! Duplicates removed: 753428
