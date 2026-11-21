@@ -50,7 +50,8 @@ function extractRuleHostnameCandidate(line: string): string | null {
 }
 
 function isPublicSuffixRule(line: string): boolean {
-	const host = extractRuleHostnameCandidate(line)
+	// `||*.online^` blocks the whole TLD, same as `||online^`.
+	const host = extractRuleHostnameCandidate(line.replace(/^\|\|\*\./, "||"))
 	if (!host || !HOSTNAME_CANDIDATE_RE.test(host)) return false
 
 	const publicSuffix = getPublicSuffix(host)
