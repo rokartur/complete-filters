@@ -156,7 +156,7 @@ export const SITE_COPY: SiteCopy = {
   },
   banner: {
     title: 'Want better blocking? Try Complete Filters',
-    description: 'Aggressive category-based filter lists for ad blockers.',
+    description: 'Category-based filter lists for ad blockers.',
     copyButton: 'Copy filter list',
     githubButton: 'GitHub',
   },
