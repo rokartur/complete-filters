@@ -1,128 +1,128 @@
-name: Zgłoś błąd
-description: Zgłoś problem z działaniem strony, fałszywą blokadą albo niewłaściwym filtrowaniem
+name: Report a bug
+description: Report a broken site, a false positive or wrong filtering
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Dzięki za zgłoszenie.
+        Thanks for the report.
 
-        Ten projekt utrzymuje agresywną listę filtrów dla polskiego internetu, więc **dokładne informacje o problemie bardzo pomagają**.
+        **Precise details about the problem help a lot.**
 
-        Jeśli to możliwe, sprawdź przed wysłaniem:
-        - czy problem znika po wyłączeniu tej listy,
-        - czy podobne zgłoszenie nie istnieje już w issues,
-        - czy możesz podać adres strony i kroki do odtworzenia problemu.
+        If you can, check before you submit:
+        - whether the problem goes away after you disable this list,
+        - whether a similar report already exists in issues,
+        - whether you can give the page address and the steps to reproduce the problem.
   - type: checkboxes
     id: confirmations
     attributes:
-      label: Potwierdzenie
+      label: Confirmation
       options:
-        - label: Sprawdziłem/am, że problem jest związany z Complete Filters.
+        - label: I checked that the problem is caused by Complete Filters.
           required: true
-        - label: Sprawdziłem/am, że podobny problem nie został już zgłoszony.
+        - label: I checked that a similar problem has not been reported yet.
           required: true
   - type: textarea
     id: description
     attributes:
-      label: Opis problemu
-      description: Krótko opisz, co nie działa lub co jest blokowane niepoprawnie.
-      placeholder: Po włączeniu listy przycisk logowania na stronie przestaje działać.
+      label: Problem description
+      description: Briefly describe what does not work or what is blocked incorrectly.
+      placeholder: After I enable the list, the login button on the page stops working.
     validations:
       required: true
   - type: input
     id: page_url
     attributes:
-      label: Adres strony / URL
-      description: Jeśli problem dotyczy konkretnej strony, wklej pełny adres.
+      label: Page address / URL
+      description: If the problem is on a specific page, paste the full address.
       placeholder: https://example.com/
   - type: textarea
     id: steps
     attributes:
-      label: Kroki do reprodukcji
-      description: Opisz dokładnie, jak odtworzyć problem.
+      label: Steps to reproduce
+      description: Describe exactly how to reproduce the problem.
       placeholder: |
-        1. Włącz listę Complete Filters
-        2. Otwórz stronę https://example.com/
-        3. Kliknij przycisk „Zaloguj”
-        4. Zobacz błąd / brak reakcji
+        1. Enable the Complete Filters list
+        2. Open https://example.com/
+        3. Click the "Log in" button
+        4. See the error / no response
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Oczekiwane zachowanie
-      placeholder: Strona powinna działać normalnie, a przycisk logowania powinien otwierać formularz.
+      label: Expected behavior
+      placeholder: The page should work normally and the login button should open the form.
     validations:
       required: true
   - type: textarea
     id: actual
     attributes:
-      label: Obserwowane zachowanie
-      placeholder: Formularz się nie otwiera, a w konsoli pojawia się błąd / element znika z widoku.
+      label: Actual behavior
+      placeholder: The form does not open and the console shows an error / the element disappears.
     validations:
       required: true
   - type: dropdown
     id: issue_type
     attributes:
-      label: Typ problemu
+      label: Issue type
       options:
-        - Fałszywa blokada / strona przestaje działać
-        - Reklama lub tracker nie są blokowane
-        - Problem z regułą kosmetyczną
-        - Problem z kompatybilnością
-        - Inny problem
+        - False positive / site stops working
+        - Ad or tracker not blocked
+        - Cosmetic rule problem
+        - Compatibility problem
+        - Other problem
       default: 0
     validations:
       required: true
   - type: dropdown
     id: blocker
     attributes:
-      label: Używany adblocker
+      label: Adblocker used
       options:
         - uBlock Origin
         - AdGuard
         - AdBlock
         - Adblock Plus
         - Brave Shields
-        - Inny
+        - Other
       default: 0
     validations:
       required: true
   - type: input
     id: blocker_version
     attributes:
-      label: Wersja adblockera
-      placeholder: np. 1.61.0
+      label: Adblocker version
+      placeholder: e.g. 1.61.0
   - type: input
     id: browser
     attributes:
-      label: Przeglądarka i wersja
-      description: Podaj nazwę przeglądarki i wersję.
-      placeholder: np. Firefox 140 / Chrome 146 / Safari 26
+      label: Browser and version
+      description: Give the browser name and version.
+      placeholder: e.g. Firefox 140 / Chrome 146 / Safari 26
     validations:
       required: true
   - type: dropdown
     id: os
     attributes:
-      label: System operacyjny
+      label: Operating system
       options:
         - Windows
         - macOS
         - Linux
         - Android
         - iOS
-        - Inny
+        - Other
       default: 0
     validations:
       required: true
   - type: textarea
     id: additional_info
     attributes:
-      label: Dodatkowe informacje
-      description: Możesz wkleić zrzuty ekranu, fragmenty reguł, logi lub inne ważne uwagi.
-      placeholder: Dodatkowy kontekst, screenshoty, reguły wyjątków, link do podobnego problemu itp.
+      label: Additional information
+      description: You can paste screenshots, rule snippets, logs or other important notes.
+      placeholder: Extra context, screenshots, exception rules, a link to a similar problem, etc.
   - type: markdown
     attributes:
       value: |
-        Dzięki! Im bardziej precyzyjne zgłoszenie, tym łatwiej szybko dodać wyjątek albo poprawić regułę.
+        Thanks! The more precise the report, the faster we can add an exception or fix a rule.
