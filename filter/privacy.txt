@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Privacy
 ! Description: Combined filter list for the privacy category.
-! Last modified: 21 Nov 2026 22:19:56 UTC
+! Last modified: 22 Nov 2026 01:05:59 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 25 / 25
 !
 ! ===== SOURCE: https://easylist.to/easylist/easyprivacy.txt
-! Commit: b94e0f5298aa4b01a7201099aac71816e8b68950
+! Commit: 6cb77c98a9027c946a9ebd2935406a27480c3477
 ! *** easylist:template_header.txt ***
 !
 ! Please report any unblocked adverts or problems
@@ -8696,6 +8696,7 @@ omni.soundestlink.com$image
 ||redbasketball.com^
 ||redbricksoap.com^
 ||redexecs.com^
+||redmaceta.com^
 ||redmillgroup.com^
 ||reelboat.com^
 ||reelcombat.com^
@@ -17247,6 +17248,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||sexu.com/api/ttrack
 ||sexybabepics.net/re/?ping
 ||sf-syn.com/conversion_outbound_tracker$subdocument,domain=sourceforge.net
+||sfchronicle.com/api/client-logs
 ||sfgate.com/api/client-logs
 ||share.9cdn.net/share/short_cache/js/tracking/$domain=nine.com.au
 ||sharechat.com/event-tracking-service/
@@ -57248,6 +57250,10 @@ search.rakuten.co.jp##+js(aeld, mouseup, sendClickEvent)
 ! ---------- Icelandic ----------
 !
 !
+! ---------- Indian ----------
+!
+@@||scorecardresearch.com/plugins/streaming-jwplayer/$script,domain=newstak.in
+!
 ! ---------- Italian ----------
 !
 @@||adobedtm.com^*/AppMeasurement.min.js$script,domain=sky.it
@@ -57513,7 +57519,7 @@ search.rakuten.co.jp##+js(aeld, mouseup, sendClickEvent)
 
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/3.txt
-! Diff-Path: ../patches/3/3-s-1795291795-3600.patch
+! Diff-Path: ../patches/3/3-s-1795298952-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -470970,7 +470976,7 @@ search.rakuten.co.jp#%#//scriptlet('ubo-aeld', 'mouseup', 'sendClickEvent')
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/3.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/3/3-s-1795291816-3600.patch
+! Diff-Path: ../patches/3/3-s-1795298973-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -1047192,5 +1047198,5 @@ x.com##+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 @@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 1028538
-! Duplicates removed: 753428
+! Total unique rules: 1028541
+! Duplicates removed: 753431
