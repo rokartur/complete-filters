@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Brave
 ! Description: Combined filter list for the brave category.
-! Last modified: 22 Nov 2026 01:05:51 UTC
+! Last modified: 23 Nov 2026 01:06:59 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 10 / 10
@@ -3462,6 +3462,7 @@ cbssports.com,nowthisnews.com,popsugar.com,scout.com,seeker.com,thedodo.com,thri
 ! cbssports.com
 cbssports.com##.skybox-top-wrapper
 ! Twitter ad cosmetic element
+x.com##[id^="urt"]>ul>li:has([class*="data-ad-disclosure"])
 twitter.com,x.com##.promoted-account
 twitter.com,x.com##.promotion
 twitter.com,x.com##.stream-item-group-start[label="promoted"]
@@ -7100,5 +7101,5 @@ verti.de#@##onetrust-consent-sdk
 @@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 6020
+! Total unique rules: 6021
 ! Duplicates removed: 9
