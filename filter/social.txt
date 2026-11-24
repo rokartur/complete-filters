@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 23 Nov 2026 01:07:09 UTC
+! Last modified: 24 Nov 2026 01:07:04 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10561,6 +10561,7 @@ startrek.com##.Article_shareToggle__D2fGG
 nordvpn.com##.BlogPost__social-block
 sesamecare.com##.BlogPost_shareWrapper__HBgEG
 brighteon.com##.ButtonShare
+abcnews.com##.Byline__GooglePreferredSource
 cnbc.com##.CNBCFooter-social
 embed.listcorp.com##.CompanyPage2CompanyPageAbout__share
 miaminewtimes.com,westword.com##.ContentShareTools
@@ -14093,7 +14094,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1795277469-3600.patch
+! Diff-Path: ../patches/4/4-s-1795457569-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14699,6 +14700,11 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+studyhacker.net##.share-preview
+apkapp.ru###telegram-full
+enen-interior.com##.productShare
+creema.jp##.p-item-detail-share
+businesstech.co.za##.sticky-social-share > div.d-flex:has(> div.col > a > i[aria-label="Facebook"])
 pib.gov.in###fixed-social
 aajtak.in##div.cartoon-wrapper > div.cartoon-footer:has(> div.cr-share-icon)
 gnttv.com##[onclick^="window.open('http://www.facebook.com/sharer/sharer.php?"]
@@ -14973,7 +14979,7 @@ pressplayz.to##astro-island > div.px-4:has(> div.relative > div.relative > butto
 businessinsider.es##.c-detail__share
 saturdayeveningpost.com##.-sharing
 rsvplive.ie,lancs.live##div[class^="ShareBar_"]
-naszemiasto.pl##.atomsArticleHead__mediaTool
+gazetakrakowska.pl,naszemiasto.pl##.atomsArticleHead__mediaTool
 t-online.de##button[aria-label="Artikel teilen"]
 nix.ru##.chat-share
 nix.ru###good-share
@@ -30997,7 +31003,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1795379837-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1795466255-14400.patch
 /Resources/twitter-$~xhr
 fortune.com##.info-surface:contains(Add Fortune on Google)
 marketscreener.com,zonebourse.com##.c-block.btn--action--outter:contains(Share)
@@ -31059,7 +31065,7 @@ relationshiphero.com##div:has(+ .socialIcons)
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1795277488-3600.patch
+! Diff-Path: ../patches/4/4-s-1795457589-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -33350,7 +33356,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1795313627-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1795457589-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -47839,5 +47845,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 44563
-! Duplicates removed: 61994
+! Total unique rules: 44569
+! Duplicates removed: 62001
