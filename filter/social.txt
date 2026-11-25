@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 24 Nov 2026 01:07:04 UTC
+! Last modified: 25 Nov 2026 01:06:49 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -10762,6 +10762,7 @@ adweek.com##.aw-social-share-container
 informationsecuritybuzz.com##.ayudawp-share-buttons
 irishtimes.com,metroecuador.com.ec,publimetro.com.mx##.b-footer__social-links-container
 irishtimes.com##.b-it-social-share-block
+carnewschina.com##.b-preferred-source
 bnnbloomberg.ca,cp24.com,ctvnews.ca,irishnews.com,tsn.ca##.b-share-bar
 protos.com##.b-sharers
 spokesman.com##.ba
@@ -11249,6 +11250,7 @@ jpost.com##.header-a
 airlive.net##.header-alert
 nova-magazine.net##.header-info-text
 israelnationalnews.com##.header-nav-addons-link
+simpleflying.com##.header-preferred-source
 archaeology.org##.header-share
 stamen.com##.header-social-media-links
 malaymail.com##.header-social-menu
@@ -14094,7 +14096,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1795457569-3600.patch
+! Diff-Path: ../patches/4/4-s-1795518610-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14399,6 +14401,9 @@ psdfreebies.com#$#.onp-locker-call { display: block!important; }
 warezcrack.net#$#.onp-sl-content > [data-lock-id^="onpLock"] { display: block!important; }
 0lik.ru##.onp-sl-outer-wrap
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247977
+city.ichihara.chiba.jp#$#.col_evaluation { flex: 0 0 100% !important; max-width: 75% !important; }
+city.ichihara.chiba.jp#$#@media (width < 768px) { .col_evaluation { max-width: 100% !important; } }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213406
 mypikpak.com#$#main > .share { display: block !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/193218
@@ -14700,6 +14705,20 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+krcrtv.com##p:has(> a[href="https://www.instagram.com/wearepauserewind/"])
+krcrtv.com###stay-connected
+hockeyfeed.com##.mt-4 > div.rounded-lg.print\:hidden
+mprnews.org##.share-social-outer
+i24news.co.il##.i24-share
+i24news.co.il##.i24-card-share
+newsday.com##.share-frame-v2
+saint-marc-hd.com##.c-article-sns
+nsttv.com##.entry-share-modal
+zebra.co.jp##.m-share-sns
+city.ichihara.chiba.jp##.col_share
+urawa-keiba.jp##.c-article__share-box
+hands.net##.cmn-unit.-bg-lg:has(.m-m-share)
+giftmall.co.jp##.quotation-button
 studyhacker.net##.share-preview
 apkapp.ru###telegram-full
 enen-interior.com##.productShare
@@ -17353,7 +17372,7 @@ bigthink.com##.flex:has(> a[href^="https://www.facebook.com/sharer/"])
 sports.ru##.document-share-button
 tanba.jp##.single-sns-icon
 super.ru##div[class^="styles_root"]:has(> a[href^="https://vk.com/share.php"])
-cinemore.jp##.m-article-share
+kawasaki-keiba.jp,cinemore.jp##.m-article-share
 nj.com##.sharebarBetaWrapper
 store.sanyo-shokai.co.jp##.productDetail__info__sns__container
 ddizi.im##.social-a
@@ -18286,8 +18305,8 @@ asu.edu##.news-article-social-icons-wrapper
 anime-chiikawa.jp##.share_tx
 trafficcardinal.com##.post__banner_social
 wionews.com##.img-share-twt
-gamer.ne.jp,byucougars.com##.article-head__share
-arizonawildcats.com,soonersports.com##.s-share
+gopsusports.com,gamer.ne.jp,byucougars.com##.article-head__share
+mgoblue.com,arizonawildcats.com,soonersports.com##.s-share
 sanrio.co.jp##[class^="p-characterDetailSns"]
 drinksint.com##.articleTools
 imperva.com##.share-icon-bar
@@ -19597,7 +19616,7 @@ galaxystore.samsung.com##div[class^="SnsPlugin_share__"]
 economyup.it##.article_vertical_share
 zawazawa.jp##.info > div.aside-nav
 abiko-tsushin.com,misato-gurashi.com,kashiwa-tsushin.com,katsushika-tsushin.com,matsudo-tsushin.com,funabashi-tsushin.com,conan-mobile.jp###snsshare
-books.bunshun.jp,rakumachi.jp,conan-movie.jp##.snsBox
+global.honda,books.bunshun.jp,rakumachi.jp,conan-movie.jp##.snsBox
 m.ibric.org###div_share_icon
 ibric.org##a[href^='/inc/snsmenu_count.php?']
 ibric.org##img[onclick^='window.open'][onclick*='/print.php?']
@@ -23030,7 +23049,7 @@ e-kitap.site,ekitap.site##.shareb
 ||player.daznservices.com/player/releases/v*/unfilled/share.chunk.js$domain=goal.com
 the-ans.jp##.side-sns
 lsm.lv##.share-caption
-gamekillerapp.com,popville.com,nekoray.org,erothots.co,news.cornell.edu,clashforwindows.org,military.com,diabetes.org,cyclowired.jp,harvardmagazine.com,datacenterdynamics.com,kienyke.com,learnmetrics.com,nepisirsem.com,voguehk.com,sadhguru.org,pagamentidigitali.it##.a2a_kit
+news.delta.com,gamekillerapp.com,popville.com,nekoray.org,erothots.co,news.cornell.edu,clashforwindows.org,military.com,diabetes.org,cyclowired.jp,harvardmagazine.com,datacenterdynamics.com,kienyke.com,learnmetrics.com,nepisirsem.com,voguehk.com,sadhguru.org,pagamentidigitali.it##.a2a_kit
 wellsfargo.com##.sideUtility
 tv-vybor.ru##.soc-block-article > *
 nytimes.com##div[data-testid="share-tools"] li:not([class^="css-"])
@@ -23185,7 +23204,7 @@ drugs.com##a[data-ga-category="social"]
 china-review.com.ua##div[class="butn  pull-left"]
 webtekno.com,teknotalk.com,edumap.az,emlakkulisi.com,mundoconectado.com.br##.share-items
 stylebook.de,fitbook.de,techbook.de##body .shariff
-megatube.xxx,xasiat.com,sxspy.com,porngem.com,thebussybandit.com##a[href="#tab_share"]
+rule34porno.cc,megatube.xxx,xasiat.com,sxspy.com,porngem.com,thebussybandit.com##a[href="#tab_share"]
 borkenerzeitung.de##.StoryShowShare
 cosmo.com.ua##.pinterest1
 tproger.ru##.quiz_share_wrapper
@@ -25098,7 +25117,7 @@ resemom.jp,s.response.jp##.header-toolbar > .toolbar
 cnn.co.jp##div[class^="story-sns"]
 cnn.co.jp##li[id^="snsbtn_"]
 cbssports.com##.ShareBar-wrapper
-bg-mania.jp,j-cast.com##.entry-share-btns
+bs-log.com,bg-mania.jp,j-cast.com##.entry-share-btns
 posfie.com,togetter.com,eropasture.com##.social_box
 artstation.com##ul.s-bar
 withnews.jp##.sns_menu_bottom
@@ -31003,7 +31022,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1795466255-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1795552714-14400.patch
 /Resources/twitter-$~xhr
 fortune.com##.info-surface:contains(Add Fortune on Google)
 marketscreener.com,zonebourse.com##.c-block.btn--action--outter:contains(Share)
@@ -31065,7 +31084,7 @@ relationshiphero.com##div:has(+ .socialIcons)
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1795457589-3600.patch
+! Diff-Path: ../patches/4/4-s-1795518626-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -31144,6 +31163,8 @@ latestcracked.com##.onp-sl-signin-locker:style(display: none!important;)
 psdfreebies.com##.onp-locker-call:style(display: block!important;)
 warezcrack.net##.onp-sl-content > [data-lock-id^="onpLock"]:style(display: block!important;)
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247977
+city.ichihara.chiba.jp##.col_evaluation:style(flex: 0 0 100% !important; max-width: 75% !important;)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213406
 mypikpak.com##main > .share:style(display: block !important;)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/193218
@@ -33356,7 +33377,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1795457589-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1795518626-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -33509,6 +33530,7 @@ huanqiu.com#%#//scriptlet('inject-css-in-shadow-dom', '.share > .item:not(.item-
 !
 0lik.ru$replace=/locker:{\s+timer:\s'\d\d'/locker: { timer: '1'/
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/247977
 ! https://github.com/AdguardTeam/AdguardFilters/issues/213406
 ! https://github.com/AdguardTeam/AdguardFilters/issues/193218
 ! Probably related to https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2757
@@ -47845,5 +47867,5 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 @@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 44569
-! Duplicates removed: 62001
+! Total unique rules: 44588
+! Duplicates removed: 62039

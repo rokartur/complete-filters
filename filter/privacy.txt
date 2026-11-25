@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Privacy
 ! Description: Combined filter list for the privacy category.
-! Last modified: 24 Nov 2026 01:07:00 UTC
+! Last modified: 25 Nov 2026 01:06:45 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 25 / 25
 !
 ! ===== SOURCE: https://easylist.to/easylist/easyprivacy.txt
-! Commit: e3a719e05e92872e2e63d2082cd36f81a7550ce5
+! Commit: f7cf6c2d19850b09ef57e713e763bfe4253f0030
 ! *** easylist:template_header.txt ***
 !
 ! Please report any unblocked adverts or problems
@@ -8030,6 +8030,7 @@ omni.soundestlink.com$image
 ||itsdonelist.com^
 ||itsmatchtime.com^
 ||itsviral.net^
+||ivoryandcrow.com^
 ||ivykiosk.com^
 ||j93557g.com^
 ||jackalsmovie.com^
@@ -8125,6 +8126,7 @@ omni.soundestlink.com$image
 ||liftedknowledge.com^
 ||lightenafterthought.com^
 ||lighttalon.com^
+||lightwars.com^
 ||likethedog.com^
 ||lilydreamer.com^
 ||limecodesign.com^
@@ -11099,6 +11101,8 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||api.picox.bendingspoons.com/v1/events
 ||api.reo.dev^$third-party
 ||api.sardine.ai/assets/loader.min.js$third-party
+||api.sided.co/embed/registerDebateEvent
+||api.sided.co/embed/updateSession
 ||api.sovendus.com/js/landing.js
 ||api.tally.so/forms/*/events
 ||api.transtore.app/api/v2/storefront/tracking
@@ -16460,6 +16464,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||getmail.tech/api/track
 ||gettapeads.com/stat/
 ||gg.asuracomic.net/api/views/collect
+||gg.deals/scripts/track-gtm.js
 ||gg.vevor.com^
 ||ghacks.net/statics/px.gif
 ||gianteagle.com/webevents/
@@ -17772,6 +17777,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||umami.vidfast.pro^
 ||umami.wakarimasen.moe^
 ||uncensored.ai/*/trackevents
+||uniqueness.greenmangaming.com^
 ||unity3d.com/v1/events
 ||unl1zvy2zuyn.franchiseplus.nl^
 ||unleash.zenchef.com/api/frontend/client/metrics
@@ -18085,6 +18091,7 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||ebaystatic.com/rs/v/klminxoj1uyzvo0p0qu4nhpg0qo.js
 ||ebaystatic.com/rs/v/s0hteylevy4bpkd12dvkd4yi5ms.js
 ||event.evtm.53.com^
+||greynoise.io/nvhc9u4gxsagNjY3ZGQ0MGViYjgwOTVlODlmMjc1NjM5/
 ||idhtm.bb.com.br^
 ||idstatus.sky.com^
 ||img2021.navyfederal.org^
@@ -18100,9 +18107,11 @@ $third-party,xmlhttprequest,domain=opensubtitles.org
 ||qfp.intuit.com^
 ||rba-screen.healthsafe-id.com^
 ||rsx.afterpay.com^
+||secure.valnetinc.com/discover
 ||src.ebay-us.com/*=usllpic$script,domain=ebay.com
 ||svc2.sc.com^
-||tips.delt.io
+||tiles.openfreemap.org/planet
+||tips.delt.io^
 ||tm-eps.neutrino.nu^
 ||tmetrix.my.chick-fil-a.com^
 ||tmx.bestbuy.com^
@@ -57564,7 +57573,7 @@ search.rakuten.co.jp##+js(aeld, mouseup, sendClickEvent)
 
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/3.txt
-! Diff-Path: ../patches/3/3-s-1795453837-3600.patch
+! Diff-Path: ../patches/3/3-s-1795522457-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -146514,6 +146523,7 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 !
 ! NOTE: Regular rules
 !
+||ingest.t3.codes^
 ||stats.proxypurity.com^
 ||cast-imp.jtbc.co.kr^
 ||20251117mix.zgstongji.vip^
@@ -148910,7 +148920,6 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1) { remove: true; }
 ||d.ground.news^
 ||data.petri.com^
 ||c3.wildwolf.name^
-||tips.delt.io^
 ||unami.delt.io^
 ||servt.ergadx.com^
 ||one01.stright.bizris.com^
@@ -484563,6 +484572,8 @@ naver.com#%#//scriptlet('trusted-json-set', 'JSON.stringify', '$.env.br_sr', '38
 !
 ! NOTE: Specific rules
 !
+||wispbyte.com/client/api/analytics/
+||ninjaone.com/wp-content/themes/ninjaone/js/analytics/
 ||fp.yangcong345.com/fe-monitor-
 ||topic.ykt.cbern.com.cn/web/ncet-xedu/tracker/track_default_config.js
 ||tls-cn-beijing.volces.com/WebTracks?
@@ -497555,7 +497566,7 @@ search.rakuten.co.jp#%#//scriptlet('ubo-aeld', 'mouseup', 'sendClickEvent')
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/3.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/3/3-s-1795453871-3600.patch
+! Diff-Path: ../patches/3/3-s-1795522491-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- General javascript, CSS and HTML extensions --------------------!
@@ -1155567,5 +1155578,5 @@ x.com##+js(no-xhr-if, /i/api/1.1/flow/viewer.json)
 @@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 1136906
-! Duplicates removed: 785389
+! Total unique rules: 1136917
+! Duplicates removed: 785414
