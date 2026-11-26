@@ -1,13 +1,13 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Compatibility
 ! Description: Combined filter list for the compatibility category.
-! Last modified: 25 Nov 2026 01:06:41 UTC
+! Last modified: 26 Nov 2026 01:06:33 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 11 / 11
 !
 ! ===== SOURCE: https://filters.adtidy.org/android/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1795543962-3600.patch
+! Diff-Path: ../patches/11/11-s-1795594366-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -2722,6 +2722,7 @@ sp.manga.nicovideo.jp##div[style^="--ads-width:"]
 !
 ! SECTION: Regular rules
 !
+startitup.sk##.siu-taboola-anchor
 dengekionline.com##main[class$="_maincolumn"] div[class*="_wrapper"]:has(> div[class$="_banner"])
 zeebiz.com##div[class^="ads_adsBlock_"]
 ncaa.com##.mobile-persistent-bottom
@@ -3691,7 +3692,7 @@ pornhits.com##.sites__item--hl
 modernliving.jp##div[class^="css-"]:has(> div.ad-disclaimer)
 moovitapp.com#$#.header-sticky-ad-test { top: 0 !important; }
 missavtv.com##iframe[src^="https://creative.rmhfrtnd.com/"]
-cielotv.it##main > div[type="skin"][class^="sc-"]
+cielotv.it##div[class^="AdvBanner_"]
 tu93.org#%#//scriptlet('abort-current-inline-script', 'document.createElement', '')
 ||tu93.org/mobile/w/*.min.js|$script
 ||tj.com.day/js/*.js|$script,third-party
@@ -4352,7 +4353,7 @@ przegladsportowy.onet.pl###fixtures-slot:has(> .relative:only-child > .onet-ad:o
 news.m.pchome.com.tw##div[class^="showad_"]
 newsphere.jp##div[style="height: 210px;"]
 shogis.com##.adv300_250
-yourweather.co.uk,theweather.net,tempo.pt,tempo.com,tiempo.com,meteored.*#$#.pie-pagina { margin-bottom: 0 !important; }
+yourweather.co.uk,theweather.net,tempo.pt,tiempo.com,meteored.*#$#.pie-pagina { margin-bottom: 0 !important; }
 1000mg.jp$$script:contains(1000mg.jp/ad_com1.php)
 s.kakaku.com##.u-bt_ad
 s.kakaku.com##.p-box-foot_item
@@ -4559,7 +4560,6 @@ filmvandaag.nl##body #preload-ad-billboard.is-preload-ad
 s.minkabu.jp##.relative.justify-center.overflow-hidden
 figsoku.net###comment-form > a[target="_blank"] > img
 fontech.startitup.sk##div[id^="MOB_fon_art_"]
-fontech.startitup.sk##div[class^="code-block code-block-"][style]
 sp.macour.jp##.ad_macour
 jomo-news.co.jp##.top-genre-articles-item:has(> div[id^="div-gpt-"])
 toyokeizai.net###latest > div.articles-lists__item:has(> div[id^="div-gpt-ad-"])
@@ -9091,6 +9091,8 @@ livejournal.com##div[id^="billboard_mobile_"]
 !
 !
 !+ NOT_OPTIMIZED
+deltiasgaming.com,soapcentral.com,sportskeeda.com##.vidazoo-player-container
+!+ NOT_OPTIMIZED
 iamgujarat.com,vijaykarnataka.com,maharashtratimes.com,indiatimes.com,samayam.com##.fbnad
 !+ NOT_OPTIMIZED
 dot.asahi.com##.article-inarticle-guide
@@ -9956,7 +9958,7 @@ c0server.jags.co.jp/jss/img/banners/$app=jp.co.jags.android.Bokumaka
 ||startappnetwork.com/simpleM2M/clientRequestEnhancedXmlAd$replace=/(<tns:AdType[\s\S]*?>)[\s\S]*<\/tns:Ad>/\$1<\/tns:Ad>/,important
 
 ! ===== SOURCE: https://filters.adtidy.org/ios/filters/11.txt
-! Diff-Path: ../patches/11/11-s-1795543998-3600.patch
+! Diff-Path: ../patches/11/11-s-1795594397-3600.patch
 !
 !---------------------------------------------------------------------------!
 !-------------- Advertising networks ---------------------------------------!
@@ -10954,6 +10956,7 @@ xhamster46.desi,tr.usbxh.life,xhamster44.desi,aawweb.beauty,colourxh.site,xhamst
 ! END: Livejournal.com
 !
 !
+!+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -20487,5 +20490,5 @@ funradio.fr##+js(trusted-set, getUserConsentStatus, json:{"dailymotion":true}, a
 @@*$xmlhttprequest,media,domain=vidnest.fun|mapple.fun|nextgencloudfabric.com|yapgrid.com|cinesrc.st
 
 
-! Total unique rules: 13355
-! Duplicates removed: 8051
+! Total unique rules: 13356
+! Duplicates removed: 8052
