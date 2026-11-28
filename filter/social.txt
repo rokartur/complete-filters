@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: Complete Filters - Social
 ! Description: Combined filter list for the social category.
-! Last modified: 27 Nov 2026 01:06:59 UTC
+! Last modified: 28 Nov 2026 01:06:42 UTC
 ! Expires: 6 hours
 ! Homepage: https://github.com/rokartur/complete-filters
 ! Source count: 13 / 13
@@ -14097,7 +14097,7 @@ playswellwithbutter.com#@#a[href^="https://www.pinterest.com/pin/create/button/"
 @@||zeplin.io^$generichide
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/chromium/filters/4.txt
-! Diff-Path: ../patches/4/4-s-1795695252-3600.patch
+! Diff-Path: ../patches/4/4-s-1795792258-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -14706,6 +14706,7 @@ cogconnected.com,echofm.online,antirez.com,comicbook.com,alexp.pl,2ality.com,sma
 !
 ! NOTE: Specific rules
 !
+denikn.cz##.mnt-ShareButtons
 invenglobal.com##.article-action-share
 mytransport.sg###sharePopover
 player.radiozet.pl,player.chillizet.pl,player.meloradio.pl,player.antyradio.pl##.player__controls__share
@@ -14775,7 +14776,6 @@ blog.google##.uni-share-dropdown
 gayhaus.com##.tool-list > .item:has(> a[href="#share"])
 oggi.it##main > div.gridRow:has(> div.gridRow__item > div.gridRow__block > div.tsb)
 80.lv##div[data-share-button]
-worldsoccertalk.com##button[aria-label="Share"]
 thehockeynews.com##div[data-testid="share-button-container"]
 thehockeynews.com##.relative > .transition.cursor-pointer:has(> svg[aria-label="icon-share"])
 kayseriolay.com##.relative > div.items-center:has(> a[href^="https://www.youtube.com/channel/"])
@@ -15433,7 +15433,7 @@ vesty.co.il##.articleShareButtons
 vesty.co.il#$#.topBtns { visibility: hidden !important; }
 dev.ua##.article__container > figure.incut:has(> div.card_media > div.card__info > div.card__body > a[href^="https://t.me/devukraine"])
 express.co.uk##div.text-description:has(> p > a[href^="https://www.facebook.com/DailyExpressSport#"])
-thedailybeast.com,on3.com,maltadaily.mt##button[aria-label="Share article"]
+backpacker.com,thedailybeast.com,on3.com,maltadaily.mt##button[aria-label="Share article"]
 atn.ua##.penci-social-media
 devonlive.com,dailyrecord.co.uk##div[class^="ShareBar_sharebar-wrapper_"] > div[class^="ShareBar_"]
 nypost.com##.google-preferred-sources
@@ -22719,7 +22719,7 @@ fishki.net,mapsofworld.com##.social_icon
 economictimes.com,indiatimes.com##.wdt_social_share > .social-cell:not(.comments)
 edh.tw##.line-friend
 edh.tw##.linefriend_article
-mckinsey.com,morningsentinel.com,bbc.com,thepost.co.nz,zmescience.com,univision.com,televisa.com,telehit.com,pod.link,deezer.com,dhakapost.com,lasestrellas.tv,tudn.com,play.google.com,linktr.ee,tunecore.co.jp,trybotics.com##button[aria-label="Share"]
+dailywire.com,worldsoccertalk.com,mckinsey.com,morningsentinel.com,bbc.com,thepost.co.nz,zmescience.com,univision.com,televisa.com,telehit.com,pod.link,deezer.com,dhakapost.com,lasestrellas.tv,tudn.com,play.google.com,linktr.ee,tunecore.co.jp,trybotics.com##button[aria-label="Share"]
 maersk.com##.p-section__article__meta__share
 bt.com,tebernuskirecci.com.tr##.share-tags
 10web.io##.blog_share_bottom
@@ -22879,7 +22879,7 @@ ettoday.net##.sharebox-fix
 znews.vn,zingnews.vn##.btnZalo
 gazin.com.br##div[class^="styles__WhatsAppWrap-"]
 gazin.com.br##div[class^="styles__Btns-"]
-snapchat.com,amediateka.ru,tf1.fr##div[class^="ShareButton_"]
+pluska.sk,snapchat.com,amediateka.ru,tf1.fr##div[class^="ShareButton_"]
 wunderweib.de##.bx-social-share
 ||demotywatory.pl/res/img/layout/share-stylowi.gif
 derstandard.at##.story-tool-share
@@ -28992,7 +28992,7 @@ jp##.box-sns
 ##a[href^="https://www.buttons.social/share/"]
 ##a[onclick^="window.open('http://reddit.com/submit?"]
 ##a[onclick^="window.open('https://www.linkedin.com/sharing/"]
-##a[href^="https://www.linkedin.com/sharing/"]
+~linkedin.com##a[href^="https://www.linkedin.com/sharing/"]
 ###sfsi_floater
 ~t.me,~telegram.org##a[onclick^="window.open('https://telegram.me/share/url?"]
 ##a[onclick^="window.open('http://v.t.sina.com.cn/share/share.php?"]
@@ -31046,7 +31046,7 @@ lse.co.uk#@#.shareContent
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/123_optimized.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/123_optimized/123_optimized-s-1795725489-14400.patch
+! Diff-Path: ../patches/123_optimized/123_optimized-s-1795811867-14400.patch
 /Resources/twitter-$~xhr
 fortune.com##.info-surface:contains(Add Fortune on Google)
 marketscreener.com,zonebourse.com##.c-block.btn--action--outter:contains(Share)
@@ -31108,7 +31108,7 @@ relationshiphero.com##div:has(+ .socialIcons)
 
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4.txt
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4/4-s-1795695280-3600.patch
+! Diff-Path: ../patches/4/4-s-1795792291-3600.patch
 !
 !-------------------------------------------------------------------------------!
 !-------------- Common social trackers -----------------------------------------!
@@ -33401,7 +33401,7 @@ rkf.online##+js(set-constant, Ya.share2, noopFunc)
 ! ===== SOURCE: https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt
 ! (all rules already included from earlier sources)
 ![Adblock Plus 2.0]
-! Diff-Path: ../patches/4_optimized/4_optimized-s-1795695280-3600.patch
+! Diff-Path: ../patches/4_optimized/4_optimized-s-1795792291-3600.patch
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
 !+ NOT_OPTIMIZED
@@ -47892,4 +47892,4 @@ zycrypto.com##.widget_bloomwidget, .widget_facebook_likebox
 
 
 ! Total unique rules: 44612
-! Duplicates removed: 62096
+! Duplicates removed: 62080
